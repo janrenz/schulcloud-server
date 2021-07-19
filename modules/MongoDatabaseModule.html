@@ -28,121 +28,46 @@
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
-               <div class="content injectable">
+               <div class="content module">
                    <div class="content-data">
 
 
 
-
-
-
-
 <ol class="breadcrumb">
-  <li>Injectables</li>
-  <li >UserFacade</li>
+    <li>Modules</li>
+    <li >MongoDatabaseModule</li>
 </ol>
 
+
 <ul class="nav nav-tabs" role="tablist">
-        <li class="active">
-            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
-        </li>
-        <li >
-            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
-        </li>
+    <li  class="active" >
+        <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+    </li>
+    <li >
+        <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+    </li>
 </ul>
 
 <div class="tab-content">
     <div class="tab-pane fade active in" id="c-info">
+
         <p class="comment">
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/modules/user/user.facade.ts</code>
+            <code>apps/server/src/modules/database/mongo-database/mongo-database.module.ts</code>
         </p>
 
 
 
 
 
-            <section>
-    <h3 id="index">Index</h3>
-    <table class="table table-sm table-bordered index-table">
-        <tbody>
+        <div class="container-fluid module">
+            <div class="row">
+            </div>
+        </div>
 
-                <tr>
-                    <td class="col-md-4">
-                        <h6><b>Methods</b></h6>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <ul class="index-list">
-                            <li>
-                                    <span class="modifier">Async</span>
-                                <a href="#resolveUser" >resolveUser</a>
-                            </li>
-                        </ul>
-                    </td>
-                </tr>
-
-
-
-
-
-        </tbody>
-    </table>
-</section>
-
-            <section>
-    <h3 id="constructor">Constructor</h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-<code>constructor(userUC: <a href="../injectables/UserUC.html" target="_self">UserUC</a>)</code>
-                    </td>
-                </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">apps/server/src/modules/user/user.facade.ts:10</a></div>
-                            </td>
-                        </tr>
-
-                <tr>
-                    <td class="col-md-4">
-                            <div>
-                                    <b>Parameters :</b>
-                                    <table class="params">
-                                        <thead>
-                                            <tr>
-                                                <td>Name</td>
-                                                    <td>Type</td>
-                                                <td>Optional</td>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                                <tr>
-                                                        <td>userUC</td>
-                                                  
-                                                        <td>
-                                                                        <code><a href="../injectables/UserUC.html" target="_self" >UserUC</a></code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                        </tbody>
-                                    </table>
-                            </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-</section>
-
-            <section>
+        <section>
     
     <h3 id="methods">
         Methods
@@ -151,26 +76,26 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="resolveUser"></a>
+                    <a name="forRoot"></a>
                     <span class="name">
-                        <span class="modifier">Async</span>
-                        <span ><b>resolveUser</b></span>
-                        <a href="#resolveUser"><span class="icon ion-ios-link"></span></a>
+                        <span class="modifier">Static</span>
+                        <span ><b>forRoot</b></span>
+                        <a href="#forRoot"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>resolveUser(currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>)</code>
+                    <code>forRoot(options?: <a href="../undefineds/MongoDatabaseModuleOptions.html" target="_self">MongoDatabaseModuleOptions</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="13"
-                            class="link-to-prism">apps/server/src/modules/user/user.facade.ts:13</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="11"
+                            class="link-to-prism">apps/server/src/modules/database/mongo-database/mongo-database.module.ts:11</a></div>
                 </td>
             </tr>
 
@@ -190,13 +115,13 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>currentUser</td>
+                                    <td>options</td>
                                     <td>
-                                                <code><a href="../interfaces/ICurrentUser.html" target="_self" >ICurrentUser</a></code>
+                                                <code><a href="../miscellaneous/typealiases.html#MongoDatabaseModuleOptions" target="_self" >MongoDatabaseModuleOptions</a></code>
                                     </td>
 
                                     <td>
-                                        No
+                                        Yes
                                     </td>
 
 
@@ -207,7 +132,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../interfaces/User.html" target="_self" >Promise&lt;ResolvedUser&gt;</a></code>
+                        <b>Returns : </b>    <code>DynamicModule</code>
 
                     </div>
                     <div class="io-description">
@@ -218,29 +143,41 @@
         </tbody>
     </table>
 </section>
-
     </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
-import { UserUC } from &#x27;./uc/user.uc&#x27;;
-import { ICurrentUser } from &#x27;../authentication/interface/jwt-payload&#x27;;
-import { ResolvedUser } from &#x27;./controller/dto&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">/* istanbul ignore file */
+// TODO add spec when this will be really used
+import { MikroOrmModule } from &#x27;@mikro-orm/nestjs&#x27;;
+import { DynamicModule, Module } from &#x27;@nestjs/common&#x27;;
+import { MongoSharedDriver } from &#x27;./mongo-shared-driver&#x27;;
+import { DB_URL, DB_USERNAME, DB_PASSWORD } from &#x27;../../../config&#x27;;
+import { MongoDatabaseModuleOptions } from &#x27;../types&#x27;;
 
-@Injectable()
-export class UserFacade {
-	constructor(private readonly userUC: UserUC) {}
-
-	async resolveUser(currentUser: ICurrentUser): Promise&lt;ResolvedUser&gt; {
-		const resolvedUser &#x3D; await this.userUC.getUserWithPermissions(currentUser);
-		return resolvedUser;
+@Module({})
+export class MongoDatabaseModule {
+	static forRoot(options?: MongoDatabaseModuleOptions): DynamicModule {
+		return {
+			module: MongoDatabaseModule,
+			imports: [
+				MikroOrmModule.forRoot({
+					...(options || {}),
+					driver: MongoSharedDriver,
+					clientUrl: DB_URL,
+					user: DB_USERNAME,
+					password: DB_PASSWORD,
+				}),
+			],
+		};
 	}
 }
 </code></pre>
     </div>
-
 </div>
+
+
+
 
 
 
@@ -269,8 +206,8 @@ export class UserFacade {
 
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
-            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
-            var COMPODOC_CURRENT_PAGE_URL = 'UserFacade.html';
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'module';
+            var COMPODOC_CURRENT_PAGE_URL = 'MongoDatabaseModule.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

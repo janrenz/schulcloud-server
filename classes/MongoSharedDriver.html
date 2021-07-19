@@ -28,16 +28,22 @@
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
-               <div class="content controller">
+               <div class="content class">
                    <div class="content-data">
 
 
 
 
 
+
+
+
+
+
+
 <ol class="breadcrumb">
-  <li>Controllers</li>
-  <li >UserController</li>
+  <li>Classes</li>
+  <li >MongoSharedDriver</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -55,18 +61,17 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/modules/user/controller/user.controller.ts</code>
+            <code>apps/server/src/modules/database/mongo-database/mongo-shared-driver.ts</code>
         </p>
 
+
+
             <p class="comment">
-                <h3>Prefix</h3>
+                <h3>Extends</h3>
             </p>
             <p class="comment">
-                <code>user</code>
+                    <code>MongoDriver</code>
             </p>
-
-
-
 
 
 
@@ -74,18 +79,18 @@
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
         <tbody>
-
                 <tr>
                     <td class="col-md-4">
-                        <h6><b>Methods</b></h6>
+                        <h6><b>Properties</b></h6>
                     </td>
                 </tr>
                 <tr>
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                    <span class="modifier">Async</span>
-                                <a href="#me" >me</a>
+                                    <span class="modifier">Protected</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#connection" >connection</a>
                             </li>
                         </ul>
                     </td>
@@ -95,124 +100,65 @@
 
 
 
+
         </tbody>
     </table>
 </section>
 
+
             <section>
     
-    <h3 id="methods">
-        Methods
+    <h3 id="inputs">
+        Properties
     </h3>
     <table class="table table-sm table-bordered">
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="me"></a>
+                    <a name="connection"></a>
                     <span class="name">
-                        <span class="modifier">Async</span>
-                        <span ><b>me</b></span>
-                        <a href="#me"><span class="icon ion-ios-link"></span></a>
+                            <span class="modifier">Protected</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>connection</b></span>
+                        <a href="#connection"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>me(currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>)</code>
-                </td>
-            </tr>
-
-            <tr>
-                <td class="col-md-4">
-                    <b>Decorators : </b>
-                    <br />
-                    <code>@Get(&#x27;me&#x27;)<br /></code>
-                </td>
-            </tr>
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="16"
-                            class="link-to-prism">apps/server/src/modules/user/controller/user.controller.ts:16</a></div>
-                </td>
-            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new MongoSharedConnection(this.config)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">apps/server/src/modules/database/mongo-database/mongo-shared-driver.ts:7</a></div>
+                        </td>
+                    </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>currentUser</td>
-                                    <td>
-                                                <code><a href="../interfaces/ICurrentUser.html" target="_self" >ICurrentUser</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../interfaces/User.html" target="_self" >Promise&lt;ResolvedUser&gt;</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
         </tbody>
     </table>
-</section>    </div>
+</section>
+
+
+
+
+
+
+
+    </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ApiTags } from &#x27;@nestjs/swagger&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { MongoDriver } from &#x27;@mikro-orm/mongodb&#x27;;
+import { MongoSharedConnection } from &#x27;./mongo-shared-connection&#x27;;
 
-import { Controller, Get } from &#x27;@nestjs/common&#x27;;
-import { Authenticate, CurrentUser } from &#x27;../../authentication/decorator/auth.decorator&#x27;;
-import { ICurrentUser } from &#x27;../../authentication/interface/jwt-payload&#x27;;
-import { UserUC } from &#x27;../uc&#x27;;
-import { ResolvedUser } from &#x27;./dto/ResolvedUser.dto&#x27;;
-
-@ApiTags(&#x27;User&#x27;)
-@Authenticate(&#x27;jwt&#x27;)
-@Controller(&#x27;user&#x27;)
-export class UserController {
-	constructor(private readonly userUc: UserUC) {}
-
-	@Get(&#x27;me&#x27;)
-	async me(@CurrentUser() currentUser: ICurrentUser): Promise&lt;ResolvedUser&gt; {
-		return Promise.resolve(currentUser.user);
-	}
+export class MongoSharedDriver extends MongoDriver {
+	protected readonly connection &#x3D; new MongoSharedConnection(this.config);
 }
 </code></pre>
     </div>
 </div>
-
-
-
-
-
-
 
 
 
@@ -237,8 +183,8 @@ export class UserController {
 
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
-            var COMPODOC_CURRENT_PAGE_CONTEXT = 'controller';
-            var COMPODOC_CURRENT_PAGE_URL = 'UserController.html';
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
+            var COMPODOC_CURRENT_PAGE_URL = 'MongoSharedDriver.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

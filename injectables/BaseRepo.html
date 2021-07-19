@@ -39,7 +39,7 @@
 
 <ol class="breadcrumb">
   <li>Injectables</li>
-  <li >FeathersAuthProvider</li>
+  <li >BaseRepo</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -57,7 +57,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/modules/authorization/feathers-auth.provider.ts</code>
+            <code>apps/server/src/shared/repo/base.repo.ts</code>
         </p>
 
 
@@ -79,24 +79,35 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Async</span>
-                                <a href="#getPermittedSchools" >getPermittedSchools</a>
+                                <a href="#flush" >flush</a>
+                            </li>
+                            <li>
+                                <a href="#persist" >persist</a>
+                            </li>
+                            <li>
+                                <a href="#persistAll" >persistAll</a>
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
-                                <a href="#getPermittedTargets" >getPermittedTargets</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Private</span>
-                                    <span class="modifier">Async</span>
-                                <a href="#getUser" >getUser</a>
+                                <a href="#persistAllAndFlush" >persistAllAndFlush</a>
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
-                                <a href="#getUserSchoolPermissions" >getUserSchoolPermissions</a>
+                                <a href="#persistAndFlush" >persistAndFlush</a>
+                            </li>
+                            <li>
+                                <a href="#remove" >remove</a>
+                            </li>
+                            <li>
+                                <a href="#removeAll" >removeAll</a>
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
-                                <a href="#getUserTargetPermissions" >getUserTargetPermissions</a>
+                                <a href="#removeAllAndFlush" >removeAllAndFlush</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#removeAndFlush" >removeAndFlush</a>
                             </li>
                         </ul>
                     </td>
@@ -116,12 +127,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(feathersServiceProvider: <a href="../injectables/FeathersServiceProvider.html" target="_self">FeathersServiceProvider</a>)</code>
+<code>constructor(em: EntityManager)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">apps/server/src/modules/authorization/feathers-auth.provider.ts:14</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="6" class="link-to-prism">apps/server/src/shared/repo/base.repo.ts:6</a></div>
                             </td>
                         </tr>
 
@@ -139,10 +150,10 @@
                                         </thead>
                                         <tbody>
                                                 <tr>
-                                                        <td>feathersServiceProvider</td>
+                                                        <td>em</td>
                                                   
                                                         <td>
-                                                                        <code><a href="../injectables/FeathersServiceProvider.html" target="_self" >FeathersServiceProvider</a></code>
+                                                                    <code>EntityManager</code>
                                                         </td>
                                                   
                                                     <td>
@@ -168,26 +179,63 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="getPermittedSchools"></a>
+                    <a name="flush"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
-                        <span ><b>getPermittedSchools</b></span>
-                        <a href="#getPermittedSchools"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>flush</b></span>
+                        <a href="#flush"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>getPermittedSchools(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>)</code>
+                    <code>flush()</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="56"
-                            class="link-to-prism">apps/server/src/modules/authorization/feathers-auth.provider.ts:56</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="53"
+                            class="link-to-prism">apps/server/src/shared/repo/base.repo.ts:53</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="persist"></a>
+                    <span class="name">
+                        <span ><b>persist</b></span>
+                        <a href="#persist"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>persist(entity: T)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="9"
+                            class="link-to-prism">apps/server/src/shared/repo/base.repo.ts:9</a></div>
                 </td>
             </tr>
 
@@ -207,9 +255,9 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>userId</td>
+                                    <td>entity</td>
                                     <td>
-                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
+                                            <code>T</code>
                                     </td>
 
                                     <td>
@@ -224,7 +272,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >Promise&lt;EntityId[]&gt;</a></code>
+                        <b>Returns : </b>    <code>T</code>
 
                     </div>
                     <div class="io-description">
@@ -238,26 +286,24 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="getPermittedTargets"></a>
+                    <a name="persistAll"></a>
                     <span class="name">
-                        <span class="modifier">Async</span>
-                        <span ><b>getPermittedTargets</b></span>
-                        <a href="#getPermittedTargets"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>persistAll</b></span>
+                        <a href="#persistAll"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>getPermittedTargets(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, targetModel: <a href="../classes/News.html" target="_self">NewsTargetModel</a>, permissions: string[])</code>
+<code>persistAll(entities: T[])</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="39"
-                            class="link-to-prism">apps/server/src/modules/authorization/feathers-auth.provider.ts:39</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="19"
+                            class="link-to-prism">apps/server/src/shared/repo/base.repo.ts:19</a></div>
                 </td>
             </tr>
 
@@ -277,33 +323,9 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>userId</td>
+                                    <td>entities</td>
                                     <td>
-                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>targetModel</td>
-                                    <td>
-                                                <code><a href="../classes/News.html" target="_self" >NewsTargetModel</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>permissions</td>
-                                    <td>
-                                            <code>string[]</code>
+                                            <code>T[]</code>
                                     </td>
 
                                     <td>
@@ -318,7 +340,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >Promise&lt;EntityId[]&gt;</a></code>
+                        <b>Returns : </b>    <code>T[]</code>
 
                     </div>
                     <div class="io-description">
@@ -332,171 +354,18 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="getUser"></a>
+                    <a name="persistAllAndFlush"></a>
                     <span class="name">
-                        <span class="modifier">Private</span>
                         <span class="modifier">Async</span>
-                        <span ><b>getUser</b></span>
-                        <a href="#getUser"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>persistAllAndFlush</b></span>
+                        <a href="#persistAllAndFlush"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>getUser(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="61"
-                            class="link-to-prism">apps/server/src/modules/authorization/feathers-auth.provider.ts:61</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>userId</td>
-                                    <td>
-                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../interfaces/User.html" target="_self" >Promise&lt;User&gt;</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="getUserSchoolPermissions"></a>
-                    <span class="name">
-                        <span class="modifier">Async</span>
-                        <span ><b>getUserSchoolPermissions</b></span>
-                        <a href="#getUserSchoolPermissions"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>getUserSchoolPermissions(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, schoolId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="17"
-                            class="link-to-prism">apps/server/src/modules/authorization/feathers-auth.provider.ts:17</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>userId</td>
-                                    <td>
-                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>schoolId</td>
-                                    <td>
-                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>    <code>Promise | never</code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="getUserTargetPermissions"></a>
-                    <span class="name">
-                        <span class="modifier">Async</span>
-                        <span ><b>getUserTargetPermissions</b></span>
-                        <a href="#getUserTargetPermissions"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>getUserTargetPermissions(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, targetModel: <a href="../classes/News.html" target="_self">NewsTargetModel</a>, targetId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>)</code>
+                    <code>persistAllAndFlush(entities: T[])</code>
                 </td>
             </tr>
 
@@ -504,7 +373,7 @@
             <tr>
                 <td class="col-md-4">
                     <div class="io-line">Defined in <a href="" data-line="27"
-                            class="link-to-prism">apps/server/src/modules/authorization/feathers-auth.provider.ts:27</a></div>
+                            class="link-to-prism">apps/server/src/shared/repo/base.repo.ts:27</a></div>
                 </td>
             </tr>
 
@@ -524,33 +393,9 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>userId</td>
+                                    <td>entities</td>
                                     <td>
-                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>targetModel</td>
-                                    <td>
-                                                <code><a href="../classes/News.html" target="_self" >NewsTargetModel</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>targetId</td>
-                                    <td>
-                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
+                                            <code>T[]</code>
                                     </td>
 
                                     <td>
@@ -565,7 +410,353 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>    <code>Promise&lt;string[]&gt;</code>
+                        <b>Returns : </b>    <code>Promise&lt;T[]&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="persistAndFlush"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>persistAndFlush</b></span>
+                        <a href="#persistAndFlush"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>persistAndFlush(entity: T)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="14"
+                            class="link-to-prism">apps/server/src/shared/repo/base.repo.ts:14</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>entity</td>
+                                    <td>
+                                            <code>T</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;T&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="remove"></a>
+                    <span class="name">
+                        <span ><b>remove</b></span>
+                        <a href="#remove"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>remove(entity: T)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="36"
+                            class="link-to-prism">apps/server/src/shared/repo/base.repo.ts:36</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>entity</td>
+                                    <td>
+                                            <code>T</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="removeAll"></a>
+                    <span class="name">
+                        <span ><b>removeAll</b></span>
+                        <a href="#removeAll"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>removeAll(entities: T[])</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="44"
+                            class="link-to-prism">apps/server/src/shared/repo/base.repo.ts:44</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>entities</td>
+                                    <td>
+                                            <code>T[]</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="removeAllAndFlush"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>removeAllAndFlush</b></span>
+                        <a href="#removeAllAndFlush"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>removeAllAndFlush(entities: T[])</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="48"
+                            class="link-to-prism">apps/server/src/shared/repo/base.repo.ts:48</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>entities</td>
+                                    <td>
+                                            <code>T[]</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="removeAndFlush"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>removeAndFlush</b></span>
+                        <a href="#removeAndFlush"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>removeAndFlush(entity: T)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="40"
+                            class="link-to-prism">apps/server/src/shared/repo/base.repo.ts:40</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>entity</td>
+                                    <td>
+                                            <code>T</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
 
                     </div>
                     <div class="io-description">
@@ -581,71 +772,60 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable, NotFoundException } from &#x27;@nestjs/common&#x27;;
-import { BaseEntity, EntityId } from &#x27;@shared/domain&#x27;;
-import { ObjectId } from &#x27;@mikro-orm/mongodb&#x27;;
-import { NewsTargetModel } from &#x27;../news/entity&#x27;;
-import { FeathersServiceProvider } from &#x27;../feathers/feathers-service.provider&#x27;;
-
-interface User {
-	_id: ObjectId;
-	schoolId: ObjectId;
-	permissions: string[];
-}
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
+import { BaseEntity } from &#x27;@shared/domain&#x27;;
+import { EntityManager } from &#x27;@mikro-orm/mongodb&#x27;;
 
 @Injectable()
-export class FeathersAuthProvider {
-	constructor(private feathersServiceProvider: FeathersServiceProvider) {}
+export class BaseRepo&lt;T extends BaseEntity&gt; {
+	constructor(protected readonly em: EntityManager) {}
 
-	async getUserSchoolPermissions(userId: EntityId, schoolId: EntityId): Promise&lt;string[]&gt; | never {
-		const user &#x3D; await this.getUser(userId);
-		// test user is school member
-		const sameSchool &#x3D; user.schoolId.toString() &#x3D;&#x3D;&#x3D; schoolId;
-		if (sameSchool &amp;&amp; Array.isArray(user.permissions)) {
-			return user.permissions;
-		}
-		return [];
+	persist(entity: T): T {
+		this.em.persist(entity);
+		return entity;
 	}
 
-	async getUserTargetPermissions(
-		userId: EntityId,
-		targetModel: NewsTargetModel,
-		targetId: EntityId
-	): Promise&lt;string[]&gt; {
-		const service &#x3D; this.feathersServiceProvider.getService(&#x60;${targetModel}/:scopeId/userPermissions/&#x60;);
-		const targetPermissions &#x3D; (await service.get(userId, {
-			route: { scopeId: targetId },
-		})) as string[];
-		return targetPermissions;
+	async persistAndFlush(entity: T): Promise&lt;T&gt; {
+		await this.em.persistAndFlush(entity);
+		return entity;
 	}
 
-	async getPermittedTargets(
-		userId: EntityId,
-		targetModel: NewsTargetModel,
-		permissions: string[]
-	): Promise&lt;EntityId[]&gt; {
-		const service &#x3D; this.feathersServiceProvider.getService(&#x60;/users/:scopeId/${targetModel}&#x60;);
-		const targets &#x3D; (await service.find({
-			route: { scopeId: userId.toString() },
-			query: {
-				permissions,
-			},
-			paginate: false,
-		})) as BaseEntity[];
-		const targetIds &#x3D; targets.map((target) &#x3D;&gt; target._id.toString());
-		return targetIds;
+	persistAll(entities: T[]): T[] {
+		const persisted &#x3D; entities.map((n) &#x3D;&gt; {
+			this.em.persist(n);
+			return n;
+		});
+		return persisted;
 	}
 
-	async getPermittedSchools(userId: EntityId): Promise&lt;EntityId[]&gt; {
-		const user &#x3D; await this.getUser(userId);
-		return [user.schoolId.toString()] as EntityId[];
+	async persistAllAndFlush(entities: T[]): Promise&lt;T[]&gt; {
+		const persisted &#x3D; entities.map((n) &#x3D;&gt; {
+			this.em.persist(n);
+			return n;
+		});
+		await this.em.flush();
+		return persisted;
 	}
 
-	private async getUser(userId: EntityId): Promise&lt;User&gt; {
-		const service &#x3D; this.feathersServiceProvider.getService(&#x27;users&#x27;);
-		const user &#x3D; (await service.get(userId)) as User;
-		if (user &#x3D;&#x3D; null) throw new NotFoundException();
-		return user;
+	remove(entity: T): void {
+		this.em.remove(entity);
+	}
+
+	async removeAndFlush(entity: T): Promise&lt;void&gt; {
+		await this.em.removeAndFlush(entity);
+	}
+
+	removeAll(entities: T[]): void {
+		entities.forEach((entity) &#x3D;&gt; this.em.remove(entity));
+	}
+
+	async removeAllAndFlush(entities: T[]): Promise&lt;void&gt; {
+		entities.forEach((entity) &#x3D;&gt; this.em.remove(entity));
+		await this.em.flush();
+	}
+
+	async flush(): Promise&lt;void&gt; {
+		await this.em.flush();
 	}
 }
 </code></pre>
@@ -681,7 +861,7 @@ export class FeathersAuthProvider {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
-            var COMPODOC_CURRENT_PAGE_URL = 'FeathersAuthProvider.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'BaseRepo.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 
