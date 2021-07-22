@@ -178,7 +178,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="66" class="link-to-prism">apps/server/src/modules/news/entity/news.entity.ts:66</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="65" class="link-to-prism">apps/server/src/modules/news/entity/news.entity.ts:65</a></div>
                             </td>
                         </tr>
 
@@ -290,7 +290,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="61" class="link-to-prism">apps/server/src/modules/news/entity/news.entity.ts:61</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="60" class="link-to-prism">apps/server/src/modules/news/entity/news.entity.ts:60</a></div>
                         </td>
                     </tr>
 
@@ -398,7 +398,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="66" class="link-to-prism">apps/server/src/modules/news/entity/news.entity.ts:66</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="65" class="link-to-prism">apps/server/src/modules/news/entity/news.entity.ts:65</a></div>
                         </td>
                     </tr>
 
@@ -433,7 +433,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="58" class="link-to-prism">apps/server/src/modules/news/entity/news.entity.ts:58</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="57" class="link-to-prism">apps/server/src/modules/news/entity/news.entity.ts:57</a></div>
                         </td>
                     </tr>
 
@@ -525,28 +525,19 @@
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="../classes/BaseEntity.html" target="_self" >BaseEntity</a></code>
+                        <i>Type : </i>        <code><a href="../classes/News.html" target="_self" >NewsTargetInfo</a></code>
 
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <b>Decorators : </b>
-                        <br />
-                        <code>
-                            @ManyToOne()<br />
-                        </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">apps/server/src/modules/news/entity/news.entity.ts:51</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">apps/server/src/modules/news/entity/news.entity.ts:50</a></div>
                         </td>
                     </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>id reference to a collection</p>
+                    <div class="io-description"><p>id reference to a collection populated later with name</p>
 </div>
                 </td>
             </tr>
@@ -575,13 +566,13 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @Property()<br />
+                            @Enum()<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">apps/server/src/modules/news/entity/news.entity.ts:55</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">apps/server/src/modules/news/entity/news.entity.ts:54</a></div>
                         </td>
                     </tr>
 
@@ -664,7 +655,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="64" class="link-to-prism">apps/server/src/modules/news/entity/news.entity.ts:64</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="63" class="link-to-prism">apps/server/src/modules/news/entity/news.entity.ts:63</a></div>
                         </td>
                     </tr>
 
@@ -866,8 +857,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="76"
-                            class="link-to-prism">apps/server/src/modules/news/entity/news.entity.ts:76</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="75"
+                            class="link-to-prism">apps/server/src/modules/news/entity/news.entity.ts:75</a></div>
                 </td>
             </tr>
 
@@ -936,10 +927,10 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Entity, ManyToOne, Property } from &#x27;@mikro-orm/core&#x27;;
-import { BaseEntity, BaseEntityWithTimestamps, EntityId } from &#x27;@shared/domain&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Entity, Enum, ManyToOne, Property } from &#x27;@mikro-orm/core&#x27;;
+import { BaseEntityWithTimestamps, EntityId } from &#x27;@shared/domain&#x27;;
 import { CourseInfo } from &#x27;./course-info.entity&#x27;;
-import { NewsTargetModel } from &#x27;./news.types&#x27;;
+import { NewsTargetInfo, NewsTargetModel } from &#x27;./news.types&#x27;;
 import { SchoolInfo } from &#x27;./school-info.entity&#x27;;
 import { TeamInfo } from &#x27;./team-info.entity&#x27;;
 import { UserInfo } from &#x27;./user-info.entity&#x27;;
@@ -984,12 +975,11 @@ export abstract class News extends BaseEntityWithTimestamps {
 	@Property()
 	sourceDescription?: string;
 
-	/** id reference to a collection */
-	@ManyToOne()
-	target!: BaseEntity;
+	/** id reference to a collection populated later with name */
+	target!: NewsTargetInfo;
 
 	/** name of a collection which is referenced in target */
-	@Property()
+	@Enum()
 	targetModel: NewsTargetModel;
 
 	@ManyToOne({ fieldName: &#x27;schoolId&#x27; })

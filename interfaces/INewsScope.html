@@ -196,6 +196,9 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { EntityId } from &#x27;@shared/domain&#x27;;
+import { CourseInfo } from &#x27;./course-info.entity&#x27;;
+import { SchoolInfo } from &#x27;./school-info.entity&#x27;;
+import { TeamInfo } from &#x27;./team-info.entity&#x27;;
 
 export enum NewsTargetModel {
 	School &#x3D; &#x27;schools&#x27;,
@@ -219,6 +222,8 @@ export interface INewsScope {
 	target?: { targetModel: NewsTargetModel; targetId?: EntityId };
 	unpublished?: boolean;
 }
+
+export type NewsTargetInfo &#x3D; SchoolInfo | TeamInfo | CourseInfo;
 </code></pre>
     </div>
 </div>

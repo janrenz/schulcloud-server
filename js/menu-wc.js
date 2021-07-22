@@ -460,6 +460,12 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/Submission.html" data-type="entity-link" >Submission</a>
                             </li>
                             <li class="link">
+                                <a href="classes/TargetInfoMapper.html" data-type="entity-link" >TargetInfoMapper</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/TargetInfoResponse.html" data-type="entity-link" >TargetInfoResponse</a>
+                            </li>
+                            <li class="link">
                                 <a href="classes/Task.html" data-type="entity-link" >Task</a>
                             </li>
                             <li class="link">

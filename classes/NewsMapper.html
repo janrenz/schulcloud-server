@@ -139,8 +139,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="42"
-                            class="link-to-prism">apps/server/src/modules/news/mapper/news.mapper.ts:42</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="44"
+                            class="link-to-prism">apps/server/src/modules/news/mapper/news.mapper.ts:44</a></div>
                 </td>
             </tr>
 
@@ -209,8 +209,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="28"
-                            class="link-to-prism">apps/server/src/modules/news/mapper/news.mapper.ts:28</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="30"
+                            class="link-to-prism">apps/server/src/modules/news/mapper/news.mapper.ts:30</a></div>
                 </td>
             </tr>
 
@@ -279,8 +279,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="7"
-                            class="link-to-prism">apps/server/src/modules/news/mapper/news.mapper.ts:7</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="8"
+                            class="link-to-prism">apps/server/src/modules/news/mapper/news.mapper.ts:8</a></div>
                 </td>
             </tr>
 
@@ -349,8 +349,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="55"
-                            class="link-to-prism">apps/server/src/modules/news/mapper/news.mapper.ts:55</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="57"
+                            class="link-to-prism">apps/server/src/modules/news/mapper/news.mapper.ts:57</a></div>
                 </td>
             </tr>
 
@@ -408,8 +408,9 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { CreateNewsParams, NewsFilterQuery, NewsResponse, UpdateNewsParams } from &#x27;../controller/dto&#x27;;
-import { ICreateNews, INewsScope, IUpdateNews, News, NewsTargetModel } from &#x27;../entity&#x27;;
+import { ICreateNews, INewsScope, IUpdateNews, News, NewsTargetInfo, NewsTargetModel } from &#x27;../entity&#x27;;
 import { SchoolInfoMapper } from &#x27;./school-info.mapper&#x27;;
+import { TargetInfoMapper } from &#x27;./target-info.mapper&#x27;;
 import { UserInfoMapper } from &#x27;./user-info.mapper&#x27;;
 
 export class NewsMapper {
@@ -421,8 +422,9 @@ export class NewsMapper {
 		dto.displayAt &#x3D; news.displayAt;
 		dto.source &#x3D; news.source;
 		dto.sourceDescription &#x3D; news.sourceDescription;
-		dto.targetId &#x3D; news.target?.id;
+		dto.targetId &#x3D; news.target.id;
 		dto.targetModel &#x3D; news.targetModel;
+		dto.target &#x3D; TargetInfoMapper.mapToResponse(news.target);
 		dto.school &#x3D; SchoolInfoMapper.mapToResponse(news.school);
 		dto.creator &#x3D; UserInfoMapper.mapToResponse(news.creator);
 		if (news.updater) {

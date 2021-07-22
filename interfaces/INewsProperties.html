@@ -512,10 +512,10 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Entity, ManyToOne, Property } from &#x27;@mikro-orm/core&#x27;;
-import { BaseEntity, BaseEntityWithTimestamps, EntityId } from &#x27;@shared/domain&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Entity, Enum, ManyToOne, Property } from &#x27;@mikro-orm/core&#x27;;
+import { BaseEntityWithTimestamps, EntityId } from &#x27;@shared/domain&#x27;;
 import { CourseInfo } from &#x27;./course-info.entity&#x27;;
-import { NewsTargetModel } from &#x27;./news.types&#x27;;
+import { NewsTargetInfo, NewsTargetModel } from &#x27;./news.types&#x27;;
 import { SchoolInfo } from &#x27;./school-info.entity&#x27;;
 import { TeamInfo } from &#x27;./team-info.entity&#x27;;
 import { UserInfo } from &#x27;./user-info.entity&#x27;;
@@ -560,12 +560,11 @@ export abstract class News extends BaseEntityWithTimestamps {
 	@Property()
 	sourceDescription?: string;
 
-	/** id reference to a collection */
-	@ManyToOne()
-	target!: BaseEntity;
+	/** id reference to a collection populated later with name */
+	target!: NewsTargetInfo;
 
 	/** name of a collection which is referenced in target */
-	@Property()
+	@Enum()
 	targetModel: NewsTargetModel;
 
 	@ManyToOne({ fieldName: &#x27;schoolId&#x27; })
