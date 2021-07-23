@@ -79,6 +79,10 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Async</span>
+                                <a href="#getAllSubmissionsByUser" >getAllSubmissionsByUser</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
                                 <a href="#getSubmissionsByTask" >getSubmissionsByTask</a>
                             </li>
                             <li>
@@ -151,6 +155,76 @@
     <h3 id="methods">
         Methods
     </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAllSubmissionsByUser"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>getAllSubmissionsByUser</b></span>
+                        <a href="#getAllSubmissionsByUser"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getAllSubmissionsByUser(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="25"
+                            class="link-to-prism">apps/server/src/modules/task/repo/submission.repo.ts:25</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>userId</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/Submission.html" target="_self" >Promise&lt;Counted&lt;Submission[]&gt;&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
     <table class="table table-sm table-bordered">
         <tbody>
             <tr>
@@ -299,8 +373,8 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { EntityManager } from &#x27;@mikro-orm/mongodb&#x27;;
 import { Injectable } from &#x27;@nestjs/common&#x27;;
-import { Counted } from &#x27;../../../shared/domain&#x27;;
-import { Submission, Task } from &#x27;../entity&#x27;;
+import { Counted, EntityId } from &#x27;../../../shared/domain&#x27;;
+import { CourseGroupInfo, Submission, Task } from &#x27;../entity&#x27;;
 
 @Injectable()
 export class SubmissionRepo {
@@ -319,6 +393,14 @@ export class SubmissionRepo {
 		});
 
 		return [submissions, count];
+	}
+
+	async getAllSubmissionsByUser(userId: EntityId): Promise&lt;Counted&lt;Submission[]&gt;&gt; {
+		const courseGroupsOfUser &#x3D; await this.em.find(CourseGroupInfo, { students: userId });
+		const result &#x3D; await this.em.findAndCount(Submission, {
+			$or: [{ student: userId }, { teamMembers: userId }, { courseGroup: { $in: courseGroupsOfUser } }],
+		});
+		return result;
 	}
 }
 </code></pre>

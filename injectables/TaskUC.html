@@ -206,8 +206,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="79"
-                            class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:79</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="82"
+                            class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:82</a></div>
                 </td>
             </tr>
 
@@ -288,8 +288,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="68"
-                            class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:68</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="71"
+                            class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:71</a></div>
                 </td>
             </tr>
 
@@ -560,7 +560,10 @@ export class TaskUC {
 		// TODO get permitted tasks...
 		// TODO have BL from repo here
 
-		const [tasks, total] &#x3D; await this.taskRepo.findAllOpenByStudent(userId, pagination);
+		const [submissionsOfStudent, submissionCount] &#x3D; await this.submissionRepo.getAllSubmissionsByUser(userId);
+		const tasksWithSubmissions &#x3D; submissionsOfStudent.map((submission) &#x3D;&gt; submission.task.id);
+
+		const [tasks, total] &#x3D; await this.taskRepo.findAllByStudent(userId, pagination, tasksWithSubmissions);
 		const computedTasks &#x3D; tasks.map((task) &#x3D;&gt; TaskMapper.mapToResponse(task));
 		return [computedTasks, total];
 	}

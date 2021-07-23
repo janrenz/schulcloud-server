@@ -240,13 +240,21 @@ import {
 	CourseInfo,
 	TeamInfo,
 } from &#x27;./modules/news/entity&#x27;;
-import { Task, LessonTaskInfo, CourseTaskInfo, Submission, FileTaskInfo, UserTaskInfo } from &#x27;./modules/task/entity&#x27;;
+import {
+	Task,
+	LessonTaskInfo,
+	CourseTaskInfo,
+	Submission,
+	FileTaskInfo,
+	UserTaskInfo,
+	CourseGroupInfo,
+} from &#x27;./modules/task/entity&#x27;;
 import { User, Role, Account } from &#x27;./modules/user/entity&#x27;;
 import { NewsModule } from &#x27;./modules/news/news.module&#x27;;
 import { MailModule } from &#x27;./modules/mail/mail.module&#x27;;
 
 const courseEntities &#x3D; [CourseNews, News, SchoolInfo, SchoolNews, TeamNews, UserInfo, CourseInfo, TeamInfo];
-const taskEntities &#x3D; [Task, LessonTaskInfo, CourseTaskInfo, Submission, FileTaskInfo, UserTaskInfo];
+const taskEntities &#x3D; [Task, LessonTaskInfo, CourseTaskInfo, Submission, FileTaskInfo, UserTaskInfo, CourseGroupInfo];
 const userEntities &#x3D; [User, Role, Account];
 
 @Module({

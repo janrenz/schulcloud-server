@@ -83,7 +83,7 @@
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
-                                <a href="#findAllOpenByStudent" >findAllOpenByStudent</a>
+                                <a href="#findAllByStudent" >findAllByStudent</a>
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
@@ -177,8 +177,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="77"
-                            class="link-to-prism">apps/server/src/modules/task/repo/task.repo.ts:77</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="73"
+                            class="link-to-prism">apps/server/src/modules/task/repo/task.repo.ts:73</a></div>
                 </td>
             </tr>
 
@@ -246,18 +246,18 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="findAllOpenByStudent"></a>
+                    <a name="findAllByStudent"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
-                        <span ><b>findAllOpenByStudent</b></span>
-                        <a href="#findAllOpenByStudent"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>findAllByStudent</b></span>
+                        <a href="#findAllByStudent"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>findAllOpenByStudent(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, undefined: <a href="../interfaces/IPagination.html" target="_self">IPagination</a>)</code>
+                    <code>findAllByStudent(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, undefined: <a href="../interfaces/IPagination.html" target="_self">IPagination</a>, ignoredTasks: <a href="../undefineds/EntityId.html" target="_self">EntityId[]</a>)</code>
                 </td>
             </tr>
 
@@ -310,6 +310,21 @@
 
                                     <td>
                                         <code>{}</code>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>ignoredTasks</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId[]</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+                                    <td>
+                                        <code>[]</code>
                                     </td>
 
                                 </tr>
@@ -409,7 +424,7 @@
 import { EntityId, IPagination } from &#x27;@shared/domain&#x27;;
 import { EntityManager, QueryOrder } from &#x27;@mikro-orm/core&#x27;;
 import { Counted } from &#x27;@shared/domain/types&#x27;;
-import { Task, Submission, CourseTaskInfo, LessonTaskInfo } from &#x27;../entity&#x27;;
+import { Task, CourseTaskInfo, LessonTaskInfo } from &#x27;../entity&#x27;;
 
 @Injectable()
 export class TaskRepo {
@@ -435,9 +450,11 @@ export class TaskRepo {
 
 	// WARNING: this is used to deal with the current datamodel, and needs to be changed.
 	// DO NOT DO THIS AT HOME!!
-	async findAllOpenByStudent(userId: EntityId, { limit, skip }: IPagination &#x3D; {}): Promise&lt;Counted&lt;Task[]&gt;&gt; {
-		// todo: handle coursegroups
-
+	async findAllByStudent(
+		userId: EntityId,
+		{ limit, skip }: IPagination &#x3D; {},
+		ignoredTasks: EntityId[] &#x3D; []
+	): Promise&lt;Counted&lt;Task[]&gt;&gt; {
 		// TODO move BL to UC
 		// we have following logical groups:
 		// filter for all news a user might read
@@ -445,18 +462,12 @@ export class TaskRepo {
 		// order by duedate
 		// pagination
 
-		const [coursesOfUser, submissionsOfStudent] &#x3D; await Promise.all([
-			this.getCourseOfUser(userId),
-			this.em.find(Submission, { student: userId }),
-		]);
+		const coursesOfUser &#x3D; await this.getCourseOfUser(userId);
 
 		const lessonsOfStudent &#x3D; await this.em.find(LessonTaskInfo, {
 			course: { $in: coursesOfUser },
 			hidden: false,
 		});
-
-		// TODO: filter via query ..exist not exist, orm return null ? Add test for it!
-		const homeworksWithSubmissions &#x3D; submissionsOfStudent.map((submission) &#x3D;&gt; submission.task.id);
 
 		const oneWeekAgo &#x3D; new Date();
 		oneWeekAgo.setDate(oneWeekAgo.getDate() - 7);
@@ -466,7 +477,7 @@ export class TaskRepo {
 				// TODO task query builder, see NewsScope
 				$and: [
 					// TODO move into a logic group / director
-					{ id: { $nin: homeworksWithSubmissions } },
+					{ id: { $nin: ignoredTasks } },
 					{ private: { $ne: true } },
 					{ course: { $in: coursesOfUser } },
 					{ $or: [{ lesson: null }, { lesson: { $in: lessonsOfStudent } }] },
