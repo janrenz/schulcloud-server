@@ -441,6 +441,7 @@
 		&#x27;^@shared/(.*)$&#x27;: &#x27;&lt;rootDir&gt;/apps/server/src/shared/$1&#x27;,
 		&#x27;^@src/(.*)$&#x27;: &#x27;&lt;rootDir&gt;/apps/server/src/$1&#x27;,
 	},
+	maxWorkers: 2, // limited for not taking all workers within of a single github action
 }</code>
                     </td>
                 </tr>
