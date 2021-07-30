@@ -133,8 +133,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="22"
-                            class="link-to-prism">apps/server/src/modules/task/controller/task.controller.ts:22</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="23"
+                            class="link-to-prism">apps/server/src/modules/task/controller/task.controller.ts:23</a></div>
                 </td>
             </tr>
 
@@ -209,6 +209,7 @@ import { Authenticate, CurrentUser } from &#x27;../../authentication/decorator/a
 import { ICurrentUser } from &#x27;../../authentication/interface/jwt-payload&#x27;;
 import { TaskUC } from &#x27;../uc/task.uc&#x27;;
 import { TaskResponse } from &#x27;./dto&#x27;;
+import { TaskMapper } from &#x27;../mapper/task.mapper&#x27;;
 
 // TODO: swagger doku do not read from combined query object only from passed single parameter in Query(), but this do not allowed optional querys only required querys
 @ApiTags(&#x27;Task&#x27;)
@@ -224,8 +225,11 @@ export class TaskController {
 	): Promise&lt;PaginationResponse&lt;TaskResponse[]&gt;&gt; {
 		// const [tasks, total] &#x3D; await this.taskUc.findAllOpen(currentUser, paginationQuery);
 		const [tasks, total] &#x3D; await this.taskUc.findAllOpen(currentUser, paginationQuery);
+		const taskresponses &#x3D; tasks.map(({ task, status }) &#x3D;&gt; {
+			return TaskMapper.mapToResponse(task, status);
+		});
 		const { skip, limit } &#x3D; paginationQuery;
-		const result &#x3D; new PaginationResponse(tasks, total, skip, limit);
+		const result &#x3D; new PaginationResponse(taskresponses, total, skip, limit);
 		return result;
 	}
 }
