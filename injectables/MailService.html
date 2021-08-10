@@ -255,7 +255,7 @@ export class MailService {
 	) {}
 
 	public async send(data: Mail): Promise&lt;void&gt; {
-		await this.amqpConnection.publish(this.options.exchange, this.options.routingKey, data);
+		await this.amqpConnection.publish(this.options.exchange, this.options.routingKey, data, { persistent : true });
 	}
 }
 </code></pre>
