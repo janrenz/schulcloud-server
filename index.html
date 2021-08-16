@@ -32,13 +32,13 @@
                    <div class="content-data">
 
 <h1 id="hpi-schul-cloud-server">HPI Schul-Cloud Server</h1>
-<p>Develop: <a href="https://travis-ci.com/hpi-schul-cloud/schulcloud-server"><img src="https://travis-ci.com/hpi-schul-cloud/schulcloud-server.svg?branch=develop" alt="Build Status" class="img-responsive"></a> 
+<p>Develop: <a href="https://travis-ci.com/hpi-schul-cloud/schulcloud-server"><img src="https://travis-ci.com/hpi-schul-cloud/schulcloud-server.svg?branch=develop" alt="Build Status" class="img-responsive"></a>
 Master: <a href="https://travis-ci.com/hpi-schul-cloud/schulcloud-server"><img src="https://travis-ci.com/hpi-schul-cloud/schulcloud-server.svg?branch=master" alt="Build Status" class="img-responsive"></a></p>
 <p>Develop: <a href="https://codecov.io/gh/hpi-schul-cloud/schulcloud-server/branch/develop"><img src="https://codecov.io/gh/hpi-schul-cloud/schulcloud-server/branch/develop/graph/badge.svg" alt="codecov" class="img-responsive"></a>
 Master: <a href="https://codecov.io/gh/hpi-schul-cloud/schulcloud-server"><img src="https://codecov.io/gh/hpi-schul-cloud/schulcloud-server/branch/master/graph/badge.svg" alt="codecov" class="img-responsive"></a></p>
 <p>Codacy: <a href="https://www.codacy.com/gh/hpi-schul-cloud/schulcloud-server/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=hpi-schul-cloud/schulcloud-server&amp;utm_campaign=Badge_Grade"><img src="https://app.codacy.com/project/badge/Grade/c1d53a69d04346fb867f9360b1679422" alt="Codacy Badge" class="img-responsive"></a></p>
 <p><a href="https://github.com/schulcloud/hpi-schul-cloud/releases"><img src="https://img.shields.io/github/release/hpi-schul-cloud/schulcloud-server.svg" alt="Version" class="img-responsive"></a></p>
-<h1 id="nestjs-application">NestJS application</h1>
+<h2 id="nestjs-application">NestJS application</h2>
 <blockquote>
 <p>Find the <a href="https://hpi-schul-cloud.github.io/schulcloud-server/additional-documentation/nestjs-application.html">NestJS applications documentation</a> of this repository at GitHub pages. It contains information about</p>
 </blockquote>
@@ -50,9 +50,22 @@ Master: <a href="https://codecov.io/gh/hpi-schul-cloud/schulcloud-server"><img s
 <li>architecture</li>
 </ul>
 <p>Based on <a href="https://docs.nestjs.com/">NestJS</a></p>
-<h1 id="feathers-application">Feathers application</h1>
+<h2 id="feathers-application">Feathers application</h2>
 <p>This is legacy part of the application!</p>
 <p>Based on <a href="https://nodejs.org/en/">Node.js</a> and <a href="https://feathersjs.com/">Feathers</a></p>
+<h2 id="application-seperation">Application seperation</h2>
+<p>In order to seperate NestJS and Feathers each application runs in its own express instance. These express instances are then mounted on seperate paths under a common root express instance.</p>
+<div><pre class="line-numbers"><code class="language-none">Root-Express-App 
+├─ api/v1/       --&gt; Feathers-App
+├─ api/v3/       --&gt; NestJS-App</code></pre></div><p>This ensures that each application can run its own middleware stack for authentication, error handling, logging etc.</p>
+<p>The mount paths don&#39;t have any impact on the routes inside of the applications, e.g. the path <code>/api/v3/news</code> will translate to the inner path <code>/news</code>. That means that in terms of route matching each child application doesn&#39;t have to take any measures regarding the path prefix. It simply works as it was mounted to <code>/</code>.</p>
+<p><strong>However note</strong> that when URLs are generated inside a child application the path prefix has to be prepended. Only then the generated URLs match the appropriate child application, e.g. the path <code>/news</code> has to be provided as the external path <code>/api/v3/news</code>.</p>
+<p>It is possible (not very likely) that the server api is called with URLs that use the old schema without a path prefix. As a safety net for that we additionally mount the Feathers application as before under the paths:</p>
+<ul>
+<li><code>/</code> - for internal calls</li>
+<li><code>/api</code> - for external calls</li>
+</ul>
+<p>When these paths are accessed an error with context <code>[DEPRECATED-PATH]</code> is logged.</p>
 <h2 id="setup">Setup</h2>
 <p>For more detailed setup instructions, take a look at <a href="https://docs.hpi-schul-cloud.org/display/SCDOK/Setup">setup</a>.
 The whole application setup with all dependencies can be found in <a href="https://docs.hpi-schul-cloud.org/display/TSC/System+Architecture">System Architecture</a>. It contains information about how different application components are connected to each other.</p>

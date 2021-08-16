@@ -272,7 +272,7 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable, Scope, Inject } from &#x27;@nestjs/common&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable, Scope, Inject, ImATeapotException } from &#x27;@nestjs/common&#x27;;
 import { REQUEST } from &#x27;@nestjs/core&#x27;;
 import { Request } from &#x27;express&#x27;;
 import { Application } from &#x27;@feathersjs/express&#x27;;
@@ -309,7 +309,14 @@ export class FeathersServiceProvider {
 	constructor(@Inject(REQUEST) private request: Request) {}
 
 	getService(path: string): FeathersService {
-		const service &#x3D; (this.request.app as Application).service(path) as FeathersService;
+		const feathersApp &#x3D; this.request.app.get(&#x27;feathersApp&#x27;) as Application;
+		if (feathersApp &#x3D;&#x3D; null) {
+			// missing a feathers instance defined in module definition
+			// see main.ts how it might work
+			// sample: nestExpress.set(&#x27;feathersApp&#x27;, feathersExpress);
+			throw new ImATeapotException(&#x27;this action requires a feathers instance available&#x27;);
+		}
+		const service &#x3D; feathersApp.service(path) as FeathersService;
 		return service;
 	}
 }
