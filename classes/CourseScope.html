@@ -43,7 +43,7 @@
 
 <ol class="breadcrumb">
   <li>Classes</li>
-  <li >NewsScope</li>
+  <li >CourseScope</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -61,7 +61,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/modules/news/repo/news-scope.ts</code>
+            <code>apps/server/src/modules/learnroom/repo/course.repo.ts</code>
         </p>
 
 
@@ -113,10 +113,7 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#byTargets" >byTargets</a>
-                            </li>
-                            <li>
-                                <a href="#byUnpublished" >byUnpublished</a>
+                                <a href="#forAllGroupTypes" >forAllGroupTypes</a>
                             </li>
                             <li>
                                 <a href="#addQrQuery" >addQrQuery</a>
@@ -291,24 +288,24 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="byTargets"></a>
+                    <a name="forAllGroupTypes"></a>
                     <span class="name">
-                        <span ><b>byTargets</b></span>
-                        <a href="#byTargets"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>forAllGroupTypes</b></span>
+                        <a href="#forAllGroupTypes"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>byTargets(targets: <a href="../interfaces/NewsTargetFilter.html" target="_self">NewsTargetFilter[]</a>)</code>
+<code>forAllGroupTypes(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="7"
-                            class="link-to-prism">apps/server/src/modules/news/repo/news-scope.ts:7</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="11"
+                            class="link-to-prism">apps/server/src/modules/learnroom/repo/course.repo.ts:11</a></div>
                 </td>
             </tr>
 
@@ -328,9 +325,9 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>targets</td>
+                                    <td>userId</td>
                                     <td>
-                                                <code><a href="../interfaces/NewsTargetFilter.html" target="_self" >NewsTargetFilter[]</a></code>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
                                     </td>
 
                                     <td>
@@ -345,75 +342,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/NewsScope.html" target="_self" >NewsScope</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="byUnpublished"></a>
-                    <span class="name">
-                        <span ><b>byUnpublished</b></span>
-                        <a href="#byUnpublished"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>byUnpublished(unpublished: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="22"
-                            class="link-to-prism">apps/server/src/modules/news/repo/news-scope.ts:22</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>unpublished</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/NewsScope.html" target="_self" >NewsScope</a></code>
+                        <b>Returns : </b>        <code><a href="../classes/CourseScope.html" target="_self" >CourseScope</a></code>
 
                     </div>
                     <div class="io-description">
@@ -707,31 +636,36 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { FilterQuery } from &#x27;@mikro-orm/core&#x27;;
-import { EmptyResultQuery, Scope } from &#x27;@shared/repo&#x27;;
-import { News } from &#x27;../entity&#x27;;
-import { NewsTargetFilter } from &#x27;./news-target-filter&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { EntityManager } from &#x27;@mikro-orm/mongodb&#x27;;
+import { Injectable } from &#x27;@nestjs/common&#x27;;
 
-export class NewsScope extends Scope&lt;News&gt; {
-	byTargets(targets: NewsTargetFilter[]): NewsScope {
-		const queries: FilterQuery&lt;News&gt;[] &#x3D; targets.map((target) &#x3D;&gt; {
-			return { $and: [{ targetModel: target.targetModel }, { &#x27;target:in&#x27;: target.targetIds }] };
-		});
-		if (queries.length &#x3D;&#x3D;&#x3D; 0) {
-			// mission impossile query to ensure empty query result
-			this.addQuery(EmptyResultQuery);
-		} else if (queries.length &#x3D;&#x3D;&#x3D; 1) {
-			this.addQuery(queries[0]);
-		} else {
-			this.addQuery({ $or: queries });
-		}
+import { EntityId, Counted } from &#x27;@shared/domain&#x27;;
+import { Scope } from &#x27;@shared/repo&#x27;;
+
+import { Course } from &#x27;../entity&#x27;;
+import { ICourseRepo } from &#x27;../uc&#x27;;
+
+class CourseScope extends Scope&lt;Course&gt; {
+	forAllGroupTypes(userId: EntityId): CourseScope {
+		const isStudent &#x3D; { studentIds: userId };
+		const isTeacher &#x3D; { teacherIds: userId };
+		const isSubstitutionTeacher &#x3D; { substitutionTeacherIds: userId };
+		const $or &#x3D; [isStudent, isTeacher, isSubstitutionTeacher];
+		this.addQueryIfValueIsDefined(userId, { $or });
+
 		return this;
 	}
+}
 
-	byUnpublished(unpublished: boolean): NewsScope {
-		const now &#x3D; new Date();
-		this.addQuery({ displayAt: unpublished ? { $gt: now } : { $lte: now } });
-		return this;
+@Injectable()
+export class CourseRepo implements ICourseRepo {
+	constructor(private readonly em: EntityManager) {}
+
+	async findAllByUserId(userId: EntityId): Promise&lt;Counted&lt;Course[]&gt;&gt; {
+		const scope &#x3D; new CourseScope();
+		scope.forAllGroupTypes(userId);
+		const [courses, count] &#x3D; await this.em.findAndCount(Course, scope.query);
+		return [courses, count];
 	}
 }
 </code></pre>
@@ -762,7 +696,7 @@ export class NewsScope extends Scope&lt;News&gt; {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
-            var COMPODOC_CURRENT_PAGE_URL = 'NewsScope.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'CourseScope.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

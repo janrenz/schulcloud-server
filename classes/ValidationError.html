@@ -43,7 +43,7 @@
 
 <ol class="breadcrumb">
   <li>Classes</li>
-  <li >CourseGroupInfo</li>
+  <li >ValidationError</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -61,7 +61,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/modules/task/entity/course-group-info.entity.ts</code>
+            <code>apps/server/src/shared/common/error/validation.error.ts</code>
         </p>
 
 
@@ -70,7 +70,7 @@
                 <h3>Extends</h3>
             </p>
             <p class="comment">
-                        <code><a href="../classes/BaseEntityWithTimestamps.html" target="_self" >BaseEntityWithTimestamps</a></code>
+                        <code><a href="../classes/BusinessError.html" target="_self" >BusinessError</a></code>
             </p>
 
 
@@ -88,27 +88,46 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#course" >course</a>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#code" >code</a>
                             </li>
                             <li>
-                                <a href="#students" >students</a>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#details" >details</a>
                             </li>
                             <li>
-                                <a href="#_id" >_id</a>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#message" >message</a>
                             </li>
                             <li>
-                                <a href="#createdAt" >createdAt</a>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#title" >title</a>
                             </li>
                             <li>
-                                <a href="#id" >id</a>
-                            </li>
-                            <li>
-                                <a href="#updatedAt" >updatedAt</a>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#type" >type</a>
                             </li>
                         </ul>
                     </td>
                 </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#getDetails" >getDetails</a>
+                            </li>
+                            <li>
+                                <a href="#getResponse" >getResponse</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
 
 
 
@@ -124,12 +143,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(partial: Partial<CourseGroupInfo>)</code>
+<code>constructor(message: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, details?: Record<string | >)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">apps/server/src/modules/task/entity/course-group-info.entity.ts:7</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="4" class="link-to-prism">apps/server/src/shared/common/error/validation.error.ts:4</a></div>
                             </td>
                         </tr>
 
@@ -147,14 +166,26 @@
                                         </thead>
                                         <tbody>
                                                 <tr>
-                                                        <td>partial</td>
+                                                        <td>message</td>
                                                   
                                                         <td>
-                                                                    <code>Partial&lt;CourseGroupInfo&gt;</code>
+                                                                        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
                                                         </td>
                                                   
                                                     <td>
                                                             No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>details</td>
+                                                  
+                                                        <td>
+                                                                    <code>Record&lt;string | &gt;</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            Yes
                                                     </td>
                                                     
                                                 </tr>
@@ -176,106 +207,29 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="course"></a>
+                    <a name="code"></a>
                     <span class="name">
-                        <span ><b>course</b></span>
-                        <a href="#course"><span class="icon ion-ios-link"></span></a>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>code</b></span>
+                        <a href="#code"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="../classes/CourseTaskInfo.html" target="_self" >CourseTaskInfo</a></code>
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
 
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <b>Decorators : </b>
-                        <br />
-                        <code>
-                            @ManyToOne({fieldName: &#x27;courseId&#x27;})<br />
-                        </code>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">apps/server/src/modules/task/entity/course-group-info.entity.ts:17</a></div>
-                        </td>
-                    </tr>
-
-
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="students"></a>
-                    <span class="name">
-                        <span ><b>students</b></span>
-                        <a href="#students"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Default value : </i><code>new Collection&lt;UserTaskInfo&gt;(this)</code>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <b>Decorators : </b>
-                        <br />
-                        <code>
-                            @ManyToMany({fieldName: &#x27;userIds&#x27;, type: UserTaskInfo})<br />
-                        </code>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">apps/server/src/modules/task/entity/course-group-info.entity.ts:14</a></div>
-                        </td>
-                    </tr>
-
-
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="_id"></a>
-                    <span class="name">
-                        <span ><b>_id</b></span>
-                        <a href="#_id"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Type : </i>    <code>ObjectId</code>
-
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <b>Decorators : </b>
-                        <br />
-                        <code>
-                            @PrimaryKey()<br />
-                        </code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Inherited from         <code><a href="../classes/BaseEntityWithTimestamps.html" target="_self" >BaseEntityWithTimestamps</a></code>
+                                <div class="io-line">Inherited from         <code><a href="../classes/BusinessError.html" target="_self" >BusinessError</a></code>
 </div>
                             </td>
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/BaseEntityWithTimestamps.html#source" target="_self" >BaseEntityWithTimestamps:19</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classes/BusinessError.html#source" target="_self" >BusinessError:10</a></code>
 </div>
                         </td>
                     </tr>
@@ -287,36 +241,29 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="createdAt"></a>
+                    <a name="details"></a>
                     <span class="name">
-                        <span ><b>createdAt</b></span>
-                        <a href="#createdAt"><span class="icon ion-ios-link"></span></a>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>details</b></span>
+                        <a href="#details"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>new Date()</code>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <b>Decorators : </b>
-                        <br />
-                        <code>
-                            @Property()<br />
-                        </code>
+                        <i>Type : </i>    <code>Record&lt;string | &gt;</code>
+
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Inherited from         <code><a href="../classes/BaseEntityWithTimestamps.html" target="_self" >BaseEntityWithTimestamps</a></code>
+                                <div class="io-line">Inherited from         <code><a href="../classes/BusinessError.html" target="_self" >BusinessError</a></code>
 </div>
                             </td>
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/BaseEntityWithTimestamps.html#source" target="_self" >BaseEntityWithTimestamps:25</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classes/BusinessError.html#source" target="_self" >BusinessError:19</a></code>
 </div>
                         </td>
                     </tr>
@@ -328,10 +275,11 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="id"></a>
+                    <a name="message"></a>
                     <span class="name">
-                        <span ><b>id</b></span>
-                        <a href="#id"><span class="icon ion-ios-link"></span></a>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>message</b></span>
+                        <a href="#message"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
@@ -341,24 +289,15 @@
 
                     </td>
                 </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <b>Decorators : </b>
-                        <br />
-                        <code>
-                            @SerializedPrimaryKey()<br />
-                        </code>
-                    </td>
-                </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Inherited from         <code><a href="../classes/BaseEntityWithTimestamps.html" target="_self" >BaseEntityWithTimestamps</a></code>
+                                <div class="io-line">Inherited from         <code><a href="../classes/BusinessError.html" target="_self" >BusinessError</a></code>
 </div>
                             </td>
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/BaseEntityWithTimestamps.html#source" target="_self" >BaseEntityWithTimestamps:22</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classes/BusinessError.html#source" target="_self" >BusinessError:16</a></code>
 </div>
                         </td>
                     </tr>
@@ -370,36 +309,63 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="updatedAt"></a>
+                    <a name="title"></a>
                     <span class="name">
-                        <span ><b>updatedAt</b></span>
-                        <a href="#updatedAt"><span class="icon ion-ios-link"></span></a>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>title</b></span>
+                        <a href="#title"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>new Date()</code>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <b>Decorators : </b>
-                        <br />
-                        <code>
-                            @Property({onUpdate: undefined})<br />
-                        </code>
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Inherited from         <code><a href="../classes/BaseEntityWithTimestamps.html" target="_self" >BaseEntityWithTimestamps</a></code>
+                                <div class="io-line">Inherited from         <code><a href="../classes/BusinessError.html" target="_self" >BusinessError</a></code>
 </div>
                             </td>
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/BaseEntityWithTimestamps.html#source" target="_self" >BaseEntityWithTimestamps:28</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classes/BusinessError.html#source" target="_self" >BusinessError:14</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="type"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                        <span ><b>type</b></span>
+                        <a href="#type"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Inherited from         <code><a href="../classes/BusinessError.html" target="_self" >BusinessError</a></code>
+</div>
+                            </td>
+                        </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../classes/BusinessError.html#source" target="_self" >BusinessError:12</a></code>
 </div>
                         </td>
                     </tr>
@@ -409,7 +375,98 @@
     </table>
 </section>
 
+            <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getDetails"></a>
+                    <span class="name">
+                        <span ><b>getDetails</b></span>
+                        <a href="#getDetails"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getDetails()</code>
+                </td>
+            </tr>
 
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../classes/BusinessError.html" target="_self" >BusinessError</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../classes/BusinessError.html#source" target="_self" >BusinessError:34</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Record&lt;string, &gt;</code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getResponse"></a>
+                    <span class="name">
+                        <span ><b>getResponse</b></span>
+                        <a href="#getResponse"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getResponse()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../classes/BusinessError.html" target="_self" >BusinessError</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../classes/BusinessError.html#source" target="_self" >BusinessError:38</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/ErrorResponse.html" target="_self" >ErrorResponse</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
 
 
 
@@ -419,23 +476,21 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Collection, Entity, ManyToMany, ManyToOne } from &#x27;@mikro-orm/core&#x27;;
-import { BaseEntityWithTimestamps } from &#x27;../../../shared/domain&#x27;;
-import { CourseTaskInfo } from &#x27;./course-task-info.entity&#x27;;
-import { UserTaskInfo } from &#x27;./user-task-info.entity&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { HttpStatus } from &#x27;@nestjs/common&#x27;;
+import { BusinessError } from &#x27;./business.error&#x27;;
 
-@Entity({ tableName: &#x27;coursegroups&#x27; })
-export class CourseGroupInfo extends BaseEntityWithTimestamps {
-	constructor(partial: Partial&lt;CourseGroupInfo&gt;) {
-		super();
-		Object.assign(this, partial);
+export class ValidationError extends BusinessError {
+	constructor(readonly message: string, details?: Record&lt;string, unknown&gt;) {
+		super(
+			{
+				type: &#x27;VALIDATION_ERROR&#x27;,
+				title: &#x27;Validation Error&#x27;,
+				defaultMessage: message,
+			},
+			HttpStatus.BAD_REQUEST,
+			details
+		);
 	}
-
-	@ManyToMany({ fieldName: &#x27;userIds&#x27;, type: UserTaskInfo })
-	students &#x3D; new Collection&lt;UserTaskInfo&gt;(this);
-
-	@ManyToOne({ fieldName: &#x27;courseId&#x27; })
-	course: CourseTaskInfo;
 }
 </code></pre>
     </div>
@@ -465,7 +520,7 @@ export class CourseGroupInfo extends BaseEntityWithTimestamps {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
-            var COMPODOC_CURRENT_PAGE_URL = 'CourseGroupInfo.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'ValidationError.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

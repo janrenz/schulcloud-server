@@ -28,16 +28,25 @@
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
-               <div class="content controller">
+               <div class="content interface">
                    <div class="content-data">
 
 
 
 
 
+
+
+
+
+
+
+
 <ol class="breadcrumb">
-  <li>Controllers</li>
-  <li >UserController</li>
+  <li>Interfaces</li>
+  <li
+  >
+  ICourseRepo</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -55,49 +64,36 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/modules/user/controller/user.controller.ts</code>
+            <code>apps/server/src/modules/learnroom/uc/course.uc.ts</code>
         </p>
 
-            <p class="comment">
-                <h3>Prefix</h3>
-            </p>
-            <p class="comment">
-                <code>user</code>
-            </p>
 
 
 
-
-
-
-            <section>
-    <h3 id="index">Index</h3>
-    <table class="table table-sm table-bordered index-table">
-        <tbody>
-
-                <tr>
-                    <td class="col-md-4">
-                        <h6><b>Methods</b></h6>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <ul class="index-list">
-                            <li>
-                                    <span class="modifier">Async</span>
-                                <a href="#me" >me</a>
-                            </li>
-                        </ul>
-                    </td>
-                </tr>
-
-
-
-
-
-        </tbody>
-    </table>
-</section>
+        <section>
+            <h3 id="index">Index</h3>
+            <table class="table table-sm table-bordered index-table">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Methods</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#findAllByUserId" 
+>
+                                        findAllByUserId
+                                    </a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
 
             <section>
     
@@ -108,33 +104,24 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="me"></a>
+                    <a name="findAllByUserId"></a>
                     <span class="name">
-                        <span class="modifier">Async</span>
-                        <span ><b>me</b></span>
-                        <a href="#me"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>findAllByUserId</b></span>
+                        <a href="#findAllByUserId"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>me(currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>)</code>
+<code>findAllByUserId(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>)</code>
                 </td>
             </tr>
 
-            <tr>
-                <td class="col-md-4">
-                    <b>Decorators : </b>
-                    <br />
-                    <code>@Get(&#x27;me&#x27;)<br /></code>
-                </td>
-            </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="17"
-                            class="link-to-prism">apps/server/src/modules/user/controller/user.controller.ts:17</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="6"
+                            class="link-to-prism">apps/server/src/modules/learnroom/uc/course.uc.ts:6</a></div>
                 </td>
             </tr>
 
@@ -154,9 +141,9 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>currentUser</td>
+                                    <td>userId</td>
                                     <td>
-                                                <code><a href="../interfaces/ICurrentUser.html" target="_self" >ICurrentUser</a></code>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
                                     </td>
 
                                     <td>
@@ -171,7 +158,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../interfaces/User.html" target="_self" >Promise&lt;ResolvedUser&gt;</a></code>
+                        <b>Returns : </b>        <code><a href="../classes/Course.html" target="_self" >Promise&lt;Counted&lt;Course[]&gt;&gt;</a></code>
 
                     </div>
                     <div class="io-description">
@@ -181,40 +168,44 @@
             </tr>
         </tbody>
     </table>
-</section>    </div>
+</section>
+
+    </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ApiTags } from &#x27;@nestjs/swagger&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable, Inject } from &#x27;@nestjs/common&#x27;;
+import { EntityId, Counted } from &#x27;@shared/domain&#x27;;
+import { Course, Coursegroup } from &#x27;../entity&#x27;;
 
-import { Controller, Get } from &#x27;@nestjs/common&#x27;;
-import { ICurrentUser } from &#x27;@shared/domain&#x27;;
+export interface ICourseRepo {
+	findAllByUserId(userId: EntityId): Promise&lt;Counted&lt;Course[]&gt;&gt;;
+}
 
-import { Authenticate, CurrentUser } from &#x27;../../authentication/decorator/auth.decorator&#x27;;
-import { UserUC } from &#x27;../uc&#x27;;
-import { ResolvedUser } from &#x27;./dto/ResolvedUser.dto&#x27;;
+export interface ICoursegroupRepo {
+	findByCourses(courses: Course[]): Promise&lt;Counted&lt;Coursegroup[]&gt;&gt;;
+}
 
-@ApiTags(&#x27;User&#x27;)
-@Authenticate(&#x27;jwt&#x27;)
-@Controller(&#x27;user&#x27;)
-export class UserController {
-	constructor(private readonly userUc: UserUC) {}
+@Injectable()
+export class CourseUC {
+	constructor(
+		@Inject(&#x27;CourseRepo&#x27;) readonly courseRepo: ICourseRepo,
+		@Inject(&#x27;CoursegroupRepo&#x27;) readonly coursegroupRepo: ICoursegroupRepo
+	) {}
 
-	@Get(&#x27;me&#x27;)
-	async me(@CurrentUser() currentUser: ICurrentUser): Promise&lt;ResolvedUser&gt; {
-		return Promise.resolve(currentUser.user);
+	async findCoursesWithGroupsByUserId(userId: EntityId): Promise&lt;Counted&lt;Course[]&gt;&gt; {
+		const [courses, count] &#x3D; await this.courseRepo.findAllByUserId(userId);
+		const [coursesgroups] &#x3D; await this.coursegroupRepo.findByCourses(courses);
+		/**
+		 * Important setGroupsThatMatchCourse is a temporary solution until we tested application only entitys
+		 */
+		courses.forEach((course) &#x3D;&gt; course.setGroupsThatMatchCourse(coursesgroups));
+		return [courses, count];
 	}
 }
 </code></pre>
     </div>
 </div>
-
-
-
-
-
-
-
 
 
                    
@@ -238,8 +229,8 @@ export class UserController {
 
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
-            var COMPODOC_CURRENT_PAGE_CONTEXT = 'controller';
-            var COMPODOC_CURRENT_PAGE_URL = 'UserController.html';
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
+            var COMPODOC_CURRENT_PAGE_URL = 'ICourseRepo.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

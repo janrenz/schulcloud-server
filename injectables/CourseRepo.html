@@ -28,16 +28,18 @@
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
-               <div class="content controller">
+               <div class="content injectable">
                    <div class="content-data">
 
 
 
 
 
+
+
 <ol class="breadcrumb">
-  <li>Controllers</li>
-  <li >UserController</li>
+  <li>Injectables</li>
+  <li >CourseRepo</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -55,16 +57,8 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/modules/user/controller/user.controller.ts</code>
+            <code>apps/server/src/modules/learnroom/repo/course.repo.ts</code>
         </p>
-
-            <p class="comment">
-                <h3>Prefix</h3>
-            </p>
-            <p class="comment">
-                <code>user</code>
-            </p>
-
 
 
 
@@ -85,7 +79,7 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Async</span>
-                                <a href="#me" >me</a>
+                                <a href="#findAllByUserId" >findAllByUserId</a>
                             </li>
                         </ul>
                     </td>
@@ -100,6 +94,55 @@
 </section>
 
             <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(em: EntityManager)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">apps/server/src/modules/learnroom/repo/course.repo.ts:23</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>em</td>
+                                                  
+                                                        <td>
+                                                                    <code>EntityManager</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section>
     
     <h3 id="methods">
         Methods
@@ -108,33 +151,26 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="me"></a>
+                    <a name="findAllByUserId"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
-                        <span ><b>me</b></span>
-                        <a href="#me"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>findAllByUserId</b></span>
+                        <a href="#findAllByUserId"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>me(currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>)</code>
+                    <code>findAllByUserId(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>)</code>
                 </td>
             </tr>
 
-            <tr>
-                <td class="col-md-4">
-                    <b>Decorators : </b>
-                    <br />
-                    <code>@Get(&#x27;me&#x27;)<br /></code>
-                </td>
-            </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="17"
-                            class="link-to-prism">apps/server/src/modules/user/controller/user.controller.ts:17</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="26"
+                            class="link-to-prism">apps/server/src/modules/learnroom/repo/course.repo.ts:26</a></div>
                 </td>
             </tr>
 
@@ -154,9 +190,9 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>currentUser</td>
+                                    <td>userId</td>
                                     <td>
-                                                <code><a href="../interfaces/ICurrentUser.html" target="_self" >ICurrentUser</a></code>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
                                     </td>
 
                                     <td>
@@ -171,7 +207,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../interfaces/User.html" target="_self" >Promise&lt;ResolvedUser&gt;</a></code>
+                        <b>Returns : </b>        <code><a href="../classes/Course.html" target="_self" >Promise&lt;Counted&lt;Course[]&gt;&gt;</a></code>
 
                     </div>
                     <div class="io-description">
@@ -181,35 +217,48 @@
             </tr>
         </tbody>
     </table>
-</section>    </div>
+</section>
+
+    </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ApiTags } from &#x27;@nestjs/swagger&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { EntityManager } from &#x27;@mikro-orm/mongodb&#x27;;
+import { Injectable } from &#x27;@nestjs/common&#x27;;
 
-import { Controller, Get } from &#x27;@nestjs/common&#x27;;
-import { ICurrentUser } from &#x27;@shared/domain&#x27;;
+import { EntityId, Counted } from &#x27;@shared/domain&#x27;;
+import { Scope } from &#x27;@shared/repo&#x27;;
 
-import { Authenticate, CurrentUser } from &#x27;../../authentication/decorator/auth.decorator&#x27;;
-import { UserUC } from &#x27;../uc&#x27;;
-import { ResolvedUser } from &#x27;./dto/ResolvedUser.dto&#x27;;
+import { Course } from &#x27;../entity&#x27;;
+import { ICourseRepo } from &#x27;../uc&#x27;;
 
-@ApiTags(&#x27;User&#x27;)
-@Authenticate(&#x27;jwt&#x27;)
-@Controller(&#x27;user&#x27;)
-export class UserController {
-	constructor(private readonly userUc: UserUC) {}
+class CourseScope extends Scope&lt;Course&gt; {
+	forAllGroupTypes(userId: EntityId): CourseScope {
+		const isStudent &#x3D; { studentIds: userId };
+		const isTeacher &#x3D; { teacherIds: userId };
+		const isSubstitutionTeacher &#x3D; { substitutionTeacherIds: userId };
+		const $or &#x3D; [isStudent, isTeacher, isSubstitutionTeacher];
+		this.addQueryIfValueIsDefined(userId, { $or });
 
-	@Get(&#x27;me&#x27;)
-	async me(@CurrentUser() currentUser: ICurrentUser): Promise&lt;ResolvedUser&gt; {
-		return Promise.resolve(currentUser.user);
+		return this;
+	}
+}
+
+@Injectable()
+export class CourseRepo implements ICourseRepo {
+	constructor(private readonly em: EntityManager) {}
+
+	async findAllByUserId(userId: EntityId): Promise&lt;Counted&lt;Course[]&gt;&gt; {
+		const scope &#x3D; new CourseScope();
+		scope.forAllGroupTypes(userId);
+		const [courses, count] &#x3D; await this.em.findAndCount(Course, scope.query);
+		return [courses, count];
 	}
 }
 </code></pre>
     </div>
+
 </div>
-
-
 
 
 
@@ -238,8 +287,8 @@ export class UserController {
 
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
-            var COMPODOC_CURRENT_PAGE_CONTEXT = 'controller';
-            var COMPODOC_CURRENT_PAGE_URL = 'UserController.html';
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'CourseRepo.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

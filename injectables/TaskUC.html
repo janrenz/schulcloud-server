@@ -121,12 +121,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(taskRepo: <a href="../injectables/TaskRepo.html" target="_self">TaskRepo</a>, submissionRepo: <a href="../injectables/SubmissionRepo.html" target="_self">SubmissionRepo</a>, taskSubmissionMetadata: <a href="../injectables/TaskSubmissionMetadataService.html" target="_self">TaskSubmissionMetadataService</a>)</code>
+<code>constructor(taskRepo: <a href="../injectables/TaskRepo.html" target="_self">TaskRepo</a>, submissionRepo: <a href="../injectables/SubmissionRepo.html" target="_self">SubmissionRepo</a>, taskSubmissionMetadata: <a href="../injectables/TaskSubmissionMetadataService.html" target="_self">TaskSubmissionMetadataService</a>, learnroomFacade: <a href="../injectables/LearnroomFacade.html" target="_self">LearnroomFacade</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:24</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:22</a></div>
                             </td>
                         </tr>
 
@@ -179,6 +179,18 @@
                                                     </td>
                                                     
                                                 </tr>
+                                                <tr>
+                                                        <td>learnroomFacade</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/LearnroomFacade.html" target="_self" >LearnroomFacade</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
                                         </tbody>
                                     </table>
                             </div>
@@ -215,8 +227,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="65"
-                            class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:65</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="64"
+                            class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:64</a></div>
                 </td>
             </tr>
 
@@ -297,8 +309,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="51"
-                            class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:51</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="50"
+                            class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:50</a></div>
                 </td>
             </tr>
 
@@ -379,8 +391,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="35"
-                            class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:35</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="34"
+                            class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:34</a></div>
                 </td>
             </tr>
 
@@ -472,7 +484,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:21</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:19</a></div>
                         </td>
                     </tr>
 
@@ -486,20 +498,18 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable, UnauthorizedException } from &#x27;@nestjs/common&#x27;;
-import { EntityId, IPagination } from &#x27;@shared/domain&#x27;;
-import { Counted } from &#x27;@shared/domain/types&#x27;;
-import { ICurrentUser } from &#x27;../../authentication/interface/jwt-payload&#x27;;
-import { TaskRepo } from &#x27;../repo/task.repo&#x27;;
-import { SubmissionRepo } from &#x27;../repo/submission.repo&#x27;;
+// import { LearnroomFacade } from &#x27;@modules/learnroom&#x27;;
+import { EntityId, IPagination, Counted, ICurrentUser } from &#x27;@shared/domain&#x27;;
+import { TaskRepo, SubmissionRepo } from &#x27;../repo&#x27;;
 import { TaskSubmissionMetadataService } from &#x27;../domain/task-submission-metadata.service&#x27;;
 import { ISubmissionStatus, Task } from &#x27;../entity&#x27;;
+import { LearnroomFacade } from &#x27;../../learnroom&#x27;;
 
 export type TaskWithSubmissionStatus &#x3D; {
 	task: Task;
 	status: ISubmissionStatus;
 };
 
-// TODO: add time filter filter in uc
 @Injectable()
 export class TaskUC {
 	permissions &#x3D; {
@@ -508,9 +518,10 @@ export class TaskUC {
 	};
 
 	constructor(
-		private taskRepo: TaskRepo,
-		private submissionRepo: SubmissionRepo,
-		private taskSubmissionMetadata: TaskSubmissionMetadataService
+		private readonly taskRepo: TaskRepo,
+		private readonly submissionRepo: SubmissionRepo,
+		private readonly taskSubmissionMetadata: TaskSubmissionMetadataService,
+		private readonly learnroomFacade: LearnroomFacade
 	) {}
 
 	// TODO: Combine student and teacher logic if it is possible in next iterations
@@ -521,7 +532,7 @@ export class TaskUC {
 		// TODO get permitted tasks...
 		// TODO have BL from repo here
 
-		const [submissionsOfStudent, submissionCount] &#x3D; await this.submissionRepo.getAllSubmissionsByUser(userId);
+		const [submissionsOfStudent] &#x3D; await this.submissionRepo.getAllSubmissionsByUser(userId);
 		const tasksWithSubmissions &#x3D; submissionsOfStudent.map((submission) &#x3D;&gt; submission.task.id);
 
 		const [tasks, total] &#x3D; await this.taskRepo.findAllByStudent(userId, pagination, tasksWithSubmissions);
