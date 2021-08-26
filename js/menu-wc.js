@@ -115,15 +115,18 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/AuthModule.html" data-type="entity-link" >AuthModule</a>
                                 <li class="chapter inner">
                                     <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                        'data-target="#injectables-links-module-AuthModule-037bae02f4e514e5998699076e388de1"' : 'data-target="#xs-injectables-links-module-AuthModule-037bae02f4e514e5998699076e388de1"' }>
+                                        'data-target="#injectables-links-module-AuthModule-d85b7048c57f3646bf5b0e19563dbea7"' : 'data-target="#xs-injectables-links-module-AuthModule-d85b7048c57f3646bf5b0e19563dbea7"' }>
                                         <span class="icon ion-md-arrow-round-down"></span>
                                         <span>Injectables</span>
                                         <span class="icon ion-ios-arrow-down"></span>
                                     </div>
-                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-AuthModule-037bae02f4e514e5998699076e388de1"' :
-                                        'id="xs-injectables-links-module-AuthModule-037bae02f4e514e5998699076e388de1"' }>
+                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-AuthModule-d85b7048c57f3646bf5b0e19563dbea7"' :
+                                        'id="xs-injectables-links-module-AuthModule-d85b7048c57f3646bf5b0e19563dbea7"' }>
                                         <li class="link">
                                             <a href="injectables/JwtStrategy.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >JwtStrategy</a>
+                                        </li>
+                                        <li class="link">
+                                            <a href="injectables/JwtValidationAdapter.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >JwtValidationAdapter</a>
                                         </li>
                                     </ul>
                                 </li>
