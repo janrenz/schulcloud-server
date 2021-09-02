@@ -120,15 +120,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>mapToResponse(task: <a href="../classes/Task.html" target="_self">Task</a>, status?: <a href="../classes/Submission.html" target="_self">ISubmissionStatus</a>)</code>
+                    <code>mapToResponse(taskWithStatus: <a href="../undefineds/TaskWithSubmissionStatus.html" target="_self">TaskWithSubmissionStatus</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="7"
-                            class="link-to-prism">apps/server/src/modules/task/mapper/task.mapper.ts:7</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="6"
+                            class="link-to-prism">apps/server/src/modules/task/mapper/task.mapper.ts:6</a></div>
                 </td>
             </tr>
 
@@ -148,25 +148,13 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>task</td>
+                                    <td>taskWithStatus</td>
                                     <td>
-                                                <code><a href="../classes/Task.html" target="_self" >Task</a></code>
+                                                <code><a href="../miscellaneous/typealiases.html#TaskWithSubmissionStatus" target="_self" >TaskWithSubmissionStatus</a></code>
                                     </td>
 
                                     <td>
                                         No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>status</td>
-                                    <td>
-                                                <code><a href="../classes/Submission.html" target="_self" >ISubmissionStatus</a></code>
-                                    </td>
-
-                                    <td>
-                                        Yes
                                     </td>
 
 
@@ -198,19 +186,32 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { TaskResponse } from &#x27;../controller/dto&#x27;;
-import { Task, COURSE_DEFAULT_COLOR, ISubmissionStatus } from &#x27;../entity&#x27;;
+import { TaskWithSubmissionStatus } from &#x27;../domain&#x27;;
 
 export class TaskMapper {
-	static mapToResponse(task: Task, status?: ISubmissionStatus): TaskResponse {
+	// TODO: add status to task
+	static mapToResponse(taskWithStatus: TaskWithSubmissionStatus): TaskResponse {
+		const { task, status } &#x3D; taskWithStatus;
 		const dto &#x3D; new TaskResponse();
+
 		dto.id &#x3D; task.id;
-		dto.name &#x3D; task.name;
-		dto.duedate &#x3D; task.dueDate;
-		dto.courseName &#x3D; task.course?.name;
-		dto.displayColor &#x3D; task.course?.color || COURSE_DEFAULT_COLOR;
+		dto.name &#x3D; task.getName();
+		dto.duedate &#x3D; task.getDueDate();
 		dto.createdAt &#x3D; task.createdAt;
 		dto.updatedAt &#x3D; task.updatedAt;
-		dto.status &#x3D; status || {};
+		dto.status &#x3D; {
+			submitted: status.submitted,
+			maxSubmissions: status.maxSubmissions,
+			graded: status.graded,
+		};
+
+		const parent &#x3D; task.getParent();
+		if (parent !&#x3D;&#x3D; undefined) {
+			const parentData &#x3D; parent.getDescriptions();
+			dto.courseName &#x3D; parentData.name;
+			dto.displayColor &#x3D; parentData.color;
+		}
+
 		return dto;
 	}
 }

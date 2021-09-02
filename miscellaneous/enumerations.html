@@ -59,13 +59,22 @@
                 <td class="col-md-4">
                     <ul class="index-list">
                         <li>
-                            <a href="#CourseTyps" title="apps/server/src/modules/learnroom/utils/testHelper.ts" ><b>CourseTyps</b>&nbsp;&nbsp;&nbsp;(apps/.../testHelper.ts)</a>
+                            <a href="#CourseTyps" title="apps/server/src/entities/learnroom/testHelper.ts" ><b>CourseTyps</b>&nbsp;&nbsp;&nbsp;(apps/.../testHelper.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#MaxSubmissionsOperations" title="apps/server/src/modules/task/domain/TaskDomainService.ts" ><b>MaxSubmissionsOperations</b>&nbsp;&nbsp;&nbsp;(apps/.../TaskDomainService.ts)</a>
                         </li>
                         <li>
                             <a href="#NewsTargetModel" title="apps/server/src/modules/news/entity/news.types.ts" ><b>NewsTargetModel</b>&nbsp;&nbsp;&nbsp;(apps/.../news.types.ts)</a>
                         </li>
                         <li>
+                            <a href="#Permission" title="apps/server/src/modules/task/uc/task.uc.ts" ><b>Permission</b>&nbsp;&nbsp;&nbsp;(apps/.../task.uc.ts)</a>
+                        </li>
+                        <li>
                             <a href="#SortOrder" title="apps/server/src/shared/domain/interface/find-options.ts" ><b>SortOrder</b>&nbsp;&nbsp;&nbsp;(apps/.../find-options.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#TaskDashBoardPermission" title="apps/server/src/modules/task/uc/task.uc.ts" ><b>TaskDashBoardPermission</b>&nbsp;&nbsp;&nbsp;(apps/.../task.uc.ts)</a>
                         </li>
                     </ul>
                 </td>
@@ -74,7 +83,7 @@
     </table>
 </section>
 
-    <h3>apps/server/src/modules/learnroom/utils/testHelper.ts</h3>
+    <h3>apps/server/src/entities/learnroom/testHelper.ts</h3>
     <section>
         <table class="table table-sm table-bordered">
             <tbody>
@@ -112,6 +121,39 @@
                         <tr>
                             <td class="col-md-4">
                                 <i>Value : </i><code>substitutionTeacherIds</code>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+    <h3>apps/server/src/modules/task/domain/TaskDomainService.ts</h3>
+    <section>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="MaxSubmissionsOperations"></a>
+                        <span class="name "><b>MaxSubmissionsOperations</b><a href="#MaxSubmissionsOperations"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;teacher
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Value : </i><code>getMaxSubmissionsForTeachersByCourseId</code>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;student
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Value : </i><code>getMaxSubmissionsForStudentsByCourseId</code>
                             </td>
                         </tr>
             </tbody>
@@ -155,6 +197,59 @@
                         <tr>
                             <td class="col-md-4">
                                 <i>Value : </i><code>teams</code>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+    <h3>apps/server/src/modules/task/uc/task.uc.ts</h3>
+    <section>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="Permission"></a>
+                        <span class="name "><b>Permission</b><a href="#Permission"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;read
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;write
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="TaskDashBoardPermission"></a>
+                        <span class="name "><b>TaskDashBoardPermission</b><a href="#TaskDashBoardPermission"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;teacherDashboard
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Value : </i><code>TASK_DASHBOARD_TEACHER_VIEW_V3</code>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;studentDashboard
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Value : </i><code>TASK_DASHBOARD_VIEW_V3</code>
                             </td>
                         </tr>
             </tbody>

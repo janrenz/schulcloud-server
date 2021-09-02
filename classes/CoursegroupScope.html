@@ -61,7 +61,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/modules/learnroom/repo/coursegroup.repo.ts</code>
+            <code>apps/server/src/repositories/learnroom/coursegroup.repo.ts</code>
         </p>
 
 
@@ -91,15 +91,6 @@
                                     <span class="modifier">Private</span>
                                 <a href="#_queries" >_queries</a>
                             </li>
-                            <li>
-                                <a href="#createOrQueryFromList" >createOrQueryFromList</a>
-                            </li>
-                            <li>
-                                <a href="#isDefinedQuery" >isDefinedQuery</a>
-                            </li>
-                            <li>
-                                <a href="#useQueryIfValueIsDefined" >useQueryIfValueIsDefined</a>
-                            </li>
                         </ul>
                     </td>
                 </tr>
@@ -113,16 +104,13 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#findByCourses" >findByCourses</a>
-                            </li>
-                            <li>
-                                <a href="#addQrQuery" >addQrQuery</a>
+                                <a href="#byCourses" >byCourses</a>
                             </li>
                             <li>
                                 <a href="#addQuery" >addQuery</a>
                             </li>
                             <li>
-                                <a href="#addQueryIfValueIsDefined" >addQueryIfValueIsDefined</a>
+                                <a href="#buildAndAddOrQuery" >buildAndAddOrQuery</a>
                             </li>
                         </ul>
                     </td>
@@ -181,102 +169,6 @@
 
         </tbody>
     </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="createOrQueryFromList"></a>
-                    <span class="name">
-                        <span ><b>createOrQueryFromList</b></span>
-                        <a href="#createOrQueryFromList"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Default value : </i><code>createOrQueryFromList</code>
-                    </td>
-                </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <div class="io-line">Inherited from         <code><a href="../classes/Scope.html" target="_self" >Scope</a></code>
-</div>
-                            </td>
-                        </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/Scope.html#source" target="_self" >Scope:83</a></code>
-</div>
-                        </td>
-                    </tr>
-
-
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="isDefinedQuery"></a>
-                    <span class="name">
-                        <span ><b>isDefinedQuery</b></span>
-                        <a href="#isDefinedQuery"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Default value : </i><code>isDefinedQuery</code>
-                    </td>
-                </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <div class="io-line">Inherited from         <code><a href="../classes/Scope.html" target="_self" >Scope</a></code>
-</div>
-                            </td>
-                        </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/Scope.html#source" target="_self" >Scope:85</a></code>
-</div>
-                        </td>
-                    </tr>
-
-
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="useQueryIfValueIsDefined"></a>
-                    <span class="name">
-                        <span ><b>useQueryIfValueIsDefined</b></span>
-                        <a href="#useQueryIfValueIsDefined"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Default value : </i><code>useQueryIfValueIsDefined</code>
-                    </td>
-                </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <div class="io-line">Inherited from         <code><a href="../classes/Scope.html" target="_self" >Scope</a></code>
-</div>
-                            </td>
-                        </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/Scope.html#source" target="_self" >Scope:81</a></code>
-</div>
-                        </td>
-                    </tr>
-
-
-        </tbody>
-    </table>
 </section>
 
             <section>
@@ -288,24 +180,24 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="findByCourses"></a>
+                    <a name="byCourses"></a>
                     <span class="name">
-                        <span ><b>findByCourses</b></span>
-                        <a href="#findByCourses"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>byCourses</b></span>
+                        <a href="#byCourses"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>findByCourses(courses: <a href="../classes/Course.html" target="_self">Course[]</a>)</code>
+<code>byCourses(courses: <a href="../classes/Course.html" target="_self">Course[]</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="11"
-                            class="link-to-prism">apps/server/src/modules/learnroom/repo/coursegroup.repo.ts:11</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="9"
+                            class="link-to-prism">apps/server/src/repositories/learnroom/coursegroup.repo.ts:9</a></div>
                 </td>
             </tr>
 
@@ -343,112 +235,6 @@
                     </div>
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="../classes/CoursegroupScope.html" target="_self" >CoursegroupScope</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="addQrQuery"></a>
-                    <span class="name">
-                        <span ><b>addQrQuery</b></span>
-                        <a href="#addQrQuery"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>addQrQuery(arrayOfObjects: TT[], selectedKey: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, targetKey: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Inherited from         <code><a href="../classes/Scope.html" target="_self" >Scope</a></code>
-</div>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/Scope.html#source" target="_self" >Scope:76</a></code>
-</div>
-                </td>
-            </tr>
-
-            <tr>
-                <td class="col-md-4">
-                    <b>Type parameters :</b>
-                    <ul class="type-parameters">
-                        <li>TT</li>
-                    </ul>
-                </td>
-            </tr>
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>arrayOfObjects</td>
-                                    <td>
-                                            <code>TT[]</code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>selectedKey</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>targetKey</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
                     </div>
                     <div class="io-description">
@@ -536,16 +322,16 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="addQueryIfValueIsDefined"></a>
+                    <a name="buildAndAddOrQuery"></a>
                     <span class="name">
-                        <span ><b>addQueryIfValueIsDefined</b></span>
-                        <a href="#addQueryIfValueIsDefined"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>buildAndAddOrQuery</b></span>
+                        <a href="#buildAndAddOrQuery"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>addQueryIfValueIsDefined(testedValue: TT, query: FilterQuery<T>)</code>
+<code>buildAndAddOrQuery(arrayOfObjects: TT[], selectedKey: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, targetKey: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
@@ -587,9 +373,9 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>testedValue</td>
+                                    <td>arrayOfObjects</td>
                                     <td>
-                                            <code>TT</code>
+                                            <code>TT[]</code>
                                     </td>
 
                                     <td>
@@ -599,9 +385,21 @@
 
                                 </tr>
                                 <tr>
-                                    <td>query</td>
+                                    <td>selectedKey</td>
                                     <td>
-                                            <code>FilterQuery&lt;T&gt;</code>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>targetKey</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
                                     </td>
 
                                     <td>
@@ -641,25 +439,22 @@ import { Injectable } from &#x27;@nestjs/common&#x27;;
 
 import { Counted } from &#x27;@shared/domain&#x27;;
 import { Scope } from &#x27;@shared/repo&#x27;;
-
-import { Coursegroup, Course } from &#x27;../entity&#x27;;
-import { ICoursegroupRepo } from &#x27;../uc&#x27;;
+import { Coursegroup, Course } from &#x27;@src/entities&#x27;;
 
 class CoursegroupScope extends Scope&lt;Coursegroup&gt; {
-	findByCourses(courses: Course[]): CoursegroupScope {
-		this.addQrQuery(courses, &#x27;id&#x27;, &#x27;courseId&#x27;);
-
+	byCourses(courses: Course[]): CoursegroupScope {
+		this.buildAndAddOrQuery(courses, &#x27;id&#x27;, &#x27;courseId&#x27;);
 		return this;
 	}
 }
 
 @Injectable()
-export class CoursegroupRepo implements ICoursegroupRepo {
+export class CoursegroupRepo {
 	constructor(private readonly em: EntityManager) {}
 
 	async findByCourses(courses: Course[]): Promise&lt;Counted&lt;Coursegroup[]&gt;&gt; {
 		const scope &#x3D; new CoursegroupScope();
-		scope.findByCourses(courses);
+		scope.byCourses(courses);
 		const [coursegroups, count] &#x3D; await this.em.findAndCount(Coursegroup, scope.query);
 		return [coursegroups, count];
 	}

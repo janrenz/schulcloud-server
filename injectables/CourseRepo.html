@@ -57,7 +57,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/modules/learnroom/repo/course.repo.ts</code>
+            <code>apps/server/src/repositories/learnroom/course.repo.ts</code>
         </p>
 
 
@@ -104,7 +104,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">apps/server/src/modules/learnroom/repo/course.repo.ts:23</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">apps/server/src/repositories/learnroom/course.repo.ts:23</a></div>
                             </td>
                         </tr>
 
@@ -170,7 +170,7 @@
             <tr>
                 <td class="col-md-4">
                     <div class="io-line">Defined in <a href="" data-line="26"
-                            class="link-to-prism">apps/server/src/modules/learnroom/repo/course.repo.ts:26</a></div>
+                            class="link-to-prism">apps/server/src/repositories/learnroom/course.repo.ts:26</a></div>
                 </td>
             </tr>
 
@@ -223,29 +223,29 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { EntityManager } from &#x27;@mikro-orm/mongodb&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { EntityManager, ObjectId } from &#x27;@mikro-orm/mongodb&#x27;;
 import { Injectable } from &#x27;@nestjs/common&#x27;;
 
+import { Course } from &#x27;@src/entities&#x27;;
 import { EntityId, Counted } from &#x27;@shared/domain&#x27;;
 import { Scope } from &#x27;@shared/repo&#x27;;
 
-import { Course } from &#x27;../entity&#x27;;
-import { ICourseRepo } from &#x27;../uc&#x27;;
-
 class CourseScope extends Scope&lt;Course&gt; {
 	forAllGroupTypes(userId: EntityId): CourseScope {
-		const isStudent &#x3D; { studentIds: userId };
-		const isTeacher &#x3D; { teacherIds: userId };
-		const isSubstitutionTeacher &#x3D; { substitutionTeacherIds: userId };
-		const $or &#x3D; [isStudent, isTeacher, isSubstitutionTeacher];
-		this.addQueryIfValueIsDefined(userId, { $or });
+		const isStudent &#x3D; { studentIds: new ObjectId(userId) };
+		const isTeacher &#x3D; { teacherIds: new ObjectId(userId) };
+		const isSubstitutionTeacher &#x3D; { substitutionTeacherIds: new ObjectId(userId) };
+
+		if (userId) {
+			this.addQuery({ $or: [isStudent, isTeacher, isSubstitutionTeacher] });
+		}
 
 		return this;
 	}
 }
 
 @Injectable()
-export class CourseRepo implements ICourseRepo {
+export class CourseRepo {
 	constructor(private readonly em: EntityManager) {}
 
 	async findAllByUserId(userId: EntityId): Promise&lt;Counted&lt;Course[]&gt;&gt; {

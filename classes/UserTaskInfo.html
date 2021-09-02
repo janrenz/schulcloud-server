@@ -118,12 +118,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(partial: <a href="../interfaces/User.html" target="_self">Partial&lt;UserTaskInfo&gt;</a>)</code>
+<code>constructor(props: <a href="../interfaces/IUserTaskInfoProperties.html" target="_self">IUserTaskInfoProperties</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">apps/server/src/modules/task/entity/user-task-info.entity.ts:10</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">apps/server/src/modules/task/entity/user-task-info.entity.ts:16</a></div>
                             </td>
                         </tr>
 
@@ -141,10 +141,10 @@
                                         </thead>
                                         <tbody>
                                                 <tr>
-                                                        <td>partial</td>
+                                                        <td>props</td>
                                                   
                                                         <td>
-                                                                        <code><a href="../interfaces/User.html" target="_self" >Partial&lt;UserTaskInfo&gt;</a></code>
+                                                                        <code><a href="../interfaces/IUserTaskInfoProperties.html" target="_self" >IUserTaskInfoProperties</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -194,7 +194,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">apps/server/src/modules/task/entity/user-task-info.entity.ts:7</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">apps/server/src/modules/task/entity/user-task-info.entity.ts:13</a></div>
                         </td>
                     </tr>
 
@@ -229,7 +229,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">apps/server/src/modules/task/entity/user-task-info.entity.ts:10</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">apps/server/src/modules/task/entity/user-task-info.entity.ts:16</a></div>
                         </td>
                     </tr>
 
@@ -335,6 +335,11 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Entity, Property } from &#x27;@mikro-orm/core&#x27;;
 import { BaseEntity } from &#x27;@shared/domain&#x27;;
 
+interface IUserTaskInfoProperties {
+	firstName: string;
+	lastName: string;
+}
+
 @Entity({ tableName: &#x27;users&#x27; })
 export class UserTaskInfo extends BaseEntity {
 	@Property()
@@ -343,9 +348,12 @@ export class UserTaskInfo extends BaseEntity {
 	@Property()
 	lastName!: string;
 
-	constructor(partial: Partial&lt;UserTaskInfo&gt;) {
+	constructor(props: IUserTaskInfoProperties) {
 		super();
-		Object.assign(this, partial);
+		this.firstName &#x3D; props.firstName;
+		this.lastName &#x3D; props.lastName;
+
+		Object.assign(this, {});
 	}
 }
 </code></pre>

@@ -124,12 +124,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(partial: Partial<FileTaskInfo>)</code>
+<code>constructor(props: <a href="../interfaces/FileTaskInfoProperties.html" target="_self">FileTaskInfoProperties</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">apps/server/src/modules/task/entity/file-task-info.entity.ts:9</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">apps/server/src/modules/task/entity/file-task-info.entity.ts:20</a></div>
                             </td>
                         </tr>
 
@@ -147,10 +147,10 @@
                                         </thead>
                                         <tbody>
                                                 <tr>
-                                                        <td>partial</td>
+                                                        <td>props</td>
                                                   
                                                         <td>
-                                                                    <code>Partial&lt;FileTaskInfo&gt;</code>
+                                                                        <code><a href="../interfaces/FileTaskInfoProperties.html" target="_self" >FileTaskInfoProperties</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -200,7 +200,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">apps/server/src/modules/task/entity/file-task-info.entity.ts:19</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">apps/server/src/modules/task/entity/file-task-info.entity.ts:20</a></div>
                         </td>
                     </tr>
 
@@ -235,7 +235,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">apps/server/src/modules/task/entity/file-task-info.entity.ts:16</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">apps/server/src/modules/task/entity/file-task-info.entity.ts:17</a></div>
                         </td>
                     </tr>
 
@@ -424,18 +424,25 @@
 import { BaseEntityWithTimestamps } from &#x27;@shared/domain&#x27;;
 import { UserTaskInfo } from &#x27;./user-task-info.entity&#x27;;
 
+interface FileTaskInfoProperties {
+	name: string;
+	creator: UserTaskInfo;
+}
+
 @Entity({ tableName: &#x27;files&#x27; })
 export class FileTaskInfo extends BaseEntityWithTimestamps {
-	constructor(partial: Partial&lt;FileTaskInfo&gt;) {
-		super();
-		Object.assign(this, partial);
-	}
-
 	@Property()
 	name: string;
 
 	@Property()
 	creator: UserTaskInfo;
+
+	constructor(props: FileTaskInfoProperties) {
+		super();
+		this.name &#x3D; props.name;
+		this.creator &#x3D; props.creator;
+		Object.assign(this, {});
+	}
 }
 </code></pre>
     </div>

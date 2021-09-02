@@ -46,7 +46,7 @@
   <li>Interfaces</li>
   <li
   >
-  ICoursegroupRepo</li>
+  CoursegroupInfoProperties</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -64,7 +64,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/modules/learnroom/uc/course.uc.ts</code>
+            <code>apps/server/src/modules/task/entity/course-group-info.entity.ts</code>
         </p>
 
 
@@ -76,17 +76,24 @@
                 <tbody>
                     <tr>
                         <td class="col-md-4">
-                            <h6><b>Methods</b></h6>
+                            <h6><b>Properties</b></h6>
                         </td>
                     </tr>
                     <tr>
                         <td class="col-md-4">
                             <ul class="index-list">
                                 <li>
-                                    <a href="#findByCourses" 
+                                        <a href="#courseId" 
 >
-                                        findByCourses
-                                    </a>
+                                            courseId
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#students" 
+>
+                                            students
+                                        </a>
                                 </li>
                             </ul>
                         </td>
@@ -95,112 +102,109 @@
             </table>
         </section>
 
+
+
             <section>
-    
-    <h3 id="methods">
-        Methods
-    </h3>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="findByCourses"></a>
-                    <span class="name">
-                        <span ><b>findByCourses</b></span>
-                        <a href="#findByCourses"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>findByCourses(courses: <a href="../classes/Course.html" target="_self">Course[]</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="10"
-                            class="link-to-prism">apps/server/src/modules/learnroom/uc/course.uc.ts:10</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        <table class="params">
-                            <thead>
+                <h3 id="inputs">Properties</h3>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
                                 <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
+                                    <td class="col-md-4">
+                                        <a name="courseId"></a>
+                                        <span class="name "><b>courseId</b>
+                                            <a href="#courseId">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
                                 </tr>
-                            </thead>
-                            <tbody>
                                 <tr>
-                                    <td>courses</td>
-                                    <td>
-                                                <code><a href="../classes/Course.html" target="_self" >Course[]</a></code>
+                                    <td class="col-md-4">
+                                        <code>courseId:     <code>ObjectId</code>
+</code>
                                     </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
                                 </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#Counted" target="_self" >Promise&lt;Counted&lt;Coursegroup[]&gt;&gt;</a></code>
 
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</section>
 
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>    <code>ObjectId</code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="students"></a>
+                                        <span class="name "><b>students</b>
+                                            <a href="#students">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>students:         <code><a href="../interfaces/User.html" target="_self" >UserTaskInfo[]</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="../interfaces/User.html" target="_self" >UserTaskInfo[]</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+            </section>
     </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable, Inject } from &#x27;@nestjs/common&#x27;;
-import { EntityId, Counted } from &#x27;@shared/domain&#x27;;
-import { Course, Coursegroup } from &#x27;../entity&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Collection, Entity, ManyToMany, Property } from &#x27;@mikro-orm/core&#x27;;
+import { ObjectId } from &#x27;@mikro-orm/mongodb&#x27;;
+import { BaseEntityWithTimestamps } from &#x27;@shared/domain&#x27;;
+import { UserTaskInfo } from &#x27;./user-task-info.entity&#x27;;
 
-export interface ICourseRepo {
-	findAllByUserId(userId: EntityId): Promise&lt;Counted&lt;Course[]&gt;&gt;;
+interface CoursegroupInfoProperties {
+	students?: UserTaskInfo[];
+	courseId: ObjectId;
 }
 
-export interface ICoursegroupRepo {
-	findByCourses(courses: Course[]): Promise&lt;Counted&lt;Coursegroup[]&gt;&gt;;
-}
+@Entity({ tableName: &#x27;coursegroups&#x27; })
+export class CourseGroupInfo extends BaseEntityWithTimestamps {
+	@ManyToMany({ fieldName: &#x27;userIds&#x27;, type: UserTaskInfo })
+	students &#x3D; new Collection&lt;UserTaskInfo&gt;(this);
 
-@Injectable()
-export class CourseUC {
-	constructor(
-		@Inject(&#x27;CourseRepo&#x27;) readonly courseRepo: ICourseRepo,
-		@Inject(&#x27;CoursegroupRepo&#x27;) readonly coursegroupRepo: ICoursegroupRepo
-	) {}
+	@Property()
+	courseId: ObjectId;
 
-	async findCoursesWithGroupsByUserId(userId: EntityId): Promise&lt;Counted&lt;Course[]&gt;&gt; {
-		const [courses, count] &#x3D; await this.courseRepo.findAllByUserId(userId);
-		const [coursesgroups] &#x3D; await this.coursegroupRepo.findByCourses(courses);
-		/**
-		 * Important setGroupsThatMatchCourse is a temporary solution until we tested application only entitys
-		 */
-		courses.forEach((course) &#x3D;&gt; course.setGroupsThatMatchCourse(coursesgroups));
-		return [courses, count];
+	constructor(props: CoursegroupInfoProperties) {
+		super();
+		this.courseId &#x3D; props.courseId;
+
+		Object.assign(this, { students: props.students });
 	}
 }
 </code></pre>
@@ -230,7 +234,7 @@ export class CourseUC {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
-            var COMPODOC_CURRENT_PAGE_URL = 'ICoursegroupRepo.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'CoursegroupInfoProperties.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

@@ -43,7 +43,7 @@
 
 <ol class="breadcrumb">
   <li>Classes</li>
-  <li >LearnroomTestHelper</li>
+  <li >TestHelper</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -61,17 +61,11 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/entities/learnroom/testHelper.ts</code>
+            <code>apps/server/src/shared/domain/test/helper.ts</code>
         </p>
 
 
 
-            <p class="comment">
-                <h3>Extends</h3>
-            </p>
-            <p class="comment">
-                        <code><a href="../classes/TestHelper.html" target="_self" >TestHelper</a></code>
-            </p>
 
 
 
@@ -109,28 +103,6 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                    <span class="modifier">Private</span>
-                                <a href="#createCourse" >createCourse</a>
-                            </li>
-                            <li>
-                                <a href="#createCoursegroup" >createCoursegroup</a>
-                            </li>
-                            <li>
-                                <a href="#createSchool" >createSchool</a>
-                            </li>
-                            <li>
-                                <a href="#createStudentCourse" >createStudentCourse</a>
-                            </li>
-                            <li>
-                                <a href="#createSubstitutionCourse" >createSubstitutionCourse</a>
-                            </li>
-                            <li>
-                                <a href="#createTeacherCourse" >createTeacherCourse</a>
-                            </li>
-                            <li>
-                                <a href="#createUser" >createUser</a>
-                            </li>
-                            <li>
                                     <span class="modifier">Protected</span>
                                 <a href="#addId" >addId</a>
                             </li>
@@ -142,6 +114,14 @@
                             </li>
                             <li>
                                 <a href="#createId" >createId</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Abstract</span>
+                                <a href="#createSchool" >createSchool</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Abstract</span>
+                                <a href="#createUser" >createUser</a>
                             </li>
                             <li>
                                 <a href="#getFirstUser" >getFirstUser</a>
@@ -171,6 +151,34 @@
     </table>
 </section>
 
+            <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor()</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">apps/server/src/shared/domain/test/helper.ts:11</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Create two user one that are used for create operations.
+The other is created for all is not part of created element operations.
+It also create a school that is used for this two user and all new added users.</p>
+<p>You get the the user over helper.getFirstUser(), or helper.getUsers(); and helper.getOtherUser();
+By executing helper.createAndAddUser() the getUsers() list is increased and all create operations will use it.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
 
             <section>
     
@@ -194,16 +202,9 @@
 
                     </td>
                 </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <div class="io-line">Inherited from         <code><a href="../classes/TestHelper.html" target="_self" >TestHelper</a></code>
-</div>
-                            </td>
-                        </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/TestHelper.html#source" target="_self" >TestHelper:9</a></code>
-</div>
+                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">apps/server/src/shared/domain/test/helper.ts:9</a></div>
                         </td>
                     </tr>
 
@@ -227,16 +228,9 @@
 
                     </td>
                 </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <div class="io-line">Inherited from         <code><a href="../classes/TestHelper.html" target="_self" >TestHelper</a></code>
-</div>
-                            </td>
-                        </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/TestHelper.html#source" target="_self" >TestHelper:11</a></code>
-</div>
+                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">apps/server/src/shared/domain/test/helper.ts:11</a></div>
                         </td>
                     </tr>
 
@@ -265,16 +259,9 @@
                         <i>Default value : </i><code>[]</code>
                     </td>
                 </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <div class="io-line">Inherited from         <code><a href="../classes/TestHelper.html" target="_self" >TestHelper</a></code>
-</div>
-                            </td>
-                        </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/TestHelper.html#source" target="_self" >TestHelper:7</a></code>
-</div>
+                                <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">apps/server/src/shared/domain/test/helper.ts:7</a></div>
                         </td>
                     </tr>
 
@@ -288,341 +275,6 @@
     <h3 id="methods">
         Methods
     </h3>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="createCourse"></a>
-                    <span class="name">
-                        <span class="modifier">Private</span>
-                        <span ><b>createCourse</b></span>
-                        <a href="#createCourse"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>createCourse(type: <a href="../classes/Course.html" target="_self">CourseTyps</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="24"
-                            class="link-to-prism">apps/server/src/entities/learnroom/testHelper.ts:24</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>type</td>
-                                    <td>
-                                                <code><a href="../classes/Course.html" target="_self" >CourseTyps</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/Course.html" target="_self" >Course</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="createCoursegroup"></a>
-                    <span class="name">
-                        <span ><b>createCoursegroup</b></span>
-                        <a href="#createCoursegroup"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>createCoursegroup(course: <a href="../classes/Course.html" target="_self">Course</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="46"
-                            class="link-to-prism">apps/server/src/entities/learnroom/testHelper.ts:46</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>course</td>
-                                    <td>
-                                                <code><a href="../classes/Course.html" target="_self" >Course</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/Coursegroup.html" target="_self" >Coursegroup</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="createSchool"></a>
-                    <span class="name">
-                        <span ><b>createSchool</b></span>
-                        <a href="#createSchool"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>createSchool()</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Inherited from         <code><a href="../classes/TestHelper.html" target="_self" >TestHelper</a></code>
-</div>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/TestHelper.html#source" target="_self" >TestHelper:20</a></code>
-</div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
-
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="createStudentCourse"></a>
-                    <span class="name">
-                        <span ><b>createStudentCourse</b></span>
-                        <a href="#createStudentCourse"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>createStudentCourse()</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="34"
-                            class="link-to-prism">apps/server/src/entities/learnroom/testHelper.ts:34</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/Course.html" target="_self" >Course</a></code>
-
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="createSubstitutionCourse"></a>
-                    <span class="name">
-                        <span ><b>createSubstitutionCourse</b></span>
-                        <a href="#createSubstitutionCourse"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>createSubstitutionCourse()</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="42"
-                            class="link-to-prism">apps/server/src/entities/learnroom/testHelper.ts:42</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/Course.html" target="_self" >Course</a></code>
-
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="createTeacherCourse"></a>
-                    <span class="name">
-                        <span ><b>createTeacherCourse</b></span>
-                        <a href="#createTeacherCourse"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>createTeacherCourse()</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="38"
-                            class="link-to-prism">apps/server/src/entities/learnroom/testHelper.ts:38</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/Course.html" target="_self" >Course</a></code>
-
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="createUser"></a>
-                    <span class="name">
-                        <span ><b>createUser</b></span>
-                        <a href="#createUser"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>createUser()</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Inherited from         <code><a href="../classes/TestHelper.html" target="_self" >TestHelper</a></code>
-</div>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/TestHelper.html#source" target="_self" >TestHelper:14</a></code>
-</div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/BaseEntity.html" target="_self" >BaseEntity</a></code>
-
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
     <table class="table table-sm table-bordered">
         <tbody>
             <tr>
@@ -645,14 +297,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Inherited from         <code><a href="../classes/TestHelper.html" target="_self" >TestHelper</a></code>
-</div>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/TestHelper.html#source" target="_self" >TestHelper:82</a></code>
-</div>
+                    <div class="io-line">Defined in <a href="" data-line="82"
+                            class="link-to-prism">apps/server/src/shared/domain/test/helper.ts:82</a></div>
                 </td>
             </tr>
 
@@ -719,14 +365,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Inherited from         <code><a href="../classes/TestHelper.html" target="_self" >TestHelper</a></code>
-</div>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/TestHelper.html#source" target="_self" >TestHelper:42</a></code>
-</div>
+                    <div class="io-line">Defined in <a href="" data-line="42"
+                            class="link-to-prism">apps/server/src/shared/domain/test/helper.ts:42</a></div>
                 </td>
             </tr>
 
@@ -793,14 +433,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Inherited from         <code><a href="../classes/TestHelper.html" target="_self" >TestHelper</a></code>
-</div>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/TestHelper.html#source" target="_self" >TestHelper:36</a></code>
-</div>
+                    <div class="io-line">Defined in <a href="" data-line="36"
+                            class="link-to-prism">apps/server/src/shared/domain/test/helper.ts:36</a></div>
                 </td>
             </tr>
 
@@ -836,14 +470,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Inherited from         <code><a href="../classes/TestHelper.html" target="_self" >TestHelper</a></code>
-</div>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/TestHelper.html#source" target="_self" >TestHelper:31</a></code>
-</div>
+                    <div class="io-line">Defined in <a href="" data-line="31"
+                            class="link-to-prism">apps/server/src/shared/domain/test/helper.ts:31</a></div>
                 </td>
             </tr>
 
@@ -894,6 +522,84 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="createSchool"></a>
+                    <span class="name">
+                        <span class="modifier">Abstract</span>
+                        <span ><b>createSchool</b></span>
+                        <a href="#createSchool"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>createSchool()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="29"
+                            class="link-to-prism">apps/server/src/shared/domain/test/helper.ts:29</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>SchoolType</code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createUser"></a>
+                    <span class="name">
+                        <span class="modifier">Abstract</span>
+                        <span ><b>createUser</b></span>
+                        <a href="#createUser"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>createUser()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="27"
+                            class="link-to-prism">apps/server/src/shared/domain/test/helper.ts:27</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/BaseEntity.html" target="_self" >BaseEntity</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="getFirstUser"></a>
                     <span class="name">
                         <span ><b>getFirstUser</b></span>
@@ -910,14 +616,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Inherited from         <code><a href="../classes/TestHelper.html" target="_self" >TestHelper</a></code>
-</div>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/TestHelper.html#source" target="_self" >TestHelper:65</a></code>
-</div>
+                    <div class="io-line">Defined in <a href="" data-line="65"
+                            class="link-to-prism">apps/server/src/shared/domain/test/helper.ts:65</a></div>
                 </td>
             </tr>
 
@@ -953,14 +653,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Inherited from         <code><a href="../classes/TestHelper.html" target="_self" >TestHelper</a></code>
-</div>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/TestHelper.html#source" target="_self" >TestHelper:70</a></code>
-</div>
+                    <div class="io-line">Defined in <a href="" data-line="70"
+                            class="link-to-prism">apps/server/src/shared/domain/test/helper.ts:70</a></div>
                 </td>
             </tr>
 
@@ -996,14 +690,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Inherited from         <code><a href="../classes/TestHelper.html" target="_self" >TestHelper</a></code>
-</div>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/TestHelper.html#source" target="_self" >TestHelper:78</a></code>
-</div>
+                    <div class="io-line">Defined in <a href="" data-line="78"
+                            class="link-to-prism">apps/server/src/shared/domain/test/helper.ts:78</a></div>
                 </td>
             </tr>
 
@@ -1039,14 +727,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Inherited from         <code><a href="../classes/TestHelper.html" target="_self" >TestHelper</a></code>
-</div>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/TestHelper.html#source" target="_self" >TestHelper:74</a></code>
-</div>
+                    <div class="io-line">Defined in <a href="" data-line="74"
+                            class="link-to-prism">apps/server/src/shared/domain/test/helper.ts:74</a></div>
                 </td>
             </tr>
 
@@ -1084,14 +766,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Inherited from         <code><a href="../classes/TestHelper.html" target="_self" >TestHelper</a></code>
-</div>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/TestHelper.html#source" target="_self" >TestHelper:90</a></code>
-</div>
+                    <div class="io-line">Defined in <a href="" data-line="90"
+                            class="link-to-prism">apps/server/src/shared/domain/test/helper.ts:90</a></div>
                 </td>
             </tr>
 
@@ -1118,55 +794,98 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ObjectId } from &#x27;@mikro-orm/mongodb&#x27;;
-import { BaseEntity, EntityId, TestHelper } from &#x27;@shared/domain&#x27;;
 
-import { Course } from &#x27;./course.entity&#x27;;
-import { Coursegroup } from &#x27;./coursegroup.entity&#x27;;
+import { EntityId } from &#x27;../types/entity-id&#x27;;
+import { BaseEntity } from &#x27;../entity/base.entity&#x27;;
 
-enum CourseTyps {
-	teacher &#x3D; &#x27;teacherIds&#x27;,
-	student &#x3D; &#x27;studentIds&#x27;,
-	subsitutionTeacher &#x3D; &#x27;substitutionTeacherIds&#x27;,
-}
+export abstract class TestHelper&lt;SchoolType&gt; {
+	users: BaseEntity[] &#x3D; [];
 
-export class LearnroomTestHelper extends TestHelper&lt;EntityId&gt; {
-	createUser(): BaseEntity {
-		const user &#x3D; new BaseEntity();
-		this.addId(user);
-		return user;
+	otherUser: BaseEntity;
+
+	school: SchoolType;
+
+	/**
+	 * Create two user one that are used for create operations.
+	 * The other is created for all is not part of created element operations.
+	 * It also create a school that is used for this two user and all new added users.
+	 *
+	 * You get the the user over helper.getFirstUser(), or helper.getUsers(); and helper.getOtherUser();
+	 * By executing helper.createAndAddUser() the getUsers() list is increased and all create operations will use it.
+	 */
+	constructor() {
+		this.init();
 	}
 
-	createSchool(): EntityId {
-		return this.createEntityId();
+	// That any helper must implement this is a temporary solution until
+	// user and school entity is avaible in global or shared scope.
+	abstract createUser(): BaseEntity;
+
+	abstract createSchool(): SchoolType;
+
+	createId(entityId?: EntityId): ObjectId {
+		const id &#x3D; new ObjectId(entityId);
+		return id;
 	}
 
-	private createCourse(type: CourseTyps): Course {
-		const course &#x3D; new Course({
-			[type]: this.getUsers().map((o) &#x3D;&gt; o._id),
-			schoolId: new ObjectId(this.getSchool()),
-			name: &#x27;&#x27;,
-		});
-		this.addId(course);
-		return course;
+	createEntityId(): EntityId {
+		const entityId &#x3D; this.createId().toHexString();
+		return entityId;
 	}
 
-	createStudentCourse(): Course {
-		return this.createCourse(CourseTyps.student);
+	// If else mapping can removed after the abstract createUser() is replaced by createUser from global user entity.
+	createAndAddUser(user?: BaseEntity | EntityId): void {
+		const newUser &#x3D; this.createUser();
+		if (user instanceof BaseEntity) {
+			newUser._id &#x3D; user._id;
+			newUser.id &#x3D; user.id;
+		} else if (typeof user &#x3D;&#x3D;&#x3D; &#x27;string&#x27;) {
+			newUser.id &#x3D; user;
+		}
+
+		// TODO try to understand why we need that (uidp)
+		// if (newUser instanceof BaseEntity &amp;&amp; user instanceof BaseEntity &amp;&amp; user.id) {
+		// 	newUser.id &#x3D; user.id;
+		// } else if (newUser instanceof BaseEntity &amp;&amp; typeof user &#x3D;&#x3D;&#x3D; &#x27;string&#x27;) {
+		// 	newUser.id &#x3D; user;
+		// } else if (typeof newUser &#x3D;&#x3D;&#x3D; &#x27;string&#x27; &amp;&amp; user instanceof BaseEntity &amp;&amp; user.id) {
+		// 	newUser &#x3D; user.id;
+		// } else if (typeof newUser &#x3D;&#x3D;&#x3D; &#x27;string&#x27; &amp;&amp; typeof user &#x3D;&#x3D;&#x3D; &#x27;string&#x27;) {
+		// 	newUser &#x3D; user;
+		// }
+
+		this.users.push(newUser);
 	}
 
-	createTeacherCourse(): Course {
-		return this.createCourse(CourseTyps.teacher);
+	getFirstUser(): BaseEntity {
+		return this.users[0];
 	}
 
-	createSubstitutionCourse(): Course {
-		return this.createCourse(CourseTyps.subsitutionTeacher);
+	// TODO: find better name for existing user that is not part of the ressources
+	getOtherUser(): BaseEntity {
+		return this.otherUser;
 	}
 
-	createCoursegroup(course: Course): Coursegroup {
-		const studentIds &#x3D; this.getUsers().map((o) &#x3D;&gt; o._id);
-		const coursegroup &#x3D; new Coursegroup({ studentIds, courseId: course._id });
-		this.addId(coursegroup);
-		return coursegroup;
+	getUsers(): BaseEntity[] {
+		return this.users;
+	}
+
+	getSchool(): SchoolType {
+		return this.school;
+	}
+
+	protected addId(entity: BaseEntity): void {
+		const id &#x3D; this.createId();
+		entity.id &#x3D; id.toHexString();
+		entity._id &#x3D; id;
+	}
+
+	// Temp solution until abstract createUser and createSchool is solved.
+	// It can move to constructor
+	private init(): void {
+		this.school &#x3D; this.createSchool();
+		this.createAndAddUser();
+		this.otherUser &#x3D; this.createUser();
 	}
 }
 </code></pre>
@@ -1197,7 +916,7 @@ export class LearnroomTestHelper extends TestHelper&lt;EntityId&gt; {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
-            var COMPODOC_CURRENT_PAGE_URL = 'LearnroomTestHelper.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'TestHelper.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

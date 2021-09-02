@@ -43,7 +43,7 @@
 
 <ol class="breadcrumb">
   <li>Classes</li>
-  <li >CourseScope</li>
+  <li >TaskScope</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -61,7 +61,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/repositories/learnroom/course.repo.ts</code>
+            <code>apps/server/src/modules/task/repo/task-scope.ts</code>
         </p>
 
 
@@ -104,7 +104,22 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#forAllGroupTypes" >forAllGroupTypes</a>
+                                <a href="#afterDueDateOrNone" >afterDueDateOrNone</a>
+                            </li>
+                            <li>
+                                <a href="#byIds" >byIds</a>
+                            </li>
+                            <li>
+                                <a href="#byLessonsOrNone" >byLessonsOrNone</a>
+                            </li>
+                            <li>
+                                <a href="#byParents" >byParents</a>
+                            </li>
+                            <li>
+                                <a href="#byPublic" >byPublic</a>
+                            </li>
+                            <li>
+                                <a href="#ignoreIds" >ignoreIds</a>
                             </li>
                             <li>
                                 <a href="#addQuery" >addQuery</a>
@@ -180,24 +195,24 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="forAllGroupTypes"></a>
+                    <a name="afterDueDateOrNone"></a>
                     <span class="name">
-                        <span ><b>forAllGroupTypes</b></span>
-                        <a href="#forAllGroupTypes"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>afterDueDateOrNone</b></span>
+                        <a href="#afterDueDateOrNone"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>forAllGroupTypes(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>)</code>
+<code>afterDueDateOrNone(dueDate: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank">Date</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="9"
-                            class="link-to-prism">apps/server/src/repositories/learnroom/course.repo.ts:9</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="32"
+                            class="link-to-prism">apps/server/src/modules/task/repo/task-scope.ts:32</a></div>
                 </td>
             </tr>
 
@@ -217,9 +232,9 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>userId</td>
+                                    <td>dueDate</td>
                                     <td>
-                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" >Date</a></code>
                                     </td>
 
                                     <td>
@@ -234,7 +249,316 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/CourseScope.html" target="_self" >CourseScope</a></code>
+                        <b>Returns : </b>        <code><a href="../classes/TaskScope.html" target="_self" >TaskScope</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="byIds"></a>
+                    <span class="name">
+                        <span ><b>byIds</b></span>
+                        <a href="#byIds"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>byIds(taskIds: <a href="../undefineds/EntityId.html" target="_self">EntityId[]</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="22"
+                            class="link-to-prism">apps/server/src/modules/task/repo/task-scope.ts:22</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>taskIds</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId[]</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/TaskScope.html" target="_self" >TaskScope</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="byLessonsOrNone"></a>
+                    <span class="name">
+                        <span ><b>byLessonsOrNone</b></span>
+                        <a href="#byLessonsOrNone"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>byLessonsOrNone(lessonIds: <a href="../undefineds/EntityId.html" target="_self">EntityId[]</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="17"
+                            class="link-to-prism">apps/server/src/modules/task/repo/task-scope.ts:17</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>lessonIds</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId[]</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/TaskScope.html" target="_self" >TaskScope</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="byParents"></a>
+                    <span class="name">
+                        <span ><b>byParents</b></span>
+                        <a href="#byParents"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>byParents(parentIds: <a href="../undefineds/EntityId.html" target="_self">EntityId[]</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="7"
+                            class="link-to-prism">apps/server/src/modules/task/repo/task-scope.ts:7</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>parentIds</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId[]</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/TaskScope.html" target="_self" >TaskScope</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="byPublic"></a>
+                    <span class="name">
+                        <span ><b>byPublic</b></span>
+                        <a href="#byPublic"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>byPublic()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="12"
+                            class="link-to-prism">apps/server/src/modules/task/repo/task-scope.ts:12</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/TaskScope.html" target="_self" >TaskScope</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ignoreIds"></a>
+                    <span class="name">
+                        <span ><b>ignoreIds</b></span>
+                        <a href="#ignoreIds"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ignoreIds(taskIds: <a href="../undefineds/EntityId.html" target="_self">EntityId[]</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="27"
+                            class="link-to-prism">apps/server/src/modules/task/repo/task-scope.ts:27</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>taskIds</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId[]</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/TaskScope.html" target="_self" >TaskScope</a></code>
 
                     </div>
                     <div class="io-description">
@@ -434,36 +758,40 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { EntityManager, ObjectId } from &#x27;@mikro-orm/mongodb&#x27;;
-import { Injectable } from &#x27;@nestjs/common&#x27;;
-
-import { Course } from &#x27;@src/entities&#x27;;
-import { EntityId, Counted } from &#x27;@shared/domain&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ObjectId } from &#x27;@mikro-orm/mongodb&#x27;;
+import { EntityId } from &#x27;@shared/domain&#x27;;
 import { Scope } from &#x27;@shared/repo&#x27;;
+import { Task } from &#x27;../entity&#x27;;
 
-class CourseScope extends Scope&lt;Course&gt; {
-	forAllGroupTypes(userId: EntityId): CourseScope {
-		const isStudent &#x3D; { studentIds: new ObjectId(userId) };
-		const isTeacher &#x3D; { teacherIds: new ObjectId(userId) };
-		const isSubstitutionTeacher &#x3D; { substitutionTeacherIds: new ObjectId(userId) };
-
-		if (userId) {
-			this.addQuery({ $or: [isStudent, isTeacher, isSubstitutionTeacher] });
-		}
-
+export class TaskScope extends Scope&lt;Task&gt; {
+	byParents(parentIds: EntityId[]): TaskScope {
+		this.addQuery({ parentId: { $in: parentIds.map((id) &#x3D;&gt; new ObjectId(id)) } });
 		return this;
 	}
-}
 
-@Injectable()
-export class CourseRepo {
-	constructor(private readonly em: EntityManager) {}
+	byPublic(): TaskScope {
+		this.addQuery({ private: { $ne: true } });
+		return this;
+	}
 
-	async findAllByUserId(userId: EntityId): Promise&lt;Counted&lt;Course[]&gt;&gt; {
-		const scope &#x3D; new CourseScope();
-		scope.forAllGroupTypes(userId);
-		const [courses, count] &#x3D; await this.em.findAndCount(Course, scope.query);
-		return [courses, count];
+	byLessonsOrNone(lessonIds: EntityId[]): TaskScope {
+		this.addQuery({ $or: [{ lesson: { $in: lessonIds } }, { lesson: null }] });
+		return this;
+	}
+
+	byIds(taskIds: EntityId[]): TaskScope {
+		this.addQuery({ id: { $in: taskIds } });
+		return this;
+	}
+
+	ignoreIds(taskIds: EntityId[]): TaskScope {
+		this.addQuery({ id: { $nin: taskIds } });
+		return this;
+	}
+
+	afterDueDateOrNone(dueDate: Date): TaskScope {
+		this.addQuery({ $or: [{ dueDate: { $gte: dueDate } }, { dueDate: null }] });
+		return this;
 	}
 }
 </code></pre>
@@ -494,7 +822,7 @@ export class CourseRepo {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
-            var COMPODOC_CURRENT_PAGE_URL = 'CourseScope.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'TaskScope.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

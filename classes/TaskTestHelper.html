@@ -43,7 +43,7 @@
 
 <ol class="breadcrumb">
   <li>Classes</li>
-  <li >LearnroomTestHelper</li>
+  <li >TaskTestHelper</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -61,7 +61,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/entities/learnroom/testHelper.ts</code>
+            <code>apps/server/src/modules/task/utils/TestHelper.ts</code>
         </p>
 
 
@@ -109,23 +109,25 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                    <span class="modifier">Private</span>
-                                <a href="#createCourse" >createCourse</a>
-                            </li>
-                            <li>
-                                <a href="#createCoursegroup" >createCoursegroup</a>
+                                <a href="#createLessonWithTask" >createLessonWithTask</a>
                             </li>
                             <li>
                                 <a href="#createSchool" >createSchool</a>
                             </li>
                             <li>
-                                <a href="#createStudentCourse" >createStudentCourse</a>
+                                <a href="#createSubmission" >createSubmission</a>
                             </li>
                             <li>
-                                <a href="#createSubstitutionCourse" >createSubstitutionCourse</a>
+                                <a href="#createSubmissionsForEachStudent" >createSubmissionsForEachStudent</a>
                             </li>
                             <li>
-                                <a href="#createTeacherCourse" >createTeacherCourse</a>
+                                <a href="#createTask" >createTask</a>
+                            </li>
+                            <li>
+                                <a href="#createTaskParent" >createTaskParent</a>
+                            </li>
+                            <li>
+                                <a href="#createTeamMemberSubmission" >createTeamMemberSubmission</a>
                             </li>
                             <li>
                                 <a href="#createUser" >createUser</a>
@@ -292,94 +294,24 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="createCourse"></a>
+                    <a name="createLessonWithTask"></a>
                     <span class="name">
-                        <span class="modifier">Private</span>
-                        <span ><b>createCourse</b></span>
-                        <a href="#createCourse"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>createLessonWithTask</b></span>
+                        <a href="#createLessonWithTask"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>createCourse(type: <a href="../classes/Course.html" target="_self">CourseTyps</a>)</code>
+<code>createLessonWithTask()</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="24"
-                            class="link-to-prism">apps/server/src/entities/learnroom/testHelper.ts:24</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>type</td>
-                                    <td>
-                                                <code><a href="../classes/Course.html" target="_self" >CourseTyps</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/Course.html" target="_self" >Course</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="createCoursegroup"></a>
-                    <span class="name">
-                        <span ><b>createCoursegroup</b></span>
-                        <a href="#createCoursegroup"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>createCoursegroup(course: <a href="../classes/Course.html" target="_self">Course</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="46"
-                            class="link-to-prism">apps/server/src/entities/learnroom/testHelper.ts:46</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="57"
+                            class="link-to-prism">apps/server/src/modules/task/utils/TestHelper.ts:57</a></div>
                 </td>
             </tr>
 
@@ -388,39 +320,8 @@
                 <td class="col-md-4">
 
                     <div class="io-description">
-                        <b>Parameters :</b>
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>course</td>
-                                    <td>
-                                                <code><a href="../classes/Course.html" target="_self" >Course</a></code>
-                                    </td>
+                        <b>Returns : </b>    <code>literal type</code>
 
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/Coursegroup.html" target="_self" >Coursegroup</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
                     </div>
                 </td>
             </tr>
@@ -452,7 +353,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/TestHelper.html#source" target="_self" >TestHelper:20</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/TestHelper.html#source" target="_self" >TestHelper:34</a></code>
 </div>
                 </td>
             </tr>
@@ -473,24 +374,24 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="createStudentCourse"></a>
+                    <a name="createSubmission"></a>
                     <span class="name">
-                        <span ><b>createStudentCourse</b></span>
-                        <a href="#createStudentCourse"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>createSubmission</b></span>
+                        <a href="#createSubmission"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>createStudentCourse()</code>
+<code>createSubmission(task: <a href="../classes/Task.html" target="_self">Task</a>, student?: <a href="../interfaces/User.html" target="_self">UserTaskInfo</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="34"
-                            class="link-to-prism">apps/server/src/entities/learnroom/testHelper.ts:34</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="66"
+                            class="link-to-prism">apps/server/src/modules/task/utils/TestHelper.ts:66</a></div>
                 </td>
             </tr>
 
@@ -499,8 +400,51 @@
                 <td class="col-md-4">
 
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/Course.html" target="_self" >Course</a></code>
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>task</td>
+                                    <td>
+                                                <code><a href="../classes/Task.html" target="_self" >Task</a></code>
+                                    </td>
 
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>student</td>
+                                    <td>
+                                                <code><a href="../interfaces/User.html" target="_self" >UserTaskInfo</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/Submission.html" target="_self" >Submission</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
                     </div>
                 </td>
             </tr>
@@ -510,24 +454,24 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="createSubstitutionCourse"></a>
+                    <a name="createSubmissionsForEachStudent"></a>
                     <span class="name">
-                        <span ><b>createSubstitutionCourse</b></span>
-                        <a href="#createSubstitutionCourse"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>createSubmissionsForEachStudent</b></span>
+                        <a href="#createSubmissionsForEachStudent"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>createSubstitutionCourse()</code>
+<code>createSubmissionsForEachStudent(task: <a href="../classes/Task.html" target="_self">Task</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="42"
-                            class="link-to-prism">apps/server/src/entities/learnroom/testHelper.ts:42</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="79"
+                            class="link-to-prism">apps/server/src/modules/task/utils/TestHelper.ts:79</a></div>
                 </td>
             </tr>
 
@@ -536,8 +480,39 @@
                 <td class="col-md-4">
 
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/Course.html" target="_self" >Course</a></code>
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>task</td>
+                                    <td>
+                                                <code><a href="../classes/Task.html" target="_self" >Task</a></code>
+                                    </td>
 
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/Submission.html" target="_self" >Submission[]</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
                     </div>
                 </td>
             </tr>
@@ -547,24 +522,24 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="createTeacherCourse"></a>
+                    <a name="createTask"></a>
                     <span class="name">
-                        <span ><b>createTeacherCourse</b></span>
-                        <a href="#createTeacherCourse"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>createTask</b></span>
+                        <a href="#createTask"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>createTeacherCourse()</code>
+<code>createTask(parentId?: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, dueDate?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank">Date</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="38"
-                            class="link-to-prism">apps/server/src/entities/learnroom/testHelper.ts:38</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="50"
+                            class="link-to-prism">apps/server/src/modules/task/utils/TestHelper.ts:50</a></div>
                 </td>
             </tr>
 
@@ -573,8 +548,199 @@
                 <td class="col-md-4">
 
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/Course.html" target="_self" >Course</a></code>
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>parentId</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
+                                    </td>
 
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>dueDate</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" >Date</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/Task.html" target="_self" >Task</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createTaskParent"></a>
+                    <span class="name">
+                        <span ><b>createTaskParent</b></span>
+                        <a href="#createTaskParent"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>createTaskParent(userIdWithWritePermissions?: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="44"
+                            class="link-to-prism">apps/server/src/modules/task/utils/TestHelper.ts:44</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>userIdWithWritePermissions</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/TaskParentTestEntity.html" target="_self" >TaskParentTestEntity</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createTeamMemberSubmission"></a>
+                    <span class="name">
+                        <span ><b>createTeamMemberSubmission</b></span>
+                        <a href="#createTeamMemberSubmission"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>createTeamMemberSubmission(task: <a href="../classes/Task.html" target="_self">Task</a>, students: <a href="../interfaces/User.html" target="_self">UserTaskInfo[]</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="73"
+                            class="link-to-prism">apps/server/src/modules/task/utils/TestHelper.ts:73</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>task</td>
+                                    <td>
+                                                <code><a href="../classes/Task.html" target="_self" >Task</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>students</td>
+                                    <td>
+                                                <code><a href="../interfaces/User.html" target="_self" >UserTaskInfo[]</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/Submission.html" target="_self" >Submission</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
                     </div>
                 </td>
             </tr>
@@ -606,7 +772,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/TestHelper.html#source" target="_self" >TestHelper:14</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/TestHelper.html#source" target="_self" >TestHelper:38</a></code>
 </div>
                 </td>
             </tr>
@@ -616,7 +782,7 @@
                 <td class="col-md-4">
 
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/BaseEntity.html" target="_self" >BaseEntity</a></code>
+                        <b>Returns : </b>        <code><a href="../interfaces/User.html" target="_self" >UserTaskInfo</a></code>
 
                     </div>
                 </td>
@@ -1117,56 +1283,90 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ObjectId } from &#x27;@mikro-orm/mongodb&#x27;;
-import { BaseEntity, EntityId, TestHelper } from &#x27;@shared/domain&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { EntityId, TestHelper } from &#x27;@shared/domain&#x27;;
 
-import { Course } from &#x27;./course.entity&#x27;;
-import { Coursegroup } from &#x27;./coursegroup.entity&#x27;;
+import { Submission, Task, UserTaskInfo, LessonTaskInfo, ITaskParent, IParentDescriptionsProperties } from &#x27;../entity&#x27;;
 
-enum CourseTyps {
-	teacher &#x3D; &#x27;teacherIds&#x27;,
-	student &#x3D; &#x27;studentIds&#x27;,
-	subsitutionTeacher &#x3D; &#x27;substitutionTeacherIds&#x27;,
-}
+export class TaskParentTestEntity implements ITaskParent {
+	id: EntityId;
 
-export class LearnroomTestHelper extends TestHelper&lt;EntityId&gt; {
-	createUser(): BaseEntity {
-		const user &#x3D; new BaseEntity();
-		this.addId(user);
-		return user;
+	user?: EntityId;
+
+	constructor(userIdWithWritePermissions?: EntityId) {
+		this.user &#x3D; userIdWithWritePermissions;
 	}
 
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
+	hasWritePermission(userId: EntityId): boolean {
+		const hasWritePermission &#x3D; this.user !&#x3D;&#x3D; undefined ? this.user &#x3D;&#x3D;&#x3D; userId : false;
+		return hasWritePermission;
+	}
+
+	getDescriptions(): IParentDescriptionsProperties {
+		return {
+			id: this.id,
+			color: &#x27;FFFFFF&#x27;,
+			name: &#x27;Parent&#x27;,
+		};
+	}
+
+	getStudentsNumber(): number {
+		return 10;
+	}
+}
+
+export class TaskTestHelper extends TestHelper&lt;EntityId&gt; {
 	createSchool(): EntityId {
 		return this.createEntityId();
 	}
 
-	private createCourse(type: CourseTyps): Course {
-		const course &#x3D; new Course({
-			[type]: this.getUsers().map((o) &#x3D;&gt; o._id),
-			schoolId: new ObjectId(this.getSchool()),
-			name: &#x27;&#x27;,
+	createUser(): UserTaskInfo {
+		const user &#x3D; new UserTaskInfo({ lastName: &#x27;&#x27;, firstName: &#x27;&#x27; });
+		this.addId(user);
+		return user;
+	}
+
+	createTaskParent(userIdWithWritePermissions?: EntityId): TaskParentTestEntity {
+		const parent &#x3D; new TaskParentTestEntity(userIdWithWritePermissions);
+		parent.id &#x3D; this.createEntityId();
+		return parent;
+	}
+
+	createTask(parentId?: EntityId, dueDate?: Date): Task {
+		const id &#x3D; this.createId(parentId);
+		const task &#x3D; new Task({ name: &#x27;&#x27;, parentId: id, dueDate });
+		this.addId(task);
+		return task;
+	}
+
+	createLessonWithTask(): { task: Task; lesson: LessonTaskInfo; parentId: EntityId } {
+		const parentId &#x3D; this.createId();
+		const lesson &#x3D; new LessonTaskInfo({ courseId: parentId });
+		this.addId(lesson);
+		const task &#x3D; new Task({ name: &#x27;&#x27;, parentId, lesson });
+		this.addId(task);
+		return { task, lesson, parentId: parentId.toHexString() };
+	}
+
+	createSubmission(task: Task, student?: UserTaskInfo): Submission {
+		const user &#x3D; (student || this.getFirstUser()) as UserTaskInfo;
+		const submission &#x3D; new Submission({ student: user, comment: &#x27;&#x27;, task });
+		this.addId(submission);
+		return submission;
+	}
+
+	createTeamMemberSubmission(task: Task, students: UserTaskInfo[]): Submission {
+		const submission &#x3D; new Submission({ student: students[0], comment: &#x27;&#x27;, task, teamMembers: students });
+		this.addId(submission);
+		return submission;
+	}
+
+	createSubmissionsForEachStudent(task: Task): Submission[] {
+		const submissions &#x3D; this.getUsers().map((student) &#x3D;&gt; {
+			const submission &#x3D; this.createSubmission(task, student as UserTaskInfo);
+			return submission;
 		});
-		this.addId(course);
-		return course;
-	}
-
-	createStudentCourse(): Course {
-		return this.createCourse(CourseTyps.student);
-	}
-
-	createTeacherCourse(): Course {
-		return this.createCourse(CourseTyps.teacher);
-	}
-
-	createSubstitutionCourse(): Course {
-		return this.createCourse(CourseTyps.subsitutionTeacher);
-	}
-
-	createCoursegroup(course: Course): Coursegroup {
-		const studentIds &#x3D; this.getUsers().map((o) &#x3D;&gt; o._id);
-		const coursegroup &#x3D; new Coursegroup({ studentIds, courseId: course._id });
-		this.addId(coursegroup);
-		return coursegroup;
+		return submissions;
 	}
 }
 </code></pre>
@@ -1197,7 +1397,7 @@ export class LearnroomTestHelper extends TestHelper&lt;EntityId&gt; {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
-            var COMPODOC_CURRENT_PAGE_URL = 'LearnroomTestHelper.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'TaskTestHelper.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 
