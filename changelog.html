@@ -45,6 +45,10 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <li>BC-233 - when an LDAP system is removed from a school, the ldapschoolidentifier and lastLdapSync are removed as well</li>
 <li>moved some changelog entries into their correct place</li>
 </ul>
+<h3 id="removed">Removed</h3>
+<ul>
+<li>BC-262 - remove S3 lifecycle configuration code</li>
+</ul>
 <h2 id="26103---2021-09-09">[26.10.3] - 2021-09-09</h2>
 <h3 id="fixed-1">Fixed</h3>
 <ul>
@@ -194,7 +198,7 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <ul>
 <li>api route forwarding</li>
 </ul>
-<h3 id="removed">Removed</h3>
+<h3 id="removed-1">Removed</h3>
 <ul>
 <li>SC-9159 removed news from feathers except remove team event, which already is replaced by v3/news</li>
 </ul>
@@ -316,7 +320,7 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <li>SC-8880 - changed the validation for search queries in NAT, now it allows empty</li>
 </ul>
 <h2 id="26016---2021-04-20">[26.0.16] - 2021-04-20</h2>
-<h3 id="removed-1">Removed</h3>
+<h3 id="removed-2">Removed</h3>
 <ul>
 <li><ul>
 <li>SC-8748 - revert: bump feathers-mongoose from 6.3.0 to 8.3.1</li>
@@ -600,7 +604,7 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <ul>
 <li>SC-8230 - fix deletion of teachers via new route</li>
 </ul>
-<h3 id="removed-2">Removed</h3>
+<h3 id="removed-3">Removed</h3>
 <ul>
 <li>SC-8233 - Removed attribute and member as required attributes for the LDAP-config service</li>
 </ul>
@@ -642,7 +646,7 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <li>SC-7998 - use default service setup for /version</li>
 </ul>
 <h2 id="2533-pick-from-252">[25.3.3] (pick from 25.2)</h2>
-<h3 id="removed-3">Removed</h3>
+<h3 id="removed-4">Removed</h3>
 <ul>
 <li>SC-8101 - Sanitization for read operations</li>
 </ul>
@@ -739,12 +743,12 @@ determine how many system/school syncers will be run in parallel (at most) durin
 <li>SC-7884 - Authentication error when accessing any nuxt page in the client.</li>
 <li>Fix typescript compiling error</li>
 </ul>
-<h3 id="removed-4">Removed</h3>
+<h3 id="removed-5">Removed</h3>
 <ul>
 <li>SC-7413 - Cleanup UnhandledRejection code that is handled from winston now</li>
 </ul>
 <h2 id="2526">[25.2.6]</h2>
-<h3 id="removed-5">Removed</h3>
+<h3 id="removed-6">Removed</h3>
 <ul>
 <li>SC-8101 - Sanitization for read operations</li>
 </ul>
@@ -793,7 +797,7 @@ properly closing the session, and using the correct readPreference (everything e
 <li>SC-5476 - Added school settings to enable students to open own chat rooms</li>
 <li>SC-6567 - Add utils to cleanup incomingMessage stacks by logging errors</li>
 </ul>
-<h3 id="removed-6">Removed</h3>
+<h3 id="removed-7">Removed</h3>
 <ul>
 <li>SC-6586- Remove parents from users collection to improve maintainability</li>
 </ul>
@@ -873,7 +877,7 @@ properly closing the session, and using the correct readPreference (everything e
 <li>SC-7085 - fixed importHash error when asking parent consent</li>
 </ul>
 <h3 id="added-25">Added</h3>
-<h3 id="removed-7">Removed</h3>
+<h3 id="removed-8">Removed</h3>
 <h2 id="2511---2020-10-12">[25.1.1] - 2020-10-12</h2>
 <h3 id="security-3">Security</h3>
 <ul>
@@ -881,7 +885,7 @@ properly closing the session, and using the correct readPreference (everything e
 </ul>
 <h2 id="2510---2020-10-12">[25.1.0] - 2020-10-12</h2>
 <h3 id="added-26">Added</h3>
-<h3 id="removed-8">Removed</h3>
+<h3 id="removed-9">Removed</h3>
 <ul>
 <li>SC-6784 - Removed duplicated birth date formatting code in adminUsers service, which was causing an &quot;Invalid date&quot; output</li>
 <li>SC-6743 - Removed usersForConsent related things in adminUsers service because the client does not send that parameter anymore</li>
@@ -937,7 +941,7 @@ properly closing the session, and using the correct readPreference (everything e
 <li>SC-6960 - properly raise exceptions during the registration process</li>
 </ul>
 <h2 id="2507---2020-10-01">[25.0.7] - 2020-10-01</h2>
-<h3 id="removed-9">Removed</h3>
+<h3 id="removed-10">Removed</h3>
 <ul>
 <li>OPS-1316 - removed custom keep-alive header creation in express middleware</li>
 </ul>
@@ -1348,7 +1352,7 @@ For old files, it is set to the first user permission inside the permissions arr
 <li>Clipboard sockets</li>
 <li>This changelog has been added</li>
 <li>Backend route to confirm analog consents in bulk</li>
-<li>Changed Seed Data + Migration Script: Added feature flag for new Editor to <a href="mailto:&#x6b;&#x6c;&#97;&#x72;&#97;&#46;&#x66;&#x61;&#x6c;&#x6c;&#64;&#115;&#99;&#x68;&#117;&#x6c;&#45;&#x63;&#x6c;&#x6f;&#x75;&#x64;&#x2e;&#111;&#114;&#103;">&#x6b;&#x6c;&#97;&#x72;&#97;&#46;&#x66;&#x61;&#x6c;&#x6c;&#64;&#115;&#99;&#x68;&#117;&#x6c;&#45;&#x63;&#x6c;&#x6f;&#x75;&#x64;&#x2e;&#111;&#114;&#103;</a></li>
+<li>Changed Seed Data + Migration Script: Added feature flag for new Editor to <a href="mailto:&#x6b;&#108;&#x61;&#x72;&#97;&#x2e;&#102;&#97;&#108;&#108;&#x40;&#x73;&#x63;&#104;&#x75;&#x6c;&#45;&#99;&#x6c;&#x6f;&#x75;&#100;&#x2e;&#111;&#114;&#x67;">&#x6b;&#108;&#x61;&#x72;&#97;&#x2e;&#102;&#97;&#108;&#108;&#x40;&#x73;&#x63;&#104;&#x75;&#x6c;&#45;&#99;&#x6c;&#x6f;&#x75;&#100;&#x2e;&#111;&#114;&#x67;</a></li>
 <li>SC-2922: Enable use of multiple S3 instances as file storage provider<ul>
 <li>A new collection is added to administrate multiple S3 instances</li>
 <li>A migration will automatically use the AWS environment variables to add those as default provider for all existing schools</li>
