@@ -272,6 +272,23 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 </li>
                             </li>
                             <li class="link">
+                                <a href="modules/ServerConsoleModule.html" data-type="entity-link" >ServerConsoleModule</a>
+                                <li class="chapter inner">
+                                    <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
+                                        'data-target="#injectables-links-module-ServerConsoleModule-f1885ea32d478c1b77f1fc4dd30fc19d"' : 'data-target="#xs-injectables-links-module-ServerConsoleModule-f1885ea32d478c1b77f1fc4dd30fc19d"' }>
+                                        <span class="icon ion-md-arrow-round-down"></span>
+                                        <span>Injectables</span>
+                                        <span class="icon ion-ios-arrow-down"></span>
+                                    </div>
+                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-ServerConsoleModule-f1885ea32d478c1b77f1fc4dd30fc19d"' :
+                                        'id="xs-injectables-links-module-ServerConsoleModule-f1885ea32d478c1b77f1fc4dd30fc19d"' }>
+                                        <li class="link">
+                                            <a href="injectables/ConsoleWriter.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >ConsoleWriter</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </li>
+                            <li class="link">
                                 <a href="modules/ServerModule.html" data-type="entity-link" >ServerModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
@@ -528,6 +545,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="classes/Scope.html" data-type="entity-link" >Scope</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/ServerConsole.html" data-type="entity-link" >ServerConsole</a>
                             </li>
                             <li class="link">
                                 <a href="classes/StatusDomainService.html" data-type="entity-link" >StatusDomainService</a>

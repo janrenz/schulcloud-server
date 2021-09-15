@@ -74,9 +74,19 @@
 <li><code>nest:start:dev</code> run application without build from sources in dev-mode with hot-reload</li>
 <li><code>nest:start:debug</code> run application in dev-mode with hot-reload and debug port opened on port :9229</li>
 <li><code>nest:start:prod</code> start applicaiton in production mode, requires <code>nest:build</code> to be executed beforehand</li>
+</ul>
+<h3 id="how-to-build-and-serve-the-documentation">How to build and serve the documentation</h3>
+<ul>
 <li><code>nest:docs:build</code> builds code documentation and module relations into /documentation folder</li>
 <li><code>nest:docs:serve</code> builds code documentation and module relations into /documentation folder and serves it on port :8080 with hot reload on changes</li>
 </ul>
+<h3 id="how-to-start-the-server-console">How to start the server console</h3>
+<p>The console offers management capabilities of the application.</p>
+<ul>
+<li><code>nest:console</code> after nest:build in production or</li>
+<li><code>nest:console:dev</code> for development</li>
+</ul>
+<p>To run a specific command run <code>npm run nest:console:dev -- command &lt;param&gt;</code>. The <code>--</code>is required for npm to send params to the console. Use <code>--help</code>to get an overview about existing commands.</p>
 <h1 id="how-to-test-the-nest-application-with-jest">How to test the nest-application with jest</h1>
 <p> NestJS must not use _.test.[ts|js] as filename but instead either *.spec.ts for unit-tests beside tested files or *.e2e-spec.ts in test folder for end-to-end tests. This ensures legacy/feathers/mocha tests can be separated from jest test suites.</p>
 <p>The application must pass the following statement which executes separate checks:</p>
