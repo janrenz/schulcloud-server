@@ -103,10 +103,10 @@
                                 <a href="#parent" >parent</a>
                             </li>
                             <li>
-                                <a href="#parentId" >parentId</a>
+                                <a href="#private" >private</a>
                             </li>
                             <li>
-                                <a href="#private" >private</a>
+                                <a href="#submissions" >submissions</a>
                             </li>
                             <li>
                                 <a href="#_id" >_id</a>
@@ -124,35 +124,6 @@
                     </td>
                 </tr>
 
-                <tr>
-                    <td class="col-md-4">
-                        <h6><b>Methods</b></h6>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <ul class="index-list">
-                            <li>
-                                <a href="#changePrivate" >changePrivate</a>
-                            </li>
-                            <li>
-                                <a href="#getDueDate" >getDueDate</a>
-                            </li>
-                            <li>
-                                <a href="#getName" >getName</a>
-                            </li>
-                            <li>
-                                <a href="#getParent" >getParent</a>
-                            </li>
-                            <li>
-                                <a href="#getParentId" >getParentId</a>
-                            </li>
-                            <li>
-                                <a href="#setParent" >setParent</a>
-                            </li>
-                        </ul>
-                    </td>
-                </tr>
 
 
 
@@ -173,7 +144,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">apps/server/src/modules/task/entity/task.entity.ts:47</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">apps/server/src/modules/task/entity/task.entity.ts:49</a></div>
                             </td>
                         </tr>
 
@@ -245,7 +216,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">apps/server/src/modules/task/entity/task.entity.ts:35</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">apps/server/src/modules/task/entity/task.entity.ts:37</a></div>
                         </td>
                     </tr>
 
@@ -281,7 +252,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">apps/server/src/modules/task/entity/task.entity.ts:44</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">apps/server/src/modules/task/entity/task.entity.ts:46</a></div>
                         </td>
                     </tr>
 
@@ -316,7 +287,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">apps/server/src/modules/task/entity/task.entity.ts:32</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">apps/server/src/modules/task/entity/task.entity.ts:34</a></div>
                         </td>
                     </tr>
 
@@ -337,7 +308,7 @@
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="../interfaces/ITaskParent.html" target="_self" >ITaskParent</a></code>
+                        <i>Type : </i>        <code><a href="../classes/Course.html" target="_self" >Course</a></code>
 
                     </td>
                 </tr>
@@ -346,48 +317,13 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @Property({persist: false})<br />
+                            @ManyToOne({fieldName: &#x27;courseId&#x27;})<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">apps/server/src/modules/task/entity/task.entity.ts:47</a></div>
-                        </td>
-                    </tr>
-
-
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="parentId"></a>
-                    <span class="name">
-                        <span ><b>parentId</b></span>
-                        <a href="#parentId"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Type : </i>    <code>ObjectId</code>
-
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <b>Decorators : </b>
-                        <br />
-                        <code>
-                            @Property({fieldName: &#x27;courseId&#x27;})<br />
-                        </code>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">apps/server/src/modules/task/entity/task.entity.ts:41</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">apps/server/src/modules/task/entity/task.entity.ts:43</a></div>
                         </td>
                     </tr>
 
@@ -407,8 +343,7 @@
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
-
+                        <i>Default value : </i><code>true</code>
                     </td>
                 </tr>
                 <tr>
@@ -422,7 +357,41 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">apps/server/src/modules/task/entity/task.entity.ts:38</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">apps/server/src/modules/task/entity/task.entity.ts:40</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="submissions"></a>
+                    <span class="name">
+                        <span ><b>submissions</b></span>
+                        <a href="#submissions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Collection&lt;Submission&gt;(this)</code>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @OneToMany(&#x27;Submission&#x27;, &#x27;task&#x27;)<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">apps/server/src/modules/task/entity/task.entity.ts:49</a></div>
                         </td>
                     </tr>
 
@@ -597,296 +566,7 @@
     </table>
 </section>
 
-            <section>
-    
-    <h3 id="methods">
-        Methods
-    </h3>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="changePrivate"></a>
-                    <span class="name">
-                        <span ><b>changePrivate</b></span>
-                        <a href="#changePrivate"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>changePrivate(toValue?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
-                </td>
-            </tr>
 
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="72"
-                            class="link-to-prism">apps/server/src/modules/task/entity/task.entity.ts:72</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>toValue</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
-                                    </td>
-
-                                    <td>
-                                        Yes
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="getDueDate"></a>
-                    <span class="name">
-                        <span ><b>getDueDate</b></span>
-                        <a href="#getDueDate"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>getDueDate()</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="68"
-                            class="link-to-prism">apps/server/src/modules/task/entity/task.entity.ts:68</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Returns : </b>    <code>Date | undefined</code>
-
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="getName"></a>
-                    <span class="name">
-                        <span ><b>getName</b></span>
-                        <a href="#getName"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>getName()</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="64"
-                            class="link-to-prism">apps/server/src/modules/task/entity/task.entity.ts:64</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="getParent"></a>
-                    <span class="name">
-                        <span ><b>getParent</b></span>
-                        <a href="#getParent"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>getParent()</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="88"
-                            class="link-to-prism">apps/server/src/modules/task/entity/task.entity.ts:88</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../interfaces/ITaskParent.html" target="_self" >ITaskParent | undefined</a></code>
-
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="getParentId"></a>
-                    <span class="name">
-                        <span ><b>getParentId</b></span>
-                        <a href="#getParentId"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>getParentId()</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="60"
-                            class="link-to-prism">apps/server/src/modules/task/entity/task.entity.ts:60</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
-
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="setParent"></a>
-                    <span class="name">
-                        <span ><b>setParent</b></span>
-                        <a href="#setParent"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>setParent(parent: <a href="../interfaces/ITaskParent.html" target="_self">ITaskParent | undefined</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="81"
-                            class="link-to-prism">apps/server/src/modules/task/entity/task.entity.ts:81</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>parent</td>
-                                    <td>
-                                                <code><a href="../interfaces/ITaskParent.html" target="_self" >ITaskParent | undefined</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</section>
 
 
 
@@ -896,17 +576,19 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Entity, ManyToOne, Property } from &#x27;@mikro-orm/core&#x27;;
-import { ObjectId } from &#x27;@mikro-orm/mongodb&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Collection, Entity, ManyToOne, OneToMany, Property } from &#x27;@mikro-orm/core&#x27;;
 import { BaseEntityWithTimestamps, EntityId } from &#x27;@shared/domain&#x27;;
+import { Course } from &#x27;@src/entities&#x27;;
+import type { Submission } from &#x27;./submission.entity&#x27;;
 import { LessonTaskInfo } from &#x27;./lesson-task-info.entity&#x27;;
 
 interface ITaskProperties {
 	name: string;
 	dueDate?: Date;
 	private?: boolean;
-	parentId: ObjectId;
+	parent?: Course;
 	lesson?: LessonTaskInfo;
+	submissions?: Submission[];
 }
 
 export interface IParentDescriptionsProperties {
@@ -921,7 +603,7 @@ export interface ITaskParent {
 
 	hasWritePermission(userId: EntityId): boolean;
 	getDescriptions(): IParentDescriptionsProperties;
-	getStudentsNumber(): number;
+	getNumberOfStudents(): number;
 }
 
 @Entity({ tableName: &#x27;homeworks&#x27; })
@@ -933,58 +615,25 @@ export class Task extends BaseEntityWithTimestamps {
 	dueDate?: Date;
 
 	@Property()
-	private: boolean;
+	private &#x3D; true;
 
-	@Property({ fieldName: &#x27;courseId&#x27; })
-	parentId: ObjectId;
+	@ManyToOne({ fieldName: &#x27;courseId&#x27; })
+	parent?: Course;
 
 	@ManyToOne({ fieldName: &#x27;lessonId&#x27; })
 	lesson?: LessonTaskInfo; // In database exist also null, but it can not set.
 
-	@Property({ persist: false })
-	parent?: ITaskParent;
+	@OneToMany(&#x27;Submission&#x27;, &#x27;task&#x27;)
+	submissions &#x3D; new Collection&lt;Submission&gt;(this);
 
 	constructor(props: ITaskProperties) {
 		super();
 		this.name &#x3D; props.name;
 		this.dueDate &#x3D; props.dueDate;
-		this.private &#x3D; props.private || true;
-		this.parentId &#x3D; props.parentId;
-
-		const lesson &#x3D; props.lesson || null;
-		Object.assign(this, { lesson });
-	}
-
-	getParentId(): EntityId {
-		return this.parentId.toHexString();
-	}
-
-	getName(): string {
-		return this.name;
-	}
-
-	getDueDate(): Date | undefined {
-		return this.dueDate;
-	}
-
-	changePrivate(toValue?: boolean): boolean {
-		if (toValue) {
-			this.private &#x3D; toValue;
-		} else {
-			this.private &#x3D; !this.private;
-		}
-		return this.private;
-	}
-
-	setParent(parent: ITaskParent | undefined): void {
-		this.parent &#x3D; parent;
-		if (parent) {
-			this.parentId &#x3D; new ObjectId(parent.id);
-		}
-	}
-
-	getParent(): ITaskParent | undefined {
-		return this.parent;
+		this.private &#x3D; !!props.private;
+		this.parent &#x3D; props.parent;
+		this.lesson &#x3D; props.lesson;
+		this.submissions &#x3D; new Collection&lt;Submission&gt;(this, props.submissions || []);
 	}
 }
 </code></pre>

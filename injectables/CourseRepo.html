@@ -81,6 +81,14 @@
                                     <span class="modifier">Async</span>
                                 <a href="#findAllByUserId" >findAllByUserId</a>
                             </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#findAllForStudent" >findAllForStudent</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#findAllForTeacher" >findAllForTeacher</a>
+                            </li>
                         </ul>
                     </td>
                 </tr>
@@ -217,6 +225,146 @@
             </tr>
         </tbody>
     </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findAllForStudent"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>findAllForStudent</b></span>
+                        <a href="#findAllForStudent"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findAllForStudent(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="33"
+                            class="link-to-prism">apps/server/src/repositories/learnroom/course.repo.ts:33</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>userId</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/Course.html" target="_self" >Promise&lt;Counted&lt;Course[]&gt;&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findAllForTeacher"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>findAllForTeacher</b></span>
+                        <a href="#findAllForTeacher"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findAllForTeacher(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="39"
+                            class="link-to-prism">apps/server/src/repositories/learnroom/course.repo.ts:39</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>userId</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/Course.html" target="_self" >Promise&lt;Counted&lt;Course[]&gt;&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </section>
 
     </div>
@@ -252,6 +400,20 @@ export class CourseRepo {
 		const scope &#x3D; new CourseScope();
 		scope.forAllGroupTypes(userId);
 		const [courses, count] &#x3D; await this.em.findAndCount(Course, scope.query);
+		return [courses, count];
+	}
+
+	async findAllForStudent(userId: EntityId): Promise&lt;Counted&lt;Course[]&gt;&gt; {
+		const query &#x3D; { studentIds: new ObjectId(userId) };
+		const [courses, count] &#x3D; await this.em.findAndCount(Course, query);
+		return [courses, count];
+	}
+
+	async findAllForTeacher(userId: EntityId): Promise&lt;Counted&lt;Course[]&gt;&gt; {
+		const isTeacher &#x3D; { teacherIds: new ObjectId(userId) };
+		const isSubstitutionTeacher &#x3D; { substitutionTeacherIds: new ObjectId(userId) };
+		const query &#x3D; { $or: [isTeacher, isSubstitutionTeacher] };
+		const [courses, count] &#x3D; await this.em.findAndCount(Course, query);
 		return [courses, count];
 	}
 }

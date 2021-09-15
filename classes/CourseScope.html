@@ -465,6 +465,20 @@ export class CourseRepo {
 		const [courses, count] &#x3D; await this.em.findAndCount(Course, scope.query);
 		return [courses, count];
 	}
+
+	async findAllForStudent(userId: EntityId): Promise&lt;Counted&lt;Course[]&gt;&gt; {
+		const query &#x3D; { studentIds: new ObjectId(userId) };
+		const [courses, count] &#x3D; await this.em.findAndCount(Course, query);
+		return [courses, count];
+	}
+
+	async findAllForTeacher(userId: EntityId): Promise&lt;Counted&lt;Course[]&gt;&gt; {
+		const isTeacher &#x3D; { teacherIds: new ObjectId(userId) };
+		const isSubstitutionTeacher &#x3D; { substitutionTeacherIds: new ObjectId(userId) };
+		const query &#x3D; { $or: [isTeacher, isSubstitutionTeacher] };
+		const [courses, count] &#x3D; await this.em.findAndCount(Course, query);
+		return [courses, count];
+	}
 }
 </code></pre>
     </div>

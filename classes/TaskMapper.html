@@ -195,8 +195,8 @@ export class TaskMapper {
 		const dto &#x3D; new TaskResponse();
 
 		dto.id &#x3D; task.id;
-		dto.name &#x3D; task.getName();
-		dto.duedate &#x3D; task.getDueDate();
+		dto.name &#x3D; task.name;
+		dto.duedate &#x3D; task.dueDate;
 		dto.createdAt &#x3D; task.createdAt;
 		dto.updatedAt &#x3D; task.updatedAt;
 		dto.status &#x3D; {
@@ -205,9 +205,8 @@ export class TaskMapper {
 			graded: status.graded,
 		};
 
-		const parent &#x3D; task.getParent();
-		if (parent !&#x3D;&#x3D; undefined) {
-			const parentData &#x3D; parent.getDescriptions();
+		if (task.parent !&#x3D;&#x3D; undefined) {
+			const parentData &#x3D; task.parent.getDescriptions();
 			dto.courseName &#x3D; parentData.name;
 			dto.displayColor &#x3D; parentData.color;
 		}

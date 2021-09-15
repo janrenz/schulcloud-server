@@ -78,29 +78,26 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                    <span class="modifier">Async</span>
-                                <a href="#findAllCompleted" >findAllCompleted</a>
+                                    <span class="modifier">Private</span>
+                                <a href="#computeTaskStatusForStudent" >computeTaskStatusForStudent</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#computeTaskStatusForTeacher" >computeTaskStatusForTeacher</a>
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
-                                <a href="#findAllCompletedForStudent" >findAllCompletedForStudent</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Async</span>
-                                <a href="#findAllOpen" >findAllOpen</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Async</span>
-                                <a href="#findAllOpenForStudent" >findAllOpenForStudent</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Async</span>
-                                <a href="#findAllOpenForTeacher" >findAllOpenForTeacher</a>
+                                <a href="#findAll" >findAll</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
                                     <span class="modifier">Async</span>
-                                <a href="#findPermittedTaskParents" >findPermittedTaskParents</a>
+                                <a href="#findAllForStudent" >findAllForStudent</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#findAllForTeacher" >findAllForTeacher</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
@@ -124,12 +121,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(taskRepo: <a href="../injectables/TaskRepo.html" target="_self">TaskRepo</a>, submissionRepo: <a href="../injectables/SubmissionRepo.html" target="_self">SubmissionRepo</a>, courseRepo: <a href="../injectables/CourseRepo.html" target="_self">CourseRepo</a>)</code>
+<code>constructor(taskRepo: <a href="../injectables/TaskRepo.html" target="_self">TaskRepo</a>, authorizationService: <a href="../injectables/TaskAuthorizationService.html" target="_self">TaskAuthorizationService</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:20</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:14</a></div>
                             </td>
                         </tr>
 
@@ -159,22 +156,10 @@
                                                     
                                                 </tr>
                                                 <tr>
-                                                        <td>submissionRepo</td>
+                                                        <td>authorizationService</td>
                                                   
                                                         <td>
-                                                                        <code><a href="../injectables/SubmissionRepo.html" target="_self" >SubmissionRepo</a></code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                                <tr>
-                                                        <td>courseRepo</td>
-                                                  
-                                                        <td>
-                                                                        <code><a href="../injectables/CourseRepo.html" target="_self" >CourseRepo</a></code>
+                                                                        <code><a href="../injectables/TaskAuthorizationService.html" target="_self" >TaskAuthorizationService</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -200,26 +185,178 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="findAllCompleted"></a>
+                    <a name="computeTaskStatusForStudent"></a>
                     <span class="name">
-                        <span class="modifier">Async</span>
-                        <span ><b>findAllCompleted</b></span>
-                        <a href="#findAllCompleted"><span class="icon ion-ios-link"></span></a>
+                        <span class="modifier">Private</span>
+                        <span ><b>computeTaskStatusForStudent</b></span>
+                        <a href="#computeTaskStatusForStudent"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>findAllCompleted(currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>, pagination: <a href="../interfaces/IPagination.html" target="_self">IPagination</a>)</code>
+                    <code>computeTaskStatusForStudent(task: <a href="../classes/Task.html" target="_self">Task</a>, userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="110"
-                            class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:110</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="63"
+                            class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:63</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>task</td>
+                                    <td>
+                                                <code><a href="../classes/Task.html" target="_self" >Task</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>userId</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/TaskWithStatusVo.html" target="_self" >TaskWithStatusVo</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="computeTaskStatusForTeacher"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span ><b>computeTaskStatusForTeacher</b></span>
+                        <a href="#computeTaskStatusForTeacher"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>computeTaskStatusForTeacher(task: <a href="../classes/Task.html" target="_self">Task</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="73"
+                            class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:73</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>task</td>
+                                    <td>
+                                                <code><a href="../classes/Task.html" target="_self" >Task</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/TaskWithStatusVo.html" target="_self" >TaskWithStatusVo</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findAll"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>findAll</b></span>
+                        <a href="#findAll"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findAll(currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>, pagination: <a href="../interfaces/IPagination.html" target="_self">IPagination</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="18"
+                            class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:18</a></div>
                 </td>
             </tr>
 
@@ -268,7 +405,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>    <code>Promise&lt;Counted&lt;TaskWithSubmissionStatus[]&gt;&gt;</code>
+                        <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#Counted" target="_self" >Promise&lt;Counted&lt;TaskWithStatusVo[]&gt;&gt;</a></code>
 
                     </div>
                     <div class="io-description">
@@ -282,355 +419,27 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="findAllCompletedForStudent"></a>
-                    <span class="name">
-                        <span class="modifier">Async</span>
-                        <span ><b>findAllCompletedForStudent</b></span>
-                        <a href="#findAllCompletedForStudent"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>findAllCompletedForStudent(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, pagination: <a href="../interfaces/IPagination.html" target="_self">IPagination</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="59"
-                            class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:59</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>userId</td>
-                                    <td>
-                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>pagination</td>
-                                    <td>
-                                                <code><a href="../interfaces/IPagination.html" target="_self" >IPagination</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>    <code>Promise&lt;Counted&lt;TaskWithSubmissionStatus[]&gt;&gt;</code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="findAllOpen"></a>
-                    <span class="name">
-                        <span class="modifier">Async</span>
-                        <span ><b>findAllOpen</b></span>
-                        <a href="#findAllOpen"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>findAllOpen(currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>, pagination: <a href="../interfaces/IPagination.html" target="_self">IPagination</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="96"
-                            class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:96</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>currentUser</td>
-                                    <td>
-                                                <code><a href="../interfaces/ICurrentUser.html" target="_self" >ICurrentUser</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>pagination</td>
-                                    <td>
-                                                <code><a href="../interfaces/IPagination.html" target="_self" >IPagination</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>    <code>Promise&lt;Counted&lt;TaskWithSubmissionStatus[]&gt;&gt;</code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="findAllOpenForStudent"></a>
-                    <span class="name">
-                        <span class="modifier">Async</span>
-                        <span ><b>findAllOpenForStudent</b></span>
-                        <a href="#findAllOpenForStudent"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>findAllOpenForStudent(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, pagination: <a href="../interfaces/IPagination.html" target="_self">IPagination</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="40"
-                            class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:40</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>userId</td>
-                                    <td>
-                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>pagination</td>
-                                    <td>
-                                                <code><a href="../interfaces/IPagination.html" target="_self" >IPagination</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>    <code>Promise&lt;Counted&lt;TaskWithSubmissionStatus[]&gt;&gt;</code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="findAllOpenForTeacher"></a>
-                    <span class="name">
-                        <span class="modifier">Async</span>
-                        <span ><b>findAllOpenForTeacher</b></span>
-                        <a href="#findAllOpenForTeacher"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>findAllOpenForTeacher(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, pagination: <a href="../interfaces/IPagination.html" target="_self">IPagination</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="82"
-                            class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:82</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>userId</td>
-                                    <td>
-                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>pagination</td>
-                                    <td>
-                                                <code><a href="../interfaces/IPagination.html" target="_self" >IPagination</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>    <code>Promise&lt;Counted&lt;TaskWithSubmissionStatus[]&gt;&gt;</code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="findPermittedTaskParents"></a>
+                    <a name="findAllForStudent"></a>
                     <span class="name">
                         <span class="modifier">Private</span>
                         <span class="modifier">Async</span>
-                        <span ><b>findPermittedTaskParents</b></span>
-                        <a href="#findPermittedTaskParents"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>findAllForStudent</b></span>
+                        <a href="#findAllForStudent"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>findPermittedTaskParents(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, permission: <a href="../undefineds/Permission.html" target="_self">Permission</a>)</code>
+                    <code>findAllForStudent(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, pagination: <a href="../interfaces/IPagination.html" target="_self">IPagination</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="29"
-                            class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:29</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="32"
+                            class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:32</a></div>
                 </td>
             </tr>
 
@@ -662,9 +471,9 @@
 
                                 </tr>
                                 <tr>
-                                    <td>permission</td>
+                                    <td>pagination</td>
                                     <td>
-                                                <code><a href="../miscellaneous/typealiases.html#Permission" target="_self" >Permission</a></code>
+                                                <code><a href="../interfaces/IPagination.html" target="_self" >IPagination</a></code>
                                     </td>
 
                                     <td>
@@ -679,7 +488,90 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/Course.html" target="_self" >Promise&lt;Course[]&gt;</a></code>
+                        <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#Counted" target="_self" >Promise&lt;Counted&lt;TaskWithStatusVo[]&gt;&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findAllForTeacher"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span class="modifier">Async</span>
+                        <span ><b>findAllForTeacher</b></span>
+                        <a href="#findAllForTeacher"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findAllForTeacher(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, pagination: <a href="../interfaces/IPagination.html" target="_self">IPagination</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="45"
+                            class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:45</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>userId</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>pagination</td>
+                                    <td>
+                                                <code><a href="../interfaces/IPagination.html" target="_self" >IPagination</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#Counted" target="_self" >Promise&lt;Counted&lt;TaskWithStatusVo[]&gt;&gt;</a></code>
 
                     </div>
                     <div class="io-description">
@@ -711,8 +603,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="125"
-                            class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:125</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="58"
+                            class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:58</a></div>
                 </td>
             </tr>
 
@@ -779,131 +671,93 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable, UnauthorizedException } from &#x27;@nestjs/common&#x27;;
 import { EntityId, IPagination, Counted, ICurrentUser, SortOrder } from &#x27;@shared/domain&#x27;;
-import { CourseRepo } from &#x27;@src/repositories&#x27;;
-import { Course } from &#x27;@src/entities&#x27;;
 
-import { TaskRepo, SubmissionRepo } from &#x27;../repo&#x27;;
-import { TaskDomainService, TaskWithSubmissionStatus } from &#x27;../domain&#x27;;
-
-enum Permission {
-	read,
-	write,
-}
+import { TaskRepo } from &#x27;../repo&#x27;;
+import { TaskWithStatusVo } from &#x27;../entity/task-with-status.vo&#x27;;
+import { Task } from &#x27;../entity&#x27;;
+import { TaskAuthorizationService, TaskParentPermission } from &#x27;./task.authorization.service&#x27;;
 
 export enum TaskDashBoardPermission {
 	teacherDashboard &#x3D; &#x27;TASK_DASHBOARD_TEACHER_VIEW_V3&#x27;,
 	studentDashboard &#x3D; &#x27;TASK_DASHBOARD_VIEW_V3&#x27;,
 }
-
 @Injectable()
 export class TaskUC {
-	constructor(
-		private readonly taskRepo: TaskRepo,
-		private readonly submissionRepo: SubmissionRepo,
-		private readonly courseRepo: CourseRepo
-	) {}
+	constructor(private readonly taskRepo: TaskRepo, private readonly authorizationService: TaskAuthorizationService) {}
 
-	// coursegroups are missing
-	// lessons are missing -&gt; only search for hidden: false,
-	private async findPermittedTaskParents(userId: EntityId, permission: Permission): Promise&lt;Course[]&gt; {
-		const [allCourses] &#x3D; await this.courseRepo.findAllByUserId(userId);
-
-		// !!! Add Authorization service or logic until it is avaible !!!
-		const parents &#x3D; allCourses.filter((c) &#x3D;&gt;
-			permission &#x3D;&#x3D;&#x3D; Permission.write ? c.hasWritePermission(userId) : !c.hasWritePermission(userId)
-		);
-
-		return parents;
-	}
-
-	async findAllOpenForStudent(userId: EntityId, pagination: IPagination): Promise&lt;Counted&lt;TaskWithSubmissionStatus[]&gt;&gt; {
-		const parents &#x3D; await this.findPermittedTaskParents(userId, Permission.read);
-
-		const [submissionsOfStudent] &#x3D; await this.submissionRepo.findAllByUserId(userId);
-		const taskIdsWithSubmissions &#x3D; [...new Set(submissionsOfStudent.map((submission) &#x3D;&gt; submission.task.id))];
-
-		const parentIds &#x3D; parents.map((parent) &#x3D;&gt; parent.id);
-
-		const [tasks, total] &#x3D; await this.taskRepo.findAllCurrentIgnoreIds(parentIds, taskIdsWithSubmissions, {
-			pagination,
-			order: { dueDate: SortOrder.asc },
-		});
-
-		const domain &#x3D; new TaskDomainService(tasks, parents);
-		const computedTasks &#x3D; domain.computeStatusForStudents(submissionsOfStudent);
-
-		return [computedTasks, total];
-	}
-
-	async findAllCompletedForStudent(
-		userId: EntityId,
-		pagination: IPagination
-	): Promise&lt;Counted&lt;TaskWithSubmissionStatus[]&gt;&gt; {
-		const parents &#x3D; await this.findPermittedTaskParents(userId, Permission.read);
-
-		const [submissionsOfStudent] &#x3D; await this.submissionRepo.findAllByUserId(userId);
-		const taskIdsWithSubmissions &#x3D; [...new Set(submissionsOfStudent.map((submission) &#x3D;&gt; submission.task.id))];
-
-		const parentIds &#x3D; parents.map((course) &#x3D;&gt; course.id);
-
-		const [tasks, total] &#x3D; await this.taskRepo.findAllCurrentByIds(parentIds, taskIdsWithSubmissions, {
-			pagination,
-			order: { dueDate: SortOrder.asc },
-		});
-
-		const domain &#x3D; new TaskDomainService(tasks, parents);
-		const computedTasks &#x3D; domain.computeStatusForStudents(submissionsOfStudent);
-
-		return [computedTasks, total];
-	}
-
-	// TODO: rename teacher and student
-	async findAllOpenForTeacher(userId: EntityId, pagination: IPagination): Promise&lt;Counted&lt;TaskWithSubmissionStatus[]&gt;&gt; {
-		const parents &#x3D; await this.findPermittedTaskParents(userId, Permission.write);
-
-		const parentIds &#x3D; parents.map((parent) &#x3D;&gt; parent.id);
-
-		const [tasks, total] &#x3D; await this.taskRepo.findAll(parentIds, { pagination, order: { createdAt: SortOrder.desc } });
-		const [submissionsOfTeacher] &#x3D; await this.submissionRepo.findAllByTaskIds(tasks.map((o) &#x3D;&gt; o.id));
-
-		const domain &#x3D; new TaskDomainService(tasks, parents);
-		const computedTasks &#x3D; domain.computeStatusForTeachers(submissionsOfTeacher);
-
-		return [computedTasks, total];
-	}
-
-	async findAllOpen(currentUser: ICurrentUser, pagination: IPagination): Promise&lt;Counted&lt;TaskWithSubmissionStatus[]&gt;&gt; {
-		let response: Counted&lt;TaskWithSubmissionStatus[]&gt;;
-
-		if (this.hasTaskDashboardPermission(currentUser, TaskDashBoardPermission.teacherDashboard)) {
-			response &#x3D; await this.findAllOpenForTeacher(currentUser.userId, pagination);
-		} else if (this.hasTaskDashboardPermission(currentUser, TaskDashBoardPermission.studentDashboard)) {
-			response &#x3D; await this.findAllOpenForStudent(currentUser.userId, pagination);
-		} else {
-			throw new UnauthorizedException();
-		}
-
-		return response;
-	}
-
-	async findAllCompleted(
-		currentUser: ICurrentUser,
-		pagination: IPagination
-	): Promise&lt;Counted&lt;TaskWithSubmissionStatus[]&gt;&gt; {
-		let response: Counted&lt;TaskWithSubmissionStatus[]&gt;;
+	// TODO replace curentUser with userId. this requires that permissions are loaded inside the use case by authorization service
+	async findAll(currentUser: ICurrentUser, pagination: IPagination): Promise&lt;Counted&lt;TaskWithStatusVo[]&gt;&gt; {
+		let response: Counted&lt;TaskWithStatusVo[]&gt;;
 
 		if (this.hasTaskDashboardPermission(currentUser, TaskDashBoardPermission.studentDashboard)) {
-			response &#x3D; await this.findAllCompletedForStudent(currentUser.userId, pagination);
+			response &#x3D; await this.findAllForStudent(currentUser.userId, pagination);
+		} else if (this.hasTaskDashboardPermission(currentUser, TaskDashBoardPermission.teacherDashboard)) {
+			response &#x3D; await this.findAllForTeacher(currentUser.userId, pagination);
 		} else {
 			throw new UnauthorizedException();
 		}
 
 		return response;
+	}
+
+	private async findAllForStudent(userId: EntityId, pagination: IPagination): Promise&lt;Counted&lt;TaskWithStatusVo[]&gt;&gt; {
+		const parentIds &#x3D; await this.authorizationService.getPermittedCourses(userId, TaskParentPermission.read);
+
+		const [tasks, total] &#x3D; await this.taskRepo.findAllCurrent(parentIds, {
+			pagination,
+			order: { dueDate: SortOrder.asc },
+		});
+
+		const computedTasks &#x3D; tasks.map((task) &#x3D;&gt; this.computeTaskStatusForStudent(task, userId));
+
+		return [computedTasks, total];
+	}
+
+	private async findAllForTeacher(userId: EntityId, pagination: IPagination): Promise&lt;Counted&lt;TaskWithStatusVo[]&gt;&gt; {
+		const parentIds &#x3D; await this.authorizationService.getPermittedCourses(userId, TaskParentPermission.write);
+
+		const [tasks, total] &#x3D; await this.taskRepo.findAll(parentIds, {
+			pagination,
+			order: { createdAt: SortOrder.desc },
+		});
+
+		const computedTasks &#x3D; tasks.map((task) &#x3D;&gt; this.computeTaskStatusForTeacher(task));
+
+		return [computedTasks, total];
 	}
 
 	private hasTaskDashboardPermission(currentUser: ICurrentUser, permission: TaskDashBoardPermission): boolean {
 		const hasPermission &#x3D; currentUser.user.permissions.includes(permission);
 		return hasPermission;
+	}
+
+	private computeTaskStatusForStudent(task: Task, userId: EntityId): TaskWithStatusVo {
+		const studentSubmissions &#x3D; task.submissions.getItems().filter((submission) &#x3D;&gt; submission.student.id &#x3D;&#x3D;&#x3D; userId);
+
+		const submitted &#x3D; studentSubmissions.length &gt; 0 ? 1 : 0;
+		const graded &#x3D; studentSubmissions.filter((submission) &#x3D;&gt; submission.isGraded()).length;
+		const maxSubmissions &#x3D; 1;
+
+		return new TaskWithStatusVo(task, { submitted, maxSubmissions, graded });
+	}
+
+	private computeTaskStatusForTeacher(task: Task): TaskWithStatusVo {
+		const submittedStudentIds &#x3D; task.submissions.getItems().map((submission) &#x3D;&gt; submission.student.id);
+
+		// unique by studentId
+		const submitted &#x3D; [...new Set(submittedStudentIds)].length;
+
+		const gradedStudentIds &#x3D; task.submissions
+			.getItems()
+			.filter((submission) &#x3D;&gt; submission.isGraded())
+			.map((submission) &#x3D;&gt; submission.student.id);
+
+		// unique by studentId
+		const graded &#x3D; [...new Set(gradedStudentIds)].length;
+
+		const maxSubmissions &#x3D; task.parent ? task.parent.getNumberOfStudents() : 0;
+
+		return new TaskWithStatusVo(task, { submitted, maxSubmissions, graded });
 	}
 }
 </code></pre>

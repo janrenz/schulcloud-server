@@ -310,8 +310,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="57"
-                            class="link-to-prism">apps/server/src/modules/task/utils/TestHelper.ts:57</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="64"
+                            class="link-to-prism">apps/server/src/modules/task/utils/TestHelper.ts:64</a></div>
                 </td>
             </tr>
 
@@ -353,7 +353,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/TestHelper.html#source" target="_self" >TestHelper:34</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/TestHelper.html#source" target="_self" >TestHelper:38</a></code>
 </div>
                 </td>
             </tr>
@@ -390,8 +390,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="66"
-                            class="link-to-prism">apps/server/src/modules/task/utils/TestHelper.ts:66</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="74"
+                            class="link-to-prism">apps/server/src/modules/task/utils/TestHelper.ts:74</a></div>
                 </td>
             </tr>
 
@@ -470,8 +470,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="79"
-                            class="link-to-prism">apps/server/src/modules/task/utils/TestHelper.ts:79</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="87"
+                            class="link-to-prism">apps/server/src/modules/task/utils/TestHelper.ts:87</a></div>
                 </td>
             </tr>
 
@@ -538,8 +538,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="50"
-                            class="link-to-prism">apps/server/src/modules/task/utils/TestHelper.ts:50</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="54"
+                            class="link-to-prism">apps/server/src/modules/task/utils/TestHelper.ts:54</a></div>
                 </td>
             </tr>
 
@@ -618,8 +618,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="44"
-                            class="link-to-prism">apps/server/src/modules/task/utils/TestHelper.ts:44</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="48"
+                            class="link-to-prism">apps/server/src/modules/task/utils/TestHelper.ts:48</a></div>
                 </td>
             </tr>
 
@@ -686,8 +686,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="73"
-                            class="link-to-prism">apps/server/src/modules/task/utils/TestHelper.ts:73</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="81"
+                            class="link-to-prism">apps/server/src/modules/task/utils/TestHelper.ts:81</a></div>
                 </td>
             </tr>
 
@@ -772,7 +772,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/TestHelper.html#source" target="_self" >TestHelper:38</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/TestHelper.html#source" target="_self" >TestHelper:42</a></code>
 </div>
                 </td>
             </tr>
@@ -1283,7 +1283,9 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { EntityId, TestHelper } from &#x27;@shared/domain&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ObjectId } from &#x27;@mikro-orm/mongodb&#x27;;
+import { EntityId, TestHelper } from &#x27;@shared/domain&#x27;;
+import { Course } from &#x27;@src/entities&#x27;;
 
 import { Submission, Task, UserTaskInfo, LessonTaskInfo, ITaskParent, IParentDescriptionsProperties } from &#x27;../entity&#x27;;
 
@@ -1310,7 +1312,7 @@ export class TaskParentTestEntity implements ITaskParent {
 		};
 	}
 
-	getStudentsNumber(): number {
+	getNumberOfStudents(): number {
 		return 10;
 	}
 }
@@ -1333,19 +1335,23 @@ export class TaskTestHelper extends TestHelper&lt;EntityId&gt; {
 	}
 
 	createTask(parentId?: EntityId, dueDate?: Date): Task {
+		const parent &#x3D; new Course({ schoolId: new ObjectId() });
 		const id &#x3D; this.createId(parentId);
-		const task &#x3D; new Task({ name: &#x27;&#x27;, parentId: id, dueDate });
+		parent._id &#x3D; id;
+		parent.id &#x3D; id.toHexString();
+		const task &#x3D; new Task({ name: &#x27;&#x27;, parent, dueDate });
 		this.addId(task);
 		return task;
 	}
 
 	createLessonWithTask(): { task: Task; lesson: LessonTaskInfo; parentId: EntityId } {
-		const parentId &#x3D; this.createId();
-		const lesson &#x3D; new LessonTaskInfo({ courseId: parentId });
+		const parent &#x3D; new Course({ schoolId: new ObjectId() });
+		this.addId(parent);
+		const lesson &#x3D; new LessonTaskInfo({ course: parent });
 		this.addId(lesson);
-		const task &#x3D; new Task({ name: &#x27;&#x27;, parentId, lesson });
+		const task &#x3D; new Task({ name: &#x27;&#x27;, parent, lesson });
 		this.addId(task);
-		return { task, lesson, parentId: parentId.toHexString() };
+		return { task, lesson, parentId: parent.id };
 	}
 
 	createSubmission(task: Task, student?: UserTaskInfo): Submission {

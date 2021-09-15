@@ -83,21 +83,17 @@
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
-                                <a href="#findAllCurrentByIds" >findAllCurrentByIds</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Async</span>
-                                <a href="#findAllCurrentIgnoreIds" >findAllCurrentIgnoreIds</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Private</span>
-                                    <span class="modifier">Async</span>
-                                <a href="#findLessons" >findLessons</a>
+                                <a href="#findAllCurrent" >findAllCurrent</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
                                     <span class="modifier">Async</span>
                                 <a href="#findTasksAndCount" >findTasksAndCount</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#findVisibleLessons" >findVisibleLessons</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
@@ -126,7 +122,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">apps/server/src/modules/task/repo/task.repo.ts:13</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">apps/server/src/modules/task/repo/task.repo.ts:12</a></div>
                             </td>
                         </tr>
 
@@ -191,8 +187,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="23"
-                            class="link-to-prism">apps/server/src/modules/task/repo/task.repo.ts:23</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="22"
+                            class="link-to-prism">apps/server/src/modules/task/repo/task.repo.ts:22</a></div>
                 </td>
             </tr>
 
@@ -266,33 +262,33 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="findAllCurrentByIds"></a>
+                    <a name="findAllCurrent"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
-                        <span ><b>findAllCurrentByIds</b></span>
-                        <a href="#findAllCurrentByIds"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>findAllCurrent</b></span>
+                        <a href="#findAllCurrent"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>findAllCurrentByIds(parentIds: <a href="../undefineds/EntityId.html" target="_self">EntityId[]</a>, ids: <a href="../undefineds/EntityId.html" target="_self">EntityId[]</a>, options?: <a href="../interfaces/IFindOptions.html" target="_self">IFindOptions&lt;Task&gt;</a>)</code>
+                    <code>findAllCurrent(parentIds: <a href="../undefineds/EntityId.html" target="_self">EntityId[]</a>, options?: <a href="../interfaces/IFindOptions.html" target="_self">IFindOptions&lt;Task&gt;</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="43"
-                            class="link-to-prism">apps/server/src/modules/task/repo/task.repo.ts:43</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="41"
+                            class="link-to-prism">apps/server/src/modules/task/repo/task.repo.ts:41</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Find all currently active tasks by their parent ids and a list of task ids.</p>
+                    <div class="io-description"><p>Find all currently active tasks by their parent ids.</p>
 </div>
 
                     <div class="io-description">
@@ -324,22 +320,6 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>ids</td>
-                                    <td>
-                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId[]</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                    <td>
-                                        <p>task ids to include</p>
-
-                                    </td>
-                                </tr>
-                                <tr>
                                     <td>options</td>
                                     <td>
                                                 <code><a href="../interfaces/IFindOptions.html" target="_self" >IFindOptions&lt;Task&gt;</a></code>
@@ -362,194 +342,6 @@
                     </div>
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="../classes/Task.html" target="_self" >Promise&lt;Counted&lt;Task[]&gt;&gt;</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="findAllCurrentIgnoreIds"></a>
-                    <span class="name">
-                        <span class="modifier">Async</span>
-                        <span ><b>findAllCurrentIgnoreIds</b></span>
-                        <a href="#findAllCurrentIgnoreIds"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>findAllCurrentIgnoreIds(parentIds: <a href="../undefineds/EntityId.html" target="_self">EntityId[]</a>, ignoreIds: <a href="../undefineds/EntityId.html" target="_self">EntityId[]</a>, options?: <a href="../interfaces/IFindOptions.html" target="_self">IFindOptions&lt;Task&gt;</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="71"
-                            class="link-to-prism">apps/server/src/modules/task/repo/task.repo.ts:71</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-description"><p>Find all currently active tasks by their parent ids ignoring a list of task ids.</p>
-</div>
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                    <td>Default value</td>
-                                    <td>Description</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>parentIds</td>
-                                    <td>
-                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId[]</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-                                    <td>
-                                    </td>
-
-                                    <td>
-                                        <p>ids of parent entities</p>
-
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>ignoreIds</td>
-                                    <td>
-                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId[]</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-                                    <td>
-                                        <code>[]</code>
-                                    </td>
-
-                                    <td>
-                                        <p>task ids to ignore</p>
-
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>options</td>
-                                    <td>
-                                                <code><a href="../interfaces/IFindOptions.html" target="_self" >IFindOptions&lt;Task&gt;</a></code>
-                                    </td>
-
-                                    <td>
-                                        Yes
-                                    </td>
-
-                                    <td>
-                                    </td>
-
-                                    <td>
-                                        <p>pagination, sorting</p>
-
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/Task.html" target="_self" >Promise&lt;Counted&lt;Task[]&gt;&gt;</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="findLessons"></a>
-                    <span class="name">
-                        <span class="modifier">Private</span>
-                        <span class="modifier">Async</span>
-                        <span ><b>findLessons</b></span>
-                        <a href="#findLessons"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>findLessons(parentIds: <a href="../undefineds/EntityId.html" target="_self">EntityId[]</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="100"
-                            class="link-to-prism">apps/server/src/modules/task/repo/task.repo.ts:100</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>parentIds</td>
-                                    <td>
-                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId[]</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>    <code>Promise&lt;LessonTaskInfo[]&gt;</code>
 
                     </div>
                     <div class="io-description">
@@ -582,8 +374,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="91"
-                            class="link-to-prism">apps/server/src/modules/task/repo/task.repo.ts:91</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="55"
+                            class="link-to-prism">apps/server/src/modules/task/repo/task.repo.ts:55</a></div>
                 </td>
             </tr>
 
@@ -646,6 +438,77 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="findVisibleLessons"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span class="modifier">Async</span>
+                        <span ><b>findVisibleLessons</b></span>
+                        <a href="#findVisibleLessons"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findVisibleLessons(parentIds: <a href="../undefineds/EntityId.html" target="_self">EntityId[]</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="66"
+                            class="link-to-prism">apps/server/src/modules/task/repo/task.repo.ts:66</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>parentIds</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId[]</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;LessonTaskInfo[]&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="getDefaultMaxDueDate"></a>
                     <span class="name">
                         <span class="modifier">Private</span>
@@ -664,8 +527,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="108"
-                            class="link-to-prism">apps/server/src/modules/task/repo/task.repo.ts:108</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="74"
+                            class="link-to-prism">apps/server/src/modules/task/repo/task.repo.ts:74</a></div>
                 </td>
             </tr>
 
@@ -694,7 +557,6 @@ import { EntityId, IFindOptions } from &#x27;@shared/domain&#x27;;
 import { Counted } from &#x27;@shared/domain/types&#x27;;
 
 // TODO lessonTaskInfo must deleted
-import { ObjectId } from &#x27;@mikro-orm/mongodb&#x27;;
 import { Task, LessonTaskInfo } from &#x27;../entity&#x27;;
 import { TaskScope } from &#x27;./task-scope&#x27;;
 
@@ -710,68 +572,33 @@ export class TaskRepo {
 	 * @returns
 	 */
 	async findAll(parentIds: EntityId[], options?: IFindOptions&lt;Task&gt;): Promise&lt;Counted&lt;Task[]&gt;&gt; {
-		const lessons &#x3D; await this.findLessons(parentIds);
+		const visibleLessons &#x3D; await this.findVisibleLessons(parentIds);
 
 		const scope &#x3D; new TaskScope();
-		scope.byParents(parentIds);
+		scope.byParentIds(parentIds);
 		scope.byPublic();
-		scope.byLessonsOrNone(lessons.map((o) &#x3D;&gt; o.id));
+		scope.byLessonsOrNone(visibleLessons.map((o) &#x3D;&gt; o.id));
 
 		const countedTaskList &#x3D; await this.findTasksAndCount(scope.query, options);
 		return countedTaskList;
 	}
 
 	/**
-	 * Find all currently active tasks by their parent ids and a list of task ids.
+	 * Find all currently active tasks by their parent ids.
 	 *
 	 * @param parentIds ids of parent entities
-	 * @param ids task ids to include
 	 * @param options pagination, sorting
 	 * @returns
 	 */
-	async findAllCurrentByIds(
-		parentIds: EntityId[],
-		ids: EntityId[],
-		options?: IFindOptions&lt;Task&gt;
-	): Promise&lt;Counted&lt;Task[]&gt;&gt; {
-		const lessons &#x3D; await this.findLessons(parentIds);
+	async findAllCurrent(parentIds: EntityId[], options?: IFindOptions&lt;Task&gt;): Promise&lt;Counted&lt;Task[]&gt;&gt; {
+		const visibleLessons &#x3D; await this.findVisibleLessons(parentIds);
 		const dueDate &#x3D; this.getDefaultMaxDueDate();
 
 		const scope &#x3D; new TaskScope();
-		scope.byParents(parentIds);
+		scope.byParentIds(parentIds);
 		scope.byPublic();
-		scope.byLessonsOrNone(lessons.map((o) &#x3D;&gt; o.id));
+		scope.byLessonsOrNone(visibleLessons.map((o) &#x3D;&gt; o.id));
 		scope.afterDueDateOrNone(dueDate);
-
-		scope.byIds(ids);
-
-		const countedTaskList &#x3D; await this.findTasksAndCount(scope.query, options);
-		return countedTaskList;
-	}
-
-	/**
-	 * Find all currently active tasks by their parent ids ignoring a list of task ids.
-	 *
-	 * @param parentIds ids of parent entities
-	 * @param ignoreIds task ids to ignore
-	 * @param options pagination, sorting
-	 * @returns
-	 */
-	async findAllCurrentIgnoreIds(
-		parentIds: EntityId[],
-		ignoreIds: EntityId[] &#x3D; [],
-		options?: IFindOptions&lt;Task&gt;
-	): Promise&lt;Counted&lt;Task[]&gt;&gt; {
-		const lessons &#x3D; await this.findLessons(parentIds);
-		const dueDate &#x3D; this.getDefaultMaxDueDate();
-
-		const scope &#x3D; new TaskScope();
-		scope.byParents(parentIds);
-		scope.byPublic();
-		scope.byLessonsOrNone(lessons.map((o) &#x3D;&gt; o.id));
-		scope.afterDueDateOrNone(dueDate);
-
-		scope.ignoreIds(ignoreIds);
 
 		const countedTaskList &#x3D; await this.findTasksAndCount(scope.query, options);
 		return countedTaskList;
@@ -783,12 +610,14 @@ export class TaskRepo {
 			...pagination,
 			orderBy: order as QueryOrderMap,
 		});
+		await this.em.populate(taskEntities, [&#x27;parent&#x27;, &#x27;lesson&#x27;, &#x27;submissions&#x27;]);
 		return [taskEntities, count];
 	}
 
-	private async findLessons(parentIds: EntityId[]): Promise&lt;LessonTaskInfo[]&gt; {
+	// TODO move to lesson repo
+	private async findVisibleLessons(parentIds: EntityId[]): Promise&lt;LessonTaskInfo[]&gt; {
 		const lessons &#x3D; await this.em.find(LessonTaskInfo, {
-			courseId: { $in: parentIds.map((id) &#x3D;&gt; new ObjectId(id)) },
+			course: { $in: parentIds },
 			hidden: false,
 		});
 		return lessons;

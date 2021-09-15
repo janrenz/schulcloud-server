@@ -136,18 +136,7 @@
                                 <a href="#getDescriptions" >getDescriptions</a>
                             </li>
                             <li>
-                                <a href="#getStudentsNumber" >getStudentsNumber</a>
-                            </li>
-                            <li>
-                                <a href="#hasWritePermission" >hasWritePermission</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Private</span>
-                                <a href="#isSubstitutionTeacher" >isSubstitutionTeacher</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Private</span>
-                                <a href="#isTeacher" >isTeacher</a>
+                                <a href="#getNumberOfStudents" >getNumberOfStudents</a>
                             </li>
                         </ul>
                     </td>
@@ -704,16 +693,16 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="getStudentsNumber"></a>
+                    <a name="getNumberOfStudents"></a>
                     <span class="name">
-                        <span ><b>getStudentsNumber</b></span>
-                        <a href="#getStudentsNumber"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>getNumberOfStudents</b></span>
+                        <a href="#getNumberOfStudents"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>getStudentsNumber()</code>
+<code>getNumberOfStudents()</code>
                 </td>
             </tr>
 
@@ -737,219 +726,6 @@
             </tr>
         </tbody>
     </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="hasWritePermission"></a>
-                    <span class="name">
-                        <span ><b>hasWritePermission</b></span>
-                        <a href="#hasWritePermission"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>hasWritePermission(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="98"
-                            class="link-to-prism">apps/server/src/entities/learnroom/course.entity.ts:98</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-description"><p>Important using hasWritePermissions and isMember as read and write permission interpretation,
-is only a temporary solution until we have implement an authorization interface that can used.</p>
-</div>
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>userId</td>
-                                    <td>
-                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="isSubstitutionTeacher"></a>
-                    <span class="name">
-                        <span class="modifier">Private</span>
-                        <span ><b>isSubstitutionTeacher</b></span>
-                        <a href="#isSubstitutionTeacher"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>isSubstitutionTeacher(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="88"
-                            class="link-to-prism">apps/server/src/entities/learnroom/course.entity.ts:88</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>userId</td>
-                                    <td>
-                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="isTeacher"></a>
-                    <span class="name">
-                        <span class="modifier">Private</span>
-                        <span ><b>isTeacher</b></span>
-                        <a href="#isTeacher"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>isTeacher(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="82"
-                            class="link-to-prism">apps/server/src/entities/learnroom/course.entity.ts:82</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-description"><p>Important user group operations are only a temporary solution until we have established groups</p>
-</div>
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>userId</td>
-                                    <td>
-                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
 </section>
 
 
@@ -965,7 +741,7 @@ import { ObjectId } from &#x27;@mikro-orm/mongodb&#x27;;
 import { BaseEntityWithTimestamps, EntityId } from &#x27;@shared/domain&#x27;;
 
 interface ICourseProperties {
-	name: string;
+	name?: string;
 	description?: string;
 	schoolId: ObjectId;
 	teacherIds?: ObjectId[];
@@ -1024,7 +800,7 @@ export class Course extends BaseEntityWithTimestamps {
 		Object.assign(this, {});
 	}
 
-	getStudentsNumber(): number {
+	getNumberOfStudents(): number {
 		// TODO remove &quot;|| []&quot; when we can rely on db schema integrity
 		return (this.studentIds || []).length;
 	}
@@ -1036,30 +812,6 @@ export class Course extends BaseEntityWithTimestamps {
 			description: this.description,
 			color: this.color,
 		};
-	}
-
-	/**
-	 * Important user group operations are only a temporary solution until we have established groups
-	 */
-	private isTeacher(userId: EntityId): boolean {
-		// TODO remove &quot;|| []&quot; when we can rely on db schema integrity
-		const isTeacher &#x3D; (this.teacherIds || []).map((id) &#x3D;&gt; id.toHexString()).includes(userId);
-		return isTeacher;
-	}
-
-	private isSubstitutionTeacher(userId: EntityId): boolean {
-		// TODO remove &quot;|| []&quot; when we can rely on db schema integrity
-		const isSubstitutionTeacher &#x3D; (this.substitutionTeacherIds || []).map((id) &#x3D;&gt; id.toHexString()).includes(userId);
-		return isSubstitutionTeacher;
-	}
-
-	/**
-	 * Important using hasWritePermissions and isMember as read and write permission interpretation,
-	 * is only a temporary solution until we have implement an authorization interface that can used.
-	 */
-	hasWritePermission(userId: EntityId): boolean {
-		const isPrivilegedMember &#x3D; this.isTeacher(userId) || this.isSubstitutionTeacher(userId);
-		return isPrivilegedMember;
 	}
 }
 </code></pre>

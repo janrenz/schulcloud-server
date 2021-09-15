@@ -106,9 +106,9 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#getStudentsNumber" 
+                                    <a href="#getNumberOfStudents" 
 >
-                                        getStudentsNumber
+                                        getNumberOfStudents
                                     </a>
                                 </li>
                                 <li>
@@ -149,8 +149,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="25"
-                            class="link-to-prism">apps/server/src/modules/task/entity/task.entity.ts:25</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="27"
+                            class="link-to-prism">apps/server/src/modules/task/entity/task.entity.ts:27</a></div>
                 </td>
             </tr>
 
@@ -170,24 +170,24 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="getStudentsNumber"></a>
+                    <a name="getNumberOfStudents"></a>
                     <span class="name">
-                        <span ><b>getStudentsNumber</b></span>
-                        <a href="#getStudentsNumber"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>getNumberOfStudents</b></span>
+                        <a href="#getNumberOfStudents"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>getStudentsNumber()</code>
+<code>getNumberOfStudents()</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="26"
-                            class="link-to-prism">apps/server/src/modules/task/entity/task.entity.ts:26</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="28"
+                            class="link-to-prism">apps/server/src/modules/task/entity/task.entity.ts:28</a></div>
                 </td>
             </tr>
 
@@ -223,8 +223,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="24"
-                            class="link-to-prism">apps/server/src/modules/task/entity/task.entity.ts:24</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="26"
+                            class="link-to-prism">apps/server/src/modules/task/entity/task.entity.ts:26</a></div>
                 </td>
             </tr>
 
@@ -313,17 +313,19 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Entity, ManyToOne, Property } from &#x27;@mikro-orm/core&#x27;;
-import { ObjectId } from &#x27;@mikro-orm/mongodb&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Collection, Entity, ManyToOne, OneToMany, Property } from &#x27;@mikro-orm/core&#x27;;
 import { BaseEntityWithTimestamps, EntityId } from &#x27;@shared/domain&#x27;;
+import { Course } from &#x27;@src/entities&#x27;;
+import type { Submission } from &#x27;./submission.entity&#x27;;
 import { LessonTaskInfo } from &#x27;./lesson-task-info.entity&#x27;;
 
 interface ITaskProperties {
 	name: string;
 	dueDate?: Date;
 	private?: boolean;
-	parentId: ObjectId;
+	parent?: Course;
 	lesson?: LessonTaskInfo;
+	submissions?: Submission[];
 }
 
 export interface IParentDescriptionsProperties {
@@ -338,7 +340,7 @@ export interface ITaskParent {
 
 	hasWritePermission(userId: EntityId): boolean;
 	getDescriptions(): IParentDescriptionsProperties;
-	getStudentsNumber(): number;
+	getNumberOfStudents(): number;
 }
 
 @Entity({ tableName: &#x27;homeworks&#x27; })
@@ -350,58 +352,25 @@ export class Task extends BaseEntityWithTimestamps {
 	dueDate?: Date;
 
 	@Property()
-	private: boolean;
+	private &#x3D; true;
 
-	@Property({ fieldName: &#x27;courseId&#x27; })
-	parentId: ObjectId;
+	@ManyToOne({ fieldName: &#x27;courseId&#x27; })
+	parent?: Course;
 
 	@ManyToOne({ fieldName: &#x27;lessonId&#x27; })
 	lesson?: LessonTaskInfo; // In database exist also null, but it can not set.
 
-	@Property({ persist: false })
-	parent?: ITaskParent;
+	@OneToMany(&#x27;Submission&#x27;, &#x27;task&#x27;)
+	submissions &#x3D; new Collection&lt;Submission&gt;(this);
 
 	constructor(props: ITaskProperties) {
 		super();
 		this.name &#x3D; props.name;
 		this.dueDate &#x3D; props.dueDate;
-		this.private &#x3D; props.private || true;
-		this.parentId &#x3D; props.parentId;
-
-		const lesson &#x3D; props.lesson || null;
-		Object.assign(this, { lesson });
-	}
-
-	getParentId(): EntityId {
-		return this.parentId.toHexString();
-	}
-
-	getName(): string {
-		return this.name;
-	}
-
-	getDueDate(): Date | undefined {
-		return this.dueDate;
-	}
-
-	changePrivate(toValue?: boolean): boolean {
-		if (toValue) {
-			this.private &#x3D; toValue;
-		} else {
-			this.private &#x3D; !this.private;
-		}
-		return this.private;
-	}
-
-	setParent(parent: ITaskParent | undefined): void {
-		this.parent &#x3D; parent;
-		if (parent) {
-			this.parentId &#x3D; new ObjectId(parent.id);
-		}
-	}
-
-	getParent(): ITaskParent | undefined {
-		return this.parent;
+		this.private &#x3D; !!props.private;
+		this.parent &#x3D; props.parent;
+		this.lesson &#x3D; props.lesson;
+		this.submissions &#x3D; new Collection&lt;Submission&gt;(this, props.submissions || []);
 	}
 }
 </code></pre>

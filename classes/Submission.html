@@ -131,6 +131,20 @@
                     </td>
                 </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#isGraded" >isGraded</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
 
 
 
@@ -151,7 +165,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">apps/server/src/modules/task/entity/submission.entity.ts:49</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="57" class="link-to-prism">apps/server/src/modules/task/entity/submission.entity.ts:57</a></div>
                             </td>
                         </tr>
 
@@ -675,7 +689,49 @@
     </table>
 </section>
 
+            <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isGraded"></a>
+                    <span class="name">
+                        <span ><b>isGraded</b></span>
+                        <a href="#isGraded"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>isGraded()</code>
+                </td>
+            </tr>
 
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="51"
+                            class="link-to-prism">apps/server/src/modules/task/entity/submission.entity.ts:51</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
 
 
 
@@ -734,6 +790,14 @@ export class Submission extends BaseEntityWithTimestamps {
 
 	@ManyToMany({ fieldName: &#x27;gradeFileIds&#x27;, type: FileTaskInfo })
 	gradeFiles &#x3D; new Collection&lt;FileTaskInfo&gt;(this);
+
+	isGraded(): boolean {
+		const isGraded &#x3D;
+			(typeof this.grade &#x3D;&#x3D;&#x3D; &#x27;number&#x27; &amp;&amp; this.grade &gt;&#x3D; 0) ||
+			(typeof this.gradeComment &#x3D;&#x3D;&#x3D; &#x27;string&#x27; &amp;&amp; this.gradeComment.length &gt; 0) ||
+			(this.gradeFiles !&#x3D;&#x3D; undefined &amp;&amp; this.gradeFiles.length &gt; 0);
+		return isGraded;
+	}
 
 	constructor(props: ISubmissionProperties) {
 		super();

@@ -97,6 +97,7 @@
                                         </a>
                                 </li>
                                 <li>
+                                            <span class="modifier">Optional</span>
                                         <a href="#name" 
 >
                                             name
@@ -243,6 +244,11 @@
                                         </td>
                                     </tr>
 
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
 
 
 
@@ -406,7 +412,7 @@ import { ObjectId } from &#x27;@mikro-orm/mongodb&#x27;;
 import { BaseEntityWithTimestamps, EntityId } from &#x27;@shared/domain&#x27;;
 
 interface ICourseProperties {
-	name: string;
+	name?: string;
 	description?: string;
 	schoolId: ObjectId;
 	teacherIds?: ObjectId[];
@@ -465,7 +471,7 @@ export class Course extends BaseEntityWithTimestamps {
 		Object.assign(this, {});
 	}
 
-	getStudentsNumber(): number {
+	getNumberOfStudents(): number {
 		// TODO remove &quot;|| []&quot; when we can rely on db schema integrity
 		return (this.studentIds || []).length;
 	}
@@ -477,30 +483,6 @@ export class Course extends BaseEntityWithTimestamps {
 			description: this.description,
 			color: this.color,
 		};
-	}
-
-	/**
-	 * Important user group operations are only a temporary solution until we have established groups
-	 */
-	private isTeacher(userId: EntityId): boolean {
-		// TODO remove &quot;|| []&quot; when we can rely on db schema integrity
-		const isTeacher &#x3D; (this.teacherIds || []).map((id) &#x3D;&gt; id.toHexString()).includes(userId);
-		return isTeacher;
-	}
-
-	private isSubstitutionTeacher(userId: EntityId): boolean {
-		// TODO remove &quot;|| []&quot; when we can rely on db schema integrity
-		const isSubstitutionTeacher &#x3D; (this.substitutionTeacherIds || []).map((id) &#x3D;&gt; id.toHexString()).includes(userId);
-		return isSubstitutionTeacher;
-	}
-
-	/**
-	 * Important using hasWritePermissions and isMember as read and write permission interpretation,
-	 * is only a temporary solution until we have implement an authorization interface that can used.
-	 */
-	hasWritePermission(userId: EntityId): boolean {
-		const isPrivilegedMember &#x3D; this.isTeacher(userId) || this.isSubstitutionTeacher(userId);
-		return isPrivilegedMember;
 	}
 }
 </code></pre>

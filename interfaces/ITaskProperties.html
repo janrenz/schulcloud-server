@@ -103,9 +103,10 @@
                                         </a>
                                 </li>
                                 <li>
-                                        <a href="#parentId" 
+                                            <span class="modifier">Optional</span>
+                                        <a href="#parent" 
 >
-                                            parentId
+                                            parent
                                         </a>
                                 </li>
                                 <li>
@@ -113,6 +114,13 @@
                                         <a href="#private" 
 >
                                             private
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#submissions" 
+>
+                                            submissions
                                         </a>
                                 </li>
                             </ul>
@@ -239,9 +247,9 @@
                         <tbody>
                                 <tr>
                                     <td class="col-md-4">
-                                        <a name="parentId"></a>
-                                        <span class="name "><b>parentId</b>
-                                            <a href="#parentId">
+                                        <a name="parent"></a>
+                                        <span class="name "><b>parent</b>
+                                            <a href="#parent">
                                                 <span class="icon ion-ios-link"></span>
                                             </a>
                                         </span>
@@ -249,7 +257,7 @@
                                 </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <code>parentId:     <code>ObjectId</code>
+                                        <code>parent:         <code><a href="../classes/Course.html" target="_self" >Course</a></code>
 </code>
                                     </td>
                                 </tr>
@@ -257,11 +265,16 @@
 
                                     <tr>
                                         <td class="col-md-4">
-                                            <i>Type : </i>    <code>ObjectId</code>
+                                            <i>Type : </i>        <code><a href="../classes/Course.html" target="_self" >Course</a></code>
 
                                         </td>
                                     </tr>
 
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
 
 
 
@@ -306,22 +319,62 @@
 
                         </tbody>
                     </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="submissions"></a>
+                                        <span class="name "><b>submissions</b>
+                                            <a href="#submissions">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>submissions:         <code><a href="../classes/Submission.html" target="_self" >Submission[]</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="../classes/Submission.html" target="_self" >Submission[]</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                        </tbody>
+                    </table>
             </section>
     </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Entity, ManyToOne, Property } from &#x27;@mikro-orm/core&#x27;;
-import { ObjectId } from &#x27;@mikro-orm/mongodb&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Collection, Entity, ManyToOne, OneToMany, Property } from &#x27;@mikro-orm/core&#x27;;
 import { BaseEntityWithTimestamps, EntityId } from &#x27;@shared/domain&#x27;;
+import { Course } from &#x27;@src/entities&#x27;;
+import type { Submission } from &#x27;./submission.entity&#x27;;
 import { LessonTaskInfo } from &#x27;./lesson-task-info.entity&#x27;;
 
 interface ITaskProperties {
 	name: string;
 	dueDate?: Date;
 	private?: boolean;
-	parentId: ObjectId;
+	parent?: Course;
 	lesson?: LessonTaskInfo;
+	submissions?: Submission[];
 }
 
 export interface IParentDescriptionsProperties {
@@ -336,7 +389,7 @@ export interface ITaskParent {
 
 	hasWritePermission(userId: EntityId): boolean;
 	getDescriptions(): IParentDescriptionsProperties;
-	getStudentsNumber(): number;
+	getNumberOfStudents(): number;
 }
 
 @Entity({ tableName: &#x27;homeworks&#x27; })
@@ -348,58 +401,25 @@ export class Task extends BaseEntityWithTimestamps {
 	dueDate?: Date;
 
 	@Property()
-	private: boolean;
+	private &#x3D; true;
 
-	@Property({ fieldName: &#x27;courseId&#x27; })
-	parentId: ObjectId;
+	@ManyToOne({ fieldName: &#x27;courseId&#x27; })
+	parent?: Course;
 
 	@ManyToOne({ fieldName: &#x27;lessonId&#x27; })
 	lesson?: LessonTaskInfo; // In database exist also null, but it can not set.
 
-	@Property({ persist: false })
-	parent?: ITaskParent;
+	@OneToMany(&#x27;Submission&#x27;, &#x27;task&#x27;)
+	submissions &#x3D; new Collection&lt;Submission&gt;(this);
 
 	constructor(props: ITaskProperties) {
 		super();
 		this.name &#x3D; props.name;
 		this.dueDate &#x3D; props.dueDate;
-		this.private &#x3D; props.private || true;
-		this.parentId &#x3D; props.parentId;
-
-		const lesson &#x3D; props.lesson || null;
-		Object.assign(this, { lesson });
-	}
-
-	getParentId(): EntityId {
-		return this.parentId.toHexString();
-	}
-
-	getName(): string {
-		return this.name;
-	}
-
-	getDueDate(): Date | undefined {
-		return this.dueDate;
-	}
-
-	changePrivate(toValue?: boolean): boolean {
-		if (toValue) {
-			this.private &#x3D; toValue;
-		} else {
-			this.private &#x3D; !this.private;
-		}
-		return this.private;
-	}
-
-	setParent(parent: ITaskParent | undefined): void {
-		this.parent &#x3D; parent;
-		if (parent) {
-			this.parentId &#x3D; new ObjectId(parent.id);
-		}
-	}
-
-	getParent(): ITaskParent | undefined {
-		return this.parent;
+		this.private &#x3D; !!props.private;
+		this.parent &#x3D; props.parent;
+		this.lesson &#x3D; props.lesson;
+		this.submissions &#x3D; new Collection&lt;Submission&gt;(this, props.submissions || []);
 	}
 }
 </code></pre>

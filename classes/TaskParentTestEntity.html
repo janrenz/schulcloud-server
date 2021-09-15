@@ -110,7 +110,7 @@
                                 <a href="#getDescriptions" >getDescriptions</a>
                             </li>
                             <li>
-                                <a href="#getStudentsNumber" >getStudentsNumber</a>
+                                <a href="#getNumberOfStudents" >getNumberOfStudents</a>
                             </li>
                             <li>
                                 <a href="#hasWritePermission" >hasWritePermission</a>
@@ -138,7 +138,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">apps/server/src/modules/task/utils/TestHelper.ts:8</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">apps/server/src/modules/task/utils/TestHelper.ts:12</a></div>
                             </td>
                         </tr>
 
@@ -200,7 +200,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="6" class="link-to-prism">apps/server/src/modules/task/utils/TestHelper.ts:6</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">apps/server/src/modules/task/utils/TestHelper.ts:10</a></div>
                         </td>
                     </tr>
 
@@ -227,7 +227,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">apps/server/src/modules/task/utils/TestHelper.ts:8</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">apps/server/src/modules/task/utils/TestHelper.ts:12</a></div>
                         </td>
                     </tr>
 
@@ -261,8 +261,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="20"
-                            class="link-to-prism">apps/server/src/modules/task/utils/TestHelper.ts:20</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="24"
+                            class="link-to-prism">apps/server/src/modules/task/utils/TestHelper.ts:24</a></div>
                 </td>
             </tr>
 
@@ -282,24 +282,24 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="getStudentsNumber"></a>
+                    <a name="getNumberOfStudents"></a>
                     <span class="name">
-                        <span ><b>getStudentsNumber</b></span>
-                        <a href="#getStudentsNumber"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>getNumberOfStudents</b></span>
+                        <a href="#getNumberOfStudents"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>getStudentsNumber()</code>
+<code>getNumberOfStudents()</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="28"
-                            class="link-to-prism">apps/server/src/modules/task/utils/TestHelper.ts:28</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="32"
+                            class="link-to-prism">apps/server/src/modules/task/utils/TestHelper.ts:32</a></div>
                 </td>
             </tr>
 
@@ -335,8 +335,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="15"
-                            class="link-to-prism">apps/server/src/modules/task/utils/TestHelper.ts:15</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="19"
+                            class="link-to-prism">apps/server/src/modules/task/utils/TestHelper.ts:19</a></div>
                 </td>
             </tr>
 
@@ -393,7 +393,9 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { EntityId, TestHelper } from &#x27;@shared/domain&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ObjectId } from &#x27;@mikro-orm/mongodb&#x27;;
+import { EntityId, TestHelper } from &#x27;@shared/domain&#x27;;
+import { Course } from &#x27;@src/entities&#x27;;
 
 import { Submission, Task, UserTaskInfo, LessonTaskInfo, ITaskParent, IParentDescriptionsProperties } from &#x27;../entity&#x27;;
 
@@ -420,7 +422,7 @@ export class TaskParentTestEntity implements ITaskParent {
 		};
 	}
 
-	getStudentsNumber(): number {
+	getNumberOfStudents(): number {
 		return 10;
 	}
 }
@@ -443,19 +445,23 @@ export class TaskTestHelper extends TestHelper&lt;EntityId&gt; {
 	}
 
 	createTask(parentId?: EntityId, dueDate?: Date): Task {
+		const parent &#x3D; new Course({ schoolId: new ObjectId() });
 		const id &#x3D; this.createId(parentId);
-		const task &#x3D; new Task({ name: &#x27;&#x27;, parentId: id, dueDate });
+		parent._id &#x3D; id;
+		parent.id &#x3D; id.toHexString();
+		const task &#x3D; new Task({ name: &#x27;&#x27;, parent, dueDate });
 		this.addId(task);
 		return task;
 	}
 
 	createLessonWithTask(): { task: Task; lesson: LessonTaskInfo; parentId: EntityId } {
-		const parentId &#x3D; this.createId();
-		const lesson &#x3D; new LessonTaskInfo({ courseId: parentId });
+		const parent &#x3D; new Course({ schoolId: new ObjectId() });
+		this.addId(parent);
+		const lesson &#x3D; new LessonTaskInfo({ course: parent });
 		this.addId(lesson);
-		const task &#x3D; new Task({ name: &#x27;&#x27;, parentId, lesson });
+		const task &#x3D; new Task({ name: &#x27;&#x27;, parent, lesson });
 		this.addId(task);
-		return { task, lesson, parentId: parentId.toHexString() };
+		return { task, lesson, parentId: parent.id };
 	}
 
 	createSubmission(task: Task, student?: UserTaskInfo): Submission {

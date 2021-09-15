@@ -62,19 +62,16 @@
                             <a href="#CourseTyps" title="apps/server/src/entities/learnroom/testHelper.ts" ><b>CourseTyps</b>&nbsp;&nbsp;&nbsp;(apps/.../testHelper.ts)</a>
                         </li>
                         <li>
-                            <a href="#MaxSubmissionsOperations" title="apps/server/src/modules/task/domain/TaskDomainService.ts" ><b>MaxSubmissionsOperations</b>&nbsp;&nbsp;&nbsp;(apps/.../TaskDomainService.ts)</a>
-                        </li>
-                        <li>
                             <a href="#NewsTargetModel" title="apps/server/src/modules/news/entity/news.types.ts" ><b>NewsTargetModel</b>&nbsp;&nbsp;&nbsp;(apps/.../news.types.ts)</a>
-                        </li>
-                        <li>
-                            <a href="#Permission" title="apps/server/src/modules/task/uc/task.uc.ts" ><b>Permission</b>&nbsp;&nbsp;&nbsp;(apps/.../task.uc.ts)</a>
                         </li>
                         <li>
                             <a href="#SortOrder" title="apps/server/src/shared/domain/interface/find-options.ts" ><b>SortOrder</b>&nbsp;&nbsp;&nbsp;(apps/.../find-options.ts)</a>
                         </li>
                         <li>
                             <a href="#TaskDashBoardPermission" title="apps/server/src/modules/task/uc/task.uc.ts" ><b>TaskDashBoardPermission</b>&nbsp;&nbsp;&nbsp;(apps/.../task.uc.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#TaskParentPermission" title="apps/server/src/modules/task/uc/task.authorization.service.ts" ><b>TaskParentPermission</b>&nbsp;&nbsp;&nbsp;(apps/.../task.authorization.service.ts)</a>
                         </li>
                     </ul>
                 </td>
@@ -126,39 +123,6 @@
             </tbody>
         </table>
 </section>
-    <h3>apps/server/src/modules/task/domain/TaskDomainService.ts</h3>
-    <section>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="MaxSubmissionsOperations"></a>
-                        <span class="name "><b>MaxSubmissionsOperations</b><a href="#MaxSubmissionsOperations"><span class="icon ion-ios-link"></span></a></span>
-                    </td>
-                </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                &nbsp;teacher
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <i>Value : </i><code>getMaxSubmissionsForTeachersByCourseId</code>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                &nbsp;student
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <i>Value : </i><code>getMaxSubmissionsForStudentsByCourseId</code>
-                            </td>
-                        </tr>
-            </tbody>
-        </table>
-</section>
     <h3>apps/server/src/modules/news/entity/news.types.ts</h3>
     <section>
         <table class="table table-sm table-bordered">
@@ -202,28 +166,41 @@
             </tbody>
         </table>
 </section>
-    <h3>apps/server/src/modules/task/uc/task.uc.ts</h3>
+    <h3>apps/server/src/shared/domain/interface/find-options.ts</h3>
     <section>
         <table class="table table-sm table-bordered">
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="Permission"></a>
-                        <span class="name "><b>Permission</b><a href="#Permission"><span class="icon ion-ios-link"></span></a></span>
+                        <a name="SortOrder"></a>
+                        <span class="name "><b>SortOrder</b><a href="#SortOrder"><span class="icon ion-ios-link"></span></a></span>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                &nbsp;read
+                                &nbsp;asc
                             </td>
                         </tr>
                         <tr>
                             <td class="col-md-4">
-                                &nbsp;write
+                                <i>Value : </i><code>asc</code>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;desc
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Value : </i><code>desc</code>
                             </td>
                         </tr>
             </tbody>
         </table>
+</section>
+    <h3>apps/server/src/modules/task/uc/task.uc.ts</h3>
+    <section>
         <table class="table table-sm table-bordered">
             <tbody>
                 <tr>
@@ -255,34 +232,24 @@
             </tbody>
         </table>
 </section>
-    <h3>apps/server/src/shared/domain/interface/find-options.ts</h3>
+    <h3>apps/server/src/modules/task/uc/task.authorization.service.ts</h3>
     <section>
         <table class="table table-sm table-bordered">
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="SortOrder"></a>
-                        <span class="name "><b>SortOrder</b><a href="#SortOrder"><span class="icon ion-ios-link"></span></a></span>
+                        <a name="TaskParentPermission"></a>
+                        <span class="name "><b>TaskParentPermission</b><a href="#TaskParentPermission"><span class="icon ion-ios-link"></span></a></span>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                &nbsp;asc
+                                &nbsp;read
                             </td>
                         </tr>
                         <tr>
                             <td class="col-md-4">
-                                <i>Value : </i><code>asc</code>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                &nbsp;desc
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <i>Value : </i><code>desc</code>
+                                &nbsp;write
                             </td>
                         </tr>
             </tbody>
