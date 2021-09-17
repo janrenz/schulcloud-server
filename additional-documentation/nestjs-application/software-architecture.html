@@ -44,7 +44,7 @@
 
 
 
-                   
+
 
 
 
@@ -149,7 +149,7 @@
 </ul>
 </li>
 <li>There are cases, in which the client to an external system could be part of a business component. Thats allowed, if the following conditons are true:<ol>
-<li> It will not be reused/called directly by other components. All calls must go through this business components usecase facade and obviously, the logic must fit into the components responsibility.</li>
+<li>It will not be reused/called directly by other components. All calls must go through this business components usecase facade and obviously, the logic must fit into the components responsibility.</li>
 <li>it&#39;s very simple or tightly related to an entity managed by the business component, e.g.<ul>
 <li>if course content is not stored in a database but in a third party LMS. In that case, the external system is the actual &quot;repository&quot; of the data and the client for it belongs in the dataaccess layer</li>
 <li>a component managing addresses could contain a client which calls an external application to validate addresses.</li>
@@ -271,9 +271,9 @@
 <p>Because this context is required in all layers (especially in the data access layer for audit logging) and in cross cutting hooks, we need a framework/feature, which makes this available for direct access without adding this object to every method signature as input variable. Luckily, the necessary functionality is now part of nodejs: <a href="https://nodejs.org/docs/latest-v14.x/api/async_hooks.html#async_hooks_class_asynclocalstorage">AsyncLocalStorage</a>.</p>
 <p>The general approach for rest requests:</p>
 <ol>
-<li> A request is received</li>
-<li> A hook initializes the request context</li>
-<li> A hook extracts trace information (e.g. traceid and spanid) from the request and adds it to the request context</li>
+<li>A request is received</li>
+<li>A hook initializes the request context</li>
+<li>A hook extracts trace information (e.g. traceid and spanid) from the request and adds it to the request context</li>
 <li>A hook authenticates and authorizes the user and stores basic user information (e.g. user id, maybe general permissions roles) in the request context<ul>
 <li>If the user is not authenticated, a &quot;guest user&quot; is set in the content with only guest permissions</li>
 <li>For batch jobs, a technial user must be set in the request context. For the business logic, the technology, channel and user must be hidden behind the request context.</li>
@@ -286,7 +286,7 @@
 <li>Our logging abstraction retrieves the trace id from the request context and adds it to the log message before writing it to the logfile (actually the console).</li>
 </ul>
 </li>
-<li> After the response is sent to the client, the request context is &quot;destroyed&quot;</li>
+<li>After the response is sent to the client, the request context is &quot;destroyed&quot;</li>
 </ol>
 <p>Characteristics of the context:</p>
 <ul>
@@ -306,7 +306,7 @@
 
                    </div><div class="search-results">
     <div class="has-results">
-        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
         <ul class="search-results-list"></ul>
     </div>
     <div class="no-results">
@@ -327,8 +327,8 @@
 
        <script src="../../js/libs/custom-elements.min.js"></script>
        <script src="../../js/libs/lit-html.js"></script>
-       
-       <script type="module" src="../../js/menu-wc.js" defer></script>
+
+       <script src="../../js/menu-wc.js" defer></script>
        <script nomodule src="../../js/menu-wc_es5.js" defer></script>
 
        <script src="../../js/libs/bootstrap-native.js"></script>
