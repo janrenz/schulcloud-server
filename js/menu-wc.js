@@ -288,13 +288,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/ServerModule.html" data-type="entity-link" >ServerModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#controllers-links-module-ServerModule-db25e00d62270848534679f26c5c2b2e"' : 'data-target="#xs-controllers-links-module-ServerModule-db25e00d62270848534679f26c5c2b2e"' }>
+                                            'data-target="#controllers-links-module-ServerModule-57fb930210749eefdb1ff501d505c813"' : 'data-target="#xs-controllers-links-module-ServerModule-57fb930210749eefdb1ff501d505c813"' }>
                                             <span class="icon ion-md-swap"></span>
                                             <span>Controllers</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="controllers-links-module-ServerModule-db25e00d62270848534679f26c5c2b2e"' :
-                                            'id="xs-controllers-links-module-ServerModule-db25e00d62270848534679f26c5c2b2e"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="controllers-links-module-ServerModule-57fb930210749eefdb1ff501d505c813"' :
+                                            'id="xs-controllers-links-module-ServerModule-57fb930210749eefdb1ff501d505c813"' }>
                                             <li class="link">
                                                 <a href="controllers/ServerController.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >ServerController</a>
                                             </li>
@@ -456,16 +456,28 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/DashboardEntity.html" data-type="entity-link" >DashboardEntity</a>
                             </li>
                             <li class="link">
+                                <a href="classes/DashboardGridElementModel.html" data-type="entity-link" >DashboardGridElementModel</a>
+                            </li>
+                            <li class="link">
                                 <a href="classes/DashboardGridElementResponse.html" data-type="entity-link" >DashboardGridElementResponse</a>
                             </li>
                             <li class="link">
                                 <a href="classes/DashboardMapper.html" data-type="entity-link" >DashboardMapper</a>
                             </li>
                             <li class="link">
+                                <a href="classes/DashboardModelEntity.html" data-type="entity-link" >DashboardModelEntity</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/DashboardModelMapper.html" data-type="entity-link" >DashboardModelMapper</a>
+                            </li>
+                            <li class="link">
                                 <a href="classes/DashboardResponse.html" data-type="entity-link" >DashboardResponse</a>
                             </li>
                             <li class="link">
                                 <a href="classes/DefaultGridReference.html" data-type="entity-link" >DefaultGridReference</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/DefaultGridReferenceModel.html" data-type="entity-link" >DefaultGridReferenceModel</a>
                             </li>
                             <li class="link">
                                 <a href="classes/ErrorResponse.html" data-type="entity-link" >ErrorResponse</a>

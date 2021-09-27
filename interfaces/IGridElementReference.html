@@ -137,7 +137,7 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { BaseEntityWithTimestamps } from &#x27;@shared/domain&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { EntityId } from &#x27;@shared/domain&#x27;;
 
 export type GridElementReferenceMetadata &#x3D; {
 	id: string;
@@ -152,30 +152,41 @@ export interface IGridElementReference {
 
 export class DefaultGridReference implements IGridElementReference {
 	// This is only a temporary fake class, for use until other references, like courses, are fully supported.
+	id: EntityId;
+
 	title: string;
 
-	constructor(title: string) {
+	displayColor: string;
+
+	constructor(id: EntityId, title: string, displayColor &#x3D; &#x27;#f23f76&#x27;) {
+		this.id &#x3D; id;
 		this.title &#x3D; title;
+		this.displayColor &#x3D; displayColor;
 	}
 
 	getMetadata(): GridElementReferenceMetadata {
 		return {
-			id: &#x27;someId&#x27;,
+			id: this.id,
 			title: this.title,
 			shortTitle: this.title.substr(0, 2),
-			displayColor: &#x27;#f23f76&#x27;,
+			displayColor: this.displayColor,
 		};
 	}
 }
 
 export interface IGridElement {
+	getId: () &#x3D;&gt; EntityId;
+
 	getPosition: () &#x3D;&gt; { x: number; y: number };
 
 	getMetadata: () &#x3D;&gt; GridElementReferenceMetadata;
 }
 
 export class GridElement implements IGridElement {
-	constructor(x: number, y: number, reference: IGridElementReference) {
+	id: EntityId;
+
+	constructor(id: EntityId, x: number, y: number, reference: IGridElementReference) {
+		this.id &#x3D; id;
 		this.xPos &#x3D; x;
 		this.yPos &#x3D; y;
 		this.reference &#x3D; reference;
@@ -187,6 +198,10 @@ export class GridElement implements IGridElement {
 
 	yPos: number;
 
+	getId(): EntityId {
+		return this.id;
+	}
+
 	getPosition(): { x: number; y: number } {
 		return { x: this.xPos, y: this.yPos };
 	}
@@ -196,13 +211,21 @@ export class GridElement implements IGridElement {
 	}
 }
 
-export class DashboardEntity extends BaseEntityWithTimestamps {
+export type DashboardProps &#x3D; { grid: IGridElement[] };
+
+export class DashboardEntity {
+	id: EntityId;
+
 	grid: IGridElement[];
 
-	constructor(props: { grid: IGridElement[] }) {
-		super();
+	constructor(id: string, props: DashboardProps) {
 		this.grid &#x3D; props.grid || [];
+		this.id &#x3D; id;
 		Object.assign(this, {});
+	}
+
+	getId(): string {
+		return this.id;
 	}
 
 	getGrid(): IGridElement[] {

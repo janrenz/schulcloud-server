@@ -120,8 +120,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="5"
-                            class="link-to-prism">apps/server/src/repositories/learnroom/dashboard.repo.ts:5</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="14"
+                            class="link-to-prism">apps/server/src/repositories/learnroom/dashboard.repo.ts:14</a></div>
                 </td>
             </tr>
 
@@ -144,7 +144,16 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
-import { DashboardEntity, DefaultGridReference, GridElement } from &#x27;../../entities/learnroom/dashboard.entity&#x27;;
+import { EntityManager, ObjectId } from &#x27;@mikro-orm/mongodb&#x27;;
+import { EntityId } from &#x27;@shared/domain&#x27;;
+import { DashboardModelEntity } from &#x27;./dashboard.model.entity&#x27;;
+import {
+	DashboardEntity,
+	DashboardProps,
+	DefaultGridReference,
+	GridElement,
+} from &#x27;../../entities/learnroom/dashboard.entity&#x27;;
+import { DashboardModelMapper } from &#x27;./dashboard.model.mapper&#x27;;
 
 export interface IDashboardRepo {
 	getUsersDashboard(): Promise&lt;DashboardEntity&gt;;
@@ -152,14 +161,46 @@ export interface IDashboardRepo {
 
 @Injectable()
 export class DashboardRepo implements IDashboardRepo {
-	getUsersDashboard(): Promise&lt;DashboardEntity&gt; {
+	constructor(protected readonly em: EntityManager) {}
+
+	create(dashboardProps: DashboardProps): DashboardEntity {
+		// todo: implementation, testing, etc
+		// this should create a modelentity and get an id from mongo
+		return new DashboardEntity(&#x27;thisisalsofake&#x27;, dashboardProps);
+	}
+
+	// ToDo: refactor this to be in an abstract class (see baseRepo)
+	persist(entity: DashboardEntity): DashboardEntity {
+		const modelEntity &#x3D; DashboardModelMapper.mapToModel(entity);
+		this.em.persist(modelEntity);
+		return entity;
+	}
+
+	async getDashboardById(id: EntityId): Promise&lt;DashboardEntity&gt; {
+		const dashboardModel &#x3D; await this.em.findOneOrFail(DashboardModelEntity, id);
+		const dashboard &#x3D; await DashboardModelMapper.mapToEntity(dashboardModel);
+		return dashboard;
+	}
+
+	async getUsersDashboard(): Promise&lt;DashboardEntity&gt; {
+		const hardcodedTestDashboardId &#x3D; &#x27;0000d213816abba584714c0a&#x27;;
+		const dashboardModel &#x3D; await this.em.findOne(DashboardModelEntity, hardcodedTestDashboardId);
+		if (dashboardModel) {
+			return DashboardModelMapper.mapToEntity(dashboardModel);
+		}
 		const gridArray: GridElement[] &#x3D; [];
 		const diagonalSize &#x3D; 5;
-		const elementReference &#x3D; new DefaultGridReference(&#x27;exampletitle&#x27;);
 		for (let i &#x3D; 0; i &lt; diagonalSize; i +&#x3D; 1) {
-			gridArray.push(new GridElement(Math.floor(Math.random() * 6 + 1), i + 1, elementReference));
+			const elementReference &#x3D; new DefaultGridReference(new ObjectId().toString(), &#x27;exampletitle&#x27;);
+			gridArray.push(
+				new GridElement(new ObjectId().toString(), Math.floor(Math.random() * 6 + 1), i + 1, elementReference)
+			);
 		}
-		return Promise.resolve(new DashboardEntity({ grid: gridArray }));
+		const dashboard &#x3D; new DashboardEntity(hardcodedTestDashboardId, { grid: gridArray });
+		this.persist(dashboard);
+		await this.em.flush();
+
+		return dashboard;
 	}
 }
 </code></pre>
