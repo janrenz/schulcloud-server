@@ -410,7 +410,9 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export interface IRole {
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import type { Role } from &#x27;../entity/role.entity&#x27;;
+
+export interface IRole {
 	name: string;
 
 	id: string;
@@ -446,6 +448,11 @@ export interface ICurrentUser {
 
 	user: IResolvedUser;
 }
+
+export type IPermissionsAndRoles &#x3D; {
+	permissions: string[];
+	roles: Role[];
+};
 </code></pre>
     </div>
 </div>

@@ -43,7 +43,7 @@
 
 <ol class="breadcrumb">
   <li>Classes</li>
-  <li >UserTaskInfo</li>
+  <li >School</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -61,7 +61,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/modules/task/entity/user-task-info.entity.ts</code>
+            <code>apps/server/src/shared/domain/entity/school.entity.ts</code>
         </p>
 
 
@@ -88,10 +88,7 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#firstName" >firstName</a>
-                            </li>
-                            <li>
-                                <a href="#lastName" >lastName</a>
+                                <a href="#name" >name</a>
                             </li>
                             <li>
                                 <a href="#_id" >_id</a>
@@ -118,12 +115,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(props: <a href="../interfaces/IUserTaskInfoProperties.html" target="_self">IUserTaskInfoProperties</a>)</code>
+<code>constructor(props: literal type)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">apps/server/src/modules/task/entity/user-task-info.entity.ts:16</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">apps/server/src/shared/domain/entity/school.entity.ts:7</a></div>
                             </td>
                         </tr>
 
@@ -144,7 +141,7 @@
                                                         <td>props</td>
                                                   
                                                         <td>
-                                                                        <code><a href="../interfaces/IUserTaskInfoProperties.html" target="_self" >IUserTaskInfoProperties</a></code>
+                                                                    <code>literal type</code>
                                                         </td>
                                                   
                                                     <td>
@@ -170,10 +167,10 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="firstName"></a>
+                    <a name="name"></a>
                     <span class="name">
-                        <span ><b>firstName</b></span>
-                        <a href="#firstName"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>name</b></span>
+                        <a href="#name"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
@@ -194,42 +191,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">apps/server/src/modules/task/entity/user-task-info.entity.ts:13</a></div>
-                        </td>
-                    </tr>
-
-
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="lastName"></a>
-                    <span class="name">
-                        <span ><b>lastName</b></span>
-                        <a href="#lastName"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <b>Decorators : </b>
-                        <br />
-                        <code>
-                            @Property()<br />
-                        </code>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">apps/server/src/modules/task/entity/user-task-info.entity.ts:16</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">apps/server/src/shared/domain/entity/school.entity.ts:7</a></div>
                         </td>
                     </tr>
 
@@ -333,27 +295,16 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Entity, Property } from &#x27;@mikro-orm/core&#x27;;
-import { BaseEntity } from &#x27;@shared/domain&#x27;;
+import { BaseEntity } from &#x27;./base.entity&#x27;;
 
-interface IUserTaskInfoProperties {
-	firstName: string;
-	lastName: string;
-}
-
-@Entity({ tableName: &#x27;users&#x27; })
-export class UserTaskInfo extends BaseEntity {
+@Entity({ tableName: &#x27;schools&#x27; })
+export class School extends BaseEntity {
 	@Property()
-	firstName!: string;
+	name!: string;
 
-	@Property()
-	lastName!: string;
-
-	constructor(props: IUserTaskInfoProperties) {
+	constructor(props: { name: string }) {
 		super();
-		this.firstName &#x3D; props.firstName;
-		this.lastName &#x3D; props.lastName;
-
-		Object.assign(this, {});
+		this.name &#x3D; props.name;
 	}
 }
 </code></pre>
@@ -384,7 +335,7 @@ export class UserTaskInfo extends BaseEntity {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
-            var COMPODOC_CURRENT_PAGE_URL = 'UserTaskInfo.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'School.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

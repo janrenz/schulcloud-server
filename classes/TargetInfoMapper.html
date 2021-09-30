@@ -120,7 +120,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>mapToResponse(target: <a href="../classes/News.html" target="_self">NewsTargetInfo</a>)</code>
+                    <code>mapToResponse(target: <a href="../classes/News.html" target="_self">NewsTarget</a>)</code>
                 </td>
             </tr>
 
@@ -151,7 +151,7 @@
                                 <tr>
                                     <td>target</td>
                                     <td>
-                                                <code><a href="../classes/News.html" target="_self" >NewsTargetInfo</a></code>
+                                                <code><a href="../classes/News.html" target="_self" >NewsTarget</a></code>
                                     </td>
 
                                     <td>
@@ -186,11 +186,11 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { TargetInfoResponse } from &#x27;../controller/dto/target-info.response&#x27;;
-import { NewsTargetInfo } from &#x27;../entity&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { NewsTarget } from &#x27;@shared/domain/types/news.types&#x27;;
+import { TargetInfoResponse } from &#x27;../controller/dto/target-info.response&#x27;;
 
 export class TargetInfoMapper {
-	static mapToResponse(target: NewsTargetInfo): TargetInfoResponse {
+	static mapToResponse(target: NewsTarget): TargetInfoResponse {
 		const dto &#x3D; new TargetInfoResponse();
 		dto.id &#x3D; target.id;
 		dto.name &#x3D; target.name;

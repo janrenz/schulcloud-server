@@ -122,7 +122,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">apps/server/src/modules/task/repo/task.repo.ts:12</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">apps/server/src/modules/task/repo/task.repo.ts:10</a></div>
                             </td>
                         </tr>
 
@@ -187,8 +187,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="22"
-                            class="link-to-prism">apps/server/src/modules/task/repo/task.repo.ts:22</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="20"
+                            class="link-to-prism">apps/server/src/modules/task/repo/task.repo.ts:20</a></div>
                 </td>
             </tr>
 
@@ -281,8 +281,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="41"
-                            class="link-to-prism">apps/server/src/modules/task/repo/task.repo.ts:41</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="39"
+                            class="link-to-prism">apps/server/src/modules/task/repo/task.repo.ts:39</a></div>
                 </td>
             </tr>
 
@@ -376,8 +376,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="55"
-                            class="link-to-prism">apps/server/src/modules/task/repo/task.repo.ts:55</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="53"
+                            class="link-to-prism">apps/server/src/modules/task/repo/task.repo.ts:53</a></div>
                 </td>
             </tr>
 
@@ -460,8 +460,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="67"
-                            class="link-to-prism">apps/server/src/modules/task/repo/task.repo.ts:67</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="65"
+                            class="link-to-prism">apps/server/src/modules/task/repo/task.repo.ts:65</a></div>
                 </td>
             </tr>
 
@@ -499,7 +499,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>    <code>Promise&lt;LessonTaskInfo[]&gt;</code>
+                        <b>Returns : </b>        <code><a href="../classes/Lesson.html" target="_self" >Promise&lt;Lesson[]&gt;</a></code>
 
                     </div>
                     <div class="io-description">
@@ -531,8 +531,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="75"
-                            class="link-to-prism">apps/server/src/modules/task/repo/task.repo.ts:75</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="73"
+                            class="link-to-prism">apps/server/src/modules/task/repo/task.repo.ts:73</a></div>
                 </td>
             </tr>
 
@@ -557,11 +557,9 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
 import { EntityManager, FilterQuery, QueryOrderMap } from &#x27;@mikro-orm/core&#x27;;
 
-import { EntityId, IFindOptions } from &#x27;@shared/domain&#x27;;
+import { EntityId, IFindOptions, Lesson, Task } from &#x27;@shared/domain&#x27;;
 import { Counted } from &#x27;@shared/domain/types&#x27;;
 
-// TODO lessonTaskInfo must deleted
-import { Task, LessonTaskInfo } from &#x27;../entity&#x27;;
 import { TaskScope } from &#x27;./task-scope&#x27;;
 
 @Injectable()
@@ -620,8 +618,8 @@ export class TaskRepo {
 	}
 
 	// TODO move to lesson repo
-	private async findVisibleLessons(parentIds: EntityId[]): Promise&lt;LessonTaskInfo[]&gt; {
-		const lessons &#x3D; await this.em.find(LessonTaskInfo, {
+	private async findVisibleLessons(parentIds: EntityId[]): Promise&lt;Lesson[]&gt; {
+		const lessons &#x3D; await this.em.find(Lesson, {
 			course: { $in: parentIds },
 			hidden: false,
 		});

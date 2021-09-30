@@ -61,7 +61,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/modules/task/entity/submission.entity.ts</code>
+            <code>apps/server/src/shared/domain/entity/submission.entity.ts</code>
         </p>
 
 
@@ -165,7 +165,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="57" class="link-to-prism">apps/server/src/modules/task/entity/submission.entity.ts:57</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="57" class="link-to-prism">apps/server/src/shared/domain/entity/submission.entity.ts:57</a></div>
                             </td>
                         </tr>
 
@@ -236,7 +236,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">apps/server/src/modules/task/entity/submission.entity.ts:36</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">apps/server/src/shared/domain/entity/submission.entity.ts:36</a></div>
                         </td>
                     </tr>
 
@@ -257,7 +257,7 @@
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="../classes/CourseGroupInfo.html" target="_self" >CourseGroupInfo</a></code>
+                        <i>Type : </i>        <code><a href="../classes/CourseGroup.html" target="_self" >CourseGroup</a></code>
 
                     </td>
                 </tr>
@@ -266,13 +266,13 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @ManyToOne({fieldName: &#x27;courseGroupId&#x27;})<br />
+                            @ManyToOne(&#x27;CourseGroup&#x27;, {fieldName: &#x27;courseGroupId&#x27;})<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">apps/server/src/modules/task/entity/submission.entity.ts:29</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">apps/server/src/shared/domain/entity/submission.entity.ts:29</a></div>
                         </td>
                     </tr>
 
@@ -307,7 +307,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">apps/server/src/modules/task/entity/submission.entity.ts:43</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">apps/server/src/shared/domain/entity/submission.entity.ts:43</a></div>
                         </td>
                     </tr>
 
@@ -342,7 +342,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">apps/server/src/modules/task/entity/submission.entity.ts:46</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">apps/server/src/shared/domain/entity/submission.entity.ts:46</a></div>
                         </td>
                     </tr>
 
@@ -362,7 +362,7 @@
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>new Collection&lt;FileTaskInfo&gt;(this)</code>
+                        <i>Default value : </i><code>new Collection&lt;File&gt;(this)</code>
                     </td>
                 </tr>
                 <tr>
@@ -370,13 +370,13 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @ManyToMany({fieldName: &#x27;gradeFileIds&#x27;, type: FileTaskInfo})<br />
+                            @ManyToMany(&#x27;File&#x27;, undefined, {fieldName: &#x27;gradeFileIds&#x27;})<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">apps/server/src/modules/task/entity/submission.entity.ts:49</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">apps/server/src/shared/domain/entity/submission.entity.ts:49</a></div>
                         </td>
                     </tr>
 
@@ -396,7 +396,7 @@
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="../interfaces/User.html" target="_self" >UserTaskInfo</a></code>
+                        <i>Type : </i>        <code><a href="../interfaces/User.html" target="_self" >User</a></code>
 
                     </td>
                 </tr>
@@ -405,13 +405,13 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @ManyToOne({fieldName: &#x27;studentId&#x27;})<br />
+                            @ManyToOne(&#x27;User&#x27;, {fieldName: &#x27;studentId&#x27;})<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">apps/server/src/modules/task/entity/submission.entity.ts:26</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">apps/server/src/shared/domain/entity/submission.entity.ts:26</a></div>
                         </td>
                     </tr>
 
@@ -431,7 +431,7 @@
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>new Collection&lt;FileTaskInfo&gt;(this)</code>
+                        <i>Default value : </i><code>new Collection&lt;File&gt;(this)</code>
                     </td>
                 </tr>
                 <tr>
@@ -439,13 +439,13 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @ManyToMany({fieldName: &#x27;fileIds&#x27;, type: FileTaskInfo})<br />
+                            @ManyToMany(&#x27;File&#x27;, undefined, {fieldName: &#x27;fileIds&#x27;})<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">apps/server/src/modules/task/entity/submission.entity.ts:39</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">apps/server/src/shared/domain/entity/submission.entity.ts:39</a></div>
                         </td>
                     </tr>
 
@@ -474,13 +474,13 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @ManyToOne({fieldName: &#x27;homeworkId&#x27;})<br />
+                            @ManyToOne(&#x27;Task&#x27;, {fieldName: &#x27;homeworkId&#x27;})<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">apps/server/src/modules/task/entity/submission.entity.ts:23</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">apps/server/src/shared/domain/entity/submission.entity.ts:23</a></div>
                         </td>
                     </tr>
 
@@ -500,7 +500,7 @@
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>new Collection&lt;UserTaskInfo&gt;(this)</code>
+                        <i>Default value : </i><code>new Collection&lt;User&gt;(this)</code>
                     </td>
                 </tr>
                 <tr>
@@ -508,13 +508,13 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @ManyToMany({fieldName: &#x27;teamMembers&#x27;, type: UserTaskInfo})<br />
+                            @ManyToMany(&#x27;User&#x27;, undefined, {fieldName: &#x27;teamMembers&#x27;})<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">apps/server/src/modules/task/entity/submission.entity.ts:32</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">apps/server/src/shared/domain/entity/submission.entity.ts:32</a></div>
                         </td>
                     </tr>
 
@@ -715,7 +715,7 @@
             <tr>
                 <td class="col-md-4">
                     <div class="io-line">Defined in <a href="" data-line="51"
-                            class="link-to-prism">apps/server/src/modules/task/entity/submission.entity.ts:51</a></div>
+                            class="link-to-prism">apps/server/src/shared/domain/entity/submission.entity.ts:51</a></div>
                 </td>
             </tr>
 
@@ -742,44 +742,44 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Entity, ManyToOne, Collection, Property, ManyToMany } from &#x27;@mikro-orm/core&#x27;;
-import { BaseEntityWithTimestamps } from &#x27;@shared/domain&#x27;;
-import { UserTaskInfo } from &#x27;./user-task-info.entity&#x27;;
-import { FileTaskInfo } from &#x27;./file-task-info.entity&#x27;;
-import { Task } from &#x27;./task.entity&#x27;;
-import { CourseGroupInfo } from &#x27;./course-group-info.entity&#x27;;
+import { BaseEntityWithTimestamps } from &#x27;./base.entity&#x27;;
+import type { CourseGroup } from &#x27;./coursegroup.entity&#x27;;
+import type { User } from &#x27;./user.entity&#x27;;
+import type { File } from &#x27;./file.entity&#x27;;
+import type { Task } from &#x27;./task.entity&#x27;;
 
 interface ISubmissionProperties {
 	task: Task;
-	student: UserTaskInfo;
-	courseGroup?: CourseGroupInfo[];
-	teamMembers?: UserTaskInfo[];
+	student: User;
+	courseGroup?: CourseGroup[];
+	teamMembers?: User[];
 	comment: string;
-	studentFiles?: FileTaskInfo[];
+	studentFiles?: File[];
 	grade?: number;
 	gradeComment?: string;
-	gradeFiles?: FileTaskInfo[];
+	gradeFiles?: File[];
 }
 
 @Entity({ tableName: &#x27;submissions&#x27; })
 export class Submission extends BaseEntityWithTimestamps {
-	@ManyToOne({ fieldName: &#x27;homeworkId&#x27; })
+	@ManyToOne(&#x27;Task&#x27;, { fieldName: &#x27;homeworkId&#x27; })
 	task: Task;
 
-	@ManyToOne({ fieldName: &#x27;studentId&#x27; })
-	student: UserTaskInfo; // &lt;-- User
+	@ManyToOne(&#x27;User&#x27;, { fieldName: &#x27;studentId&#x27; })
+	student: User;
 
-	@ManyToOne({ fieldName: &#x27;courseGroupId&#x27; })
-	courseGroup?: CourseGroupInfo;
+	@ManyToOne(&#x27;CourseGroup&#x27;, { fieldName: &#x27;courseGroupId&#x27; })
+	courseGroup?: CourseGroup;
 
-	@ManyToMany({ fieldName: &#x27;teamMembers&#x27;, type: UserTaskInfo })
-	teamMembers &#x3D; new Collection&lt;UserTaskInfo&gt;(this);
+	@ManyToMany(&#x27;User&#x27;, undefined, { fieldName: &#x27;teamMembers&#x27; })
+	teamMembers &#x3D; new Collection&lt;User&gt;(this);
 
 	/* ***** student uploads ***** */
 	@Property()
 	comment: string | null;
 
-	@ManyToMany({ fieldName: &#x27;fileIds&#x27;, type: FileTaskInfo })
-	studentFiles &#x3D; new Collection&lt;FileTaskInfo&gt;(this);
+	@ManyToMany(&#x27;File&#x27;, undefined, { fieldName: &#x27;fileIds&#x27; })
+	studentFiles &#x3D; new Collection&lt;File&gt;(this);
 
 	/* ***** teacher uploads ***** */
 	@Property()
@@ -788,8 +788,8 @@ export class Submission extends BaseEntityWithTimestamps {
 	@Property()
 	gradeComment: string | null;
 
-	@ManyToMany({ fieldName: &#x27;gradeFileIds&#x27;, type: FileTaskInfo })
-	gradeFiles &#x3D; new Collection&lt;FileTaskInfo&gt;(this);
+	@ManyToMany(&#x27;File&#x27;, undefined, { fieldName: &#x27;gradeFileIds&#x27; })
+	gradeFiles &#x3D; new Collection&lt;File&gt;(this);
 
 	isGraded(): boolean {
 		const isGraded &#x3D;

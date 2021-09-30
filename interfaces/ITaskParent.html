@@ -64,7 +64,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/modules/task/entity/task.entity.ts</code>
+            <code>apps/server/src/shared/domain/entity/task.entity.ts</code>
         </p>
 
 
@@ -149,8 +149,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="27"
-                            class="link-to-prism">apps/server/src/modules/task/entity/task.entity.ts:27</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="28"
+                            class="link-to-prism">apps/server/src/shared/domain/entity/task.entity.ts:28</a></div>
                 </td>
             </tr>
 
@@ -186,8 +186,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="28"
-                            class="link-to-prism">apps/server/src/modules/task/entity/task.entity.ts:28</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="29"
+                            class="link-to-prism">apps/server/src/shared/domain/entity/task.entity.ts:29</a></div>
                 </td>
             </tr>
 
@@ -223,8 +223,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="26"
-                            class="link-to-prism">apps/server/src/modules/task/entity/task.entity.ts:26</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="27"
+                            class="link-to-prism">apps/server/src/shared/domain/entity/task.entity.ts:27</a></div>
                 </td>
             </tr>
 
@@ -315,17 +315,18 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Collection, Entity, ManyToOne, OneToMany, Property } from &#x27;@mikro-orm/core&#x27;;
-import { BaseEntityWithTimestamps, EntityId } from &#x27;@shared/domain&#x27;;
-import { Course } from &#x27;@src/entities&#x27;;
+import { BaseEntityWithTimestamps } from &#x27;./base.entity&#x27;;
+import { EntityId } from &#x27;../types&#x27;;
+import type { Course } from &#x27;./course.entity&#x27;;
+import type { Lesson } from &#x27;./lesson.entity&#x27;;
 import type { Submission } from &#x27;./submission.entity&#x27;;
-import { LessonTaskInfo } from &#x27;./lesson-task-info.entity&#x27;;
 
 interface ITaskProperties {
 	name: string;
 	dueDate?: Date;
 	private?: boolean;
 	parent?: Course;
-	lesson?: LessonTaskInfo;
+	lesson?: Lesson;
 	submissions?: Submission[];
 }
 
@@ -355,11 +356,11 @@ export class Task extends BaseEntityWithTimestamps {
 	@Property()
 	private &#x3D; true;
 
-	@ManyToOne({ fieldName: &#x27;courseId&#x27; })
+	@ManyToOne(&#x27;Course&#x27;, { fieldName: &#x27;courseId&#x27; })
 	parent?: Course;
 
-	@ManyToOne({ fieldName: &#x27;lessonId&#x27; })
-	lesson?: LessonTaskInfo; // In database exist also null, but it can not set.
+	@ManyToOne(&#x27;Lesson&#x27;, { fieldName: &#x27;lessonId&#x27; })
+	lesson?: Lesson; // In database exist also null, but it can not set.
 
 	@OneToMany(&#x27;Submission&#x27;, &#x27;task&#x27;)
 	submissions &#x3D; new Collection&lt;Submission&gt;(this);
@@ -368,10 +369,10 @@ export class Task extends BaseEntityWithTimestamps {
 		super();
 		this.name &#x3D; props.name;
 		this.dueDate &#x3D; props.dueDate;
-		this.private &#x3D; !!props.private;
+		if (props.private !&#x3D;&#x3D; undefined) this.private &#x3D; props.private;
 		this.parent &#x3D; props.parent;
 		this.lesson &#x3D; props.lesson;
-		this.submissions &#x3D; new Collection&lt;Submission&gt;(this, props.submissions || []);
+		this.submissions.set(props.submissions || []);
 	}
 }
 </code></pre>

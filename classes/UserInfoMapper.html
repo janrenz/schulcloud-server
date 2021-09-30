@@ -120,7 +120,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>mapToResponse(userInfo: <a href="../interfaces/User.html" target="_self">UserInfo</a>)</code>
+                    <code>mapToResponse(user: <a href="../interfaces/User.html" target="_self">User</a>)</code>
                 </td>
             </tr>
 
@@ -149,9 +149,9 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>userInfo</td>
+                                    <td>user</td>
                                     <td>
-                                                <code><a href="../interfaces/User.html" target="_self" >UserInfo</a></code>
+                                                <code><a href="../interfaces/User.html" target="_self" >User</a></code>
                                     </td>
 
                                     <td>
@@ -186,15 +186,15 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { UserInfo } from &#x27;../entity&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { User } from &#x27;@shared/domain&#x27;;
 import { UserInfoResponse } from &#x27;../controller/dto&#x27;;
 
 export class UserInfoMapper {
-	static mapToResponse(userInfo: UserInfo): UserInfoResponse {
+	static mapToResponse(user: User): UserInfoResponse {
 		const dto &#x3D; new UserInfoResponse();
-		dto.id &#x3D; userInfo.id;
-		dto.firstName &#x3D; userInfo.firstName;
-		dto.lastName &#x3D; userInfo.lastName;
+		dto.id &#x3D; user.id;
+		dto.firstName &#x3D; user.firstName;
+		dto.lastName &#x3D; user.lastName;
 		return dto;
 	}
 }

@@ -237,6 +237,7 @@
 import { MikroOrmModule } from &#x27;@mikro-orm/nestjs&#x27;;
 import { Dictionary, IPrimaryKey } from &#x27;@mikro-orm/core&#x27;;
 import { Configuration } from &#x27;@hpi-schul-cloud/commons&#x27;;
+import { ALL_ENTITIES } from &#x27;@shared/domain&#x27;;
 import { AuthModule } from &#x27;./modules/authentication/auth.module&#x27;;
 import { ServerController } from &#x27;./server.controller&#x27;;
 import { DB_URL, DB_USERNAME, DB_PASSWORD } from &#x27;./config&#x27;;
@@ -246,36 +247,7 @@ import { TaskModule } from &#x27;./modules/task/task.module&#x27;;
 import { UserModule } from &#x27;./modules/user/user.module&#x27;;
 import { NewsModule } from &#x27;./modules/news/news.module&#x27;;
 import { MailModule } from &#x27;./modules/mail/mail.module&#x27;;
-import { LearnroomModule } from &#x27;./modules/lernroom/lernroom.module&#x27;;
-
-import { Course, Coursegroup } from &#x27;./entities&#x27;;
-
-import {
-	DashboardGridElementModel,
-	DashboardModelEntity,
-	DefaultGridReferenceModel,
-} from &#x27;./repositories/learnroom/dashboard.model.entity&#x27;;
-
-import {
-	CourseNews,
-	News,
-	SchoolInfo,
-	SchoolNews,
-	TeamNews,
-	UserInfo,
-	CourseInfo,
-	TeamInfo,
-} from &#x27;./modules/news/entity&#x27;;
-
-import { Task, LessonTaskInfo, Submission, FileTaskInfo, UserTaskInfo, CourseGroupInfo } from &#x27;./modules/task/entity&#x27;;
-
-import { User, Role, Account } from &#x27;./modules/user/entity&#x27;;
-
-const entities &#x3D; [Course, Coursegroup];
-const courseEntities &#x3D; [CourseNews, News, SchoolInfo, SchoolNews, TeamNews, UserInfo, CourseInfo, TeamInfo];
-const learnroomDashboardEntities &#x3D; [DashboardModelEntity, DashboardGridElementModel, DefaultGridReferenceModel];
-const taskEntities &#x3D; [Task, LessonTaskInfo, Submission, FileTaskInfo, UserTaskInfo, CourseGroupInfo];
-const userEntities &#x3D; [User, Role, Account];
+import { LearnroomModule } from &#x27;./modules/learnroom/learnroom.module&#x27;;
 
 @Module({
 	imports: [
@@ -296,7 +268,7 @@ const userEntities &#x3D; [User, Role, Account];
 			clientUrl: DB_URL,
 			password: DB_PASSWORD,
 			user: DB_USERNAME,
-			entities: [...entities, ...courseEntities, ...learnroomDashboardEntities, ...taskEntities, ...userEntities],
+			entities: ALL_ENTITIES,
 			findOneOrFailHandler: (entityName: string, where: Dictionary | IPrimaryKey) &#x3D;&gt; {
 				// eslint-disable-next-line @typescript-eslint/restrict-template-expressions
 				return new NotFoundException(&#x60;The requested ${entityName}: ${where} has not been found.&#x60;);

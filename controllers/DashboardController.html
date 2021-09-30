@@ -55,7 +55,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/modules/lernroom/controller/dashboard.controller.ts</code>
+            <code>apps/server/src/modules/learnroom/controller/dashboard.controller.ts</code>
         </p>
 
             <p class="comment">
@@ -133,8 +133,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="15"
-                            class="link-to-prism">apps/server/src/modules/lernroom/controller/dashboard.controller.ts:15</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="14"
+                            class="link-to-prism">apps/server/src/modules/learnroom/controller/dashboard.controller.ts:14</a></div>
                 </td>
             </tr>
 
@@ -155,9 +155,8 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Controller, Get } from &#x27;@nestjs/common&#x27;;
-import { DashboardUc } from &#x27;../usecase/dashboard.uc&#x27;;
-
-import { Authenticate } from &#x27;../../authentication/decorator/auth.decorator&#x27;;
+import { Authenticate } from &#x27;@src/modules/authentication/decorator/auth.decorator&#x27;;
+import { DashboardUc } from &#x27;../uc/dashboard.uc&#x27;;
 
 import { DashboardResponse } from &#x27;./dto&#x27;;
 import { DashboardMapper } from &#x27;../mapper/dashboard.mapper&#x27;;

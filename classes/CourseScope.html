@@ -196,8 +196,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="9"
-                            class="link-to-prism">apps/server/src/repositories/learnroom/course.repo.ts:9</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="8"
+                            class="link-to-prism">apps/server/src/repositories/learnroom/course.repo.ts:8</a></div>
                 </td>
             </tr>
 
@@ -437,18 +437,17 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { EntityManager, ObjectId } from &#x27;@mikro-orm/mongodb&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { EntityManager } from &#x27;@mikro-orm/mongodb&#x27;;
 import { Injectable } from &#x27;@nestjs/common&#x27;;
 
-import { Course } from &#x27;@src/entities&#x27;;
-import { EntityId, Counted } from &#x27;@shared/domain&#x27;;
+import { EntityId, Course, Counted } from &#x27;@shared/domain&#x27;;
 import { Scope } from &#x27;@shared/repo&#x27;;
 
 class CourseScope extends Scope&lt;Course&gt; {
 	forAllGroupTypes(userId: EntityId): CourseScope {
-		const isStudent &#x3D; { studentIds: new ObjectId(userId) };
-		const isTeacher &#x3D; { teacherIds: new ObjectId(userId) };
-		const isSubstitutionTeacher &#x3D; { substitutionTeacherIds: new ObjectId(userId) };
+		const isStudent &#x3D; { students: userId };
+		const isTeacher &#x3D; { teachers: userId };
+		const isSubstitutionTeacher &#x3D; { substitutionTeachers: userId };
 
 		if (userId) {
 			this.addQuery({ $or: [isStudent, isTeacher, isSubstitutionTeacher] });
@@ -470,14 +469,14 @@ export class CourseRepo {
 	}
 
 	async findAllForStudent(userId: EntityId): Promise&lt;Counted&lt;Course[]&gt;&gt; {
-		const query &#x3D; { studentIds: new ObjectId(userId) };
+		const query &#x3D; { students: userId };
 		const [courses, count] &#x3D; await this.em.findAndCount(Course, query);
 		return [courses, count];
 	}
 
 	async findAllForTeacher(userId: EntityId): Promise&lt;Counted&lt;Course[]&gt;&gt; {
-		const isTeacher &#x3D; { teacherIds: new ObjectId(userId) };
-		const isSubstitutionTeacher &#x3D; { substitutionTeacherIds: new ObjectId(userId) };
+		const isTeacher &#x3D; { teachers: userId };
+		const isSubstitutionTeacher &#x3D; { substitutionTeachers: userId };
 		const query &#x3D; { $or: [isTeacher, isSubstitutionTeacher] };
 		const [courses, count] &#x3D; await this.em.findAndCount(Course, query);
 		return [courses, count];

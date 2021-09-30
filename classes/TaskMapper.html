@@ -120,15 +120,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>mapToResponse(taskWithStatus: <a href="../undefineds/TaskWithSubmissionStatus.html" target="_self">TaskWithSubmissionStatus</a>)</code>
+                    <code>mapToResponse(taskWithStatus: <a href="../classes/TaskWithStatusVo.html" target="_self">TaskWithStatusVo</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="6"
-                            class="link-to-prism">apps/server/src/modules/task/mapper/task.mapper.ts:6</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="5"
+                            class="link-to-prism">apps/server/src/modules/task/mapper/task.mapper.ts:5</a></div>
                 </td>
             </tr>
 
@@ -151,7 +151,7 @@
                                 <tr>
                                     <td>taskWithStatus</td>
                                     <td>
-                                                <code><a href="../miscellaneous/typealiases.html#TaskWithSubmissionStatus" target="_self" >TaskWithSubmissionStatus</a></code>
+                                                <code><a href="../classes/TaskWithStatusVo.html" target="_self" >TaskWithStatusVo</a></code>
                                     </td>
 
                                     <td>
@@ -186,12 +186,11 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { TaskResponse } from &#x27;../controller/dto&#x27;;
-import { TaskWithSubmissionStatus } from &#x27;../domain&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { TaskWithStatusVo } from &#x27;@shared/domain&#x27;;
+import { TaskResponse } from &#x27;../controller/dto&#x27;;
 
 export class TaskMapper {
-	// TODO: add status to task
-	static mapToResponse(taskWithStatus: TaskWithSubmissionStatus): TaskResponse {
+	static mapToResponse(taskWithStatus: TaskWithStatusVo): TaskResponse {
 		const { task, status } &#x3D; taskWithStatus;
 		const dto &#x3D; new TaskResponse();
 

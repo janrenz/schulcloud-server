@@ -113,7 +113,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">apps/server/src/modules/task/repo/submission.repo.ts:13</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">apps/server/src/modules/task/repo/submission.repo.ts:10</a></div>
                             </td>
                         </tr>
 
@@ -179,8 +179,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="29"
-                            class="link-to-prism">apps/server/src/modules/task/repo/submission.repo.ts:29</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="26"
+                            class="link-to-prism">apps/server/src/modules/task/repo/submission.repo.ts:26</a></div>
                 </td>
             </tr>
 
@@ -250,8 +250,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="16"
-                            class="link-to-prism">apps/server/src/modules/task/repo/submission.repo.ts:16</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="13"
+                            class="link-to-prism">apps/server/src/modules/task/repo/submission.repo.ts:13</a></div>
                 </td>
             </tr>
 
@@ -321,8 +321,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="24"
-                            class="link-to-prism">apps/server/src/modules/task/repo/submission.repo.ts:24</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="21"
+                            class="link-to-prism">apps/server/src/modules/task/repo/submission.repo.ts:21</a></div>
                 </td>
             </tr>
 
@@ -380,10 +380,7 @@
 import { EntityManager } from &#x27;@mikro-orm/mongodb&#x27;;
 import { Injectable } from &#x27;@nestjs/common&#x27;;
 
-import { Counted, EntityId } from &#x27;@shared/domain&#x27;;
-
-// CourseGroupInfo must use from learnroom
-import { CourseGroupInfo, Submission } from &#x27;../entity&#x27;;
+import { Counted, EntityId, CourseGroup, Submission } from &#x27;@shared/domain&#x27;;
 
 // TODO: add scope helper
 
@@ -405,7 +402,7 @@ export class SubmissionRepo {
 	}
 
 	private async byUserIdQuery(userId: EntityId): Promise&lt;FilterQuery&lt;Submission&gt;&gt; {
-		const courseGroupsOfUser &#x3D; await this.em.find(CourseGroupInfo, { students: userId });
+		const courseGroupsOfUser &#x3D; await this.em.find(CourseGroup, { students: userId });
 		const query &#x3D; { $or: [{ student: userId }, { teamMembers: userId }, { courseGroup: { $in: courseGroupsOfUser } }] };
 		return query;
 	}

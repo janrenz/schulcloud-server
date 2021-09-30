@@ -239,9 +239,9 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ExtractJwt, Strategy } from &#x27;passport-jwt&#x27;;
 import { PassportStrategy } from &#x27;@nestjs/passport&#x27;;
 import { Injectable } from &#x27;@nestjs/common&#x27;;
+import { UserFacade } from &#x27;@src/modules/user&#x27;;
 import { jwtConstants } from &#x27;../constants&#x27;;
 import { JwtPayload } from &#x27;../interface/jwt-payload&#x27;;
-import { UserFacade } from &#x27;../../user&#x27;;
 import { JwtValidationAdapter } from &#x27;./jwt-validation.adapter&#x27;;
 
 @Injectable()

@@ -114,7 +114,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">apps/server/src/repositories/learnroom/dashboard.repo.ts:18</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">apps/server/src/repositories/learnroom/dashboard.repo.ts:12</a></div>
                             </td>
                         </tr>
 
@@ -177,8 +177,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="21"
-                            class="link-to-prism">apps/server/src/repositories/learnroom/dashboard.repo.ts:21</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="15"
+                            class="link-to-prism">apps/server/src/repositories/learnroom/dashboard.repo.ts:15</a></div>
                 </td>
             </tr>
 
@@ -248,8 +248,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="34"
-                            class="link-to-prism">apps/server/src/repositories/learnroom/dashboard.repo.ts:34</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="28"
+                            class="link-to-prism">apps/server/src/repositories/learnroom/dashboard.repo.ts:28</a></div>
                 </td>
             </tr>
 
@@ -319,8 +319,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="40"
-                            class="link-to-prism">apps/server/src/repositories/learnroom/dashboard.repo.ts:40</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="34"
+                            class="link-to-prism">apps/server/src/repositories/learnroom/dashboard.repo.ts:34</a></div>
                 </td>
             </tr>
 
@@ -356,8 +356,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="28"
-                            class="link-to-prism">apps/server/src/repositories/learnroom/dashboard.repo.ts:28</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="22"
+                            class="link-to-prism">apps/server/src/repositories/learnroom/dashboard.repo.ts:22</a></div>
                 </td>
             </tr>
 
@@ -412,15 +412,9 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
+import { EntityId, DashboardEntity, DefaultGridReference, GridElement, DashboardProps } from &#x27;@shared/domain&#x27;;
 import { EntityManager, ObjectId } from &#x27;@mikro-orm/mongodb&#x27;;
-import { EntityId } from &#x27;@shared/domain&#x27;;
 import { DashboardModelEntity } from &#x27;./dashboard.model.entity&#x27;;
-import {
-	DashboardEntity,
-	DashboardProps,
-	DefaultGridReference,
-	GridElement,
-} from &#x27;../../entities/learnroom/dashboard.entity&#x27;;
 import { DashboardModelMapper } from &#x27;./dashboard.model.mapper&#x27;;
 
 export interface IDashboardRepo {

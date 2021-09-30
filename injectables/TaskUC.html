@@ -126,7 +126,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:14</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:12</a></div>
                             </td>
                         </tr>
 
@@ -203,8 +203,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="63"
-                            class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:63</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="61"
+                            class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:61</a></div>
                 </td>
             </tr>
 
@@ -286,8 +286,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="73"
-                            class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:73</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="71"
+                            class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:71</a></div>
                 </td>
             </tr>
 
@@ -357,8 +357,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="18"
-                            class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:18</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="16"
+                            class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:16</a></div>
                 </td>
             </tr>
 
@@ -441,8 +441,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="32"
-                            class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:32</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="30"
+                            class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:30</a></div>
                 </td>
             </tr>
 
@@ -525,8 +525,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="45"
-                            class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:45</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="43"
+                            class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:43</a></div>
                 </td>
             </tr>
 
@@ -608,8 +608,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="58"
-                            class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:58</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="56"
+                            class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:56</a></div>
                 </td>
             </tr>
 
@@ -676,11 +676,9 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable, UnauthorizedException } from &#x27;@nestjs/common&#x27;;
-import { EntityId, IPagination, Counted, ICurrentUser, SortOrder } from &#x27;@shared/domain&#x27;;
+import { EntityId, IPagination, Counted, ICurrentUser, SortOrder, Task, TaskWithStatusVo } from &#x27;@shared/domain&#x27;;
 
 import { TaskRepo } from &#x27;../repo&#x27;;
-import { TaskWithStatusVo } from &#x27;../entity/task-with-status.vo&#x27;;
-import { Task } from &#x27;../entity&#x27;;
 import { TaskAuthorizationService, TaskParentPermission } from &#x27;./task.authorization.service&#x27;;
 
 export enum TaskDashBoardPermission {

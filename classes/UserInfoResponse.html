@@ -82,12 +82,14 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                    <span class="modifier">Optional</span>
                                 <a href="#firstName" >firstName</a>
                             </li>
                             <li>
                                 <a href="#id" >id</a>
                             </li>
                             <li>
+                                    <span class="modifier">Optional</span>
                                 <a href="#lastName" >lastName</a>
                             </li>
                         </ul>
@@ -115,6 +117,7 @@
                 <td class="col-md-4">
                     <a name="firstName"></a>
                     <span class="name">
+                            <span class="modifier">Optional</span>
                         <span ><b>firstName</b></span>
                         <a href="#firstName"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -131,7 +134,7 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @ApiProperty({description: &#x27;First name of the user&#x27;})<br />
+                            @ApiPropertyOptional({description: &#x27;First name of the user&#x27;})<br />
                         </code>
                     </td>
                 </tr>
@@ -185,6 +188,7 @@
                 <td class="col-md-4">
                     <a name="lastName"></a>
                     <span class="name">
+                            <span class="modifier">Optional</span>
                         <span ><b>lastName</b></span>
                         <a href="#lastName"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -201,7 +205,7 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @ApiProperty({description: &#x27;Last name of the user&#x27;})<br />
+                            @ApiPropertyOptional({description: &#x27;Last name of the user&#x27;})<br />
                         </code>
                     </td>
                 </tr>
@@ -226,7 +230,7 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ApiProperty } from &#x27;@nestjs/swagger&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ApiProperty, ApiPropertyOptional } from &#x27;@nestjs/swagger&#x27;;
 
 export class UserInfoResponse {
 	@ApiProperty({
@@ -235,15 +239,15 @@ export class UserInfoResponse {
 	})
 	id: string;
 
-	@ApiProperty({
+	@ApiPropertyOptional({
 		description: &#x27;First name of the user&#x27;,
 	})
-	firstName: string;
+	firstName?: string;
 
-	@ApiProperty({
+	@ApiPropertyOptional({
 		description: &#x27;Last name of the user&#x27;,
 	})
-	lastName: string;
+	lastName?: string;
 }
 </code></pre>
     </div>
