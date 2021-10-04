@@ -162,7 +162,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>resolveUser(currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>)</code>
+                    <code>resolveUser(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>)</code>
                 </td>
             </tr>
 
@@ -191,9 +191,9 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>currentUser</td>
+                                    <td>userId</td>
                                     <td>
-                                                <code><a href="../interfaces/ICurrentUser.html" target="_self" >ICurrentUser</a></code>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
                                     </td>
 
                                     <td>
@@ -225,7 +225,7 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
-import { ICurrentUser } from &#x27;@shared/domain&#x27;;
+import { EntityId } from &#x27;@shared/domain&#x27;;
 
 import { UserUC } from &#x27;./uc/user.uc&#x27;;
 import { ResolvedUser } from &#x27;./controller/dto&#x27;;
@@ -234,8 +234,8 @@ import { ResolvedUser } from &#x27;./controller/dto&#x27;;
 export class UserFacade {
 	constructor(private readonly userUC: UserUC) {}
 
-	async resolveUser(currentUser: ICurrentUser): Promise&lt;ResolvedUser&gt; {
-		const resolvedUser &#x3D; await this.userUC.getUserWithPermissions(currentUser);
+	async resolveUser(userId: EntityId): Promise&lt;ResolvedUser&gt; {
+		const resolvedUser &#x3D; await this.userUC.getUserWithPermissions(userId);
 		return resolvedUser;
 	}
 }

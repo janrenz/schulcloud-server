@@ -257,10 +257,10 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
 
 	async validate(payload: JwtPayload): Promise&lt;JwtPayload&gt; {
 		// check jwt is whitelisted and extend whitelist entry
-		const { accountId, jti } &#x3D; payload;
+		const { accountId, jti, userId } &#x3D; payload;
 		await this.jwtValidationAdapter.isWhitelisted(accountId, jti);
 		// check user exists
-		const resolvedUser &#x3D; await this.userFacade.resolveUser(payload);
+		const resolvedUser &#x3D; await this.userFacade.resolveUser(userId);
 		payload.user &#x3D; resolvedUser; // todo decide request.user or request.user.user to be used everywhere
 		// TODO: check user/account is active and has one role
 		return payload;
