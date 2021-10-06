@@ -28,46 +28,75 @@
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
-               <div class="content module">
+               <div class="content injectable">
                    <div class="content-data">
 
 
 
+
+
+
+
 <ol class="breadcrumb">
-    <li>Modules</li>
-    <li >MongoMemoryDatabaseModule</li>
+  <li>Injectables</li>
+  <li >BsonConverter</li>
 </ol>
 
-
 <ul class="nav nav-tabs" role="tablist">
-    <li  class="active" >
-        <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
-    </li>
-    <li >
-        <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
-    </li>
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
 </ul>
 
 <div class="tab-content">
     <div class="tab-pane fade active in" id="c-info">
-
         <p class="comment">
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/modules/database/mongo-memory-database/mongo-memory-database.module.ts</code>
+            <code>apps/server/src/modules/management/converter/bson.converter.ts</code>
         </p>
 
 
 
 
 
-        <div class="container-fluid module">
-            <div class="row">
-            </div>
-        </div>
+            <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
 
-        <section>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#deserialize" >deserialize</a>
+                            </li>
+                            <li>
+                                <a href="#serialize" >serialize</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+            <section>
     
     <h3 id="methods">
         Methods
@@ -76,32 +105,32 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="forRoot"></a>
+                    <a name="deserialize"></a>
                     <span class="name">
-                        <span class="modifier">Static</span>
-                        <span ><b>forRoot</b></span>
-                        <a href="#forRoot"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>deserialize</b></span>
+                        <a href="#deserialize"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>forRoot(options?: <a href="../interfaces/Options.html" target="_self">MongoDatabaseModuleOptions</a>)</code>
+<code>deserialize(bsonDocuments: [])</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="49"
-                            class="link-to-prism">apps/server/src/modules/database/mongo-memory-database/mongo-memory-database.module.ts:49</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="21"
+                            class="link-to-prism">apps/server/src/modules/management/converter/bson.converter.ts:21</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Deserializes documents from Extended JSON JavaScript objects to plain JavaScript objects.</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -112,20 +141,25 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>options</td>
+                                    <td>bsonDocuments</td>
                                     <td>
-                                                <code><a href="../interfaces/Options.html" target="_self" >MongoDatabaseModuleOptions</a></code>
+                                            <code>[]</code>
                                     </td>
 
                                     <td>
-                                        Yes
+                                        No
                                     </td>
 
 
+                                    <td>
+                                        <p>mongo-bson/ejson objects</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -133,11 +167,12 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>    <code>DynamicModule</code>
+                        <b>Returns : </b>    <code>[]</code>
 
                     </div>
                     <div class="io-description">
-                        
+                        <p>mongo-json documents</p>
+
                     </div>
                 </td>
             </tr>
@@ -147,35 +182,73 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="onModuleDestroy"></a>
+                    <a name="serialize"></a>
                     <span class="name">
-                        <span class="modifier">Async</span>
-                        <span ><b>onModuleDestroy</b></span>
-                        <a href="#onModuleDestroy"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>serialize</b></span>
+                        <a href="#serialize"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>onModuleDestroy()</code>
+<code>serialize(documents: [])</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="62"
-                            class="link-to-prism">apps/server/src/modules/database/mongo-memory-database/mongo-memory-database.module.ts:62</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="11"
+                            class="link-to-prism">apps/server/src/modules/management/converter/bson.converter.ts:11</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Serializes documents from plain JavaScript objects to Extended JSON JavaScript objects.</p>
+</div>
 
                     <div class="io-description">
-                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>documents</td>
+                                    <td>
+                                            <code>[]</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>mongo-json documents</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>[]</code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>mongo-bson/ejson objects</p>
 
                     </div>
                 </td>
@@ -183,82 +256,40 @@
         </tbody>
     </table>
 </section>
+
     </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { MikroORM } from &#x27;@mikro-orm/core&#x27;;
-import { MikroOrmModule, MikroOrmModuleSyncOptions } from &#x27;@mikro-orm/nestjs&#x27;;
-import { DynamicModule, Inject, Module, OnModuleDestroy } from &#x27;@nestjs/common&#x27;;
-import { ModuleRef } from &#x27;@nestjs/core&#x27;;
-import { ALL_ENTITIES } from &#x27;@shared/domain&#x27;;
-import { MongoMemoryServer } from &#x27;mongodb-memory-server&#x27;;
-import { MongoDatabaseModuleOptions } from &#x27;../types&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
+import * as BSON from &#x27;bson&#x27;;
 
-const createMikroOrmModule &#x3D; (options: MikroOrmModuleSyncOptions): DynamicModule &#x3D;&gt; {
-	const mikroOrmModule &#x3D; MikroOrmModule.forRootAsync({
-		providers: [
-			{
-				provide: MongoMemoryServer,
-				useFactory: () &#x3D;&gt; {
-					return new MongoMemoryServer();
-				},
-			},
-		],
-		useFactory: async (mongod: MongoMemoryServer) &#x3D;&gt; {
-			const clientUrl &#x3D; await mongod.getUri();
-			return {
-				...options,
-				type: &#x27;mongo&#x27;,
-				clientUrl,
-			};
-		},
-		inject: [MongoMemoryServer],
-	});
-
-	// TODO maybe we can find a better way to export the MongoMemoryServer provider
-	// currently we cannot specify the export otherwise because MikroOrmModuleSyncOptions doesn&#x27;t provide an export option
-	const mikroOrmCoreModule &#x3D; (mikroOrmModule.imports || [])[0] as DynamicModule;
-	if (mikroOrmCoreModule) {
-		mikroOrmCoreModule.exports ||&#x3D; [];
-		mikroOrmCoreModule.exports.push(MongoMemoryServer);
+@Injectable()
+export class BsonConverter {
+	/**
+	 * Serializes documents from plain JavaScript objects to Extended JSON JavaScript objects.
+	 * @param documents mongo-json documents
+	 * @returns mongo-bson/ejson objects
+	 */
+	serialize(documents: unknown[]): unknown[] {
+		const bsonDocuments &#x3D; BSON.EJSON.serialize(documents) as unknown[];
+		return bsonDocuments;
 	}
 
-	return mikroOrmModule;
-};
-
-@Module({})
-export class MongoMemoryDatabaseModule implements OnModuleDestroy {
-	constructor(
-		@Inject(MikroORM) private orm: MikroORM,
-		@Inject(MongoMemoryServer) private mongod: MongoMemoryServer,
-		private readonly moduleRef: ModuleRef
-	) {}
-
-	static forRoot(options?: MongoDatabaseModuleOptions): DynamicModule {
-		const defaultOptions &#x3D; {
-			entities: ALL_ENTITIES,
-		};
-		return {
-			module: MongoMemoryDatabaseModule,
-			imports: [createMikroOrmModule({ ...defaultOptions, ...options })],
-			exports: [MikroOrmModule],
-		};
-	}
-
-	// close db connection and stop mongo server
-	// NOTE: we have to call close() on this module to make nest call this callback
-	async onModuleDestroy(): Promise&lt;void&gt; {
-		await this.orm.close();
-		await this.mongod.stop();
+	/**
+	 * Deserializes documents from Extended JSON JavaScript objects to plain JavaScript objects.
+	 * @param bsonDocuments mongo-bson/ejson objects
+	 * @returns mongo-json documents
+	 */
+	deserialize(bsonDocuments: unknown[]): unknown[] {
+		const jsonDocuments &#x3D; BSON.EJSON.deserialize(bsonDocuments) as unknown[];
+		return jsonDocuments;
 	}
 }
 </code></pre>
     </div>
+
 </div>
-
-
-
 
 
 
@@ -287,8 +318,8 @@ export class MongoMemoryDatabaseModule implements OnModuleDestroy {
 
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
-            var COMPODOC_CURRENT_PAGE_CONTEXT = 'module';
-            var COMPODOC_CURRENT_PAGE_URL = 'MongoMemoryDatabaseModule.html';
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'BsonConverter.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 
