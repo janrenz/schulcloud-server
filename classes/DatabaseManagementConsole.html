@@ -113,7 +113,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">apps/server/src/modules/management/console/database-management.console.ts:9</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">apps/server/src/modules/management/console/database-management.console.ts:11</a></div>
                             </td>
                         </tr>
 
@@ -198,8 +198,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="42"
-                            class="link-to-prism">apps/server/src/modules/management/console/database-management.console.ts:42</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="49"
+                            class="link-to-prism">apps/server/src/modules/management/console/database-management.console.ts:49</a></div>
                 </td>
             </tr>
 
@@ -276,8 +276,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="23"
-                            class="link-to-prism">apps/server/src/modules/management/console/database-management.console.ts:23</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="25"
+                            class="link-to-prism">apps/server/src/modules/management/console/database-management.console.ts:25</a></div>
                 </td>
             </tr>
 
@@ -341,7 +341,9 @@ import { DatabaseManagementUc } from &#x27;../uc/database-management.uc&#x27;;
 
 interface Options {
 	collection?: string;
+	override?: boolean;
 }
+
 @Console({ command: &#x27;database&#x27;, description: &#x27;database setup console&#x27; })
 export class DatabaseManagementConsole {
 	constructor(private consoleWriter: ConsoleWriterService, private databaseManagementUc: DatabaseManagementUc) {}
@@ -373,12 +375,18 @@ export class DatabaseManagementConsole {
 				required: false,
 				description: &#x27;filter for a single &lt;collection&gt;&#x27;,
 			},
+			{
+				flags: &#x27;-o, --override&#x27;,
+				required: false,
+				description: &#x27;optional export collections to setup folder and override existing files&#x27;,
+			},
 		],
 		description: &#x27;export database collections to filesystem&#x27;,
 	})
 	async exportCollections(options: Options): Promise&lt;string[]&gt; {
 		const filter &#x3D; options?.collection ? [options.collection] : undefined;
-		const collections &#x3D; await this.databaseManagementUc.exportCollectionsToFileSystem(filter);
+		const toSeedFolder &#x3D; options?.override ? true : undefined;
+		const collections &#x3D; await this.databaseManagementUc.exportCollectionsToFileSystem(filter, toSeedFolder);
 		const report &#x3D; JSON.stringify(collections);
 		this.consoleWriter.info(report);
 		return collections;
