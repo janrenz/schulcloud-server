@@ -78,9 +78,6 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#create" >create</a>
-                            </li>
-                            <li>
                                     <span class="modifier">Async</span>
                                 <a href="#getDashboardById" >getDashboardById</a>
                             </li>
@@ -89,7 +86,12 @@
                                 <a href="#getUsersDashboard" >getUsersDashboard</a>
                             </li>
                             <li>
+                                    <span class="modifier">Async</span>
                                 <a href="#persist" >persist</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#persistAndFlush" >persistAndFlush</a>
                             </li>
                         </ul>
                     </td>
@@ -114,7 +116,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">apps/server/src/repositories/learnroom/dashboard.repo.ts:12</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">apps/server/src/repositories/learnroom/dashboard.repo.ts:14</a></div>
                             </td>
                         </tr>
 
@@ -161,75 +163,6 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="create"></a>
-                    <span class="name">
-                        <span ><b>create</b></span>
-                        <a href="#create"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>create(dashboardProps: <a href="../undefineds/DashboardProps.html" target="_self">DashboardProps</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="15"
-                            class="link-to-prism">apps/server/src/repositories/learnroom/dashboard.repo.ts:15</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>dashboardProps</td>
-                                    <td>
-                                                <code><a href="../miscellaneous/typealiases.html#DashboardProps" target="_self" >DashboardProps</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/DashboardEntity.html" target="_self" >DashboardEntity</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
                     <a name="getDashboardById"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
@@ -248,8 +181,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="28"
-                            class="link-to-prism">apps/server/src/repositories/learnroom/dashboard.repo.ts:28</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="30"
+                            class="link-to-prism">apps/server/src/repositories/learnroom/dashboard.repo.ts:30</a></div>
                 </td>
             </tr>
 
@@ -319,8 +252,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="34"
-                            class="link-to-prism">apps/server/src/repositories/learnroom/dashboard.repo.ts:34</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="36"
+                            class="link-to-prism">apps/server/src/repositories/learnroom/dashboard.repo.ts:36</a></div>
                 </td>
             </tr>
 
@@ -342,6 +275,7 @@
                 <td class="col-md-4">
                     <a name="persist"></a>
                     <span class="name">
+                        <span class="modifier">Async</span>
                         <span ><b>persist</b></span>
                         <a href="#persist"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -349,15 +283,16 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>persist(entity: <a href="../classes/DashboardEntity.html" target="_self">DashboardEntity</a>)</code>
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>persist(entity: <a href="../classes/DashboardEntity.html" target="_self">DashboardEntity</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="22"
-                            class="link-to-prism">apps/server/src/repositories/learnroom/dashboard.repo.ts:22</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="18"
+                            class="link-to-prism">apps/server/src/repositories/learnroom/dashboard.repo.ts:18</a></div>
                 </td>
             </tr>
 
@@ -395,7 +330,78 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/DashboardEntity.html" target="_self" >DashboardEntity</a></code>
+                        <b>Returns : </b>        <code><a href="../classes/DashboardEntity.html" target="_self" >Promise&lt;DashboardEntity&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="persistAndFlush"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>persistAndFlush</b></span>
+                        <a href="#persistAndFlush"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>persistAndFlush(entity: <a href="../classes/DashboardEntity.html" target="_self">DashboardEntity</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="24"
+                            class="link-to-prism">apps/server/src/repositories/learnroom/dashboard.repo.ts:24</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>entity</td>
+                                    <td>
+                                                <code><a href="../classes/DashboardEntity.html" target="_self" >DashboardEntity</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/DashboardEntity.html" target="_self" >Promise&lt;DashboardEntity&gt;</a></code>
 
                     </div>
                     <div class="io-description">
@@ -412,29 +418,31 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
-import { EntityId, DashboardEntity, DefaultGridReference, GridElement, DashboardProps } from &#x27;@shared/domain&#x27;;
+import { EntityId, DashboardEntity, DefaultGridReference, GridElement, GridElementWithPosition } from &#x27;@shared/domain&#x27;;
 import { EntityManager, ObjectId } from &#x27;@mikro-orm/mongodb&#x27;;
 import { DashboardModelEntity } from &#x27;./dashboard.model.entity&#x27;;
 import { DashboardModelMapper } from &#x27;./dashboard.model.mapper&#x27;;
 
 export interface IDashboardRepo {
 	getUsersDashboard(): Promise&lt;DashboardEntity&gt;;
+	getDashboardById(id: EntityId): Promise&lt;DashboardEntity&gt;;
+	persistAndFlush(entity: DashboardEntity): Promise&lt;DashboardEntity&gt;;
 }
 
 @Injectable()
 export class DashboardRepo implements IDashboardRepo {
 	constructor(protected readonly em: EntityManager) {}
 
-	create(dashboardProps: DashboardProps): DashboardEntity {
-		// todo: implementation, testing, etc
-		// this should create a modelentity and get an id from mongo
-		return new DashboardEntity(&#x27;thisisalsofake&#x27;, dashboardProps);
+	// ToDo: refactor this to be in an abstract class (see baseRepo)
+	async persist(entity: DashboardEntity): Promise&lt;DashboardEntity&gt; {
+		const modelEntity &#x3D; await DashboardModelMapper.mapToModel(entity, this.em);
+		this.em.persist(modelEntity);
+		return entity;
 	}
 
-	// ToDo: refactor this to be in an abstract class (see baseRepo)
-	persist(entity: DashboardEntity): DashboardEntity {
-		const modelEntity &#x3D; DashboardModelMapper.mapToModel(entity);
-		this.em.persist(modelEntity);
+	async persistAndFlush(entity: DashboardEntity): Promise&lt;DashboardEntity&gt; {
+		const modelEntity &#x3D; await DashboardModelMapper.mapToModel(entity, this.em);
+		await this.em.persistAndFlush(modelEntity);
 		return entity;
 	}
 
@@ -450,17 +458,17 @@ export class DashboardRepo implements IDashboardRepo {
 		if (dashboardModel) {
 			return DashboardModelMapper.mapToEntity(dashboardModel);
 		}
-		const gridArray: GridElement[] &#x3D; [];
-		const diagonalSize &#x3D; 5;
+		const gridArray: GridElementWithPosition[] &#x3D; [];
+		const diagonalSize &#x3D; 4;
 		for (let i &#x3D; 0; i &lt; diagonalSize; i +&#x3D; 1) {
 			const elementReference &#x3D; new DefaultGridReference(new ObjectId().toString(), &#x27;exampletitle&#x27;);
-			gridArray.push(
-				new GridElement(new ObjectId().toString(), Math.floor(Math.random() * 6 + 1), i + 1, elementReference)
-			);
+			gridArray.push({
+				pos: { x: Math.floor(Math.random() * 4 + 1), y: i + 1 },
+				gridElement: new GridElement(new ObjectId().toString(), elementReference),
+			});
 		}
 		const dashboard &#x3D; new DashboardEntity(hardcodedTestDashboardId, { grid: gridArray });
-		this.persist(dashboard);
-		await this.em.flush();
+		await this.persistAndFlush(dashboard);
 
 		return dashboard;
 	}

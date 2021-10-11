@@ -137,7 +137,11 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { EntityId } from &#x27;../types/entity-id&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { NotFoundException, BadRequestException } from &#x27;@nestjs/common&#x27;;
+import { EntityId } from &#x27;../types/entity-id&#x27;;
+
+const defaultColumns &#x3D; 6;
+const defaultRows &#x3D; 6;
 
 export type GridElementReferenceMetadata &#x3D; {
 	id: string;
@@ -177,33 +181,21 @@ export class DefaultGridReference implements IGridElementReference {
 export interface IGridElement {
 	getId: () &#x3D;&gt; EntityId;
 
-	getPosition: () &#x3D;&gt; { x: number; y: number };
-
 	getMetadata: () &#x3D;&gt; GridElementReferenceMetadata;
 }
 
 export class GridElement implements IGridElement {
 	id: EntityId;
 
-	constructor(id: EntityId, x: number, y: number, reference: IGridElementReference) {
+	constructor(id: EntityId, reference: IGridElementReference) {
 		this.id &#x3D; id;
-		this.xPos &#x3D; x;
-		this.yPos &#x3D; y;
 		this.reference &#x3D; reference;
 	}
 
 	reference: IGridElementReference;
 
-	xPos: number;
-
-	yPos: number;
-
 	getId(): EntityId {
 		return this.id;
-	}
-
-	getPosition(): { x: number; y: number } {
-		return { x: this.xPos, y: this.yPos };
 	}
 
 	getMetadata(): GridElementReferenceMetadata {
@@ -211,15 +203,44 @@ export class GridElement implements IGridElement {
 	}
 }
 
-export type DashboardProps &#x3D; { grid: IGridElement[] };
+export type GridPosition &#x3D; { x: number; y: number };
+
+export type GridElementWithPosition &#x3D; {
+	gridElement: IGridElement;
+	pos: GridPosition;
+};
+
+export type DashboardProps &#x3D; { colums?: number; rows?: number; grid: GridElementWithPosition[] };
 
 export class DashboardEntity {
 	id: EntityId;
 
-	grid: IGridElement[];
+	columns: number;
+
+	rows: number;
+
+	grid: Map&lt;number, IGridElement&gt;;
+
+	private gridIndexFromPosition(pos: GridPosition): number {
+		if (pos.x &gt; this.columns || pos.y &gt; this.rows) {
+			throw new BadRequestException(&#x27;dashboard element position is outside the grid.&#x27;);
+		}
+		return this.columns * pos.y + pos.x;
+	}
+
+	private positionFromGridIndex(index: number): GridPosition {
+		const y &#x3D; Math.floor(index / this.columns);
+		const x &#x3D; index % this.columns;
+		return { x, y };
+	}
 
 	constructor(id: string, props: DashboardProps) {
-		this.grid &#x3D; props.grid || [];
+		this.columns &#x3D; props.colums || defaultColumns;
+		this.rows &#x3D; props.rows || defaultRows;
+		this.grid &#x3D; new Map&lt;number, IGridElement&gt;();
+		props.grid.forEach((element) &#x3D;&gt; {
+			this.grid.set(this.gridIndexFromPosition(element.pos), element.gridElement);
+		});
 		this.id &#x3D; id;
 		Object.assign(this, {});
 	}
@@ -228,8 +249,32 @@ export class DashboardEntity {
 		return this.id;
 	}
 
-	getGrid(): IGridElement[] {
-		return this.grid;
+	getGrid(): GridElementWithPosition[] {
+		const result &#x3D; [...this.grid.keys()].map((key) &#x3D;&gt; {
+			const position &#x3D; this.positionFromGridIndex(key);
+			const value &#x3D; this.grid.get(key) as IGridElement;
+			return {
+				pos: position,
+				gridElement: value,
+			};
+		});
+		return result;
+	}
+
+	moveElement(from: GridPosition, to: GridPosition): GridElementWithPosition {
+		const elementToMove &#x3D; this.grid.get(this.gridIndexFromPosition(from));
+		if (elementToMove) {
+			if (this.grid.get(this.gridIndexFromPosition(to))) {
+				throw new BadRequestException(&#x27;target position already taken&#x27;);
+			}
+			this.grid.set(this.gridIndexFromPosition(to), elementToMove);
+			this.grid.delete(this.gridIndexFromPosition(from));
+			return {
+				pos: to,
+				gridElement: elementToMove,
+			};
+		}
+		throw new NotFoundException(&#x27;no element at origin position&#x27;);
 	}
 }
 </code></pre>

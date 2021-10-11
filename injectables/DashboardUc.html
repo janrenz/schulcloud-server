@@ -81,6 +81,10 @@
                                     <span class="modifier">Async</span>
                                 <a href="#getUsersDashboard" >getUsersDashboard</a>
                             </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#moveElementOnDashboard" >moveElementOnDashboard</a>
+                            </li>
                         </ul>
                     </td>
                 </tr>
@@ -186,6 +190,101 @@
             </tr>
         </tbody>
     </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="moveElementOnDashboard"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>moveElementOnDashboard</b></span>
+                        <a href="#moveElementOnDashboard"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>moveElementOnDashboard(dashboardId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, from: <a href="../undefineds/GridPosition.html" target="_self">GridPosition</a>, to: <a href="../undefineds/GridPosition.html" target="_self">GridPosition</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="14"
+                            class="link-to-prism">apps/server/src/modules/learnroom/uc/dashboard.uc.ts:14</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>dashboardId</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>from</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#GridPosition" target="_self" >GridPosition</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>to</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#GridPosition" target="_self" >GridPosition</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/DashboardEntity.html" target="_self" >Promise&lt;DashboardEntity&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </section>
 
     </div>
@@ -193,7 +292,7 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable, Inject } from &#x27;@nestjs/common&#x27;;
-import { DashboardEntity } from &#x27;@shared/domain&#x27;;
+import { DashboardEntity, EntityId, GridPosition } from &#x27;@shared/domain&#x27;;
 import { IDashboardRepo } from &#x27;@src/repositories/learnroom/dashboard.repo&#x27;;
 
 @Injectable()
@@ -202,6 +301,18 @@ export class DashboardUc {
 
 	async getUsersDashboard(): Promise&lt;DashboardEntity&gt; {
 		const dashboard &#x3D; await this.dashboardRepo.getUsersDashboard();
+		return dashboard;
+	}
+
+	async moveElementOnDashboard(
+		dashboardId: EntityId,
+		from: GridPosition,
+		to: GridPosition
+		/* currentUser: ICurrentUser */
+	): Promise&lt;DashboardEntity&gt; {
+		const dashboard &#x3D; await this.dashboardRepo.getDashboardById(dashboardId);
+		dashboard.moveElement(from, to);
+		await this.dashboardRepo.persistAndFlush(dashboard);
 		return dashboard;
 	}
 }

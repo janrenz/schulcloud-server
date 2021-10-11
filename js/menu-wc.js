@@ -555,6 +555,12 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/Lesson.html" data-type="entity-link" >Lesson</a>
                             </li>
                             <li class="link">
+                                <a href="classes/MoveElementParams.html" data-type="entity-link" >MoveElementParams</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/MoveElementPosition.html" data-type="entity-link" >MoveElementPosition</a>
+                            </li>
+                            <li class="link">
                                 <a href="classes/News.html" data-type="entity-link" >News</a>
                             </li>
                             <li class="link">

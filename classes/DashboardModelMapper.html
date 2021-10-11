@@ -84,6 +84,7 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Static</span>
+                                    <span class="modifier">Async</span>
                                 <a href="#mapGridElementToModel" >mapGridElementToModel</a>
                             </li>
                             <li>
@@ -93,6 +94,7 @@
                             </li>
                             <li>
                                     <span class="modifier">Static</span>
+                                    <span class="modifier">Async</span>
                                 <a href="#mapToModel" >mapToModel</a>
                             </li>
                         </ul>
@@ -121,6 +123,7 @@
                     <a name="mapGridElementToModel"></a>
                     <span class="name">
                         <span class="modifier">Static</span>
+                        <span class="modifier">Async</span>
                         <span ><b>mapGridElementToModel</b></span>
                         <a href="#mapGridElementToModel"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -129,15 +132,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>mapGridElementToModel(gridElement: <a href="../interfaces/IGridElement.html" target="_self">IGridElement</a>, dashboard: <a href="../classes/DashboardModelEntity.html" target="_self">DashboardModelEntity</a>)</code>
+                    <code>mapGridElementToModel(elementWithPosition: <a href="../classes/GridElement.html" target="_self">GridElementWithPosition</a>, dashboard: <a href="../classes/DashboardModelEntity.html" target="_self">DashboardModelEntity</a>, em: EntityManager)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="6"
-                            class="link-to-prism">apps/server/src/repositories/learnroom/dashboard.model.mapper.ts:6</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="21"
+                            class="link-to-prism">apps/server/src/repositories/learnroom/dashboard.model.mapper.ts:21</a></div>
                 </td>
             </tr>
 
@@ -158,9 +161,9 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>gridElement</td>
+                                    <td>elementWithPosition</td>
                                     <td>
-                                                <code><a href="../interfaces/IGridElement.html" target="_self" >IGridElement</a></code>
+                                                <code><a href="../classes/GridElement.html" target="_self" >GridElementWithPosition</a></code>
                                     </td>
 
                                     <td>
@@ -181,13 +184,25 @@
 
 
                                 </tr>
+                                <tr>
+                                    <td>em</td>
+                                    <td>
+                                            <code>EntityManager</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
                             </tbody>
                         </table>
                     </div>
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/DashboardGridElementModel.html" target="_self" >DashboardGridElementModel</a></code>
+                        <b>Returns : </b>    <code>Promise&lt;DashboardGridElementModel&gt;</code>
 
                     </div>
                     <div class="io-description">
@@ -220,8 +235,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="20"
-                            class="link-to-prism">apps/server/src/repositories/learnroom/dashboard.model.mapper.ts:20</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="6"
+                            class="link-to-prism">apps/server/src/repositories/learnroom/dashboard.model.mapper.ts:6</a></div>
                 </td>
             </tr>
 
@@ -276,6 +291,7 @@
                     <a name="mapToModel"></a>
                     <span class="name">
                         <span class="modifier">Static</span>
+                        <span class="modifier">Async</span>
                         <span ><b>mapToModel</b></span>
                         <a href="#mapToModel"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -284,15 +300,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>mapToModel(entity: <a href="../classes/DashboardEntity.html" target="_self">DashboardEntity</a>)</code>
+                    <code>mapToModel(entity: <a href="../classes/DashboardEntity.html" target="_self">DashboardEntity</a>, em: EntityManager)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="31"
-                            class="link-to-prism">apps/server/src/repositories/learnroom/dashboard.model.mapper.ts:31</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="45"
+                            class="link-to-prism">apps/server/src/repositories/learnroom/dashboard.model.mapper.ts:45</a></div>
                 </td>
             </tr>
 
@@ -324,13 +340,25 @@
 
 
                                 </tr>
+                                <tr>
+                                    <td>em</td>
+                                    <td>
+                                            <code>EntityManager</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
                             </tbody>
                         </table>
                     </div>
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/DashboardModelEntity.html" target="_self" >DashboardModelEntity</a></code>
+                        <b>Returns : </b>        <code><a href="../classes/DashboardModelEntity.html" target="_self" >Promise&lt;DashboardModelEntity&gt;</a></code>
 
                     </div>
                     <div class="io-description">
@@ -350,42 +378,61 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Collection, wrap } from &#x27;@mikro-orm/core&#x27;;
-import { DashboardEntity, GridElement, IGridElement, DefaultGridReference } from &#x27;@shared/domain&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Collection, wrap, EntityManager } from &#x27;@mikro-orm/core&#x27;;
+import { DashboardEntity, GridElement, GridElementWithPosition, DefaultGridReference } from &#x27;@shared/domain&#x27;;
 import { DashboardGridElementModel, DashboardModelEntity, DefaultGridReferenceModel } from &#x27;./dashboard.model.entity&#x27;;
 
 export class DashboardModelMapper {
-	static mapGridElementToModel(gridElement: IGridElement, dashboard: DashboardModelEntity): DashboardGridElementModel {
-		const model &#x3D; new DashboardGridElementModel(gridElement.getId());
-		model.xPos &#x3D; gridElement.getPosition().x;
-		model.yPos &#x3D; gridElement.getPosition().y;
-		// model.reference &#x3D; new DefaultGridReference(gridElement.getMetadata().title); // should be replaced with model reference
-		const reference &#x3D; new DefaultGridReferenceModel(gridElement.getMetadata().id);
-		reference.color &#x3D; gridElement.getMetadata().displayColor;
-		reference.title &#x3D; gridElement.getMetadata().title;
+	static async mapToEntity(modelEntity: DashboardModelEntity): Promise&lt;DashboardEntity&gt; {
+		await modelEntity.gridElements.init();
+		const grid: GridElementWithPosition[] &#x3D; await Promise.all(
+			Array.from(modelEntity.gridElements).map(async (e) &#x3D;&gt; {
+				const loaded &#x3D; await e.reference.load();
+				const result &#x3D; {
+					pos: { x: e.xPos, y: e.yPos },
+					gridElement: new GridElement(e.id, new DefaultGridReference(loaded.id, loaded.title, loaded.color)),
+				};
+				return result;
+			})
+		);
+		return new DashboardEntity(modelEntity.id, { grid });
+	}
+
+	static async mapGridElementToModel(
+		elementWithPosition: GridElementWithPosition,
+		dashboard: DashboardModelEntity,
+		em: EntityManager
+	): Promise&lt;DashboardGridElementModel&gt; {
+		const existing &#x3D; await em.findOne(DashboardGridElementModel, elementWithPosition.gridElement.getId());
+		const model &#x3D; existing || new DashboardGridElementModel(elementWithPosition.gridElement.getId());
+		model.xPos &#x3D; elementWithPosition.pos.x;
+		model.yPos &#x3D; elementWithPosition.pos.y;
+
+		const existingReference &#x3D; await em.findOne(
+			DefaultGridReferenceModel,
+			elementWithPosition.gridElement.getMetadata().id
+		);
+		const reference &#x3D;
+			existingReference || new DefaultGridReferenceModel(elementWithPosition.gridElement.getMetadata().id);
+		reference.color &#x3D; elementWithPosition.gridElement.getMetadata().displayColor;
+		reference.title &#x3D; elementWithPosition.gridElement.getMetadata().title;
 		model.reference &#x3D; wrap(reference).toReference();
 
 		model.dashboard &#x3D; wrap(dashboard).toReference();
 		return model;
 	}
 
-	static async mapToEntity(modelEntity: DashboardModelEntity): Promise&lt;DashboardEntity&gt; {
-		await modelEntity.gridElements.init();
-		const grid: GridElement[] &#x3D; await Promise.all(
-			Array.from(modelEntity.gridElements).map(async (e) &#x3D;&gt; {
-				const loaded &#x3D; await e.reference.load();
-				return new GridElement(e.id, e.xPos, e.yPos, new DefaultGridReference(loaded.id, loaded.title, loaded.color));
-			})
+	static async mapToModel(entity: DashboardEntity, em: EntityManager): Promise&lt;DashboardModelEntity&gt; {
+		const existing &#x3D; await em.findOne(DashboardModelEntity, entity.getId());
+		const modelEntity &#x3D; existing || new DashboardModelEntity(entity.getId());
+		const mappedElements &#x3D; await Promise.all(
+			entity
+				.getGrid()
+				.map((elementWithPosition) &#x3D;&gt; DashboardModelMapper.mapGridElementToModel(elementWithPosition, modelEntity, em))
 		);
-		return new DashboardEntity(modelEntity.id, { grid });
-	}
 
-	static mapToModel(entity: DashboardEntity): DashboardModelEntity {
-		const modelEntity &#x3D; new DashboardModelEntity(entity.getId());
-		modelEntity.gridElements &#x3D; new Collection&lt;DashboardGridElementModel&gt;(
-			modelEntity,
-			entity.grid.map((element) &#x3D;&gt; DashboardModelMapper.mapGridElementToModel(element, modelEntity))
-		);
+		modelEntity.gridElements &#x3D; new Collection&lt;DashboardGridElementModel&gt;(modelEntity, mappedElements);
+
 		return modelEntity;
 	}
 }

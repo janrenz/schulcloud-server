@@ -87,6 +87,10 @@
                                     <span class="modifier">Async</span>
                                 <a href="#findForUser" >findForUser</a>
                             </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#moveElement" >moveElement</a>
+                            </li>
                         </ul>
                     </td>
                 </tr>
@@ -133,8 +137,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="14"
-                            class="link-to-prism">apps/server/src/modules/learnroom/controller/dashboard.controller.ts:14</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="15"
+                            class="link-to-prism">apps/server/src/modules/learnroom/controller/dashboard.controller.ts:15</a></div>
                 </td>
             </tr>
 
@@ -150,15 +154,106 @@
             </tr>
         </tbody>
     </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="moveElement"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>moveElement</b></span>
+                        <a href="#moveElement"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>moveElement(dashboardId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, params: <a href="../classes/MoveElementParams.html" target="_self">MoveElementParams</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Patch(&#x27;:id/moveElement&#x27;)<br /></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="22"
+                            class="link-to-prism">apps/server/src/modules/learnroom/controller/dashboard.controller.ts:22</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>dashboardId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>params</td>
+                                    <td>
+                                                <code><a href="../classes/MoveElementParams.html" target="_self" >MoveElementParams</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/DashboardResponse.html" target="_self" >Promise&lt;DashboardResponse&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </section>    </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Controller, Get } from &#x27;@nestjs/common&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Controller, Get, Patch, Param, Body } from &#x27;@nestjs/common&#x27;;
 import { Authenticate } from &#x27;@src/modules/authentication/decorator/auth.decorator&#x27;;
+import { ParseObjectIdPipe } from &#x27;@shared/controller&#x27;;
 import { DashboardUc } from &#x27;../uc/dashboard.uc&#x27;;
 
-import { DashboardResponse } from &#x27;./dto&#x27;;
+import { DashboardResponse, MoveElementParams } from &#x27;./dto&#x27;;
 import { DashboardMapper } from &#x27;../mapper/dashboard.mapper&#x27;;
 
 @Authenticate(&#x27;jwt&#x27;)
@@ -169,6 +264,17 @@ export class DashboardController {
 	@Get()
 	async findForUser(): Promise&lt;DashboardResponse&gt; {
 		const dashboard &#x3D; await this.dashboardUc.getUsersDashboard(/* currentUser.userId */);
+		const dto &#x3D; DashboardMapper.mapToResponse(dashboard);
+		return dto;
+	}
+
+	@Patch(&#x27;:id/moveElement&#x27;)
+	async moveElement(
+		@Param(&#x27;id&#x27;, ParseObjectIdPipe) dashboardId: string,
+		/* @CurrentUser() currentUser: ICurrentUser, */
+		@Body() params: MoveElementParams
+	): Promise&lt;DashboardResponse&gt; {
+		const dashboard &#x3D; await this.dashboardUc.moveElementOnDashboard(dashboardId, params.from, params.to);
 		const dto &#x3D; DashboardMapper.mapToResponse(dashboard);
 		return dto;
 	}
