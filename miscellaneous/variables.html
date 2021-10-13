@@ -648,7 +648,7 @@ must use @ApiProperty</p>
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>(error: unknown, logger: Logger): ErrorResponse &#x3D;&gt; {
+                        <i>Default value : </i><code>(error: unknown, logger: ILogger): ErrorResponse &#x3D;&gt; {
 	try {
 		if (error instanceof Error) {
 			if (isFeathersError(error)) {
@@ -797,7 +797,7 @@ must use @ApiProperty</p>
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>(error: unknown, logger: Logger): void &#x3D;&gt; {
+                        <i>Default value : </i><code>(error: unknown, logger: ILogger): void &#x3D;&gt; {
 	if (error instanceof Error) {
 		if (isFeathersError(error)) {
 			logger.error(error, error.stack, &#x27;Feathers Error&#x27;);
@@ -835,7 +835,7 @@ must use @ApiProperty</p>
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>(error: ApiValidationError, logger: Logger) &#x3D;&gt; {
+                        <i>Default value : </i><code>(error: ApiValidationError, logger: ILogger) &#x3D;&gt; {
 	const errorMsg &#x3D; error.validationErrors.map(
 		// eslint-disable-next-line @typescript-eslint/restrict-template-expressions
 		(e) &#x3D;&gt; &#x60;Wrong property ${e.property} got ${e.value} : ${JSON.stringify(e.constraints)}&#x60;
@@ -864,7 +864,7 @@ must use @ApiProperty</p>
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>(options: MikroOrmModuleSyncOptions): DynamicModule &#x3D;&gt; {
+                        <i>Default value : </i><code>async (options: MikroOrmModuleSyncOptions): Promise&lt;DynamicModule&gt; &#x3D;&gt; {
 	const mikroOrmModule &#x3D; MikroOrmModule.forRootAsync({
 		providers: [
 			{
@@ -887,8 +887,8 @@ must use @ApiProperty</p>
 
 	// TODO maybe we can find a better way to export the MongoMemoryServer provider
 	// currently we cannot specify the export otherwise because MikroOrmModuleSyncOptions doesn&#x27;t provide an export option
-	const mikroOrmCoreModule &#x3D; (mikroOrmModule.imports || [])[0] as DynamicModule;
-	if (mikroOrmCoreModule) {
+	if (mikroOrmModule.imports &amp;&amp; mikroOrmModule.imports.length &gt; 0) {
+		const mikroOrmCoreModule &#x3D; (await mikroOrmModule.imports[0]) as DynamicModule;
 		mikroOrmCoreModule.exports ||&#x3D; [];
 		mikroOrmCoreModule.exports.push(MongoMemoryServer);
 	}

@@ -66,7 +66,7 @@
                 <h3>Extends</h3>
             </p>
             <p class="comment">
-                        <code><a href="../injectables/Logger.html" target="_self" >NestLogger</a></code>
+                        <code><a href="../injectables/Logger.html" target="_self" >ConsoleLogger</a></code>
             </p>
 
 
@@ -78,16 +78,16 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable, Scope, Logger as NestLogger } from &#x27;@nestjs/common&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable, Scope, ConsoleLogger } from &#x27;@nestjs/common&#x27;;
 import { ILogger } from &#x27;./logger.interface&#x27;;
 
 @Injectable({ scope: Scope.TRANSIENT })
 /**
  * Default logger for server application.
- * Must implement ILogger but must not extend NestLogger (this can be changed).
+ * Must implement ILogger but must not extend ConsoleLogger (this can be changed).
  * Transient injection: Wherever injected, a separate instance will be created, that can be provided with a custom context.
  */
-export class Logger extends NestLogger implements ILogger {
+export class Logger extends ConsoleLogger implements ILogger {
 	/**
 	 * This Logger Service can be initialized with a context, that will be added to every log.
 	 * It implements @ILogger which provides the logger methods.

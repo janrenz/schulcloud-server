@@ -195,7 +195,7 @@ import { ALL_ENTITIES } from &#x27;@shared/domain&#x27;;
 import { MongoMemoryServer } from &#x27;mongodb-memory-server&#x27;;
 import { MongoDatabaseModuleOptions } from &#x27;../types&#x27;;
 
-const createMikroOrmModule &#x3D; (options: MikroOrmModuleSyncOptions): DynamicModule &#x3D;&gt; {
+const createMikroOrmModule &#x3D; async (options: MikroOrmModuleSyncOptions): Promise&lt;DynamicModule&gt; &#x3D;&gt; {
 	const mikroOrmModule &#x3D; MikroOrmModule.forRootAsync({
 		providers: [
 			{
@@ -218,8 +218,8 @@ const createMikroOrmModule &#x3D; (options: MikroOrmModuleSyncOptions): DynamicM
 
 	// TODO maybe we can find a better way to export the MongoMemoryServer provider
 	// currently we cannot specify the export otherwise because MikroOrmModuleSyncOptions doesn&#x27;t provide an export option
-	const mikroOrmCoreModule &#x3D; (mikroOrmModule.imports || [])[0] as DynamicModule;
-	if (mikroOrmCoreModule) {
+	if (mikroOrmModule.imports &amp;&amp; mikroOrmModule.imports.length &gt; 0) {
+		const mikroOrmCoreModule &#x3D; (await mikroOrmModule.imports[0]) as DynamicModule;
 		mikroOrmCoreModule.exports ||&#x3D; [];
 		mikroOrmCoreModule.exports.push(MongoMemoryServer);
 	}

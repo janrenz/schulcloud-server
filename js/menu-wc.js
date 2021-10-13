@@ -152,6 +152,20 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="modules/ConsoleWriterModule.html" data-type="entity-link" >ConsoleWriterModule</a>
+                                <li class="chapter inner">
+                                    <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
+                                        'data-target="#injectables-links-module-ConsoleWriterModule-844a942f26cbeee3b7ce088965609fb7"' : 'data-target="#xs-injectables-links-module-ConsoleWriterModule-844a942f26cbeee3b7ce088965609fb7"' }>
+                                        <span class="icon ion-md-arrow-round-down"></span>
+                                        <span>Injectables</span>
+                                        <span class="icon ion-ios-arrow-down"></span>
+                                    </div>
+                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-ConsoleWriterModule-844a942f26cbeee3b7ce088965609fb7"' :
+                                        'id="xs-injectables-links-module-ConsoleWriterModule-844a942f26cbeee3b7ce088965609fb7"' }>
+                                        <li class="link">
+                                            <a href="injectables/ConsoleWriterService.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >ConsoleWriterService</a>
+                                        </li>
+                                    </ul>
+                                </li>
                             </li>
                             <li class="link">
                                 <a href="modules/CoreModule.html" data-type="entity-link" >CoreModule</a>
@@ -332,20 +346,6 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="modules/ServerConsoleModule.html" data-type="entity-link" >ServerConsoleModule</a>
-                                <li class="chapter inner">
-                                    <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                        'data-target="#injectables-links-module-ServerConsoleModule-09621966241d992a2a9717c1a69de5a6"' : 'data-target="#xs-injectables-links-module-ServerConsoleModule-09621966241d992a2a9717c1a69de5a6"' }>
-                                        <span class="icon ion-md-arrow-round-down"></span>
-                                        <span>Injectables</span>
-                                        <span class="icon ion-ios-arrow-down"></span>
-                                    </div>
-                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-ServerConsoleModule-09621966241d992a2a9717c1a69de5a6"' :
-                                        'id="xs-injectables-links-module-ServerConsoleModule-09621966241d992a2a9717c1a69de5a6"' }>
-                                        <li class="link">
-                                            <a href="injectables/ConsoleWriter.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >ConsoleWriter</a>
-                                        </li>
-                                    </ul>
-                                </li>
                             </li>
                             <li class="link">
                                 <a href="modules/ServerModule.html" data-type="entity-link" >ServerModule</a>
@@ -671,12 +671,6 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             <ul class="links collapse " ${ isNormalMode ? 'id="injectables-links"' : 'id="xs-injectables-links"' }>
                                 <li class="link">
                                     <a href="injectables/BaseRepo.html" data-type="entity-link" >BaseRepo</a>
-                                </li>
-                                <li class="link">
-                                    <a href="injectables/ConsoleWriter.html" data-type="entity-link" >ConsoleWriter</a>
-                                </li>
-                                <li class="link">
-                                    <a href="injectables/ConsoleWriterService.html" data-type="entity-link" >ConsoleWriterService</a>
                                 </li>
                                 <li class="link">
                                     <a href="injectables/CourseGroupRepo.html" data-type="entity-link" >CourseGroupRepo</a>

@@ -106,7 +106,7 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(consoleWriter: <a href="../injectables/ConsoleWriter.html" target="_self">ConsoleWriter</a>)</code>
+<code>constructor(consoleWriter: <a href="../injectables/ConsoleWriterService.html" target="_self">ConsoleWriterService</a>)</code>
                     </td>
                 </tr>
                         <tr>
@@ -132,7 +132,7 @@
                                                         <td>consoleWriter</td>
                                                   
                                                         <td>
-                                                                        <code><a href="../injectables/ConsoleWriter.html" target="_self" >ConsoleWriter</a></code>
+                                                                        <code><a href="../injectables/ConsoleWriterService.html" target="_self" >ConsoleWriterService</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -290,11 +290,11 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Command, Console } from &#x27;nestjs-console&#x27;;
-import { ConsoleWriter } from &#x27;./console-writer/console-writer.service&#x27;;
+import { ConsoleWriterService } from &#x27;@shared/infra/console&#x27;;
 
 @Console({ command: &#x27;server&#x27;, description: &#x27;sample server console&#x27; })
 export class ServerConsole {
-	constructor(private consoleWriter: ConsoleWriter) {}
+	constructor(private consoleWriter: ConsoleWriterService) {}
 
 	/** test method for console output */
 	@Command({ command: &#x27;test&#x27;, description: &#x27;sample test output&#x27; })
