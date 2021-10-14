@@ -157,13 +157,13 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @ApiPropertyOptional()<br />
+                            @ApiPropertyOptional()<br />@DecodeHtmlEntities()<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">apps/server/src/modules/task/controller/dto/task.response.ts:14</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">apps/server/src/modules/task/controller/dto/task.response.ts:17</a></div>
                         </td>
                     </tr>
 
@@ -198,7 +198,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">apps/server/src/modules/task/controller/dto/task.response.ts:23</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">apps/server/src/modules/task/controller/dto/task.response.ts:26</a></div>
                         </td>
                     </tr>
 
@@ -234,7 +234,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">apps/server/src/modules/task/controller/dto/task.response.ts:17</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">apps/server/src/modules/task/controller/dto/task.response.ts:20</a></div>
                         </td>
                     </tr>
 
@@ -270,7 +270,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">apps/server/src/modules/task/controller/dto/task.response.ts:11</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">apps/server/src/modules/task/controller/dto/task.response.ts:13</a></div>
                         </td>
                     </tr>
 
@@ -305,7 +305,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">apps/server/src/modules/task/controller/dto/task.response.ts:20</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">apps/server/src/modules/task/controller/dto/task.response.ts:23</a></div>
                         </td>
                     </tr>
 
@@ -334,13 +334,13 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @ApiProperty()<br />
+                            @ApiProperty()<br />@DecodeHtmlEntities()<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">apps/server/src/modules/task/controller/dto/task.response.ts:8</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">apps/server/src/modules/task/controller/dto/task.response.ts:10</a></div>
                         </td>
                     </tr>
 
@@ -375,7 +375,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">apps/server/src/modules/task/controller/dto/task.response.ts:29</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">apps/server/src/modules/task/controller/dto/task.response.ts:32</a></div>
                         </td>
                     </tr>
 
@@ -410,7 +410,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">apps/server/src/modules/task/controller/dto/task.response.ts:26</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">apps/server/src/modules/task/controller/dto/task.response.ts:29</a></div>
                         </td>
                     </tr>
 
@@ -430,18 +430,21 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ApiProperty, ApiPropertyOptional } from &#x27;@nestjs/swagger&#x27;;
+import { DecodeHtmlEntities } from &#x27;@shared/controller&#x27;;
 
 /**
  * DTO for returning a task document via api.
  */
 export class TaskResponse {
 	@ApiProperty()
+	@DecodeHtmlEntities()
 	name: string;
 
 	@ApiProperty()
 	duedate?: Date;
 
 	@ApiPropertyOptional()
+	@DecodeHtmlEntities()
 	courseName?: string;
 
 	@ApiPropertyOptional()
