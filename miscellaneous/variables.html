@@ -864,18 +864,20 @@ must use @ApiProperty</p>
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>async (options: MikroOrmModuleSyncOptions): Promise&lt;DynamicModule&gt; &#x3D;&gt; {
+                        <i>Default value : </i><code>async (options: MikroOrmModuleAsyncOptions): Promise&lt;DynamicModule&gt; &#x3D;&gt; {
 	const mikroOrmModule &#x3D; MikroOrmModule.forRootAsync({
 		providers: [
 			{
 				provide: MongoMemoryServer,
-				useFactory: () &#x3D;&gt; {
-					return new MongoMemoryServer();
+				useFactory: async () &#x3D;&gt; {
+					const mongo &#x3D; await MongoMemoryServer.create();
+					return mongo;
 				},
 			},
 		],
-		useFactory: async (mongod: MongoMemoryServer) &#x3D;&gt; {
-			const clientUrl &#x3D; await mongod.getUri();
+		useFactory: async (mongo: MongoMemoryServer) &#x3D;&gt; {
+			await mongo.ensureInstance();
+			const clientUrl &#x3D; mongo.getUri();
 			return {
 				...options,
 				type: &#x27;mongo&#x27;,

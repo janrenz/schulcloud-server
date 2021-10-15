@@ -94,8 +94,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="49"
-                            class="link-to-prism">apps/server/src/modules/database/mongo-memory-database/mongo-memory-database.module.ts:49</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="51"
+                            class="link-to-prism">apps/server/src/modules/database/mongo-memory-database/mongo-memory-database.module.ts:51</a></div>
                 </td>
             </tr>
 
@@ -165,8 +165,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="62"
-                            class="link-to-prism">apps/server/src/modules/database/mongo-memory-database/mongo-memory-database.module.ts:62</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="64"
+                            class="link-to-prism">apps/server/src/modules/database/mongo-memory-database/mongo-memory-database.module.ts:64</a></div>
                 </td>
             </tr>
 
@@ -188,25 +188,27 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { MikroORM } from &#x27;@mikro-orm/core&#x27;;
-import { MikroOrmModule, MikroOrmModuleSyncOptions } from &#x27;@mikro-orm/nestjs&#x27;;
+import { MikroOrmModule, MikroOrmModuleAsyncOptions } from &#x27;@mikro-orm/nestjs&#x27;;
 import { DynamicModule, Inject, Module, OnModuleDestroy } from &#x27;@nestjs/common&#x27;;
 import { ModuleRef } from &#x27;@nestjs/core&#x27;;
 import { ALL_ENTITIES } from &#x27;@shared/domain&#x27;;
-import { MongoMemoryServer } from &#x27;mongodb-memory-server&#x27;;
+import { MongoMemoryServer } from &#x27;mongodb-memory-server-global-4.2&#x27;;
 import { MongoDatabaseModuleOptions } from &#x27;../types&#x27;;
 
-const createMikroOrmModule &#x3D; async (options: MikroOrmModuleSyncOptions): Promise&lt;DynamicModule&gt; &#x3D;&gt; {
+const createMikroOrmModule &#x3D; async (options: MikroOrmModuleAsyncOptions): Promise&lt;DynamicModule&gt; &#x3D;&gt; {
 	const mikroOrmModule &#x3D; MikroOrmModule.forRootAsync({
 		providers: [
 			{
 				provide: MongoMemoryServer,
-				useFactory: () &#x3D;&gt; {
-					return new MongoMemoryServer();
+				useFactory: async () &#x3D;&gt; {
+					const mongo &#x3D; await MongoMemoryServer.create();
+					return mongo;
 				},
 			},
 		],
-		useFactory: async (mongod: MongoMemoryServer) &#x3D;&gt; {
-			const clientUrl &#x3D; await mongod.getUri();
+		useFactory: async (mongo: MongoMemoryServer) &#x3D;&gt; {
+			await mongo.ensureInstance();
+			const clientUrl &#x3D; mongo.getUri();
 			return {
 				...options,
 				type: &#x27;mongo&#x27;,
