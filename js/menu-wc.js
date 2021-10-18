@@ -519,6 +519,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/DashboardGridElementResponse.html" data-type="entity-link" >DashboardGridElementResponse</a>
                             </li>
                             <li class="link">
+                                <a href="classes/DashboardGridSubElementResponse.html" data-type="entity-link" >DashboardGridSubElementResponse</a>
+                            </li>
+                            <li class="link">
                                 <a href="classes/DashboardMapper.html" data-type="entity-link" >DashboardMapper</a>
                             </li>
                             <li class="link">

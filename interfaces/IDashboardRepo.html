@@ -132,8 +132,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="9"
-                            class="link-to-prism">apps/server/src/repositories/learnroom/dashboard.repo.ts:9</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="54"
+                            class="link-to-prism">apps/server/src/repositories/learnroom/dashboard.repo.ts:54</a></div>
                 </td>
             </tr>
 
@@ -201,8 +201,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="8"
-                            class="link-to-prism">apps/server/src/repositories/learnroom/dashboard.repo.ts:8</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="53"
+                            class="link-to-prism">apps/server/src/repositories/learnroom/dashboard.repo.ts:53</a></div>
                 </td>
             </tr>
 
@@ -238,8 +238,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="10"
-                            class="link-to-prism">apps/server/src/repositories/learnroom/dashboard.repo.ts:10</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="55"
+                            class="link-to-prism">apps/server/src/repositories/learnroom/dashboard.repo.ts:55</a></div>
                 </td>
             </tr>
 
@@ -299,6 +299,51 @@ import { EntityManager, ObjectId } from &#x27;@mikro-orm/mongodb&#x27;;
 import { DashboardModelEntity } from &#x27;./dashboard.model.entity&#x27;;
 import { DashboardModelMapper } from &#x27;./dashboard.model.mapper&#x27;;
 
+const hardcodedTestDashboardId &#x3D; &#x27;0000d213816abba584714c0a&#x27;;
+const generateHardcodedTestDashboard &#x3D; () &#x3D;&gt; {
+	const gridArray: GridElementWithPosition[] &#x3D; [];
+
+	gridArray.push({
+		pos: { x: 1, y: 3 },
+		gridElement: GridElement.FromSingleReference(
+			new ObjectId().toString(),
+			new DefaultGridReference(new ObjectId().toString(), &#x27;Math&#x27;)
+		),
+	});
+	gridArray.push({
+		pos: { x: 1, y: 4 },
+		gridElement: GridElement.FromReferenceGroup(new ObjectId().toString(), [
+			new DefaultGridReference(new ObjectId().toString(), &#x27;Physics&#x27;),
+			new DefaultGridReference(new ObjectId().toString(), &#x27;Biology&#x27;),
+			new DefaultGridReference(new ObjectId().toString(), &#x27;Chemistry&#x27;),
+		]),
+	});
+	gridArray.push({
+		pos: { x: 2, y: 1 },
+		gridElement: GridElement.FromSingleReference(
+			new ObjectId().toString(),
+			new DefaultGridReference(new ObjectId().toString(), &#x27;English&#x27;)
+		),
+	});
+	gridArray.push({
+		pos: { x: 3, y: 1 },
+		gridElement: GridElement.FromSingleReference(
+			new ObjectId().toString(),
+			new DefaultGridReference(new ObjectId().toString(), &#x27;German&#x27;)
+		),
+	});
+	gridArray.push({
+		pos: { x: 4, y: 1 },
+		gridElement: GridElement.FromSingleReference(
+			new ObjectId().toString(),
+			new DefaultGridReference(new ObjectId().toString(), &#x27;Greek&#x27;)
+		),
+	});
+
+	const dashboard &#x3D; new DashboardEntity(hardcodedTestDashboardId, { grid: gridArray });
+	return dashboard;
+};
+
 export interface IDashboardRepo {
 	getUsersDashboard(): Promise&lt;DashboardEntity&gt;;
 	getDashboardById(id: EntityId): Promise&lt;DashboardEntity&gt;;
@@ -329,21 +374,12 @@ export class DashboardRepo implements IDashboardRepo {
 	}
 
 	async getUsersDashboard(): Promise&lt;DashboardEntity&gt; {
-		const hardcodedTestDashboardId &#x3D; &#x27;0000d213816abba584714c0a&#x27;;
 		const dashboardModel &#x3D; await this.em.findOne(DashboardModelEntity, hardcodedTestDashboardId);
 		if (dashboardModel) {
 			return DashboardModelMapper.mapToEntity(dashboardModel);
 		}
-		const gridArray: GridElementWithPosition[] &#x3D; [];
-		const diagonalSize &#x3D; 4;
-		for (let i &#x3D; 0; i &lt; diagonalSize; i +&#x3D; 1) {
-			const elementReference &#x3D; new DefaultGridReference(new ObjectId().toString(), &#x27;exampletitle&#x27;);
-			gridArray.push({
-				pos: { x: Math.floor(Math.random() * 4 + 1), y: i + 1 },
-				gridElement: new GridElement(new ObjectId().toString(), elementReference),
-			});
-		}
-		const dashboard &#x3D; new DashboardEntity(hardcodedTestDashboardId, { grid: gridArray });
+
+		const dashboard &#x3D; generateHardcodedTestDashboard();
 		await this.persistAndFlush(dashboard);
 
 		return dashboard;
