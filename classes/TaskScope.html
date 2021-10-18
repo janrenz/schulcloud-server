@@ -89,6 +89,10 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Private</span>
+                                <a href="#_operator" >_operator</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
                                 <a href="#_queries" >_queries</a>
                             </li>
                         </ul>
@@ -107,19 +111,19 @@
                                 <a href="#afterDueDateOrNone" >afterDueDateOrNone</a>
                             </li>
                             <li>
-                                <a href="#byLessonsOrNone" >byLessonsOrNone</a>
+                                <a href="#byCourseIds" >byCourseIds</a>
                             </li>
                             <li>
-                                <a href="#byParentIds" >byParentIds</a>
+                                <a href="#byDraft" >byDraft</a>
                             </li>
                             <li>
-                                <a href="#byPublic" >byPublic</a>
+                                <a href="#byLessonIds" >byLessonIds</a>
+                            </li>
+                            <li>
+                                <a href="#byTeacherId" >byTeacherId</a>
                             </li>
                             <li>
                                 <a href="#addQuery" >addQuery</a>
-                            </li>
-                            <li>
-                                <a href="#buildAndAddOrQuery" >buildAndAddOrQuery</a>
                             </li>
                         </ul>
                     </td>
@@ -139,6 +143,40 @@
     <h3 id="inputs">
         Properties
     </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_operator"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>_operator</b></span>
+                        <a href="#_operator"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/Scope.html" target="_self" >ScopeOperator</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Inherited from         <code><a href="../classes/Scope.html" target="_self" >Scope</a></code>
+</div>
+                            </td>
+                        </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../classes/Scope.html#source" target="_self" >Scope:11</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
     <table class="table table-sm table-bordered">
         <tbody>
             <tr>
@@ -170,7 +208,7 @@
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/Scope.html#source" target="_self" >Scope:57</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classes/Scope.html#source" target="_self" >Scope:9</a></code>
 </div>
                         </td>
                     </tr>
@@ -205,8 +243,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="20"
-                            class="link-to-prism">apps/server/src/modules/task/repo/task-scope.ts:20</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="32"
+                            class="link-to-prism">apps/server/src/modules/task/repo/task-scope.ts:32</a></div>
                 </td>
             </tr>
 
@@ -258,24 +296,162 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="byLessonsOrNone"></a>
+                    <a name="byCourseIds"></a>
                     <span class="name">
-                        <span ><b>byLessonsOrNone</b></span>
-                        <a href="#byLessonsOrNone"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>byCourseIds</b></span>
+                        <a href="#byCourseIds"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>byLessonsOrNone(lessonIds: <a href="../undefineds/EntityId.html" target="_self">EntityId[]</a>)</code>
+<code>byCourseIds(courseIds: <a href="../undefineds/EntityId.html" target="_self">EntityId[]</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="15"
-                            class="link-to-prism">apps/server/src/modules/task/repo/task-scope.ts:15</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="12"
+                            class="link-to-prism">apps/server/src/modules/task/repo/task-scope.ts:12</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>courseIds</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId[]</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/TaskScope.html" target="_self" >TaskScope</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="byDraft"></a>
+                    <span class="name">
+                        <span ><b>byDraft</b></span>
+                        <a href="#byDraft"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>byDraft(isDraft: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="24"
+                            class="link-to-prism">apps/server/src/modules/task/repo/task-scope.ts:24</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>isDraft</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/TaskScope.html" target="_self" >TaskScope</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="byLessonIds"></a>
+                    <span class="name">
+                        <span ><b>byLessonIds</b></span>
+                        <a href="#byLessonIds"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>byLessonIds(lessonIds: <a href="../undefineds/EntityId.html" target="_self">EntityId[]</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="19"
+                            class="link-to-prism">apps/server/src/modules/task/repo/task-scope.ts:19</a></div>
                 </td>
             </tr>
 
@@ -327,16 +503,16 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="byParentIds"></a>
+                    <a name="byTeacherId"></a>
                     <span class="name">
-                        <span ><b>byParentIds</b></span>
-                        <a href="#byParentIds"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>byTeacherId</b></span>
+                        <a href="#byTeacherId"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>byParentIds(parentIds: <a href="../undefineds/EntityId.html" target="_self">EntityId[]</a>)</code>
+<code>byTeacherId(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>)</code>
                 </td>
             </tr>
 
@@ -365,9 +541,9 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>parentIds</td>
+                                    <td>userId</td>
                                     <td>
-                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId[]</a></code>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
                                     </td>
 
                                     <td>
@@ -387,43 +563,6 @@
                     </div>
                     <div class="io-description">
                         
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="byPublic"></a>
-                    <span class="name">
-                        <span ><b>byPublic</b></span>
-                        <a href="#byPublic"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>byPublic()</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="10"
-                            class="link-to-prism">apps/server/src/modules/task/repo/task-scope.ts:10</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/TaskScope.html" target="_self" >TaskScope</a></code>
-
                     </div>
                 </td>
             </tr>
@@ -455,7 +594,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/Scope.html#source" target="_self" >Scope:67</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/Scope.html#source" target="_self" >Scope:25</a></code>
 </div>
                 </td>
             </tr>
@@ -504,113 +643,6 @@
             </tr>
         </tbody>
     </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="buildAndAddOrQuery"></a>
-                    <span class="name">
-                        <span ><b>buildAndAddOrQuery</b></span>
-                        <a href="#buildAndAddOrQuery"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>buildAndAddOrQuery(arrayOfObjects: TT[], selectedKey: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, targetKey: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Inherited from         <code><a href="../classes/Scope.html" target="_self" >Scope</a></code>
-</div>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/Scope.html#source" target="_self" >Scope:71</a></code>
-</div>
-                </td>
-            </tr>
-
-            <tr>
-                <td class="col-md-4">
-                    <b>Type parameters :</b>
-                    <ul class="type-parameters">
-                        <li>TT</li>
-                    </ul>
-                </td>
-            </tr>
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>arrayOfObjects</td>
-                                    <td>
-                                            <code>TT[]</code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>selectedKey</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>targetKey</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
 </section>
 
 
@@ -625,18 +657,30 @@
 import { Scope } from &#x27;@shared/repo&#x27;;
 
 export class TaskScope extends Scope&lt;Task&gt; {
-	byParentIds(parentIds: EntityId[]): TaskScope {
-		this.addQuery({ parent: { $in: parentIds } });
+	byTeacherId(userId: EntityId): TaskScope {
+		this.addQuery({
+			$and: [{ teacher: userId }, { course: null }, { lesson: null }],
+		});
 		return this;
 	}
 
-	byPublic(): TaskScope {
-		this.addQuery({ private: { $ne: true } });
+	byCourseIds(courseIds: EntityId[]): TaskScope {
+		this.addQuery({
+			$and: [{ course: { $in: courseIds } }, { lesson: null }],
+		});
 		return this;
 	}
 
-	byLessonsOrNone(lessonIds: EntityId[]): TaskScope {
-		this.addQuery({ $or: [{ lesson: { $in: lessonIds } }, { lesson: null }] });
+	byLessonIds(lessonIds: EntityId[]): TaskScope {
+		this.addQuery({ lesson: { $in: lessonIds } });
+		return this;
+	}
+
+	byDraft(isDraft: boolean): TaskScope {
+		// FIXME - WE DON&#x27;T WANT THIS!!! NON-OPTIONAL BOOLEAN PROPERTIES HAVE TO BE DEFINED.
+		// additionally handle undefined and null as false
+		const query &#x3D; isDraft ? { private: { $eq: true } } : { private: { $ne: true } };
+		this.addQuery(query);
 		return this;
 	}
 

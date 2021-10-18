@@ -43,7 +43,7 @@
 
 <ol class="breadcrumb">
   <li>Classes</li>
-  <li >CourseScope</li>
+  <li >LessonScope</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -61,7 +61,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/repositories/learnroom/course.repo.ts</code>
+            <code>apps/server/src/shared/repo/lesson/lesson-scope.ts</code>
         </p>
 
 
@@ -108,7 +108,10 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#forAllGroupTypes" >forAllGroupTypes</a>
+                                <a href="#byCourseIds" >byCourseIds</a>
+                            </li>
+                            <li>
+                                <a href="#byHidden" >byHidden</a>
                             </li>
                             <li>
                                 <a href="#addQuery" >addQuery</a>
@@ -215,24 +218,24 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="forAllGroupTypes"></a>
+                    <a name="byCourseIds"></a>
                     <span class="name">
-                        <span ><b>forAllGroupTypes</b></span>
-                        <a href="#forAllGroupTypes"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>byCourseIds</b></span>
+                        <a href="#byCourseIds"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>forAllGroupTypes(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>)</code>
+<code>byCourseIds(courseIds: <a href="../undefineds/EntityId.html" target="_self">EntityId[]</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="8"
-                            class="link-to-prism">apps/server/src/repositories/learnroom/course.repo.ts:8</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="5"
+                            class="link-to-prism">apps/server/src/shared/repo/lesson/lesson-scope.ts:5</a></div>
                 </td>
             </tr>
 
@@ -253,9 +256,9 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>userId</td>
+                                    <td>courseIds</td>
                                     <td>
-                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId[]</a></code>
                                     </td>
 
                                     <td>
@@ -270,7 +273,76 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/CourseScope.html" target="_self" >CourseScope</a></code>
+                        <b>Returns : </b>        <code><a href="../classes/LessonScope.html" target="_self" >LessonScope</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="byHidden"></a>
+                    <span class="name">
+                        <span ><b>byHidden</b></span>
+                        <a href="#byHidden"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>byHidden(isHidden: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="10"
+                            class="link-to-prism">apps/server/src/shared/repo/lesson/lesson-scope.ts:10</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>isHidden</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/LessonScope.html" target="_self" >LessonScope</a></code>
 
                     </div>
                     <div class="io-description">
@@ -365,49 +437,18 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { EntityManager } from &#x27;@mikro-orm/mongodb&#x27;;
-import { Injectable } from &#x27;@nestjs/common&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { EntityId, Lesson } from &#x27;@shared/domain&#x27;;
+import { Scope } from &#x27;../scope&#x27;;
 
-import { EntityId, Course, Counted } from &#x27;@shared/domain&#x27;;
-import { Scope } from &#x27;@shared/repo&#x27;;
-
-class CourseScope extends Scope&lt;Course&gt; {
-	forAllGroupTypes(userId: EntityId): CourseScope {
-		const isStudent &#x3D; { students: userId };
-		const isTeacher &#x3D; { teachers: userId };
-		const isSubstitutionTeacher &#x3D; { substitutionTeachers: userId };
-
-		if (userId) {
-			this.addQuery({ $or: [isStudent, isTeacher, isSubstitutionTeacher] });
-		}
-
+export class LessonScope extends Scope&lt;Lesson&gt; {
+	byCourseIds(courseIds: EntityId[]): LessonScope {
+		this.addQuery({ course: { $in: courseIds } });
 		return this;
 	}
-}
 
-@Injectable()
-export class CourseRepo {
-	constructor(private readonly em: EntityManager) {}
-
-	async findAllByUserId(userId: EntityId): Promise&lt;Counted&lt;Course[]&gt;&gt; {
-		const scope &#x3D; new CourseScope();
-		scope.forAllGroupTypes(userId);
-		const [courses, count] &#x3D; await this.em.findAndCount(Course, scope.query);
-		return [courses, count];
-	}
-
-	async findAllForStudent(userId: EntityId): Promise&lt;Counted&lt;Course[]&gt;&gt; {
-		const query &#x3D; { students: userId };
-		const [courses, count] &#x3D; await this.em.findAndCount(Course, query);
-		return [courses, count];
-	}
-
-	async findAllForTeacher(userId: EntityId): Promise&lt;Counted&lt;Course[]&gt;&gt; {
-		const isTeacher &#x3D; { teachers: userId };
-		const isSubstitutionTeacher &#x3D; { substitutionTeachers: userId };
-		const query &#x3D; { $or: [isTeacher, isSubstitutionTeacher] };
-		const [courses, count] &#x3D; await this.em.findAndCount(Course, query);
-		return [courses, count];
+	byHidden(isHidden: boolean): LessonScope {
+		this.addQuery({ hidden: { $eq: isHidden } });
+		return this;
 	}
 }
 </code></pre>
@@ -438,7 +479,7 @@ export class CourseRepo {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
-            var COMPODOC_CURRENT_PAGE_URL = 'CourseScope.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'LessonScope.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

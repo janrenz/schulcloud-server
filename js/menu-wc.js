@@ -368,13 +368,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/TaskModule.html" data-type="entity-link" >TaskModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#controllers-links-module-TaskModule-788d9bfefb4e582f64cd0e473b523cae"' : 'data-target="#xs-controllers-links-module-TaskModule-788d9bfefb4e582f64cd0e473b523cae"' }>
+                                            'data-target="#controllers-links-module-TaskModule-73e711d01a2ef14727dc7bccf43c84ec"' : 'data-target="#xs-controllers-links-module-TaskModule-73e711d01a2ef14727dc7bccf43c84ec"' }>
                                             <span class="icon ion-md-swap"></span>
                                             <span>Controllers</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="controllers-links-module-TaskModule-788d9bfefb4e582f64cd0e473b523cae"' :
-                                            'id="xs-controllers-links-module-TaskModule-788d9bfefb4e582f64cd0e473b523cae"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="controllers-links-module-TaskModule-73e711d01a2ef14727dc7bccf43c84ec"' :
+                                            'id="xs-controllers-links-module-TaskModule-73e711d01a2ef14727dc7bccf43c84ec"' }>
                                             <li class="link">
                                                 <a href="controllers/TaskController.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >TaskController</a>
                                             </li>
@@ -382,15 +382,18 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                     </li>
                                 <li class="chapter inner">
                                     <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                        'data-target="#injectables-links-module-TaskModule-788d9bfefb4e582f64cd0e473b523cae"' : 'data-target="#xs-injectables-links-module-TaskModule-788d9bfefb4e582f64cd0e473b523cae"' }>
+                                        'data-target="#injectables-links-module-TaskModule-73e711d01a2ef14727dc7bccf43c84ec"' : 'data-target="#xs-injectables-links-module-TaskModule-73e711d01a2ef14727dc7bccf43c84ec"' }>
                                         <span class="icon ion-md-arrow-round-down"></span>
                                         <span>Injectables</span>
                                         <span class="icon ion-ios-arrow-down"></span>
                                     </div>
-                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-TaskModule-788d9bfefb4e582f64cd0e473b523cae"' :
-                                        'id="xs-injectables-links-module-TaskModule-788d9bfefb4e582f64cd0e473b523cae"' }>
+                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-TaskModule-73e711d01a2ef14727dc7bccf43c84ec"' :
+                                        'id="xs-injectables-links-module-TaskModule-73e711d01a2ef14727dc7bccf43c84ec"' }>
                                         <li class="link">
                                             <a href="injectables/CourseRepo.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >CourseRepo</a>
+                                        </li>
+                                        <li class="link">
+                                            <a href="injectables/LessonRepo.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >LessonRepo</a>
                                         </li>
                                         <li class="link">
                                             <a href="injectables/TaskAuthorizationService.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >TaskAuthorizationService</a>
@@ -555,6 +558,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/Lesson.html" data-type="entity-link" >Lesson</a>
                             </li>
                             <li class="link">
+                                <a href="classes/LessonScope.html" data-type="entity-link" >LessonScope</a>
+                            </li>
+                            <li class="link">
                                 <a href="classes/MoveElementParams.html" data-type="entity-link" >MoveElementParams</a>
                             </li>
                             <li class="link">
@@ -691,6 +697,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                     <a href="injectables/JwtAuthGuard.html" data-type="entity-link" >JwtAuthGuard</a>
                                 </li>
                                 <li class="link">
+                                    <a href="injectables/LessonRepo.html" data-type="entity-link" >LessonRepo</a>
+                                </li>
+                                <li class="link">
                                     <a href="injectables/MailService.html" data-type="entity-link" >MailService</a>
                                 </li>
                                 <li class="link">
@@ -779,6 +788,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="interfaces/IGridElementReference.html" data-type="entity-link" >IGridElementReference</a>
                             </li>
                             <li class="link">
+                                <a href="interfaces/ILessonProperties.html" data-type="entity-link" >ILessonProperties</a>
+                            </li>
+                            <li class="link">
                                 <a href="interfaces/ILogger.html" data-type="entity-link" >ILogger</a>
                             </li>
                             <li class="link">
@@ -794,9 +806,6 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="interfaces/IPagination.html" data-type="entity-link" >IPagination</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/IParentDescriptionsProperties.html" data-type="entity-link" >IParentDescriptionsProperties</a>
-                            </li>
-                            <li class="link">
                                 <a href="interfaces/IResolvedUser.html" data-type="entity-link" >IResolvedUser</a>
                             </li>
                             <li class="link">
@@ -807,9 +816,6 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="interfaces/ISubmissionProperties.html" data-type="entity-link" >ISubmissionProperties</a>
-                            </li>
-                            <li class="link">
-                                <a href="interfaces/ITaskParent.html" data-type="entity-link" >ITaskParent</a>
                             </li>
                             <li class="link">
                                 <a href="interfaces/ITaskProperties.html" data-type="entity-link" >ITaskProperties</a>
@@ -825,9 +831,6 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="interfaces/JwtPayload.html" data-type="entity-link" >JwtPayload</a>
-                            </li>
-                            <li class="link">
-                                <a href="interfaces/LessonProperties.html" data-type="entity-link" >LessonProperties</a>
                             </li>
                             <li class="link">
                                 <a href="interfaces/Mail.html" data-type="entity-link" >Mail</a>

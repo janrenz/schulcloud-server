@@ -133,9 +133,6 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#getDescriptions" >getDescriptions</a>
-                            </li>
-                            <li>
                                 <a href="#getNumberOfStudents" >getNumberOfStudents</a>
                             </li>
                         </ul>
@@ -231,7 +228,7 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @Property({default: undefined})<br />
+                            @Property()<br />
                         </code>
                     </td>
                 </tr>
@@ -271,7 +268,7 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @Property({default: undefined})<br />
+                            @Property()<br />
                         </code>
                     </td>
                 </tr>
@@ -311,7 +308,7 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @Property({default: undefined})<br />
+                            @Property()<br />
                         </code>
                     </td>
                 </tr>
@@ -638,43 +635,6 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="getDescriptions"></a>
-                    <span class="name">
-                        <span ><b>getDescriptions</b></span>
-                        <a href="#getDescriptions"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>getDescriptions()</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="69"
-                            class="link-to-prism">apps/server/src/shared/domain/entity/course.entity.ts:69</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Returns : </b>    <code>literal type</code>
-
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
                     <a name="getNumberOfStudents"></a>
                     <span class="name">
                         <span ><b>getNumberOfStudents</b></span>
@@ -745,10 +705,10 @@ const DEFAULT &#x3D; {
 
 @Entity({ tableName: &#x27;courses&#x27; })
 export class Course extends BaseEntityWithTimestamps {
-	@Property({ default: DEFAULT.name })
+	@Property()
 	name: string &#x3D; DEFAULT.name;
 
-	@Property({ default: DEFAULT.description })
+	@Property()
 	description: string &#x3D; DEFAULT.description;
 
 	@Index()
@@ -768,7 +728,7 @@ export class Course extends BaseEntityWithTimestamps {
 	substitutionTeachers &#x3D; new Collection&lt;User&gt;(this);
 
 	// TODO: string color format
-	@Property({ default: DEFAULT.color })
+	@Property()
 	color: string &#x3D; DEFAULT.color;
 
 	constructor(props: ICourseProperties) {
@@ -784,15 +744,6 @@ export class Course extends BaseEntityWithTimestamps {
 
 	getNumberOfStudents(): number {
 		return this.students.length;
-	}
-
-	getDescriptions(): { color: string; id: EntityId; name: string; description: string } {
-		return {
-			id: this.id,
-			name: this.name,
-			description: this.description,
-			color: this.color,
-		};
 	}
 }
 </code></pre>
