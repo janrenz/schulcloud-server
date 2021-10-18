@@ -146,6 +146,9 @@
                             <a href="#serverErrorTypes" title="apps/server/src/core/error/server-error-types.ts" ><b>serverErrorTypes</b>&nbsp;&nbsp;&nbsp;(apps/.../server-error-types.ts)</a>
                         </li>
                         <li>
+                            <a href="#setupEntities" title="apps/server/src/modules/database/setup-entities.ts" ><b>setupEntities</b>&nbsp;&nbsp;&nbsp;(apps/.../setup-entities.ts)</a>
+                        </li>
+                        <li>
                             <a href="#STRATEGIES" title="apps/server/src/modules/authentication/decorator/auth.decorator.ts" ><b>STRATEGIES</b>&nbsp;&nbsp;&nbsp;(apps/.../auth.decorator.ts)</a>
                         </li>
                         <li>
@@ -1388,6 +1391,32 @@ it should ensure an empty result</p>
 		});
 		return school;
 	},
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>apps/server/src/modules/database/setup-entities.ts</h3>
+    <section>
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setupEntities"></a>
+                    <span class="name">
+                        <span ><b>setupEntities</b></span>
+                        <a href="#setupEntities"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>async (): Promise&lt;MikroORM&gt; &#x3D;&gt; {
+	const orm &#x3D; await MikroORM.init({ type: &#x27;mongo&#x27;, dbName: &#x27;dummy&#x27;, entities: ALL_ENTITIES });
+	return orm;
 }</code>
                     </td>
                 </tr>

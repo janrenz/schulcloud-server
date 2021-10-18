@@ -193,7 +193,7 @@ import { DynamicModule, Inject, Module, OnModuleDestroy } from &#x27;@nestjs/com
 import { ModuleRef } from &#x27;@nestjs/core&#x27;;
 import { ALL_ENTITIES } from &#x27;@shared/domain&#x27;;
 import { MongoMemoryServer } from &#x27;mongodb-memory-server-global-4.2&#x27;;
-import { MongoDatabaseModuleOptions } from &#x27;../types&#x27;;
+import { MongoDatabaseModuleOptions } from &#x27;./types&#x27;;
 
 const createMikroOrmModule &#x3D; async (options: MikroOrmModuleAsyncOptions): Promise&lt;DynamicModule&gt; &#x3D;&gt; {
 	const mikroOrmModule &#x3D; MikroOrmModule.forRootAsync({
