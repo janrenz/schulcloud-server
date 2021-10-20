@@ -210,7 +210,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>    <code>Promise&lt;PaginationResponse&lt;NewsResponse[]&gt;&gt;</code>
+                        <b>Returns : </b>    <code>Promise&lt;NewsListResponse&gt;</code>
 
                     </div>
                     <div class="io-description">
@@ -228,12 +228,12 @@
 import { ApiTags } from &#x27;@nestjs/swagger&#x27;;
 import { ICurrentUser } from &#x27;@shared/domain&#x27;;
 
-import { PaginationQuery, PaginationResponse, ParseObjectIdPipe } from &#x27;@shared/controller&#x27;;
+import { PaginationQuery, ParseObjectIdPipe } from &#x27;@shared/controller&#x27;;
 import { Authenticate, CurrentUser } from &#x27;@src/modules/authentication/decorator/auth.decorator&#x27;;
 
 import { NewsMapper } from &#x27;../mapper/news.mapper&#x27;;
 import { NewsUc } from &#x27;../uc&#x27;;
-import { NewsFilterQuery, NewsResponse } from &#x27;./dto&#x27;;
+import { NewsFilterQuery, NewsListResponse } from &#x27;./dto&#x27;;
 
 @ApiTags(&#x27;News&#x27;)
 @Authenticate(&#x27;jwt&#x27;)
@@ -250,7 +250,7 @@ export class TeamNewsController {
 		@CurrentUser() currentUser: ICurrentUser,
 		@Query() scope: NewsFilterQuery,
 		@Query() pagination: PaginationQuery
-	): Promise&lt;PaginationResponse&lt;NewsResponse[]&gt;&gt; {
+	): Promise&lt;NewsListResponse&gt; {
 		// enforce filter by a given team, used in team tab
 		scope.targetId &#x3D; teamId;
 		scope.targetModel &#x3D; &#x27;teams&#x27;;
@@ -260,7 +260,7 @@ export class TeamNewsController {
 			{ pagination }
 		);
 		const dtoList &#x3D; newsList.map((news) &#x3D;&gt; NewsMapper.mapToResponse(news));
-		const response &#x3D; new PaginationResponse(dtoList, count);
+		const response &#x3D; new NewsListResponse(dtoList, count);
 		return response;
 	}
 }

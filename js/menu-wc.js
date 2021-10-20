@@ -576,6 +576,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/NewsFilterQuery.html" data-type="entity-link" >NewsFilterQuery</a>
                             </li>
                             <li class="link">
+                                <a href="classes/NewsListResponse.html" data-type="entity-link" >NewsListResponse</a>
+                            </li>
+                            <li class="link">
                                 <a href="classes/NewsMapper.html" data-type="entity-link" >NewsMapper</a>
                             </li>
                             <li class="link">
@@ -628,6 +631,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="classes/Task.html" data-type="entity-link" >Task</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/TaskListResponse.html" data-type="entity-link" >TaskListResponse</a>
                             </li>
                             <li class="link">
                                 <a href="classes/TaskMapper.html" data-type="entity-link" >TaskMapper</a>

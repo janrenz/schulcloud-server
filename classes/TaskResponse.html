@@ -470,7 +470,7 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ApiProperty, ApiPropertyOptional } from &#x27;@nestjs/swagger&#x27;;
-import { DecodeHtmlEntities } from &#x27;@shared/controller&#x27;;
+import { PaginationResponse, DecodeHtmlEntities } from &#x27;@shared/controller&#x27;;
 
 /**
  * DTO for returning a task document via api.
@@ -509,6 +509,16 @@ export class TaskResponse {
 		graded?: number;
 		isDraft: boolean;
 	};
+}
+
+export class TaskListResponse extends PaginationResponse&lt;TaskResponse[]&gt; {
+	constructor(data: TaskResponse[], total: number, skip?: number, limit?: number) {
+		super(total, skip, limit);
+		this.data &#x3D; data;
+	}
+
+	@ApiProperty({ type: [TaskResponse] })
+	data: TaskResponse[];
 }
 </code></pre>
     </div>

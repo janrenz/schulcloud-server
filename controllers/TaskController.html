@@ -184,7 +184,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>    <code>Promise&lt;PaginationResponse&lt;TaskResponse[]&gt;&gt;</code>
+                        <b>Returns : </b>    <code>Promise&lt;TaskListResponse&gt;</code>
 
                     </div>
                     <div class="io-description">
@@ -201,12 +201,12 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ApiTags } from &#x27;@nestjs/swagger&#x27;;
 
 import { ICurrentUser } from &#x27;@shared/domain&#x27;;
-import { PaginationResponse, PaginationQuery } from &#x27;@shared/controller/&#x27;;
+import { PaginationQuery } from &#x27;@shared/controller/&#x27;;
 import { Controller, Get, Query } from &#x27;@nestjs/common&#x27;;
 import { Authenticate, CurrentUser } from &#x27;@src/modules/authentication/decorator/auth.decorator&#x27;;
 
 import { TaskUC } from &#x27;../uc/task.uc&#x27;;
-import { TaskResponse } from &#x27;./dto&#x27;;
+import { TaskListResponse } from &#x27;./dto&#x27;;
 import { TaskMapper } from &#x27;../mapper/task.mapper&#x27;;
 
 @ApiTags(&#x27;Task&#x27;)
@@ -219,13 +219,13 @@ export class TaskController {
 	async findAll(
 		@CurrentUser() currentUser: ICurrentUser,
 		@Query() paginationQuery: PaginationQuery
-	): Promise&lt;PaginationResponse&lt;TaskResponse[]&gt;&gt; {
+	): Promise&lt;TaskListResponse&gt; {
 		const [tasksWithStatus, total] &#x3D; await this.taskUc.findAll(currentUser, paginationQuery);
 		const taskresponses &#x3D; tasksWithStatus.map((taskWithStatus) &#x3D;&gt; {
 			return TaskMapper.mapToResponse(taskWithStatus);
 		});
 		const { skip, limit } &#x3D; paginationQuery;
-		const result &#x3D; new PaginationResponse(taskresponses, total, skip, limit);
+		const result &#x3D; new TaskListResponse(taskresponses, total, skip, limit);
 		return result;
 	}
 }
