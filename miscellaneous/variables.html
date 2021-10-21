@@ -119,6 +119,9 @@
                             <a href="#execute" title="apps/server/src/console/test/bootstrap.console.ts" ><b>execute</b>&nbsp;&nbsp;&nbsp;(apps/.../bootstrap.console.ts)</a>
                         </li>
                         <li>
+                            <a href="#fileFactory" title="apps/server/src/shared/domain/factory/file.factory.ts" ><b>fileFactory</b>&nbsp;&nbsp;&nbsp;(apps/.../file.factory.ts)</a>
+                        </li>
+                        <li>
                             <a href="#generateHardcodedTestDashboard" title="apps/server/src/repositories/learnroom/dashboard.repo.ts" ><b>generateHardcodedTestDashboard</b>&nbsp;&nbsp;&nbsp;(apps/.../dashboard.repo.ts)</a>
                         </li>
                         <li>
@@ -153,6 +156,9 @@
                         </li>
                         <li>
                             <a href="#setupEntities" title="apps/server/src/modules/database/setup-entities.ts" ><b>setupEntities</b>&nbsp;&nbsp;&nbsp;(apps/.../setup-entities.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#storageProviderFactory" title="apps/server/src/shared/domain/factory/storageprovider.factory.ts" ><b>storageProviderFactory</b>&nbsp;&nbsp;&nbsp;(apps/.../storageprovider.factory.ts)</a>
                         </li>
                         <li>
                             <a href="#STRATEGIES" title="apps/server/src/modules/authentication/decorator/auth.decorator.ts" ><b>STRATEGIES</b>&nbsp;&nbsp;&nbsp;(apps/.../auth.decorator.ts)</a>
@@ -236,7 +242,10 @@
 	DashboardModelEntity,
 	DashboardGridElementModel,
 	DefaultGridReferenceModel,
+	BaseFile,
 	File,
+	Directory,
+	StorageProvider,
 	Lesson,
 	Role,
 	School,
@@ -1151,6 +1160,47 @@ it should ensure an empty result</p>
         </tbody>
     </table>
 </section>
+    <h3>apps/server/src/shared/domain/factory/file.factory.ts</h3>
+    <section>
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="fileFactory"></a>
+                    <span class="name">
+                        <span ><b>fileFactory</b></span>
+                        <a href="#fileFactory"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+	build: (props?: Partial&lt;File&gt;): File &#x3D;&gt; {
+		const file &#x3D; new File({
+			storageFileName: &#x27;storageFileName&#x27;,
+			bucket: &#x27;test-bucket&#x27;,
+			deletedAt: undefined,
+			storageProvider: storageProviderFactory.build(),
+			creator: userFactory.build(),
+			...props,
+		});
+		return file;
+	},
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
     <h3>apps/server/src/repositories/learnroom/dashboard.repo.ts</h3>
     <section>
     <h3></h3>    <table class="table table-sm table-bordered">
@@ -1514,6 +1564,45 @@ it should ensure an empty result</p>
                         <i>Default value : </i><code>async (): Promise&lt;MikroORM&gt; &#x3D;&gt; {
 	const orm &#x3D; await MikroORM.init({ type: &#x27;mongo&#x27;, dbName: &#x27;dummy&#x27;, entities: ALL_ENTITIES });
 	return orm;
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>apps/server/src/shared/domain/factory/storageprovider.factory.ts</h3>
+    <section>
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="storageProviderFactory"></a>
+                    <span class="name">
+                        <span ><b>storageProviderFactory</b></span>
+                        <a href="#storageProviderFactory"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+	build: (props?: Partial&lt;StorageProvider&gt;): StorageProvider &#x3D;&gt; {
+		const storageProvider &#x3D; new StorageProvider({
+			endpointUrl: &#x27;http://localhost&#x27;,
+			accessKeyId: &#x27;accessKeyId&#x27;,
+			secretAccessKey: &#x27;secret&#x27;,
+			...props,
+		});
+		return storageProvider;
+	},
 }</code>
                     </td>
                 </tr>
