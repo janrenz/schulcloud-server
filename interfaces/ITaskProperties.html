@@ -91,6 +91,13 @@
                                 </li>
                                 <li>
                                             <span class="modifier">Optional</span>
+                                        <a href="#closed" 
+>
+                                            closed
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
                                         <a href="#course" 
 >
                                             course
@@ -171,6 +178,44 @@
                                     <tr>
                                         <td class="col-md-4">
                                             <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" >Date</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="closed"></a>
+                                        <span class="name "><b>closed</b>
+                                            <a href="#closed">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>closed:         <code><a href="../interfaces/User.html" target="_self" >User[]</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="../interfaces/User.html" target="_self" >User[]</a></code>
 
                                         </td>
                                     </tr>
@@ -452,7 +497,7 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Collection, Entity, ManyToOne, OneToMany, Property } from &#x27;@mikro-orm/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Collection, Entity, ManyToOne, OneToMany, ManyToMany, Property } from &#x27;@mikro-orm/core&#x27;;
 import { BaseEntityWithTimestamps } from &#x27;./base.entity&#x27;;
 import type { Course } from &#x27;./course.entity&#x27;;
 import type { Lesson } from &#x27;./lesson.entity&#x27;;
@@ -468,6 +513,7 @@ interface ITaskProperties {
 	course?: Course;
 	lesson?: Lesson;
 	submissions?: Submission[];
+	closed?: User[];
 }
 
 export type TaskParentDescriptions &#x3D; { name: string; description: string; color: string };
@@ -497,6 +543,10 @@ export class Task extends BaseEntityWithTimestamps {
 
 	@OneToMany(&#x27;Submission&#x27;, &#x27;task&#x27;)
 	submissions &#x3D; new Collection&lt;Submission&gt;(this);
+
+	// TODO: is mapped to boolean in future
+	@ManyToMany(&#x27;User&#x27;, undefined, { fieldName: &#x27;archived&#x27; })
+	closed &#x3D; new Collection&lt;User&gt;(this);
 
 	isDraft(): boolean {
 		// private can be undefined in the database
@@ -531,6 +581,8 @@ export class Task extends BaseEntityWithTimestamps {
 		this.course &#x3D; props.course;
 		this.lesson &#x3D; props.lesson;
 		this.submissions.set(props.submissions || []);
+		// TODO: is replaced with boolean in future
+		this.closed.set(props.closed || []);
 	}
 }
 </code></pre>

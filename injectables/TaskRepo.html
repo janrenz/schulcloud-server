@@ -290,8 +290,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="63"
-                            class="link-to-prism">apps/server/src/modules/task/repo/task.repo.ts:63</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="67"
+                            class="link-to-prism">apps/server/src/modules/task/repo/task.repo.ts:67</a></div>
                 </td>
             </tr>
 
@@ -360,7 +360,7 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
 import { EntityManager, FilterQuery, QueryOrderMap } from &#x27;@mikro-orm/core&#x27;;
 
-import { EntityId, IFindOptions, Lesson, Task } from &#x27;@shared/domain&#x27;;
+import { EntityId, IFindOptions, Task } from &#x27;@shared/domain&#x27;;
 import { Counted } from &#x27;@shared/domain/types&#x27;;
 
 import { TaskScope } from &#x27;./task-scope&#x27;;
@@ -386,7 +386,7 @@ export class TaskRepo {
 			courseIds?: EntityId[];
 			lessonIds?: EntityId[];
 		},
-		filters?: { draft?: boolean; afterDueDateOrNone?: Date },
+		filters?: { draft?: boolean; afterDueDateOrNone?: Date; closed?: EntityId },
 		options?: IFindOptions&lt;Task&gt;
 	): Promise&lt;Counted&lt;Task[]&gt;&gt; {
 		const scope &#x3D; new TaskScope();
@@ -407,6 +407,10 @@ export class TaskRepo {
 
 		scope.addQuery(parentIdScope.query);
 
+		if (filters?.closed) {
+			scope.byClosed(filters.closed);
+		}
+
 		if (filters?.draft !&#x3D;&#x3D; undefined) {
 			scope.byDraft(filters.draft);
 		}
@@ -426,6 +430,7 @@ export class TaskRepo {
 			limit: pagination?.limit,
 			orderBy: order as QueryOrderMap,
 		});
+
 		await this.em.populate(taskEntities, [&#x27;course&#x27;, &#x27;lesson&#x27;, &#x27;submissions&#x27;]);
 		return [taskEntities, count];
 	}
