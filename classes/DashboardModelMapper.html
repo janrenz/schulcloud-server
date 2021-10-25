@@ -651,8 +651,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="93"
-                            class="link-to-prism">apps/server/src/repositories/learnroom/dashboard.model.mapper.ts:93</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="97"
+                            class="link-to-prism">apps/server/src/repositories/learnroom/dashboard.model.mapper.ts:97</a></div>
                 </td>
             </tr>
 
@@ -745,7 +745,7 @@ export class DashboardModelMapper {
 		const references &#x3D; Array.from(modelEntity.references).map((ref) &#x3D;&gt; DashboardModelMapper.mapReferenceToEntity(ref));
 		const result &#x3D; {
 			pos: { x: modelEntity.xPos, y: modelEntity.yPos },
-			gridElement: GridElement.FromPersistedGroup(modelEntity.id, references),
+			gridElement: GridElement.FromPersistedGroup(modelEntity.id, modelEntity.title, references),
 		};
 		return result;
 	}
@@ -804,6 +804,10 @@ export class DashboardModelMapper {
 		const elementModel &#x3D; await DashboardModelMapper.instantiateGridElementModel(gridElement, em);
 		elementModel.xPos &#x3D; elementWithPosition.pos.x;
 		elementModel.yPos &#x3D; elementWithPosition.pos.y;
+
+		if (gridElement.isGroup()) {
+			elementModel.title &#x3D; gridElement.getContent().title;
+		}
 
 		const references &#x3D; await Promise.all(
 			gridElement.getReferences().map((ref) &#x3D;&gt; DashboardModelMapper.mapReferenceToModel(ref, elementModel, em))

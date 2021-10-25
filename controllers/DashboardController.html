@@ -91,6 +91,10 @@
                                     <span class="modifier">Async</span>
                                 <a href="#moveElement" >moveElement</a>
                             </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#patchGroup" >patchGroup</a>
+                            </li>
                         </ul>
                     </td>
                 </tr>
@@ -137,8 +141,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="18"
-                            class="link-to-prism">apps/server/src/modules/learnroom/controller/dashboard.controller.ts:18</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="17"
+                            class="link-to-prism">apps/server/src/modules/learnroom/controller/dashboard.controller.ts:17</a></div>
                 </td>
             </tr>
 
@@ -183,8 +187,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="26"
-                            class="link-to-prism">apps/server/src/modules/learnroom/controller/dashboard.controller.ts:26</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="25"
+                            class="link-to-prism">apps/server/src/modules/learnroom/controller/dashboard.controller.ts:25</a></div>
                 </td>
             </tr>
 
@@ -244,17 +248,130 @@
             </tr>
         </tbody>
     </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="patchGroup"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>patchGroup</b></span>
+                        <a href="#patchGroup"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>patchGroup(dashboardId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, x: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, y: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, params: <a href="../classes/PatchGroupParams.html" target="_self">PatchGroupParams</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Patch(&#x27;:id/element&#x27;)<br /></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="36"
+                            class="link-to-prism">apps/server/src/modules/learnroom/controller/dashboard.controller.ts:36</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>dashboardId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>x</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>y</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>params</td>
+                                    <td>
+                                                <code><a href="../classes/PatchGroupParams.html" target="_self" >PatchGroupParams</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/DashboardResponse.html" target="_self" >Promise&lt;DashboardResponse&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </section>    </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Controller, Get, Patch, Param, Body } from &#x27;@nestjs/common&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Controller, Get, Patch, Param, Body, Query } from &#x27;@nestjs/common&#x27;;
 import { ApiTags, ApiBody } from &#x27;@nestjs/swagger&#x27;;
 import { Authenticate } from &#x27;@src/modules/authentication/decorator/auth.decorator&#x27;;
 import { ParseObjectIdPipe } from &#x27;@shared/controller&#x27;;
-
 import { DashboardUc } from &#x27;../uc/dashboard.uc&#x27;;
-import { DashboardResponse, MoveElementParams } from &#x27;./dto&#x27;;
+import { DashboardResponse, MoveElementParams, PatchGroupParams } from &#x27;./dto&#x27;;
 import { DashboardMapper } from &#x27;../mapper/dashboard.mapper&#x27;;
 
 @ApiTags(&#x27;Dashboard&#x27;)
@@ -279,6 +396,18 @@ export class DashboardController {
 		@Body() params: MoveElementParams
 	): Promise&lt;DashboardResponse&gt; {
 		const dashboard &#x3D; await this.dashboardUc.moveElementOnDashboard(dashboardId, params.from, params.to);
+		const dto &#x3D; DashboardMapper.mapToResponse(dashboard);
+		return dto;
+	}
+
+	@Patch(&#x27;:id/element&#x27;)
+	async patchGroup(
+		@Param(&#x27;id&#x27;, ParseObjectIdPipe) dashboardId: string,
+		@Query(&#x27;x&#x27;) x: number,
+		@Query(&#x27;y&#x27;) y: number,
+		@Body() params: PatchGroupParams
+	): Promise&lt;DashboardResponse&gt; {
+		const dashboard &#x3D; await this.dashboardUc.renameGroupOnDashboard(dashboardId, { x, y }, params.title);
 		const dto &#x3D; DashboardMapper.mapToResponse(dashboard);
 		return dto;
 	}

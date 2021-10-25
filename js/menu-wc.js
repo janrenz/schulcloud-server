@@ -635,6 +635,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/PaginationResponse.html" data-type="entity-link" >PaginationResponse</a>
                             </li>
                             <li class="link">
+                                <a href="classes/PatchGroupParams.html" data-type="entity-link" >PatchGroupParams</a>
+                            </li>
+                            <li class="link">
                                 <a href="classes/ResolvedUser.html" data-type="entity-link" >ResolvedUser</a>
                             </li>
                             <li class="link">
