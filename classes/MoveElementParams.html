@@ -134,7 +134,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">apps/server/src/modules/learnroom/controller/dto/movePosition.params.ts:22</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">apps/server/src/modules/learnroom/controller/dto/movePosition.params.ts:30</a></div>
                         </td>
                     </tr>
 
@@ -169,7 +169,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">apps/server/src/modules/learnroom/controller/dto/movePosition.params.ts:26</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">apps/server/src/modules/learnroom/controller/dto/movePosition.params.ts:34</a></div>
                         </td>
                     </tr>
 
@@ -188,8 +188,8 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ApiProperty } from &#x27;@nestjs/swagger&#x27;;
-import { ValidateNested, IsNumber, Min } from &#x27;class-validator&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ApiProperty, ApiPropertyOptional } from &#x27;@nestjs/swagger&#x27;;
+import { ValidateNested, IsNumber, Min, IsOptional } from &#x27;class-validator&#x27;;
 
 /**
  * DTO for Updating a news document.
@@ -199,11 +199,19 @@ import { ValidateNested, IsNumber, Min } from &#x27;class-validator&#x27;;
 export class MoveElementPosition {
 	@IsNumber()
 	@Min(0)
+	@ApiProperty()
 	x: number;
 
 	@IsNumber()
 	@Min(0)
+	@ApiProperty()
 	y: number;
+
+	@IsNumber()
+	@Min(0)
+	@IsOptional()
+	@ApiPropertyOptional({ description: &#x27;used to identify a position within a group.&#x27; })
+	groupIndex?: number;
 }
 
 export class MoveElementParams {

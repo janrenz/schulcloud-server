@@ -205,7 +205,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>moveElementOnDashboard(dashboardId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, from: <a href="../undefineds/GridPosition.html" target="_self">GridPosition</a>, to: <a href="../undefineds/GridPosition.html" target="_self">GridPosition</a>)</code>
+                    <code>moveElementOnDashboard(dashboardId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, from: <a href="../undefineds/GridPositionWithGroupIndex.html" target="_self">GridPositionWithGroupIndex</a>, to: <a href="../undefineds/GridPositionWithGroupIndex.html" target="_self">GridPositionWithGroupIndex</a>)</code>
                 </td>
             </tr>
 
@@ -248,7 +248,7 @@
                                 <tr>
                                     <td>from</td>
                                     <td>
-                                                <code><a href="../miscellaneous/typealiases.html#GridPosition" target="_self" >GridPosition</a></code>
+                                                <code><a href="../miscellaneous/typealiases.html#GridPositionWithGroupIndex" target="_self" >GridPositionWithGroupIndex</a></code>
                                     </td>
 
                                     <td>
@@ -260,7 +260,7 @@
                                 <tr>
                                     <td>to</td>
                                     <td>
-                                                <code><a href="../miscellaneous/typealiases.html#GridPosition" target="_self" >GridPosition</a></code>
+                                                <code><a href="../miscellaneous/typealiases.html#GridPositionWithGroupIndex" target="_self" >GridPositionWithGroupIndex</a></code>
                                     </td>
 
                                     <td>
@@ -292,7 +292,7 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable, Inject } from &#x27;@nestjs/common&#x27;;
-import { DashboardEntity, EntityId, GridPosition } from &#x27;@shared/domain&#x27;;
+import { DashboardEntity, EntityId, GridPositionWithGroupIndex } from &#x27;@shared/domain&#x27;;
 import { IDashboardRepo } from &#x27;@src/repositories/learnroom/dashboard.repo&#x27;;
 
 @Injectable()
@@ -306,8 +306,8 @@ export class DashboardUc {
 
 	async moveElementOnDashboard(
 		dashboardId: EntityId,
-		from: GridPosition,
-		to: GridPosition
+		from: GridPositionWithGroupIndex,
+		to: GridPositionWithGroupIndex
 		/* currentUser: ICurrentUser */
 	): Promise&lt;DashboardEntity&gt; {
 		const dashboard &#x3D; await this.dashboardRepo.getDashboardById(dashboardId);

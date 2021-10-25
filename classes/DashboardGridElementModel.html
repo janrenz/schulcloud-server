@@ -130,7 +130,7 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+<code>constructor(id?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                     </td>
                 </tr>
                         <tr>
@@ -160,7 +160,7 @@
                                                         </td>
                                                   
                                                     <td>
-                                                            No
+                                                            Yes
                                                     </td>
                                                     
                                                 </tr>
@@ -206,7 +206,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">apps/server/src/repositories/learnroom/dashboard.model.entity.ts:43</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">apps/server/src/repositories/learnroom/dashboard.model.entity.ts:45</a></div>
                         </td>
                     </tr>
 
@@ -246,7 +246,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">apps/server/src/repositories/learnroom/dashboard.model.entity.ts:40</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">apps/server/src/repositories/learnroom/dashboard.model.entity.ts:42</a></div>
                         </td>
                     </tr>
 
@@ -281,7 +281,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">apps/server/src/repositories/learnroom/dashboard.model.entity.ts:33</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">apps/server/src/repositories/learnroom/dashboard.model.entity.ts:35</a></div>
                         </td>
                     </tr>
 
@@ -316,7 +316,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">apps/server/src/repositories/learnroom/dashboard.model.entity.ts:36</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">apps/server/src/repositories/learnroom/dashboard.model.entity.ts:38</a></div>
                         </td>
                     </tr>
 
@@ -526,10 +526,12 @@ export class DefaultGridReferenceModel extends BaseEntityWithTimestamps {
 
 @Entity({ tableName: &#x27;dashboardelement&#x27; })
 export class DashboardGridElementModel extends BaseEntityWithTimestamps {
-	constructor(id: string) {
+	constructor(id?: string) {
 		super();
-		this._id &#x3D; ObjectId.createFromHexString(id);
-		this.id &#x3D; id;
+		if (id) {
+			this._id &#x3D; ObjectId.createFromHexString(id);
+			this.id &#x3D; id;
+		}
 	}
 
 	@Property()

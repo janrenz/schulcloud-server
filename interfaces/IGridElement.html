@@ -118,9 +118,21 @@
                                     </a>
                                 </li>
                                 <li>
+                                    <a href="#hasId" 
+>
+                                        hasId
+                                    </a>
+                                </li>
+                                <li>
                                     <a href="#isGroup" 
 >
                                         isGroup
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#removeReference" 
+>
+                                        removeReference
                                     </a>
                                 </li>
                             </ul>
@@ -155,8 +167,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="51"
-                            class="link-to-prism">apps/server/src/shared/domain/entity/dashboard.entity.ts:51</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="55"
+                            class="link-to-prism">apps/server/src/shared/domain/entity/dashboard.entity.ts:55</a></div>
                 </td>
             </tr>
 
@@ -224,8 +236,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="49"
-                            class="link-to-prism">apps/server/src/shared/domain/entity/dashboard.entity.ts:49</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="53"
+                            class="link-to-prism">apps/server/src/shared/domain/entity/dashboard.entity.ts:53</a></div>
                 </td>
             </tr>
 
@@ -235,6 +247,43 @@
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="../classes/GridElement.html" target="_self" >IGridElementReference[]</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="hasId"></a>
+                    <span class="name">
+                        <span ><b>hasId</b></span>
+                        <a href="#hasId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>hasId()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="43"
+                            class="link-to-prism">apps/server/src/shared/domain/entity/dashboard.entity.ts:43</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
 
                     </div>
                 </td>
@@ -261,8 +310,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="47"
-                            class="link-to-prism">apps/server/src/shared/domain/entity/dashboard.entity.ts:47</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="49"
+                            class="link-to-prism">apps/server/src/shared/domain/entity/dashboard.entity.ts:49</a></div>
                 </td>
             </tr>
 
@@ -273,6 +322,75 @@
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
 
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="removeReference"></a>
+                    <span class="name">
+                        <span ><b>removeReference</b></span>
+                        <a href="#removeReference"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>removeReference(index: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="51"
+                            class="link-to-prism">apps/server/src/shared/domain/entity/dashboard.entity.ts:51</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>index</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
                     </div>
                 </td>
             </tr>
@@ -395,11 +513,15 @@ export class DefaultGridReference implements IGridElementReference {
 }
 
 export interface IGridElement {
+	hasId(): boolean;
+
 	getId: () &#x3D;&gt; EntityId;
 
 	getContent: () &#x3D;&gt; GridElementContent;
 
 	isGroup(): boolean;
+
+	removeReference(index: number): void;
 
 	getReferences(): IGridElementReference[];
 
@@ -417,20 +539,32 @@ export type GridElementContent &#x3D; {
 export class GridElement implements IGridElement {
 	id: EntityId;
 
-	private constructor(id: EntityId, references: IGridElementReference[]) {
-		this.id &#x3D; id;
-		this.references &#x3D; references;
+	private constructor(props: { id?: EntityId; references: IGridElementReference[] }) {
+		if (props.id) this.id &#x3D; props.id;
+		this.references &#x3D; props.references;
 	}
 
-	static FromSingleReference(id: EntityId, reference: IGridElementReference): GridElement {
-		return new GridElement(id, [reference]);
+	static FromPersistedReference(id: EntityId, reference: IGridElementReference): GridElement {
+		return new GridElement({ id, references: [reference] });
 	}
 
-	static FromReferenceGroup(id: EntityId, group: IGridElementReference[]): GridElement {
-		return new GridElement(id, group);
+	static FromPersistedGroup(id: EntityId, group: IGridElementReference[]): GridElement {
+		return new GridElement({ id, references: group });
+	}
+
+	static FromSingleReference(reference: IGridElementReference): GridElement {
+		return new GridElement({ references: [reference] });
+	}
+
+	static FromReferences(references: IGridElementReference[]): GridElement {
+		return new GridElement({ references });
 	}
 
 	references: IGridElementReference[];
+
+	hasId(): boolean {
+		return !!this.id;
+	}
 
 	getId(): EntityId {
 		return this.id;
@@ -438,6 +572,16 @@ export class GridElement implements IGridElement {
 
 	getReferences(): IGridElementReference[] {
 		return this.references;
+	}
+
+	removeReference(index: number): void {
+		if (!this.isGroup()) {
+			throw new BadRequestException(&#x27;this element is not a group.&#x27;);
+		}
+		if (index &gt; 0 &amp;&amp; this.references.length &lt;&#x3D; index) {
+			throw new BadRequestException(&#x27;group index out of bounds.&#x27;);
+		}
+		this.references.splice(index, 1);
 	}
 
 	addReferences(anotherReference: IGridElementReference[]): void {
@@ -469,6 +613,7 @@ export class GridElement implements IGridElement {
 }
 
 export type GridPosition &#x3D; { x: number; y: number };
+export type GridPositionWithGroupIndex &#x3D; { x: number; y: number; groupIndex?: number };
 
 export type GridElementWithPosition &#x3D; {
 	gridElement: IGridElement;
@@ -526,25 +671,53 @@ export class DashboardEntity {
 		return result;
 	}
 
-	moveElement(from: GridPosition, to: GridPosition): GridElementWithPosition {
-		const elementToMove &#x3D; this.grid.get(this.gridIndexFromPosition(from));
-		if (!elementToMove) {
+	getElement(position: GridPosition): IGridElement {
+		const element &#x3D; this.grid.get(this.gridIndexFromPosition(position));
+		if (!element) {
 			throw new NotFoundException(&#x27;no element at origin position&#x27;);
 		}
+		return element;
+	}
 
-		const targetElement &#x3D; this.grid.get(this.gridIndexFromPosition(to));
-		if (targetElement) {
-			targetElement.addReferences(elementToMove.getReferences());
-		} else {
-			this.grid.set(this.gridIndexFromPosition(to), elementToMove);
-		}
-		this.grid.delete(this.gridIndexFromPosition(from));
-
-		const resultElement &#x3D; this.grid.get(this.gridIndexFromPosition(to)) as IGridElement;
+	moveElement(from: GridPositionWithGroupIndex, to: GridPositionWithGroupIndex): GridElementWithPosition {
+		const referencesToMove &#x3D; this.getReferencesFromPosition(from);
+		const resultElement &#x3D; this.addReferencesToPosition(referencesToMove, to);
+		this.removeFromPosition(from);
 		return {
 			pos: to,
 			gridElement: resultElement,
 		};
+	}
+
+	private getReferencesFromPosition(position: GridPositionWithGroupIndex): IGridElementReference[] {
+		const elementToMove &#x3D; this.getElement(position);
+		let references &#x3D; elementToMove.getReferences();
+
+		if (typeof position.groupIndex &#x3D;&#x3D;&#x3D; &#x27;number&#x27;) {
+			const referenceForIndex &#x3D; references[position.groupIndex];
+			references &#x3D; [referenceForIndex];
+		}
+		return references;
+	}
+
+	private removeFromPosition(position: GridPositionWithGroupIndex): void {
+		const element &#x3D; this.getElement(position);
+		if (typeof position.groupIndex &#x3D;&#x3D;&#x3D; &#x27;number&#x27;) {
+			element.removeReference(position.groupIndex);
+		} else {
+			this.grid.delete(this.gridIndexFromPosition(position));
+		}
+	}
+
+	private addReferencesToPosition(references: IGridElementReference[], position: GridPosition): IGridElement {
+		let targetElement &#x3D; this.grid.get(this.gridIndexFromPosition(position));
+		if (targetElement) {
+			targetElement.addReferences(references);
+		} else {
+			targetElement &#x3D; GridElement.FromReferences(references);
+			this.grid.set(this.gridIndexFromPosition(position), targetElement);
+		}
+		return targetElement;
 	}
 }
 </code></pre>

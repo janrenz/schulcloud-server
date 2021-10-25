@@ -1221,14 +1221,14 @@ it should ensure an empty result</p>
 
 	gridArray.push({
 		pos: { x: 1, y: 3 },
-		gridElement: GridElement.FromSingleReference(
+		gridElement: GridElement.FromPersistedReference(
 			new ObjectId().toString(),
 			new DefaultGridReference(new ObjectId().toString(), &#x27;Math&#x27;)
 		),
 	});
 	gridArray.push({
 		pos: { x: 1, y: 4 },
-		gridElement: GridElement.FromReferenceGroup(new ObjectId().toString(), [
+		gridElement: GridElement.FromPersistedGroup(new ObjectId().toString(), [
 			new DefaultGridReference(new ObjectId().toString(), &#x27;Physics&#x27;),
 			new DefaultGridReference(new ObjectId().toString(), &#x27;Biology&#x27;),
 			new DefaultGridReference(new ObjectId().toString(), &#x27;Chemistry&#x27;),
@@ -1236,21 +1236,21 @@ it should ensure an empty result</p>
 	});
 	gridArray.push({
 		pos: { x: 2, y: 1 },
-		gridElement: GridElement.FromSingleReference(
+		gridElement: GridElement.FromPersistedReference(
 			new ObjectId().toString(),
 			new DefaultGridReference(new ObjectId().toString(), &#x27;English&#x27;)
 		),
 	});
 	gridArray.push({
 		pos: { x: 3, y: 1 },
-		gridElement: GridElement.FromSingleReference(
+		gridElement: GridElement.FromPersistedReference(
 			new ObjectId().toString(),
 			new DefaultGridReference(new ObjectId().toString(), &#x27;German&#x27;)
 		),
 	});
 	gridArray.push({
 		pos: { x: 4, y: 1 },
-		gridElement: GridElement.FromSingleReference(
+		gridElement: GridElement.FromPersistedReference(
 			new ObjectId().toString(),
 			new DefaultGridReference(new ObjectId().toString(), &#x27;Greek&#x27;)
 		),

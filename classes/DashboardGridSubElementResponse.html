@@ -140,7 +140,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="61" class="link-to-prism">apps/server/src/modules/learnroom/controller/dto/dashboard.response.ts:61</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">apps/server/src/modules/learnroom/controller/dto/dashboard.response.ts:23</a></div>
                         </td>
                     </tr>
 
@@ -175,7 +175,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">apps/server/src/modules/learnroom/controller/dto/dashboard.response.ts:46</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">apps/server/src/modules/learnroom/controller/dto/dashboard.response.ts:8</a></div>
                         </td>
                     </tr>
 
@@ -210,7 +210,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">apps/server/src/modules/learnroom/controller/dto/dashboard.response.ts:56</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">apps/server/src/modules/learnroom/controller/dto/dashboard.response.ts:18</a></div>
                         </td>
                     </tr>
 
@@ -245,7 +245,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">apps/server/src/modules/learnroom/controller/dto/dashboard.response.ts:51</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">apps/server/src/modules/learnroom/controller/dto/dashboard.response.ts:13</a></div>
                         </td>
                     </tr>
 
@@ -265,6 +265,29 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ApiProperty } from &#x27;@nestjs/swagger&#x27;;
+
+export class DashboardGridSubElementResponse {
+	@ApiProperty({
+		description: &#x27;The id of the Grid element&#x27;,
+		pattern: &#x27;[a-f0-9]{24}&#x27;,
+	})
+	id: string;
+
+	@ApiProperty({
+		description: &#x27;Title of the Grid element&#x27;,
+	})
+	title: string;
+
+	@ApiProperty({
+		description: &#x27;Short title of the Grid element&#x27;,
+	})
+	shortTitle: string;
+
+	@ApiProperty({
+		description: &#x27;Color of the Grid element&#x27;,
+	})
+	displayColor: string;
+}
 
 export class DashboardGridElementResponse {
 	@ApiProperty({
@@ -299,32 +322,10 @@ export class DashboardGridElementResponse {
 	yPosition: number;
 
 	@ApiProperty({
+		type: [DashboardGridSubElementResponse],
 		description: &#x27;List of all subelements in the group&#x27;,
 	})
 	groupElements: DashboardGridSubElementResponse[];
-}
-
-export class DashboardGridSubElementResponse {
-	@ApiProperty({
-		description: &#x27;The id of the Grid element&#x27;,
-		pattern: &#x27;[a-f0-9]{24}&#x27;,
-	})
-	id: string;
-
-	@ApiProperty({
-		description: &#x27;Title of the Grid element&#x27;,
-	})
-	title: string;
-
-	@ApiProperty({
-		description: &#x27;Short title of the Grid element&#x27;,
-	})
-	shortTitle: string;
-
-	@ApiProperty({
-		description: &#x27;Color of the Grid element&#x27;,
-	})
-	displayColor: string;
 }
 
 export class DashboardResponse {
@@ -335,6 +336,7 @@ export class DashboardResponse {
 	id: string;
 
 	@ApiProperty({
+		type: [DashboardGridElementResponse],
 		description: &#x27;List of all elements visible on the dashboard&#x27;,
 	})
 	gridElements: DashboardGridElementResponse[];

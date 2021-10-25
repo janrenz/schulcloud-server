@@ -126,7 +126,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">apps/server/src/repositories/learnroom/dashboard.model.entity.ts:47</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">apps/server/src/repositories/learnroom/dashboard.model.entity.ts:49</a></div>
                             </td>
                         </tr>
 
@@ -202,7 +202,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">apps/server/src/repositories/learnroom/dashboard.model.entity.ts:55</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="57" class="link-to-prism">apps/server/src/repositories/learnroom/dashboard.model.entity.ts:57</a></div>
                         </td>
                     </tr>
 
@@ -412,10 +412,12 @@ export class DefaultGridReferenceModel extends BaseEntityWithTimestamps {
 
 @Entity({ tableName: &#x27;dashboardelement&#x27; })
 export class DashboardGridElementModel extends BaseEntityWithTimestamps {
-	constructor(id: string) {
+	constructor(id?: string) {
 		super();
-		this._id &#x3D; ObjectId.createFromHexString(id);
-		this.id &#x3D; id;
+		if (id) {
+			this._id &#x3D; ObjectId.createFromHexString(id);
+			this.id &#x3D; id;
+		}
 	}
 
 	@Property()

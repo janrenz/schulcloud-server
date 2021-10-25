@@ -90,6 +90,10 @@ A PartialType is a halper which allows to extend an existing class by making all
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                    <span class="modifier">Optional</span>
+                                <a href="#groupIndex" >groupIndex</a>
+                            </li>
+                            <li>
                                 <a href="#x" >x</a>
                             </li>
                             <li>
@@ -118,6 +122,42 @@ A PartialType is a halper which allows to extend an existing class by making all
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="groupIndex"></a>
+                    <span class="name">
+                            <span class="modifier">Optional</span>
+                        <span ><b>groupIndex</b></span>
+                        <a href="#groupIndex"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @IsNumber()<br />@Min(0)<br />@IsOptional()<br />@ApiPropertyOptional({description: &#x27;used to identify a position within a group.&#x27;})<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">apps/server/src/modules/learnroom/controller/dto/movePosition.params.ts:24</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="x"></a>
                     <span class="name">
                         <span ><b>x</b></span>
@@ -136,13 +176,13 @@ A PartialType is a halper which allows to extend an existing class by making all
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @IsNumber()<br />@Min(0)<br />
+                            @IsNumber()<br />@Min(0)<br />@ApiProperty()<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">apps/server/src/modules/learnroom/controller/dto/movePosition.params.ts:12</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">apps/server/src/modules/learnroom/controller/dto/movePosition.params.ts:13</a></div>
                         </td>
                     </tr>
 
@@ -171,13 +211,13 @@ A PartialType is a halper which allows to extend an existing class by making all
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @IsNumber()<br />@Min(0)<br />
+                            @IsNumber()<br />@Min(0)<br />@ApiProperty()<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">apps/server/src/modules/learnroom/controller/dto/movePosition.params.ts:16</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">apps/server/src/modules/learnroom/controller/dto/movePosition.params.ts:18</a></div>
                         </td>
                     </tr>
 
@@ -196,8 +236,8 @@ A PartialType is a halper which allows to extend an existing class by making all
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ApiProperty } from &#x27;@nestjs/swagger&#x27;;
-import { ValidateNested, IsNumber, Min } from &#x27;class-validator&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ApiProperty, ApiPropertyOptional } from &#x27;@nestjs/swagger&#x27;;
+import { ValidateNested, IsNumber, Min, IsOptional } from &#x27;class-validator&#x27;;
 
 /**
  * DTO for Updating a news document.
@@ -207,11 +247,19 @@ import { ValidateNested, IsNumber, Min } from &#x27;class-validator&#x27;;
 export class MoveElementPosition {
 	@IsNumber()
 	@Min(0)
+	@ApiProperty()
 	x: number;
 
 	@IsNumber()
 	@Min(0)
+	@ApiProperty()
 	y: number;
+
+	@IsNumber()
+	@Min(0)
+	@IsOptional()
+	@ApiPropertyOptional({ description: &#x27;used to identify a position within a group.&#x27; })
+	groupIndex?: number;
 }
 
 export class MoveElementParams {
