@@ -295,15 +295,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>computeTaskStatusForTeacher(task: <a href="../classes/Task.html" target="_self">Task</a>)</code>
+                    <code>computeTaskStatusForTeacher(task: <a href="../classes/Task.html" target="_self">Task</a>, userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="97"
-                            class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:97</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="104"
+                            class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:104</a></div>
                 </td>
             </tr>
 
@@ -327,6 +327,18 @@
                                     <td>task</td>
                                     <td>
                                                 <code><a href="../classes/Task.html" target="_self" >Task</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>userId</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
                                     </td>
 
                                     <td>
@@ -624,8 +636,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="118"
-                            class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:118</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="132"
+                            class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:132</a></div>
                 </td>
             </tr>
 
@@ -803,7 +815,7 @@ export class TaskUC {
 			}
 		);
 
-		const computedTasks &#x3D; tasks.map((task) &#x3D;&gt; this.computeTaskStatusForTeacher(task));
+		const computedTasks &#x3D; tasks.map((task) &#x3D;&gt; this.computeTaskStatusForTeacher(task, userId));
 
 		return [computedTasks, total];
 	}
@@ -819,14 +831,21 @@ export class TaskUC {
 		const submitted &#x3D; studentSubmissions.length &gt; 0 ? 1 : 0;
 		const graded &#x3D; studentSubmissions.filter((submission) &#x3D;&gt; submission.isGraded()).length;
 		const maxSubmissions &#x3D; 1;
-		const isDraft &#x3D; task.isDraft();
+		const isDraft &#x3D; false;
+		const isSubstitutionTeacher &#x3D; false;
 
-		const valueObject &#x3D; new TaskWithStatusVo(task, { submitted, maxSubmissions, graded, isDraft });
+		const valueObject &#x3D; new TaskWithStatusVo(task, {
+			submitted,
+			maxSubmissions,
+			graded,
+			isDraft,
+			isSubstitutionTeacher,
+		});
 
 		return valueObject;
 	}
 
-	private computeTaskStatusForTeacher(task: Task): TaskWithStatusVo {
+	private computeTaskStatusForTeacher(task: Task, userId: EntityId): TaskWithStatusVo {
 		const submittedStudentIds &#x3D; task.submissions.getItems().map((submission) &#x3D;&gt; submission.student.id);
 
 		// unique by studentId
@@ -841,8 +860,15 @@ export class TaskUC {
 		const graded &#x3D; [...new Set(gradedStudentIds)].length;
 		const maxSubmissions &#x3D; task.course ? task.course.getNumberOfStudents() : 0;
 		const isDraft &#x3D; task.isDraft();
+		const isSubstitutionTeacher &#x3D; task.isSubstitutionTeacher(userId);
 
-		const valueObject &#x3D; new TaskWithStatusVo(task, { submitted, maxSubmissions, graded, isDraft });
+		const valueObject &#x3D; new TaskWithStatusVo(task, {
+			isSubstitutionTeacher,
+			submitted,
+			maxSubmissions,
+			graded,
+			isDraft,
+		});
 
 		return valueObject;
 	}
