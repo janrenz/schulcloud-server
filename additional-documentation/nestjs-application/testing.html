@@ -226,9 +226,9 @@ Therefore, the <code>*.repo.integration.spec.js</code> should be used.</p>
               ],
              providers: [NewsRepo],                                     (1.2)
       }).compile();
-      repo = testModule.get&lt;NewsRepo&gt;(NewsRepo);                        (2)
-      orm = testModule.get&lt;MikroORM&gt;(MikroORM);
-      em = testModule.get&lt;EntityManager&gt;(EntityManager);
+      repo = testModule.get(NewsRepo);                                  (2)
+      orm = testModule.get(MikroORM);
+      em = testModule.get(EntityManager);
     })</code></pre></div><h4 id="post-conditions-afterall-teardown">Post conditions (afterAll), Teardown</h4>
 <p>After all tests are executed close the app and orm to release the resources by closing the test module.</p>
 <div><pre class="line-numbers"><code class="language-TypeScript">    afterAll(async () =&gt; {
@@ -281,8 +281,8 @@ The database calls are mocked and spyied. So we can check how and with which par
             ],
         }).compile();
 
-        service = module.get&lt;NewsUc&gt;(NewsUc);                           (4)
-        repo = module.get&lt;NewsRepo&gt;(NewsRepo);</code></pre></div><h4 id="test">Test</h4>
+        service = module.get(NewsUc);                                    (4)
+        repo = module.get(NewsRepo);</code></pre></div><h4 id="test">Test</h4>
 <ol>
 <li>Spy repo function which is called inside the tested use case</li>
 <li>Call the tested function</li>
@@ -365,8 +365,8 @@ are correctly mounted and available at a specific path.</p>
 
         app = module.createNestApplication();                           (5)
         await app.init();
-        orm = module.get&lt;MikroORM&gt;(MikroORM);                           (6)
-        em = module.get&lt;EntityManager&gt;(EntityManager);
+        orm = module.get(MikroORM);                                     (6)
+        em = module.get(EntityManager);
     });</code></pre></div><h4 id="clean-up">Clean up</h4>
 <p>After Each test delete the created data in test to have a clean database for the next test.</p>
 <div><pre class="line-numbers"><code class="language-Typescript">    afterEach(async () =&gt; {
