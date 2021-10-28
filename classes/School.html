@@ -115,12 +115,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(props: literal type)</code>
+<code>constructor(props: <a href="../interfaces/ISchoolProperties.html" target="_self">ISchoolProperties</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">apps/server/src/shared/domain/entity/school.entity.ts:7</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">apps/server/src/shared/domain/entity/school.entity.ts:10</a></div>
                             </td>
                         </tr>
 
@@ -141,7 +141,7 @@
                                                         <td>props</td>
                                                   
                                                         <td>
-                                                                    <code>literal type</code>
+                                                                        <code><a href="../interfaces/ISchoolProperties.html" target="_self" >ISchoolProperties</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -191,7 +191,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">apps/server/src/shared/domain/entity/school.entity.ts:7</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">apps/server/src/shared/domain/entity/school.entity.ts:10</a></div>
                         </td>
                     </tr>
 
@@ -297,12 +297,15 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Entity, Property } from &#x27;@mikro-orm/core&#x27;;
 import { BaseEntity } from &#x27;./base.entity&#x27;;
 
+export interface ISchoolProperties {
+	name: string;
+}
 @Entity({ tableName: &#x27;schools&#x27; })
 export class School extends BaseEntity {
 	@Property()
 	name!: string;
 
-	constructor(props: { name: string }) {
+	constructor(props: ISchoolProperties) {
 		super();
 		this.name &#x3D; props.name;
 	}

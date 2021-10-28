@@ -521,6 +521,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/BaseEntityWithTimestamps.html" data-type="entity-link" >BaseEntityWithTimestamps</a>
                             </li>
                             <li class="link">
+                                <a href="classes/BaseFactory.html" data-type="entity-link" >BaseFactory</a>
+                            </li>
+                            <li class="link">
                                 <a href="classes/BaseFile.html" data-type="entity-link" >BaseFile</a>
                             </li>
                             <li class="link">
@@ -678,6 +681,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="classes/Task.html" data-type="entity-link" >Task</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/TaskFactory.html" data-type="entity-link" >TaskFactory</a>
                             </li>
                             <li class="link">
                                 <a href="classes/TaskListResponse.html" data-type="entity-link" >TaskListResponse</a>
@@ -889,6 +895,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="interfaces/IRoleProperties.html" data-type="entity-link" >IRoleProperties</a>
                             </li>
                             <li class="link">
+                                <a href="interfaces/ISchoolProperties.html" data-type="entity-link" >ISchoolProperties</a>
+                            </li>
+                            <li class="link">
                                 <a href="interfaces/IStorageProviderProperties.html" data-type="entity-link" >IStorageProviderProperties</a>
                             </li>
                             <li class="link">
@@ -899,6 +908,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="interfaces/ITaskStatus.html" data-type="entity-link" >ITaskStatus</a>
+                            </li>
+                            <li class="link">
+                                <a href="interfaces/ITeamProperties.html" data-type="entity-link" >ITeamProperties</a>
                             </li>
                             <li class="link">
                                 <a href="interfaces/IUserProperties.html" data-type="entity-link" >IUserProperties</a>
