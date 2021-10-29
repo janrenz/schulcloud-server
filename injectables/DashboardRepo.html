@@ -111,7 +111,7 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(em: EntityManager)</code>
+<code>constructor(em: EntityManager, mapper: <a href="../injectables/DashboardModelMapper.html" target="_self">DashboardModelMapper</a>)</code>
                     </td>
                 </tr>
                         <tr>
@@ -138,6 +138,18 @@
                                                   
                                                         <td>
                                                                     <code>EntityManager</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>mapper</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/DashboardModelMapper.html" target="_self" >DashboardModelMapper</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -476,31 +488,31 @@ export interface IDashboardRepo {
 
 @Injectable()
 export class DashboardRepo implements IDashboardRepo {
-	constructor(protected readonly em: EntityManager) {}
+	constructor(protected readonly em: EntityManager, protected readonly mapper: DashboardModelMapper) {}
 
 	// ToDo: refactor this to be in an abstract class (see baseRepo)
 	async persist(entity: DashboardEntity): Promise&lt;DashboardEntity&gt; {
-		const modelEntity &#x3D; await DashboardModelMapper.mapToModel(entity, this.em);
+		const modelEntity &#x3D; await this.mapper.mapDashboardToModel(entity);
 		this.em.persist(modelEntity);
-		return DashboardModelMapper.mapToEntity(modelEntity);
+		return this.mapper.mapDashboardToEntity(modelEntity);
 	}
 
 	async persistAndFlush(entity: DashboardEntity): Promise&lt;DashboardEntity&gt; {
-		const modelEntity &#x3D; await DashboardModelMapper.mapToModel(entity, this.em);
+		const modelEntity &#x3D; await this.mapper.mapDashboardToModel(entity);
 		await this.em.persistAndFlush(modelEntity);
-		return DashboardModelMapper.mapToEntity(modelEntity);
+		return this.mapper.mapDashboardToEntity(modelEntity);
 	}
 
 	async getDashboardById(id: EntityId): Promise&lt;DashboardEntity&gt; {
 		const dashboardModel &#x3D; await this.em.findOneOrFail(DashboardModelEntity, id);
-		const dashboard &#x3D; await DashboardModelMapper.mapToEntity(dashboardModel);
+		const dashboard &#x3D; await this.mapper.mapDashboardToEntity(dashboardModel);
 		return dashboard;
 	}
 
 	async getUsersDashboard(): Promise&lt;DashboardEntity&gt; {
 		const dashboardModel &#x3D; await this.em.findOne(DashboardModelEntity, hardcodedTestDashboardId);
 		if (dashboardModel) {
-			return DashboardModelMapper.mapToEntity(dashboardModel);
+			return this.mapper.mapDashboardToEntity(dashboardModel);
 		}
 
 		const dashboard &#x3D; generateHardcodedTestDashboard();

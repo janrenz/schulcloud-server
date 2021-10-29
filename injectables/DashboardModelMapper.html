@@ -28,7 +28,7 @@
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
-               <div class="content class">
+               <div class="content injectable">
                    <div class="content-data">
 
 
@@ -37,12 +37,8 @@
 
 
 
-
-
-
-
 <ol class="breadcrumb">
-  <li>Classes</li>
+  <li>Injectables</li>
   <li >DashboardModelMapper</li>
 </ol>
 
@@ -68,7 +64,6 @@
 
 
 
-
             <section>
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
@@ -84,38 +79,31 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Private</span>
-                                    <span class="modifier">Static</span>
                                     <span class="modifier">Async</span>
                                 <a href="#instantiateGridElementModel" >instantiateGridElementModel</a>
                             </li>
                             <li>
-                                    <span class="modifier">Static</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#mapDashboardToEntity" >mapDashboardToEntity</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#mapDashboardToModel" >mapDashboardToModel</a>
+                            </li>
+                            <li>
                                     <span class="modifier">Async</span>
                                 <a href="#mapElementToEntity" >mapElementToEntity</a>
                             </li>
                             <li>
-                                    <span class="modifier">Static</span>
                                     <span class="modifier">Async</span>
                                 <a href="#mapGridElementToModel" >mapGridElementToModel</a>
                             </li>
                             <li>
-                                    <span class="modifier">Static</span>
                                 <a href="#mapReferenceToEntity" >mapReferenceToEntity</a>
                             </li>
                             <li>
-                                    <span class="modifier">Static</span>
                                     <span class="modifier">Async</span>
                                 <a href="#mapReferenceToModel" >mapReferenceToModel</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Static</span>
-                                    <span class="modifier">Async</span>
-                                <a href="#mapToEntity" >mapToEntity</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Static</span>
-                                    <span class="modifier">Async</span>
-                                <a href="#mapToModel" >mapToModel</a>
                             </li>
                         </ul>
                     </td>
@@ -129,7 +117,54 @@
     </table>
 </section>
 
+            <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(em: EntityManager)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">apps/server/src/repositories/learnroom/dashboard.model.mapper.ts:14</a></div>
+                            </td>
+                        </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>em</td>
+                                                  
+                                                        <td>
+                                                                    <code>EntityManager</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
 
             <section>
     
@@ -143,7 +178,6 @@
                     <a name="instantiateGridElementModel"></a>
                     <span class="name">
                         <span class="modifier">Private</span>
-                        <span class="modifier">Static</span>
                         <span class="modifier">Async</span>
                         <span ><b>instantiateGridElementModel</b></span>
                         <a href="#instantiateGridElementModel"><span class="icon ion-ios-link"></span></a>
@@ -153,15 +187,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>instantiateGridElementModel(gridElement: <a href="../interfaces/IGridElement.html" target="_self">IGridElement</a>, em: EntityManager)</code>
+                    <code>instantiateGridElementModel(gridElement: <a href="../interfaces/IGridElement.html" target="_self">IGridElement</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="63"
-                            class="link-to-prism">apps/server/src/repositories/learnroom/dashboard.model.mapper.ts:63</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="58"
+                            class="link-to-prism">apps/server/src/repositories/learnroom/dashboard.model.mapper.ts:58</a></div>
                 </td>
             </tr>
 
@@ -193,18 +227,6 @@
 
 
                                 </tr>
-                                <tr>
-                                    <td>em</td>
-                                    <td>
-                                            <code>EntityManager</code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -225,9 +247,150 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="mapDashboardToEntity"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>mapDashboardToEntity</b></span>
+                        <a href="#mapDashboardToEntity"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>mapDashboardToEntity(modelEntity: <a href="../classes/DashboardModelEntity.html" target="_self">DashboardModelEntity</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="33"
+                            class="link-to-prism">apps/server/src/repositories/learnroom/dashboard.model.mapper.ts:33</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>modelEntity</td>
+                                    <td>
+                                                <code><a href="../classes/DashboardModelEntity.html" target="_self" >DashboardModelEntity</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/DashboardEntity.html" target="_self" >Promise&lt;DashboardEntity&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="mapDashboardToModel"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>mapDashboardToModel</b></span>
+                        <a href="#mapDashboardToModel"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>mapDashboardToModel(entity: <a href="../classes/DashboardEntity.html" target="_self">DashboardEntity</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="88"
+                            class="link-to-prism">apps/server/src/repositories/learnroom/dashboard.model.mapper.ts:88</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>entity</td>
+                                    <td>
+                                                <code><a href="../classes/DashboardEntity.html" target="_self" >DashboardEntity</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/DashboardModelEntity.html" target="_self" >Promise&lt;DashboardModelEntity&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="mapElementToEntity"></a>
                     <span class="name">
-                        <span class="modifier">Static</span>
                         <span class="modifier">Async</span>
                         <span ><b>mapElementToEntity</b></span>
                         <a href="#mapElementToEntity"><span class="icon ion-ios-link"></span></a>
@@ -244,8 +407,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="17"
-                            class="link-to-prism">apps/server/src/repositories/learnroom/dashboard.model.mapper.ts:17</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="21"
+                            class="link-to-prism">apps/server/src/repositories/learnroom/dashboard.model.mapper.ts:21</a></div>
                 </td>
             </tr>
 
@@ -299,7 +462,6 @@
                 <td class="col-md-4">
                     <a name="mapGridElementToModel"></a>
                     <span class="name">
-                        <span class="modifier">Static</span>
                         <span class="modifier">Async</span>
                         <span ><b>mapGridElementToModel</b></span>
                         <a href="#mapGridElementToModel"><span class="icon ion-ios-link"></span></a>
@@ -309,15 +471,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>mapGridElementToModel(elementWithPosition: <a href="../classes/GridElement.html" target="_self">GridElementWithPosition</a>, dashboard: <a href="../classes/DashboardModelEntity.html" target="_self">DashboardModelEntity</a>, em: EntityManager)</code>
+                    <code>mapGridElementToModel(elementWithPosition: <a href="../classes/GridElement.html" target="_self">GridElementWithPosition</a>, dashboard: <a href="../classes/DashboardModelEntity.html" target="_self">DashboardModelEntity</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="74"
-                            class="link-to-prism">apps/server/src/repositories/learnroom/dashboard.model.mapper.ts:74</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="66"
+                            class="link-to-prism">apps/server/src/repositories/learnroom/dashboard.model.mapper.ts:66</a></div>
                 </td>
             </tr>
 
@@ -361,18 +523,6 @@
 
 
                                 </tr>
-                                <tr>
-                                    <td>em</td>
-                                    <td>
-                                            <code>EntityManager</code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -395,7 +545,6 @@
                 <td class="col-md-4">
                     <a name="mapReferenceToEntity"></a>
                     <span class="name">
-                        <span class="modifier">Static</span>
                         <span ><b>mapReferenceToEntity</b></span>
                         <a href="#mapReferenceToEntity"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -403,16 +552,15 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>mapReferenceToEntity(modelEntity: <a href="../classes/DefaultGridReferenceModel.html" target="_self">DefaultGridReferenceModel</a>)</code>
+<code>mapReferenceToEntity(modelEntity: <a href="../classes/DefaultGridReferenceModel.html" target="_self">DefaultGridReferenceModel</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="13"
-                            class="link-to-prism">apps/server/src/repositories/learnroom/dashboard.model.mapper.ts:13</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="17"
+                            class="link-to-prism">apps/server/src/repositories/learnroom/dashboard.model.mapper.ts:17</a></div>
                 </td>
             </tr>
 
@@ -466,7 +614,6 @@
                 <td class="col-md-4">
                     <a name="mapReferenceToModel"></a>
                     <span class="name">
-                        <span class="modifier">Static</span>
                         <span class="modifier">Async</span>
                         <span ><b>mapReferenceToModel</b></span>
                         <a href="#mapReferenceToModel"><span class="icon ion-ios-link"></span></a>
@@ -476,15 +623,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>mapReferenceToModel(reference: <a href="../interfaces/IGridElementReference.html" target="_self">IGridElementReference</a>, element: <a href="../classes/DashboardGridElementModel.html" target="_self">DashboardGridElementModel</a>, em: EntityManager)</code>
+                    <code>mapReferenceToModel(reference: <a href="../interfaces/IGridElementReference.html" target="_self">IGridElementReference</a>, element: <a href="../classes/DashboardGridElementModel.html" target="_self">DashboardGridElementModel</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="49"
-                            class="link-to-prism">apps/server/src/repositories/learnroom/dashboard.model.mapper.ts:49</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="45"
+                            class="link-to-prism">apps/server/src/repositories/learnroom/dashboard.model.mapper.ts:45</a></div>
                 </td>
             </tr>
 
@@ -528,18 +675,6 @@
 
 
                                 </tr>
-                                <tr>
-                                    <td>em</td>
-                                    <td>
-                                            <code>EntityManager</code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -556,173 +691,14 @@
             </tr>
         </tbody>
     </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="mapToEntity"></a>
-                    <span class="name">
-                        <span class="modifier">Static</span>
-                        <span class="modifier">Async</span>
-                        <span ><b>mapToEntity</b></span>
-                        <a href="#mapToEntity"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>mapToEntity(modelEntity: <a href="../classes/DashboardModelEntity.html" target="_self">DashboardModelEntity</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="29"
-                            class="link-to-prism">apps/server/src/repositories/learnroom/dashboard.model.mapper.ts:29</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>modelEntity</td>
-                                    <td>
-                                                <code><a href="../classes/DashboardModelEntity.html" target="_self" >DashboardModelEntity</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/DashboardEntity.html" target="_self" >Promise&lt;DashboardEntity&gt;</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="mapToModel"></a>
-                    <span class="name">
-                        <span class="modifier">Static</span>
-                        <span class="modifier">Async</span>
-                        <span ><b>mapToModel</b></span>
-                        <a href="#mapToModel"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>mapToModel(entity: <a href="../classes/DashboardEntity.html" target="_self">DashboardEntity</a>, em: EntityManager)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="97"
-                            class="link-to-prism">apps/server/src/repositories/learnroom/dashboard.model.mapper.ts:97</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>entity</td>
-                                    <td>
-                                                <code><a href="../classes/DashboardEntity.html" target="_self" >DashboardEntity</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>em</td>
-                                    <td>
-                                            <code>EntityManager</code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/DashboardModelEntity.html" target="_self" >Promise&lt;DashboardModelEntity&gt;</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
 </section>
-
-
-
-
 
     </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Collection, wrap, EntityManager } from &#x27;@mikro-orm/core&#x27;;
+import { Injectable } from &#x27;@nestjs/common&#x27;;
 import {
 	DashboardEntity,
 	GridElement,
@@ -733,16 +709,19 @@ import {
 } from &#x27;@shared/domain&#x27;;
 import { DashboardGridElementModel, DashboardModelEntity, DefaultGridReferenceModel } from &#x27;./dashboard.model.entity&#x27;;
 
+@Injectable()
 export class DashboardModelMapper {
-	static mapReferenceToEntity(modelEntity: DefaultGridReferenceModel): DefaultGridReference {
+	constructor(protected readonly em: EntityManager) {}
+
+	mapReferenceToEntity(modelEntity: DefaultGridReferenceModel): DefaultGridReference {
 		return new DefaultGridReference(modelEntity.id, modelEntity.title, modelEntity.color);
 	}
 
-	static async mapElementToEntity(modelEntity: DashboardGridElementModel): Promise&lt;GridElementWithPosition&gt; {
+	async mapElementToEntity(modelEntity: DashboardGridElementModel): Promise&lt;GridElementWithPosition&gt; {
 		if (!modelEntity.references.isInitialized()) {
 			await modelEntity.references.init();
 		}
-		const references &#x3D; Array.from(modelEntity.references).map((ref) &#x3D;&gt; DashboardModelMapper.mapReferenceToEntity(ref));
+		const references &#x3D; Array.from(modelEntity.references).map((ref) &#x3D;&gt; this.mapReferenceToEntity(ref));
 		const result &#x3D; {
 			pos: { x: modelEntity.xPos, y: modelEntity.yPos },
 			gridElement: GridElement.FromPersistedGroup(modelEntity.id, modelEntity.title, references),
@@ -750,33 +729,24 @@ export class DashboardModelMapper {
 		return result;
 	}
 
-	static async mapToEntity(modelEntity: DashboardModelEntity): Promise&lt;DashboardEntity&gt; {
+	async mapDashboardToEntity(modelEntity: DashboardModelEntity): Promise&lt;DashboardEntity&gt; {
 		if (!modelEntity.gridElements.isInitialized()) {
 			await modelEntity.gridElements.init();
 		}
-		const grid: GridElementWithPosition[] &#x3D; [];
-		// ----------------------
-		// temporary solution, look at how remove orphaned elements on persist
-		await Promise.all(
+		const grid &#x3D; await Promise.all(
 			Array.from(modelEntity.gridElements).map(async (e) &#x3D;&gt; {
-				const element &#x3D; await DashboardModelMapper.mapElementToEntity(e);
-				if (element.gridElement.getReferences().length &gt; 0) {
-					grid.push(element);
-				}
-				return Promise.resolve();
+				return this.mapElementToEntity(e);
 			})
 		);
-		// ----------------------
 		return new DashboardEntity(modelEntity.id, { grid });
 	}
 
-	static async mapReferenceToModel(
+	async mapReferenceToModel(
 		reference: IGridElementReference,
-		element: DashboardGridElementModel,
-		em: EntityManager
+		element: DashboardGridElementModel
 	): Promise&lt;DefaultGridReferenceModel&gt; {
 		const metadata &#x3D; reference.getMetadata();
-		const existingReference &#x3D; await em.findOne(DefaultGridReferenceModel, metadata.id);
+		const existingReference &#x3D; await this.em.findOne(DefaultGridReferenceModel, metadata.id);
 		const result &#x3D; existingReference || new DefaultGridReferenceModel(metadata.id);
 		result.color &#x3D; metadata.displayColor;
 		result.title &#x3D; metadata.title;
@@ -784,24 +754,20 @@ export class DashboardModelMapper {
 		return result;
 	}
 
-	private static async instantiateGridElementModel(
-		gridElement: IGridElement,
-		em: EntityManager
-	): Promise&lt;DashboardGridElementModel&gt; {
+	private async instantiateGridElementModel(gridElement: IGridElement): Promise&lt;DashboardGridElementModel&gt; {
 		if (!gridElement.hasId()) {
 			return new DashboardGridElementModel();
 		}
-		const existing &#x3D; await em.findOne(DashboardGridElementModel, gridElement.getId());
+		const existing &#x3D; await this.em.findOne(DashboardGridElementModel, gridElement.getId());
 		return existing || new DashboardGridElementModel(gridElement.getId());
 	}
 
-	static async mapGridElementToModel(
+	async mapGridElementToModel(
 		elementWithPosition: GridElementWithPosition,
-		dashboard: DashboardModelEntity,
-		em: EntityManager
+		dashboard: DashboardModelEntity
 	): Promise&lt;DashboardGridElementModel&gt; {
 		const { gridElement } &#x3D; elementWithPosition;
-		const elementModel &#x3D; await DashboardModelMapper.instantiateGridElementModel(gridElement, em);
+		const elementModel &#x3D; await this.instantiateGridElementModel(gridElement);
 		elementModel.xPos &#x3D; elementWithPosition.pos.x;
 		elementModel.yPos &#x3D; elementWithPosition.pos.y;
 
@@ -810,7 +776,7 @@ export class DashboardModelMapper {
 		}
 
 		const references &#x3D; await Promise.all(
-			gridElement.getReferences().map((ref) &#x3D;&gt; DashboardModelMapper.mapReferenceToModel(ref, elementModel, em))
+			gridElement.getReferences().map((ref) &#x3D;&gt; this.mapReferenceToModel(ref, elementModel))
 		);
 		elementModel.references &#x3D; new Collection&lt;DefaultGridReferenceModel&gt;(elementModel, references);
 
@@ -818,23 +784,31 @@ export class DashboardModelMapper {
 		return elementModel;
 	}
 
-	static async mapToModel(entity: DashboardEntity, em: EntityManager): Promise&lt;DashboardModelEntity&gt; {
-		const existing &#x3D; await em.findOne(DashboardModelEntity, entity.getId());
+	async mapDashboardToModel(entity: DashboardEntity): Promise&lt;DashboardModelEntity&gt; {
+		const existing &#x3D; await this.em.findOne(DashboardModelEntity, entity.getId());
 		const modelEntity &#x3D; existing || new DashboardModelEntity(entity.getId());
 		const mappedElements &#x3D; await Promise.all(
-			entity
-				.getGrid()
-				.map((elementWithPosition) &#x3D;&gt; DashboardModelMapper.mapGridElementToModel(elementWithPosition, modelEntity, em))
+			entity.getGrid().map((elementWithPosition) &#x3D;&gt; this.mapGridElementToModel(elementWithPosition, modelEntity))
 		);
 
-		modelEntity.gridElements &#x3D; new Collection&lt;DashboardGridElementModel&gt;(modelEntity, mappedElements);
+		Array.from(modelEntity.gridElements).forEach((el) &#x3D;&gt; {
+			if (!mappedElements.includes(el)) {
+				modelEntity.gridElements.remove(el);
+				this.em.remove(el);
+			}
+		});
 
 		return modelEntity;
 	}
 }
 </code></pre>
     </div>
+
 </div>
+
+
+
+
 
 
 
@@ -859,7 +833,7 @@ export class DashboardModelMapper {
 
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
-            var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
             var COMPODOC_CURRENT_PAGE_URL = 'DashboardModelMapper.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
