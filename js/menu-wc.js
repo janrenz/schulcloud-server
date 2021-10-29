@@ -374,19 +374,22 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 </li>
                             </li>
                             <li class="link">
+                                <a href="modules/RocketChatModule.html" data-type="entity-link" >RocketChatModule</a>
+                            </li>
+                            <li class="link">
                                 <a href="modules/ServerConsoleModule.html" data-type="entity-link" >ServerConsoleModule</a>
                             </li>
                             <li class="link">
                                 <a href="modules/ServerModule.html" data-type="entity-link" >ServerModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#controllers-links-module-ServerModule-420dee214b2f9d89269c8306d98f6606"' : 'data-target="#xs-controllers-links-module-ServerModule-420dee214b2f9d89269c8306d98f6606"' }>
+                                            'data-target="#controllers-links-module-ServerModule-3349705f38ebd5a4d07e8f50881bea93"' : 'data-target="#xs-controllers-links-module-ServerModule-3349705f38ebd5a4d07e8f50881bea93"' }>
                                             <span class="icon ion-md-swap"></span>
                                             <span>Controllers</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="controllers-links-module-ServerModule-420dee214b2f9d89269c8306d98f6606"' :
-                                            'id="xs-controllers-links-module-ServerModule-420dee214b2f9d89269c8306d98f6606"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="controllers-links-module-ServerModule-3349705f38ebd5a4d07e8f50881bea93"' :
+                                            'id="xs-controllers-links-module-ServerModule-3349705f38ebd5a4d07e8f50881bea93"' }>
                                             <li class="link">
                                                 <a href="controllers/ServerController.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >ServerController</a>
                                             </li>
@@ -647,6 +650,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/ResolvedUserMapper.html" data-type="entity-link" >ResolvedUserMapper</a>
                             </li>
                             <li class="link">
+                                <a href="classes/RocketChatError.html" data-type="entity-link" >RocketChatError</a>
+                            </li>
+                            <li class="link">
                                 <a href="classes/Role.html" data-type="entity-link" >Role</a>
                             </li>
                             <li class="link">
@@ -777,6 +783,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                     <a href="injectables/ParseObjectIdPipe.html" data-type="entity-link" >ParseObjectIdPipe</a>
                                 </li>
                                 <li class="link">
+                                    <a href="injectables/RocketChatService.html" data-type="entity-link" >RocketChatService</a>
+                                </li>
+                                <li class="link">
                                     <a href="injectables/RoleRepo.html" data-type="entity-link" >RoleRepo</a>
                                 </li>
                                 <li class="link">
@@ -816,6 +825,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             <span class="icon ion-ios-arrow-down"></span>
                         </div>
                         <ul class="links collapse " ${ isNormalMode ? ' id="interfaces-links"' : 'id="xs-interfaces-links"' }>
+                            <li class="link">
+                                <a href="interfaces/AdminIdAndToken.html" data-type="entity-link" >AdminIdAndToken</a>
+                            </li>
                             <li class="link">
                                 <a href="interfaces/AppendedAttachment.html" data-type="entity-link" >AppendedAttachment</a>
                             </li>
@@ -944,6 +956,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="interfaces/PlainTextMailContent.html" data-type="entity-link" >PlainTextMailContent</a>
+                            </li>
+                            <li class="link">
+                                <a href="interfaces/RocketChatOptions.html" data-type="entity-link" >RocketChatOptions</a>
                             </li>
                             <li class="link">
                                 <a href="interfaces/User.html" data-type="entity-link" >User</a>
