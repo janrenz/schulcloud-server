@@ -64,7 +64,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/modules/feathers/feathers-service.provider.ts</code>
+            <code>apps/server/src/shared/infra/feathers/feathers-service.provider.ts</code>
         </p>
 
 
@@ -133,8 +133,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="20"
-                            class="link-to-prism">apps/server/src/modules/feathers/feathers-service.provider.ts:20</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="19"
+                            class="link-to-prism">apps/server/src/shared/infra/feathers/feathers-service.provider.ts:19</a></div>
                 </td>
             </tr>
 
@@ -200,15 +200,15 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>get(id: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, params?: <a href="../interfaces/FeathersService.html" target="_self">FeathersServiceParams</a>)</code>
+<code>get(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, params?: <a href="../interfaces/FeathersService.html" target="_self">FeathersServiceParams</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="14"
-                            class="link-to-prism">apps/server/src/modules/feathers/feathers-service.provider.ts:14</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="13"
+                            class="link-to-prism">apps/server/src/shared/infra/feathers/feathers-service.provider.ts:13</a></div>
                 </td>
             </tr>
 
@@ -231,7 +231,7 @@
                                 <tr>
                                     <td>id</td>
                                     <td>
-                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
                                     </td>
 
                                     <td>
@@ -278,7 +278,6 @@
 import { REQUEST } from &#x27;@nestjs/core&#x27;;
 import { Request } from &#x27;express&#x27;;
 import { Application } from &#x27;@feathersjs/express&#x27;;
-import { EntityId } from &#x27;@shared/domain&#x27;;
 
 export interface FeathersService {
 	/**
@@ -287,7 +286,7 @@ export interface FeathersService {
 	 * @param params
 	 * @deprecated Access legacy eathers service get method
 	 */
-	get(id: EntityId, params?: FeathersServiceParams): Promise&lt;FeathersServiceResponse&gt;;
+	get(id: string, params?: FeathersServiceParams): Promise&lt;FeathersServiceResponse&gt;;
 	/**
 	 *
 	 * @param params

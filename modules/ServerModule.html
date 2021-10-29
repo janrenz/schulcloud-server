@@ -268,6 +268,7 @@ import { MikroOrmModule } from &#x27;@mikro-orm/nestjs&#x27;;
 import { Dictionary, IPrimaryKey } from &#x27;@mikro-orm/core&#x27;;
 import { Configuration } from &#x27;@hpi-schul-cloud/commons&#x27;;
 import { ALL_ENTITIES } from &#x27;@shared/domain&#x27;;
+import { MailModule } from &#x27;@shared/infra/mail&#x27;;
 import { AuthModule } from &#x27;./modules/authentication/auth.module&#x27;;
 import { ServerController } from &#x27;./server.controller&#x27;;
 import { DB_URL, DB_USERNAME, DB_PASSWORD } from &#x27;./config&#x27;;
@@ -276,7 +277,6 @@ import { CoreModule } from &#x27;./core/core.module&#x27;;
 import { TaskModule } from &#x27;./modules/task/task.module&#x27;;
 import { UserModule } from &#x27;./modules/user/user.module&#x27;;
 import { NewsModule } from &#x27;./modules/news/news.module&#x27;;
-import { MailModule } from &#x27;./modules/mail/mail.module&#x27;;
 import { FilesModule } from &#x27;./modules/files/files.module&#x27;;
 
 import { LearnroomModule } from &#x27;./modules/learnroom/learnroom.module&#x27;;
