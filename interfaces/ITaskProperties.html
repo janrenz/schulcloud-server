@@ -497,7 +497,7 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Collection, Entity, ManyToOne, OneToMany, ManyToMany, Property } from &#x27;@mikro-orm/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Collection, Entity, ManyToOne, OneToMany, ManyToMany, Property, Index } from &#x27;@mikro-orm/core&#x27;;
 
 import { EntityId } from &#x27;../types&#x27;;
 
@@ -522,6 +522,7 @@ export interface ITaskProperties {
 export type TaskParentDescriptions &#x3D; { name: string; description: string; color: string };
 
 @Entity({ tableName: &#x27;homeworks&#x27; })
+@Index({ name: &#x27;findAllByParentIds_findAllForStudent&#x27;, properties: [&#x27;private&#x27;, &#x27;dueDate&#x27;, &#x27;closed&#x27;] })
 export class Task extends BaseEntityWithTimestamps {
 	@Property()
 	name: string;
@@ -548,6 +549,7 @@ export class Task extends BaseEntityWithTimestamps {
 	submissions &#x3D; new Collection&lt;Submission&gt;(this);
 
 	// TODO: is mapped to boolean in future
+	@Index({ name: &#x27;findAllByParentIds_findAllForTeacher&#x27; })
 	@ManyToMany(&#x27;User&#x27;, undefined, { fieldName: &#x27;archived&#x27; })
 	closed &#x3D; new Collection&lt;User&gt;(this);
 

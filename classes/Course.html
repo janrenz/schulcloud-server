@@ -161,7 +161,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">apps/server/src/shared/domain/entity/course.entity.ts:54</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">apps/server/src/shared/domain/entity/course.entity.ts:52</a></div>
                             </td>
                         </tr>
 
@@ -237,7 +237,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">apps/server/src/shared/domain/entity/course.entity.ts:54</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">apps/server/src/shared/domain/entity/course.entity.ts:52</a></div>
                         </td>
                     </tr>
 
@@ -277,7 +277,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">apps/server/src/shared/domain/entity/course.entity.ts:34</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">apps/server/src/shared/domain/entity/course.entity.ts:35</a></div>
                         </td>
                     </tr>
 
@@ -317,7 +317,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">apps/server/src/shared/domain/entity/course.entity.ts:31</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">apps/server/src/shared/domain/entity/course.entity.ts:32</a></div>
                         </td>
                     </tr>
 
@@ -346,7 +346,7 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @Index()<br />@ManyToOne(&#x27;School&#x27;, {fieldName: &#x27;schoolId&#x27;})<br />
+                            @ManyToOne(&#x27;School&#x27;, {fieldName: &#x27;schoolId&#x27;})<br />
                         </code>
                     </td>
                 </tr>
@@ -380,7 +380,7 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @Index()<br />@ManyToMany(&#x27;User&#x27;, undefined, {fieldName: &#x27;userIds&#x27;})<br />
+                            @Index({name: &#x27;findAllForStudent&#x27;})<br />@ManyToMany(&#x27;User&#x27;, undefined, {fieldName: &#x27;userIds&#x27;})<br />
                         </code>
                     </td>
                 </tr>
@@ -414,13 +414,13 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @Index()<br />@ManyToMany(&#x27;User&#x27;, undefined, {fieldName: &#x27;substitutionIds&#x27;})<br />
+                            @ManyToMany(&#x27;User&#x27;, undefined, {fieldName: &#x27;substitutionIds&#x27;})<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">apps/server/src/shared/domain/entity/course.entity.ts:50</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">apps/server/src/shared/domain/entity/course.entity.ts:48</a></div>
                         </td>
                     </tr>
 
@@ -448,13 +448,13 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @Index()<br />@ManyToMany(&#x27;User&#x27;, undefined, {fieldName: &#x27;teacherIds&#x27;})<br />
+                            @ManyToMany(&#x27;User&#x27;, undefined, {fieldName: &#x27;teacherIds&#x27;})<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">apps/server/src/shared/domain/entity/course.entity.ts:46</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">apps/server/src/shared/domain/entity/course.entity.ts:45</a></div>
                         </td>
                     </tr>
 
@@ -654,8 +654,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="67"
-                            class="link-to-prism">apps/server/src/shared/domain/entity/course.entity.ts:67</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="65"
+                            class="link-to-prism">apps/server/src/shared/domain/entity/course.entity.ts:65</a></div>
                 </td>
             </tr>
 
@@ -691,8 +691,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="71"
-                            class="link-to-prism">apps/server/src/shared/domain/entity/course.entity.ts:71</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="69"
+                            class="link-to-prism">apps/server/src/shared/domain/entity/course.entity.ts:69</a></div>
                 </td>
             </tr>
 
@@ -777,6 +777,7 @@ const DEFAULT &#x3D; {
 	description: &#x27;&#x27;,
 };
 
+@Index({ name: &#x27;findAllForTeacher&#x27;, properties: [&#x27;substitutionTeachers&#x27;, &#x27;teachers&#x27;] })
 @Entity({ tableName: &#x27;courses&#x27; })
 export class Course extends BaseEntityWithTimestamps {
 	@Property()
@@ -785,19 +786,16 @@ export class Course extends BaseEntityWithTimestamps {
 	@Property()
 	description: string &#x3D; DEFAULT.description;
 
-	@Index()
 	@ManyToOne(&#x27;School&#x27;, { fieldName: &#x27;schoolId&#x27; })
 	school!: School;
 
-	@Index()
+	@Index({ name: &#x27;findAllForStudent&#x27; })
 	@ManyToMany(&#x27;User&#x27;, undefined, { fieldName: &#x27;userIds&#x27; })
 	students &#x3D; new Collection&lt;User&gt;(this);
 
-	@Index()
 	@ManyToMany(&#x27;User&#x27;, undefined, { fieldName: &#x27;teacherIds&#x27; })
 	teachers &#x3D; new Collection&lt;User&gt;(this);
 
-	@Index()
 	@ManyToMany(&#x27;User&#x27;, undefined, { fieldName: &#x27;substitutionIds&#x27; })
 	substitutionTeachers &#x3D; new Collection&lt;User&gt;(this);
 

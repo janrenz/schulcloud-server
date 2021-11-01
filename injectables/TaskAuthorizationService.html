@@ -239,7 +239,7 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
-import { EntityId } from &#x27;@shared/domain&#x27;;
+import { EntityId, Course } from &#x27;@shared/domain&#x27;;
 import { CourseRepo } from &#x27;@src/repositories&#x27;;
 
 export enum TaskParentPermission {
@@ -257,10 +257,12 @@ export class TaskAuthorizationService {
 	async getPermittedCourses(userId: EntityId, permission: TaskParentPermission): Promise&lt;EntityId[]&gt; {
 		// courseGroups are missing
 		// lessons are missing -&gt; only search for hidden: false,
-		const [permittedCourses] &#x3D;
-			permission &#x3D;&#x3D;&#x3D; TaskParentPermission.write
-				? await this.courseRepo.findAllForTeacher(userId)
-				: await this.courseRepo.findAllForStudent(userId);
+		let permittedCourses: Course[] &#x3D; [];
+		if (permission &#x3D;&#x3D;&#x3D; TaskParentPermission.write) {
+			[permittedCourses] &#x3D; await this.courseRepo.findAllForTeacher(userId);
+		} else if (permission &#x3D;&#x3D;&#x3D; TaskParentPermission.read) {
+			[permittedCourses] &#x3D; await this.courseRepo.findAllForStudent(userId);
+		}
 
 		const entityIds &#x3D; permittedCourses.map((o) &#x3D;&gt; o.id);
 		return entityIds;

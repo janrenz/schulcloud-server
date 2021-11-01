@@ -434,6 +434,7 @@ const DEFAULT &#x3D; {
 	description: &#x27;&#x27;,
 };
 
+@Index({ name: &#x27;findAllForTeacher&#x27;, properties: [&#x27;substitutionTeachers&#x27;, &#x27;teachers&#x27;] })
 @Entity({ tableName: &#x27;courses&#x27; })
 export class Course extends BaseEntityWithTimestamps {
 	@Property()
@@ -442,19 +443,16 @@ export class Course extends BaseEntityWithTimestamps {
 	@Property()
 	description: string &#x3D; DEFAULT.description;
 
-	@Index()
 	@ManyToOne(&#x27;School&#x27;, { fieldName: &#x27;schoolId&#x27; })
 	school!: School;
 
-	@Index()
+	@Index({ name: &#x27;findAllForStudent&#x27; })
 	@ManyToMany(&#x27;User&#x27;, undefined, { fieldName: &#x27;userIds&#x27; })
 	students &#x3D; new Collection&lt;User&gt;(this);
 
-	@Index()
 	@ManyToMany(&#x27;User&#x27;, undefined, { fieldName: &#x27;teacherIds&#x27; })
 	teachers &#x3D; new Collection&lt;User&gt;(this);
 
-	@Index()
 	@ManyToMany(&#x27;User&#x27;, undefined, { fieldName: &#x27;substitutionIds&#x27; })
 	substitutionTeachers &#x3D; new Collection&lt;User&gt;(this);
 
