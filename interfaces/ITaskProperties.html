@@ -519,6 +519,25 @@ export interface ITaskProperties {
 	closed?: User[];
 }
 
+export interface ITaskStatus {
+	submitted: number;
+	maxSubmissions: number;
+	graded: number;
+	isDraft: boolean;
+	isSubstitutionTeacher: boolean;
+}
+
+export class TaskWithStatusVo {
+	task!: Task;
+
+	status!: ITaskStatus;
+
+	constructor(task: Task, status: ITaskStatus) {
+		this.task &#x3D; task;
+		this.status &#x3D; status;
+	}
+}
+
 export type TaskParentDescriptions &#x3D; { name: string; description: string; color: string };
 
 @Entity({ tableName: &#x27;homeworks&#x27; })
@@ -553,20 +572,125 @@ export class Task extends BaseEntityWithTimestamps {
 	@ManyToMany(&#x27;User&#x27;, undefined, { fieldName: &#x27;archived&#x27; })
 	closed &#x3D; new Collection&lt;User&gt;(this);
 
+	constructor(props: ITaskProperties) {
+		super();
+		this.name &#x3D; props.name;
+		this.availableDate &#x3D; props.availableDate;
+		this.dueDate &#x3D; props.dueDate;
+		if (props.private !&#x3D;&#x3D; undefined) this.private &#x3D; props.private;
+		this.teacher &#x3D; props.teacher;
+		this.course &#x3D; props.course;
+		this.lesson &#x3D; props.lesson;
+		this.submissions.set(props.submissions || []);
+		// TODO: is replaced with boolean in future
+		this.closed.set(props.closed || []);
+	}
+
 	isDraft(): boolean {
 		// private can be undefined in the database
 		return !!this.private;
 	}
 
-	isSubstitutionTeacher(userId: EntityId): boolean {
-		if (!this.course) {
-			return false;
-		}
-		// TODO: check if it is loaded if not load it ...isInitialized() is only work for collections, await ...init() also
-		const isSubstitutionTeacher &#x3D; this.course.isSubstitutionTeacher(userId);
-		return isSubstitutionTeacher;
+	private getSubmissionsItems(): Submission[] {
+		// TODO: load/init check until mikro-orm base entity is extended
+		const submissions &#x3D; this.submissions.getItems();
+		return submissions;
 	}
 
+	getSubmittedUserIds(): EntityId[] {
+		const submissions &#x3D; this.getSubmissionsItems();
+		const submittedUserIds &#x3D; submissions.map((submission) &#x3D;&gt; submission.getStudentId());
+
+		return submittedUserIds;
+	}
+
+	getNumberOfSubmittedUsers(): number {
+		const submittedUserIds &#x3D; this.getSubmittedUserIds();
+		const submitted &#x3D; [...new Set(submittedUserIds)].length;
+
+		return submitted;
+	}
+
+	getGradedUserIds(): EntityId[] {
+		const gradedUserIds &#x3D; this.getSubmissionsItems()
+			.filter((submission) &#x3D;&gt; submission.isGraded())
+			.map((submission) &#x3D;&gt; submission.getStudentId());
+
+		return gradedUserIds;
+	}
+
+	getNumberOfGradedUsers(): number {
+		const gradedUserIds &#x3D; this.getGradedUserIds();
+		const graded &#x3D; [...new Set(gradedUserIds)].length;
+
+		return graded;
+	}
+
+	// attention based on this parent use this.getParent() instant
+	getMaxSubmissions(): number {
+		// hack until parents are defined
+		const numberOfStudents &#x3D; this.course ? this.course.getNumberOfStudents() : 0;
+
+		return numberOfStudents;
+	}
+
+	createTeacherStatusForUser(userId: EntityId): ITaskStatus {
+		const submitted &#x3D; this.getNumberOfSubmittedUsers();
+		const graded &#x3D; this.getNumberOfGradedUsers();
+		const maxSubmissions &#x3D; this.getMaxSubmissions();
+		const isDraft &#x3D; this.isDraft();
+		// only point that need the parameter
+		// const isSubstitutionTeacher &#x3D; this.isSubstitutionTeacher(userId);
+		// work with getParent()
+		let isSubstitutionTeacher &#x3D; false;
+		if (this.course) {
+			isSubstitutionTeacher &#x3D; this.course.getSubstitutionTeacherIds().includes(userId);
+		}
+
+		const status &#x3D; {
+			submitted,
+			graded,
+			maxSubmissions,
+			isDraft,
+			isSubstitutionTeacher,
+		};
+
+		return status;
+	}
+
+	isSubmittedForUser(userId: EntityId): boolean {
+		const submitted &#x3D; this.getSubmittedUserIds().some((id) &#x3D;&gt; userId &#x3D;&#x3D;&#x3D; id);
+
+		return submitted;
+	}
+
+	isGradedForUser(userId: EntityId): boolean {
+		const graded &#x3D; this.getGradedUserIds().some((id) &#x3D;&gt; userId &#x3D;&#x3D;&#x3D; id);
+
+		return graded;
+	}
+
+	createStudentStatusForUser(userId: EntityId): ITaskStatus {
+		const isSubmitted &#x3D; this.isSubmittedForUser(userId);
+		const isGraded &#x3D; this.isGradedForUser(userId);
+		const maxSubmissions &#x3D; 1;
+		const isDraft &#x3D; this.isDraft();
+		const isSubstitutionTeacher &#x3D; false;
+
+		const status &#x3D; {
+			submitted: isSubmitted ? 1 : 0,
+			graded: isGraded ? 1 : 0,
+			maxSubmissions,
+			isDraft,
+			isSubstitutionTeacher,
+			// TODO: visibility of parent is missed ..but isSubstitutionTeacher and this is not really a part from task,
+			// for this we must add parent relationship
+		};
+
+		return status;
+	}
+
+	// TODO: based on the parent relationship
 	getDescriptions(): TaskParentDescriptions {
 		let descriptions: TaskParentDescriptions;
 		if (this.course) {
@@ -582,21 +706,8 @@ export class Task extends BaseEntityWithTimestamps {
 				color: &#x27;#ACACAC&#x27;,
 			};
 		}
-		return descriptions;
-	}
 
-	constructor(props: ITaskProperties) {
-		super();
-		this.name &#x3D; props.name;
-		this.availableDate &#x3D; props.availableDate;
-		this.dueDate &#x3D; props.dueDate;
-		if (props.private !&#x3D;&#x3D; undefined) this.private &#x3D; props.private;
-		this.teacher &#x3D; props.teacher;
-		this.course &#x3D; props.course;
-		this.lesson &#x3D; props.lesson;
-		this.submissions.set(props.submissions || []);
-		// TODO: is replaced with boolean in future
-		this.closed.set(props.closed || []);
+		return descriptions;
 	}
 }
 </code></pre>

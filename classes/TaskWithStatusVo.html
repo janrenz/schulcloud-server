@@ -61,7 +61,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/shared/domain/vo/task-with-status.vo.ts</code>
+            <code>apps/server/src/shared/domain/entity/task.entity.ts</code>
         </p>
 
 
@@ -111,7 +111,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">apps/server/src/shared/domain/vo/task-with-status.vo.ts:14</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">apps/server/src/shared/domain/entity/task.entity.ts:34</a></div>
                             </td>
                         </tr>
 
@@ -185,7 +185,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">apps/server/src/shared/domain/vo/task-with-status.vo.ts:14</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">apps/server/src/shared/domain/entity/task.entity.ts:34</a></div>
                         </td>
                     </tr>
 
@@ -211,7 +211,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">apps/server/src/shared/domain/vo/task-with-status.vo.ts:12</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">apps/server/src/shared/domain/entity/task.entity.ts:32</a></div>
                         </td>
                     </tr>
 
@@ -230,9 +230,29 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Task } from &#x27;../entity/task.entity&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Collection, Entity, ManyToOne, OneToMany, ManyToMany, Property, Index } from &#x27;@mikro-orm/core&#x27;;
 
-interface ITaskStatus {
+import { EntityId } from &#x27;../types&#x27;;
+
+import { BaseEntityWithTimestamps } from &#x27;./base.entity&#x27;;
+import type { Course } from &#x27;./course.entity&#x27;;
+import type { Lesson } from &#x27;./lesson.entity&#x27;;
+import type { Submission } from &#x27;./submission.entity&#x27;;
+import { User } from &#x27;./user.entity&#x27;;
+
+export interface ITaskProperties {
+	name: string;
+	availableDate?: Date;
+	dueDate?: Date;
+	private?: boolean;
+	teacher?: User;
+	course?: Course;
+	lesson?: Lesson;
+	submissions?: Submission[];
+	closed?: User[];
+}
+
+export interface ITaskStatus {
 	submitted: number;
 	maxSubmissions: number;
 	graded: number;
@@ -248,6 +268,179 @@ export class TaskWithStatusVo {
 	constructor(task: Task, status: ITaskStatus) {
 		this.task &#x3D; task;
 		this.status &#x3D; status;
+	}
+}
+
+export type TaskParentDescriptions &#x3D; { name: string; description: string; color: string };
+
+@Entity({ tableName: &#x27;homeworks&#x27; })
+@Index({ name: &#x27;findAllByParentIds_findAllForStudent&#x27;, properties: [&#x27;private&#x27;, &#x27;dueDate&#x27;, &#x27;closed&#x27;] })
+export class Task extends BaseEntityWithTimestamps {
+	@Property()
+	name: string;
+
+	@Property()
+	availableDate?: Date;
+
+	@Property()
+	dueDate?: Date;
+
+	@Property()
+	private &#x3D; true;
+
+	@ManyToOne(&#x27;User&#x27;, { fieldName: &#x27;teacherId&#x27; })
+	teacher?: User;
+
+	@ManyToOne(&#x27;Course&#x27;, { fieldName: &#x27;courseId&#x27; })
+	course?: Course;
+
+	@ManyToOne(&#x27;Lesson&#x27;, { fieldName: &#x27;lessonId&#x27; })
+	lesson?: Lesson; // In database exist also null, but it can not set.
+
+	@OneToMany(&#x27;Submission&#x27;, &#x27;task&#x27;)
+	submissions &#x3D; new Collection&lt;Submission&gt;(this);
+
+	// TODO: is mapped to boolean in future
+	@Index({ name: &#x27;findAllByParentIds_findAllForTeacher&#x27; })
+	@ManyToMany(&#x27;User&#x27;, undefined, { fieldName: &#x27;archived&#x27; })
+	closed &#x3D; new Collection&lt;User&gt;(this);
+
+	constructor(props: ITaskProperties) {
+		super();
+		this.name &#x3D; props.name;
+		this.availableDate &#x3D; props.availableDate;
+		this.dueDate &#x3D; props.dueDate;
+		if (props.private !&#x3D;&#x3D; undefined) this.private &#x3D; props.private;
+		this.teacher &#x3D; props.teacher;
+		this.course &#x3D; props.course;
+		this.lesson &#x3D; props.lesson;
+		this.submissions.set(props.submissions || []);
+		// TODO: is replaced with boolean in future
+		this.closed.set(props.closed || []);
+	}
+
+	isDraft(): boolean {
+		// private can be undefined in the database
+		return !!this.private;
+	}
+
+	private getSubmissionsItems(): Submission[] {
+		// TODO: load/init check until mikro-orm base entity is extended
+		const submissions &#x3D; this.submissions.getItems();
+		return submissions;
+	}
+
+	getSubmittedUserIds(): EntityId[] {
+		const submissions &#x3D; this.getSubmissionsItems();
+		const submittedUserIds &#x3D; submissions.map((submission) &#x3D;&gt; submission.getStudentId());
+
+		return submittedUserIds;
+	}
+
+	getNumberOfSubmittedUsers(): number {
+		const submittedUserIds &#x3D; this.getSubmittedUserIds();
+		const submitted &#x3D; [...new Set(submittedUserIds)].length;
+
+		return submitted;
+	}
+
+	getGradedUserIds(): EntityId[] {
+		const gradedUserIds &#x3D; this.getSubmissionsItems()
+			.filter((submission) &#x3D;&gt; submission.isGraded())
+			.map((submission) &#x3D;&gt; submission.getStudentId());
+
+		return gradedUserIds;
+	}
+
+	getNumberOfGradedUsers(): number {
+		const gradedUserIds &#x3D; this.getGradedUserIds();
+		const graded &#x3D; [...new Set(gradedUserIds)].length;
+
+		return graded;
+	}
+
+	// attention based on this parent use this.getParent() instant
+	getMaxSubmissions(): number {
+		// hack until parents are defined
+		const numberOfStudents &#x3D; this.course ? this.course.getNumberOfStudents() : 0;
+
+		return numberOfStudents;
+	}
+
+	createTeacherStatusForUser(userId: EntityId): ITaskStatus {
+		const submitted &#x3D; this.getNumberOfSubmittedUsers();
+		const graded &#x3D; this.getNumberOfGradedUsers();
+		const maxSubmissions &#x3D; this.getMaxSubmissions();
+		const isDraft &#x3D; this.isDraft();
+		// only point that need the parameter
+		// const isSubstitutionTeacher &#x3D; this.isSubstitutionTeacher(userId);
+		// work with getParent()
+		let isSubstitutionTeacher &#x3D; false;
+		if (this.course) {
+			isSubstitutionTeacher &#x3D; this.course.getSubstitutionTeacherIds().includes(userId);
+		}
+
+		const status &#x3D; {
+			submitted,
+			graded,
+			maxSubmissions,
+			isDraft,
+			isSubstitutionTeacher,
+		};
+
+		return status;
+	}
+
+	isSubmittedForUser(userId: EntityId): boolean {
+		const submitted &#x3D; this.getSubmittedUserIds().some((id) &#x3D;&gt; userId &#x3D;&#x3D;&#x3D; id);
+
+		return submitted;
+	}
+
+	isGradedForUser(userId: EntityId): boolean {
+		const graded &#x3D; this.getGradedUserIds().some((id) &#x3D;&gt; userId &#x3D;&#x3D;&#x3D; id);
+
+		return graded;
+	}
+
+	createStudentStatusForUser(userId: EntityId): ITaskStatus {
+		const isSubmitted &#x3D; this.isSubmittedForUser(userId);
+		const isGraded &#x3D; this.isGradedForUser(userId);
+		const maxSubmissions &#x3D; 1;
+		const isDraft &#x3D; this.isDraft();
+		const isSubstitutionTeacher &#x3D; false;
+
+		const status &#x3D; {
+			submitted: isSubmitted ? 1 : 0,
+			graded: isGraded ? 1 : 0,
+			maxSubmissions,
+			isDraft,
+			isSubstitutionTeacher,
+			// TODO: visibility of parent is missed ..but isSubstitutionTeacher and this is not really a part from task,
+			// for this we must add parent relationship
+		};
+
+		return status;
+	}
+
+	// TODO: based on the parent relationship
+	getDescriptions(): TaskParentDescriptions {
+		let descriptions: TaskParentDescriptions;
+		if (this.course) {
+			descriptions &#x3D; {
+				name: this.course.name,
+				description: this.lesson ? this.lesson.name : &#x27;&#x27;,
+				color: this.course.color,
+			};
+		} else {
+			descriptions &#x3D; {
+				name: &#x27;&#x27;,
+				description: &#x27;&#x27;,
+				color: &#x27;#ACACAC&#x27;,
+			};
+		}
+
+		return descriptions;
 	}
 }
 </code></pre>

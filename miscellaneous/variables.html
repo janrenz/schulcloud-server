@@ -1843,11 +1843,11 @@ it should ensure an empty result</p>
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>BaseFactory.define&lt;Submission, ISubmissionProperties&gt;(Submission, () &#x3D;&gt; {
+                        <i>Default value : </i><code>SubmissionFactory.define(Submission, ({ sequence }) &#x3D;&gt; {
 	return {
 		task: taskFactory.build(),
 		student: userFactory.build(),
-		comment: &#x27;submission comment&#x27;,
+		comment: &#x60;submission comment #${sequence}&#x60;,
 	};
 })</code>
                     </td>
