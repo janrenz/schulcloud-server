@@ -57,7 +57,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/modules/files/repo/files.repo.ts</code>
+            <code>apps/server/src/shared/repo/files/files.repo.ts</code>
         </p>
 
 
@@ -160,7 +160,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">apps/server/src/modules/files/repo/files.repo.ts:8</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">apps/server/src/shared/repo/files/files.repo.ts:8</a></div>
                             </td>
                         </tr>
 
@@ -238,7 +238,7 @@
             <tr>
                 <td class="col-md-4">
                     <div class="io-line">Defined in <a href="" data-line="23"
-                            class="link-to-prism">apps/server/src/modules/files/repo/files.repo.ts:23</a></div>
+                            class="link-to-prism">apps/server/src/shared/repo/files/files.repo.ts:23</a></div>
                 </td>
             </tr>
 
@@ -309,7 +309,7 @@
             <tr>
                 <td class="col-md-4">
                     <div class="io-line">Defined in <a href="" data-line="15"
-                            class="link-to-prism">apps/server/src/modules/files/repo/files.repo.ts:15</a></div>
+                            class="link-to-prism">apps/server/src/shared/repo/files/files.repo.ts:15</a></div>
                 </td>
             </tr>
 
@@ -1040,7 +1040,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">apps/server/src/modules/files/repo/files.repo.ts:13</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">apps/server/src/shared/repo/files/files.repo.ts:13</a></div>
                         </td>
                     </tr>
 
@@ -1055,9 +1055,9 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
 import { EntityManager } from &#x27;@mikro-orm/mongodb&#x27;;
-import { BaseRepo } from &#x27;@shared/repo/base.repo&#x27;;
 import { BaseFile, File } from &#x27;@shared/domain&#x27;;
 import { FileStorageAdapter } from &#x27;@shared/infra/filestorage&#x27;;
+import { BaseRepo } from &#x27;../base.repo&#x27;;
 
 @Injectable()
 export class FilesRepo extends BaseRepo&lt;BaseFile&gt; {

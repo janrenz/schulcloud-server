@@ -54,13 +54,13 @@
 <h2 id="logging">Logging</h2>
 <p>For logging use the logger ServerLogger, provided by the logger module. It is hooked up in the application on startup, replacing the default logger and can be transient injected into any provider by additionally define set a context into the logger.</p>
 <div><pre class="line-numbers"><code class="language-TypeScript">// add Logger module to your feature module imports or unit tests
-import { LoggerModule } from &#39;../core/logger/logger.module&#39;;
+import { LoggerModule } from &#39;&#64;src/core/logger&#39;;
 // ...
 imports: [LoggerModule],
 </code></pre></div><div><pre class="line-numbers"><code class="language-TypeScript">// within of a provider (use-case, service, ...)
 
 // import the server logger service
-import { ServerLogger } from &#39;../core/logger/logger.service&#39;;
+import { ServerLogger } from &#39;&#64;src/core/logger&#39;;
 
 &#64;Injectable()
 export class YourUc {

@@ -61,7 +61,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/modules/news/repo/news-scope.ts</code>
+            <code>apps/server/src/shared/repo/news/news-scope.ts</code>
         </p>
 
 
@@ -234,8 +234,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="7"
-                            class="link-to-prism">apps/server/src/modules/news/repo/news-scope.ts:7</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="8"
+                            class="link-to-prism">apps/server/src/shared/repo/news/news-scope.ts:8</a></div>
                 </td>
             </tr>
 
@@ -303,8 +303,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="22"
-                            class="link-to-prism">apps/server/src/modules/news/repo/news-scope.ts:22</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="23"
+                            class="link-to-prism">apps/server/src/shared/repo/news/news-scope.ts:23</a></div>
                 </td>
             </tr>
 
@@ -438,8 +438,9 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { FilterQuery } from &#x27;@mikro-orm/core&#x27;;
-import { EmptyResultQuery, Scope } from &#x27;@shared/repo&#x27;;
 import { News } from &#x27;@shared/domain&#x27;;
+import { EmptyResultQuery } from &#x27;../query&#x27;;
+import { Scope } from &#x27;../scope&#x27;;
 import { NewsTargetFilter } from &#x27;./news-target-filter&#x27;;
 
 export class NewsScope extends Scope&lt;News&gt; {

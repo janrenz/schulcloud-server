@@ -726,7 +726,7 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { EntityId, Task } from &#x27;@shared/domain&#x27;;
-import { Scope } from &#x27;@shared/repo&#x27;;
+import { Scope } from &#x27;@shared/repo/scope&#x27;; // TODO move this file to shared
 
 export class TaskScope extends Scope&lt;Task&gt; {
 	// TODO: parameter &gt; isClosed: boolean

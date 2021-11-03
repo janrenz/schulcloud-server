@@ -369,7 +369,7 @@
 import { Injectable } from &#x27;@nestjs/common&#x27;;
 
 import { EntityId, Course, Counted } from &#x27;@shared/domain&#x27;;
-import { Scope } from &#x27;@shared/repo&#x27;;
+import { Scope } from &#x27;@shared/repo/scope&#x27;; // TODO move to shared
 
 class CourseScope extends Scope&lt;Course&gt; {
 	forAllGroupTypes(userId: EntityId): CourseScope {
