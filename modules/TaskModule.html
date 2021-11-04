@@ -205,12 +205,10 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Module } from &#x27;@nestjs/common&#x27;;
 
-import { CourseRepo } from &#x27;@src/repositories&#x27;;
+import { CourseRepo, LessonRepo, TaskRepo } from &#x27;@shared/repo&#x27;;
 
-import { LessonRepo } from &#x27;@shared/repo&#x27;;
 import { TaskController } from &#x27;./controller/task.controller&#x27;;
 import { TaskUC } from &#x27;./uc&#x27;;
-import { TaskRepo } from &#x27;./repo&#x27;;
 import { TaskAuthorizationService } from &#x27;./uc/task.authorization.service&#x27;;
 
 @Module({

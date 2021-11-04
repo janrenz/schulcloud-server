@@ -61,7 +61,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/repositories/learnroom/course.repo.ts</code>
+            <code>apps/server/src/shared/repo/course/course.repo.ts</code>
         </p>
 
 
@@ -232,7 +232,7 @@
             <tr>
                 <td class="col-md-4">
                     <div class="io-line">Defined in <a href="" data-line="8"
-                            class="link-to-prism">apps/server/src/repositories/learnroom/course.repo.ts:8</a></div>
+                            class="link-to-prism">apps/server/src/shared/repo/course/course.repo.ts:8</a></div>
                 </td>
             </tr>
 
@@ -369,7 +369,7 @@
 import { Injectable } from &#x27;@nestjs/common&#x27;;
 
 import { EntityId, Course, Counted } from &#x27;@shared/domain&#x27;;
-import { Scope } from &#x27;@shared/repo/scope&#x27;; // TODO move to shared
+import { Scope } from &#x27;../scope&#x27;;
 
 class CourseScope extends Scope&lt;Course&gt; {
 	forAllGroupTypes(userId: EntityId): CourseScope {
