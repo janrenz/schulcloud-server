@@ -116,7 +116,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="59" class="link-to-prism">apps/server/src/shared/repo/dashboard/dashboard.repo.ts:59</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="65" class="link-to-prism">apps/server/src/shared/repo/dashboard/dashboard.repo.ts:65</a></div>
                             </td>
                         </tr>
 
@@ -193,8 +193,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="75"
-                            class="link-to-prism">apps/server/src/shared/repo/dashboard/dashboard.repo.ts:75</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="81"
+                            class="link-to-prism">apps/server/src/shared/repo/dashboard/dashboard.repo.ts:81</a></div>
                 </td>
             </tr>
 
@@ -264,8 +264,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="81"
-                            class="link-to-prism">apps/server/src/shared/repo/dashboard/dashboard.repo.ts:81</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="87"
+                            class="link-to-prism">apps/server/src/shared/repo/dashboard/dashboard.repo.ts:87</a></div>
                 </td>
             </tr>
 
@@ -303,8 +303,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="63"
-                            class="link-to-prism">apps/server/src/shared/repo/dashboard/dashboard.repo.ts:63</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="69"
+                            class="link-to-prism">apps/server/src/shared/repo/dashboard/dashboard.repo.ts:69</a></div>
                 </td>
             </tr>
 
@@ -374,8 +374,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="69"
-                            class="link-to-prism">apps/server/src/shared/repo/dashboard/dashboard.repo.ts:69</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="75"
+                            class="link-to-prism">apps/server/src/shared/repo/dashboard/dashboard.repo.ts:75</a></div>
                 </td>
             </tr>
 
@@ -430,9 +430,15 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
-import { EntityId, DashboardEntity, DefaultGridReference, GridElement, GridElementWithPosition } from &#x27;@shared/domain&#x27;;
+import {
+	EntityId,
+	DashboardEntity,
+	DefaultGridReference,
+	GridElement,
+	GridElementWithPosition,
+	DashboardModelEntity,
+} from &#x27;@shared/domain&#x27;;
 import { EntityManager, ObjectId } from &#x27;@mikro-orm/mongodb&#x27;;
-import { DashboardModelEntity } from &#x27;./dashboard.model.entity&#x27;;
 import { DashboardModelMapper } from &#x27;./dashboard.model.mapper&#x27;;
 
 const hardcodedTestDashboardId &#x3D; &#x27;0000d213816abba584714c0a&#x27;;
