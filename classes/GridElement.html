@@ -1238,7 +1238,7 @@ export type GridElementWithPosition &#x3D; {
 	pos: GridPosition;
 };
 
-export type DashboardProps &#x3D; { colums?: number; rows?: number; grid: GridElementWithPosition[] };
+export type DashboardProps &#x3D; { colums?: number; rows?: number; grid: GridElementWithPosition[]; userId: EntityId };
 
 export class DashboardEntity {
 	id: EntityId;
@@ -1248,6 +1248,8 @@ export class DashboardEntity {
 	rows: number;
 
 	grid: Map&lt;number, IGridElement&gt;;
+
+	userId: EntityId;
 
 	private gridIndexFromPosition(pos: GridPosition): number {
 		if (pos.x &gt; this.columns || pos.y &gt; this.rows) {
@@ -1270,11 +1272,16 @@ export class DashboardEntity {
 			this.grid.set(this.gridIndexFromPosition(element.pos), element.gridElement);
 		});
 		this.id &#x3D; id;
+		this.userId &#x3D; props.userId;
 		Object.assign(this, {});
 	}
 
 	getId(): string {
 		return this.id;
+	}
+
+	getUserId(): EntityId {
+		return this.userId;
 	}
 
 	getGrid(): GridElementWithPosition[] {

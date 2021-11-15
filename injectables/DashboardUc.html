@@ -89,6 +89,10 @@
                                     <span class="modifier">Async</span>
                                 <a href="#renameGroupOnDashboard" >renameGroupOnDashboard</a>
                             </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#validateUsersMatch" >validateUsersMatch</a>
+                            </li>
                         </ul>
                     </td>
                 </tr>
@@ -112,7 +116,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="6" class="link-to-prism">apps/server/src/modules/learnroom/uc/dashboard.uc.ts:6</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">apps/server/src/modules/learnroom/uc/dashboard.uc.ts:7</a></div>
                             </td>
                         </tr>
 
@@ -170,15 +174,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>getUsersDashboard()</code>
+                    <code>getUsersDashboard(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="9"
-                            class="link-to-prism">apps/server/src/modules/learnroom/uc/dashboard.uc.ts:9</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="10"
+                            class="link-to-prism">apps/server/src/modules/learnroom/uc/dashboard.uc.ts:10</a></div>
                 </td>
             </tr>
 
@@ -187,8 +191,40 @@
                 <td class="col-md-4">
 
                     <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>userId</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
                         <b>Returns : </b>        <code><a href="../classes/DashboardEntity.html" target="_self" >Promise&lt;DashboardEntity&gt;</a></code>
 
+                    </div>
+                    <div class="io-description">
+                        
                     </div>
                 </td>
             </tr>
@@ -209,15 +245,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>moveElementOnDashboard(dashboardId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, from: <a href="../undefineds/GridPositionWithGroupIndex.html" target="_self">GridPositionWithGroupIndex</a>, to: <a href="../undefineds/GridPositionWithGroupIndex.html" target="_self">GridPositionWithGroupIndex</a>)</code>
+                    <code>moveElementOnDashboard(dashboardId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, from: <a href="../undefineds/GridPositionWithGroupIndex.html" target="_self">GridPositionWithGroupIndex</a>, to: <a href="../undefineds/GridPositionWithGroupIndex.html" target="_self">GridPositionWithGroupIndex</a>, userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="14"
-                            class="link-to-prism">apps/server/src/modules/learnroom/uc/dashboard.uc.ts:14</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="15"
+                            class="link-to-prism">apps/server/src/modules/learnroom/uc/dashboard.uc.ts:15</a></div>
                 </td>
             </tr>
 
@@ -273,6 +309,18 @@
 
 
                                 </tr>
+                                <tr>
+                                    <td>userId</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -304,15 +352,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>renameGroupOnDashboard(dashboardId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, position: <a href="../undefineds/GridPosition.html" target="_self">GridPosition</a>, params: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    <code>renameGroupOnDashboard(dashboardId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, position: <a href="../undefineds/GridPosition.html" target="_self">GridPosition</a>, params: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="26"
-                            class="link-to-prism">apps/server/src/modules/learnroom/uc/dashboard.uc.ts:26</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="30"
+                            class="link-to-prism">apps/server/src/modules/learnroom/uc/dashboard.uc.ts:30</a></div>
                 </td>
             </tr>
 
@@ -368,6 +416,18 @@
 
 
                                 </tr>
+                                <tr>
+                                    <td>userId</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -375,6 +435,89 @@
                     </div>
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="../classes/DashboardEntity.html" target="_self" >Promise&lt;DashboardEntity&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="validateUsersMatch"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span ><b>validateUsersMatch</b></span>
+                        <a href="#validateUsersMatch"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>validateUsersMatch(dashboard: <a href="../classes/DashboardEntity.html" target="_self">DashboardEntity</a>, userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="46"
+                            class="link-to-prism">apps/server/src/modules/learnroom/uc/dashboard.uc.ts:46</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>dashboard</td>
+                                    <td>
+                                                <code><a href="../classes/DashboardEntity.html" target="_self" >DashboardEntity</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>userId</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
                     </div>
                     <div class="io-description">
@@ -393,24 +536,28 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable, Inject } from &#x27;@nestjs/common&#x27;;
 import { DashboardEntity, EntityId, GridPositionWithGroupIndex, GridPosition } from &#x27;@shared/domain&#x27;;
 import { IDashboardRepo } from &#x27;@shared/repo&#x27;;
+import { NotFound } from &#x27;@feathersjs/errors&#x27;;
 
 @Injectable()
 export class DashboardUc {
 	constructor(@Inject(&#x27;DASHBOARD_REPO&#x27;) private readonly dashboardRepo: IDashboardRepo) {}
 
-	async getUsersDashboard(): Promise&lt;DashboardEntity&gt; {
-		const dashboard &#x3D; await this.dashboardRepo.getUsersDashboard();
+	async getUsersDashboard(userId: EntityId): Promise&lt;DashboardEntity&gt; {
+		const dashboard &#x3D; await this.dashboardRepo.getUsersDashboard(userId);
 		return dashboard;
 	}
 
 	async moveElementOnDashboard(
 		dashboardId: EntityId,
 		from: GridPositionWithGroupIndex,
-		to: GridPositionWithGroupIndex
-		/* currentUser: ICurrentUser */
+		to: GridPositionWithGroupIndex,
+		userId: EntityId
 	): Promise&lt;DashboardEntity&gt; {
 		const dashboard &#x3D; await this.dashboardRepo.getDashboardById(dashboardId);
+		this.validateUsersMatch(dashboard, userId);
+
 		dashboard.moveElement(from, to);
+
 		await this.dashboardRepo.persistAndFlush(dashboard);
 		return dashboard;
 	}
@@ -418,13 +565,23 @@ export class DashboardUc {
 	async renameGroupOnDashboard(
 		dashboardId: EntityId,
 		position: GridPosition,
-		params: string
+		params: string,
+		userId: EntityId
 	): Promise&lt;DashboardEntity&gt; {
 		const dashboard &#x3D; await this.dashboardRepo.getDashboardById(dashboardId);
+		this.validateUsersMatch(dashboard, userId);
+
 		const gridElement &#x3D; dashboard.getElement(position);
 		gridElement.setGroupName(params);
+
 		await this.dashboardRepo.persistAndFlush(dashboard);
 		return dashboard;
+	}
+
+	private validateUsersMatch(dashboard: DashboardEntity, userId: EntityId) {
+		if (dashboard.getUserId() !&#x3D;&#x3D; userId) {
+			throw new NotFound(&#x27;no such dashboard found&#x27;);
+		}
 	}
 }
 </code></pre>

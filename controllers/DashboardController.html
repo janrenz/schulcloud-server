@@ -127,7 +127,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>findForUser()</code>
+                    <code>findForUser(currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>)</code>
                 </td>
             </tr>
 
@@ -141,8 +141,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="17"
-                            class="link-to-prism">apps/server/src/modules/learnroom/controller/dashboard.controller.ts:17</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="18"
+                            class="link-to-prism">apps/server/src/modules/learnroom/controller/dashboard.controller.ts:18</a></div>
                 </td>
             </tr>
 
@@ -151,8 +151,40 @@
                 <td class="col-md-4">
 
                     <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>currentUser</td>
+                                    <td>
+                                                <code><a href="../interfaces/ICurrentUser.html" target="_self" >ICurrentUser</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
                         <b>Returns : </b>        <code><a href="../classes/DashboardResponse.html" target="_self" >Promise&lt;DashboardResponse&gt;</a></code>
 
+                    </div>
+                    <div class="io-description">
+                        
                     </div>
                 </td>
             </tr>
@@ -173,7 +205,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>moveElement(dashboardId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, params: <a href="../classes/MoveElementParams.html" target="_self">MoveElementParams</a>)</code>
+                    <code>moveElement(dashboardId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, params: <a href="../classes/MoveElementParams.html" target="_self">MoveElementParams</a>, currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>)</code>
                 </td>
             </tr>
 
@@ -187,8 +219,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="25"
-                            class="link-to-prism">apps/server/src/modules/learnroom/controller/dashboard.controller.ts:25</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="26"
+                            class="link-to-prism">apps/server/src/modules/learnroom/controller/dashboard.controller.ts:26</a></div>
                 </td>
             </tr>
 
@@ -232,6 +264,18 @@
 
 
                                 </tr>
+                                <tr>
+                                    <td>currentUser</td>
+                                    <td>
+                                                <code><a href="../interfaces/ICurrentUser.html" target="_self" >ICurrentUser</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -263,7 +307,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>patchGroup(dashboardId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, x: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, y: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, params: <a href="../classes/PatchGroupParams.html" target="_self">PatchGroupParams</a>)</code>
+                    <code>patchGroup(dashboardId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, x: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, y: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, params: <a href="../classes/PatchGroupParams.html" target="_self">PatchGroupParams</a>, currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>)</code>
                 </td>
             </tr>
 
@@ -277,8 +321,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="36"
-                            class="link-to-prism">apps/server/src/modules/learnroom/controller/dashboard.controller.ts:36</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="42"
+                            class="link-to-prism">apps/server/src/modules/learnroom/controller/dashboard.controller.ts:42</a></div>
                 </td>
             </tr>
 
@@ -346,6 +390,18 @@
 
 
                                 </tr>
+                                <tr>
+                                    <td>currentUser</td>
+                                    <td>
+                                                <code><a href="../interfaces/ICurrentUser.html" target="_self" >ICurrentUser</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -368,8 +424,9 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Controller, Get, Patch, Param, Body, Query } from &#x27;@nestjs/common&#x27;;
 import { ApiTags, ApiBody } from &#x27;@nestjs/swagger&#x27;;
-import { Authenticate } from &#x27;@src/modules/authentication/decorator/auth.decorator&#x27;;
+import { Authenticate, CurrentUser } from &#x27;@src/modules/authentication/decorator/auth.decorator&#x27;;
 import { ParseObjectIdPipe } from &#x27;@shared/controller&#x27;;
+import { ICurrentUser } from &#x27;@shared/domain&#x27;;
 import { DashboardUc } from &#x27;../uc/dashboard.uc&#x27;;
 import { DashboardResponse, MoveElementParams, PatchGroupParams } from &#x27;./dto&#x27;;
 import { DashboardMapper } from &#x27;../mapper/dashboard.mapper&#x27;;
@@ -382,8 +439,8 @@ export class DashboardController {
 
 	@Get()
 	@ApiBody({ type: DashboardResponse })
-	async findForUser(): Promise&lt;DashboardResponse&gt; {
-		const dashboard &#x3D; await this.dashboardUc.getUsersDashboard(/* currentUser.userId */);
+	async findForUser(@CurrentUser() currentUser: ICurrentUser): Promise&lt;DashboardResponse&gt; {
+		const dashboard &#x3D; await this.dashboardUc.getUsersDashboard(currentUser.userId);
 		const dto &#x3D; DashboardMapper.mapToResponse(dashboard);
 		return dto;
 	}
@@ -392,10 +449,15 @@ export class DashboardController {
 	@ApiBody({ type: DashboardResponse })
 	async moveElement(
 		@Param(&#x27;id&#x27;, ParseObjectIdPipe) dashboardId: string,
-		/* @CurrentUser() currentUser: ICurrentUser, */
-		@Body() params: MoveElementParams
+		@Body() params: MoveElementParams,
+		@CurrentUser() currentUser: ICurrentUser
 	): Promise&lt;DashboardResponse&gt; {
-		const dashboard &#x3D; await this.dashboardUc.moveElementOnDashboard(dashboardId, params.from, params.to);
+		const dashboard &#x3D; await this.dashboardUc.moveElementOnDashboard(
+			dashboardId,
+			params.from,
+			params.to,
+			currentUser.userId
+		);
 		const dto &#x3D; DashboardMapper.mapToResponse(dashboard);
 		return dto;
 	}
@@ -405,9 +467,15 @@ export class DashboardController {
 		@Param(&#x27;id&#x27;, ParseObjectIdPipe) dashboardId: string,
 		@Query(&#x27;x&#x27;) x: number,
 		@Query(&#x27;y&#x27;) y: number,
-		@Body() params: PatchGroupParams
+		@Body() params: PatchGroupParams,
+		@CurrentUser() currentUser: ICurrentUser
 	): Promise&lt;DashboardResponse&gt; {
-		const dashboard &#x3D; await this.dashboardUc.renameGroupOnDashboard(dashboardId, { x, y }, params.title);
+		const dashboard &#x3D; await this.dashboardUc.renameGroupOnDashboard(
+			dashboardId,
+			{ x, y },
+			params.title,
+			currentUser.userId
+		);
 		const dto &#x3D; DashboardMapper.mapToResponse(dashboard);
 		return dto;
 	}

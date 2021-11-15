@@ -871,6 +871,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="interfaces/ICurrentUser.html" data-type="entity-link" >ICurrentUser</a>
                             </li>
                             <li class="link">
+                                <a href="interfaces/IDashboardModelProperties.html" data-type="entity-link" >IDashboardModelProperties</a>
+                            </li>
+                            <li class="link">
                                 <a href="interfaces/IDashboardRepo.html" data-type="entity-link" >IDashboardRepo</a>
                             </li>
                             <li class="link">

@@ -137,9 +137,6 @@
                             <a href="#generateHardcodedTestDashboard" title="apps/server/src/shared/repo/dashboard/dashboard.repo.ts" ><b>generateHardcodedTestDashboard</b>&nbsp;&nbsp;&nbsp;(apps/.../dashboard.repo.ts)</a>
                         </li>
                         <li>
-                            <a href="#hardcodedTestDashboardId" title="apps/server/src/shared/repo/dashboard/dashboard.repo.ts" ><b>hardcodedTestDashboardId</b>&nbsp;&nbsp;&nbsp;(apps/.../dashboard.repo.ts)</a>
-                        </li>
-                        <li>
                             <a href="#isBusinessError" title="apps/server/src/core/error/filter/global-error.filter.ts" ><b>isBusinessError</b>&nbsp;&nbsp;&nbsp;(apps/.../global-error.filter.ts)</a>
                         </li>
                         <li>
@@ -1397,7 +1394,7 @@ it should ensure an empty result</p>
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>() &#x3D;&gt; {
+                        <i>Default value : </i><code>(userId: EntityId) &#x3D;&gt; {
 	const gridArray: GridElementWithPosition[] &#x3D; [];
 
 	gridArray.push({
@@ -1437,35 +1434,9 @@ it should ensure an empty result</p>
 		),
 	});
 
-	const dashboard &#x3D; new DashboardEntity(hardcodedTestDashboardId, { grid: gridArray });
+	const dashboard &#x3D; new DashboardEntity(new ObjectId().toString(), { grid: gridArray, userId });
 	return dashboard;
 }</code>
-                    </td>
-                </tr>
-
-
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="hardcodedTestDashboardId"></a>
-                    <span class="name">
-                        <span ><b>hardcodedTestDashboardId</b></span>
-                        <a href="#hardcodedTestDashboardId"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Default value : </i><code>&#x27;0000d213816abba584714c0a&#x27;</code>
                     </td>
                 </tr>
 
