@@ -145,8 +145,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="27"
-                            class="link-to-prism">apps/server/src/modules/management/controller/database-management.controller.ts:27</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="24"
+                            class="link-to-prism">apps/server/src/modules/management/controller/database-management.controller.ts:24</a></div>
                 </td>
             </tr>
 
@@ -223,8 +223,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="21"
-                            class="link-to-prism">apps/server/src/modules/management/controller/database-management.controller.ts:21</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="19"
+                            class="link-to-prism">apps/server/src/modules/management/controller/database-management.controller.ts:19</a></div>
                 </td>
             </tr>
 
@@ -269,8 +269,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="15"
-                            class="link-to-prism">apps/server/src/modules/management/controller/database-management.controller.ts:15</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="14"
+                            class="link-to-prism">apps/server/src/modules/management/controller/database-management.controller.ts:14</a></div>
                 </td>
             </tr>
 
@@ -341,7 +341,7 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@Post(&#x27;seed&#x27;)<br /></code>
+                    <code>@All(&#x27;seed&#x27;)<br /></code>
                 </td>
             </tr>
 
@@ -368,35 +368,31 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Controller, Param, Post } from &#x27;@nestjs/common&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Controller, Param, Post, All } from &#x27;@nestjs/common&#x27;;
 import { DatabaseManagementUc } from &#x27;../uc/database-management.uc&#x27;;
 
 @Controller(&#x27;management/database&#x27;)
 export class DatabaseManagementController {
 	constructor(private databaseManagementUc: DatabaseManagementUc) {}
 
-	@Post(&#x27;seed&#x27;)
+	@All(&#x27;seed&#x27;)
 	async importCollections(): Promise&lt;string[]&gt; {
-		const result &#x3D; await this.databaseManagementUc.seedDatabaseCollectionsFromFileSystem();
-		return result;
+		return this.databaseManagementUc.seedDatabaseCollectionsFromFileSystem();
 	}
 
 	@Post(&#x27;seed/:collectionName&#x27;)
 	async importCollection(@Param(&#x27;collectionName&#x27;) collectionName: string): Promise&lt;string[]&gt; {
-		const result &#x3D; await this.databaseManagementUc.seedDatabaseCollectionsFromFileSystem([collectionName]);
-		return result;
+		return this.databaseManagementUc.seedDatabaseCollectionsFromFileSystem([collectionName]);
 	}
 
 	@Post(&#x27;export&#x27;)
 	async exportCollections(): Promise&lt;string[]&gt; {
-		const result &#x3D; await this.databaseManagementUc.exportCollectionsToFileSystem();
-		return result;
+		return this.databaseManagementUc.exportCollectionsToFileSystem();
 	}
 
 	@Post(&#x27;export/:collectionName&#x27;)
 	async exportCollection(@Param(&#x27;collectionName&#x27;) collectionName: string): Promise&lt;string[]&gt; {
-		const result &#x3D; await this.databaseManagementUc.exportCollectionsToFileSystem([collectionName]);
-		return result;
+		return this.databaseManagementUc.exportCollectionsToFileSystem([collectionName]);
 	}
 }
 </code></pre>
