@@ -112,7 +112,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">apps/server/src/shared/repo/course/course.repo.ts:22</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">apps/server/src/shared/repo/course/course.repo.ts:33</a></div>
                             </td>
                         </tr>
 
@@ -170,15 +170,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>findAllByUserId(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>)</code>
+                    <code>findAllByUserId(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, filters?: literal type, options?: <a href="../classes/Course.html" target="_self">IFindOptions&lt;Course&gt;</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="26"
-                            class="link-to-prism">apps/server/src/shared/repo/course/course.repo.ts:26</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="37"
+                            class="link-to-prism">apps/server/src/shared/repo/course/course.repo.ts:37</a></div>
                 </td>
             </tr>
 
@@ -206,6 +206,30 @@
 
                                     <td>
                                         No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>filters</td>
+                                    <td>
+                                            <code>literal type</code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>options</td>
+                                    <td>
+                                                <code><a href="../classes/Course.html" target="_self" >IFindOptions&lt;Course&gt;</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
                                     </td>
 
 
@@ -248,8 +272,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="33"
-                            class="link-to-prism">apps/server/src/shared/repo/course/course.repo.ts:33</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="60"
+                            class="link-to-prism">apps/server/src/shared/repo/course/course.repo.ts:60</a></div>
                 </td>
             </tr>
 
@@ -319,8 +343,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="39"
-                            class="link-to-prism">apps/server/src/shared/repo/course/course.repo.ts:39</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="66"
+                            class="link-to-prism">apps/server/src/shared/repo/course/course.repo.ts:66</a></div>
                 </td>
             </tr>
 
@@ -376,8 +400,9 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { EntityManager } from &#x27;@mikro-orm/mongodb&#x27;;
 import { Injectable } from &#x27;@nestjs/common&#x27;;
+import { QueryOrderMap } from &#x27;@mikro-orm/core&#x27;;
 
-import { EntityId, Course, Counted } from &#x27;@shared/domain&#x27;;
+import { EntityId, Course, Counted, IFindOptions } from &#x27;@shared/domain&#x27;;
 import { Scope } from &#x27;../scope&#x27;;
 
 class CourseScope extends Scope&lt;Course&gt; {
@@ -392,17 +417,43 @@ class CourseScope extends Scope&lt;Course&gt; {
 
 		return this;
 	}
+
+	forActiveCourses(): CourseScope {
+		const now &#x3D; new Date();
+		const noUntilDate &#x3D; { untilDate: { $exists: false } };
+		const untilDateInFuture &#x3D; { untilDate: { $gte: now } };
+
+		this.addQuery({ $or: [noUntilDate, untilDateInFuture] });
+
+		return this;
+	}
 }
 
 @Injectable()
 export class CourseRepo {
 	constructor(private readonly em: EntityManager) {}
 
-	/* It look like it is not used and can removed. Also no index is set for this query. */
-	async findAllByUserId(userId: EntityId): Promise&lt;Counted&lt;Course[]&gt;&gt; {
+	// TODO: set index
+	async findAllByUserId(
+		userId: EntityId,
+		filters?: { onlyActiveCourses?: boolean },
+		options?: IFindOptions&lt;Course&gt;
+	): Promise&lt;Counted&lt;Course[]&gt;&gt; {
 		const scope &#x3D; new CourseScope();
 		scope.forAllGroupTypes(userId);
-		const [courses, count] &#x3D; await this.em.findAndCount(Course, scope.query);
+
+		if (filters?.onlyActiveCourses) {
+			scope.forActiveCourses();
+		}
+
+		const { pagination, order } &#x3D; options || {};
+		const queryOptions &#x3D; {
+			offset: pagination?.skip,
+			limit: pagination?.limit,
+			orderBy: order as QueryOrderMap,
+		};
+
+		const [courses, count] &#x3D; await this.em.findAndCount(Course, scope.query, queryOptions);
 		return [courses, count];
 	}
 
