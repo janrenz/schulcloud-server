@@ -195,22 +195,22 @@ export class DashboardGridSubElementResponse {
 		description: &#x27;The id of the Grid element&#x27;,
 		pattern: &#x27;[a-f0-9]{24}&#x27;,
 	})
-	id: string;
+	id!: string;
 
 	@ApiProperty({
 		description: &#x27;Title of the Grid element&#x27;,
 	})
-	title: string;
+	title!: string;
 
 	@ApiProperty({
 		description: &#x27;Short title of the Grid element&#x27;,
 	})
-	shortTitle: string;
+	shortTitle!: string;
 
 	@ApiProperty({
 		description: &#x27;Color of the Grid element&#x27;,
 	})
-	displayColor: string;
+	displayColor!: string;
 }
 
 export class DashboardGridElementResponse {
@@ -218,38 +218,38 @@ export class DashboardGridElementResponse {
 		description: &#x27;The id of the Grid element&#x27;,
 		pattern: &#x27;[a-f0-9]{24}&#x27;,
 	})
-	id: string;
+	id!: string;
 
 	@ApiProperty({
 		description: &#x27;Title of the Grid element&#x27;,
 	})
-	title: string;
+	title!: string;
 
 	@ApiProperty({
 		description: &#x27;Short title of the Grid element&#x27;,
 	})
-	shortTitle: string;
+	shortTitle!: string;
 
 	@ApiProperty({
 		description: &#x27;Color of the Grid element&#x27;,
 	})
-	displayColor: string;
+	displayColor!: string;
 
 	@ApiProperty({
 		description: &#x27;X position of the Grid element&#x27;,
 	})
-	xPosition: number;
+	xPosition!: number;
 
 	@ApiProperty({
 		description: &#x27;Y position of the Grid element&#x27;,
 	})
-	yPosition: number;
+	yPosition!: number;
 
 	@ApiProperty({
 		type: [DashboardGridSubElementResponse],
 		description: &#x27;List of all subelements in the group&#x27;,
 	})
-	groupElements: DashboardGridSubElementResponse[];
+	groupElements!: DashboardGridSubElementResponse[];
 }
 
 export class DashboardResponse {
@@ -257,13 +257,13 @@ export class DashboardResponse {
 		description: &#x27;The id of the Dashboard entity&#x27;,
 		pattern: &#x27;[a-f0-9]{24}&#x27;,
 	})
-	id: string;
+	id!: string;
 
 	@ApiProperty({
 		type: [DashboardGridElementResponse],
 		description: &#x27;List of all elements visible on the dashboard&#x27;,
 	})
-	gridElements: DashboardGridElementResponse[];
+	gridElements!: DashboardGridElementResponse[];
 }
 </code></pre>
     </div>

@@ -191,10 +191,11 @@ import { UserInfoResponse } from &#x27;../controller/dto&#x27;;
 
 export class UserInfoMapper {
 	static mapToResponse(user: User): UserInfoResponse {
-		const dto &#x3D; new UserInfoResponse();
-		dto.id &#x3D; user.id;
-		dto.firstName &#x3D; user.firstName;
-		dto.lastName &#x3D; user.lastName;
+		const dto &#x3D; new UserInfoResponse({
+			id: user.id,
+			firstName: user.firstName,
+			lastName: user.lastName,
+		});
 		return dto;
 	}
 }

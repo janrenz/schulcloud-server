@@ -125,7 +125,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="95" class="link-to-prism">apps/server/src/modules/news/controller/dto/news.response.ts:95</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="129" class="link-to-prism">apps/server/src/modules/news/controller/dto/news.response.ts:129</a></div>
                             </td>
                         </tr>
 
@@ -238,7 +238,7 @@
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/PaginationResponse.html#source" target="_self" >PaginationResponse:102</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classes/PaginationResponse.html#source" target="_self" >PaginationResponse:136</a></code>
 </div>
                         </td>
                     </tr>
@@ -398,6 +398,40 @@ const TARGET_MODEL_VALUES &#x3D; Object.values(NewsTargetModel);
 
 type SourceType &#x3D; typeof NEWS_SOURCES[number];
 export class NewsResponse {
+	constructor({
+		id,
+		title,
+		content,
+		displayAt,
+		source,
+		sourceDescription,
+		targetModel,
+		targetId,
+		target,
+		school,
+		creator,
+		updater,
+		createdAt,
+		updatedAt,
+		permissions,
+	}: NewsResponse) {
+		this.id &#x3D; id;
+		this.title &#x3D; title;
+		this.content &#x3D; content;
+		this.displayAt &#x3D; displayAt;
+		this.source &#x3D; source;
+		this.sourceDescription &#x3D; sourceDescription;
+		this.targetModel &#x3D; targetModel;
+		this.targetId &#x3D; targetId;
+		this.target &#x3D; target;
+		this.school &#x3D; school;
+		this.creator &#x3D; creator;
+		this.updater &#x3D; updater;
+		this.createdAt &#x3D; createdAt;
+		this.updatedAt &#x3D; updatedAt;
+		this.permissions &#x3D; permissions;
+	}
+
 	@ApiProperty({
 		description: &#x27;The id of the News entity&#x27;,
 		pattern: &#x27;[a-f0-9]{24}&#x27;,

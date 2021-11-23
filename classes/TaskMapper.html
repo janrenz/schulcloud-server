@@ -192,21 +192,22 @@ import { TaskResponse } from &#x27;../controller/dto&#x27;;
 export class TaskMapper {
 	static mapToResponse(taskWithStatus: TaskWithStatusVo): TaskResponse {
 		const { task, status } &#x3D; taskWithStatus;
-		const dto &#x3D; new TaskResponse();
+		const dto &#x3D; new TaskResponse({
+			id: task.id,
+			name: task.name,
+			createdAt: task.createdAt,
+			updatedAt: task.updatedAt,
+			status: {
+				submitted: status.submitted,
+				maxSubmissions: status.maxSubmissions,
+				graded: status.graded,
+				isDraft: status.isDraft,
+				isSubstitutionTeacher: status.isSubstitutionTeacher,
+			},
+		});
 
-		dto.id &#x3D; task.id;
-		dto.name &#x3D; task.name;
 		dto.availableDate &#x3D; task.availableDate;
 		dto.duedate &#x3D; task.dueDate;
-		dto.createdAt &#x3D; task.createdAt;
-		dto.updatedAt &#x3D; task.updatedAt;
-		dto.status &#x3D; {
-			submitted: status.submitted,
-			maxSubmissions: status.maxSubmissions,
-			graded: status.graded,
-			isDraft: status.isDraft,
-			isSubstitutionTeacher: status.isSubstitutionTeacher,
-		};
 
 		const taskDesc &#x3D; task.getDescriptions();
 		dto.courseName &#x3D; taskDesc.name;

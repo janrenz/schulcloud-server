@@ -399,6 +399,17 @@
                     </span>
                 </td>
             </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>60000</code>
+                    </td>
+                </tr>
                     <tr>
                         <td class="col-md-4">
                                 <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">apps/server/src/shared/repo/role/role.repo.ts:7</a></div>
@@ -420,7 +431,7 @@ import { EntityId, Role } from &#x27;@shared/domain&#x27;;
 
 @Injectable()
 export class RoleRepo {
-	cache: 60000;
+	cache &#x3D; 60000;
 
 	constructor(private readonly em: EntityManager) {}
 

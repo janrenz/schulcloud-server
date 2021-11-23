@@ -860,7 +860,7 @@ export class Course extends BaseEntityWithTimestamps {
 
 	@Index({ name: &#x27;activeCourses&#x27; })
 	@Property()
-	untilDate: Date;
+	untilDate!: Date;
 
 	constructor(props: ICourseProperties) {
 		super();

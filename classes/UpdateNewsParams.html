@@ -247,21 +247,21 @@ export class UpdateNewsParams {
 	@ApiPropertyOptional({
 		description: &#x27;Title of the News entity&#x27;,
 	})
-	title: string;
+	title!: string;
 
 	@IsOptional()
 	@IsString()
 	@ApiPropertyOptional({
 		description: &#x27;Content of the News entity&#x27;,
 	})
-	content: string;
+	content!: string;
 
 	@IsOptional()
 	@IsDate()
 	@ApiPropertyOptional({
 		description: &#x27;The point in time from when the News entity schould be displayed&#x27;,
 	})
-	displayAt: Date;
+	displayAt!: Date;
 }
 </code></pre>
     </div>

@@ -205,9 +205,9 @@ export type GridElementContent &#x3D; {
 };
 
 export class GridElement implements IGridElement {
-	id: EntityId;
+	id!: EntityId;
 
-	title: string;
+	title!: string;
 
 	private sortReferences &#x3D; (a: IGridElementReference, b: IGridElementReference) &#x3D;&gt; {
 		const titleA &#x3D; a.getMetadata().title;

@@ -191,9 +191,7 @@ import { TargetInfoResponse } from &#x27;../controller/dto/target-info.response&
 
 export class TargetInfoMapper {
 	static mapToResponse(target: NewsTarget): TargetInfoResponse {
-		const dto &#x3D; new TargetInfoResponse();
-		dto.id &#x3D; target.id;
-		dto.name &#x3D; target.name;
+		const dto &#x3D; new TargetInfoResponse({ id: target.id, name: target.name });
 		return dto;
 	}
 }

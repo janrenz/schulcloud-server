@@ -139,8 +139,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="44"
-                            class="link-to-prism">apps/server/src/modules/news/mapper/news.mapper.ts:44</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="51"
+                            class="link-to-prism">apps/server/src/modules/news/mapper/news.mapper.ts:51</a></div>
                 </td>
             </tr>
 
@@ -210,8 +210,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="30"
-                            class="link-to-prism">apps/server/src/modules/news/mapper/news.mapper.ts:30</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="37"
+                            class="link-to-prism">apps/server/src/modules/news/mapper/news.mapper.ts:37</a></div>
                 </td>
             </tr>
 
@@ -352,8 +352,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="57"
-                            class="link-to-prism">apps/server/src/modules/news/mapper/news.mapper.ts:57</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="64"
+                            class="link-to-prism">apps/server/src/modules/news/mapper/news.mapper.ts:64</a></div>
                 </td>
             </tr>
 
@@ -419,24 +419,31 @@ import { UserInfoMapper } from &#x27;./user-info.mapper&#x27;;
 
 export class NewsMapper {
 	static mapToResponse(news: News): NewsResponse {
-		const dto &#x3D; new NewsResponse();
-		dto.id &#x3D; news.id;
-		dto.title &#x3D; news.title;
-		dto.content &#x3D; news.content;
-		dto.displayAt &#x3D; news.displayAt;
-		dto.source &#x3D; news.source;
-		dto.sourceDescription &#x3D; news.sourceDescription;
-		dto.targetId &#x3D; news.target.id;
-		dto.targetModel &#x3D; news.targetModel;
-		dto.target &#x3D; TargetInfoMapper.mapToResponse(news.target);
-		dto.school &#x3D; SchoolInfoMapper.mapToResponse(news.school);
-		dto.creator &#x3D; UserInfoMapper.mapToResponse(news.creator);
+		const target &#x3D; TargetInfoMapper.mapToResponse(news.target);
+		const school &#x3D; SchoolInfoMapper.mapToResponse(news.school);
+		const creator &#x3D; UserInfoMapper.mapToResponse(news.creator);
+
+		const dto &#x3D; new NewsResponse({
+			id: news.id,
+			title: news.title,
+			content: news.content,
+			displayAt: news.displayAt,
+			source: news.source,
+			sourceDescription: news.sourceDescription,
+			targetId: news.target.id,
+			targetModel: news.targetModel,
+			target,
+			school,
+			creator,
+			createdAt: news.createdAt,
+			updatedAt: news.updatedAt,
+			permissions: news.permissions,
+		});
+
 		if (news.updater) {
 			dto.updater &#x3D; UserInfoMapper.mapToResponse(news.updater);
 		}
-		dto.createdAt &#x3D; news.createdAt;
-		dto.updatedAt &#x3D; news.updatedAt;
-		dto.permissions &#x3D; news.permissions;
+
 		return dto;
 	}
 

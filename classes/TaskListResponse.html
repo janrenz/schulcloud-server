@@ -125,7 +125,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">apps/server/src/modules/task/controller/dto/task.response.ts:48</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">apps/server/src/modules/task/controller/dto/task.response.ts:56</a></div>
                             </td>
                         </tr>
 
@@ -238,7 +238,7 @@
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/PaginationResponse.html#source" target="_self" >PaginationResponse:55</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classes/PaginationResponse.html#source" target="_self" >PaginationResponse:63</a></code>
 </div>
                         </td>
                     </tr>
@@ -393,14 +393,22 @@ import { PaginationResponse, DecodeHtmlEntities } from &#x27;@shared/controller&
  * DTO for returning a task document via api.
  */
 export class TaskResponse {
+	constructor({ name, id, createdAt, updatedAt, status }: TaskResponse) {
+		this.name &#x3D; name;
+		this.id &#x3D; id;
+		this.createdAt &#x3D; createdAt;
+		this.updatedAt &#x3D; updatedAt;
+		this.status &#x3D; status;
+	}
+
 	@ApiProperty()
 	@DecodeHtmlEntities()
 	name: string;
 
-	@ApiProperty()
+	@ApiProperty() // TODO use @ApiPropertyOptional() ?
 	availableDate?: Date;
 
-	@ApiProperty()
+	@ApiProperty() // TODO use @ApiPropertyOptional() ?
 	duedate?: Date;
 
 	@ApiPropertyOptional()

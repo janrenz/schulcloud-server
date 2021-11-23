@@ -303,7 +303,7 @@ interface AdminIdAndToken {
 
 @Injectable()
 export class RocketChatService {
-	private adminIdAndToken: AdminIdAndToken;
+	private adminIdAndToken?: AdminIdAndToken;
 
 	constructor(
 		@Inject(&#x27;ROCKET_CHAT_OPTIONS&#x27;) private readonly options: RocketChatOptions,

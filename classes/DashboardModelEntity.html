@@ -440,14 +440,14 @@ export class DefaultGridReferenceModel extends BaseEntityWithTimestamps {
 	}
 
 	@Property()
-	title: string;
+	title!: string;
 
 	@Property()
-	color: string;
+	color!: string;
 
 	// not really happy with this, but didnt find a better solution yet to connect the gridelement with multiple references.
 	@ManyToOne(&#x27;DashboardGridElementModel&#x27;, { wrappedReference: true })
-	gridelement: IdentifiedReference&lt;DashboardGridElementModel&gt;;
+	gridelement!: IdentifiedReference&lt;DashboardGridElementModel&gt;;
 }
 
 @Entity({ tableName: &#x27;dashboardelement&#x27; })
@@ -461,20 +461,20 @@ export class DashboardGridElementModel extends BaseEntityWithTimestamps {
 	}
 
 	@Property()
-	title: string;
+	title!: string;
 
 	@Property()
-	xPos: number;
+	xPos!: number;
 
 	@Property()
-	yPos: number;
+	yPos!: number;
 
 	// todo: put in references to useful things like courses via polymorphic inheritance (see news)
 	@OneToMany(&#x27;DefaultGridReferenceModel&#x27;, &#x27;gridelement&#x27;)
 	references: Collection&lt;DefaultGridReferenceModel&gt; &#x3D; new Collection&lt;DefaultGridReferenceModel&gt;(this);
 
 	@ManyToOne(&#x27;DashboardModelEntity&#x27;, { wrappedReference: true })
-	dashboard: IdentifiedReference&lt;DashboardModelEntity&gt;;
+	dashboard!: IdentifiedReference&lt;DashboardModelEntity&gt;;
 }
 
 export interface IDashboardModelProperties {
