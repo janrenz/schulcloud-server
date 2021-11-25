@@ -82,6 +82,10 @@
                                 <a href="#findAllByParentIds" >findAllByParentIds</a>
                             </li>
                             <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#findAllFinishedByParentIds" >findAllFinishedByParentIds</a>
+                            </li>
+                            <li>
                                     <span class="modifier">Private</span>
                                     <span class="modifier">Async</span>
                                 <a href="#findTasksAndCount" >findTasksAndCount</a>
@@ -109,7 +113,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">apps/server/src/shared/repo/task/task.repo.ts:9</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">apps/server/src/shared/repo/task/task.repo.ts:10</a></div>
                             </td>
                         </tr>
 
@@ -174,8 +178,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="23"
-                            class="link-to-prism">apps/server/src/shared/repo/task/task.repo.ts:23</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="85"
+                            class="link-to-prism">apps/server/src/shared/repo/task/task.repo.ts:85</a></div>
                 </td>
             </tr>
 
@@ -271,6 +275,89 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="findAllFinishedByParentIds"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>findAllFinishedByParentIds</b></span>
+                        <a href="#findAllFinishedByParentIds"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findAllFinishedByParentIds(parentIds: literal type, options?: <a href="../classes/Task.html" target="_self">IFindOptions&lt;Task&gt;</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="13"
+                            class="link-to-prism">apps/server/src/shared/repo/task/task.repo.ts:13</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>parentIds</td>
+                                    <td>
+                                            <code>literal type</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>options</td>
+                                    <td>
+                                                <code><a href="../classes/Task.html" target="_self" >IFindOptions&lt;Task&gt;</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/Task.html" target="_self" >Promise&lt;Counted&lt;Task[]&gt;&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="findTasksAndCount"></a>
                     <span class="name">
                         <span class="modifier">Private</span>
@@ -290,8 +377,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="66"
-                            class="link-to-prism">apps/server/src/shared/repo/task/task.repo.ts:66</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="129"
+                            class="link-to-prism">apps/server/src/shared/repo/task/task.repo.ts:129</a></div>
                 </td>
             </tr>
 
@@ -358,15 +445,77 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
-import { EntityManager, FilterQuery, QueryOrderMap } from &#x27;@mikro-orm/core&#x27;;
+import { FilterQuery, QueryOrderMap } from &#x27;@mikro-orm/core&#x27;;
+import { EntityManager } from &#x27;@mikro-orm/mongodb&#x27;;
 
-import { EntityId, IFindOptions, Task, Counted } from &#x27;@shared/domain&#x27;;
+import { EntityId, IFindOptions, Task, Counted, SortOrder } from &#x27;@shared/domain&#x27;;
 
 import { TaskScope } from &#x27;./task-scope&#x27;;
 
 @Injectable()
 export class TaskRepo {
 	constructor(private readonly em: EntityManager) {}
+
+	async findAllFinishedByParentIds(
+		parentIds: {
+			creatorId: EntityId;
+			openCourseIds: EntityId[];
+			lessonIdsOfOpenCourses: EntityId[];
+			finishedCourseIds: EntityId[];
+			lessonIdsOfFinishedCourses: EntityId[];
+		},
+		options?: IFindOptions&lt;Task&gt;
+	): Promise&lt;Counted&lt;Task[]&gt;&gt; {
+		const { pagination } &#x3D; options || {};
+
+		const scope &#x3D; new TaskScope(&#x27;$or&#x27;);
+
+		const parentsOpen &#x3D; new TaskScope(&#x27;$or&#x27;);
+		parentsOpen.byCourseIds(parentIds.openCourseIds);
+		parentsOpen.byLessonIds(parentIds.lessonIdsOfOpenCourses);
+
+		const parentsFinished &#x3D; new TaskScope(&#x27;$or&#x27;);
+		parentsFinished.byCourseIds(parentIds.finishedCourseIds);
+		parentsFinished.byLessonIds(parentIds.lessonIdsOfFinishedCourses);
+
+		const closedForOpenCoursesAndLessons &#x3D; new TaskScope();
+		closedForOpenCoursesAndLessons.addQuery(parentsOpen.query);
+		closedForOpenCoursesAndLessons.byDraft(false);
+		closedForOpenCoursesAndLessons.byClosed(parentIds.creatorId, true);
+
+		const allForFinishedCoursesAndLessons &#x3D; new TaskScope();
+		allForFinishedCoursesAndLessons.addQuery(parentsFinished.query);
+		allForFinishedCoursesAndLessons.byDraft(false);
+
+		// must find also closed without course or lesson as parent
+		const closedForCreator &#x3D; new TaskScope();
+		closedForCreator.byClosed(parentIds.creatorId, true);
+		closedForCreator.byCreatorId(parentIds.creatorId);
+
+		const allForFinishedCoursesAndLessonsForCreator &#x3D; new TaskScope();
+		allForFinishedCoursesAndLessonsForCreator.addQuery(parentsFinished.query);
+		allForFinishedCoursesAndLessonsForCreator.byCreatorId(parentIds.creatorId);
+
+		const allForCreator &#x3D; new TaskScope(&#x27;$or&#x27;);
+		allForCreator.addQuery(closedForCreator.query);
+		allForCreator.addQuery(allForFinishedCoursesAndLessonsForCreator.query);
+
+		scope.addQuery(closedForOpenCoursesAndLessons.query);
+		scope.addQuery(allForFinishedCoursesAndLessons.query);
+		scope.addQuery(allForCreator.query);
+
+		const order &#x3D; { dueDate: SortOrder.desc };
+
+		const [tasks, count] &#x3D; await this.em.findAndCount(Task, scope.query, {
+			offset: pagination?.skip,
+			limit: pagination?.limit,
+			orderBy: order,
+		});
+
+		await this.em.populate(tasks, [&#x27;course&#x27;, &#x27;lesson&#x27;, &#x27;submissions&#x27;]);
+
+		return [tasks, count];
+	}
 
 	/**
 	 * Find all tasks by their parents which can be any of
@@ -381,19 +530,19 @@ export class TaskRepo {
 	 */
 	async findAllByParentIds(
 		parentIds: {
-			teacherId?: EntityId;
+			creatorId?: EntityId;
 			courseIds?: EntityId[];
 			lessonIds?: EntityId[];
 		},
-		filters?: { draft?: boolean; afterDueDateOrNone?: Date; closed?: EntityId },
+		filters?: { draft?: boolean; afterDueDateOrNone?: Date; closed?: { userId: EntityId; value: boolean } },
 		options?: IFindOptions&lt;Task&gt;
 	): Promise&lt;Counted&lt;Task[]&gt;&gt; {
 		const scope &#x3D; new TaskScope();
 
 		const parentIdScope &#x3D; new TaskScope(&#x27;$or&#x27;);
 
-		if (parentIds.teacherId) {
-			parentIdScope.byTeacherId(parentIds.teacherId);
+		if (parentIds.creatorId) {
+			parentIdScope.byOnlyCreatorId(parentIds.creatorId);
 		}
 
 		if (parentIds.courseIds) {
@@ -407,7 +556,7 @@ export class TaskRepo {
 		scope.addQuery(parentIdScope.query);
 
 		if (filters?.closed) {
-			scope.byClosed(filters.closed);
+			scope.byClosed(filters.closed.userId, filters.closed.value);
 		}
 
 		if (filters?.draft !&#x3D;&#x3D; undefined) {
@@ -419,6 +568,7 @@ export class TaskRepo {
 		}
 
 		const countedTaskList &#x3D; await this.findTasksAndCount(scope.query, options);
+
 		return countedTaskList;
 	}
 
@@ -431,6 +581,7 @@ export class TaskRepo {
 		});
 
 		await this.em.populate(taskEntities, [&#x27;course&#x27;, &#x27;lesson&#x27;, &#x27;submissions&#x27;]);
+
 		return [taskEntities, count];
 	}
 }

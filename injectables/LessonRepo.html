@@ -169,16 +169,14 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="15"
-                            class="link-to-prism">apps/server/src/shared/repo/lesson/lesson.repo.ts:15</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="12"
+                            class="link-to-prism">apps/server/src/shared/repo/lesson/lesson.repo.ts:12</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>TODO add pagination and sorting</p>
-</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -222,7 +220,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/Lesson.html" target="_self" >Promise&lt;Lesson[]&gt;</a></code>
+                        <b>Returns : </b>        <code><a href="../classes/Lesson.html" target="_self" >Promise&lt;Counted&lt;Lesson[]&gt;&gt;</a></code>
 
                     </div>
                     <div class="io-description">
@@ -239,9 +237,9 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
-import { EntityManager } from &#x27;@mikro-orm/core&#x27;;
+import { EntityManager } from &#x27;@mikro-orm/mongodb&#x27;;
 
-import { EntityId, Lesson } from &#x27;@shared/domain&#x27;;
+import { EntityId, Lesson, Counted } from &#x27;@shared/domain&#x27;;
 
 import { LessonScope } from &#x27;./lesson-scope&#x27;;
 
@@ -249,10 +247,7 @@ import { LessonScope } from &#x27;./lesson-scope&#x27;;
 export class LessonRepo {
 	constructor(private readonly em: EntityManager) {}
 
-	/**
-	 * TODO add pagination and sorting
-	 */
-	async findAllByCourseIds(courseIds: EntityId[], filters?: { hidden?: boolean }): Promise&lt;Lesson[]&gt; {
+	async findAllByCourseIds(courseIds: EntityId[], filters?: { hidden?: boolean }): Promise&lt;Counted&lt;Lesson[]&gt;&gt; {
 		const scope &#x3D; new LessonScope();
 
 		scope.byCourseIds(courseIds);
@@ -261,8 +256,11 @@ export class LessonRepo {
 			scope.byHidden(filters.hidden);
 		}
 
-		const lessons &#x3D; this.em.find(Lesson, scope.query);
-		return lessons;
+		const [lessons, count] &#x3D; await this.em.findAndCount(Lesson, scope.query);
+
+		await this.em.populate(lessons, [&#x27;course&#x27;]);
+
+		return [lessons, count];
 	}
 }
 </code></pre>

@@ -83,10 +83,6 @@
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
-                                <a href="#findAllForStudent" >findAllForStudent</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Async</span>
                                 <a href="#findAllForTeacher" >findAllForTeacher</a>
                             </li>
                         </ul>
@@ -112,7 +108,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">apps/server/src/shared/repo/course/course.repo.ts:33</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">apps/server/src/shared/repo/course/course.repo.ts:44</a></div>
                             </td>
                         </tr>
 
@@ -177,8 +173,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="37"
-                            class="link-to-prism">apps/server/src/shared/repo/course/course.repo.ts:37</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="47"
+                            class="link-to-prism">apps/server/src/shared/repo/course/course.repo.ts:47</a></div>
                 </td>
             </tr>
 
@@ -254,77 +250,6 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="findAllForStudent"></a>
-                    <span class="name">
-                        <span class="modifier">Async</span>
-                        <span ><b>findAllForStudent</b></span>
-                        <a href="#findAllForStudent"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>findAllForStudent(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="60"
-                            class="link-to-prism">apps/server/src/shared/repo/course/course.repo.ts:60</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>userId</td>
-                                    <td>
-                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/Course.html" target="_self" >Promise&lt;Counted&lt;Course[]&gt;&gt;</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
                     <a name="findAllForTeacher"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
@@ -343,8 +268,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="66"
-                            class="link-to-prism">apps/server/src/shared/repo/course/course.repo.ts:66</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="72"
+                            class="link-to-prism">apps/server/src/shared/repo/course/course.repo.ts:72</a></div>
                 </td>
             </tr>
 
@@ -418,6 +343,17 @@ class CourseScope extends Scope&lt;Course&gt; {
 		return this;
 	}
 
+	forTeacher(userId: EntityId): CourseScope {
+		const isTeacher &#x3D; { teachers: userId };
+		const isSubstitutionTeacher &#x3D; { substitutionTeachers: userId };
+
+		if (userId) {
+			this.addQuery({ $or: [isTeacher, isSubstitutionTeacher] });
+		}
+
+		return this;
+	}
+
 	forActiveCourses(): CourseScope {
 		const now &#x3D; new Date();
 		const noUntilDate &#x3D; { untilDate: { $exists: false } };
@@ -433,7 +369,6 @@ class CourseScope extends Scope&lt;Course&gt; {
 export class CourseRepo {
 	constructor(private readonly em: EntityManager) {}
 
-	// TODO: set index
 	async findAllByUserId(
 		userId: EntityId,
 		filters?: { onlyActiveCourses?: boolean },
@@ -454,20 +389,17 @@ export class CourseRepo {
 		};
 
 		const [courses, count] &#x3D; await this.em.findAndCount(Course, scope.query, queryOptions);
+
 		return [courses, count];
 	}
 
-	async findAllForStudent(userId: EntityId): Promise&lt;Counted&lt;Course[]&gt;&gt; {
-		const query &#x3D; { students: userId };
-		const [courses, count] &#x3D; await this.em.findAndCount(Course, query);
-		return [courses, count];
-	}
-
+	// not tested in repo.integration.spec
 	async findAllForTeacher(userId: EntityId): Promise&lt;Counted&lt;Course[]&gt;&gt; {
-		const isTeacher &#x3D; { teachers: userId };
-		const isSubstitutionTeacher &#x3D; { substitutionTeachers: userId };
-		const query &#x3D; { $or: [isTeacher, isSubstitutionTeacher] };
-		const [courses, count] &#x3D; await this.em.findAndCount(Course, query);
+		const scope &#x3D; new CourseScope();
+		scope.forTeacher(userId);
+
+		const [courses, count] &#x3D; await this.em.findAndCount(Course, scope.query);
+
 		return [courses, count];
 	}
 }

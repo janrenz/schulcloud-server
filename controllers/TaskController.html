@@ -87,6 +87,10 @@
                                     <span class="modifier">Async</span>
                                 <a href="#findAll" >findAll</a>
                             </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#findAllFinished" >findAllFinished</a>
+                            </li>
                         </ul>
                     </td>
                 </tr>
@@ -194,6 +198,96 @@
             </tr>
         </tbody>
     </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findAllFinished"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>findAllFinished</b></span>
+                        <a href="#findAllFinished"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findAllFinished(currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>, paginationQuery: <a href="../classes/PaginationQuery.html" target="_self">PaginationQuery</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Get(&#x27;finished&#x27;)<br /></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="33"
+                            class="link-to-prism">apps/server/src/modules/task/controller/task.controller.ts:33</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>currentUser</td>
+                                    <td>
+                                                <code><a href="../interfaces/ICurrentUser.html" target="_self" >ICurrentUser</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>paginationQuery</td>
+                                    <td>
+                                                <code><a href="../classes/PaginationQuery.html" target="_self" >PaginationQuery</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;TaskListResponse&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </section>    </div>
 
 
@@ -224,6 +318,22 @@ export class TaskController {
 		const taskresponses &#x3D; tasksWithStatus.map((taskWithStatus) &#x3D;&gt; {
 			return TaskMapper.mapToResponse(taskWithStatus);
 		});
+		const { skip, limit } &#x3D; paginationQuery;
+		const result &#x3D; new TaskListResponse(taskresponses, total, skip, limit);
+		return result;
+	}
+
+	@Get(&#x27;finished&#x27;)
+	async findAllFinished(
+		@CurrentUser() currentUser: ICurrentUser,
+		@Query() paginationQuery: PaginationQuery
+	): Promise&lt;TaskListResponse&gt; {
+		const [tasksWithStatus, total] &#x3D; await this.taskUc.findAllFinished(currentUser.userId, paginationQuery);
+
+		const taskresponses &#x3D; tasksWithStatus.map((task) &#x3D;&gt; {
+			return TaskMapper.mapToResponse(task);
+		});
+
 		const { skip, limit } &#x3D; paginationQuery;
 		const result &#x3D; new TaskListResponse(taskresponses, total, skip, limit);
 		return result;

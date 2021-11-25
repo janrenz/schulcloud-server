@@ -43,7 +43,7 @@
 
 <ol class="breadcrumb">
   <li>Classes</li>
-  <li >SubmissionFactory</li>
+  <li >CourseFactory</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -61,7 +61,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/shared/testing/factory/submission.factory.ts</code>
+            <code>apps/server/src/shared/testing/factory/course.factory.ts</code>
         </p>
 
 
@@ -105,7 +105,10 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#graded" >graded</a>
+                                <a href="#isFinished" >isFinished</a>
+                            </li>
+                            <li>
+                                <a href="#isOpen" >isOpen</a>
                             </li>
                             <li>
                                 <a href="#afterBuild" >afterBuild</a>
@@ -204,24 +207,52 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="graded"></a>
+                    <a name="isFinished"></a>
                     <span class="name">
-                        <span ><b>graded</b></span>
-                        <a href="#graded"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>isFinished</b></span>
+                        <a href="#isFinished"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>graded()</code>
+<code>isFinished()</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="8"
-                            class="link-to-prism">apps/server/src/shared/testing/factory/submission.factory.ts:8</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="11"
+                            class="link-to-prism">apps/server/src/shared/testing/factory/course.factory.ts:11</a></div>
+                </td>
+            </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isOpen"></a>
+                    <span class="name">
+                        <span ><b>isOpen</b></span>
+                        <a href="#isOpen"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>isOpen()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="18"
+                            class="link-to-prism">apps/server/src/shared/testing/factory/course.factory.ts:18</a></div>
                 </td>
             </tr>
 
@@ -1056,23 +1087,43 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { DeepPartial } from &#x27;fishery&#x27;;
-import { Submission, ISubmissionProperties } from &#x27;@shared/domain&#x27;;
-import { BaseFactory } from &#x27;./base.factory&#x27;;
-import { taskFactory } from &#x27;./task.factory&#x27;;
-import { userFactory } from &#x27;./user.factory&#x27;;
 
-class SubmissionFactory extends BaseFactory&lt;Submission, ISubmissionProperties&gt; {
-	graded(): this {
-		const params: DeepPartial&lt;ISubmissionProperties&gt; &#x3D; { gradeComment: &#x27;graded text&#x27; };
+import { Course, School, ICourseProperties } from &#x27;@shared/domain&#x27;;
+
+import { schoolFactory } from &#x27;./school.factory&#x27;;
+import { BaseFactory } from &#x27;./base.factory&#x27;;
+
+const oneDay &#x3D; 24 * 60 * 60 * 1000;
+
+class CourseFactory extends BaseFactory&lt;Course, ICourseProperties&gt; {
+	isFinished(): this {
+		const untilDate &#x3D; new Date(Date.now() - oneDay);
+		const params: DeepPartial&lt;ICourseProperties&gt; &#x3D; { untilDate };
+
+		return this.params(params);
+	}
+
+	isOpen(): this {
+		const untilDate &#x3D; new Date(Date.now() + oneDay);
+		const params: DeepPartial&lt;ICourseProperties&gt; &#x3D; { untilDate };
+
 		return this.params(params);
 	}
 }
 
-export const submissionFactory &#x3D; SubmissionFactory.define(Submission, ({ sequence }) &#x3D;&gt; {
+export const courseFactory &#x3D; CourseFactory.define(Course, ({ sequence, params }) &#x3D;&gt; {
+	let school: School;
+	if (params?.school) {
+		school &#x3D; params.school as School;
+	} else {
+		school &#x3D; schoolFactory.build();
+	}
+
 	return {
-		task: taskFactory.build(),
-		student: userFactory.build(),
-		comment: &#x60;submission comment #${sequence}&#x60;,
+		name: &#x60;course #${sequence}&#x60;,
+		description: &#x60;course #${sequence} description&#x60;,
+		color: &#x27;#FFFFFF&#x27;,
+		school,
 	};
 });
 </code></pre>
@@ -1112,7 +1163,7 @@ export const submissionFactory &#x3D; SubmissionFactory.define(Submission, ({ se
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
-            var COMPODOC_CURRENT_PAGE_URL = 'SubmissionFactory.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'CourseFactory.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

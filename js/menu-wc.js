@@ -548,6 +548,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/Course.html" data-type="entity-link" >Course</a>
                             </li>
                             <li class="link">
+                                <a href="classes/CourseFactory.html" data-type="entity-link" >CourseFactory</a>
+                            </li>
+                            <li class="link">
                                 <a href="classes/CourseGroup.html" data-type="entity-link" >CourseGroup</a>
                             </li>
                             <li class="link">
@@ -624,6 +627,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="classes/Lesson.html" data-type="entity-link" >Lesson</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/LessonFactory.html" data-type="entity-link" >LessonFactory</a>
                             </li>
                             <li class="link">
                                 <a href="classes/LessonScope.html" data-type="entity-link" >LessonScope</a>

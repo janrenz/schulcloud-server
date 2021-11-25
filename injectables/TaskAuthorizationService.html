@@ -81,6 +81,10 @@
                                     <span class="modifier">Async</span>
                                 <a href="#getPermittedCourses" >getPermittedCourses</a>
                             </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#getPermittedLessons" >getPermittedLessons</a>
+                            </li>
                         </ul>
                     </td>
                 </tr>
@@ -99,7 +103,7 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(courseRepo: <a href="../injectables/CourseRepo.html" target="_self">CourseRepo</a>)</code>
+<code>constructor(courseRepo: <a href="../injectables/CourseRepo.html" target="_self">CourseRepo</a>, lessonRepo: <a href="../injectables/LessonRepo.html" target="_self">LessonRepo</a>)</code>
                     </td>
                 </tr>
                         <tr>
@@ -126,6 +130,18 @@
                                                   
                                                         <td>
                                                                         <code><a href="../injectables/CourseRepo.html" target="_self" >CourseRepo</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>lessonRepo</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/LessonRepo.html" target="_self" >LessonRepo</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -162,23 +178,21 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>getPermittedCourses(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, permission: <a href="../classes/Task.html" target="_self">TaskParentPermission</a>)</code>
+                    <code>getPermittedCourses(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, neededPermission: <a href="../classes/Task.html" target="_self">TaskParentPermission</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="17"
-                            class="link-to-prism">apps/server/src/modules/task/uc/task.authorization.service.ts:17</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="16"
+                            class="link-to-prism">apps/server/src/modules/task/uc/task.authorization.service.ts:16</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Important user group operations are only a temporary solution until we have established groups</p>
-</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -205,7 +219,7 @@
 
                                 </tr>
                                 <tr>
-                                    <td>permission</td>
+                                    <td>neededPermission</td>
                                     <td>
                                                 <code><a href="../classes/Task.html" target="_self" >TaskParentPermission</a></code>
                                     </td>
@@ -222,7 +236,90 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >Promise&lt;EntityId[]&gt;</a></code>
+                        <b>Returns : </b>        <code><a href="../classes/Course.html" target="_self" >Promise&lt;Course[]&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getPermittedLessons"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>getPermittedLessons</b></span>
+                        <a href="#getPermittedLessons"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getPermittedLessons(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, courses: <a href="../classes/Course.html" target="_self">Course[]</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="28"
+                            class="link-to-prism">apps/server/src/modules/task/uc/task.authorization.service.ts:28</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>userId</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>courses</td>
+                                    <td>
+                                                <code><a href="../classes/Course.html" target="_self" >Course[]</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/Lesson.html" target="_self" >Promise&lt;Lesson[]&gt;</a></code>
 
                     </div>
                     <div class="io-description">
@@ -239,8 +336,8 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
-import { EntityId, Course } from &#x27;@shared/domain&#x27;;
-import { CourseRepo } from &#x27;@shared/repo&#x27;;
+import { EntityId, Course, Lesson } from &#x27;@shared/domain&#x27;;
+import { CourseRepo, LessonRepo } from &#x27;@shared/repo&#x27;;
 
 export enum TaskParentPermission {
 	read,
@@ -249,23 +346,41 @@ export enum TaskParentPermission {
 
 @Injectable()
 export class TaskAuthorizationService {
-	constructor(private readonly courseRepo: CourseRepo) {}
+	constructor(private readonly courseRepo: CourseRepo, private readonly lessonRepo: LessonRepo) {}
 
-	/**
-	 * Important user group operations are only a temporary solution until we have established groups
-	 */
-	async getPermittedCourses(userId: EntityId, permission: TaskParentPermission): Promise&lt;EntityId[]&gt; {
-		// courseGroups are missing
-		// lessons are missing -&gt; only search for hidden: false,
+	// it should return also the scopePermissions for this user added to the entity .scopePermission: { userId, read: boolean, write: boolean }
+	// then we can pass and allow only scoped courses to getPermittedLessonIds and validate read write of .scopePermission
+	async getPermittedCourses(userId: EntityId, neededPermission: TaskParentPermission): Promise&lt;Course[]&gt; {
 		let permittedCourses: Course[] &#x3D; [];
-		if (permission &#x3D;&#x3D;&#x3D; TaskParentPermission.write) {
+
+		if (neededPermission &#x3D;&#x3D;&#x3D; TaskParentPermission.write) {
 			[permittedCourses] &#x3D; await this.courseRepo.findAllForTeacher(userId);
-		} else if (permission &#x3D;&#x3D;&#x3D; TaskParentPermission.read) {
-			[permittedCourses] &#x3D; await this.courseRepo.findAllForStudent(userId);
+		} else if (neededPermission &#x3D;&#x3D;&#x3D; TaskParentPermission.read) {
+			[permittedCourses] &#x3D; await this.courseRepo.findAllByUserId(userId);
 		}
 
-		const entityIds &#x3D; permittedCourses.map((o) &#x3D;&gt; o.id);
-		return entityIds;
+		return permittedCourses;
+	}
+
+	async getPermittedLessons(userId: EntityId, courses: Course[]): Promise&lt;Lesson[]&gt; {
+		const writeCourses &#x3D; courses.filter(
+			(c) &#x3D;&gt; c.getSubstitutionTeacherIds().includes(userId) || c.getTeacherIds().includes(userId)
+		);
+		const readCourses &#x3D; courses.filter((c) &#x3D;&gt; c.getStudentIds().includes(userId));
+
+		const writeCourseIds &#x3D; writeCourses.map((c) &#x3D;&gt; c.id);
+		const readCourseIds &#x3D; readCourses.map((c) &#x3D;&gt; c.id);
+
+		// idea as combined query:
+		// [{courseIds: onlyWriteCoursesIds}, { courseIds: onlyReadCourses, filter: { hidden: false }}]
+		const [[writeLessons], [readLessons]] &#x3D; await Promise.all([
+			this.lessonRepo.findAllByCourseIds(writeCourseIds),
+			this.lessonRepo.findAllByCourseIds(readCourseIds, { hidden: false }),
+		]);
+
+		const permittedLessons &#x3D; [...writeLessons, ...readLessons];
+
+		return permittedLessons;
 	}
 }
 </code></pre>

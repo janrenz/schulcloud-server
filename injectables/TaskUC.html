@@ -82,6 +82,10 @@
                                 <a href="#findAll" >findAll</a>
                             </li>
                             <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#findAllFinished" >findAllFinished</a>
+                            </li>
+                            <li>
                                     <span class="modifier">Private</span>
                                     <span class="modifier">Async</span>
                                 <a href="#findAllForStudent" >findAllForStudent</a>
@@ -117,12 +121,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(taskRepo: <a href="../injectables/TaskRepo.html" target="_self">TaskRepo</a>, lessonRepo: <a href="../injectables/LessonRepo.html" target="_self">LessonRepo</a>, authorizationService: <a href="../injectables/TaskAuthorizationService.html" target="_self">TaskAuthorizationService</a>)</code>
+<code>constructor(taskRepo: <a href="../injectables/TaskRepo.html" target="_self">TaskRepo</a>, authorizationService: <a href="../injectables/TaskAuthorizationService.html" target="_self">TaskAuthorizationService</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:12</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:14</a></div>
                             </td>
                         </tr>
 
@@ -144,18 +148,6 @@
                                                   
                                                         <td>
                                                                         <code><a href="../injectables/TaskRepo.html" target="_self" >TaskRepo</a></code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                                <tr>
-                                                        <td>lessonRepo</td>
-                                                  
-                                                        <td>
-                                                                        <code><a href="../injectables/LessonRepo.html" target="_self" >LessonRepo</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -211,8 +203,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="20"
-                            class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:20</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="50"
+                            class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:50</a></div>
                 </td>
             </tr>
 
@@ -276,6 +268,89 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="findAllFinished"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>findAllFinished</b></span>
+                        <a href="#findAllFinished"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findAllFinished(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, pagination?: <a href="../interfaces/IPagination.html" target="_self">IPagination</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="19"
+                            class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:19</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>userId</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>pagination</td>
+                                    <td>
+                                                <code><a href="../interfaces/IPagination.html" target="_self" >IPagination</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#Counted" target="_self" >Promise&lt;Counted&lt;TaskWithStatusVo[]&gt;&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="findAllForStudent"></a>
                     <span class="name">
                         <span class="modifier">Private</span>
@@ -295,8 +370,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="34"
-                            class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:34</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="64"
+                            class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:64</a></div>
                 </td>
             </tr>
 
@@ -379,8 +454,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="59"
-                            class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:59</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="92"
+                            class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:92</a></div>
                 </td>
             </tr>
 
@@ -462,8 +537,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="90"
-                            class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:90</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="126"
+                            class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:126</a></div>
                 </td>
             </tr>
 
@@ -501,8 +576,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="84"
-                            class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:84</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="120"
+                            class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:120</a></div>
                 </td>
             </tr>
 
@@ -571,22 +646,52 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable, UnauthorizedException } from &#x27;@nestjs/common&#x27;;
 import { EntityId, IPagination, Counted, ICurrentUser, SortOrder, TaskWithStatusVo } from &#x27;@shared/domain&#x27;;
 
-import { LessonRepo, TaskRepo } from &#x27;@shared/repo&#x27;;
+import { TaskRepo } from &#x27;@shared/repo&#x27;;
+
 import { TaskAuthorizationService, TaskParentPermission } from &#x27;./task.authorization.service&#x27;;
 
 export enum TaskDashBoardPermission {
 	teacherDashboard &#x3D; &#x27;TASK_DASHBOARD_TEACHER_VIEW_V3&#x27;,
 	studentDashboard &#x3D; &#x27;TASK_DASHBOARD_VIEW_V3&#x27;,
 }
+
 @Injectable()
 export class TaskUC {
-	constructor(
-		private readonly taskRepo: TaskRepo,
-		private readonly lessonRepo: LessonRepo,
-		private readonly authorizationService: TaskAuthorizationService
-	) {}
+	constructor(private readonly taskRepo: TaskRepo, private readonly authorizationService: TaskAuthorizationService) {}
 
+	// This uc includes 4 awaits + 1 from authentication services.
+	// 5 awaits from with db calls from one request against the api is for me the absolut maximum what we should allowed.
+	async findAllFinished(userId: EntityId, pagination?: IPagination): Promise&lt;Counted&lt;TaskWithStatusVo[]&gt;&gt; {
+		const courses &#x3D; await this.authorizationService.getPermittedCourses(userId, TaskParentPermission.read);
+		const lessons &#x3D; await this.authorizationService.getPermittedLessons(userId, courses);
+
+		const openCourseIds &#x3D; courses.filter((c) &#x3D;&gt; !c.isFinished()).map((c) &#x3D;&gt; c.id);
+		const finishedCourseIds &#x3D; courses.filter((c) &#x3D;&gt; c.isFinished()).map((c) &#x3D;&gt; c.id);
+		const lessonIdsOfOpenCourses &#x3D; lessons.filter((l) &#x3D;&gt; !l.course.isFinished()).map((l) &#x3D;&gt; l.id);
+		const lessonIdsOfFinishedCourses &#x3D; lessons.filter((l) &#x3D;&gt; l.course.isFinished()).map((l) &#x3D;&gt; l.id);
+
+		const [tasks, total] &#x3D; await this.taskRepo.findAllFinishedByParentIds(
+			{
+				creatorId: userId,
+				openCourseIds,
+				finishedCourseIds,
+				lessonIdsOfOpenCourses,
+				lessonIdsOfFinishedCourses,
+			},
+			{ pagination }
+		);
+
+		const taskWithStatusVos &#x3D; tasks.map((task) &#x3D;&gt; {
+			const status &#x3D; task.createStudentStatusForUser(userId); // will updated in future pr that it show right status for write permissions
+			return new TaskWithStatusVo(task, status);
+		});
+
+		return [taskWithStatusVos, total];
+	}
+
+	// TODO: should it display task from courses that are not started?
 	// TODO replace curentUser with userId. this requires that permissions are loaded inside the use case by authorization service
+	// TODO: use authorizationService instant of private method
 	async findAll(currentUser: ICurrentUser, pagination: IPagination): Promise&lt;Counted&lt;TaskWithStatusVo[]&gt;&gt; {
 		let response: Counted&lt;TaskWithStatusVo[]&gt;;
 
@@ -602,16 +707,19 @@ export class TaskUC {
 	}
 
 	private async findAllForStudent(userId: EntityId, pagination: IPagination): Promise&lt;Counted&lt;TaskWithStatusVo[]&gt;&gt; {
-		const courseIds &#x3D; await this.authorizationService.getPermittedCourses(userId, TaskParentPermission.read);
-		const visibleLessons &#x3D; await this.lessonRepo.findAllByCourseIds(courseIds, { hidden: false });
+		const courses &#x3D; await this.authorizationService.getPermittedCourses(userId, TaskParentPermission.read);
+		const openCourses &#x3D; courses.filter((c) &#x3D;&gt; !c.isFinished());
+		const lessons &#x3D; await this.authorizationService.getPermittedLessons(userId, openCourses);
+
 		const dueDate &#x3D; this.getDefaultMaxDueDate();
+		const closed &#x3D; { userId, value: false };
 
 		const [tasks, total] &#x3D; await this.taskRepo.findAllByParentIds(
 			{
-				courseIds,
-				lessonIds: visibleLessons.map((o) &#x3D;&gt; o.id),
+				courseIds: openCourses.map((c) &#x3D;&gt; c.id),
+				lessonIds: lessons.map((l) &#x3D;&gt; l.id),
 			},
-			{ draft: false, afterDueDateOrNone: dueDate, closed: userId },
+			{ draft: false, afterDueDateOrNone: dueDate, closed },
 			{
 				pagination,
 				order: { dueDate: SortOrder.asc },
@@ -627,16 +735,19 @@ export class TaskUC {
 	}
 
 	private async findAllForTeacher(userId: EntityId, pagination: IPagination): Promise&lt;Counted&lt;TaskWithStatusVo[]&gt;&gt; {
-		const courseIds &#x3D; await this.authorizationService.getPermittedCourses(userId, TaskParentPermission.write);
-		const visibleLessons &#x3D; await this.lessonRepo.findAllByCourseIds(courseIds, { hidden: false });
+		const courses &#x3D; await this.authorizationService.getPermittedCourses(userId, TaskParentPermission.write);
+		const openCourses &#x3D; courses.filter((c) &#x3D;&gt; !c.isFinished());
+		const lessons &#x3D; await this.authorizationService.getPermittedLessons(userId, openCourses);
+
+		const closed &#x3D; { userId, value: false };
 
 		const [tasks, total] &#x3D; await this.taskRepo.findAllByParentIds(
 			{
-				teacherId: userId,
-				courseIds,
-				lessonIds: visibleLessons.map((o) &#x3D;&gt; o.id),
+				creatorId: userId,
+				courseIds: openCourses.map((c) &#x3D;&gt; c.id),
+				lessonIds: lessons.map((l) &#x3D;&gt; l.id),
 			},
-			{ closed: userId },
+			{ closed },
 			{
 				pagination,
 				order: { dueDate: SortOrder.desc },

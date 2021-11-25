@@ -43,7 +43,7 @@
 
 <ol class="breadcrumb">
   <li>Classes</li>
-  <li >SubmissionFactory</li>
+  <li >LessonFactory</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -61,7 +61,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/shared/testing/factory/submission.factory.ts</code>
+            <code>apps/server/src/shared/testing/factory/lesson.factory.ts</code>
         </p>
 
 
@@ -104,9 +104,6 @@
                 <tr>
                     <td class="col-md-4">
                         <ul class="index-list">
-                            <li>
-                                <a href="#graded" >graded</a>
-                            </li>
                             <li>
                                 <a href="#afterBuild" >afterBuild</a>
                             </li>
@@ -200,34 +197,6 @@
     <h3 id="methods">
         Methods
     </h3>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="graded"></a>
-                    <span class="name">
-                        <span ><b>graded</b></span>
-                        <a href="#graded"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>graded()</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="8"
-                            class="link-to-prism">apps/server/src/shared/testing/factory/submission.factory.ts:8</a></div>
-                </td>
-            </tr>
-
-
-        </tbody>
-    </table>
     <table class="table table-sm table-bordered">
         <tbody>
             <tr>
@@ -1055,24 +1024,24 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { DeepPartial } from &#x27;fishery&#x27;;
-import { Submission, ISubmissionProperties } from &#x27;@shared/domain&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Lesson, ILessonProperties, Course } from &#x27;@shared/domain&#x27;;
+
+import { courseFactory } from &#x27;./course.factory&#x27;;
 import { BaseFactory } from &#x27;./base.factory&#x27;;
-import { taskFactory } from &#x27;./task.factory&#x27;;
-import { userFactory } from &#x27;./user.factory&#x27;;
 
-class SubmissionFactory extends BaseFactory&lt;Submission, ISubmissionProperties&gt; {
-	graded(): this {
-		const params: DeepPartial&lt;ISubmissionProperties&gt; &#x3D; { gradeComment: &#x27;graded text&#x27; };
-		return this.params(params);
+class LessonFactory extends BaseFactory&lt;Lesson, ILessonProperties&gt; {}
+
+export const lessonFactory &#x3D; LessonFactory.define&lt;Lesson, ILessonProperties&gt;(Lesson, ({ sequence, params }) &#x3D;&gt; {
+	let course: Course;
+	if (params.course) {
+		course &#x3D; params.course as Course;
+	} else {
+		course &#x3D; courseFactory.build();
 	}
-}
 
-export const submissionFactory &#x3D; SubmissionFactory.define(Submission, ({ sequence }) &#x3D;&gt; {
 	return {
-		task: taskFactory.build(),
-		student: userFactory.build(),
-		comment: &#x60;submission comment #${sequence}&#x60;,
+		name: &#x60;lesson #${sequence}&#x60;,
+		course,
 	};
 });
 </code></pre>
@@ -1112,7 +1081,7 @@ export const submissionFactory &#x3D; SubmissionFactory.define(Submission, ({ se
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
-            var COMPODOC_CURRENT_PAGE_URL = 'SubmissionFactory.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'LessonFactory.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

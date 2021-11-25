@@ -108,6 +108,9 @@
                                 <a href="#draft" >draft</a>
                             </li>
                             <li>
+                                <a href="#finished" >finished</a>
+                            </li>
+                            <li>
                                 <a href="#afterBuild" >afterBuild</a>
                             </li>
                             <li>
@@ -115,6 +118,9 @@
                             </li>
                             <li>
                                 <a href="#buildList" >buildList</a>
+                            </li>
+                            <li>
+                                <a href="#buildWithId" >buildWithId</a>
                             </li>
                             <li>
                                     <span class="modifier">Protected</span>
@@ -182,7 +188,7 @@
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/BaseFactory.html#source" target="_self" >BaseFactory:13</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classes/BaseFactory.html#source" target="_self" >BaseFactory:14</a></code>
 </div>
                         </td>
                     </tr>
@@ -210,15 +216,43 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>draft(isDraft)</code>
+<code>draft()</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="6"
-                            class="link-to-prism">apps/server/src/shared/testing/factory/task.factory.ts:6</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="9"
+                            class="link-to-prism">apps/server/src/shared/testing/factory/task.factory.ts:9</a></div>
+                </td>
+            </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="finished"></a>
+                    <span class="name">
+                        <span ><b>finished</b></span>
+                        <a href="#finished"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>finished(user: <a href="../interfaces/User.html" target="_self">User</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="15"
+                            class="link-to-prism">apps/server/src/shared/testing/factory/task.factory.ts:15</a></div>
                 </td>
             </tr>
 
@@ -233,21 +267,21 @@
                             <thead>
                                 <tr>
                                     <td>Name</td>
+                                    <td>Type</td>
                                     <td>Optional</td>
-                                    <td>Default value</td>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>isDraft</td>
+                                    <td>user</td>
+                                    <td>
+                                                <code><a href="../interfaces/User.html" target="_self" >User</a></code>
+                                    </td>
 
                                     <td>
                                         No
                                     </td>
 
-                                    <td>
-                                        <code>true</code>
-                                    </td>
 
                                 </tr>
                             </tbody>
@@ -285,7 +319,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/BaseFactory.html#source" target="_self" >BaseFactory:72</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/BaseFactory.html#source" target="_self" >BaseFactory:86</a></code>
 </div>
                 </td>
             </tr>
@@ -362,7 +396,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/BaseFactory.html#source" target="_self" >BaseFactory:45</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/BaseFactory.html#source" target="_self" >BaseFactory:46</a></code>
 </div>
                 </td>
             </tr>
@@ -444,7 +478,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/BaseFactory.html#source" target="_self" >BaseFactory:58</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/BaseFactory.html#source" target="_self" >BaseFactory:72</a></code>
 </div>
                 </td>
             </tr>
@@ -518,6 +552,102 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="buildWithId"></a>
+                    <span class="name">
+                        <span ><b>buildWithId</b></span>
+                        <a href="#buildWithId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>buildWithId(params: DeepPartial<U>, id?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../classes/BaseFactory.html" target="_self" >BaseFactory</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../classes/BaseFactory.html#source" target="_self" >BaseFactory:59</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Build an entity using your factory and generate a id for it.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Default value</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>params</td>
+                                    <td>
+                                            <code>DeepPartial&lt;U&gt;</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+                                    <td>
+                                        <code>{}</code>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>id</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+                                    <td>
+                                    </td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>T</code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>an entity</p>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="clone"></a>
                     <span class="name">
                         <span class="modifier">Protected</span>
@@ -542,7 +672,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/BaseFactory.html#source" target="_self" >BaseFactory:110</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/BaseFactory.html#source" target="_self" >BaseFactory:124</a></code>
 </div>
                 </td>
             </tr>
@@ -639,7 +769,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/BaseFactory.html#source" target="_self" >BaseFactory:29</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/BaseFactory.html#source" target="_self" >BaseFactory:30</a></code>
 </div>
                 </td>
             </tr>
@@ -761,7 +891,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/BaseFactory.html#source" target="_self" >BaseFactory:84</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/BaseFactory.html#source" target="_self" >BaseFactory:98</a></code>
 </div>
                 </td>
             </tr>
@@ -831,7 +961,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/BaseFactory.html#source" target="_self" >BaseFactory:106</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/BaseFactory.html#source" target="_self" >BaseFactory:120</a></code>
 </div>
                 </td>
             </tr>
@@ -878,7 +1008,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/BaseFactory.html#source" target="_self" >BaseFactory:122</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/BaseFactory.html#source" target="_self" >BaseFactory:136</a></code>
 </div>
                 </td>
             </tr>
@@ -929,7 +1059,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/BaseFactory.html#source" target="_self" >BaseFactory:96</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/BaseFactory.html#source" target="_self" >BaseFactory:110</a></code>
 </div>
                 </td>
             </tr>
@@ -991,19 +1121,28 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { DeepPartial } from &#x27;fishery&#x27;;
+
 import { Task, ITaskProperties } from &#x27;@shared/domain&#x27;;
+import type { User } from &#x27;@shared/domain/entity&#x27;;
+
 import { BaseFactory } from &#x27;./base.factory&#x27;;
 
 class TaskFactory extends BaseFactory&lt;Task, ITaskProperties&gt; {
-	draft(isDraft &#x3D; true): this {
-		const params: DeepPartial&lt;ITaskProperties&gt; &#x3D; { private: isDraft };
-		if (isDraft &#x3D;&#x3D;&#x3D; true) params.course &#x3D; undefined;
+	draft(): this {
+		const params: DeepPartial&lt;ITaskProperties&gt; &#x3D; { private: true };
+
+		return this.params(params);
+	}
+
+	finished(user: User): this {
+		const params: DeepPartial&lt;ITaskProperties&gt; &#x3D; { closed: [user] };
 		return this.params(params);
 	}
 }
 
 export const taskFactory &#x3D; TaskFactory.define(Task, ({ sequence }) &#x3D;&gt; {
-	return { name: &#x60;task #${sequence}&#x60; };
+	// private is by default in constructor true, but in the most test cases we need private: false
+	return { name: &#x60;task #${sequence}&#x60;, private: false };
 });
 </code></pre>
     </div>

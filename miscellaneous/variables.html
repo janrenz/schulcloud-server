@@ -158,6 +158,9 @@
                             <a href="#NOT_FOUND_ERROR_TYPE" title="apps/server/src/core/error/server-error-types.ts" ><b>NOT_FOUND_ERROR_TYPE</b>&nbsp;&nbsp;&nbsp;(apps/.../server-error-types.ts)</a>
                         </li>
                         <li>
+                            <a href="#oneDay" title="apps/server/src/shared/testing/factory/course.factory.ts" ><b>oneDay</b>&nbsp;&nbsp;&nbsp;(apps/.../course.factory.ts)</a>
+                        </li>
+                        <li>
                             <a href="#REQUEST_TIMEOUT" title="apps/server/src/shared/common/interceptor/constants.ts" ><b>REQUEST_TIMEOUT</b>&nbsp;&nbsp;&nbsp;(apps/.../constants.ts)</a>
                         </li>
                         <li>
@@ -630,14 +633,41 @@ must use @ApiProperty</p>
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>BaseFactory.define&lt;Course, ICourseProperties&gt;(Course, ({ sequence }) &#x3D;&gt; {
+                        <i>Default value : </i><code>CourseFactory.define(Course, ({ sequence, params }) &#x3D;&gt; {
+	let school: School;
+	if (params?.school) {
+		school &#x3D; params.school as School;
+	} else {
+		school &#x3D; schoolFactory.build();
+	}
+
 	return {
 		name: &#x60;course #${sequence}&#x60;,
 		description: &#x60;course #${sequence} description&#x60;,
 		color: &#x27;#FFFFFF&#x27;,
-		school: schoolFactory.build(),
+		school,
 	};
 })</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="oneDay"></a>
+                    <span class="name">
+                        <span ><b>oneDay</b></span>
+                        <a href="#oneDay"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>24 * 60 * 60 * 1000</code>
                     </td>
                 </tr>
 
@@ -1511,10 +1541,17 @@ it should ensure an empty result</p>
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>BaseFactory.define&lt;Lesson, ILessonProperties&gt;(Lesson, ({ sequence }) &#x3D;&gt; {
+                        <i>Default value : </i><code>LessonFactory.define&lt;Lesson, ILessonProperties&gt;(Lesson, ({ sequence, params }) &#x3D;&gt; {
+	let course: Course;
+	if (params.course) {
+		course &#x3D; params.course as Course;
+	} else {
+		course &#x3D; courseFactory.build();
+	}
+
 	return {
 		name: &#x60;lesson #${sequence}&#x60;,
-		course: courseFactory.build(),
+		course,
 	};
 })</code>
                     </td>
@@ -1890,7 +1927,8 @@ it should ensure an empty result</p>
                 <tr>
                     <td class="col-md-4">
                         <i>Default value : </i><code>TaskFactory.define(Task, ({ sequence }) &#x3D;&gt; {
-	return { name: &#x60;task #${sequence}&#x60; };
+	// private is by default in constructor true, but in the most test cases we need private: false
+	return { name: &#x60;task #${sequence}&#x60;, private: false };
 })</code>
                     </td>
                 </tr>

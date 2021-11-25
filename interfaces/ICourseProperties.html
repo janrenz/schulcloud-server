@@ -500,7 +500,6 @@ export class Course extends BaseEntityWithTimestamps {
 	@ManyToOne(&#x27;School&#x27;, { fieldName: &#x27;schoolId&#x27; })
 	school!: School;
 
-	@Index({ name: &#x27;findAllForStudent&#x27; })
 	@ManyToMany(&#x27;User&#x27;, undefined, { fieldName: &#x27;userIds&#x27; })
 	students &#x3D; new Collection&lt;User&gt;(this);
 
@@ -535,11 +534,30 @@ export class Course extends BaseEntityWithTimestamps {
 	}
 
 	getSubstitutionTeacherIds(): EntityId[] {
-		const substitutionIds &#x3D; this.substitutionTeachers.getIdentifiers(&#x27;id&#x27;);
-		// The result of getIdentifiers is a primary key type where we have no represent for it ((string | ObjectId) &amp; IPrimaryKeyValue)[]
-		const idsAsString &#x3D; substitutionIds.map((id) &#x3D;&gt; id.toString());
+		const ids: EntityId[] &#x3D; this.substitutionTeachers.getIdentifiers(&#x27;id&#x27;);
 
-		return idsAsString;
+		return ids;
+	}
+
+	getStudentIds(): EntityId[] {
+		const ids: EntityId[] &#x3D; this.students.getIdentifiers(&#x27;id&#x27;);
+
+		return ids;
+	}
+
+	getTeacherIds(): EntityId[] {
+		const ids: EntityId[] &#x3D; this.teachers.getIdentifiers(&#x27;id&#x27;);
+
+		return ids;
+	}
+
+	isFinished(): boolean {
+		if (!this.untilDate) {
+			return false;
+		}
+		const isFinished &#x3D; this.untilDate &lt; new Date();
+
+		return isFinished;
 	}
 
 	getMetadata(): CourseMetadata {

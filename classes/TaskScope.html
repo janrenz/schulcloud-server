@@ -117,13 +117,16 @@
                                 <a href="#byCourseIds" >byCourseIds</a>
                             </li>
                             <li>
+                                <a href="#byCreatorId" >byCreatorId</a>
+                            </li>
+                            <li>
                                 <a href="#byDraft" >byDraft</a>
                             </li>
                             <li>
                                 <a href="#byLessonIds" >byLessonIds</a>
                             </li>
                             <li>
-                                <a href="#byTeacherId" >byTeacherId</a>
+                                <a href="#byOnlyCreatorId" >byOnlyCreatorId</a>
                             </li>
                             <li>
                                 <a href="#addQuery" >addQuery</a>
@@ -246,8 +249,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="43"
-                            class="link-to-prism">apps/server/src/shared/repo/task/task-scope.ts:43</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="52"
+                            class="link-to-prism">apps/server/src/shared/repo/task/task-scope.ts:52</a></div>
                 </td>
             </tr>
 
@@ -308,15 +311,15 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>byClosed(userId?: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>)</code>
+<code>byClosed(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, value: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="6"
-                            class="link-to-prism">apps/server/src/shared/repo/task/task-scope.ts:6</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="5"
+                            class="link-to-prism">apps/server/src/shared/repo/task/task-scope.ts:5</a></div>
                 </td>
             </tr>
 
@@ -343,7 +346,19 @@
                                     </td>
 
                                     <td>
-                                        Yes
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>value</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
                                     </td>
 
 
@@ -384,8 +399,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="20"
-                            class="link-to-prism">apps/server/src/shared/repo/task/task-scope.ts:20</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="29"
+                            class="link-to-prism">apps/server/src/shared/repo/task/task-scope.ts:29</a></div>
                 </td>
             </tr>
 
@@ -437,6 +452,75 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="byCreatorId"></a>
+                    <span class="name">
+                        <span ><b>byCreatorId</b></span>
+                        <a href="#byCreatorId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>byCreatorId(creatorId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="23"
+                            class="link-to-prism">apps/server/src/shared/repo/task/task-scope.ts:23</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>creatorId</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/TaskScope.html" target="_self" >TaskScope</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="byDraft"></a>
                     <span class="name">
                         <span ><b>byDraft</b></span>
@@ -453,8 +537,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="34"
-                            class="link-to-prism">apps/server/src/shared/repo/task/task-scope.ts:34</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="43"
+                            class="link-to-prism">apps/server/src/shared/repo/task/task-scope.ts:43</a></div>
                 </td>
             </tr>
 
@@ -522,8 +606,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="28"
-                            class="link-to-prism">apps/server/src/shared/repo/task/task-scope.ts:28</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="37"
+                            class="link-to-prism">apps/server/src/shared/repo/task/task-scope.ts:37</a></div>
                 </td>
             </tr>
 
@@ -575,24 +659,24 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="byTeacherId"></a>
+                    <a name="byOnlyCreatorId"></a>
                     <span class="name">
-                        <span ><b>byTeacherId</b></span>
-                        <a href="#byTeacherId"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>byOnlyCreatorId</b></span>
+                        <a href="#byOnlyCreatorId"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>byTeacherId(teacherId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>)</code>
+<code>byOnlyCreatorId(teacherId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="12"
-                            class="link-to-prism">apps/server/src/shared/repo/task/task-scope.ts:12</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="15"
+                            class="link-to-prism">apps/server/src/shared/repo/task/task-scope.ts:15</a></div>
                 </td>
             </tr>
 
@@ -729,17 +813,26 @@
 import { Scope } from &#x27;../scope&#x27;;
 
 export class TaskScope extends Scope&lt;Task&gt; {
-	// TODO: parameter &gt; isClosed: boolean
-	byClosed(userId?: EntityId): TaskScope {
-		this.addQuery({ closed: { $ne: userId } });
+	byClosed(userId: EntityId, value: boolean): TaskScope {
+		if (value &#x3D;&#x3D;&#x3D; true) {
+			this.addQuery({ closed: userId });
+		} else if (value &#x3D;&#x3D;&#x3D; false) {
+			this.addQuery({ closed: { $ne: userId } });
+		}
 
 		return this;
 	}
 
-	byTeacherId(teacherId: EntityId): TaskScope {
+	byOnlyCreatorId(teacherId: EntityId): TaskScope {
 		this.addQuery({
-			$and: [{ teacher: teacherId }, { course: null }, { lesson: null }],
+			$and: [{ creator: teacherId }, { course: null }, { lesson: null }],
 		});
+
+		return this;
+	}
+
+	byCreatorId(creatorId: EntityId): TaskScope {
+		this.addQuery({ creator: creatorId });
 
 		return this;
 	}
