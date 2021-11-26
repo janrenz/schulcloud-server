@@ -43,7 +43,7 @@
 
 <ol class="breadcrumb">
   <li>Classes</li>
-  <li >TaskMapper</li>
+  <li >TaskStatusMapper</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -61,7 +61,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/modules/task/mapper/task.mapper.ts</code>
+            <code>apps/server/src/modules/task/mapper/task-status.mapper.ts</code>
         </p>
 
 
@@ -120,15 +120,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>mapToResponse(taskWithStatus: <a href="../classes/TaskWithStatusVo.html" target="_self">TaskWithStatusVo</a>)</code>
+                    <code>mapToResponse(status: <a href="../interfaces/ITaskStatus.html" target="_self">ITaskStatus</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="6"
-                            class="link-to-prism">apps/server/src/modules/task/mapper/task.mapper.ts:6</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="5"
+                            class="link-to-prism">apps/server/src/modules/task/mapper/task-status.mapper.ts:5</a></div>
                 </td>
             </tr>
 
@@ -149,9 +149,9 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>taskWithStatus</td>
+                                    <td>status</td>
                                     <td>
-                                                <code><a href="../classes/TaskWithStatusVo.html" target="_self" >TaskWithStatusVo</a></code>
+                                                <code><a href="../interfaces/ITaskStatus.html" target="_self" >ITaskStatus</a></code>
                                     </td>
 
                                     <td>
@@ -166,7 +166,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/TaskResponse.html" target="_self" >TaskResponse</a></code>
+                        <b>Returns : </b>        <code><a href="../classes/TaskStatusResponse.html" target="_self" >TaskStatusResponse</a></code>
 
                     </div>
                     <div class="io-description">
@@ -186,30 +186,12 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { TaskWithStatusVo } from &#x27;@shared/domain&#x27;;
-import { TaskResponse } from &#x27;../controller/dto&#x27;;
-import { TaskStatusMapper } from &#x27;./task-status.mapper&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ITaskStatus } from &#x27;@shared/domain&#x27;;
+import { TaskStatusResponse } from &#x27;../controller/dto/task-status.response&#x27;;
 
-export class TaskMapper {
-	static mapToResponse(taskWithStatus: TaskWithStatusVo): TaskResponse {
-		const { task, status } &#x3D; taskWithStatus;
-		const taskDesc &#x3D; task.getDescriptions();
-		const statusDto &#x3D; TaskStatusMapper.mapToResponse(status);
-
-		const dto &#x3D; new TaskResponse({
-			id: task.id,
-			name: task.name,
-			courseName: taskDesc.name,
-			createdAt: task.createdAt,
-			updatedAt: task.updatedAt,
-			status: statusDto,
-		});
-
-		dto.availableDate &#x3D; task.availableDate;
-		dto.duedate &#x3D; task.dueDate;
-
-		dto.displayColor &#x3D; taskDesc.color;
-		dto.description &#x3D; taskDesc.description;
+export class TaskStatusMapper {
+	static mapToResponse(status: ITaskStatus): TaskStatusResponse {
+		const dto &#x3D; new TaskStatusResponse(status);
 
 		return dto;
 	}
@@ -251,7 +233,7 @@ export class TaskMapper {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
-            var COMPODOC_CURRENT_PAGE_URL = 'TaskMapper.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'TaskStatusMapper.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

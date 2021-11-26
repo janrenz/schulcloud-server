@@ -731,6 +731,12 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/TaskScope.html" data-type="entity-link" >TaskScope</a>
                             </li>
                             <li class="link">
+                                <a href="classes/TaskStatusMapper.html" data-type="entity-link" >TaskStatusMapper</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/TaskStatusResponse.html" data-type="entity-link" >TaskStatusResponse</a>
+                            </li>
+                            <li class="link">
                                 <a href="classes/TaskWithStatusVo.html" data-type="entity-link" >TaskWithStatusVo</a>
                             </li>
                             <li class="link">
