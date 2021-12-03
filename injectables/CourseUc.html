@@ -78,7 +78,7 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#findActiveByUser" >findActiveByUser</a>
+                                <a href="#findAllByUser" >findAllByUser</a>
                             </li>
                         </ul>
                     </td>
@@ -150,16 +150,16 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="findActiveByUser"></a>
+                    <a name="findAllByUser"></a>
                     <span class="name">
-                        <span ><b>findActiveByUser</b></span>
-                        <a href="#findActiveByUser"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>findAllByUser</b></span>
+                        <a href="#findAllByUser"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>findActiveByUser(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, options?: <a href="../classes/PaginationQuery.html" target="_self">PaginationQuery</a>)</code>
+<code>findAllByUser(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, options?: <a href="../classes/PaginationQuery.html" target="_self">PaginationQuery</a>)</code>
                 </td>
             </tr>
 
@@ -242,12 +242,8 @@ import { PaginationQuery } from &#x27;@shared/controller/&#x27;;
 export class CourseUc {
 	constructor(private readonly courseRepo: CourseRepo) {}
 
-	findActiveByUser(userId: EntityId, options?: PaginationQuery): Promise&lt;Counted&lt;Course[]&gt;&gt; {
-		return this.courseRepo.findAllByUserId(
-			userId,
-			{ onlyActiveCourses: true },
-			{ pagination: options, order: { name: SortOrder.asc } }
-		);
+	findAllByUser(userId: EntityId, options?: PaginationQuery): Promise&lt;Counted&lt;Course[]&gt;&gt; {
+		return this.courseRepo.findAllByUserId(userId, {}, { pagination: options, order: { name: SortOrder.asc } });
 	}
 }
 </code></pre>
