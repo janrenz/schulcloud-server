@@ -155,7 +155,7 @@
 import { Test, TestingModule } from &#x27;@nestjs/testing&#x27;;
 import { APP_INTERCEPTOR } from &#x27;@nestjs/core&#x27;;
 
-const delay &#x3D; (ms) &#x3D;&gt; new Promise((resolve) &#x3D;&gt; setTimeout(resolve, ms));
+const delay &#x3D; (ms: number) &#x3D;&gt; new Promise((resolve) &#x3D;&gt; setTimeout(resolve, ms));
 
 @Controller()
 class DelayController {

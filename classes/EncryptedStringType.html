@@ -404,7 +404,7 @@ export class EncryptedStringType extends Type&lt;string, string&gt; {
 		if (customKey) {
 			this.encryptionService &#x3D; new SymetricKeyEncryptionService(customKey);
 		} else {
-			this.encryptionService &#x3D; new SymetricKeyEncryptionService(Configuration.get(&#x27;S3_KEY&#x27;));
+			this.encryptionService &#x3D; new SymetricKeyEncryptionService(Configuration.get(&#x27;S3_KEY&#x27;) as string);
 		}
 	}
 
