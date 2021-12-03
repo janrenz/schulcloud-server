@@ -125,7 +125,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">apps/server/src/modules/learnroom/controller/dto/courseMetadata.response.ts:35</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">apps/server/src/modules/learnroom/controller/dto/courseMetadata.response.ts:54</a></div>
                             </td>
                         </tr>
 
@@ -238,7 +238,7 @@
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/PaginationResponse.html#source" target="_self" >PaginationResponse:42</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classes/PaginationResponse.html#source" target="_self" >PaginationResponse:61</a></code>
 </div>
                         </td>
                     </tr>
@@ -391,11 +391,20 @@ import { PaginationResponse } from &#x27;@shared/controller&#x27;;
 import { EntityId } from &#x27;@shared/domain&#x27;;
 
 export class CourseMetadataResponse {
-	constructor(id: EntityId, title: string, shortTitle: string, displayColor: string) {
+	constructor(
+		id: EntityId,
+		title: string,
+		shortTitle: string,
+		displayColor: string,
+		startDate?: Date,
+		untilDate?: Date
+	) {
 		this.id &#x3D; id;
 		this.title &#x3D; title;
 		this.shortTitle &#x3D; shortTitle;
 		this.displayColor &#x3D; displayColor;
+		this.startDate &#x3D; startDate;
+		this.untilDate &#x3D; untilDate;
 	}
 
 	@ApiProperty({
@@ -418,6 +427,16 @@ export class CourseMetadataResponse {
 		description: &#x27;Color of the Grid element&#x27;,
 	})
 	displayColor: string;
+
+	@ApiProperty({
+		description: &#x27;Start date of the course&#x27;,
+	})
+	startDate?: Date;
+
+	@ApiProperty({
+		description: &#x27;End date of the course. After this the course counts as archived&#x27;,
+	})
+	untilDate?: Date;
 }
 
 export class CourseMetadataListResponse extends PaginationResponse&lt;CourseMetadataResponse[]&gt; {
