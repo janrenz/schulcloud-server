@@ -132,8 +132,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="59"
-                            class="link-to-prism">apps/server/src/shared/repo/dashboard/dashboard.repo.ts:59</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="15"
+                            class="link-to-prism">apps/server/src/shared/repo/dashboard/dashboard.repo.ts:15</a></div>
                 </td>
             </tr>
 
@@ -201,8 +201,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="58"
-                            class="link-to-prism">apps/server/src/shared/repo/dashboard/dashboard.repo.ts:58</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="14"
+                            class="link-to-prism">apps/server/src/shared/repo/dashboard/dashboard.repo.ts:14</a></div>
                 </td>
             </tr>
 
@@ -270,8 +270,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="60"
-                            class="link-to-prism">apps/server/src/shared/repo/dashboard/dashboard.repo.ts:60</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="16"
+                            class="link-to-prism">apps/server/src/shared/repo/dashboard/dashboard.repo.ts:16</a></div>
                 </td>
             </tr>
 
@@ -326,56 +326,12 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
-import {
-	EntityId,
-	DashboardEntity,
-	DefaultGridReference,
-	GridElement,
-	GridElementWithPosition,
-	DashboardModelEntity,
-} from &#x27;@shared/domain&#x27;;
+import { EntityId, DashboardEntity, GridElementWithPosition, DashboardModelEntity } from &#x27;@shared/domain&#x27;;
 import { EntityManager, ObjectId } from &#x27;@mikro-orm/mongodb&#x27;;
 import { DashboardModelMapper } from &#x27;./dashboard.model.mapper&#x27;;
 
-const generateHardcodedTestDashboard &#x3D; (userId: EntityId) &#x3D;&gt; {
+const generateEmptyDashboard &#x3D; (userId: EntityId) &#x3D;&gt; {
 	const gridArray: GridElementWithPosition[] &#x3D; [];
-
-	gridArray.push({
-		pos: { x: 1, y: 3 },
-		gridElement: GridElement.FromPersistedReference(
-			new ObjectId().toString(),
-			new DefaultGridReference(new ObjectId().toString(), &#x27;Math&#x27;)
-		),
-	});
-	gridArray.push({
-		pos: { x: 1, y: 4 },
-		gridElement: GridElement.FromPersistedGroup(new ObjectId().toString(), &#x27;Science&#x27;, [
-			new DefaultGridReference(new ObjectId().toString(), &#x27;Physics&#x27;),
-			new DefaultGridReference(new ObjectId().toString(), &#x27;Biology&#x27;),
-			new DefaultGridReference(new ObjectId().toString(), &#x27;Chemistry&#x27;),
-		]),
-	});
-	gridArray.push({
-		pos: { x: 2, y: 1 },
-		gridElement: GridElement.FromPersistedReference(
-			new ObjectId().toString(),
-			new DefaultGridReference(new ObjectId().toString(), &#x27;English&#x27;)
-		),
-	});
-	gridArray.push({
-		pos: { x: 3, y: 1 },
-		gridElement: GridElement.FromPersistedReference(
-			new ObjectId().toString(),
-			new DefaultGridReference(new ObjectId().toString(), &#x27;German&#x27;)
-		),
-	});
-	gridArray.push({
-		pos: { x: 4, y: 1 },
-		gridElement: GridElement.FromPersistedReference(
-			new ObjectId().toString(),
-			new DefaultGridReference(new ObjectId().toString(), &#x27;Greek&#x27;)
-		),
-	});
 
 	const dashboard &#x3D; new DashboardEntity(new ObjectId().toString(), { grid: gridArray, userId });
 	return dashboard;
@@ -416,7 +372,7 @@ export class DashboardRepo implements IDashboardRepo {
 			return this.mapper.mapDashboardToEntity(dashboardModel);
 		}
 
-		const dashboard &#x3D; generateHardcodedTestDashboard(userId);
+		const dashboard &#x3D; generateEmptyDashboard(userId);
 		await this.persistAndFlush(dashboard);
 
 		return dashboard;

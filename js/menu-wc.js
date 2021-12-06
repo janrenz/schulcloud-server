@@ -596,12 +596,6 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/DatabaseManagementConsole.html" data-type="entity-link" >DatabaseManagementConsole</a>
                             </li>
                             <li class="link">
-                                <a href="classes/DefaultGridReference.html" data-type="entity-link" >DefaultGridReference</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/DefaultGridReferenceModel.html" data-type="entity-link" >DefaultGridReferenceModel</a>
-                            </li>
-                            <li class="link">
                                 <a href="classes/DeleteFilesConsole.html" data-type="entity-link" >DeleteFilesConsole</a>
                             </li>
                             <li class="link">
@@ -919,7 +913,7 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="interfaces/IGridElement.html" data-type="entity-link" >IGridElement</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/IGridElementReference.html" data-type="entity-link" >IGridElementReference</a>
+                                <a href="interfaces/ILearnroom.html" data-type="entity-link" >ILearnroom</a>
                             </li>
                             <li class="link">
                                 <a href="interfaces/ILessonProperties.html" data-type="entity-link" >ILessonProperties</a>

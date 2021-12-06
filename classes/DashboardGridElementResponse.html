@@ -85,9 +85,11 @@
                                 <a href="#displayColor" >displayColor</a>
                             </li>
                             <li>
+                                    <span class="modifier">Optional</span>
                                 <a href="#groupElements" >groupElements</a>
                             </li>
                             <li>
+                                    <span class="modifier">Optional</span>
                                 <a href="#id" >id</a>
                             </li>
                             <li>
@@ -162,6 +164,7 @@
                 <td class="col-md-4">
                     <a name="groupElements"></a>
                     <span class="name">
+                            <span class="modifier">Optional</span>
                         <span ><b>groupElements</b></span>
                         <a href="#groupElements"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -197,6 +200,7 @@
                 <td class="col-md-4">
                     <a name="id"></a>
                     <span class="name">
+                            <span class="modifier">Optional</span>
                         <span ><b>id</b></span>
                         <a href="#id"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -408,7 +412,7 @@ export class DashboardGridElementResponse {
 		description: &#x27;The id of the Grid element&#x27;,
 		pattern: &#x27;[a-f0-9]{24}&#x27;,
 	})
-	id!: string;
+	id?: string;
 
 	@ApiProperty({
 		description: &#x27;Title of the Grid element&#x27;,
@@ -439,7 +443,7 @@ export class DashboardGridElementResponse {
 		type: [DashboardGridSubElementResponse],
 		description: &#x27;List of all subelements in the group&#x27;,
 	})
-	groupElements!: DashboardGridSubElementResponse[];
+	groupElements?: DashboardGridSubElementResponse[];
 }
 
 export class DashboardResponse {

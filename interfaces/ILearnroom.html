@@ -28,7 +28,7 @@
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
-               <div class="content class">
+               <div class="content interface">
                    <div class="content-data">
 
 
@@ -41,9 +41,12 @@
 
 
 
+
 <ol class="breadcrumb">
-  <li>Classes</li>
-  <li >CourseMapper</li>
+  <li>Interfaces</li>
+  <li
+  >
+  ILearnroom</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -61,152 +64,87 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/modules/learnroom/mapper/course.mapper.ts</code>
+            <code>apps/server/src/shared/domain/interface/learnroom.ts</code>
         </p>
 
 
 
 
-
-
-            <section>
-    <h3 id="index">Index</h3>
-    <table class="table table-sm table-bordered index-table">
-        <tbody>
-
-                <tr>
-                    <td class="col-md-4">
-                        <h6><b>Methods</b></h6>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <ul class="index-list">
-                            <li>
-                                    <span class="modifier">Static</span>
-                                <a href="#mapToMetadataResponse" >mapToMetadataResponse</a>
-                            </li>
-                        </ul>
-                    </td>
-                </tr>
-
-
-
-
-
-        </tbody>
-    </table>
-</section>
+        <section>
+            <h3 id="index">Index</h3>
+            <table class="table table-sm table-bordered index-table">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Properties</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                        <a href="#getMetadata" 
+>
+                                            getMetadata
+                                        </a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
 
 
 
             <section>
-    
-    <h3 id="methods">
-        Methods
-    </h3>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="mapToMetadataResponse"></a>
-                    <span class="name">
-                        <span class="modifier">Static</span>
-                        <span ><b>mapToMetadataResponse</b></span>
-                        <a href="#mapToMetadataResponse"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>mapToMetadataResponse(course: <a href="../classes/Course.html" target="_self">Course</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="5"
-                            class="link-to-prism">apps/server/src/modules/learnroom/mapper/course.mapper.ts:5</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
+                <h3 id="inputs">Properties</h3>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
                                 <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
+                                    <td class="col-md-4">
+                                        <a name="getMetadata"></a>
+                                        <span class="name "><b>getMetadata</b>
+                                            <a href="#getMetadata">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
                                 </tr>
-                            </thead>
-                            <tbody>
                                 <tr>
-                                    <td>course</td>
-                                    <td>
-                                                <code><a href="../classes/Course.html" target="_self" >Course</a></code>
+                                    <td class="col-md-4">
+                                        <code>getMetadata:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/function" target="_blank" >function</a></code>
+</code>
                                     </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
                                 </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/CourseMetadataResponse.html" target="_self" >CourseMetadataResponse</a></code>
 
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</section>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/function" target="_blank" >function</a></code>
+
+                                        </td>
+                                    </tr>
 
 
 
 
 
+                        </tbody>
+                    </table>
+            </section>
     </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Course } from &#x27;@shared/domain&#x27;;
-import { CourseMetadataResponse } from &#x27;../controller/dto&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { LearnroomMetadata } from &#x27;@shared/domain/types&#x27;;
 
-export class CourseMapper {
-	static mapToMetadataResponse(course: Course): CourseMetadataResponse {
-		const courseMetadata &#x3D; course.getMetadata();
-		const dto &#x3D; new CourseMetadataResponse(
-			courseMetadata.id,
-			courseMetadata.title,
-			courseMetadata.shortTitle,
-			courseMetadata.displayColor,
-			courseMetadata.startDate,
-			courseMetadata.untilDate
-		);
-		return dto;
-	}
+export interface ILearnroom {
+	getMetadata: () &#x3D;&gt; LearnroomMetadata;
 }
 </code></pre>
     </div>
 </div>
-
 
 
 
@@ -239,8 +177,8 @@ export class CourseMapper {
 
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
-            var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
-            var COMPODOC_CURRENT_PAGE_URL = 'CourseMapper.html';
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
+            var COMPODOC_CURRENT_PAGE_URL = 'ILearnroom.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

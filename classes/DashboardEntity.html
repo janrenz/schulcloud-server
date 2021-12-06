@@ -91,9 +91,6 @@
                                 <a href="#id" >id</a>
                             </li>
                             <li>
-                                <a href="#rows" >rows</a>
-                            </li>
-                            <li>
                                 <a href="#userId" >userId</a>
                             </li>
                         </ul>
@@ -109,7 +106,23 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#addRoom" >addRoom</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#allRooms" >allRooms</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#determineNewRoomsIn" >determineNewRoomsIn</a>
+                            </li>
+                            <li>
                                 <a href="#getElement" >getElement</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#getFirstOpenIndex" >getFirstOpenIndex</a>
                             </li>
                             <li>
                                 <a href="#getGrid" >getGrid</a>
@@ -143,6 +156,9 @@
                                     <span class="modifier">Private</span>
                                 <a href="#removeFromPosition" >removeFromPosition</a>
                             </li>
+                            <li>
+                                <a href="#setLearnRooms" >setLearnRooms</a>
+                            </li>
                         </ul>
                     </td>
                 </tr>
@@ -166,7 +182,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="199" class="link-to-prism">apps/server/src/shared/domain/entity/dashboard.entity.ts:199</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="162" class="link-to-prism">apps/server/src/shared/domain/entity/dashboard.entity.ts:162</a></div>
                             </td>
                         </tr>
 
@@ -240,7 +256,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="180" class="link-to-prism">apps/server/src/shared/domain/entity/dashboard.entity.ts:180</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="145" class="link-to-prism">apps/server/src/shared/domain/entity/dashboard.entity.ts:145</a></div>
                         </td>
                     </tr>
 
@@ -266,7 +282,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="184" class="link-to-prism">apps/server/src/shared/domain/entity/dashboard.entity.ts:184</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="147" class="link-to-prism">apps/server/src/shared/domain/entity/dashboard.entity.ts:147</a></div>
                         </td>
                     </tr>
 
@@ -292,33 +308,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="178" class="link-to-prism">apps/server/src/shared/domain/entity/dashboard.entity.ts:178</a></div>
-                        </td>
-                    </tr>
-
-
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="rows"></a>
-                    <span class="name">
-                        <span ><b>rows</b></span>
-                        <a href="#rows"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
-
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="182" class="link-to-prism">apps/server/src/shared/domain/entity/dashboard.entity.ts:182</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="143" class="link-to-prism">apps/server/src/shared/domain/entity/dashboard.entity.ts:143</a></div>
                         </td>
                     </tr>
 
@@ -344,7 +334,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="186" class="link-to-prism">apps/server/src/shared/domain/entity/dashboard.entity.ts:186</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="149" class="link-to-prism">apps/server/src/shared/domain/entity/dashboard.entity.ts:149</a></div>
                         </td>
                     </tr>
 
@@ -358,6 +348,187 @@
     <h3 id="methods">
         Methods
     </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addRoom"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span ><b>addRoom</b></span>
+                        <a href="#addRoom"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>addRoom(room: <a href="../interfaces/ILearnroom.html" target="_self">ILearnroom</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="242"
+                            class="link-to-prism">apps/server/src/shared/domain/entity/dashboard.entity.ts:242</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>room</td>
+                                    <td>
+                                                <code><a href="../interfaces/ILearnroom.html" target="_self" >ILearnroom</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="allRooms"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span ><b>allRooms</b></span>
+                        <a href="#allRooms"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>allRooms()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="232"
+                            class="link-to-prism">apps/server/src/shared/domain/entity/dashboard.entity.ts:232</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../interfaces/ILearnroom.html" target="_self" >ILearnroom[]</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="determineNewRoomsIn"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span ><b>determineNewRoomsIn</b></span>
+                        <a href="#determineNewRoomsIn"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>determineNewRoomsIn(rooms: <a href="../interfaces/ILearnroom.html" target="_self">ILearnroom[]</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="221"
+                            class="link-to-prism">apps/server/src/shared/domain/entity/dashboard.entity.ts:221</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>rooms</td>
+                                    <td>
+                                                <code><a href="../interfaces/ILearnroom.html" target="_self" >ILearnroom[]</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../interfaces/ILearnroom.html" target="_self" >ILearnroom[]</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
     <table class="table table-sm table-bordered">
         <tbody>
             <tr>
@@ -378,8 +549,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="233"
-                            class="link-to-prism">apps/server/src/shared/domain/entity/dashboard.entity.ts:233</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="195"
+                            class="link-to-prism">apps/server/src/shared/domain/entity/dashboard.entity.ts:195</a></div>
                 </td>
             </tr>
 
@@ -431,6 +602,45 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="getFirstOpenIndex"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span ><b>getFirstOpenIndex</b></span>
+                        <a href="#getFirstOpenIndex"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getFirstOpenIndex()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="248"
+                            class="link-to-prism">apps/server/src/shared/domain/entity/dashboard.entity.ts:248</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="getGrid"></a>
                     <span class="name">
                         <span ><b>getGrid</b></span>
@@ -447,8 +657,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="221"
-                            class="link-to-prism">apps/server/src/shared/domain/entity/dashboard.entity.ts:221</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="183"
+                            class="link-to-prism">apps/server/src/shared/domain/entity/dashboard.entity.ts:183</a></div>
                 </td>
             </tr>
 
@@ -484,8 +694,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="213"
-                            class="link-to-prism">apps/server/src/shared/domain/entity/dashboard.entity.ts:213</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="175"
+                            class="link-to-prism">apps/server/src/shared/domain/entity/dashboard.entity.ts:175</a></div>
                 </td>
             </tr>
 
@@ -523,8 +733,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="251"
-                            class="link-to-prism">apps/server/src/shared/domain/entity/dashboard.entity.ts:251</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="256"
+                            class="link-to-prism">apps/server/src/shared/domain/entity/dashboard.entity.ts:256</a></div>
                 </td>
             </tr>
 
@@ -592,8 +802,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="217"
-                            class="link-to-prism">apps/server/src/shared/domain/entity/dashboard.entity.ts:217</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="179"
+                            class="link-to-prism">apps/server/src/shared/domain/entity/dashboard.entity.ts:179</a></div>
                 </td>
             </tr>
 
@@ -631,8 +841,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="188"
-                            class="link-to-prism">apps/server/src/shared/domain/entity/dashboard.entity.ts:188</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="151"
+                            class="link-to-prism">apps/server/src/shared/domain/entity/dashboard.entity.ts:151</a></div>
                 </td>
             </tr>
 
@@ -702,8 +912,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="272"
-                            class="link-to-prism">apps/server/src/shared/domain/entity/dashboard.entity.ts:272</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="277"
+                            class="link-to-prism">apps/server/src/shared/domain/entity/dashboard.entity.ts:277</a></div>
                 </td>
             </tr>
 
@@ -783,8 +993,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="241"
-                            class="link-to-prism">apps/server/src/shared/domain/entity/dashboard.entity.ts:241</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="203"
+                            class="link-to-prism">apps/server/src/shared/domain/entity/dashboard.entity.ts:203</a></div>
                 </td>
             </tr>
 
@@ -866,8 +1076,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="195"
-                            class="link-to-prism">apps/server/src/shared/domain/entity/dashboard.entity.ts:195</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="158"
+                            class="link-to-prism">apps/server/src/shared/domain/entity/dashboard.entity.ts:158</a></div>
                 </td>
             </tr>
 
@@ -937,8 +1147,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="263"
-                            class="link-to-prism">apps/server/src/shared/domain/entity/dashboard.entity.ts:263</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="268"
+                            class="link-to-prism">apps/server/src/shared/domain/entity/dashboard.entity.ts:268</a></div>
                 </td>
             </tr>
 
@@ -986,6 +1196,75 @@
             </tr>
         </tbody>
     </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setLearnRooms"></a>
+                    <span class="name">
+                        <span ><b>setLearnRooms</b></span>
+                        <a href="#setLearnRooms"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>setLearnRooms(rooms: <a href="../interfaces/ILearnroom.html" target="_self">ILearnroom[]</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="213"
+                            class="link-to-prism">apps/server/src/shared/domain/entity/dashboard.entity.ts:213</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>rooms</td>
+                                    <td>
+                                                <code><a href="../interfaces/ILearnroom.html" target="_self" >ILearnroom[]</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </section>
 
 
@@ -997,45 +1276,10 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { NotFoundException, BadRequestException } from &#x27;@nestjs/common&#x27;;
-import { EntityId } from &#x27;../types/entity-id&#x27;;
+import { EntityId, LearnroomMetadata } from &#x27;@shared/domain/types&#x27;;
+import { ILearnroom } from &#x27;@shared/domain/interface&#x27;;
 
-const defaultColumns &#x3D; 6;
-const defaultRows &#x3D; 6;
-
-export type GridElementReferenceMetadata &#x3D; {
-	id: string;
-	title: string;
-	shortTitle: string;
-	displayColor: string;
-};
-
-export interface IGridElementReference {
-	getMetadata: () &#x3D;&gt; GridElementReferenceMetadata;
-}
-
-export class DefaultGridReference implements IGridElementReference {
-	// This is only a temporary fake class, for use until other references, like courses, are fully supported.
-	id: EntityId;
-
-	title: string;
-
-	displayColor: string;
-
-	constructor(id: EntityId, title: string, displayColor &#x3D; &#x27;#f23f76&#x27;) {
-		this.id &#x3D; id;
-		this.title &#x3D; title;
-		this.displayColor &#x3D; displayColor;
-	}
-
-	getMetadata(): GridElementReferenceMetadata {
-		return {
-			id: this.id,
-			title: this.title,
-			shortTitle: this.title.substr(0, 2),
-			displayColor: this.displayColor,
-		};
-	}
-}
+const defaultColumns &#x3D; 4;
 
 export interface IGridElement {
 	hasId(): boolean;
@@ -1048,9 +1292,9 @@ export interface IGridElement {
 
 	removeReference(index: number): void;
 
-	getReferences(): IGridElementReference[];
+	getReferences(): ILearnroom[];
 
-	addReferences(anotherReference: IGridElementReference[]): void;
+	addReferences(anotherReference: ILearnroom[]): void;
 
 	setGroupName(newGroupName: string): void;
 }
@@ -1060,7 +1304,7 @@ export type GridElementContent &#x3D; {
 	title: string;
 	shortTitle: string;
 	displayColor: string;
-	group?: GridElementReferenceMetadata[];
+	group?: LearnroomMetadata[];
 };
 
 export class GridElement implements IGridElement {
@@ -1068,7 +1312,7 @@ export class GridElement implements IGridElement {
 
 	title!: string;
 
-	private sortReferences &#x3D; (a: IGridElementReference, b: IGridElementReference) &#x3D;&gt; {
+	private sortReferences &#x3D; (a: ILearnroom, b: ILearnroom) &#x3D;&gt; {
 		const titleA &#x3D; a.getMetadata().title;
 		const titleB &#x3D; b.getMetadata().title;
 		if (titleA &lt; titleB) {
@@ -1080,29 +1324,29 @@ export class GridElement implements IGridElement {
 		return 0;
 	};
 
-	private constructor(props: { id?: EntityId; title?: string; references: IGridElementReference[] }) {
+	private constructor(props: { id?: EntityId; title?: string; references: ILearnroom[] }) {
 		if (props.id) this.id &#x3D; props.id;
 		if (props.title) this.title &#x3D; props.title;
 		this.references &#x3D; props.references.sort(this.sortReferences);
 	}
 
-	static FromPersistedReference(id: EntityId, reference: IGridElementReference): GridElement {
+	static FromPersistedReference(id: EntityId, reference: ILearnroom): GridElement {
 		return new GridElement({ id, references: [reference] });
 	}
 
-	static FromPersistedGroup(id: EntityId, title: string, group: IGridElementReference[]): GridElement {
+	static FromPersistedGroup(id: EntityId, title: string, group: ILearnroom[]): GridElement {
 		return new GridElement({ id, title, references: group });
 	}
 
-	static FromSingleReference(reference: IGridElementReference): GridElement {
+	static FromSingleReference(reference: ILearnroom): GridElement {
 		return new GridElement({ references: [reference] });
 	}
 
-	static FromGroup(title: string, references: IGridElementReference[]): GridElement {
+	static FromGroup(title: string, references: ILearnroom[]): GridElement {
 		return new GridElement({ title, references });
 	}
 
-	references: IGridElementReference[];
+	references: ILearnroom[];
 
 	hasId(): boolean {
 		return !!this.id;
@@ -1112,7 +1356,7 @@ export class GridElement implements IGridElement {
 		return this.id;
 	}
 
-	getReferences(): IGridElementReference[] {
+	getReferences(): ILearnroom[] {
 		return this.references;
 	}
 
@@ -1126,7 +1370,7 @@ export class GridElement implements IGridElement {
 		this.references.splice(index, 1);
 	}
 
-	addReferences(anotherReference: IGridElementReference[]): void {
+	addReferences(anotherReference: ILearnroom[]): void {
 		this.references &#x3D; this.references.concat(anotherReference).sort(this.sortReferences);
 	}
 
@@ -1170,21 +1414,19 @@ export type GridElementWithPosition &#x3D; {
 	pos: GridPosition;
 };
 
-export type DashboardProps &#x3D; { colums?: number; rows?: number; grid: GridElementWithPosition[]; userId: EntityId };
+export type DashboardProps &#x3D; { colums?: number; grid: GridElementWithPosition[]; userId: EntityId };
 
 export class DashboardEntity {
 	id: EntityId;
 
 	columns: number;
 
-	rows: number;
-
 	grid: Map&lt;number, IGridElement&gt;;
 
 	userId: EntityId;
 
 	private gridIndexFromPosition(pos: GridPosition): number {
-		if (pos.x &gt; this.columns || pos.y &gt; this.rows) {
+		if (pos.x &gt; this.columns) {
 			throw new BadRequestException(&#x27;dashboard element position is outside the grid.&#x27;);
 		}
 		return this.columns * pos.y + pos.x;
@@ -1198,7 +1440,6 @@ export class DashboardEntity {
 
 	constructor(id: string, props: DashboardProps) {
 		this.columns &#x3D; props.colums || defaultColumns;
-		this.rows &#x3D; props.rows || defaultRows;
 		this.grid &#x3D; new Map&lt;number, IGridElement&gt;();
 		props.grid.forEach((element) &#x3D;&gt; {
 			this.grid.set(this.gridIndexFromPosition(element.pos), element.gridElement);
@@ -1244,6 +1485,49 @@ export class DashboardEntity {
 			pos: to,
 			gridElement: resultElement,
 		};
+	}
+
+	setLearnRooms(rooms: ILearnroom[]): void {
+		const newRooms &#x3D; this.determineNewRoomsIn(rooms);
+
+		newRooms.forEach((room) &#x3D;&gt; {
+			this.addRoom(room);
+		});
+	}
+
+	private determineNewRoomsIn(rooms: ILearnroom[]): ILearnroom[] {
+		const result: ILearnroom[] &#x3D; [];
+		const existingRooms &#x3D; this.allRooms();
+		rooms.forEach((room) &#x3D;&gt; {
+			if (!existingRooms.includes(room)) {
+				result.push(room);
+			}
+		});
+		return result;
+	}
+
+	private allRooms(): ILearnroom[] {
+		const elements &#x3D; [...this.grid.values()];
+		const references &#x3D; elements
+			.map((el) &#x3D;&gt; {
+				return el.getReferences();
+			})
+			.flat();
+		return references;
+	}
+
+	private addRoom(room: ILearnroom): void {
+		const index &#x3D; this.getFirstOpenIndex();
+		const newElement &#x3D; GridElement.FromSingleReference(room);
+		this.grid.set(index, newElement);
+	}
+
+	private getFirstOpenIndex(): number {
+		let i &#x3D; 1;
+		while (this.grid.get(i) !&#x3D;&#x3D; undefined) {
+			i +&#x3D; 1;
+		}
+		return i;
 	}
 
 	private getReferencesFromPosition(position: GridPositionWithGroupIndex): IGridElement {

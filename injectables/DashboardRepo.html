@@ -116,7 +116,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="64" class="link-to-prism">apps/server/src/shared/repo/dashboard/dashboard.repo.ts:64</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">apps/server/src/shared/repo/dashboard/dashboard.repo.ts:20</a></div>
                             </td>
                         </tr>
 
@@ -193,8 +193,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="80"
-                            class="link-to-prism">apps/server/src/shared/repo/dashboard/dashboard.repo.ts:80</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="36"
+                            class="link-to-prism">apps/server/src/shared/repo/dashboard/dashboard.repo.ts:36</a></div>
                 </td>
             </tr>
 
@@ -264,8 +264,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="86"
-                            class="link-to-prism">apps/server/src/shared/repo/dashboard/dashboard.repo.ts:86</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="42"
+                            class="link-to-prism">apps/server/src/shared/repo/dashboard/dashboard.repo.ts:42</a></div>
                 </td>
             </tr>
 
@@ -335,8 +335,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="68"
-                            class="link-to-prism">apps/server/src/shared/repo/dashboard/dashboard.repo.ts:68</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="24"
+                            class="link-to-prism">apps/server/src/shared/repo/dashboard/dashboard.repo.ts:24</a></div>
                 </td>
             </tr>
 
@@ -406,8 +406,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="74"
-                            class="link-to-prism">apps/server/src/shared/repo/dashboard/dashboard.repo.ts:74</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="30"
+                            class="link-to-prism">apps/server/src/shared/repo/dashboard/dashboard.repo.ts:30</a></div>
                 </td>
             </tr>
 
@@ -462,56 +462,12 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
-import {
-	EntityId,
-	DashboardEntity,
-	DefaultGridReference,
-	GridElement,
-	GridElementWithPosition,
-	DashboardModelEntity,
-} from &#x27;@shared/domain&#x27;;
+import { EntityId, DashboardEntity, GridElementWithPosition, DashboardModelEntity } from &#x27;@shared/domain&#x27;;
 import { EntityManager, ObjectId } from &#x27;@mikro-orm/mongodb&#x27;;
 import { DashboardModelMapper } from &#x27;./dashboard.model.mapper&#x27;;
 
-const generateHardcodedTestDashboard &#x3D; (userId: EntityId) &#x3D;&gt; {
+const generateEmptyDashboard &#x3D; (userId: EntityId) &#x3D;&gt; {
 	const gridArray: GridElementWithPosition[] &#x3D; [];
-
-	gridArray.push({
-		pos: { x: 1, y: 3 },
-		gridElement: GridElement.FromPersistedReference(
-			new ObjectId().toString(),
-			new DefaultGridReference(new ObjectId().toString(), &#x27;Math&#x27;)
-		),
-	});
-	gridArray.push({
-		pos: { x: 1, y: 4 },
-		gridElement: GridElement.FromPersistedGroup(new ObjectId().toString(), &#x27;Science&#x27;, [
-			new DefaultGridReference(new ObjectId().toString(), &#x27;Physics&#x27;),
-			new DefaultGridReference(new ObjectId().toString(), &#x27;Biology&#x27;),
-			new DefaultGridReference(new ObjectId().toString(), &#x27;Chemistry&#x27;),
-		]),
-	});
-	gridArray.push({
-		pos: { x: 2, y: 1 },
-		gridElement: GridElement.FromPersistedReference(
-			new ObjectId().toString(),
-			new DefaultGridReference(new ObjectId().toString(), &#x27;English&#x27;)
-		),
-	});
-	gridArray.push({
-		pos: { x: 3, y: 1 },
-		gridElement: GridElement.FromPersistedReference(
-			new ObjectId().toString(),
-			new DefaultGridReference(new ObjectId().toString(), &#x27;German&#x27;)
-		),
-	});
-	gridArray.push({
-		pos: { x: 4, y: 1 },
-		gridElement: GridElement.FromPersistedReference(
-			new ObjectId().toString(),
-			new DefaultGridReference(new ObjectId().toString(), &#x27;Greek&#x27;)
-		),
-	});
 
 	const dashboard &#x3D; new DashboardEntity(new ObjectId().toString(), { grid: gridArray, userId });
 	return dashboard;
@@ -552,7 +508,7 @@ export class DashboardRepo implements IDashboardRepo {
 			return this.mapper.mapDashboardToEntity(dashboardModel);
 		}
 
-		const dashboard &#x3D; generateHardcodedTestDashboard(userId);
+		const dashboard &#x3D; generateEmptyDashboard(userId);
 		await this.persistAndFlush(dashboard);
 
 		return dashboard;

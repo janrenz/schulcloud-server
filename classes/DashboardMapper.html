@@ -198,8 +198,8 @@ export class DashboardMapper {
 		dto.gridElements &#x3D; dashboard.getGrid().map((elementWithPosition) &#x3D;&gt; {
 			const elementDTO &#x3D; new DashboardGridElementResponse();
 
-			elementDTO.id &#x3D; elementWithPosition.gridElement.getId();
 			const data &#x3D; elementWithPosition.gridElement.getContent();
+			elementDTO.id &#x3D; data.referencedId;
 			elementDTO.title &#x3D; data.title;
 			elementDTO.shortTitle &#x3D; data.shortTitle;
 			elementDTO.displayColor &#x3D; data.displayColor;
