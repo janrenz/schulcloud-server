@@ -243,7 +243,7 @@ export class CourseUc {
 	constructor(private readonly courseRepo: CourseRepo) {}
 
 	findAllByUser(userId: EntityId, options?: PaginationQuery): Promise&lt;Counted&lt;Course[]&gt;&gt; {
-		return this.courseRepo.findAllByUserId(userId, {}, { pagination: options, order: { name: SortOrder.asc } });
+		return this.courseRepo.findAllByUserId(userId, {}, { pagination: options, order: { updatedAt: SortOrder.desc } });
 	}
 }
 </code></pre>
