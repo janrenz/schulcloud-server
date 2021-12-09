@@ -203,8 +203,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="50"
-                            class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:50</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="68"
+                            class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:68</a></div>
                 </td>
             </tr>
 
@@ -279,15 +279,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>findAllFinished(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, pagination?: <a href="../interfaces/IPagination.html" target="_self">IPagination</a>)</code>
+                    <code>findAllFinished(currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>, pagination?: <a href="../interfaces/IPagination.html" target="_self">IPagination</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="19"
-                            class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:19</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="20"
+                            class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:20</a></div>
                 </td>
             </tr>
 
@@ -308,9 +308,9 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>userId</td>
+                                    <td>currentUser</td>
                                     <td>
-                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
+                                                <code><a href="../interfaces/ICurrentUser.html" target="_self" >ICurrentUser</a></code>
                                     </td>
 
                                     <td>
@@ -370,8 +370,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="64"
-                            class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:64</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="82"
+                            class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:82</a></div>
                 </td>
             </tr>
 
@@ -454,8 +454,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="92"
-                            class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:92</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="110"
+                            class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:110</a></div>
                 </td>
             </tr>
 
@@ -537,8 +537,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="126"
-                            class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:126</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="146"
+                            class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:146</a></div>
                 </td>
             </tr>
 
@@ -576,8 +576,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="120"
-                            class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:120</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="139"
+                            class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:139</a></div>
                 </td>
             </tr>
 
@@ -644,7 +644,7 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable, UnauthorizedException } from &#x27;@nestjs/common&#x27;;
-import { EntityId, IPagination, Counted, ICurrentUser, SortOrder, TaskWithStatusVo } from &#x27;@shared/domain&#x27;;
+import { EntityId, IPagination, Counted, ICurrentUser, SortOrder, TaskWithStatusVo, ITaskStatus } from &#x27;@shared/domain&#x27;;
 
 import { TaskRepo } from &#x27;@shared/repo&#x27;;
 
@@ -661,7 +661,18 @@ export class TaskUC {
 
 	// This uc includes 4 awaits + 1 from authentication services.
 	// 5 awaits from with db calls from one request against the api is for me the absolut maximum what we should allowed.
-	async findAllFinished(userId: EntityId, pagination?: IPagination): Promise&lt;Counted&lt;TaskWithStatusVo[]&gt;&gt; {
+	// TODO: clearify if Admin need TASK_DASHBOARD_TEACHER_VIEW_V3 permission
+	async findAllFinished(currentUser: ICurrentUser, pagination?: IPagination): Promise&lt;Counted&lt;TaskWithStatusVo[]&gt;&gt; {
+		// TODO: move to this.authorizationService ?
+		if (
+			!this.hasTaskDashboardPermission(currentUser, TaskDashBoardPermission.teacherDashboard) &amp;&amp;
+			!this.hasTaskDashboardPermission(currentUser, TaskDashBoardPermission.studentDashboard)
+		) {
+			throw new UnauthorizedException();
+		}
+
+		const { userId } &#x3D; currentUser;
+
 		const courses &#x3D; await this.authorizationService.getPermittedCourses(userId, TaskParentPermission.read);
 		const lessons &#x3D; await this.authorizationService.getPermittedLessons(userId, courses);
 
@@ -682,7 +693,14 @@ export class TaskUC {
 		);
 
 		const taskWithStatusVos &#x3D; tasks.map((task) &#x3D;&gt; {
-			const status &#x3D; task.createStudentStatusForUser(userId); // will updated in future pr that it show right status for write permissions
+			let status: ITaskStatus;
+			if (this.authorizationService.hasTaskPermission(userId, task, TaskParentPermission.write)) {
+				status &#x3D; task.createTeacherStatusForUser(userId);
+			} else {
+				// TaskParentPermission.read check is not needed on this place
+				status &#x3D; task.createStudentStatusForUser(userId);
+			}
+
 			return new TaskWithStatusVo(task, status);
 		});
 
@@ -712,14 +730,14 @@ export class TaskUC {
 		const lessons &#x3D; await this.authorizationService.getPermittedLessons(userId, openCourses);
 
 		const dueDate &#x3D; this.getDefaultMaxDueDate();
-		const closed &#x3D; { userId, value: false };
+		const notFinished &#x3D; { userId, value: false };
 
 		const [tasks, total] &#x3D; await this.taskRepo.findAllByParentIds(
 			{
 				courseIds: openCourses.map((c) &#x3D;&gt; c.id),
 				lessonIds: lessons.map((l) &#x3D;&gt; l.id),
 			},
-			{ draft: false, afterDueDateOrNone: dueDate, closed },
+			{ draft: false, afterDueDateOrNone: dueDate, finished: notFinished },
 			{
 				pagination,
 				order: { dueDate: SortOrder.asc },
@@ -739,7 +757,7 @@ export class TaskUC {
 		const openCourses &#x3D; courses.filter((c) &#x3D;&gt; !c.isFinished());
 		const lessons &#x3D; await this.authorizationService.getPermittedLessons(userId, openCourses);
 
-		const closed &#x3D; { userId, value: false };
+		const notFinished &#x3D; { userId, value: false };
 
 		const [tasks, total] &#x3D; await this.taskRepo.findAllByParentIds(
 			{
@@ -747,7 +765,7 @@ export class TaskUC {
 				courseIds: openCourses.map((c) &#x3D;&gt; c.id),
 				lessonIds: lessons.map((l) &#x3D;&gt; l.id),
 			},
-			{ closed },
+			{ finished: notFinished },
 			{
 				pagination,
 				order: { dueDate: SortOrder.desc },
@@ -762,8 +780,10 @@ export class TaskUC {
 		return [taskWithStatusVos, total];
 	}
 
+	// TODO: move to this.authorizationService ?
 	private hasTaskDashboardPermission(currentUser: ICurrentUser, permission: TaskDashBoardPermission): boolean {
 		const hasPermission &#x3D; currentUser.user.permissions.includes(permission);
+
 		return hasPermission;
 	}
 
@@ -771,6 +791,7 @@ export class TaskUC {
 	private getDefaultMaxDueDate(): Date {
 		const oneWeekAgo &#x3D; new Date();
 		oneWeekAgo.setDate(oneWeekAgo.getDate() - 7);
+
 		return oneWeekAgo;
 	}
 }

@@ -804,7 +804,8 @@ must use @ApiProperty</p>
                 <tr>
                     <td class="col-md-4">
                         <i>Default value : </i><code>(
-	initPermissions?: string[]
+	initPermissions?: string[],
+	passedUser?: User
 ): {
 	currentUser: ICurrentUser;
 	user: User;
@@ -818,7 +819,7 @@ must use @ApiProperty</p>
 	const roles &#x3D; [new Role({ name: &#x27;name&#x27;, permissions })] as Role[];
 	const roleIds &#x3D; roles.map((role) &#x3D;&gt; role.id);
 
-	const user &#x3D; userFactory.build({ roles, school });
+	const user &#x3D; passedUser || userFactory.build({ roles, school });
 	// const user &#x3D; new User({ email: &#x60;Date.now()@email.de&#x60;, roles, school });
 	user._id &#x3D; new ObjectId();
 	const resolvedUser &#x3D; ResolvedUserMapper.mapToResponse(user, permissions, roles);

@@ -1135,7 +1135,7 @@ class TaskFactory extends BaseFactory&lt;Task, ITaskProperties&gt; {
 	}
 
 	finished(user: User): this {
-		const params: DeepPartial&lt;ITaskProperties&gt; &#x3D; { closed: [user] };
+		const params: DeepPartial&lt;ITaskProperties&gt; &#x3D; { finished: [user] };
 		return this.params(params);
 	}
 }

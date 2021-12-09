@@ -92,9 +92,6 @@
                                 <a href="#availableDate" >availableDate</a>
                             </li>
                             <li>
-                                <a href="#closed" >closed</a>
-                            </li>
-                            <li>
                                     <span class="modifier">Optional</span>
                                 <a href="#course" >course</a>
                             </li>
@@ -105,6 +102,9 @@
                             <li>
                                     <span class="modifier">Optional</span>
                                 <a href="#dueDate" >dueDate</a>
+                            </li>
+                            <li>
+                                <a href="#finished" >finished</a>
                             </li>
                             <li>
                                     <span class="modifier">Optional</span>
@@ -286,40 +286,6 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="closed"></a>
-                    <span class="name">
-                        <span ><b>closed</b></span>
-                        <a href="#closed"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Default value : </i><code>new Collection&lt;User&gt;(this)</code>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <b>Decorators : </b>
-                        <br />
-                        <code>
-                            @Index({name: &#x27;findAllByParentIds_findAllForTeacher&#x27;})<br />@ManyToMany(&#x27;User&#x27;, undefined, {fieldName: &#x27;archived&#x27;})<br />
-                        </code>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="74" class="link-to-prism">apps/server/src/shared/domain/entity/task.entity.ts:74</a></div>
-                        </td>
-                    </tr>
-
-
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
                     <a name="course"></a>
                     <span class="name">
                             <span class="modifier">Optional</span>
@@ -418,6 +384,40 @@
                     <tr>
                         <td class="col-md-4">
                                 <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">apps/server/src/shared/domain/entity/task.entity.ts:54</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="finished"></a>
+                    <span class="name">
+                        <span ><b>finished</b></span>
+                        <a href="#finished"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Collection&lt;User&gt;(this)</code>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @Index({name: &#x27;findAllByParentIds_findAllForTeacher&#x27;})<br />@ManyToMany(&#x27;User&#x27;, undefined, {fieldName: &#x27;archived&#x27;})<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="74" class="link-to-prism">apps/server/src/shared/domain/entity/task.entity.ts:74</a></div>
                         </td>
                     </tr>
 
@@ -1339,7 +1339,7 @@ export interface ITaskProperties {
 	course?: Course;
 	lesson?: Lesson;
 	submissions?: Submission[];
-	closed?: User[];
+	finished?: User[];
 }
 
 export interface ITaskStatus {
@@ -1364,7 +1364,7 @@ export class TaskWithStatusVo {
 export type TaskParentDescriptions &#x3D; { name: string; description: string; color: string };
 
 @Entity({ tableName: &#x27;homeworks&#x27; })
-@Index({ name: &#x27;findAllByParentIds_findAllForStudent&#x27;, properties: [&#x27;private&#x27;, &#x27;dueDate&#x27;, &#x27;closed&#x27;] })
+@Index({ name: &#x27;findAllByParentIds_findAllForStudent&#x27;, properties: [&#x27;private&#x27;, &#x27;dueDate&#x27;, &#x27;finished&#x27;] })
 export class Task extends BaseEntityWithTimestamps {
 	@Property()
 	name: string;
@@ -1393,7 +1393,7 @@ export class Task extends BaseEntityWithTimestamps {
 	// TODO: rename to finished
 	@Index({ name: &#x27;findAllByParentIds_findAllForTeacher&#x27; })
 	@ManyToMany(&#x27;User&#x27;, undefined, { fieldName: &#x27;archived&#x27; })
-	closed &#x3D; new Collection&lt;User&gt;(this);
+	finished &#x3D; new Collection&lt;User&gt;(this);
 
 	constructor(props: ITaskProperties) {
 		super();
@@ -1405,7 +1405,7 @@ export class Task extends BaseEntityWithTimestamps {
 		this.course &#x3D; props.course;
 		this.lesson &#x3D; props.lesson;
 		this.submissions.set(props.submissions || []);
-		this.closed.set(props.closed || []);
+		this.finished.set(props.finished || []);
 	}
 
 	isDraft(): boolean {
