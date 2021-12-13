@@ -653,6 +653,7 @@ export type GridElementContent &#x3D; {
 	shortTitle: string;
 	displayColor: string;
 	group?: LearnroomMetadata[];
+	groupId?: string;
 };
 
 export class GridElement implements IGridElement {
@@ -727,7 +728,12 @@ export class GridElement implements IGridElement {
 	}
 
 	addReferences(anotherReference: ILearnroom[]): void {
-		this.references &#x3D; this.references.concat(anotherReference).sort(this.sortReferences);
+		if (!this.isGroup()) {
+			this.references &#x3D; this.references.concat(anotherReference).sort(this.sortReferences);
+			this.setGroupName(&#x27;&#x27;);
+		} else {
+			this.references &#x3D; this.references.concat(anotherReference).sort(this.sortReferences);
+		}
 	}
 
 	getContent(): GridElementContent {
@@ -740,8 +746,9 @@ export class GridElement implements IGridElement {
 			return metadata;
 		}
 		const groupData &#x3D; this.references.map((reference) &#x3D;&gt; reference.getMetadata());
-		const checkShortTitle &#x3D; this.title ? this.title.substr(0, 2) : &#x27;exampleTitle&#x27;;
+		const checkShortTitle &#x3D; this.title ? this.title.substr(0, 2) : &#x27;&#x27;;
 		const groupMetadata &#x3D; {
+			groupId: this.getId(),
 			title: this.title,
 			shortTitle: checkShortTitle,
 			displayColor: &#x27;exampleColor&#x27;,

@@ -134,7 +134,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="76" class="link-to-prism">apps/server/src/modules/learnroom/controller/dto/dashboard.response.ts:76</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="82" class="link-to-prism">apps/server/src/modules/learnroom/controller/dto/dashboard.response.ts:82</a></div>
                         </td>
                     </tr>
 
@@ -169,7 +169,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="70" class="link-to-prism">apps/server/src/modules/learnroom/controller/dto/dashboard.response.ts:70</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="76" class="link-to-prism">apps/server/src/modules/learnroom/controller/dto/dashboard.response.ts:76</a></div>
                         </td>
                     </tr>
 
@@ -244,6 +244,12 @@ export class DashboardGridElementResponse {
 		description: &#x27;Y position of the Grid element&#x27;,
 	})
 	yPosition!: number;
+
+	@ApiProperty({
+		description: &#x27;The id of the group element&#x27;,
+		pattern: &#x27;[a-f0-9]{24}&#x27;,
+	})
+	groupId?: string;
 
 	@ApiProperty({
 		type: [DashboardGridSubElementResponse],

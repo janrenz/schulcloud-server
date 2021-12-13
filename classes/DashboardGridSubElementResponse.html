@@ -322,6 +322,12 @@ export class DashboardGridElementResponse {
 	yPosition!: number;
 
 	@ApiProperty({
+		description: &#x27;The id of the group element&#x27;,
+		pattern: &#x27;[a-f0-9]{24}&#x27;,
+	})
+	groupId?: string;
+
+	@ApiProperty({
 		type: [DashboardGridSubElementResponse],
 		description: &#x27;List of all subelements in the group&#x27;,
 	})
