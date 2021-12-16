@@ -286,6 +286,10 @@
 	News,
 	SchoolNews,
 	TeamNews,
+	System,
+	// TODO move import user entities?
+	ImportUser,
+	UserMatch,
 ]</code>
                     </td>
                 </tr>
@@ -567,6 +571,7 @@ This allows adding console commands to execute provider methods.</p>
                 <tr>
                     <td class="col-md-4">
                         <i>Default value : </i><code>new DocumentBuilder()
+	.addServer(&#x27;/api/v3/&#x27;) // add default path as server to have correct urls ald let &#x27;try out&#x27; work
 	.setTitle(&#x27;HPI Schul-Cloud Server API&#x27;)
 	.setDescription(&#x27;This is v3 of HPI Schul-Cloud Server. Checkout /docs for v1.&#x27;)
 	.setVersion(&#x27;3.0&#x27;)
