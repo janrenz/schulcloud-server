@@ -94,6 +94,7 @@
                                 <a href="#references" >references</a>
                             </li>
                             <li>
+                                    <span class="modifier">Optional</span>
                                 <a href="#title" >title</a>
                             </li>
                             <li>
@@ -133,12 +134,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(id?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+<code>constructor(undefined: <a href="../interfaces/DashboardGridElementModelProperties.html" target="_self">DashboardGridElementModelProperties</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">apps/server/src/shared/domain/entity/dashboard.model.entity.ts:9</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">apps/server/src/shared/domain/entity/dashboard.model.entity.ts:26</a></div>
                             </td>
                         </tr>
 
@@ -156,14 +157,13 @@
                                         </thead>
                                         <tbody>
                                                 <tr>
-                                                        <td>id</td>
                                                   
                                                         <td>
-                                                                        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                                        <code><a href="../interfaces/DashboardGridElementModelProperties.html" target="_self" >DashboardGridElementModelProperties</a></code>
                                                         </td>
                                                   
                                                     <td>
-                                                            Yes
+                                                            No
                                                     </td>
                                                     
                                                 </tr>
@@ -209,7 +209,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">apps/server/src/shared/domain/entity/dashboard.model.entity.ts:31</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">apps/server/src/shared/domain/entity/dashboard.model.entity.ts:53</a></div>
                         </td>
                     </tr>
 
@@ -243,7 +243,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">apps/server/src/shared/domain/entity/dashboard.model.entity.ts:28</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">apps/server/src/shared/domain/entity/dashboard.model.entity.ts:50</a></div>
                         </td>
                     </tr>
 
@@ -256,6 +256,7 @@
                 <td class="col-md-4">
                     <a name="title"></a>
                     <span class="name">
+                            <span class="modifier">Optional</span>
                         <span ><b>title</b></span>
                         <a href="#title"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -278,7 +279,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">apps/server/src/shared/domain/entity/dashboard.model.entity.ts:19</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">apps/server/src/shared/domain/entity/dashboard.model.entity.ts:41</a></div>
                         </td>
                     </tr>
 
@@ -313,7 +314,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">apps/server/src/shared/domain/entity/dashboard.model.entity.ts:22</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">apps/server/src/shared/domain/entity/dashboard.model.entity.ts:44</a></div>
                         </td>
                     </tr>
 
@@ -348,7 +349,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">apps/server/src/shared/domain/entity/dashboard.model.entity.ts:25</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">apps/server/src/shared/domain/entity/dashboard.model.entity.ts:47</a></div>
                         </td>
                     </tr>
 
@@ -533,42 +534,65 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Entity, Property, ManyToOne, OneToMany, ManyToMany, Collection, IdentifiedReference } from &#x27;@mikro-orm/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
+	Entity,
+	Property,
+	ManyToOne,
+	OneToMany,
+	ManyToMany,
+	Collection,
+	IdentifiedReference,
+	wrap,
+} from &#x27;@mikro-orm/core&#x27;;
 import { ObjectId } from &#x27;@mikro-orm/mongodb&#x27;;
 import { BaseEntityWithTimestamps } from &#x27;@shared/domain/entity/base.entity&#x27;;
 import { User } from &#x27;./user.entity&#x27;;
 import { Course } from &#x27;./course.entity&#x27;;
-import { EntityId } from &#x27;../types&#x27;;
+
+export interface DashboardGridElementModelProperties {
+	id?: string;
+	title?: string;
+	xPos: number;
+	yPos: number;
+	references: Course[];
+	dashboard: DashboardModelEntity;
+}
 
 @Entity({ tableName: &#x27;dashboardelement&#x27; })
 export class DashboardGridElementModel extends BaseEntityWithTimestamps {
-	constructor(id?: string) {
+	constructor({ id, title, xPos, yPos, references, dashboard }: DashboardGridElementModelProperties) {
 		super();
 		if (id) {
 			this._id &#x3D; ObjectId.createFromHexString(id);
 			this.id &#x3D; id;
 		}
+		this.title &#x3D; title;
+		this.xPos &#x3D; xPos;
+		this.yPos &#x3D; yPos;
+		this.references.set(references);
+		this.dashboard &#x3D; wrap(dashboard).toReference();
 	}
 
 	@Property()
-	title!: string;
+	title?: string;
 
 	@Property()
-	xPos!: number;
+	xPos: number;
 
 	@Property()
-	yPos!: number;
+	yPos: number;
 
 	@ManyToMany(&#x27;Course&#x27;, undefined, { fieldName: &#x27;referenceIds&#x27; })
 	references &#x3D; new Collection&lt;Course&gt;(this);
 
 	@ManyToOne(&#x27;DashboardModelEntity&#x27;, { wrappedReference: true })
-	dashboard!: IdentifiedReference&lt;DashboardModelEntity&gt;;
+	dashboard: IdentifiedReference&lt;DashboardModelEntity&gt;;
 }
 
 export interface IDashboardModelProperties {
 	id: string;
-	user: EntityId | User;
+	user: User;
+	gridElements?: DashboardGridElementModel[];
 }
 
 @Entity({ tableName: &#x27;dashboard&#x27; })
@@ -577,7 +601,8 @@ export class DashboardModelEntity extends BaseEntityWithTimestamps {
 		super();
 		this._id &#x3D; ObjectId.createFromHexString(props.id);
 		this.id &#x3D; props.id;
-		Object.assign(this, { user: props.user });
+		this.user &#x3D; wrap(props.user).toReference();
+		if (props.gridElements) this.gridElements.set(props.gridElements);
 	}
 
 	@OneToMany(&#x27;DashboardGridElementModel&#x27;, &#x27;dashboard&#x27;)
@@ -585,7 +610,7 @@ export class DashboardModelEntity extends BaseEntityWithTimestamps {
 
 	// userId
 	@ManyToOne(&#x27;User&#x27;, { fieldName: &#x27;userId&#x27;, wrappedReference: true })
-	user!: IdentifiedReference&lt;User&gt;;
+	user: IdentifiedReference&lt;User&gt;;
 
 	// sizetype
 }

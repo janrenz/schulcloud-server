@@ -83,6 +83,16 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Static</span>
+                                <a href="#mapGridElement" >mapGridElement</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Static</span>
+                                <a href="#mapLearnroom" >mapLearnroom</a>
+                            </li>
+                            <li>
                                     <span class="modifier">Static</span>
                                 <a href="#mapToResponse" >mapToResponse</a>
                             </li>
@@ -105,6 +115,150 @@
     <h3 id="methods">
         Methods
     </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="mapGridElement"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span class="modifier">Static</span>
+                        <span ><b>mapGridElement</b></span>
+                        <a href="#mapGridElement"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>mapGridElement(data: <a href="../classes/GridElement.html" target="_self">GridElementWithPosition</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="15"
+                            class="link-to-prism">apps/server/src/modules/learnroom/mapper/dashboard.mapper.ts:15</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>data</td>
+                                    <td>
+                                                <code><a href="../classes/GridElement.html" target="_self" >GridElementWithPosition</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/DashboardGridElementResponse.html" target="_self" >DashboardGridElementResponse</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="mapLearnroom"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span class="modifier">Static</span>
+                        <span ><b>mapLearnroom</b></span>
+                        <a href="#mapLearnroom"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>mapLearnroom(metadata: <a href="../undefineds/LearnroomMetadata.html" target="_self">LearnroomMetadata</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="35"
+                            class="link-to-prism">apps/server/src/modules/learnroom/mapper/dashboard.mapper.ts:35</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>metadata</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#LearnroomMetadata" target="_self" >LearnroomMetadata</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/DashboardGridSubElementResponse.html" target="_self" >DashboardGridSubElementResponse</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
     <table class="table table-sm table-bordered">
         <tbody>
             <tr>
@@ -186,36 +340,42 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { DashboardEntity } from &#x27;@shared/domain&#x27;;
-import { DashboardResponse, DashboardGridElementResponse } from &#x27;../controller/dto&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { DashboardEntity, GridElementWithPosition, LearnroomMetadata } from &#x27;@shared/domain&#x27;;
+import { DashboardResponse, DashboardGridElementResponse, DashboardGridSubElementResponse } from &#x27;../controller/dto&#x27;;
 
 export class DashboardMapper {
 	static mapToResponse(dashboard: DashboardEntity): DashboardResponse {
-		const dto &#x3D; new DashboardResponse();
-
-		dto.id &#x3D; dashboard.id;
-
-		dto.gridElements &#x3D; dashboard.getGrid().map((elementWithPosition) &#x3D;&gt; {
-			const elementDTO &#x3D; new DashboardGridElementResponse();
-
-			const data &#x3D; elementWithPosition.gridElement.getContent();
-			elementDTO.id &#x3D; data.referencedId;
-			elementDTO.title &#x3D; data.title;
-			elementDTO.shortTitle &#x3D; data.shortTitle;
-			elementDTO.displayColor &#x3D; data.displayColor;
-			if (data.group) {
-				elementDTO.groupId &#x3D; data.groupId;
-				elementDTO.groupElements &#x3D; data.group;
-			}
-
-			const { pos } &#x3D; elementWithPosition;
-			elementDTO.xPosition &#x3D; pos.x;
-			elementDTO.yPosition &#x3D; pos.y;
-
-			return elementDTO;
+		const dto &#x3D; new DashboardResponse({
+			id: dashboard.getId(),
+			gridElements: dashboard
+				.getGrid()
+				.map((elementWithPosition) &#x3D;&gt; DashboardMapper.mapGridElement(elementWithPosition)),
 		});
-
 		return dto;
+	}
+
+	private static mapGridElement(data: GridElementWithPosition): DashboardGridElementResponse {
+		const elementData &#x3D; data.gridElement.getContent();
+		const position &#x3D; data.pos;
+		const dto &#x3D; new DashboardGridElementResponse({
+			title: elementData.title,
+			shortTitle: elementData.shortTitle,
+			displayColor: elementData.displayColor,
+			xPosition: position.x,
+			yPosition: position.y,
+		});
+		if (elementData.referencedId) {
+			dto.id &#x3D; elementData.referencedId;
+		}
+		if (elementData.group &amp;&amp; elementData.groupId) {
+			dto.groupId &#x3D; elementData.groupId;
+			dto.groupElements &#x3D; elementData.group.map((groupMetadata) &#x3D;&gt; DashboardMapper.mapLearnroom(groupMetadata));
+		}
+		return dto;
+	}
+
+	private static mapLearnroom(metadata: LearnroomMetadata): DashboardGridSubElementResponse {
+		return new DashboardGridSubElementResponse(metadata);
 	}
 }
 </code></pre>

@@ -1359,7 +1359,7 @@ const defaultColumns &#x3D; 4;
 export interface IGridElement {
 	hasId(): boolean;
 
-	getId: () &#x3D;&gt; EntityId;
+	getId: () &#x3D;&gt; EntityId | undefined;
 
 	getContent: () &#x3D;&gt; GridElementContent;
 
@@ -1378,7 +1378,7 @@ export interface IGridElement {
 
 export type GridElementContent &#x3D; {
 	referencedId?: string;
-	title: string;
+	title?: string;
 	shortTitle: string;
 	displayColor: string;
 	group?: LearnroomMetadata[];
@@ -1386,9 +1386,9 @@ export type GridElementContent &#x3D; {
 };
 
 export class GridElement implements IGridElement {
-	id!: EntityId;
+	id?: EntityId;
 
-	title!: string;
+	title?: string;
 
 	private sortReferences &#x3D; (a: ILearnroom, b: ILearnroom) &#x3D;&gt; {
 		const titleA &#x3D; a.getMetadata().title;
@@ -1412,7 +1412,7 @@ export class GridElement implements IGridElement {
 		return new GridElement({ id, references: [reference] });
 	}
 
-	static FromPersistedGroup(id: EntityId, title: string, group: ILearnroom[]): GridElement {
+	static FromPersistedGroup(id: EntityId, title: string | undefined, group: ILearnroom[]): GridElement {
 		return new GridElement({ id, title, references: group });
 	}
 
@@ -1430,7 +1430,7 @@ export class GridElement implements IGridElement {
 		return !!this.id;
 	}
 
-	getId(): EntityId {
+	getId(): EntityId | undefined {
 		return this.id;
 	}
 

@@ -901,6 +901,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="interfaces/AppendedAttachment.html" data-type="entity-link" >AppendedAttachment</a>
                             </li>
                             <li class="link">
+                                <a href="interfaces/DashboardGridElementModelProperties.html" data-type="entity-link" >DashboardGridElementModelProperties</a>
+                            </li>
+                            <li class="link">
                                 <a href="interfaces/EncryptionModuleOptions.html" data-type="entity-link" >EncryptionModuleOptions</a>
                             </li>
                             <li class="link">

@@ -100,6 +100,53 @@
     </table>
 </section>
 
+            <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(undefined: <a href="../classes/DashboardResponse.html" target="_self">DashboardResponse</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="98" class="link-to-prism">apps/server/src/modules/learnroom/controller/dto/dashboard.response.ts:98</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../classes/DashboardResponse.html" target="_self" >DashboardResponse</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
 
             <section>
     
@@ -134,7 +181,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="82" class="link-to-prism">apps/server/src/modules/learnroom/controller/dto/dashboard.response.ts:82</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="114" class="link-to-prism">apps/server/src/modules/learnroom/controller/dto/dashboard.response.ts:114</a></div>
                         </td>
                     </tr>
 
@@ -169,7 +216,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="76" class="link-to-prism">apps/server/src/modules/learnroom/controller/dto/dashboard.response.ts:76</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="108" class="link-to-prism">apps/server/src/modules/learnroom/controller/dto/dashboard.response.ts:108</a></div>
                         </td>
                     </tr>
 
@@ -191,29 +238,56 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ApiProperty } from &#x27;@nestjs/swagger&#x27;;
 
 export class DashboardGridSubElementResponse {
+	constructor({ id, title, shortTitle, displayColor }: DashboardGridSubElementResponse) {
+		this.id &#x3D; id;
+		this.title &#x3D; title;
+		this.shortTitle &#x3D; shortTitle;
+		this.displayColor &#x3D; displayColor;
+	}
+
 	@ApiProperty({
 		description: &#x27;The id of the Grid element&#x27;,
 		pattern: &#x27;[a-f0-9]{24}&#x27;,
 	})
-	id!: string;
+	id: string;
 
 	@ApiProperty({
 		description: &#x27;Title of the Grid element&#x27;,
 	})
-	title!: string;
+	title: string;
 
 	@ApiProperty({
 		description: &#x27;Short title of the Grid element&#x27;,
 	})
-	shortTitle!: string;
+	shortTitle: string;
 
 	@ApiProperty({
 		description: &#x27;Color of the Grid element&#x27;,
 	})
-	displayColor!: string;
+	displayColor: string;
 }
 
 export class DashboardGridElementResponse {
+	constructor({
+		id,
+		title,
+		shortTitle,
+		displayColor,
+		xPosition,
+		yPosition,
+		groupId,
+		groupElements,
+	}: DashboardGridElementResponse) {
+		this.id &#x3D; id;
+		this.title &#x3D; title;
+		this.shortTitle &#x3D; shortTitle;
+		this.displayColor &#x3D; displayColor;
+		this.xPosition &#x3D; xPosition;
+		this.yPosition &#x3D; yPosition;
+		this.groupId &#x3D; groupId;
+		this.groupElements &#x3D; groupElements;
+	}
+
 	@ApiProperty({
 		description: &#x27;The id of the Grid element&#x27;,
 		pattern: &#x27;[a-f0-9]{24}&#x27;,
@@ -223,27 +297,27 @@ export class DashboardGridElementResponse {
 	@ApiProperty({
 		description: &#x27;Title of the Grid element&#x27;,
 	})
-	title!: string;
+	title?: string;
 
 	@ApiProperty({
 		description: &#x27;Short title of the Grid element&#x27;,
 	})
-	shortTitle!: string;
+	shortTitle: string;
 
 	@ApiProperty({
 		description: &#x27;Color of the Grid element&#x27;,
 	})
-	displayColor!: string;
+	displayColor: string;
 
 	@ApiProperty({
 		description: &#x27;X position of the Grid element&#x27;,
 	})
-	xPosition!: number;
+	xPosition: number;
 
 	@ApiProperty({
 		description: &#x27;Y position of the Grid element&#x27;,
 	})
-	yPosition!: number;
+	yPosition: number;
 
 	@ApiProperty({
 		description: &#x27;The id of the group element&#x27;,
@@ -259,17 +333,22 @@ export class DashboardGridElementResponse {
 }
 
 export class DashboardResponse {
+	constructor({ id, gridElements }: DashboardResponse) {
+		this.id &#x3D; id;
+		this.gridElements &#x3D; gridElements;
+	}
+
 	@ApiProperty({
 		description: &#x27;The id of the Dashboard entity&#x27;,
 		pattern: &#x27;[a-f0-9]{24}&#x27;,
 	})
-	id!: string;
+	id: string;
 
 	@ApiProperty({
 		type: [DashboardGridElementResponse],
 		description: &#x27;List of all elements visible on the dashboard&#x27;,
 	})
-	gridElements!: DashboardGridElementResponse[];
+	gridElements: DashboardGridElementResponse[];
 }
 </code></pre>
     </div>

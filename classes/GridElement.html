@@ -88,6 +88,7 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                    <span class="modifier">Optional</span>
                                 <a href="#id" >id</a>
                             </li>
                             <li>
@@ -98,6 +99,7 @@
                                 <a href="#sortReferences" >sortReferences</a>
                             </li>
                             <li>
+                                    <span class="modifier">Optional</span>
                                 <a href="#title" >title</a>
                             </li>
                         </ul>
@@ -228,6 +230,7 @@
                 <td class="col-md-4">
                     <a name="id"></a>
                     <span class="name">
+                            <span class="modifier">Optional</span>
                         <span ><b>id</b></span>
                         <a href="#id"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -306,6 +309,7 @@
                 <td class="col-md-4">
                     <a name="title"></a>
                     <span class="name">
+                            <span class="modifier">Optional</span>
                         <span ><b>title</b></span>
                         <a href="#title"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -500,7 +504,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>FromPersistedGroup(id: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, title: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, group: <a href="../interfaces/ILearnroom.html" target="_self">ILearnroom[]</a>)</code>
+                    <code>FromPersistedGroup(id: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, title: string | undefined, group: <a href="../interfaces/ILearnroom.html" target="_self">ILearnroom[]</a>)</code>
                 </td>
             </tr>
 
@@ -543,7 +547,7 @@
                                 <tr>
                                     <td>title</td>
                                     <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            <code>string | undefined</code>
                                     </td>
 
                                     <td>
@@ -801,7 +805,7 @@
                 <td class="col-md-4">
 
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
+                        <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId | undefined</a></code>
 
                     </div>
                 </td>
@@ -1145,7 +1149,7 @@ const defaultColumns &#x3D; 4;
 export interface IGridElement {
 	hasId(): boolean;
 
-	getId: () &#x3D;&gt; EntityId;
+	getId: () &#x3D;&gt; EntityId | undefined;
 
 	getContent: () &#x3D;&gt; GridElementContent;
 
@@ -1164,7 +1168,7 @@ export interface IGridElement {
 
 export type GridElementContent &#x3D; {
 	referencedId?: string;
-	title: string;
+	title?: string;
 	shortTitle: string;
 	displayColor: string;
 	group?: LearnroomMetadata[];
@@ -1172,9 +1176,9 @@ export type GridElementContent &#x3D; {
 };
 
 export class GridElement implements IGridElement {
-	id!: EntityId;
+	id?: EntityId;
 
-	title!: string;
+	title?: string;
 
 	private sortReferences &#x3D; (a: ILearnroom, b: ILearnroom) &#x3D;&gt; {
 		const titleA &#x3D; a.getMetadata().title;
@@ -1198,7 +1202,7 @@ export class GridElement implements IGridElement {
 		return new GridElement({ id, references: [reference] });
 	}
 
-	static FromPersistedGroup(id: EntityId, title: string, group: ILearnroom[]): GridElement {
+	static FromPersistedGroup(id: EntityId, title: string | undefined, group: ILearnroom[]): GridElement {
 		return new GridElement({ id, title, references: group });
 	}
 
@@ -1216,7 +1220,7 @@ export class GridElement implements IGridElement {
 		return !!this.id;
 	}
 
-	getId(): EntityId {
+	getId(): EntityId | undefined {
 		return this.id;
 	}
 

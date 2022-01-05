@@ -80,7 +80,17 @@
                             <li>
                                     <span class="modifier">Private</span>
                                     <span class="modifier">Async</span>
-                                <a href="#instantiateGridElementModel" >instantiateGridElementModel</a>
+                                <a href="#createGridElement" >createGridElement</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#findExistingGridElement" >findExistingGridElement</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#getOrConstructDashboardModelEntity" >getOrConstructDashboardModelEntity</a>
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
@@ -104,6 +114,11 @@
                             </li>
                             <li>
                                 <a href="#mapReferenceToModel" >mapReferenceToModel</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#updateExistingGridElement" >updateExistingGridElement</a>
                             </li>
                         </ul>
                     </td>
@@ -175,27 +190,27 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="instantiateGridElementModel"></a>
+                    <a name="createGridElement"></a>
                     <span class="name">
                         <span class="modifier">Private</span>
                         <span class="modifier">Async</span>
-                        <span ><b>instantiateGridElementModel</b></span>
-                        <a href="#instantiateGridElementModel"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>createGridElement</b></span>
+                        <a href="#createGridElement"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>instantiateGridElementModel(gridElement: <a href="../interfaces/IGridElement.html" target="_self">IGridElement</a>)</code>
+                    <code>createGridElement(elementWithPosition: <a href="../classes/GridElement.html" target="_self">GridElementWithPosition</a>, dashboard: <a href="../classes/DashboardModelEntity.html" target="_self">DashboardModelEntity</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="55"
-                            class="link-to-prism">apps/server/src/shared/repo/dashboard/dashboard.model.mapper.ts:55</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="99"
+                            class="link-to-prism">apps/server/src/shared/repo/dashboard/dashboard.model.mapper.ts:99</a></div>
                 </td>
             </tr>
 
@@ -216,9 +231,21 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>gridElement</td>
+                                    <td>elementWithPosition</td>
                                     <td>
-                                                <code><a href="../interfaces/IGridElement.html" target="_self" >IGridElement</a></code>
+                                                <code><a href="../classes/GridElement.html" target="_self" >GridElementWithPosition</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>dashboard</td>
+                                    <td>
+                                                <code><a href="../classes/DashboardModelEntity.html" target="_self" >DashboardModelEntity</a></code>
                                     </td>
 
                                     <td>
@@ -234,6 +261,150 @@
                     </div>
                     <div class="io-description">
                         <b>Returns : </b>    <code>Promise&lt;DashboardGridElementModel&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findExistingGridElement"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span class="modifier">Async</span>
+                        <span ><b>findExistingGridElement</b></span>
+                        <a href="#findExistingGridElement"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findExistingGridElement(elementWithPosition: <a href="../classes/GridElement.html" target="_self">GridElementWithPosition</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="68"
+                            class="link-to-prism">apps/server/src/shared/repo/dashboard/dashboard.model.mapper.ts:68</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>elementWithPosition</td>
+                                    <td>
+                                                <code><a href="../classes/GridElement.html" target="_self" >GridElementWithPosition</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;DashboardGridElementModel | undefined&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getOrConstructDashboardModelEntity"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span class="modifier">Async</span>
+                        <span ><b>getOrConstructDashboardModelEntity</b></span>
+                        <a href="#getOrConstructDashboardModelEntity"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getOrConstructDashboardModelEntity(entity: <a href="../classes/DashboardEntity.html" target="_self">DashboardEntity</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="132"
+                            class="link-to-prism">apps/server/src/shared/repo/dashboard/dashboard.model.mapper.ts:132</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>entity</td>
+                                    <td>
+                                                <code><a href="../classes/DashboardEntity.html" target="_self" >DashboardEntity</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/DashboardModelEntity.html" target="_self" >Promise&lt;DashboardModelEntity&gt;</a></code>
 
                     </div>
                     <div class="io-description">
@@ -336,8 +507,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="83"
-                            class="link-to-prism">apps/server/src/shared/repo/dashboard/dashboard.model.mapper.ts:83</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="116"
+                            class="link-to-prism">apps/server/src/shared/repo/dashboard/dashboard.model.mapper.ts:116</a></div>
                 </td>
             </tr>
 
@@ -478,8 +649,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="63"
-                            class="link-to-prism">apps/server/src/shared/repo/dashboard/dashboard.model.mapper.ts:63</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="55"
+                            class="link-to-prism">apps/server/src/shared/repo/dashboard/dashboard.model.mapper.ts:55</a></div>
                 </td>
             </tr>
 
@@ -679,6 +850,102 @@
             </tr>
         </tbody>
     </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateExistingGridElement"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span class="modifier">Async</span>
+                        <span ><b>updateExistingGridElement</b></span>
+                        <a href="#updateExistingGridElement"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>updateExistingGridElement(elementModel: <a href="../classes/DashboardGridElementModel.html" target="_self">DashboardGridElementModel</a>, elementWithPosition: <a href="../classes/GridElement.html" target="_self">GridElementWithPosition</a>, dashboard: <a href="../classes/DashboardModelEntity.html" target="_self">DashboardModelEntity</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="79"
+                            class="link-to-prism">apps/server/src/shared/repo/dashboard/dashboard.model.mapper.ts:79</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>elementModel</td>
+                                    <td>
+                                                <code><a href="../classes/DashboardGridElementModel.html" target="_self" >DashboardGridElementModel</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>elementWithPosition</td>
+                                    <td>
+                                                <code><a href="../classes/GridElement.html" target="_self" >GridElementWithPosition</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>dashboard</td>
+                                    <td>
+                                                <code><a href="../classes/DashboardModelEntity.html" target="_self" >DashboardModelEntity</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;DashboardGridElementModel&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </section>
 
     </div>
@@ -690,13 +957,13 @@ import { Injectable, InternalServerErrorException } from &#x27;@nestjs/common&#x
 import {
 	DashboardEntity,
 	GridElement,
-	IGridElement,
 	GridElementWithPosition,
 	ILearnroom,
 	LearnroomTypes,
 	DashboardGridElementModel,
 	DashboardModelEntity,
 	Course,
+	User,
 } from &#x27;@shared/domain&#x27;;
 
 @Injectable()
@@ -739,22 +1006,38 @@ export class DashboardModelMapper {
 		throw new InternalServerErrorException(&#x27;unknown learnroom type&#x27;);
 	}
 
-	private async instantiateGridElementModel(gridElement: IGridElement): Promise&lt;DashboardGridElementModel&gt; {
-		if (!gridElement.hasId()) {
-			return new DashboardGridElementModel();
-		}
-		const existing &#x3D; await this.em.findOne(DashboardGridElementModel, gridElement.getId());
-		return existing || new DashboardGridElementModel(gridElement.getId());
-	}
-
 	async mapGridElementToModel(
 		elementWithPosition: GridElementWithPosition,
 		dashboard: DashboardModelEntity
 	): Promise&lt;DashboardGridElementModel&gt; {
+		const existing &#x3D; await this.findExistingGridElement(elementWithPosition);
+		if (existing) {
+			const updatedModel &#x3D; this.updateExistingGridElement(existing, elementWithPosition, dashboard);
+			return updatedModel;
+		}
+		const createdModel &#x3D; await this.createGridElement(elementWithPosition, dashboard);
+		return createdModel;
+	}
+
+	private async findExistingGridElement(
+		elementWithPosition: GridElementWithPosition
+	): Promise&lt;DashboardGridElementModel | undefined&gt; {
 		const { gridElement } &#x3D; elementWithPosition;
-		const elementModel &#x3D; await this.instantiateGridElementModel(gridElement);
+		if (gridElement.hasId()) {
+			const existing &#x3D; await this.em.findOne(DashboardGridElementModel, gridElement.getId() as string);
+			if (existing) return existing;
+		}
+		return undefined;
+	}
+
+	private async updateExistingGridElement(
+		elementModel: DashboardGridElementModel,
+		elementWithPosition: GridElementWithPosition,
+		dashboard: DashboardModelEntity
+	): Promise&lt;DashboardGridElementModel&gt; {
 		elementModel.xPos &#x3D; elementWithPosition.pos.x;
 		elementModel.yPos &#x3D; elementWithPosition.pos.y;
+		const { gridElement } &#x3D; elementWithPosition;
 
 		if (gridElement.isGroup()) {
 			elementModel.title &#x3D; gridElement.getContent().title;
@@ -767,9 +1050,25 @@ export class DashboardModelMapper {
 		return elementModel;
 	}
 
+	private async createGridElement(
+		elementWithPosition: GridElementWithPosition,
+		dashboard: DashboardModelEntity
+	): Promise&lt;DashboardGridElementModel&gt; {
+		const { gridElement } &#x3D; elementWithPosition;
+		const references &#x3D; await Promise.all(gridElement.getReferences().map((ref) &#x3D;&gt; this.mapReferenceToModel(ref)));
+		const elementModel &#x3D; new DashboardGridElementModel({
+			id: gridElement.getId(),
+			xPos: elementWithPosition.pos.x,
+			yPos: elementWithPosition.pos.y,
+			references,
+			dashboard,
+		});
+
+		return elementModel;
+	}
+
 	async mapDashboardToModel(entity: DashboardEntity): Promise&lt;DashboardModelEntity&gt; {
-		const existing &#x3D; await this.em.findOne(DashboardModelEntity, entity.getId());
-		const modelEntity &#x3D; existing || new DashboardModelEntity({ id: entity.getId(), user: entity.getUserId() }); // TODO transform user to reference
+		const modelEntity &#x3D; await this.getOrConstructDashboardModelEntity(entity);
 		const mappedElements &#x3D; await Promise.all(
 			entity.getGrid().map((elementWithPosition) &#x3D;&gt; this.mapGridElementToModel(elementWithPosition, modelEntity))
 		);
@@ -782,6 +1081,15 @@ export class DashboardModelMapper {
 		});
 
 		return modelEntity;
+	}
+
+	private async getOrConstructDashboardModelEntity(entity: DashboardEntity): Promise&lt;DashboardModelEntity&gt; {
+		const existing &#x3D; await this.em.findOne(DashboardModelEntity, entity.getId());
+		if (existing) {
+			return existing;
+		}
+		const user &#x3D; await this.em.findOneOrFail(User, entity.getUserId());
+		return new DashboardModelEntity({ id: entity.getId(), user, gridElements: [] });
 	}
 }
 </code></pre>
