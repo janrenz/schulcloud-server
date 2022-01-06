@@ -178,8 +178,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="85"
-                            class="link-to-prism">apps/server/src/shared/repo/task/task.repo.ts:85</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="91"
+                            class="link-to-prism">apps/server/src/shared/repo/task/task.repo.ts:91</a></div>
                 </td>
             </tr>
 
@@ -377,8 +377,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="129"
-                            class="link-to-prism">apps/server/src/shared/repo/task/task.repo.ts:129</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="135"
+                            class="link-to-prism">apps/server/src/shared/repo/task/task.repo.ts:135</a></div>
                 </td>
             </tr>
 
@@ -488,16 +488,22 @@ export class TaskRepo {
 		allForFinishedCoursesAndLessons.byDraft(false);
 
 		// must find also closed without course or lesson as parent
-		const closedForCreator &#x3D; new TaskScope();
-		closedForCreator.byFinished(parentIds.creatorId, true);
-		closedForCreator.byCreatorId(parentIds.creatorId);
+		const closedWithoutParentForCreator &#x3D; new TaskScope();
+		closedWithoutParentForCreator.byFinished(parentIds.creatorId, true);
+		closedWithoutParentForCreator.byOnlyCreatorId(parentIds.creatorId);
+
+		const closedDraftsForCreator &#x3D; new TaskScope();
+		closedDraftsForCreator.addQuery(parentsOpen.query);
+		closedDraftsForCreator.byFinished(parentIds.creatorId, true);
+		closedDraftsForCreator.byCreatorId(parentIds.creatorId);
 
 		const allForFinishedCoursesAndLessonsForCreator &#x3D; new TaskScope();
 		allForFinishedCoursesAndLessonsForCreator.addQuery(parentsFinished.query);
 		allForFinishedCoursesAndLessonsForCreator.byCreatorId(parentIds.creatorId);
 
 		const allForCreator &#x3D; new TaskScope(&#x27;$or&#x27;);
-		allForCreator.addQuery(closedForCreator.query);
+		allForCreator.addQuery(closedWithoutParentForCreator.query);
+		allForCreator.addQuery(closedDraftsForCreator.query);
 		allForCreator.addQuery(allForFinishedCoursesAndLessonsForCreator.query);
 
 		scope.addQuery(closedForOpenCoursesAndLessons.query);
