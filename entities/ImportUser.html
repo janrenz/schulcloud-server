@@ -28,7 +28,7 @@
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
-               <div class="content class">
+               <div class="content entity">
                    <div class="content-data">
 
 
@@ -36,14 +36,9 @@
 
 
 
-
-
-
-
-
 <ol class="breadcrumb">
-  <li>Classes</li>
-  <li >DashboardGridElementModel</li>
+  <li>Entities</li>
+  <li >ImportUser</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -61,17 +56,9 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/shared/domain/entity/dashboard.model.entity.ts</code>
+            <code>apps/server/src/shared/domain/entity/import-user.entity.ts</code>
         </p>
 
-
-
-            <p class="comment">
-                <h3>Extends</h3>
-            </p>
-            <p class="comment">
-                        <code><a href="../classes/BaseEntityWithTimestamps.html" target="_self" >BaseEntityWithTimestamps</a></code>
-            </p>
 
 
 
@@ -88,32 +75,38 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#dashboard" >dashboard</a>
+                                <a href="#classNames" >classNames</a>
                             </li>
                             <li>
-                                <a href="#references" >references</a>
+                                <a href="#email" >email</a>
+                            </li>
+                            <li>
+                                <a href="#firstName" >firstName</a>
+                            </li>
+                            <li>
+                                <a href="#flagged" >flagged</a>
+                            </li>
+                            <li>
+                                <a href="#lastName" >lastName</a>
+                            </li>
+                            <li>
+                                <a href="#ldapDn" >ldapDn</a>
+                            </li>
+                            <li>
+                                <a href="#ldapId" >ldapId</a>
                             </li>
                             <li>
                                     <span class="modifier">Optional</span>
-                                <a href="#title" >title</a>
+                                <a href="#match" >match</a>
                             </li>
                             <li>
-                                <a href="#xPos" >xPos</a>
+                                <a href="#roleNames" >roleNames</a>
                             </li>
                             <li>
-                                <a href="#yPos" >yPos</a>
+                                <a href="#school" >school</a>
                             </li>
                             <li>
-                                <a href="#_id" >_id</a>
-                            </li>
-                            <li>
-                                <a href="#createdAt" >createdAt</a>
-                            </li>
-                            <li>
-                                <a href="#id" >id</a>
-                            </li>
-                            <li>
-                                <a href="#updatedAt" >updatedAt</a>
+                                <a href="#system" >system</a>
                             </li>
                         </ul>
                     </td>
@@ -129,54 +122,6 @@
 </section>
 
             <section>
-    <h3 id="constructor">Constructor</h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-<code>constructor(undefined: <a href="../interfaces/DashboardGridElementModelProperties.html" target="_self">DashboardGridElementModelProperties</a>)</code>
-                    </td>
-                </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">apps/server/src/shared/domain/entity/dashboard.model.entity.ts:26</a></div>
-                            </td>
-                        </tr>
-
-                <tr>
-                    <td class="col-md-4">
-                            <div>
-                                    <b>Parameters :</b>
-                                    <table class="params">
-                                        <thead>
-                                            <tr>
-                                                <td>Name</td>
-                                                    <td>Type</td>
-                                                <td>Optional</td>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                                <tr>
-                                                  
-                                                        <td>
-                                                                        <code><a href="../interfaces/DashboardGridElementModelProperties.html" target="_self" >DashboardGridElementModelProperties</a></code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                        </tbody>
-                                    </table>
-                            </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-</section>
-
-            <section>
     
     <h3 id="inputs">
         Properties
@@ -185,17 +130,22 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="dashboard"></a>
+                    <a name="classNames"></a>
                     <span class="name">
-                        <span ><b>dashboard</b></span>
-                        <a href="#dashboard"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>classNames</b></span>
+                        <a href="#classNames"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="../classes/DashboardModelEntity.html" target="_self" >IdentifiedReference&lt;DashboardModelEntity&gt;</a></code>
+                        <i>Type : </i>    <code>string[]</code>
 
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
                     </td>
                 </tr>
                 <tr>
@@ -203,13 +153,13 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @ManyToOne(&#x27;DashboardModelEntity&#x27;, {wrappedReference: true})<br />
+                            @Property()<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">apps/server/src/shared/domain/entity/dashboard.model.entity.ts:53</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="105" class="link-to-prism">apps/server/src/shared/domain/entity/import-user.entity.ts:105</a></div>
                         </td>
                     </tr>
 
@@ -220,16 +170,17 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="references"></a>
+                    <a name="email"></a>
                     <span class="name">
-                        <span ><b>references</b></span>
-                        <a href="#references"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>email</b></span>
+                        <a href="#email"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>new Collection&lt;Course&gt;(this)</code>
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
                     </td>
                 </tr>
                 <tr>
@@ -237,13 +188,13 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @ManyToMany(&#x27;Course&#x27;, undefined, {fieldName: &#x27;referenceIds&#x27;})<br />
+                            @Property()<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">apps/server/src/shared/domain/entity/dashboard.model.entity.ts:50</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="99" class="link-to-prism">apps/server/src/shared/domain/entity/import-user.entity.ts:99</a></div>
                         </td>
                     </tr>
 
@@ -254,17 +205,191 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="title"></a>
+                    <a name="firstName"></a>
+                    <span class="name">
+                        <span ><b>firstName</b></span>
+                        <a href="#firstName"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @Property()<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="90" class="link-to-prism">apps/server/src/shared/domain/entity/import-user.entity.ts:90</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="flagged"></a>
+                    <span class="name">
+                        <span ><b>flagged</b></span>
+                        <a href="#flagged"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @Property()<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="111" class="link-to-prism">apps/server/src/shared/domain/entity/import-user.entity.ts:111</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="lastName"></a>
+                    <span class="name">
+                        <span ><b>lastName</b></span>
+                        <a href="#lastName"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @Property()<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="93" class="link-to-prism">apps/server/src/shared/domain/entity/import-user.entity.ts:93</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ldapDn"></a>
+                    <span class="name">
+                        <span ><b>ldapDn</b></span>
+                        <a href="#ldapDn"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @Property()<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="84" class="link-to-prism">apps/server/src/shared/domain/entity/import-user.entity.ts:84</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ldapId"></a>
+                    <span class="name">
+                        <span ><b>ldapId</b></span>
+                        <a href="#ldapId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @Property()<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="87" class="link-to-prism">apps/server/src/shared/domain/entity/import-user.entity.ts:87</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="match"></a>
                     <span class="name">
                             <span class="modifier">Optional</span>
-                        <span ><b>title</b></span>
-                        <a href="#title"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>match</b></span>
+                        <a href="#match"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                        <i>Type : </i>        <code><a href="../interfaces/User.html" target="_self" >UserMatch</a></code>
 
                     </td>
                 </tr>
@@ -273,13 +398,13 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @Property()<br />
+                            @Embedded({entity: () &#x3D;&gt; UserMatch, object: true})<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">apps/server/src/shared/domain/entity/dashboard.model.entity.ts:41</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="108" class="link-to-prism">apps/server/src/shared/domain/entity/import-user.entity.ts:108</a></div>
                         </td>
                     </tr>
 
@@ -290,17 +415,22 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="xPos"></a>
+                    <a name="roleNames"></a>
                     <span class="name">
-                        <span ><b>xPos</b></span>
-                        <a href="#xPos"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>roleNames</b></span>
+                        <a href="#roleNames"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                        <i>Type : </i>        <code><a href="../entitys/Role.html" target="_self" >RoleName[]</a></code>
 
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
                     </td>
                 </tr>
                 <tr>
@@ -308,13 +438,13 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @Property()<br />
+                            @Enum({fieldName: &#x27;roles&#x27;})<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">apps/server/src/shared/domain/entity/dashboard.model.entity.ts:44</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="102" class="link-to-prism">apps/server/src/shared/domain/entity/import-user.entity.ts:102</a></div>
                         </td>
                     </tr>
 
@@ -325,16 +455,16 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="yPos"></a>
+                    <a name="school"></a>
                     <span class="name">
-                        <span ><b>yPos</b></span>
-                        <a href="#yPos"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>school</b></span>
+                        <a href="#school"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                        <i>Type : </i>        <code><a href="../entitys/School.html" target="_self" >IdentifiedReference&lt;School&gt;</a></code>
 
                     </td>
                 </tr>
@@ -343,13 +473,13 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @Property()<br />
+                            @ManyToOne(undefined, {wrappedReference: true, lazy: true})<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">apps/server/src/shared/domain/entity/dashboard.model.entity.ts:47</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="78" class="link-to-prism">apps/server/src/shared/domain/entity/import-user.entity.ts:78</a></div>
                         </td>
                     </tr>
 
@@ -360,16 +490,16 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="_id"></a>
+                    <a name="system"></a>
                     <span class="name">
-                        <span ><b>_id</b></span>
-                        <a href="#_id"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>system</b></span>
+                        <a href="#system"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>    <code>ObjectId</code>
+                        <i>Type : </i>        <code><a href="../entitys/System.html" target="_self" >IdentifiedReference&lt;System&gt;</a></code>
 
                     </td>
                 </tr>
@@ -378,144 +508,13 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @PrimaryKey()<br />
+                            @ManyToOne(undefined, {wrappedReference: true, lazy: true})<br />
                         </code>
                     </td>
                 </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <div class="io-line">Inherited from         <code><a href="../classes/BaseEntityWithTimestamps.html" target="_self" >BaseEntityWithTimestamps</a></code>
-</div>
-                            </td>
-                        </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/BaseEntityWithTimestamps.html#source" target="_self" >BaseEntityWithTimestamps:19</a></code>
-</div>
-                        </td>
-                    </tr>
-
-
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="createdAt"></a>
-                    <span class="name">
-                        <span ><b>createdAt</b></span>
-                        <a href="#createdAt"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Default value : </i><code>new Date()</code>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <b>Decorators : </b>
-                        <br />
-                        <code>
-                            @Property()<br />
-                        </code>
-                    </td>
-                </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <div class="io-line">Inherited from         <code><a href="../classes/BaseEntityWithTimestamps.html" target="_self" >BaseEntityWithTimestamps</a></code>
-</div>
-                            </td>
-                        </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/BaseEntityWithTimestamps.html#source" target="_self" >BaseEntityWithTimestamps:25</a></code>
-</div>
-                        </td>
-                    </tr>
-
-
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="id"></a>
-                    <span class="name">
-                        <span ><b>id</b></span>
-                        <a href="#id"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <b>Decorators : </b>
-                        <br />
-                        <code>
-                            @SerializedPrimaryKey()<br />
-                        </code>
-                    </td>
-                </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <div class="io-line">Inherited from         <code><a href="../classes/BaseEntityWithTimestamps.html" target="_self" >BaseEntityWithTimestamps</a></code>
-</div>
-                            </td>
-                        </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/BaseEntityWithTimestamps.html#source" target="_self" >BaseEntityWithTimestamps:22</a></code>
-</div>
-                        </td>
-                    </tr>
-
-
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="updatedAt"></a>
-                    <span class="name">
-                        <span ><b>updatedAt</b></span>
-                        <a href="#updatedAt"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Default value : </i><code>new Date()</code>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <b>Decorators : </b>
-                        <br />
-                        <code>
-                            @Property({onUpdate: undefined})<br />
-                        </code>
-                    </td>
-                </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <div class="io-line">Inherited from         <code><a href="../classes/BaseEntityWithTimestamps.html" target="_self" >BaseEntityWithTimestamps</a></code>
-</div>
-                            </td>
-                        </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/BaseEntityWithTimestamps.html#source" target="_self" >BaseEntityWithTimestamps:28</a></code>
-</div>
+                                <div class="io-line">Defined in <a href="" data-line="81" class="link-to-prism">apps/server/src/shared/domain/entity/import-user.entity.ts:81</a></div>
                         </td>
                     </tr>
 
@@ -523,100 +522,146 @@
         </tbody>
     </table>
 </section>
-
-
-
-
-
-
-
     </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">/* istanbul ignore file */ // TODO remove when implementation exists
+import {
+	Embeddable,
+	Embedded,
 	Entity,
-	Property,
-	ManyToOne,
-	OneToMany,
-	ManyToMany,
-	Collection,
+	Enum,
 	IdentifiedReference,
-	wrap,
+	ManyToOne,
+	Property,
+	Reference,
 } from &#x27;@mikro-orm/core&#x27;;
-import { ObjectId } from &#x27;@mikro-orm/mongodb&#x27;;
-import { BaseEntityWithTimestamps } from &#x27;@shared/domain/entity/base.entity&#x27;;
-import { User } from &#x27;./user.entity&#x27;;
-import { Course } from &#x27;./course.entity&#x27;;
+import { BaseEntityWithTimestamps } from &#x27;./base.entity&#x27;;
+import type { School } from &#x27;./school.entity&#x27;;
+import { System } from &#x27;./system.entity&#x27;;
+import type { User } from &#x27;./user.entity&#x27;;
 
-export interface DashboardGridElementModelProperties {
-	id?: string;
-	title?: string;
-	xPos: number;
-	yPos: number;
-	references: Course[];
-	dashboard: DashboardModelEntity;
+export interface IImportUserProperties {
+	// references
+	school: School;
+	system: System;
+	// external identifiers
+	ldapDn: string;
+	ldapId: string;
+	// descriptive properties
+	firstName: string;
+	lastName: string;
+	email: string; // TODO VO
+	roleNames?: RoleName[];
+	classNames?: string[];
+	match?: UserMatch;
+	flagged?: boolean;
 }
 
-@Entity({ tableName: &#x27;dashboardelement&#x27; })
-export class DashboardGridElementModel extends BaseEntityWithTimestamps {
-	constructor({ id, title, xPos, yPos, references, dashboard }: DashboardGridElementModelProperties) {
+// class EMailVO {
+// 	_email: string;
+
+// 	set email(value: string) {
+// 		this._email &#x3D; value.toLowerCase();
+// 	}
+
+// 	get email(): string {
+// 		return this._email;
+// 	}
+
+// 	constructor(value: string) {
+// 		this._email &#x3D; value.toLowerCase();
+// 	}
+// }
+
+export enum MatchCreator {
+	AUTO &#x3D; &#x27;auto&#x27;,
+	MANUAL &#x3D; &#x27;admin&#x27;,
+}
+export enum RoleName {
+	STUDENT &#x3D; &#x27;student&#x27;,
+	TEACHER &#x3D; &#x27;teacher&#x27;,
+	ADMIN &#x3D; &#x27;admin&#x27;,
+}
+
+@Embeddable()
+export class UserMatch extends BaseEntityWithTimestamps {
+	constructor(props: UserMatch) {
 		super();
-		if (id) {
-			this._id &#x3D; ObjectId.createFromHexString(id);
-			this.id &#x3D; id;
-		}
-		this.title &#x3D; title;
-		this.xPos &#x3D; xPos;
-		this.yPos &#x3D; yPos;
-		this.references.set(references);
-		this.dashboard &#x3D; wrap(dashboard).toReference();
+		this.user &#x3D; props.user;
+		this.matchedBy &#x3D; props.matchedBy;
 	}
 
-	@Property()
-	title?: string;
-
-	@Property()
-	xPos: number;
-
-	@Property()
-	yPos: number;
-
-	@ManyToMany(&#x27;Course&#x27;, undefined, { fieldName: &#x27;referenceIds&#x27; })
-	references &#x3D; new Collection&lt;Course&gt;(this);
-
-	@ManyToOne(&#x27;DashboardModelEntity&#x27;, { wrappedReference: true })
-	dashboard: IdentifiedReference&lt;DashboardModelEntity&gt;;
-}
-
-export interface IDashboardModelProperties {
-	id: string;
+	@Property({ fieldName: &#x27;userId&#x27; })
 	user: User;
-	gridElements?: DashboardGridElementModel[];
+
+	@Enum({ fieldName: &#x27;matchedBy&#x27; })
+	matchedBy: MatchCreator;
 }
 
-@Entity({ tableName: &#x27;dashboard&#x27; })
-export class DashboardModelEntity extends BaseEntityWithTimestamps {
-	constructor(props: IDashboardModelProperties) {
+@Entity({ tableName: &#x27;importUser&#x27; })
+export class ImportUser extends BaseEntityWithTimestamps {
+	@ManyToOne(() &#x3D;&gt; &#x27;School&#x27;, { wrappedReference: true, lazy: true })
+	school: IdentifiedReference&lt;School&gt;;
+
+	@ManyToOne(() &#x3D;&gt; &#x27;System&#x27;, { wrappedReference: true, lazy: true })
+	system: IdentifiedReference&lt;System&gt;;
+
+	@Property()
+	ldapDn: string;
+
+	@Property()
+	ldapId: string;
+
+	@Property()
+	firstName: string;
+
+	@Property()
+	lastName: string;
+
+	@Property()
+	/**
+	 * Lowercase email string // TODO VO
+	 */
+	email: string;
+
+	@Enum({ fieldName: &#x27;roles&#x27; })
+	roleNames: RoleName[] &#x3D; [];
+
+	@Property()
+	classNames: string[] &#x3D; [];
+
+	@Embedded({ entity: () &#x3D;&gt; UserMatch, object: true })
+	match?: UserMatch;
+
+	@Property()
+	flagged &#x3D; false;
+
+	constructor(props: IImportUserProperties) {
 		super();
-		this._id &#x3D; ObjectId.createFromHexString(props.id);
-		this.id &#x3D; props.id;
-		this.user &#x3D; wrap(props.user).toReference();
-		if (props.gridElements) this.gridElements.set(props.gridElements);
+		this.school &#x3D; Reference.create(props.school);
+		this.system &#x3D; Reference.create(props.system);
+		this.ldapDn &#x3D; props.ldapDn;
+		this.ldapId &#x3D; props.ldapId;
+		this.firstName &#x3D; props.firstName;
+		this.lastName &#x3D; props.lastName;
+		this.email &#x3D; props.email;
+		if (Array.isArray(props.roleNames) &amp;&amp; props.roleNames.length &gt; 0) this.roleNames.push(...props.roleNames);
+		if (Array.isArray(props.classNames) &amp;&amp; props.classNames.length &gt; 0) this.classNames.push(...props.classNames);
+		if (props.match) this.match &#x3D; props.match;
+		if (props.flagged &amp;&amp; props.flagged &#x3D;&#x3D;&#x3D; true) this.flagged &#x3D; true;
 	}
-
-	@OneToMany(&#x27;DashboardGridElementModel&#x27;, &#x27;dashboard&#x27;)
-	gridElements: Collection&lt;DashboardGridElementModel&gt; &#x3D; new Collection&lt;DashboardGridElementModel&gt;(this);
-
-	// userId
-	@ManyToOne(&#x27;User&#x27;, { fieldName: &#x27;userId&#x27;, wrappedReference: true })
-	user: IdentifiedReference&lt;User&gt;;
-
-	// sizetype
 }
 </code></pre>
     </div>
 </div>
+
+
+
+
+
+
 
 
 
@@ -650,8 +695,8 @@ export class DashboardModelEntity extends BaseEntityWithTimestamps {
 
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
-            var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
-            var COMPODOC_CURRENT_PAGE_URL = 'DashboardGridElementModel.html';
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'entity';
+            var COMPODOC_CURRENT_PAGE_URL = 'ImportUser.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 
