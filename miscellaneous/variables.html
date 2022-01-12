@@ -877,8 +877,8 @@ must use @ApiProperty</p>
 				return createErrorResponseForHttpException(error);
 			}
 		}
-		// create response from unknown error
-		return createErrorResponseForUnknownError(error);
+		// create default response for all unknown errors
+		return createErrorResponseForUnknownError();
 	} catch (exception) {
 		const stack &#x3D; exception instanceof Error ? exception.stack : undefined;
 		logger.error(exception, stack, &#x27;Response Error&#x27;);
