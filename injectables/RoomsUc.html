@@ -40,7 +40,7 @@
 
 <ol class="breadcrumb">
   <li>Injectables</li>
-  <li >TaskUC</li>
+  <li >RoomsUc</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -58,7 +58,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/modules/task/uc/task.uc.ts</code>
+            <code>apps/server/src/modules/learnroom/uc/rooms.uc.ts</code>
         </p>
 
 
@@ -79,30 +79,24 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                    <span class="modifier">Async</span>
-                                <a href="#findAll" >findAll</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Async</span>
-                                <a href="#findAllFinished" >findAllFinished</a>
+                                    <span class="modifier">Private</span>
+                                <a href="#addStatusToTasks" >addStatusToTasks</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
+                                <a href="#buildBoard" >buildBoard</a>
+                            </li>
+                            <li>
                                     <span class="modifier">Async</span>
-                                <a href="#findAllForStudent" >findAllForStudent</a>
+                                <a href="#getBoard" >getBoard</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
-                                    <span class="modifier">Async</span>
-                                <a href="#findAllForTeacher" >findAllForTeacher</a>
+                                <a href="#isTeacher" >isTeacher</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
-                                <a href="#getDefaultMaxDueDate" >getDefaultMaxDueDate</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Private</span>
-                                <a href="#hasTaskDashboardPermission" >hasTaskDashboardPermission</a>
+                                <a href="#taskFilter" >taskFilter</a>
                             </li>
                         </ul>
                     </td>
@@ -122,12 +116,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(taskRepo: <a href="../injectables/TaskRepo.html" target="_self">TaskRepo</a>, authorizationService: <a href="../injectables/TaskAuthorizationService.html" target="_self">TaskAuthorizationService</a>)</code>
+<code>constructor(courseRepo: <a href="../injectables/CourseRepo.html" target="_self">CourseRepo</a>, taskRepo: <a href="../injectables/TaskRepo.html" target="_self">TaskRepo</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:14</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">apps/server/src/modules/learnroom/uc/rooms.uc.ts:20</a></div>
                             </td>
                         </tr>
 
@@ -145,10 +139,10 @@
                                         </thead>
                                         <tbody>
                                                 <tr>
-                                                        <td>taskRepo</td>
+                                                        <td>courseRepo</td>
                                                   
                                                         <td>
-                                                                        <code><a href="../injectables/TaskRepo.html" target="_self" >TaskRepo</a></code>
+                                                                        <code><a href="../injectables/CourseRepo.html" target="_self" >CourseRepo</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -157,10 +151,10 @@
                                                     
                                                 </tr>
                                                 <tr>
-                                                        <td>authorizationService</td>
+                                                        <td>taskRepo</td>
                                                   
                                                         <td>
-                                                                        <code><a href="../injectables/TaskAuthorizationService.html" target="_self" >TaskAuthorizationService</a></code>
+                                                                        <code><a href="../injectables/TaskRepo.html" target="_self" >TaskRepo</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -186,193 +180,287 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="findAll"></a>
-                    <span class="name">
-                        <span class="modifier">Async</span>
-                        <span ><b>findAll</b></span>
-                        <a href="#findAll"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>findAll(currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>, pagination: <a href="../interfaces/IPagination.html" target="_self">IPagination</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="68"
-                            class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:68</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>currentUser</td>
-                                    <td>
-                                                <code><a href="../interfaces/ICurrentUser.html" target="_self" >ICurrentUser</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>pagination</td>
-                                    <td>
-                                                <code><a href="../interfaces/IPagination.html" target="_self" >IPagination</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../entitys/Task.html" target="_self" >Promise&lt;Counted&lt;TaskWithStatusVo[]&gt;&gt;</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="findAllFinished"></a>
-                    <span class="name">
-                        <span class="modifier">Async</span>
-                        <span ><b>findAllFinished</b></span>
-                        <a href="#findAllFinished"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>findAllFinished(currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>, pagination?: <a href="../interfaces/IPagination.html" target="_self">IPagination</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="20"
-                            class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:20</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>currentUser</td>
-                                    <td>
-                                                <code><a href="../interfaces/ICurrentUser.html" target="_self" >ICurrentUser</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>pagination</td>
-                                    <td>
-                                                <code><a href="../interfaces/IPagination.html" target="_self" >IPagination</a></code>
-                                    </td>
-
-                                    <td>
-                                        Yes
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../entitys/Task.html" target="_self" >Promise&lt;Counted&lt;TaskWithStatusVo[]&gt;&gt;</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="findAllForStudent"></a>
+                    <a name="addStatusToTasks"></a>
                     <span class="name">
                         <span class="modifier">Private</span>
-                        <span class="modifier">Async</span>
-                        <span ><b>findAllForStudent</b></span>
-                        <a href="#findAllForStudent"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>addStatusToTasks</b></span>
+                        <a href="#addStatusToTasks"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>findAllForStudent(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, pagination: <a href="../interfaces/IPagination.html" target="_self">IPagination</a>)</code>
+                    <code>addStatusToTasks(isTeacher: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, tasks: <a href="../classes/Task.html" target="_self">Task[]</a>, userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="82"
-                            class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:82</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="61"
+                            class="link-to-prism">apps/server/src/modules/learnroom/uc/rooms.uc.ts:61</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>isTeacher</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>tasks</td>
+                                    <td>
+                                                <code><a href="../classes/Task.html" target="_self" >Task[]</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>userId</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../entitys/Task.html" target="_self" >TaskWithStatusVo[]</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="buildBoard"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span ><b>buildBoard</b></span>
+                        <a href="#buildBoard"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>buildBoard(room: <a href="../classes/Course.html" target="_self">Course</a>, tasks: <a href="../entitys/Task.html" target="_self">TaskWithStatusVo[]</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="43"
+                            class="link-to-prism">apps/server/src/modules/learnroom/uc/rooms.uc.ts:43</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>room</td>
+                                    <td>
+                                                <code><a href="../classes/Course.html" target="_self" >Course</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>tasks</td>
+                                    <td>
+                                                <code><a href="../entitys/Task.html" target="_self" >TaskWithStatusVo[]</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../interfaces/Board.html" target="_self" >Board</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getBoard"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>getBoard</b></span>
+                        <a href="#getBoard"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getBoard(roomId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="23"
+                            class="link-to-prism">apps/server/src/modules/learnroom/uc/rooms.uc.ts:23</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>roomId</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>userId</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../interfaces/Board.html" target="_self" >Promise&lt;Board&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isTeacher"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span ><b>isTeacher</b></span>
+                        <a href="#isTeacher"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>isTeacher(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, course: <a href="../classes/Course.html" target="_self">Course</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="54"
+                            class="link-to-prism">apps/server/src/modules/learnroom/uc/rooms.uc.ts:54</a></div>
                 </td>
             </tr>
 
@@ -405,215 +493,9 @@
 
                                 </tr>
                                 <tr>
-                                    <td>pagination</td>
+                                    <td>course</td>
                                     <td>
-                                                <code><a href="../interfaces/IPagination.html" target="_self" >IPagination</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../entitys/Task.html" target="_self" >Promise&lt;Counted&lt;TaskWithStatusVo[]&gt;&gt;</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="findAllForTeacher"></a>
-                    <span class="name">
-                        <span class="modifier">Private</span>
-                        <span class="modifier">Async</span>
-                        <span ><b>findAllForTeacher</b></span>
-                        <a href="#findAllForTeacher"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>findAllForTeacher(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, pagination: <a href="../interfaces/IPagination.html" target="_self">IPagination</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="110"
-                            class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:110</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>userId</td>
-                                    <td>
-                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>pagination</td>
-                                    <td>
-                                                <code><a href="../interfaces/IPagination.html" target="_self" >IPagination</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../entitys/Task.html" target="_self" >Promise&lt;Counted&lt;TaskWithStatusVo[]&gt;&gt;</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="getDefaultMaxDueDate"></a>
-                    <span class="name">
-                        <span class="modifier">Private</span>
-                        <span ><b>getDefaultMaxDueDate</b></span>
-                        <a href="#getDefaultMaxDueDate"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>getDefaultMaxDueDate()</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="146"
-                            class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:146</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" >Date</a></code>
-
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="hasTaskDashboardPermission"></a>
-                    <span class="name">
-                        <span class="modifier">Private</span>
-                        <span ><b>hasTaskDashboardPermission</b></span>
-                        <a href="#hasTaskDashboardPermission"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>hasTaskDashboardPermission(currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>, permission: <a href="../interfaces/Board.html" target="_self">TaskDashBoardPermission</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="139"
-                            class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:139</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>currentUser</td>
-                                    <td>
-                                                <code><a href="../interfaces/ICurrentUser.html" target="_self" >ICurrentUser</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>permission</td>
-                                    <td>
-                                                <code><a href="../interfaces/Board.html" target="_self" >TaskDashBoardPermission</a></code>
+                                                <code><a href="../classes/Course.html" target="_self" >Course</a></code>
                                     </td>
 
                                     <td>
@@ -638,162 +520,157 @@
             </tr>
         </tbody>
     </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="taskFilter"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span ><b>taskFilter</b></span>
+                        <a href="#taskFilter"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>taskFilter(isTeacher: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="34"
+                            class="link-to-prism">apps/server/src/modules/learnroom/uc/rooms.uc.ts:34</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>isTeacher</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>literal type</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </section>
 
     </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable, UnauthorizedException } from &#x27;@nestjs/common&#x27;;
-import { EntityId, IPagination, Counted, ICurrentUser, SortOrder, TaskWithStatusVo, ITaskStatus } from &#x27;@shared/domain&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
+import { EntityId, Course, Task, TaskWithStatusVo } from &#x27;@shared/domain&#x27;;
+import { CourseRepo, TaskRepo } from &#x27;@shared/repo&#x27;;
 
-import { TaskRepo } from &#x27;@shared/repo&#x27;;
-
-import { TaskAuthorizationService, TaskParentPermission } from &#x27;./task.authorization.service&#x27;;
-
-export enum TaskDashBoardPermission {
-	teacherDashboard &#x3D; &#x27;TASK_DASHBOARD_TEACHER_VIEW_V3&#x27;,
-	studentDashboard &#x3D; &#x27;TASK_DASHBOARD_VIEW_V3&#x27;,
+// TODO: move this somewhere else
+export interface Board {
+	roomId: string;
+	displayColor: string;
+	title: string;
+	elements: BoardElement[];
 }
 
+export type BoardElement &#x3D; {
+	// TODO: should become fullblown class
+	type: string;
+	content: TaskWithStatusVo;
+};
+
 @Injectable()
-export class TaskUC {
-	constructor(private readonly taskRepo: TaskRepo, private readonly authorizationService: TaskAuthorizationService) {}
+export class RoomsUc {
+	constructor(private readonly courseRepo: CourseRepo, private readonly taskRepo: TaskRepo) {}
 
-	// This uc includes 4 awaits + 1 from authentication services.
-	// 5 awaits from with db calls from one request against the api is for me the absolut maximum what we should allowed.
-	// TODO: clearify if Admin need TASK_DASHBOARD_TEACHER_VIEW_V3 permission
-	async findAllFinished(currentUser: ICurrentUser, pagination?: IPagination): Promise&lt;Counted&lt;TaskWithStatusVo[]&gt;&gt; {
-		// TODO: move to this.authorizationService ?
-		if (
-			!this.hasTaskDashboardPermission(currentUser, TaskDashBoardPermission.teacherDashboard) &amp;&amp;
-			!this.hasTaskDashboardPermission(currentUser, TaskDashBoardPermission.studentDashboard)
-		) {
-			throw new UnauthorizedException();
-		}
+	async getBoard(roomId: EntityId, userId: EntityId): Promise&lt;Board&gt; {
+		const course &#x3D; await this.courseRepo.findOne(roomId, userId);
+		const isTeacher &#x3D; this.isTeacher(userId, course);
+		const taskFilter &#x3D; this.taskFilter(isTeacher);
+		const [tasks] &#x3D; await this.taskRepo.findBySingleParent(course.id, taskFilter);
+		const tasksWithStatusVos &#x3D; this.addStatusToTasks(isTeacher, tasks, userId);
 
-		const { userId } &#x3D; currentUser;
-
-		const courses &#x3D; await this.authorizationService.getPermittedCourses(userId, TaskParentPermission.read);
-		const lessons &#x3D; await this.authorizationService.getPermittedLessons(userId, courses);
-
-		const openCourseIds &#x3D; courses.filter((c) &#x3D;&gt; !c.isFinished()).map((c) &#x3D;&gt; c.id);
-		const finishedCourseIds &#x3D; courses.filter((c) &#x3D;&gt; c.isFinished()).map((c) &#x3D;&gt; c.id);
-		const lessonIdsOfOpenCourses &#x3D; lessons.filter((l) &#x3D;&gt; !l.course.isFinished()).map((l) &#x3D;&gt; l.id);
-		const lessonIdsOfFinishedCourses &#x3D; lessons.filter((l) &#x3D;&gt; l.course.isFinished()).map((l) &#x3D;&gt; l.id);
-
-		const [tasks, total] &#x3D; await this.taskRepo.findAllFinishedByParentIds(
-			{
-				creatorId: userId,
-				openCourseIds,
-				finishedCourseIds,
-				lessonIdsOfOpenCourses,
-				lessonIdsOfFinishedCourses,
-			},
-			{ pagination }
-		);
-
-		const taskWithStatusVos &#x3D; tasks.map((task) &#x3D;&gt; {
-			let status: ITaskStatus;
-			if (this.authorizationService.hasTaskPermission(userId, task, TaskParentPermission.write)) {
-				status &#x3D; task.createTeacherStatusForUser(userId);
-			} else {
-				// TaskParentPermission.read check is not needed on this place
-				status &#x3D; task.createStudentStatusForUser(userId);
-			}
-
-			return new TaskWithStatusVo(task, status);
-		});
-
-		return [taskWithStatusVos, total];
+		const board &#x3D; this.buildBoard(course, tasksWithStatusVos);
+		return board;
 	}
 
-	// TODO: should it display task from courses that are not started?
-	// TODO replace curentUser with userId. this requires that permissions are loaded inside the use case by authorization service
-	// TODO: use authorizationService instant of private method
-	async findAll(currentUser: ICurrentUser, pagination: IPagination): Promise&lt;Counted&lt;TaskWithStatusVo[]&gt;&gt; {
-		let response: Counted&lt;TaskWithStatusVo[]&gt;;
+	private taskFilter(isTeacher: boolean): { draft?: boolean } {
+		const filters: { draft?: boolean } &#x3D; {};
+		if (!isTeacher) {
+			filters.draft &#x3D; false;
+		}
+		return filters;
+	}
 
-		if (this.hasTaskDashboardPermission(currentUser, TaskDashBoardPermission.studentDashboard)) {
-			response &#x3D; await this.findAllForStudent(currentUser.userId, pagination);
-		} else if (this.hasTaskDashboardPermission(currentUser, TaskDashBoardPermission.teacherDashboard)) {
-			response &#x3D; await this.findAllForTeacher(currentUser.userId, pagination);
+	// TODO: move somewhere else
+	private buildBoard(room: Course, tasks: TaskWithStatusVo[]): Board {
+		const roomMetadata &#x3D; room.getMetadata();
+		const board &#x3D; {
+			roomId: roomMetadata.id,
+			displayColor: roomMetadata.displayColor,
+			title: roomMetadata.title,
+			elements: tasks.map((task) &#x3D;&gt; ({ type: &#x27;task&#x27;, content: task })),
+		};
+		return board;
+	}
+
+	private isTeacher(userId: EntityId, course: Course): boolean {
+		if (course.getTeacherIds().includes(userId) || course.getSubstitutionTeacherIds().includes(userId)) {
+			return true;
+		}
+		return false;
+	}
+
+	private addStatusToTasks(isTeacher: boolean, tasks: Task[], userId: EntityId): TaskWithStatusVo[] {
+		let tasksWithStatusVos: TaskWithStatusVo[];
+		if (isTeacher) {
+			tasksWithStatusVos &#x3D; tasks.map((task) &#x3D;&gt; {
+				const status &#x3D; task.createTeacherStatusForUser(userId);
+				return new TaskWithStatusVo(task, status);
+			});
 		} else {
-			throw new UnauthorizedException();
+			tasksWithStatusVos &#x3D; tasks.map((task) &#x3D;&gt; {
+				const status &#x3D; task.createStudentStatusForUser(userId);
+				return new TaskWithStatusVo(task, status);
+			});
 		}
-
-		return response;
-	}
-
-	private async findAllForStudent(userId: EntityId, pagination: IPagination): Promise&lt;Counted&lt;TaskWithStatusVo[]&gt;&gt; {
-		const courses &#x3D; await this.authorizationService.getPermittedCourses(userId, TaskParentPermission.read);
-		const openCourses &#x3D; courses.filter((c) &#x3D;&gt; !c.isFinished());
-		const lessons &#x3D; await this.authorizationService.getPermittedLessons(userId, openCourses);
-
-		const dueDate &#x3D; this.getDefaultMaxDueDate();
-		const notFinished &#x3D; { userId, value: false };
-
-		const [tasks, total] &#x3D; await this.taskRepo.findAllByParentIds(
-			{
-				courseIds: openCourses.map((c) &#x3D;&gt; c.id),
-				lessonIds: lessons.map((l) &#x3D;&gt; l.id),
-			},
-			{ draft: false, afterDueDateOrNone: dueDate, finished: notFinished },
-			{
-				pagination,
-				order: { dueDate: SortOrder.asc },
-			}
-		);
-
-		const taskWithStatusVos &#x3D; tasks.map((task) &#x3D;&gt; {
-			const status &#x3D; task.createStudentStatusForUser(userId);
-			return new TaskWithStatusVo(task, status);
-		});
-
-		return [taskWithStatusVos, total];
-	}
-
-	private async findAllForTeacher(userId: EntityId, pagination: IPagination): Promise&lt;Counted&lt;TaskWithStatusVo[]&gt;&gt; {
-		const courses &#x3D; await this.authorizationService.getPermittedCourses(userId, TaskParentPermission.write);
-		const openCourses &#x3D; courses.filter((c) &#x3D;&gt; !c.isFinished());
-		const lessons &#x3D; await this.authorizationService.getPermittedLessons(userId, openCourses);
-
-		const notFinished &#x3D; { userId, value: false };
-
-		const [tasks, total] &#x3D; await this.taskRepo.findAllByParentIds(
-			{
-				creatorId: userId,
-				courseIds: openCourses.map((c) &#x3D;&gt; c.id),
-				lessonIds: lessons.map((l) &#x3D;&gt; l.id),
-			},
-			{ finished: notFinished },
-			{
-				pagination,
-				order: { dueDate: SortOrder.desc },
-			}
-		);
-
-		const taskWithStatusVos &#x3D; tasks.map((task) &#x3D;&gt; {
-			const status &#x3D; task.createTeacherStatusForUser(userId);
-			return new TaskWithStatusVo(task, status);
-		});
-
-		return [taskWithStatusVos, total];
-	}
-
-	// TODO: move to this.authorizationService ?
-	private hasTaskDashboardPermission(currentUser: ICurrentUser, permission: TaskDashBoardPermission): boolean {
-		const hasPermission &#x3D; currentUser.user.permissions.includes(permission);
-
-		return hasPermission;
-	}
-
-	// It is more a util method or domain logic in context of findAllForStudent timeframe
-	private getDefaultMaxDueDate(): Date {
-		const oneWeekAgo &#x3D; new Date();
-		oneWeekAgo.setDate(oneWeekAgo.getDate() - 7);
-
-		return oneWeekAgo;
+		return tasksWithStatusVos;
 	}
 }
 </code></pre>
@@ -838,7 +715,7 @@ export class TaskUC {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
-            var COMPODOC_CURRENT_PAGE_URL = 'TaskUC.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'RoomsUc.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

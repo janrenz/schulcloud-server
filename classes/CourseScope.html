@@ -115,6 +115,9 @@
                                 <a href="#forAllGroupTypes" >forAllGroupTypes</a>
                             </li>
                             <li>
+                                <a href="#forCourseId" >forCourseId</a>
+                            </li>
+                            <li>
                                 <a href="#forTeacher" >forTeacher</a>
                             </li>
                             <li>
@@ -298,6 +301,75 @@
                             <tbody>
                                 <tr>
                                     <td>userId</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/CourseScope.html" target="_self" >CourseScope</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="forCourseId"></a>
+                    <span class="name">
+                        <span ><b>forCourseId</b></span>
+                        <a href="#forCourseId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>forCourseId(courseId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="42"
+                            class="link-to-prism">apps/server/src/shared/repo/course/course.repo.ts:42</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>courseId</td>
                                     <td>
                                                 <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
                                     </td>
@@ -518,6 +590,11 @@ class CourseScope extends Scope&lt;Course&gt; {
 
 		return this;
 	}
+
+	forCourseId(courseId: EntityId): CourseScope {
+		this.addQuery({ id: courseId });
+		return this;
+	}
 }
 
 @Injectable()
@@ -556,6 +633,16 @@ export class CourseRepo {
 		const [courses, count] &#x3D; await this.em.findAndCount(Course, scope.query);
 
 		return [courses, count];
+	}
+
+	async findOne(courseId: EntityId, userId?: EntityId): Promise&lt;Course&gt; {
+		const scope &#x3D; new CourseScope();
+		scope.forCourseId(courseId);
+		if (userId) scope.forAllGroupTypes(userId);
+
+		const course &#x3D; await this.em.findOneOrFail(Course, scope.query);
+
+		return course;
 	}
 }
 </code></pre>
