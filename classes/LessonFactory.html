@@ -224,7 +224,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/BaseFactory.html#source" target="_self" >BaseFactory:86</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/BaseFactory.html#source" target="_self" >BaseFactory:85</a></code>
 </div>
                 </td>
             </tr>
@@ -288,7 +288,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>build(params: DeepPartial<U>)</code>
+<code>build(params?: DeepPartial<U>)</code>
                 </td>
             </tr>
 
@@ -301,7 +301,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/BaseFactory.html#source" target="_self" >BaseFactory:46</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/BaseFactory.html#source" target="_self" >BaseFactory:45</a></code>
 </div>
                 </td>
             </tr>
@@ -321,7 +321,6 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
-                                    <td>Default value</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -332,12 +331,9 @@
                                     </td>
 
                                     <td>
-                                        No
+                                        Yes
                                     </td>
 
-                                    <td>
-                                        <code>{}</code>
-                                    </td>
 
                                 </tr>
                             </tbody>
@@ -370,7 +366,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>buildList(number: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, params: DeepPartial<U>)</code>
+<code>buildList(number: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, params?: DeepPartial<U>)</code>
                 </td>
             </tr>
 
@@ -383,7 +379,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/BaseFactory.html#source" target="_self" >BaseFactory:72</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/BaseFactory.html#source" target="_self" >BaseFactory:71</a></code>
 </div>
                 </td>
             </tr>
@@ -403,7 +399,6 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
-                                    <td>Default value</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -417,8 +412,6 @@
                                         No
                                     </td>
 
-                                    <td>
-                                    </td>
 
                                 </tr>
                                 <tr>
@@ -428,12 +421,9 @@
                                     </td>
 
                                     <td>
-                                        No
+                                        Yes
                                     </td>
 
-                                    <td>
-                                        <code>{}</code>
-                                    </td>
 
                                 </tr>
                             </tbody>
@@ -466,7 +456,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>buildWithId(params: DeepPartial<U>, id?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+<code>buildWithId(params?: DeepPartial<U>, id?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
@@ -479,7 +469,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/BaseFactory.html#source" target="_self" >BaseFactory:59</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/BaseFactory.html#source" target="_self" >BaseFactory:58</a></code>
 </div>
                 </td>
             </tr>
@@ -499,7 +489,6 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
-                                    <td>Default value</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -510,12 +499,9 @@
                                     </td>
 
                                     <td>
-                                        No
+                                        Yes
                                     </td>
 
-                                    <td>
-                                        <code>{}</code>
-                                    </td>
 
                                 </tr>
                                 <tr>
@@ -528,8 +514,6 @@
                                         Yes
                                     </td>
 
-                                    <td>
-                                    </td>
 
                                 </tr>
                             </tbody>
@@ -577,7 +561,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/BaseFactory.html#source" target="_self" >BaseFactory:124</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/BaseFactory.html#source" target="_self" >BaseFactory:123</a></code>
 </div>
                 </td>
             </tr>
@@ -661,7 +645,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>define(this, EntityClass: literal type, generator: GeneratorFn<U | I>)</code>
+                    <code>define(this, EntityClass: literal type, generator: GeneratorFn<U | I | U>)</code>
                 </td>
             </tr>
 
@@ -741,7 +725,7 @@
                                 <tr>
                                     <td>generator</td>
                                     <td>
-                                            <code>GeneratorFn&lt;U | I&gt;</code>
+                                            <code>GeneratorFn&lt;U | I | U&gt;</code>
                                     </td>
 
                                     <td>
@@ -796,7 +780,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/BaseFactory.html#source" target="_self" >BaseFactory:98</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/BaseFactory.html#source" target="_self" >BaseFactory:97</a></code>
 </div>
                 </td>
             </tr>
@@ -866,7 +850,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/BaseFactory.html#source" target="_self" >BaseFactory:120</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/BaseFactory.html#source" target="_self" >BaseFactory:119</a></code>
 </div>
                 </td>
             </tr>
@@ -913,7 +897,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/BaseFactory.html#source" target="_self" >BaseFactory:136</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/BaseFactory.html#source" target="_self" >BaseFactory:135</a></code>
 </div>
                 </td>
             </tr>
@@ -964,7 +948,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/BaseFactory.html#source" target="_self" >BaseFactory:110</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/BaseFactory.html#source" target="_self" >BaseFactory:109</a></code>
 </div>
                 </td>
             </tr>
