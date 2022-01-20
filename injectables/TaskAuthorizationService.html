@@ -95,6 +95,9 @@
                                 <a href="#hasCourseWritePermission" >hasCourseWritePermission</a>
                             </li>
                             <li>
+                                <a href="#hasOneOfTaskDashboardPermissions" >hasOneOfTaskDashboardPermissions</a>
+                            </li>
+                            <li>
                                 <a href="#hasTaskPermission" >hasTaskPermission</a>
                             </li>
                         </ul>
@@ -115,12 +118,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(courseRepo: <a href="../injectables/CourseRepo.html" target="_self">CourseRepo</a>, lessonRepo: <a href="../injectables/LessonRepo.html" target="_self">LessonRepo</a>)</code>
+<code>constructor(courseRepo: <a href="../injectables/CourseRepo.html" target="_self">CourseRepo</a>, lessonRepo: <a href="../injectables/LessonRepo.html" target="_self">LessonRepo</a>, permissionService: <a href="../injectables/PermissionService.html" target="_self">PermissionService</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">apps/server/src/modules/task/uc/task.authorization.service.ts:11</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">apps/server/src/modules/task/uc/task.authorization.service.ts:16</a></div>
                             </td>
                         </tr>
 
@@ -161,6 +164,18 @@
                                                     </td>
                                                     
                                                 </tr>
+                                                <tr>
+                                                        <td>permissionService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/PermissionService.html" target="_self" >PermissionService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
                                         </tbody>
                                     </table>
                             </div>
@@ -190,15 +205,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>getPermittedCourses(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, neededPermission: <a href="../classes/Task.html" target="_self">TaskParentPermission</a>)</code>
+                    <code>getPermittedCourses(user: <a href="../interfaces/User.html" target="_self">User</a>, neededPermission: <a href="../classes/Task.html" target="_self">TaskParentPermission</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="16"
-                            class="link-to-prism">apps/server/src/modules/task/uc/task.authorization.service.ts:16</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="25"
+                            class="link-to-prism">apps/server/src/modules/task/uc/task.authorization.service.ts:25</a></div>
                 </td>
             </tr>
 
@@ -219,9 +234,9 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>userId</td>
+                                    <td>user</td>
                                     <td>
-                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
+                                                <code><a href="../interfaces/User.html" target="_self" >User</a></code>
                                     </td>
 
                                     <td>
@@ -273,15 +288,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>getPermittedLessons(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, courses: <a href="../classes/Course.html" target="_self">Course[]</a>)</code>
+                    <code>getPermittedLessons(user: <a href="../interfaces/User.html" target="_self">User</a>, courses: <a href="../classes/Course.html" target="_self">Course[]</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="28"
-                            class="link-to-prism">apps/server/src/modules/task/uc/task.authorization.service.ts:28</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="37"
+                            class="link-to-prism">apps/server/src/modules/task/uc/task.authorization.service.ts:37</a></div>
                 </td>
             </tr>
 
@@ -302,9 +317,9 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>userId</td>
+                                    <td>user</td>
                                     <td>
-                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
+                                                <code><a href="../interfaces/User.html" target="_self" >User</a></code>
                                     </td>
 
                                     <td>
@@ -356,15 +371,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>hasCourseReadPermission(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, course?: <a href="../classes/Course.html" target="_self">Course</a>)</code>
+                    <code>hasCourseReadPermission(user: <a href="../interfaces/User.html" target="_self">User</a>, course: <a href="../classes/Course.html" target="_self">Course</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="55"
-                            class="link-to-prism">apps/server/src/modules/task/uc/task.authorization.service.ts:55</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="62"
+                            class="link-to-prism">apps/server/src/modules/task/uc/task.authorization.service.ts:62</a></div>
                 </td>
             </tr>
 
@@ -385,9 +400,9 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>userId</td>
+                                    <td>user</td>
                                     <td>
-                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
+                                                <code><a href="../interfaces/User.html" target="_self" >User</a></code>
                                     </td>
 
                                     <td>
@@ -403,7 +418,7 @@
                                     </td>
 
                                     <td>
-                                        Yes
+                                        No
                                     </td>
 
 
@@ -439,15 +454,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>hasCourseWritePermission(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, course?: <a href="../classes/Course.html" target="_self">Course</a>)</code>
+                    <code>hasCourseWritePermission(user: <a href="../interfaces/User.html" target="_self">User</a>, course: <a href="../classes/Course.html" target="_self">Course</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="47"
-                            class="link-to-prism">apps/server/src/modules/task/uc/task.authorization.service.ts:47</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="56"
+                            class="link-to-prism">apps/server/src/modules/task/uc/task.authorization.service.ts:56</a></div>
                 </td>
             </tr>
 
@@ -468,9 +483,9 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>userId</td>
+                                    <td>user</td>
                                     <td>
-                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
+                                                <code><a href="../interfaces/User.html" target="_self" >User</a></code>
                                     </td>
 
                                     <td>
@@ -486,7 +501,88 @@
                                     </td>
 
                                     <td>
-                                        Yes
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="hasOneOfTaskDashboardPermissions"></a>
+                    <span class="name">
+                        <span ><b>hasOneOfTaskDashboardPermissions</b></span>
+                        <a href="#hasOneOfTaskDashboardPermissions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>hasOneOfTaskDashboardPermissions(user: <a href="../interfaces/User.html" target="_self">User</a>, permission: <a href="../interfaces/Board.html" target="_self">TaskDashBoardPermission | TaskDashBoardPermission[]</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="84"
+                            class="link-to-prism">apps/server/src/modules/task/uc/task.authorization.service.ts:84</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>user</td>
+                                    <td>
+                                                <code><a href="../interfaces/User.html" target="_self" >User</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>permission</td>
+                                    <td>
+                                                <code><a href="../interfaces/Board.html" target="_self" >TaskDashBoardPermission | TaskDashBoardPermission[]</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
                                     </td>
 
 
@@ -520,15 +616,15 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>hasTaskPermission(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, task: <a href="../classes/Task.html" target="_self">Task</a>, permission: <a href="../classes/Task.html" target="_self">TaskParentPermission</a>)</code>
+<code>hasTaskPermission(user: <a href="../interfaces/User.html" target="_self">User</a>, task: <a href="../classes/Task.html" target="_self">Task</a>, permission: <a href="../classes/Task.html" target="_self">TaskParentPermission</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="61"
-                            class="link-to-prism">apps/server/src/modules/task/uc/task.authorization.service.ts:61</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="69"
+                            class="link-to-prism">apps/server/src/modules/task/uc/task.authorization.service.ts:69</a></div>
                 </td>
             </tr>
 
@@ -549,9 +645,9 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>userId</td>
+                                    <td>user</td>
                                     <td>
-                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
+                                                <code><a href="../interfaces/User.html" target="_self" >User</a></code>
                                     </td>
 
                                     <td>
@@ -607,7 +703,7 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
-import { EntityId, Course, Lesson, Task } from &#x27;@shared/domain&#x27;;
+import { Course, Lesson, PermissionService, Task, User } from &#x27;@shared/domain&#x27;;
 import { CourseRepo, LessonRepo } from &#x27;@shared/repo&#x27;;
 
 export enum TaskParentPermission {
@@ -615,27 +711,36 @@ export enum TaskParentPermission {
 	write,
 }
 
+export enum TaskDashBoardPermission {
+	teacherDashboard &#x3D; &#x27;TASK_DASHBOARD_TEACHER_VIEW_V3&#x27;,
+	studentDashboard &#x3D; &#x27;TASK_DASHBOARD_VIEW_V3&#x27;,
+}
+
 @Injectable()
 export class TaskAuthorizationService {
-	constructor(private readonly courseRepo: CourseRepo, private readonly lessonRepo: LessonRepo) {}
+	constructor(
+		private readonly courseRepo: CourseRepo,
+		private readonly lessonRepo: LessonRepo,
+		private readonly permissionService: PermissionService
+	) {}
 
 	// it should return also the scopePermissions for this user added to the entity .scopePermission: { userId, read: boolean, write: boolean }
 	// then we can pass and allow only scoped courses to getPermittedLessonIds and validate read write of .scopePermission
-	async getPermittedCourses(userId: EntityId, neededPermission: TaskParentPermission): Promise&lt;Course[]&gt; {
+	async getPermittedCourses(user: User, neededPermission: TaskParentPermission): Promise&lt;Course[]&gt; {
 		let permittedCourses: Course[] &#x3D; [];
 
 		if (neededPermission &#x3D;&#x3D;&#x3D; TaskParentPermission.write) {
-			[permittedCourses] &#x3D; await this.courseRepo.findAllForTeacher(userId);
+			[permittedCourses] &#x3D; await this.courseRepo.findAllForTeacher(user.id);
 		} else if (neededPermission &#x3D;&#x3D;&#x3D; TaskParentPermission.read) {
-			[permittedCourses] &#x3D; await this.courseRepo.findAllByUserId(userId);
+			[permittedCourses] &#x3D; await this.courseRepo.findAllByUserId(user.id);
 		}
 
 		return permittedCourses;
 	}
 
-	async getPermittedLessons(userId: EntityId, courses: Course[]): Promise&lt;Lesson[]&gt; {
-		const writeCourses &#x3D; courses.filter((c) &#x3D;&gt; this.hasCourseWritePermission(userId, c));
-		const readCourses &#x3D; courses.filter((c) &#x3D;&gt; this.hasCourseReadPermission(userId, c));
+	async getPermittedLessons(user: User, courses: Course[]): Promise&lt;Lesson[]&gt; {
+		const writeCourses &#x3D; courses.filter((c) &#x3D;&gt; this.hasCourseWritePermission(user, c));
+		const readCourses &#x3D; courses.filter((c) &#x3D;&gt; !writeCourses.includes(c));
 
 		const writeCourseIds &#x3D; writeCourses.map((c) &#x3D;&gt; c.id);
 		const readCourseIds &#x3D; readCourses.map((c) &#x3D;&gt; c.id);
@@ -652,32 +757,43 @@ export class TaskAuthorizationService {
 		return permittedLessons;
 	}
 
-	private hasCourseWritePermission(userId: EntityId, course?: Course): boolean {
+	private hasCourseWritePermission(user: User, course: Course): boolean {
+		const hasPermission &#x3D; course.substitutionTeachers.contains(user) || course.teachers.contains(user);
+
+		return hasPermission;
+	}
+
+	private hasCourseReadPermission(user: User, course: Course): boolean {
 		const hasPermission &#x3D;
-			course?.getSubstitutionTeacherIds().includes(userId) &#x3D;&#x3D;&#x3D; true ||
-			course?.getTeacherIds().includes(userId) &#x3D;&#x3D;&#x3D; true;
+			course.students.contains(user) || course.substitutionTeachers.contains(user) || course.teachers.contains(user);
 
 		return hasPermission;
 	}
 
-	private hasCourseReadPermission(userId: EntityId, course?: Course): boolean {
-		const hasPermission &#x3D; course?.getStudentIds().includes(userId) &#x3D;&#x3D;&#x3D; true;
-
-		return hasPermission;
-	}
-
-	hasTaskPermission(userId: EntityId, task: Task, permission: TaskParentPermission): boolean {
-		const isCreator &#x3D; task.creator?.id &#x3D;&#x3D;&#x3D; userId;
+	hasTaskPermission(user: User, task: Task, permission: TaskParentPermission): boolean {
+		const isCreator &#x3D; task.creator &#x3D;&#x3D;&#x3D; user;
 		let hasCoursePermission &#x3D; false;
 
-		if (permission &#x3D;&#x3D;&#x3D; TaskParentPermission.write) {
-			hasCoursePermission &#x3D; this.hasCourseWritePermission(userId, task.course);
-		} else if (permission &#x3D;&#x3D;&#x3D; TaskParentPermission.read) {
-			hasCoursePermission &#x3D;
-				this.hasCourseReadPermission(userId, task.course) || this.hasCourseWritePermission(userId, task.course);
+		if (task.course &amp;&amp; permission &#x3D;&#x3D;&#x3D; TaskParentPermission.write) {
+			hasCoursePermission &#x3D; this.hasCourseWritePermission(user, task.course);
+		} else if (task.course &amp;&amp; permission &#x3D;&#x3D;&#x3D; TaskParentPermission.read) {
+			hasCoursePermission &#x3D; this.hasCourseReadPermission(user, task.course);
 		}
 
 		const hasPermission &#x3D; isCreator || hasCoursePermission;
+
+		return hasPermission;
+	}
+
+	hasOneOfTaskDashboardPermissions(
+		user: User,
+		permission: TaskDashBoardPermission | TaskDashBoardPermission[]
+	): boolean {
+		const permissions &#x3D; this.permissionService.resolvePermissions(user);
+
+		const hasPermission &#x3D; Array.isArray(permission)
+			? permission.some((p) &#x3D;&gt; permissions.includes(p))
+			: permissions.includes(permission);
 
 		return hasPermission;
 	}

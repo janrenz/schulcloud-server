@@ -69,7 +69,7 @@
                             <a href="#bootstrap" title="apps/server/src/console/console.ts" ><b>bootstrap</b>&nbsp;&nbsp;&nbsp;(apps/.../console.ts)</a>
                         </li>
                         <li>
-                            <a href="#cleanUpCollections" title="apps/server/src/shared/testing/clean-up-collections.ts" ><b>cleanUpCollections</b>&nbsp;&nbsp;&nbsp;(apps/.../clean-up-collections.ts)</a>
+                            <a href="#cleanupCollections" title="apps/server/src/shared/testing/cleanup-collections.ts" ><b>cleanupCollections</b>&nbsp;&nbsp;&nbsp;(apps/.../cleanup-collections.ts)</a>
                         </li>
                         <li>
                             <a href="#config" title="jest.config.ts" ><b>config</b>&nbsp;&nbsp;&nbsp;(jest.config.ts)</a>
@@ -85,9 +85,6 @@
                         </li>
                         <li>
                             <a href="#courseNewsFactory" title="apps/server/src/shared/testing/factory/news.factory.ts" ><b>courseNewsFactory</b>&nbsp;&nbsp;&nbsp;(apps/.../news.factory.ts)</a>
-                        </li>
-                        <li>
-                            <a href="#createCurrentTestUser" title="apps/server/src/shared/testing/create-current-test-user.ts" ><b>createCurrentTestUser</b>&nbsp;&nbsp;&nbsp;(apps/.../create-current-test-user.ts)</a>
                         </li>
                         <li>
                             <a href="#createErrorResponse" title="apps/server/src/core/error/filter/global-error.filter.ts" ><b>createErrorResponse</b>&nbsp;&nbsp;&nbsp;(apps/.../global-error.filter.ts)</a>
@@ -148,6 +145,9 @@
                         </li>
                         <li>
                             <a href="#lessonFactory" title="apps/server/src/shared/testing/factory/lesson.factory.ts" ><b>lessonFactory</b>&nbsp;&nbsp;&nbsp;(apps/.../lesson.factory.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#mapUserToCurrentUser" title="apps/server/src/shared/testing/mapUserToCurrentUser.ts" ><b>mapUserToCurrentUser</b>&nbsp;&nbsp;&nbsp;(apps/.../mapUserToCurrentUser.ts)</a>
                         </li>
                         <li>
                             <a href="#NEWS_SOURCES" title="apps/server/src/modules/news/controller/dto/news.response.ts" ><b>NEWS_SOURCES</b>&nbsp;&nbsp;&nbsp;(apps/.../news.response.ts)</a>
@@ -425,28 +425,31 @@ This allows adding console commands to execute provider methods.</p>
         </tbody>
     </table>
 </section>
-    <h3>apps/server/src/shared/testing/clean-up-collections.ts</h3>
+    <h3>apps/server/src/shared/testing/cleanup-collections.ts</h3>
     <section>
     <h3></h3>    <table class="table table-sm table-bordered">
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="cleanUpCollections"></a>
+                    <a name="cleanupCollections"></a>
                     <span class="name">
-                        <span ><b>cleanUpCollections</b></span>
-                        <a href="#cleanUpCollections"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>cleanupCollections</b></span>
+                        <a href="#cleanupCollections"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
                 <tr>
                     <td class="col-md-4">
                         <i>Default value : </i><code>async (em: EntityManager): Promise&lt;void&gt; &#x3D;&gt; {
-	const allCollections &#x3D; await em.getConnection(&#x27;write&#x27;).listCollections();
-	await Promise.all(
-		allCollections.map(async (collectionName) &#x3D;&gt; {
-			await em.getConnection().deleteMany(collectionName, {});
-		})
-	);
+	// const allCollections &#x3D; await em.getConnection(&#x27;write&#x27;).listCollections();
+	// await Promise.all(
+	// 	allCollections.map(async (collectionName) &#x3D;&gt; {
+	// 		await em.getConnection().deleteMany(collectionName, {});
+	// 	})
+	// );
+
+	// disable cleanup until we have a solution for race conditions in parallel tests
+	return Promise.resolve();
 }</code>
                     </td>
                 </tr>
@@ -787,58 +790,6 @@ must use @ApiProperty</p>
 		target: teamFactory.build(),
 	};
 })</code>
-                    </td>
-                </tr>
-
-
-        </tbody>
-    </table>
-</section>
-    <h3>apps/server/src/shared/testing/create-current-test-user.ts</h3>
-    <section>
-    <h3></h3>    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="createCurrentTestUser"></a>
-                    <span class="name">
-                        <span ><b>createCurrentTestUser</b></span>
-                        <a href="#createCurrentTestUser"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Default value : </i><code>(
-	initPermissions?: string[],
-	passedUser?: User
-): {
-	currentUser: ICurrentUser;
-	user: User;
-	roles: Role[];
-} &#x3D;&gt; {
-	const accountId &#x3D; new ObjectId().toHexString();
-	const school &#x3D; schoolFactory.build();
-	school._id &#x3D; new ObjectId();
-
-	const permissions &#x3D; initPermissions || [&#x27;A&#x27;, &#x27;B&#x27;];
-	const roles &#x3D; [new Role({ name: &#x27;name&#x27;, permissions })] as Role[];
-	const roleIds &#x3D; roles.map((role) &#x3D;&gt; role.id);
-
-	const user &#x3D; passedUser || userFactory.build({ roles, school });
-	// const user &#x3D; new User({ email: &#x60;Date.now()@email.de&#x60;, roles, school });
-	user._id &#x3D; new ObjectId();
-	const resolvedUser &#x3D; ResolvedUserMapper.mapToResponse(user, permissions, roles);
-
-	const currentUser &#x3D; {
-		userId: user.id,
-		roles: roleIds,
-		schoolId: school.id,
-		accountId,
-		user: resolvedUser,
-	} as ICurrentUser;
-	return { currentUser, user, roles };
-}</code>
                     </td>
                 </tr>
 
@@ -1494,6 +1445,35 @@ it should ensure an empty result</p>
 		course,
 	};
 })</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>apps/server/src/shared/testing/mapUserToCurrentUser.ts</h3>
+    <section>
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="mapUserToCurrentUser"></a>
+                    <span class="name">
+                        <span ><b>mapUserToCurrentUser</b></span>
+                        <a href="#mapUserToCurrentUser"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>(user: User): ICurrentUser &#x3D;&gt;
+	({
+		userId: user.id,
+		roles: user.roles.getItems().map((r) &#x3D;&gt; r.id),
+		schoolId: user.school.id,
+		accountId: new ObjectId().toHexString(),
+	} as ICurrentUser)</code>
                     </td>
                 </tr>
 

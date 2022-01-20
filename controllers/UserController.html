@@ -133,8 +133,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="17"
-                            class="link-to-prism">apps/server/src/modules/user/controller/user.controller.ts:17</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="18"
+                            class="link-to-prism">apps/server/src/modules/user/controller/user.controller.ts:18</a></div>
                 </td>
             </tr>
 
@@ -189,21 +189,28 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ApiTags } from &#x27;@nestjs/swagger&#x27;;
 
 import { Controller, Get } from &#x27;@nestjs/common&#x27;;
-import { ICurrentUser } from &#x27;@shared/domain&#x27;;
+import { ICurrentUser, PermissionService } from &#x27;@shared/domain&#x27;;
 
 import { Authenticate, CurrentUser } from &#x27;@src/modules/authentication/decorator/auth.decorator&#x27;;
-import { UserUC } from &#x27;../uc&#x27;;
+import { UserRepo } from &#x27;@shared/repo&#x27;;
 import { ResolvedUser } from &#x27;./dto/ResolvedUser.dto&#x27;;
+import { ResolvedUserMapper } from &#x27;../mapper&#x27;;
 
 @ApiTags(&#x27;User&#x27;)
 @Authenticate(&#x27;jwt&#x27;)
 @Controller(&#x27;user&#x27;)
 export class UserController {
-	constructor(private readonly userUc: UserUC) {}
+	constructor(private readonly userRepo: UserRepo, private readonly permissionService: PermissionService) {}
 
 	@Get(&#x27;me&#x27;)
 	async me(@CurrentUser() currentUser: ICurrentUser): Promise&lt;ResolvedUser&gt; {
-		return Promise.resolve(currentUser.user);
+		const user &#x3D; await this.userRepo.findById(currentUser.userId, true);
+		const permissions &#x3D; this.permissionService.resolvePermissions(user);
+
+		// only the root roles of the user get published
+		const resolvedUser &#x3D; ResolvedUserMapper.mapToResponse(user, permissions, user.roles.getItems());
+
+		return resolvedUser;
 	}
 }
 </code></pre>

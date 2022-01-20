@@ -82,6 +82,11 @@
                                     <span class="modifier">Async</span>
                                 <a href="#findById" >findById</a>
                             </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#populateRoles" >populateRoles</a>
+                            </li>
                         </ul>
                     </td>
                 </tr>
@@ -163,7 +168,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>findById(id: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>)</code>
+                    <code>findById(id: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, populateRoles)</code>
                 </td>
             </tr>
 
@@ -188,6 +193,7 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Default value</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -201,6 +207,22 @@
                                         No
                                     </td>
 
+                                    <td>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>populateRoles</td>
+                                    <td>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+                                    <td>
+                                        <code>false</code>
+                                    </td>
 
                                 </tr>
                             </tbody>
@@ -219,6 +241,78 @@
             </tr>
         </tbody>
     </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="populateRoles"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span class="modifier">Async</span>
+                        <span ><b>populateRoles</b></span>
+                        <a href="#populateRoles"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>populateRoles(roles: <a href="../entitys/Role.html" target="_self">Role[]</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="20"
+                            class="link-to-prism">apps/server/src/shared/repo/user/user.repo.ts:20</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>roles</td>
+                                    <td>
+                                                <code><a href="../entitys/Role.html" target="_self" >Role[]</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </section>
 
     </div>
@@ -227,15 +321,33 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { EntityManager } from &#x27;@mikro-orm/mongodb&#x27;;
 import { Injectable } from &#x27;@nestjs/common&#x27;;
-import { EntityId, User } from &#x27;@shared/domain&#x27;;
+import { EntityId, Role, User } from &#x27;@shared/domain&#x27;;
 
 @Injectable()
 export class UserRepo {
 	constructor(private readonly em: EntityManager) {}
 
-	async findById(id: EntityId): Promise&lt;User&gt; {
+	async findById(id: EntityId, populateRoles &#x3D; false): Promise&lt;User&gt; {
 		const user &#x3D; await this.em.findOneOrFail(User, { id });
+
+		if (populateRoles) {
+			await this.em.populate(user, [&#x27;roles&#x27;]);
+			await this.populateRoles(user.roles.getItems());
+		}
+
 		return user;
+	}
+
+	private async populateRoles(roles: Role[]): Promise&lt;void&gt; {
+		for (let i &#x3D; 0; i &lt; roles.length; i +&#x3D; 1) {
+			const role &#x3D; roles[i];
+			if (!role.roles.isInitialized(true)) {
+				// eslint-disable-next-line no-await-in-loop
+				await this.em.populate(role, [&#x27;roles&#x27;]);
+				// eslint-disable-next-line no-await-in-loop
+				await this.populateRoles(role.roles.getItems());
+			}
+		}
 	}
 }
 </code></pre>

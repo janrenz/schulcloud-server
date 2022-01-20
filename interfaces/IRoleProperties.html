@@ -255,7 +255,7 @@ export class Role extends BaseEntityWithTimestamps {
 	// @ManyToMany({ fieldName: &#x27;roles&#x27;, type: Role })
 	// roles &#x3D; new Collection&lt;Role&gt;(this);
 
-	@ManyToMany(&#x27;Role&#x27;)
+	@ManyToMany({ entity: &#x27;Role&#x27; })
 	roles &#x3D; new Collection&lt;Role&gt;(this);
 
 	constructor(props: IRoleProperties) {

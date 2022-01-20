@@ -153,7 +153,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">apps/server/src/shared/domain/entity/task.entity.ts:51</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">apps/server/src/shared/domain/entity/task.entity.ts:50</a></div>
                         </td>
                     </tr>
 
@@ -189,7 +189,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="63" class="link-to-prism">apps/server/src/shared/domain/entity/task.entity.ts:63</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="62" class="link-to-prism">apps/server/src/shared/domain/entity/task.entity.ts:62</a></div>
                         </td>
                     </tr>
 
@@ -225,7 +225,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="60" class="link-to-prism">apps/server/src/shared/domain/entity/task.entity.ts:60</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="59" class="link-to-prism">apps/server/src/shared/domain/entity/task.entity.ts:59</a></div>
                         </td>
                     </tr>
 
@@ -261,7 +261,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">apps/server/src/shared/domain/entity/task.entity.ts:54</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">apps/server/src/shared/domain/entity/task.entity.ts:53</a></div>
                         </td>
                     </tr>
 
@@ -295,7 +295,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="74" class="link-to-prism">apps/server/src/shared/domain/entity/task.entity.ts:74</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="73" class="link-to-prism">apps/server/src/shared/domain/entity/task.entity.ts:73</a></div>
                         </td>
                     </tr>
 
@@ -331,7 +331,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="66" class="link-to-prism">apps/server/src/shared/domain/entity/task.entity.ts:66</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="65" class="link-to-prism">apps/server/src/shared/domain/entity/task.entity.ts:65</a></div>
                         </td>
                     </tr>
 
@@ -366,7 +366,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">apps/server/src/shared/domain/entity/task.entity.ts:48</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">apps/server/src/shared/domain/entity/task.entity.ts:47</a></div>
                         </td>
                     </tr>
 
@@ -400,7 +400,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="57" class="link-to-prism">apps/server/src/shared/domain/entity/task.entity.ts:57</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">apps/server/src/shared/domain/entity/task.entity.ts:56</a></div>
                         </td>
                     </tr>
 
@@ -434,7 +434,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="69" class="link-to-prism">apps/server/src/shared/domain/entity/task.entity.ts:69</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="68" class="link-to-prism">apps/server/src/shared/domain/entity/task.entity.ts:68</a></div>
                         </td>
                     </tr>
 
@@ -447,8 +447,7 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Collection, Entity, ManyToOne, OneToMany, ManyToMany, Property, Index } from &#x27;@mikro-orm/core&#x27;;
-
-import { EntityId } from &#x27;../types&#x27;;
+import { EntityId } from &#x27;../types/entity-id&#x27;;
 
 import { BaseEntityWithTimestamps } from &#x27;./base.entity&#x27;;
 import type { Course } from &#x27;./course.entity&#x27;;
@@ -539,39 +538,42 @@ export class Task extends BaseEntityWithTimestamps {
 		return !!this.private;
 	}
 
-	private getSubmissionsItems(): Submission[] {
-		// TODO: load/init check until mikro-orm base entity is extended
+	private getSubmissionItems(): Submission[] {
+		if (!this.submissions.isInitialized(true)) {
+			throw new Error(&#x27;Submissions items are not loaded.&#x27;);
+		}
 		const submissions &#x3D; this.submissions.getItems();
 		return submissions;
 	}
 
 	getSubmittedUserIds(): EntityId[] {
-		const submissions &#x3D; this.getSubmissionsItems();
-		const submittedUserIds &#x3D; submissions.map((submission) &#x3D;&gt; submission.getStudentId());
+		const submittedUserIds &#x3D; this.getSubmissionItems().map((submission) &#x3D;&gt; submission.student.id);
+		const uniqueSubmittedUserIds &#x3D; [...new Set(submittedUserIds)];
 
-		return submittedUserIds;
+		return uniqueSubmittedUserIds;
 	}
 
 	getNumberOfSubmittedUsers(): number {
 		const submittedUserIds &#x3D; this.getSubmittedUserIds();
-		const submitted &#x3D; [...new Set(submittedUserIds)].length;
+		const count &#x3D; submittedUserIds.length;
 
-		return submitted;
+		return count;
 	}
 
 	getGradedUserIds(): EntityId[] {
-		const gradedUserIds &#x3D; this.getSubmissionsItems()
+		const gradedUserIds &#x3D; this.getSubmissionItems()
 			.filter((submission) &#x3D;&gt; submission.isGraded())
-			.map((submission) &#x3D;&gt; submission.getStudentId());
+			.map((submission) &#x3D;&gt; submission.student.id);
+		const uniqueGradedUserIds &#x3D; [...new Set(gradedUserIds)];
 
-		return gradedUserIds;
+		return uniqueGradedUserIds;
 	}
 
 	getNumberOfGradedUsers(): number {
 		const gradedUserIds &#x3D; this.getGradedUserIds();
-		const graded &#x3D; [...new Set(gradedUserIds)].length;
+		const count &#x3D; gradedUserIds.length;
 
-		return graded;
+		return count;
 	}
 
 	// attention based on this parent use this.getParent() instant
@@ -582,7 +584,7 @@ export class Task extends BaseEntityWithTimestamps {
 		return numberOfStudents;
 	}
 
-	createTeacherStatusForUser(userId: EntityId): ITaskStatus {
+	createTeacherStatusForUser(user: User): ITaskStatus {
 		const submitted &#x3D; this.getNumberOfSubmittedUsers();
 		const graded &#x3D; this.getNumberOfGradedUsers();
 		const maxSubmissions &#x3D; this.getMaxSubmissions();
@@ -592,7 +594,7 @@ export class Task extends BaseEntityWithTimestamps {
 		// work with getParent()
 		let isSubstitutionTeacher &#x3D; false;
 		if (this.course) {
-			isSubstitutionTeacher &#x3D; this.course.getSubstitutionTeacherIds().includes(userId);
+			isSubstitutionTeacher &#x3D; this.course.substitutionTeachers.contains(user);
 		}
 
 		const status &#x3D; {
@@ -606,21 +608,21 @@ export class Task extends BaseEntityWithTimestamps {
 		return status;
 	}
 
-	isSubmittedForUser(userId: EntityId): boolean {
-		const submitted &#x3D; this.getSubmittedUserIds().some((id) &#x3D;&gt; userId &#x3D;&#x3D;&#x3D; id);
+	isSubmittedForUser(user: User): boolean {
+		const submitted &#x3D; this.getSubmittedUserIds().some((uid) &#x3D;&gt; uid &#x3D;&#x3D;&#x3D; user.id);
 
 		return submitted;
 	}
 
-	isGradedForUser(userId: EntityId): boolean {
-		const graded &#x3D; this.getGradedUserIds().some((id) &#x3D;&gt; userId &#x3D;&#x3D;&#x3D; id);
+	isGradedForUser(user: User): boolean {
+		const graded &#x3D; this.getGradedUserIds().some((uid) &#x3D;&gt; uid &#x3D;&#x3D;&#x3D; user.id);
 
 		return graded;
 	}
 
-	createStudentStatusForUser(userId: EntityId): ITaskStatus {
-		const isSubmitted &#x3D; this.isSubmittedForUser(userId);
-		const isGraded &#x3D; this.isGradedForUser(userId);
+	createStudentStatusForUser(user: User): ITaskStatus {
+		const isSubmitted &#x3D; this.isSubmittedForUser(user);
+		const isGraded &#x3D; this.isGradedForUser(user);
 		const maxSubmissions &#x3D; 1;
 		const isDraft &#x3D; this.isDraft();
 		const isSubstitutionTeacher &#x3D; false;

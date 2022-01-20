@@ -295,8 +295,7 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Collection, Entity, ManyToOne, OneToMany, ManyToMany, Property, Index } from &#x27;@mikro-orm/core&#x27;;
-
-import { EntityId } from &#x27;../types&#x27;;
+import { EntityId } from &#x27;../types/entity-id&#x27;;
 
 import { BaseEntityWithTimestamps } from &#x27;./base.entity&#x27;;
 import type { Course } from &#x27;./course.entity&#x27;;
@@ -387,39 +386,42 @@ export class Task extends BaseEntityWithTimestamps {
 		return !!this.private;
 	}
 
-	private getSubmissionsItems(): Submission[] {
-		// TODO: load/init check until mikro-orm base entity is extended
+	private getSubmissionItems(): Submission[] {
+		if (!this.submissions.isInitialized(true)) {
+			throw new Error(&#x27;Submissions items are not loaded.&#x27;);
+		}
 		const submissions &#x3D; this.submissions.getItems();
 		return submissions;
 	}
 
 	getSubmittedUserIds(): EntityId[] {
-		const submissions &#x3D; this.getSubmissionsItems();
-		const submittedUserIds &#x3D; submissions.map((submission) &#x3D;&gt; submission.getStudentId());
+		const submittedUserIds &#x3D; this.getSubmissionItems().map((submission) &#x3D;&gt; submission.student.id);
+		const uniqueSubmittedUserIds &#x3D; [...new Set(submittedUserIds)];
 
-		return submittedUserIds;
+		return uniqueSubmittedUserIds;
 	}
 
 	getNumberOfSubmittedUsers(): number {
 		const submittedUserIds &#x3D; this.getSubmittedUserIds();
-		const submitted &#x3D; [...new Set(submittedUserIds)].length;
+		const count &#x3D; submittedUserIds.length;
 
-		return submitted;
+		return count;
 	}
 
 	getGradedUserIds(): EntityId[] {
-		const gradedUserIds &#x3D; this.getSubmissionsItems()
+		const gradedUserIds &#x3D; this.getSubmissionItems()
 			.filter((submission) &#x3D;&gt; submission.isGraded())
-			.map((submission) &#x3D;&gt; submission.getStudentId());
+			.map((submission) &#x3D;&gt; submission.student.id);
+		const uniqueGradedUserIds &#x3D; [...new Set(gradedUserIds)];
 
-		return gradedUserIds;
+		return uniqueGradedUserIds;
 	}
 
 	getNumberOfGradedUsers(): number {
 		const gradedUserIds &#x3D; this.getGradedUserIds();
-		const graded &#x3D; [...new Set(gradedUserIds)].length;
+		const count &#x3D; gradedUserIds.length;
 
-		return graded;
+		return count;
 	}
 
 	// attention based on this parent use this.getParent() instant
@@ -430,7 +432,7 @@ export class Task extends BaseEntityWithTimestamps {
 		return numberOfStudents;
 	}
 
-	createTeacherStatusForUser(userId: EntityId): ITaskStatus {
+	createTeacherStatusForUser(user: User): ITaskStatus {
 		const submitted &#x3D; this.getNumberOfSubmittedUsers();
 		const graded &#x3D; this.getNumberOfGradedUsers();
 		const maxSubmissions &#x3D; this.getMaxSubmissions();
@@ -440,7 +442,7 @@ export class Task extends BaseEntityWithTimestamps {
 		// work with getParent()
 		let isSubstitutionTeacher &#x3D; false;
 		if (this.course) {
-			isSubstitutionTeacher &#x3D; this.course.getSubstitutionTeacherIds().includes(userId);
+			isSubstitutionTeacher &#x3D; this.course.substitutionTeachers.contains(user);
 		}
 
 		const status &#x3D; {
@@ -454,21 +456,21 @@ export class Task extends BaseEntityWithTimestamps {
 		return status;
 	}
 
-	isSubmittedForUser(userId: EntityId): boolean {
-		const submitted &#x3D; this.getSubmittedUserIds().some((id) &#x3D;&gt; userId &#x3D;&#x3D;&#x3D; id);
+	isSubmittedForUser(user: User): boolean {
+		const submitted &#x3D; this.getSubmittedUserIds().some((uid) &#x3D;&gt; uid &#x3D;&#x3D;&#x3D; user.id);
 
 		return submitted;
 	}
 
-	isGradedForUser(userId: EntityId): boolean {
-		const graded &#x3D; this.getGradedUserIds().some((id) &#x3D;&gt; userId &#x3D;&#x3D;&#x3D; id);
+	isGradedForUser(user: User): boolean {
+		const graded &#x3D; this.getGradedUserIds().some((uid) &#x3D;&gt; uid &#x3D;&#x3D;&#x3D; user.id);
 
 		return graded;
 	}
 
-	createStudentStatusForUser(userId: EntityId): ITaskStatus {
-		const isSubmitted &#x3D; this.isSubmittedForUser(userId);
-		const isGraded &#x3D; this.isGradedForUser(userId);
+	createStudentStatusForUser(user: User): ITaskStatus {
+		const isSubmitted &#x3D; this.isSubmittedForUser(user);
+		const isGraded &#x3D; this.isGradedForUser(user);
 		const maxSubmissions &#x3D; 1;
 		const isDraft &#x3D; this.isDraft();
 		const isSubstitutionTeacher &#x3D; false;
