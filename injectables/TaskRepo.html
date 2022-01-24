@@ -381,8 +381,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="135"
-                            class="link-to-prism">apps/server/src/shared/repo/task/task.repo.ts:135</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="149"
+                            class="link-to-prism">apps/server/src/shared/repo/task/task.repo.ts:149</a></div>
                 </td>
             </tr>
 
@@ -477,8 +477,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="152"
-                            class="link-to-prism">apps/server/src/shared/repo/task/task.repo.ts:152</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="166"
+                            class="link-to-prism">apps/server/src/shared/repo/task/task.repo.ts:166</a></div>
                 </td>
             </tr>
 
@@ -640,7 +640,11 @@ export class TaskRepo {
 			courseIds?: EntityId[];
 			lessonIds?: EntityId[];
 		},
-		filters?: { draft?: boolean; afterDueDateOrNone?: Date; finished?: { userId: EntityId; value: boolean } },
+		filters?: {
+			afterDueDateOrNone?: Date;
+			finished?: { userId: EntityId; value: boolean };
+			availableOn?: Date;
+		},
 		options?: IFindOptions&lt;Task&gt;
 	): Promise&lt;Counted&lt;Task[]&gt;&gt; {
 		const scope &#x3D; new TaskScope();
@@ -665,12 +669,22 @@ export class TaskRepo {
 			scope.byFinished(filters.finished.userId, filters.finished.value);
 		}
 
-		if (filters?.draft !&#x3D;&#x3D; undefined) {
-			scope.byDraft(filters.draft);
+		if (parentIds.creatorId) {
+			scope.excludeDraftsOfOthers(parentIds.creatorId);
+		} else {
+			scope.byDraft(false);
 		}
 
 		if (filters?.afterDueDateOrNone !&#x3D;&#x3D; undefined) {
 			scope.afterDueDateOrNone(filters.afterDueDateOrNone);
+		}
+
+		if (filters?.availableOn !&#x3D;&#x3D; undefined) {
+			if (parentIds.creatorId) {
+				scope.excludeUnavailableOfOthers(parentIds.creatorId, filters.availableOn);
+			} else {
+				scope.byAvailable(filters?.availableOn);
+			}
 		}
 
 		const countedTaskList &#x3D; await this.findTasksAndCount(scope.query, options);

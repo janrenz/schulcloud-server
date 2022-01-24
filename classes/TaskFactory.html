@@ -224,8 +224,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="9"
-                            class="link-to-prism">apps/server/src/shared/testing/factory/task.factory.ts:9</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="11"
+                            class="link-to-prism">apps/server/src/shared/testing/factory/task.factory.ts:11</a></div>
                 </td>
             </tr>
 
@@ -252,8 +252,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="15"
-                            class="link-to-prism">apps/server/src/shared/testing/factory/task.factory.ts:15</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="16"
+                            class="link-to-prism">apps/server/src/shared/testing/factory/task.factory.ts:16</a></div>
                 </td>
             </tr>
 
@@ -1112,10 +1112,11 @@ import type { User } from &#x27;@shared/domain/entity&#x27;;
 
 import { BaseFactory } from &#x27;./base.factory&#x27;;
 
+const yesterday &#x3D; new Date(Date.now() - 86400000);
+
 class TaskFactory extends BaseFactory&lt;Task, ITaskProperties&gt; {
 	draft(): this {
 		const params: DeepPartial&lt;ITaskProperties&gt; &#x3D; { private: true };
-
 		return this.params(params);
 	}
 
@@ -1127,7 +1128,7 @@ class TaskFactory extends BaseFactory&lt;Task, ITaskProperties&gt; {
 
 export const taskFactory &#x3D; TaskFactory.define(Task, ({ sequence }) &#x3D;&gt; {
 	// private is by default in constructor true, but in the most test cases we need private: false
-	return { name: &#x60;task #${sequence}&#x60;, private: false };
+	return { name: &#x60;task #${sequence}&#x60;, private: false, availableDate: yesterday };
 });
 </code></pre>
     </div>

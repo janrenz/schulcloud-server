@@ -463,8 +463,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="110"
-                            class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:110</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="111"
+                            class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:111</a></div>
                 </td>
             </tr>
 
@@ -546,8 +546,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="138"
-                            class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:138</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="139"
+                            class="link-to-prism">apps/server/src/modules/task/uc/task.uc.ts:139</a></div>
                 </td>
             </tr>
 
@@ -660,10 +660,11 @@ export class TaskUC {
 
 		const [tasks, total] &#x3D; await this.taskRepo.findAllByParentIds(
 			{
+				creatorId: user.id,
 				courseIds: openCourses.map((c) &#x3D;&gt; c.id),
 				lessonIds: lessons.map((l) &#x3D;&gt; l.id),
 			},
-			{ draft: false, afterDueDateOrNone: dueDate, finished: notFinished },
+			{ afterDueDateOrNone: dueDate, finished: notFinished, availableOn: new Date() },
 			{
 				pagination,
 				order: { dueDate: SortOrder.asc },
@@ -691,7 +692,7 @@ export class TaskUC {
 				courseIds: openCourses.map((c) &#x3D;&gt; c.id),
 				lessonIds: lessons.map((l) &#x3D;&gt; l.id),
 			},
-			{ finished: notFinished },
+			{ finished: notFinished, availableOn: new Date() },
 			{
 				pagination,
 				order: { dueDate: SortOrder.desc },

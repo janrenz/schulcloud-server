@@ -112,6 +112,9 @@
                                 <a href="#afterDueDateOrNone" >afterDueDateOrNone</a>
                             </li>
                             <li>
+                                <a href="#byAvailable" >byAvailable</a>
+                            </li>
+                            <li>
                                 <a href="#byCourseIds" >byCourseIds</a>
                             </li>
                             <li>
@@ -128,6 +131,16 @@
                             </li>
                             <li>
                                 <a href="#byOnlyCreatorId" >byOnlyCreatorId</a>
+                            </li>
+                            <li>
+                                <a href="#excludeDraftsOfOthers" >excludeDraftsOfOthers</a>
+                            </li>
+                            <li>
+                                <a href="#excludeUnavailableOfOthers" >excludeUnavailableOfOthers</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#getByDraftQuery" >getByDraftQuery</a>
                             </li>
                             <li>
                                 <a href="#addQuery" >addQuery</a>
@@ -250,8 +263,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="52"
-                            class="link-to-prism">apps/server/src/shared/repo/task/task-scope.ts:52</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="75"
+                            class="link-to-prism">apps/server/src/shared/repo/task/task-scope.ts:75</a></div>
                 </td>
             </tr>
 
@@ -303,6 +316,75 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="byAvailable"></a>
+                    <span class="name">
+                        <span ><b>byAvailable</b></span>
+                        <a href="#byAvailable"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>byAvailable(availableDate: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank">Date</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="59"
+                            class="link-to-prism">apps/server/src/shared/repo/task/task-scope.ts:59</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>availableDate</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" >Date</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/TaskScope.html" target="_self" >TaskScope</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="byCourseIds"></a>
                     <span class="name">
                         <span ><b>byCourseIds</b></span>
@@ -319,8 +401,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="29"
-                            class="link-to-prism">apps/server/src/shared/repo/task/task-scope.ts:29</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="30"
+                            class="link-to-prism">apps/server/src/shared/repo/task/task-scope.ts:30</a></div>
                 </td>
             </tr>
 
@@ -388,8 +470,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="23"
-                            class="link-to-prism">apps/server/src/shared/repo/task/task-scope.ts:23</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="24"
+                            class="link-to-prism">apps/server/src/shared/repo/task/task-scope.ts:24</a></div>
                 </td>
             </tr>
 
@@ -457,8 +539,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="43"
-                            class="link-to-prism">apps/server/src/shared/repo/task/task-scope.ts:43</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="44"
+                            class="link-to-prism">apps/server/src/shared/repo/task/task-scope.ts:44</a></div>
                 </td>
             </tr>
 
@@ -526,8 +608,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="5"
-                            class="link-to-prism">apps/server/src/shared/repo/task/task-scope.ts:5</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="6"
+                            class="link-to-prism">apps/server/src/shared/repo/task/task-scope.ts:6</a></div>
                 </td>
             </tr>
 
@@ -607,8 +689,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="37"
-                            class="link-to-prism">apps/server/src/shared/repo/task/task-scope.ts:37</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="38"
+                            class="link-to-prism">apps/server/src/shared/repo/task/task-scope.ts:38</a></div>
                 </td>
             </tr>
 
@@ -676,8 +758,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="15"
-                            class="link-to-prism">apps/server/src/shared/repo/task/task-scope.ts:15</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="16"
+                            class="link-to-prism">apps/server/src/shared/repo/task/task-scope.ts:16</a></div>
                 </td>
             </tr>
 
@@ -716,6 +798,227 @@
                     </div>
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="../classes/TaskScope.html" target="_self" >TaskScope</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="excludeDraftsOfOthers"></a>
+                    <span class="name">
+                        <span ><b>excludeDraftsOfOthers</b></span>
+                        <a href="#excludeDraftsOfOthers"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>excludeDraftsOfOthers(creatorId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="51"
+                            class="link-to-prism">apps/server/src/shared/repo/task/task-scope.ts:51</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>creatorId</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/TaskScope.html" target="_self" >TaskScope</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="excludeUnavailableOfOthers"></a>
+                    <span class="name">
+                        <span ><b>excludeUnavailableOfOthers</b></span>
+                        <a href="#excludeUnavailableOfOthers"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>excludeUnavailableOfOthers(creatorId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, availableOn: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank">Date</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="65"
+                            class="link-to-prism">apps/server/src/shared/repo/task/task-scope.ts:65</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>creatorId</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>availableOn</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" >Date</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/TaskScope.html" target="_self" >TaskScope</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getByDraftQuery"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span ><b>getByDraftQuery</b></span>
+                        <a href="#getByDraftQuery"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getByDraftQuery(isDraft: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="81"
+                            class="link-to-prism">apps/server/src/shared/repo/task/task-scope.ts:81</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>isDraft</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/Task.html" target="_self" >FilterQuery&lt;Task&gt;</a></code>
 
                     </div>
                     <div class="io-description">
@@ -810,7 +1113,8 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { EntityId, Task } from &#x27;@shared/domain&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { FilterQuery } from &#x27;@mikro-orm/core&#x27;;
+import { EntityId, Task } from &#x27;@shared/domain&#x27;;
 import { Scope } from &#x27;../scope&#x27;;
 
 export class TaskScope extends Scope&lt;Task&gt; {
@@ -853,11 +1157,33 @@ export class TaskScope extends Scope&lt;Task&gt; {
 	}
 
 	byDraft(isDraft: boolean): TaskScope {
-		// FIXME - WE DON&#x27;T WANT THIS!!! NON-OPTIONAL BOOLEAN PROPERTIES HAVE TO BE DEFINED.
-		// additionally handle undefined and null as false
-		const query &#x3D; isDraft ? { private: { $eq: true } } : { private: { $ne: true } };
+		const query &#x3D; this.getByDraftQuery(isDraft);
 		this.addQuery(query);
 
+		return this;
+	}
+
+	excludeDraftsOfOthers(creatorId: EntityId): TaskScope {
+		this.addQuery({
+			$or: [{ $and: [{ creator: creatorId }, this.getByDraftQuery(true)] }, this.getByDraftQuery(false)],
+		});
+
+		return this;
+	}
+
+	byAvailable(availableDate: Date): TaskScope {
+		this.addQuery({ availableDate: { $lte: availableDate } });
+
+		return this;
+	}
+
+	excludeUnavailableOfOthers(creatorId: EntityId, availableOn: Date): TaskScope {
+		this.addQuery({
+			$or: [
+				{ creator: creatorId },
+				{ $and: [{ creator: { $ne: creatorId } }, { availableDate: { $lte: availableOn } }] },
+			],
+		});
 		return this;
 	}
 
@@ -865,6 +1191,12 @@ export class TaskScope extends Scope&lt;Task&gt; {
 		this.addQuery({ $or: [{ dueDate: { $gte: dueDate } }, { dueDate: null }] });
 
 		return this;
+	}
+
+	private getByDraftQuery(isDraft: boolean): FilterQuery&lt;Task&gt; {
+		const query &#x3D; isDraft ? { private: { $eq: true } } : { private: { $ne: true } };
+
+		return query;
 	}
 }
 </code></pre>
