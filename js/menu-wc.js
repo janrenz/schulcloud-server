@@ -425,13 +425,30 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/ServerModule.html" data-type="entity-link" >ServerModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#controllers-links-module-ServerModule-a9da1b3dbe92ebbdacd031491b85e479dfbe3df78a4e10af50174d43ffed2b51a7763c10ea9fa3ab1b0ae2b5634a5da4a5342285bd7e0a19f6a81c5e104b311e"' : 'data-target="#xs-controllers-links-module-ServerModule-a9da1b3dbe92ebbdacd031491b85e479dfbe3df78a4e10af50174d43ffed2b51a7763c10ea9fa3ab1b0ae2b5634a5da4a5342285bd7e0a19f6a81c5e104b311e"' }>
+                                            'data-target="#controllers-links-module-ServerModule-daa3737b7f87736b95a01622396fa729c9b93dbd5e9b6f7af7d8e1d0059be13abc0f80460815f3062d7c3a43dbd97a97447919570b840ca53cd27c0e731b9634"' : 'data-target="#xs-controllers-links-module-ServerModule-daa3737b7f87736b95a01622396fa729c9b93dbd5e9b6f7af7d8e1d0059be13abc0f80460815f3062d7c3a43dbd97a97447919570b840ca53cd27c0e731b9634"' }>
                                             <span class="icon ion-md-swap"></span>
                                             <span>Controllers</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="controllers-links-module-ServerModule-a9da1b3dbe92ebbdacd031491b85e479dfbe3df78a4e10af50174d43ffed2b51a7763c10ea9fa3ab1b0ae2b5634a5da4a5342285bd7e0a19f6a81c5e104b311e"' :
-                                            'id="xs-controllers-links-module-ServerModule-a9da1b3dbe92ebbdacd031491b85e479dfbe3df78a4e10af50174d43ffed2b51a7763c10ea9fa3ab1b0ae2b5634a5da4a5342285bd7e0a19f6a81c5e104b311e"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="controllers-links-module-ServerModule-daa3737b7f87736b95a01622396fa729c9b93dbd5e9b6f7af7d8e1d0059be13abc0f80460815f3062d7c3a43dbd97a97447919570b840ca53cd27c0e731b9634"' :
+                                            'id="xs-controllers-links-module-ServerModule-daa3737b7f87736b95a01622396fa729c9b93dbd5e9b6f7af7d8e1d0059be13abc0f80460815f3062d7c3a43dbd97a97447919570b840ca53cd27c0e731b9634"' }>
+                                            <li class="link">
+                                                <a href="controllers/ServerController.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >ServerController</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                            </li>
+                            <li class="link">
+                                <a href="modules/ServerTestModule.html" data-type="entity-link" >ServerTestModule</a>
+                                    <li class="chapter inner">
+                                        <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
+                                            'data-target="#controllers-links-module-ServerTestModule-daa3737b7f87736b95a01622396fa729c9b93dbd5e9b6f7af7d8e1d0059be13abc0f80460815f3062d7c3a43dbd97a97447919570b840ca53cd27c0e731b9634"' : 'data-target="#xs-controllers-links-module-ServerTestModule-daa3737b7f87736b95a01622396fa729c9b93dbd5e9b6f7af7d8e1d0059be13abc0f80460815f3062d7c3a43dbd97a97447919570b840ca53cd27c0e731b9634"' }>
+                                            <span class="icon ion-md-swap"></span>
+                                            <span>Controllers</span>
+                                            <span class="icon ion-ios-arrow-down"></span>
+                                        </div>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="controllers-links-module-ServerTestModule-daa3737b7f87736b95a01622396fa729c9b93dbd5e9b6f7af7d8e1d0059be13abc0f80460815f3062d7c3a43dbd97a97447919570b840ca53cd27c0e731b9634"' :
+                                            'id="xs-controllers-links-module-ServerTestModule-daa3737b7f87736b95a01622396fa729c9b93dbd5e9b6f7af7d8e1d0059be13abc0f80460815f3062d7c3a43dbd97a97447919570b840ca53cd27c0e731b9634"' }>
                                             <li class="link">
                                                 <a href="controllers/ServerController.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >ServerController</a>
                                             </li>
