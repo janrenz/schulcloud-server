@@ -287,18 +287,21 @@ export class RoomsUc {
 		const course &#x3D; await this.courseRepo.findOne(roomId, userId);
 		const isTeacher &#x3D; this.isTeacher(user, course);
 		const taskFilter &#x3D; this.taskFilter(isTeacher);
-		const [tasks] &#x3D; await this.taskRepo.findBySingleParent(course.id, taskFilter);
+		const [tasks] &#x3D; await this.taskRepo.findBySingleParent(user.id, course.id, taskFilter);
 		const tasksWithStatusVos &#x3D; this.addStatusToTasks(isTeacher, tasks, user);
 
 		const board &#x3D; this.buildBoard(course, tasksWithStatusVos);
 		return board;
 	}
 
-	private taskFilter(isTeacher: boolean): { draft?: boolean } {
-		const filters: { draft?: boolean } &#x3D; {};
+	private taskFilter(isTeacher: boolean): { draft?: boolean; noFutureAvailableDate?: boolean } {
+		const filters: { draft?: boolean; noFutureAvailableDate?: boolean } &#x3D; {};
 		if (!isTeacher) {
 			filters.draft &#x3D; false;
+			filters.noFutureAvailableDate &#x3D; true;
+			return filters;
 		}
+		filters.draft &#x3D; true;
 		return filters;
 	}
 

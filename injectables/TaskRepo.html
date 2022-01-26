@@ -374,7 +374,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>findBySingleParent(courseId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, filters?: literal type, options?: <a href="../classes/Task.html" target="_self">IFindOptions&lt;Task&gt;</a>)</code>
+                    <code>findBySingleParent(creatorId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, courseId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, filters?: literal type, options?: <a href="../classes/Task.html" target="_self">IFindOptions&lt;Task&gt;</a>)</code>
                 </td>
             </tr>
 
@@ -402,6 +402,18 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                <tr>
+                                    <td>creatorId</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
                                 <tr>
                                     <td>courseId</td>
                                     <td>
@@ -477,8 +489,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="166"
-                            class="link-to-prism">apps/server/src/shared/repo/task/task.repo.ts:166</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="175"
+                            class="link-to-prism">apps/server/src/shared/repo/task/task.repo.ts:175</a></div>
                 </td>
             </tr>
 
@@ -693,15 +705,24 @@ export class TaskRepo {
 	}
 
 	async findBySingleParent(
+		creatorId: EntityId,
 		courseId: EntityId,
-		filters?: { draft?: boolean },
+		filters?: { draft?: boolean; noFutureAvailableDate?: boolean },
 		options?: IFindOptions&lt;Task&gt;
 	): Promise&lt;Counted&lt;Task[]&gt;&gt; {
 		const scope &#x3D; new TaskScope();
 		scope.byCourseIds([courseId]);
 
 		if (filters?.draft !&#x3D;&#x3D; undefined) {
-			scope.byDraft(filters.draft);
+			if (filters?.draft &#x3D;&#x3D;&#x3D; true) {
+				scope.excludeDraftsOfOthers(creatorId);
+			} else {
+				scope.byDraft(false);
+			}
+		}
+
+		if (filters?.noFutureAvailableDate !&#x3D;&#x3D; undefined) {
+			scope.noFutureAvailableDate();
 		}
 
 		const countedTaskList &#x3D; await this.findTasksAndCount(scope.query, options);
