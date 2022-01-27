@@ -112,7 +112,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">apps/server/src/shared/domain/entity/task.entity.ts:33</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">apps/server/src/shared/domain/entity/task.entity.ts:34</a></div>
                             </td>
                         </tr>
 
@@ -186,7 +186,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">apps/server/src/shared/domain/entity/task.entity.ts:33</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">apps/server/src/shared/domain/entity/task.entity.ts:34</a></div>
                         </td>
                     </tr>
 
@@ -212,7 +212,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">apps/server/src/shared/domain/entity/task.entity.ts:31</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">apps/server/src/shared/domain/entity/task.entity.ts:32</a></div>
                         </td>
                     </tr>
 
@@ -258,6 +258,7 @@ export interface ITaskStatus {
 	graded: number;
 	isDraft: boolean;
 	isSubstitutionTeacher: boolean;
+	isFinished: boolean;
 }
 
 export class TaskWithStatusVo {
@@ -318,6 +319,10 @@ export class Task extends BaseEntityWithTimestamps {
 		this.finished.set(props.finished || []);
 	}
 
+	isFinishedForUser(user: User): boolean {
+		return !!(this.finished?.contains(user) || this.course?.isFinished());
+	}
+
 	isDraft(): boolean {
 		// private can be undefined in the database
 		return !!this.private;
@@ -374,6 +379,7 @@ export class Task extends BaseEntityWithTimestamps {
 		const graded &#x3D; this.getNumberOfGradedUsers();
 		const maxSubmissions &#x3D; this.getMaxSubmissions();
 		const isDraft &#x3D; this.isDraft();
+		const isFinished &#x3D; this.isFinishedForUser(user);
 		// only point that need the parameter
 		// const isSubstitutionTeacher &#x3D; this.isSubstitutionTeacher(userId);
 		// work with getParent()
@@ -388,6 +394,7 @@ export class Task extends BaseEntityWithTimestamps {
 			maxSubmissions,
 			isDraft,
 			isSubstitutionTeacher,
+			isFinished,
 		};
 
 		return status;
@@ -411,6 +418,7 @@ export class Task extends BaseEntityWithTimestamps {
 		const maxSubmissions &#x3D; 1;
 		const isDraft &#x3D; this.isDraft();
 		const isSubstitutionTeacher &#x3D; false;
+		const isFinished &#x3D; this.isFinishedForUser(user);
 
 		const status &#x3D; {
 			submitted: isSubmitted ? 1 : 0,
@@ -418,6 +426,7 @@ export class Task extends BaseEntityWithTimestamps {
 			maxSubmissions,
 			isDraft,
 			isSubstitutionTeacher,
+			isFinished,
 			// TODO: visibility of parent is missed ..but isSubstitutionTeacher and this is not really a part from task,
 			// for this we must add parent relationship
 		};

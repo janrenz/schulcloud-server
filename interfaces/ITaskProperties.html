@@ -525,6 +525,7 @@ export interface ITaskStatus {
 	graded: number;
 	isDraft: boolean;
 	isSubstitutionTeacher: boolean;
+	isFinished: boolean;
 }
 
 export class TaskWithStatusVo {
@@ -585,6 +586,10 @@ export class Task extends BaseEntityWithTimestamps {
 		this.finished.set(props.finished || []);
 	}
 
+	isFinishedForUser(user: User): boolean {
+		return !!(this.finished?.contains(user) || this.course?.isFinished());
+	}
+
 	isDraft(): boolean {
 		// private can be undefined in the database
 		return !!this.private;
@@ -641,6 +646,7 @@ export class Task extends BaseEntityWithTimestamps {
 		const graded &#x3D; this.getNumberOfGradedUsers();
 		const maxSubmissions &#x3D; this.getMaxSubmissions();
 		const isDraft &#x3D; this.isDraft();
+		const isFinished &#x3D; this.isFinishedForUser(user);
 		// only point that need the parameter
 		// const isSubstitutionTeacher &#x3D; this.isSubstitutionTeacher(userId);
 		// work with getParent()
@@ -655,6 +661,7 @@ export class Task extends BaseEntityWithTimestamps {
 			maxSubmissions,
 			isDraft,
 			isSubstitutionTeacher,
+			isFinished,
 		};
 
 		return status;
@@ -678,6 +685,7 @@ export class Task extends BaseEntityWithTimestamps {
 		const maxSubmissions &#x3D; 1;
 		const isDraft &#x3D; this.isDraft();
 		const isSubstitutionTeacher &#x3D; false;
+		const isFinished &#x3D; this.isFinishedForUser(user);
 
 		const status &#x3D; {
 			submitted: isSubmitted ? 1 : 0,
@@ -685,6 +693,7 @@ export class Task extends BaseEntityWithTimestamps {
 			maxSubmissions,
 			isDraft,
 			isSubstitutionTeacher,
+			isFinished,
 			// TODO: visibility of parent is missed ..but isSubstitutionTeacher and this is not really a part from task,
 			// for this we must add parent relationship
 		};
