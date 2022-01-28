@@ -597,6 +597,36 @@ export class BoardTaskResponse {
 	status: BoardTaskStatusResponse;
 }
 
+export class BoardLessonResponse {
+	constructor({ id, name, hidden, createdAt, updatedAt }: BoardLessonResponse) {
+		this.id &#x3D; id;
+		this.name &#x3D; name;
+		this.hidden &#x3D; hidden;
+		this.createdAt &#x3D; createdAt;
+		this.updatedAt &#x3D; updatedAt;
+	}
+
+	@ApiProperty()
+	id: string;
+
+	@ApiProperty()
+	@DecodeHtmlEntities()
+	name: string;
+
+	@ApiPropertyOptional()
+	@DecodeHtmlEntities()
+	courseName?: string;
+
+	@ApiProperty()
+	createdAt: Date;
+
+	@ApiProperty()
+	updatedAt: Date;
+
+	@ApiProperty()
+	hidden: boolean;
+}
+
 export class BoardElementResponse {
 	constructor({ type, content }: BoardElementResponse) {
 		this.type &#x3D; type;
@@ -611,7 +641,7 @@ export class BoardElementResponse {
 	@ApiProperty({
 		description: &#x27;Content of the Board, either: a task or a lesson specific for the board&#x27;,
 	})
-	content: BoardTaskResponse;
+	content: BoardTaskResponse | BoardLessonResponse;
 }
 
 // TODO: this and DashboardResponse should be combined

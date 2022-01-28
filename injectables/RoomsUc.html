@@ -87,12 +87,20 @@
                                 <a href="#buildBoard" >buildBoard</a>
                             </li>
                             <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#buildBoardElements" >buildBoardElements</a>
+                            </li>
+                            <li>
                                     <span class="modifier">Async</span>
                                 <a href="#getBoard" >getBoard</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
                                 <a href="#isTeacher" >isTeacher</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#lessonFilter" >lessonFilter</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
@@ -116,7 +124,7 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(courseRepo: <a href="../injectables/CourseRepo.html" target="_self">CourseRepo</a>, taskRepo: <a href="../injectables/TaskRepo.html" target="_self">TaskRepo</a>, userRepo: <a href="../injectables/UserRepo.html" target="_self">UserRepo</a>)</code>
+<code>constructor(courseRepo: <a href="../injectables/CourseRepo.html" target="_self">CourseRepo</a>, lessonRepo: <a href="../injectables/LessonRepo.html" target="_self">LessonRepo</a>, taskRepo: <a href="../injectables/TaskRepo.html" target="_self">TaskRepo</a>, userRepo: <a href="../injectables/UserRepo.html" target="_self">UserRepo</a>)</code>
                     </td>
                 </tr>
                         <tr>
@@ -143,6 +151,18 @@
                                                   
                                                         <td>
                                                                         <code><a href="../injectables/CourseRepo.html" target="_self" >CourseRepo</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>lessonRepo</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/LessonRepo.html" target="_self" >LessonRepo</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -210,8 +230,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="70"
-                            class="link-to-prism">apps/server/src/modules/learnroom/uc/rooms.uc.ts:70</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="74"
+                            class="link-to-prism">apps/server/src/modules/learnroom/uc/rooms.uc.ts:74</a></div>
                 </td>
             </tr>
 
@@ -298,15 +318,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>buildBoard(room: <a href="../classes/Course.html" target="_self">Course</a>, tasks: <a href="../entitys/Task.html" target="_self">TaskWithStatusVo[]</a>)</code>
+                    <code>buildBoard(room: <a href="../classes/Course.html" target="_self">Course</a>, boardElements: <a href="../interfaces/Board.html" target="_self">BoardElement[]</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="52"
-                            class="link-to-prism">apps/server/src/modules/learnroom/uc/rooms.uc.ts:52</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="56"
+                            class="link-to-prism">apps/server/src/modules/learnroom/uc/rooms.uc.ts:56</a></div>
                 </td>
             </tr>
 
@@ -339,9 +359,9 @@
 
                                 </tr>
                                 <tr>
-                                    <td>tasks</td>
+                                    <td>boardElements</td>
                                     <td>
-                                                <code><a href="../entitys/Task.html" target="_self" >TaskWithStatusVo[]</a></code>
+                                                <code><a href="../interfaces/Board.html" target="_self" >BoardElement[]</a></code>
                                     </td>
 
                                     <td>
@@ -357,6 +377,89 @@
                     </div>
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="../interfaces/Board.html" target="_self" >Board</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="buildBoardElements"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span ><b>buildBoardElements</b></span>
+                        <a href="#buildBoardElements"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>buildBoardElements(tasks: <a href="../entitys/Task.html" target="_self">TaskWithStatusVo[]</a>, lessons: <a href="../entitys/Lesson.html" target="_self">Lesson[]</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="98"
+                            class="link-to-prism">apps/server/src/modules/learnroom/uc/rooms.uc.ts:98</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>tasks</td>
+                                    <td>
+                                                <code><a href="../entitys/Task.html" target="_self" >TaskWithStatusVo[]</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>lessons</td>
+                                    <td>
+                                                <code><a href="../entitys/Lesson.html" target="_self" >Lesson[]</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../interfaces/Board.html" target="_self" >BoardElement[]</a></code>
 
                     </div>
                     <div class="io-description">
@@ -388,8 +491,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="27"
-                            class="link-to-prism">apps/server/src/modules/learnroom/uc/rooms.uc.ts:27</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="28"
+                            class="link-to-prism">apps/server/src/modules/learnroom/uc/rooms.uc.ts:28</a></div>
                 </td>
             </tr>
 
@@ -471,8 +574,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="63"
-                            class="link-to-prism">apps/server/src/modules/learnroom/uc/rooms.uc.ts:63</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="67"
+                            class="link-to-prism">apps/server/src/modules/learnroom/uc/rooms.uc.ts:67</a></div>
                 </td>
             </tr>
 
@@ -536,6 +639,77 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="lessonFilter"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span ><b>lessonFilter</b></span>
+                        <a href="#lessonFilter"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>lessonFilter(isTeacher: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="90"
+                            class="link-to-prism">apps/server/src/modules/learnroom/uc/rooms.uc.ts:90</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>isTeacher</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>literal type</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="taskFilter"></a>
                     <span class="name">
                         <span class="modifier">Private</span>
@@ -554,8 +728,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="40"
-                            class="link-to-prism">apps/server/src/modules/learnroom/uc/rooms.uc.ts:40</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="44"
+                            class="link-to-prism">apps/server/src/modules/learnroom/uc/rooms.uc.ts:44</a></div>
                 </td>
             </tr>
 
@@ -610,8 +784,8 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
-import { EntityId, Course, Task, TaskWithStatusVo, User } from &#x27;@shared/domain&#x27;;
-import { CourseRepo, TaskRepo, UserRepo } from &#x27;@shared/repo&#x27;;
+import { EntityId, Course, Task, TaskWithStatusVo, User, Lesson } from &#x27;@shared/domain&#x27;;
+import { CourseRepo, LessonRepo, TaskRepo, UserRepo } from &#x27;@shared/repo&#x27;;
 
 // TODO: move this somewhere else
 export interface Board {
@@ -624,13 +798,14 @@ export interface Board {
 export type BoardElement &#x3D; {
 	// TODO: should become fullblown class
 	type: string;
-	content: TaskWithStatusVo;
+	content: TaskWithStatusVo | Lesson;
 };
 
 @Injectable()
 export class RoomsUc {
 	constructor(
 		private readonly courseRepo: CourseRepo,
+		private readonly lessonRepo: LessonRepo,
 		private readonly taskRepo: TaskRepo,
 		private readonly userRepo: UserRepo
 	) {}
@@ -641,10 +816,13 @@ export class RoomsUc {
 		const course &#x3D; await this.courseRepo.findOne(roomId, userId);
 		const isTeacher &#x3D; this.isTeacher(user, course);
 		const taskFilter &#x3D; this.taskFilter(isTeacher);
+		const lessonFilter &#x3D; this.lessonFilter(isTeacher);
 		const [tasks] &#x3D; await this.taskRepo.findBySingleParent(user.id, course.id, taskFilter);
 		const tasksWithStatusVos &#x3D; this.addStatusToTasks(isTeacher, tasks, user);
+		const [lessons] &#x3D; await this.lessonRepo.findAllByCourseIds([course.id], lessonFilter);
+		const boardElements &#x3D; this.buildBoardElements(tasksWithStatusVos, lessons);
 
-		const board &#x3D; this.buildBoard(course, tasksWithStatusVos);
+		const board &#x3D; this.buildBoard(course, boardElements);
 		return board;
 	}
 
@@ -660,13 +838,13 @@ export class RoomsUc {
 	}
 
 	// TODO: move somewhere else
-	private buildBoard(room: Course, tasks: TaskWithStatusVo[]): Board {
+	private buildBoard(room: Course, boardElements: BoardElement[]): Board {
 		const roomMetadata &#x3D; room.getMetadata();
 		const board &#x3D; {
 			roomId: roomMetadata.id,
 			displayColor: roomMetadata.displayColor,
 			title: roomMetadata.title,
-			elements: tasks.map((task) &#x3D;&gt; ({ type: &#x27;task&#x27;, content: task })),
+			elements: boardElements,
 		};
 		return board;
 	}
@@ -692,6 +870,22 @@ export class RoomsUc {
 			});
 		}
 		return tasksWithStatusVos;
+	}
+
+	private lessonFilter(isTeacher: boolean): { hidden?: boolean } {
+		const filters: { hidden?: boolean } &#x3D; {};
+		if (!isTeacher) {
+			filters.hidden &#x3D; false;
+		}
+		return filters;
+	}
+
+	private buildBoardElements(tasks: TaskWithStatusVo[], lessons: Lesson[]): BoardElement[] {
+		const boardTasks &#x3D; tasks.map((task) &#x3D;&gt; ({ type: &#x27;task&#x27;, content: task }));
+		const boardLessons &#x3D; lessons.map((lesson) &#x3D;&gt; ({ type: &#x27;lesson&#x27;, content: lesson }));
+		const result &#x3D; [...boardTasks, ...boardLessons];
+		result.sort();
+		return result;
 	}
 }
 </code></pre>

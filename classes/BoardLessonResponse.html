@@ -44,7 +44,7 @@
 
 <ol class="breadcrumb">
   <li>Classes</li>
-  <li >BoardResponse</li>
+  <li >BoardLessonResponse</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -83,16 +83,23 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#displayColor" >displayColor</a>
+                                    <span class="modifier">Optional</span>
+                                <a href="#courseName" >courseName</a>
                             </li>
                             <li>
-                                <a href="#elements" >elements</a>
+                                <a href="#createdAt" >createdAt</a>
                             </li>
                             <li>
-                                <a href="#roomId" >roomId</a>
+                                <a href="#hidden" >hidden</a>
                             </li>
                             <li>
-                                <a href="#title" >title</a>
+                                <a href="#id" >id</a>
+                            </li>
+                            <li>
+                                <a href="#name" >name</a>
+                            </li>
+                            <li>
+                                <a href="#updatedAt" >updatedAt</a>
                             </li>
                         </ul>
                     </td>
@@ -113,12 +120,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(undefined: <a href="../interfaces/Board.html" target="_self">BoardResponse</a>)</code>
+<code>constructor(undefined: <a href="../interfaces/Board.html" target="_self">BoardLessonResponse</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="96" class="link-to-prism">apps/server/src/modules/learnroom/controller/dto/roomBoardResponse.ts:96</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">apps/server/src/modules/learnroom/controller/dto/roomBoardResponse.ts:48</a></div>
                             </td>
                         </tr>
 
@@ -138,7 +145,7 @@
                                                 <tr>
                                                   
                                                         <td>
-                                                                        <code><a href="../interfaces/Board.html" target="_self" >BoardResponse</a></code>
+                                                                        <code><a href="../interfaces/Board.html" target="_self" >BoardLessonResponse</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -164,10 +171,11 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="displayColor"></a>
+                    <a name="courseName"></a>
                     <span class="name">
-                        <span ><b>displayColor</b></span>
-                        <a href="#displayColor"><span class="icon ion-ios-link"></span></a>
+                            <span class="modifier">Optional</span>
+                        <span ><b>courseName</b></span>
+                        <a href="#courseName"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
@@ -182,13 +190,13 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @ApiProperty({description: &#x27;Color of the Board&#x27;})<br />
+                            @ApiPropertyOptional()<br />@DecodeHtmlEntities()<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="118" class="link-to-prism">apps/server/src/modules/learnroom/controller/dto/roomBoardResponse.ts:118</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="66" class="link-to-prism">apps/server/src/modules/learnroom/controller/dto/roomBoardResponse.ts:66</a></div>
                         </td>
                     </tr>
 
@@ -199,16 +207,16 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="elements"></a>
+                    <a name="createdAt"></a>
                     <span class="name">
-                        <span ><b>elements</b></span>
-                        <a href="#elements"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>createdAt</b></span>
+                        <a href="#createdAt"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="../interfaces/Board.html" target="_self" >BoardElementResponse[]</a></code>
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" >Date</a></code>
 
                     </td>
                 </tr>
@@ -217,13 +225,13 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @ApiProperty({type: undefined, description: &#x27;Array of board specific tasks or lessons with matching type property&#x27;})<br />
+                            @ApiProperty()<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="124" class="link-to-prism">apps/server/src/modules/learnroom/controller/dto/roomBoardResponse.ts:124</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="69" class="link-to-prism">apps/server/src/modules/learnroom/controller/dto/roomBoardResponse.ts:69</a></div>
                         </td>
                     </tr>
 
@@ -234,10 +242,45 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="roomId"></a>
+                    <a name="hidden"></a>
                     <span class="name">
-                        <span ><b>roomId</b></span>
-                        <a href="#roomId"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>hidden</b></span>
+                        <a href="#hidden"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ApiProperty()<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="75" class="link-to-prism">apps/server/src/modules/learnroom/controller/dto/roomBoardResponse.ts:75</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="id"></a>
+                    <span class="name">
+                        <span ><b>id</b></span>
+                        <a href="#id"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
@@ -252,13 +295,13 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @ApiProperty({description: &#x27;The id of the room this board belongs to&#x27;, pattern: &#x27;[a-f0-9]{24}&#x27;})<br />
+                            @ApiProperty()<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="108" class="link-to-prism">apps/server/src/modules/learnroom/controller/dto/roomBoardResponse.ts:108</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="58" class="link-to-prism">apps/server/src/modules/learnroom/controller/dto/roomBoardResponse.ts:58</a></div>
                         </td>
                     </tr>
 
@@ -269,10 +312,10 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="title"></a>
+                    <a name="name"></a>
                     <span class="name">
-                        <span ><b>title</b></span>
-                        <a href="#title"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>name</b></span>
+                        <a href="#name"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
@@ -287,13 +330,48 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @ApiProperty({description: &#x27;Title of the Board&#x27;})<br />
+                            @ApiProperty()<br />@DecodeHtmlEntities()<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="113" class="link-to-prism">apps/server/src/modules/learnroom/controller/dto/roomBoardResponse.ts:113</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="62" class="link-to-prism">apps/server/src/modules/learnroom/controller/dto/roomBoardResponse.ts:62</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updatedAt"></a>
+                    <span class="name">
+                        <span ><b>updatedAt</b></span>
+                        <a href="#updatedAt"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" >Date</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ApiProperty()<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="72" class="link-to-prism">apps/server/src/modules/learnroom/controller/dto/roomBoardResponse.ts:72</a></div>
                         </td>
                     </tr>
 
@@ -474,7 +552,7 @@ export class BoardResponse {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
-            var COMPODOC_CURRENT_PAGE_URL = 'BoardResponse.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'BoardLessonResponse.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 
