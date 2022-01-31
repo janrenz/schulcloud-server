@@ -47,7 +47,7 @@
   <li>Interfaces</li>
   <li
   >
-  ISchoolProperties</li>
+  INameMatch</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -65,7 +65,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/shared/domain/entity/school.entity.ts</code>
+            <code>apps/server/src/shared/domain/types/importuser.types.ts</code>
         </p>
 
 
@@ -84,6 +84,7 @@
                         <td class="col-md-4">
                             <ul class="index-list">
                                 <li>
+                                            <span class="modifier">Optional</span>
                                         <a href="#name" 
 >
                                             name
@@ -127,10 +128,21 @@
                                         </td>
                                     </tr>
 
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
 
 
 
 
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Match filter for lastName or firstName</p>
+</div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
             </section>
@@ -138,24 +150,29 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Entity, Property } from &#x27;@mikro-orm/core&#x27;;
-import { BaseEntity } from &#x27;./base.entity&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import type { RoleName } from &#x27;../entity/import-user.entity&#x27;;
 
-export interface ISchoolProperties {
-	name: string;
+export enum MatchCreatorScope {
+	AUTO &#x3D; &#x27;auto&#x27;,
+	MANUAL &#x3D; &#x27;admin&#x27;,
+	NONE &#x3D; &#x27;none&#x27;,
 }
-@Entity({ tableName: &#x27;schools&#x27; })
-export class School extends BaseEntity {
-	constructor(props: ISchoolProperties) {
-		super();
-		this.name &#x3D; props.name;
-	}
 
-	@Property()
-	name!: string;
+export interface IImportUserScope {
+	firstName?: string;
+	lastName?: string;
+	loginName?: string;
+	matches?: MatchCreatorScope[];
+	flagged?: boolean;
+	role?: RoleName;
+	classes?: string;
+}
 
-	@Property()
-	inUserMigration?: boolean;
+export interface INameMatch {
+	/**
+	 * Match filter for lastName or firstName
+	 */
+	name?: string;
 }
 </code></pre>
     </div>
@@ -193,7 +210,7 @@ export class School extends BaseEntity {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
-            var COMPODOC_CURRENT_PAGE_URL = 'ISchoolProperties.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'INameMatch.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

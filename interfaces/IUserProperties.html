@@ -90,14 +90,12 @@
                                         </a>
                                 </li>
                                 <li>
-                                            <span class="modifier">Optional</span>
                                         <a href="#firstName" 
 >
                                             firstName
                                         </a>
                                 </li>
                                 <li>
-                                            <span class="modifier">Optional</span>
                                         <a href="#lastName" 
 >
                                             lastName
@@ -186,11 +184,6 @@
                                         </td>
                                     </tr>
 
-                                    <tr>
-                                        <td class="col-md-4">
-                                            <i>Optional</i>
-                                        </td>
-                                    </tr>
 
 
 
@@ -224,11 +217,6 @@
                                         </td>
                                     </tr>
 
-                                    <tr>
-                                        <td class="col-md-4">
-                                            <i>Optional</i>
-                                        </td>
-                                    </tr>
 
 
 
@@ -313,8 +301,8 @@ import { BaseEntityWithTimestamps } from &#x27;./base.entity&#x27;;
 
 export interface IUserProperties {
 	email: string;
-	firstName?: string;
-	lastName?: string;
+	firstName: string;
+	lastName: string;
 	school: School;
 	roles: Role[];
 }
@@ -326,10 +314,10 @@ export class User extends BaseEntityWithTimestamps {
 	email: string;
 
 	@Property()
-	firstName?: string;
+	firstName: string;
 
 	@Property()
-	lastName?: string;
+	lastName: string;
 
 	@Index({ name: &#x27;roleIdBasedSearches&#x27; })
 	@ManyToMany(&#x27;Role&#x27;, undefined, { fieldName: &#x27;roles&#x27; })

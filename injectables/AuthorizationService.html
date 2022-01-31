@@ -255,7 +255,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>    <code>Promise | never</code>
+                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
 
                     </div>
                     <div class="io-description">
@@ -385,8 +385,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="52"
-                            class="link-to-prism">apps/server/src/modules/authorization/authorization.service.ts:52</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="54"
+                            class="link-to-prism">apps/server/src/modules/authorization/authorization.service.ts:54</a></div>
                 </td>
             </tr>
 
@@ -503,7 +503,9 @@ export class AuthorizationService {
 		targetModel: NewsTargetModel,
 		targetId: EntityId,
 		permissions: string[]
-	): Promise&lt;void&gt; | never {
+	): Promise&lt;void&gt; {
+		if (!Array.isArray(permissions) || permissions.length &#x3D;&#x3D;&#x3D; 0)
+			throw new UnauthorizedException(&#x27;missing at least one permission to be checked&#x27;);
 		const entityPermissions &#x3D; await this.getEntityPermissions(userId, targetModel, targetId);
 		const hasPermissions &#x3D; permissions.every((p) &#x3D;&gt; entityPermissions.includes(p));
 		if (!hasPermissions) {

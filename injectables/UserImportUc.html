@@ -28,16 +28,19 @@
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
-               <div class="content controller">
+               <div class="content injectable">
                    <div class="content-data">
 
 
 
 
 
+
+
+
 <ol class="breadcrumb">
-  <li>Controllers</li>
-  <li >ImportUserController</li>
+  <li>Injectables</li>
+  <li >UserImportUc</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -55,16 +58,8 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/modules/user-import/controller/import-user.controller.ts</code>
+            <code>apps/server/src/modules/user-import/uc/user-import.uc.ts</code>
         </p>
-
-            <p class="comment">
-                <h3>Prefix</h3>
-            </p>
-            <p class="comment">
-                <code>user/import</code>
-            </p>
-
 
 
 
@@ -116,6 +111,79 @@
 </section>
 
             <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(importUserRepo: <a href="../injectables/ImportUserRepo.html" target="_self">ImportUserRepo</a>, userRepo: <a href="../injectables/UserRepo.html" target="_self">UserRepo</a>, permissionService: <a href="../injectables/PermissionService.html" target="_self">PermissionService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">apps/server/src/modules/user-import/uc/user-import.uc.ts:19</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>importUserRepo</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ImportUserRepo.html" target="_self" >ImportUserRepo</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>userRepo</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/UserRepo.html" target="_self" >UserRepo</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>permissionService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/PermissionService.html" target="_self" >PermissionService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section>
     
     <h3 id="methods">
         Methods
@@ -135,28 +203,23 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>findAllImportUsers(currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>, scope: <a href="../interfaces/User.html" target="_self">ImportUserFilterQuery</a>, sortingQuery: <a href="../interfaces/User.html" target="_self">ImportUserSortingQuery</a>, paginationQuery: <a href="../classes/PaginationQuery.html" target="_self">PaginationQuery</a>)</code>
-                </td>
-            </tr>
-
-            <tr>
-                <td class="col-md-4">
-                    <b>Decorators : </b>
-                    <br />
-                    <code>@Get()<br /></code>
-                </td>
-            </tr>
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="25"
-                            class="link-to-prism">apps/server/src/modules/user-import/controller/import-user.controller.ts:25</a></div>
+                    <code>findAllImportUsers(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, query: <a href="../interfaces/IImportUserScope.html" target="_self">IImportUserScope</a>, options?: IFindOptions<ImportUser>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="33"
+                            class="link-to-prism">apps/server/src/modules/user-import/uc/user-import.uc.ts:33</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Resolves with current users schools importusers and matched users.</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -171,9 +234,9 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>currentUser</td>
+                                    <td>userId</td>
                                     <td>
-                                                <code><a href="../interfaces/ICurrentUser.html" target="_self" >ICurrentUser</a></code>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
                                     </td>
 
                                     <td>
@@ -183,9 +246,9 @@
 
                                 </tr>
                                 <tr>
-                                    <td>scope</td>
+                                    <td>query</td>
                                     <td>
-                                                <code><a href="../interfaces/User.html" target="_self" >ImportUserFilterQuery</a></code>
+                                                <code><a href="../interfaces/IImportUserScope.html" target="_self" >IImportUserScope</a></code>
                                     </td>
 
                                     <td>
@@ -195,25 +258,13 @@
 
                                 </tr>
                                 <tr>
-                                    <td>sortingQuery</td>
+                                    <td>options</td>
                                     <td>
-                                                <code><a href="../interfaces/User.html" target="_self" >ImportUserSortingQuery</a></code>
+                                            <code>IFindOptions&lt;ImportUser&gt;</code>
                                     </td>
 
                                     <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>paginationQuery</td>
-                                    <td>
-                                                <code><a href="../classes/PaginationQuery.html" target="_self" >PaginationQuery</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
+                                        Yes
                                     </td>
 
 
@@ -224,7 +275,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../interfaces/User.html" target="_self" >Promise&lt;ImportUserListResponse&gt;</a></code>
+                        <b>Returns : </b>        <code><a href="../interfaces/User.html" target="_self" >Promise&lt;Counted&lt;ImportUser[]&gt;&gt;</a></code>
 
                     </div>
                     <div class="io-description">
@@ -249,28 +300,25 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>findAllUnmatchedUsers(currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>, scope: <a href="../interfaces/User.html" target="_self">UserFilterQuery</a>, paginationQuery: <a href="../classes/PaginationQuery.html" target="_self">PaginationQuery</a>)</code>
-                </td>
-            </tr>
-
-            <tr>
-                <td class="col-md-4">
-                    <b>Decorators : </b>
-                    <br />
-                    <code>@Get(&#x27;unassigned&#x27;)<br /></code>
-                </td>
-            </tr>
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="74"
-                            class="link-to-prism">apps/server/src/modules/user-import/controller/import-user.controller.ts:74</a></div>
+                    <code>findAllUnmatchedUsers(currentUserId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, query: <a href="../interfaces/INameMatch.html" target="_self">INameMatch</a>, options?: <a href="../entitys/User.html" target="_self">IFindOptions&lt;User&gt;</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="125"
+                            class="link-to-prism">apps/server/src/modules/user-import/uc/user-import.uc.ts:125</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Returns a list of users wich is not assigned as match to importusers.
+The result will filter by curernt users school by default.
+The current user must have permission to read schools users and view importusers.</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -281,13 +329,14 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>currentUser</td>
+                                    <td>currentUserId</td>
                                     <td>
-                                                <code><a href="../interfaces/ICurrentUser.html" target="_self" >ICurrentUser</a></code>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
                                     </td>
 
                                     <td>
@@ -295,11 +344,13 @@
                                     </td>
 
 
+                                    <td>
+                                    </td>
                                 </tr>
                                 <tr>
-                                    <td>scope</td>
+                                    <td>query</td>
                                     <td>
-                                                <code><a href="../interfaces/User.html" target="_self" >UserFilterQuery</a></code>
+                                                <code><a href="../interfaces/INameMatch.html" target="_self" >INameMatch</a></code>
                                     </td>
 
                                     <td>
@@ -307,18 +358,24 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>filters</p>
+
+                                    </td>
                                 </tr>
                                 <tr>
-                                    <td>paginationQuery</td>
+                                    <td>options</td>
                                     <td>
-                                                <code><a href="../classes/PaginationQuery.html" target="_self" >PaginationQuery</a></code>
+                                                <code><a href="../entitys/User.html" target="_self" >IFindOptions&lt;User&gt;</a></code>
                                     </td>
 
                                     <td>
-                                        No
+                                        Yes
                                     </td>
 
 
+                                    <td>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -326,7 +383,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../interfaces/User.html" target="_self" >Promise&lt;UserMatchListResponse&gt;</a></code>
+                        <b>Returns : </b>        <code><a href="../interfaces/User.html" target="_self" >Promise&lt;Counted&lt;User[]&gt;&gt;</a></code>
 
                     </div>
                     <div class="io-description">
@@ -351,22 +408,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>removeMatch(importUserId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>)</code>
+                    <code>removeMatch(currentUserId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, importUserId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>)</code>
                 </td>
             </tr>
 
-            <tr>
-                <td class="col-md-4">
-                    <b>Decorators : </b>
-                    <br />
-                    <code>@Delete(&#x27;:id/match&#x27;)<br /></code>
-                </td>
-            </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="53"
-                            class="link-to-prism">apps/server/src/modules/user-import/controller/import-user.controller.ts:53</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="81"
+                            class="link-to-prism">apps/server/src/modules/user-import/uc/user-import.uc.ts:81</a></div>
                 </td>
             </tr>
 
@@ -387,9 +437,9 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>importUserId</td>
+                                    <td>currentUserId</td>
                                     <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
                                     </td>
 
                                     <td>
@@ -399,9 +449,9 @@
 
                                 </tr>
                                 <tr>
-                                    <td>currentUser</td>
+                                    <td>importUserId</td>
                                     <td>
-                                                <code><a href="../interfaces/ICurrentUser.html" target="_self" >ICurrentUser</a></code>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
                                     </td>
 
                                     <td>
@@ -416,7 +466,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../interfaces/User.html" target="_self" >Promise&lt;ImportUserResponse&gt;</a></code>
+                        <b>Returns : </b>    <code>unknown</code>
 
                     </div>
                     <div class="io-description">
@@ -441,28 +491,23 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>setMatch(importUserId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>, params: <a href="../classes/UpdateMatchParams.html" target="_self">UpdateMatchParams</a>)</code>
-                </td>
-            </tr>
-
-            <tr>
-                <td class="col-md-4">
-                    <b>Decorators : </b>
-                    <br />
-                    <code>@Patch(&#x27;:id/match&#x27;)<br /></code>
-                </td>
-            </tr>
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="42"
-                            class="link-to-prism">apps/server/src/modules/user-import/controller/import-user.controller.ts:42</a></div>
+                    <code>setMatch(currentUserId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, importUserId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, userMatchId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="54"
+                            class="link-to-prism">apps/server/src/modules/user-import/uc/user-import.uc.ts:54</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Update a @User reference of an @ImportUser</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -477,9 +522,21 @@
                             </thead>
                             <tbody>
                                 <tr>
+                                    <td>currentUserId</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
                                     <td>importUserId</td>
                                     <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
                                     </td>
 
                                     <td>
@@ -489,21 +546,9 @@
 
                                 </tr>
                                 <tr>
-                                    <td>currentUser</td>
+                                    <td>userMatchId</td>
                                     <td>
-                                                <code><a href="../interfaces/ICurrentUser.html" target="_self" >ICurrentUser</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>params</td>
-                                    <td>
-                                                <code><a href="../classes/UpdateMatchParams.html" target="_self" >UpdateMatchParams</a></code>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
                                     </td>
 
                                     <td>
@@ -518,11 +563,12 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../interfaces/User.html" target="_self" >Promise&lt;ImportUserResponse&gt;</a></code>
+                        <b>Returns : </b>    <code>unknown</code>
 
                     </div>
                     <div class="io-description">
-                        
+                        <p>importuser and matched user</p>
+
                     </div>
                 </td>
             </tr>
@@ -543,22 +589,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>updateFlag(importUserId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>, params: <a href="../classes/UpdateFlagParams.html" target="_self">UpdateFlagParams</a>)</code>
+                    <code>updateFlag(currentUserId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, importUserId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, flagged: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
                 </td>
             </tr>
 
-            <tr>
-                <td class="col-md-4">
-                    <b>Decorators : </b>
-                    <br />
-                    <code>@Patch(&#x27;:id/flag&#x27;)<br /></code>
-                </td>
-            </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="63"
-                            class="link-to-prism">apps/server/src/modules/user-import/controller/import-user.controller.ts:63</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="98"
+                            class="link-to-prism">apps/server/src/modules/user-import/uc/user-import.uc.ts:98</a></div>
                 </td>
             </tr>
 
@@ -579,9 +618,21 @@
                             </thead>
                             <tbody>
                                 <tr>
+                                    <td>currentUserId</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
                                     <td>importUserId</td>
                                     <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
                                     </td>
 
                                     <td>
@@ -591,21 +642,9 @@
 
                                 </tr>
                                 <tr>
-                                    <td>currentUser</td>
+                                    <td>flagged</td>
                                     <td>
-                                                <code><a href="../interfaces/ICurrentUser.html" target="_self" >ICurrentUser</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>params</td>
-                                    <td>
-                                                <code><a href="../classes/UpdateFlagParams.html" target="_self" >UpdateFlagParams</a></code>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
                                     </td>
 
                                     <td>
@@ -620,7 +659,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../interfaces/User.html" target="_self" >Promise&lt;ImportUserResponse&gt;</a></code>
+                        <b>Returns : </b>    <code>unknown</code>
 
                     </div>
                     <div class="io-description">
@@ -630,104 +669,154 @@
             </tr>
         </tbody>
     </table>
-</section>    </div>
+</section>
+
+    </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Body, Controller, Delete, Get, Param, Patch, Query } from &#x27;@nestjs/common&#x27;;
-import { ApiTags } from &#x27;@nestjs/swagger&#x27;;
-import { PaginationQuery, ParseObjectIdPipe } from &#x27;@shared/controller&#x27;;
-import { ICurrentUser, IFindOptions, ImportUser, User } from &#x27;@shared/domain&#x27;;
-import { Authenticate, CurrentUser } from &#x27;@src/modules/authentication/decorator/auth.decorator&#x27;;
-import { ImportUserFilterQuery } from &#x27;./dto/import-user-filter.query&#x27;;
-import { ImportUserListResponse, ImportUserResponse } from &#x27;./dto/import-user.response&#x27;;
-import { UpdateMatchParams } from &#x27;./dto/update-match.params&#x27;;
-import { UserMatchListResponse } from &#x27;./dto/user-match.response&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ForbiddenException, Injectable } from &#x27;@nestjs/common&#x27;;
+import { UserAlreadyAssignedToImportUserError } from &#x27;@shared/common&#x27;;
+import {
+	EntityId,
+	IFindOptions,
+	Counted,
+	ImportUser,
+	IImportUserScope,
+	MatchCreator,
+	INameMatch,
+	User,
+	PermissionService,
+} from &#x27;@shared/domain&#x27;;
 
-import { ImportUserMapper } from &#x27;../mapper/import-user.mapper&#x27;;
-import { UserFilterQuery } from &#x27;./dto/user-filter.query&#x27;;
-import { UserMatchMapper } from &#x27;../mapper/user-match.mapper&#x27;;
-import { UserImportUc } from &#x27;../uc/user-import.uc&#x27;;
-import { UpdateFlagParams } from &#x27;./dto/update-flag.params&#x27;;
-import { ImportUserSortingQuery } from &#x27;./dto/import-user-sorting.query&#x27;;
+import { ImportUserRepo, UserRepo } from &#x27;@shared/repo&#x27;;
+import { UserImportPermissions } from &#x27;../constants&#x27;;
 
-@ApiTags(&#x27;UserImport&#x27;)
-@Authenticate(&#x27;jwt&#x27;)
-@Controller(&#x27;user/import&#x27;)
-export class ImportUserController {
-	constructor(private readonly userImportUc: UserImportUc, private readonly userUc: UserImportUc) {}
+@Injectable()
+export class UserImportUc {
+	constructor(
+		private readonly importUserRepo: ImportUserRepo,
+		private readonly userRepo: UserRepo,
+		private readonly permissionService: PermissionService
+	) {}
 
-	@Get()
+	/**
+	 * Resolves with current users schools importusers and matched users.
+	 * @param userId
+	 * @param query
+	 * @param options
+	 * @returns
+	 */
 	async findAllImportUsers(
-		@CurrentUser() currentUser: ICurrentUser,
-		@Query() scope: ImportUserFilterQuery,
-		@Query() sortingQuery: ImportUserSortingQuery,
-		@Query() paginationQuery: PaginationQuery
-	): Promise&lt;ImportUserListResponse&gt; {
-		const options: IFindOptions&lt;ImportUser&gt; &#x3D; { pagination: paginationQuery };
-		options.order &#x3D; ImportUserMapper.mapSortingQueryToDomain(sortingQuery);
-		const query &#x3D; ImportUserMapper.mapImportUserFilterQueryToDomain(scope);
-		const [importUserList, count] &#x3D; await this.userImportUc.findAllImportUsers(currentUser.userId, query, options);
-		const { skip, limit } &#x3D; paginationQuery;
-		const dtoList &#x3D; importUserList.map((importUser) &#x3D;&gt; ImportUserMapper.mapToResponse(importUser));
-		const response &#x3D; new ImportUserListResponse(dtoList, count, skip, limit);
-		return response;
+		userId: EntityId,
+		query: IImportUserScope,
+		options?: IFindOptions&lt;ImportUser&gt;
+	): Promise&lt;Counted&lt;ImportUser[]&gt;&gt; {
+		const currentUser &#x3D; await this.userRepo.findById(userId, true);
+
+		const permissions &#x3D; [UserImportPermissions.SCHOOL_IMPORT_USERS_VIEW];
+		this.permissionService.checkUserHasAllSchoolPermissions(currentUser, permissions);
+
+		const countedImportUsers &#x3D; await this.importUserRepo.findImportUsers(currentUser.school, query, options);
+		return countedImportUsers;
 	}
 
-	@Patch(&#x27;:id/match&#x27;)
-	async setMatch(
-		@Param(&#x27;id&#x27;, ParseObjectIdPipe) importUserId: string,
-		@CurrentUser() currentUser: ICurrentUser,
-		@Body() params: UpdateMatchParams
-	): Promise&lt;ImportUserResponse&gt; {
-		const result &#x3D; await this.userImportUc.setMatch(currentUser.userId, importUserId, params.userId);
-		const response &#x3D; ImportUserMapper.mapToResponse(result);
-		return response;
+	/**
+	 * Update a @User reference of an @ImportUser
+	 * @param currentUserId
+	 * @param importUserId
+	 * @param userMatchId
+	 * @returns importuser and matched user
+	 */
+	async setMatch(currentUserId: EntityId, importUserId: EntityId, userMatchId: EntityId) {
+		const currentUser &#x3D; await this.userRepo.findById(currentUserId, true);
+		const permissions &#x3D; [UserImportPermissions.SCHOOL_IMPORT_USERS_UPDATE];
+		this.permissionService.checkUserHasAllSchoolPermissions(currentUser, permissions);
+
+		const userMatch &#x3D; await this.userRepo.findById(userMatchId);
+		const importUser &#x3D; await this.importUserRepo.findById(importUserId);
+
+		// check same school
+		if (
+			!currentUser.school.id ||
+			currentUser.school.id !&#x3D;&#x3D; userMatch.school.id ||
+			currentUser.school.id !&#x3D;&#x3D; importUser.school.id
+		) {
+			throw new ForbiddenException(&#x27;not same school&#x27;);
+		}
+
+		// check user is not already assigned
+		const hasMatch &#x3D; await this.importUserRepo.hasMatch(userMatch);
+		if (hasMatch !&#x3D;&#x3D; null) throw new UserAlreadyAssignedToImportUserError();
+
+		importUser.setMatch(userMatch, MatchCreator.MANUAL);
+		await this.importUserRepo.persistAndFlush(importUser);
+
+		return importUser;
 	}
 
-	@Delete(&#x27;:id/match&#x27;)
-	async removeMatch(
-		@Param(&#x27;id&#x27;, ParseObjectIdPipe) importUserId: string,
-		@CurrentUser() currentUser: ICurrentUser
-	): Promise&lt;ImportUserResponse&gt; {
-		const result &#x3D; await this.userImportUc.removeMatch(currentUser.userId, importUserId);
-		const response &#x3D; ImportUserMapper.mapToResponse(result);
-		return response;
+	async removeMatch(currentUserId: EntityId, importUserId: EntityId) {
+		const currentUser &#x3D; await this.userRepo.findById(currentUserId, true);
+		const permissions &#x3D; [UserImportPermissions.SCHOOL_IMPORT_USERS_UPDATE];
+		this.permissionService.checkUserHasAllSchoolPermissions(currentUser, permissions);
+
+		const importUser &#x3D; await this.importUserRepo.findById(importUserId);
+		// check same school
+		if (currentUser.school.id !&#x3D;&#x3D; importUser.school.id) {
+			throw new ForbiddenException(&#x27;not same school&#x27;);
+		}
+
+		importUser.revokeMatch();
+		await this.importUserRepo.persistAndFlush(importUser);
+
+		return importUser;
 	}
 
-	@Patch(&#x27;:id/flag&#x27;)
-	async updateFlag(
-		@Param(&#x27;id&#x27;, ParseObjectIdPipe) importUserId: string,
-		@CurrentUser() currentUser: ICurrentUser,
-		@Body() params: UpdateFlagParams
-	): Promise&lt;ImportUserResponse&gt; {
-		const result &#x3D; await this.userImportUc.updateFlag(currentUser.userId, importUserId, params.flagged);
-		const response &#x3D; ImportUserMapper.mapToResponse(result);
-		return response;
+	async updateFlag(currentUserId: EntityId, importUserId: EntityId, flagged: boolean) {
+		const currentUser &#x3D; await this.userRepo.findById(currentUserId, true);
+		const permissions &#x3D; [UserImportPermissions.SCHOOL_IMPORT_USERS_UPDATE];
+		this.permissionService.checkUserHasAllSchoolPermissions(currentUser, permissions);
+
+		const importUser &#x3D; await this.importUserRepo.findById(importUserId);
+
+		// check same school
+		if (currentUser.school.id !&#x3D;&#x3D; importUser.school.id) {
+			throw new ForbiddenException(&#x27;not same school&#x27;);
+		}
+
+		importUser.flagged &#x3D; flagged &#x3D;&#x3D;&#x3D; true;
+		await this.importUserRepo.persistAndFlush(importUser);
+
+		return importUser;
 	}
 
-	@Get(&#x27;unassigned&#x27;)
+	/**
+	 * Returns a list of users wich is not assigned as match to importusers.
+	 * The result will filter by curernt users school by default.
+	 * The current user must have permission to read schools users and view importusers.
+	 * @param currentUserId
+	 * @param query filters
+	 * @param options
+	 * @returns
+	 */
 	async findAllUnmatchedUsers(
-		@CurrentUser() currentUser: ICurrentUser,
-		@Query() scope: UserFilterQuery,
-		@Query() paginationQuery: PaginationQuery
-	): Promise&lt;UserMatchListResponse&gt; {
-		const options: IFindOptions&lt;User&gt; &#x3D; { pagination: paginationQuery };
+		currentUserId: EntityId,
+		query: INameMatch,
+		options?: IFindOptions&lt;User&gt;
+	): Promise&lt;Counted&lt;User[]&gt;&gt; {
+		const currentUser &#x3D; await this.userRepo.findById(currentUserId, true);
 
-		const query &#x3D; UserMatchMapper.mapToDomain(scope);
-		const [userList, total] &#x3D; await this.userUc.findAllUnmatchedUsers(currentUser.userId, query, options);
-		const { skip, limit } &#x3D; paginationQuery;
-		const dtoList &#x3D; userList.map((user) &#x3D;&gt; UserMatchMapper.mapToResponse(user));
-		const response &#x3D; new UserMatchListResponse(dtoList, total, skip, limit);
-		return response as unknown as UserMatchListResponse;
+		const permissions &#x3D; [UserImportPermissions.SCHOOL_IMPORT_USERS_VIEW];
+		this.permissionService.checkUserHasAllSchoolPermissions(currentUser, permissions);
+
+		const unmatchedCountedUsers &#x3D; await this.userRepo.findWithoutImportUser(currentUser.school, query, options);
+		return unmatchedCountedUsers;
 	}
 }
 </code></pre>
     </div>
+
 </div>
-
-
-
 
 
 
@@ -765,8 +854,8 @@ export class ImportUserController {
 
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
-            var COMPODOC_CURRENT_PAGE_CONTEXT = 'controller';
-            var COMPODOC_CURRENT_PAGE_URL = 'ImportUserController.html';
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'UserImportUc.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

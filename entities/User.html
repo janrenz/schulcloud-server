@@ -78,11 +78,9 @@
                                 <a href="#email" >email</a>
                             </li>
                             <li>
-                                    <span class="modifier">Optional</span>
                                 <a href="#firstName" >firstName</a>
                             </li>
                             <li>
-                                    <span class="modifier">Optional</span>
                                 <a href="#lastName" >lastName</a>
                             </li>
                             <li>
@@ -150,7 +148,6 @@
                 <td class="col-md-4">
                     <a name="firstName"></a>
                     <span class="name">
-                            <span class="modifier">Optional</span>
                         <span ><b>firstName</b></span>
                         <a href="#firstName"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -186,7 +183,6 @@
                 <td class="col-md-4">
                     <a name="lastName"></a>
                     <span class="name">
-                            <span class="modifier">Optional</span>
                         <span ><b>lastName</b></span>
                         <a href="#lastName"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -297,8 +293,8 @@ import { BaseEntityWithTimestamps } from &#x27;./base.entity&#x27;;
 
 export interface IUserProperties {
 	email: string;
-	firstName?: string;
-	lastName?: string;
+	firstName: string;
+	lastName: string;
 	school: School;
 	roles: Role[];
 }
@@ -310,10 +306,10 @@ export class User extends BaseEntityWithTimestamps {
 	email: string;
 
 	@Property()
-	firstName?: string;
+	firstName: string;
 
 	@Property()
-	lastName?: string;
+	lastName: string;
 
 	@Index({ name: &#x27;roleIdBasedSearches&#x27; })
 	@ManyToMany(&#x27;Role&#x27;, undefined, { fieldName: &#x27;roles&#x27; })

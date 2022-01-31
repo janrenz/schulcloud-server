@@ -28,7 +28,7 @@
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
-               <div class="content entity">
+               <div class="content class">
                    <div class="content-data">
 
 
@@ -36,9 +36,15 @@
 
 
 
+
+
+
+
+
+
 <ol class="breadcrumb">
-  <li>Entities</li>
-  <li >System</li>
+  <li>Classes</li>
+  <li >UpdateFlagParams</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -56,8 +62,10 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/shared/domain/entity/system.entity.ts</code>
+            <code>apps/server/src/modules/user-import/controller/dto/update-flag.params.ts</code>
         </p>
+
+
 
 
 
@@ -75,15 +83,7 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                    <span class="modifier">Optional</span>
-                                <a href="#alias" >alias</a>
-                            </li>
-                            <li>
-                                <a href="#type" >type</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Optional</span>
-                                <a href="#url" >url</a>
+                                <a href="#flagged" >flagged</a>
                             </li>
                         </ul>
                     </td>
@@ -98,6 +98,7 @@
     </table>
 </section>
 
+
             <section>
     
     <h3 id="inputs">
@@ -107,17 +108,16 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="alias"></a>
+                    <a name="flagged"></a>
                     <span class="name">
-                            <span class="modifier">Optional</span>
-                        <span ><b>alias</b></span>
-                        <a href="#alias"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>flagged</b></span>
+                        <a href="#flagged"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
 
                     </td>
                 </tr>
@@ -126,84 +126,13 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @Property()<br />
+                            @ApiProperty({description: &#x27;updates flag for an import user&#x27;})<br />@IsBoolean()<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">apps/server/src/shared/domain/entity/system.entity.ts:26</a></div>
-                        </td>
-                    </tr>
-
-
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="type"></a>
-                    <span class="name">
-                        <span ><b>type</b></span>
-                        <a href="#type"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <b>Decorators : </b>
-                        <br />
-                        <code>
-                            @Property({})<br />
-                        </code>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">apps/server/src/shared/domain/entity/system.entity.ts:20</a></div>
-                        </td>
-                    </tr>
-
-
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="url"></a>
-                    <span class="name">
-                            <span class="modifier">Optional</span>
-                        <span ><b>url</b></span>
-                        <a href="#url"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <b>Decorators : </b>
-                        <br />
-                        <code>
-                            @Property()<br />
-                        </code>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">apps/server/src/shared/domain/entity/system.entity.ts:23</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">apps/server/src/modules/user-import/controller/dto/update-flag.params.ts:7</a></div>
                         </td>
                     </tr>
 
@@ -211,46 +140,28 @@
         </tbody>
     </table>
 </section>
+
+
+
+
+
+
+
     </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Entity, Property } from &#x27;@mikro-orm/core&#x27;;
-import { BaseEntityWithTimestamps } from &#x27;./base.entity&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ApiProperty } from &#x27;@nestjs/swagger&#x27;;
+import { IsBoolean } from &#x27;class-validator&#x27;;
 
-export interface ISystemProperties {
-	type: string;
-	url?: string;
-	alias?: string;
-}
-
-@Entity({ tableName: &#x27;systems&#x27; })
-export class System extends BaseEntityWithTimestamps {
-	constructor(props: ISystemProperties) {
-		super();
-		this.type &#x3D; props.type;
-		if (props.url !&#x3D; null) this.url &#x3D; props.url;
-		if (props.alias !&#x3D; null) this.alias &#x3D; props.alias;
-	}
-
-	@Property({})
-	type: string; // see legacy enum for valid values
-
-	@Property()
-	url?: string;
-
-	@Property()
-	alias?: string;
+export class UpdateFlagParams {
+	@ApiProperty({ description: &#x27;updates flag for an import user&#x27; })
+	@IsBoolean()
+	flagged!: boolean;
 }
 </code></pre>
     </div>
 </div>
-
-
-
-
-
-
 
 
 
@@ -284,8 +195,8 @@ export class System extends BaseEntityWithTimestamps {
 
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
-            var COMPODOC_CURRENT_PAGE_CONTEXT = 'entity';
-            var COMPODOC_CURRENT_PAGE_URL = 'System.html';
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
+            var COMPODOC_CURRENT_PAGE_URL = 'UpdateFlagParams.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

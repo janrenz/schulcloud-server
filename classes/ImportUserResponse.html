@@ -89,6 +89,9 @@
                                 <a href="#firstName" >firstName</a>
                             </li>
                             <li>
+                                <a href="#flagged" >flagged</a>
+                            </li>
+                            <li>
                                 <a href="#importUserId" >importUserId</a>
                             </li>
                             <li>
@@ -128,7 +131,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">apps/server/src/modules/user-import/controller/dto/import-user.response.ts:8</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">apps/server/src/modules/user-import/controller/dto/import-user.response.ts:7</a></div>
                             </td>
                         </tr>
 
@@ -235,6 +238,40 @@
                     <tr>
                         <td class="col-md-4">
                                 <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">apps/server/src/modules/user-import/controller/dto/import-user.response.ts:37</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="flagged"></a>
+                    <span class="name">
+                        <span ><b>flagged</b></span>
+                        <a href="#flagged"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ApiProperty({description: &#x27;manual flag to apply it as filter&#x27;})<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="58" class="link-to-prism">apps/server/src/modules/user-import/controller/dto/import-user.response.ts:58</a></div>
                         </td>
                     </tr>
 
@@ -432,8 +469,8 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ApiProperty, ApiPropertyOptional } from &#x27;@nestjs/swagger&#x27;;
 import { PaginationResponse } from &#x27;@shared/controller&#x27;;
 import { IsMongoId, IsString } from &#x27;class-validator&#x27;;
+import type { UserMatchResponse } from &#x27;.&#x27;;
 import { RoleNameResponse } from &#x27;./role-name.response&#x27;;
-import { UserMatchResponse } from &#x27;./user-match.response&#x27;;
 
 export class ImportUserResponse {
 	constructor(props: ImportUserResponse) {
@@ -444,6 +481,7 @@ export class ImportUserResponse {
 		this.roleNames &#x3D; props.roleNames;
 		this.classNames &#x3D; props.classNames;
 		if (props.match !&#x3D; null) this.match &#x3D; props.match;
+		if (props.flagged &#x3D;&#x3D;&#x3D; true) this.flagged &#x3D; true;
 	}
 
 	@IsMongoId()
@@ -483,6 +521,9 @@ export class ImportUserResponse {
 
 	@ApiPropertyOptional({ description: &#x27;assignemnt to a local user account&#x27; })
 	match?: UserMatchResponse;
+
+	@ApiProperty({ description: &#x27;manual flag to apply it as filter&#x27; })
+	flagged &#x3D; false;
 }
 
 export class ImportUserListResponse extends PaginationResponse&lt;ImportUserResponse[]&gt; {

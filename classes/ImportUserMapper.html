@@ -28,7 +28,7 @@
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
-               <div class="content injectable">
+               <div class="content class">
                    <div class="content-data">
 
 
@@ -38,9 +38,13 @@
 
 
 
+
+
+
+
 <ol class="breadcrumb">
-  <li>Injectables</li>
-  <li >PermissionService</li>
+  <li>Classes</li>
+  <li >ImportUserMapper</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -58,8 +62,9 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/shared/domain/service/permission.service.ts</code>
+            <code>apps/server/src/modules/user-import/mapper/import-user.mapper.ts</code>
         </p>
+
 
 
 
@@ -79,17 +84,16 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#checkUserHasAllSchoolPermissions" >checkUserHasAllSchoolPermissions</a>
+                                    <span class="modifier">Static</span>
+                                <a href="#mapImportUserFilterQueryToDomain" >mapImportUserFilterQueryToDomain</a>
                             </li>
                             <li>
-                                <a href="#hasUserAllSchoolPermissions" >hasUserAllSchoolPermissions</a>
+                                    <span class="modifier">Static</span>
+                                <a href="#mapSortingQueryToDomain" >mapSortingQueryToDomain</a>
                             </li>
                             <li>
-                                <a href="#resolvePermissions" >resolvePermissions</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Private</span>
-                                <a href="#resolvePermissionsByRoles" >resolvePermissionsByRoles</a>
+                                    <span class="modifier">Static</span>
+                                <a href="#mapToResponse" >mapToResponse</a>
                             </li>
                         </ul>
                     </td>
@@ -104,6 +108,7 @@
 </section>
 
 
+
             <section>
     
     <h3 id="methods">
@@ -113,261 +118,26 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="checkUserHasAllSchoolPermissions"></a>
+                    <a name="mapImportUserFilterQueryToDomain"></a>
                     <span class="name">
-                        <span ><b>checkUserHasAllSchoolPermissions</b></span>
-                        <a href="#checkUserHasAllSchoolPermissions"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>checkUserHasAllSchoolPermissions(user: <a href="../interfaces/User.html" target="_self">User</a>, requiredPermissions: string[])</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="56"
-                            class="link-to-prism">apps/server/src/shared/domain/service/permission.service.ts:56</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>user</td>
-                                    <td>
-                                                <code><a href="../interfaces/User.html" target="_self" >User</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>requiredPermissions</td>
-                                    <td>
-                                            <code>string[]</code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="hasUserAllSchoolPermissions"></a>
-                    <span class="name">
-                        <span ><b>hasUserAllSchoolPermissions</b></span>
-                        <a href="#hasUserAllSchoolPermissions"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>hasUserAllSchoolPermissions(user: <a href="../interfaces/User.html" target="_self">User</a>, requiredPermissions: string[])</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="47"
-                            class="link-to-prism">apps/server/src/shared/domain/service/permission.service.ts:47</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>user</td>
-                                    <td>
-                                                <code><a href="../interfaces/User.html" target="_self" >User</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>requiredPermissions</td>
-                                    <td>
-                                            <code>string[]</code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="resolvePermissions"></a>
-                    <span class="name">
-                        <span ><b>resolvePermissions</b></span>
-                        <a href="#resolvePermissions"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>resolvePermissions(user: <a href="../interfaces/User.html" target="_self">User</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="16"
-                            class="link-to-prism">apps/server/src/shared/domain/service/permission.service.ts:16</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-description"><p>Recursively resolve all roles and permissions of a user.
-IMPORTANT: The role collections of the user and nested roles will not be loaded lazily.
-Please make sure you populate them before calling this method.</p>
-</div>
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>user</td>
-                                    <td>
-                                                <code><a href="../interfaces/User.html" target="_self" >User</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>    <code>string[]</code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="resolvePermissionsByRoles"></a>
-                    <span class="name">
-                        <span class="modifier">Private</span>
-                        <span ><b>resolvePermissionsByRoles</b></span>
-                        <a href="#resolvePermissionsByRoles"><span class="icon ion-ios-link"></span></a>
+                        <span class="modifier">Static</span>
+                        <span ><b>mapImportUserFilterQueryToDomain</b></span>
+                        <a href="#mapImportUserFilterQueryToDomain"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>resolvePermissionsByRoles(inputRoles: <a href="../entitys/Role.html" target="_self">Role[]</a>)</code>
+                    <code>mapImportUserFilterQueryToDomain(query: <a href="../interfaces/User.html" target="_self">ImportUserFilterQuery</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="25"
-                            class="link-to-prism">apps/server/src/shared/domain/service/permission.service.ts:25</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="49"
+                            class="link-to-prism">apps/server/src/modules/user-import/mapper/import-user.mapper.ts:49</a></div>
                 </td>
             </tr>
 
@@ -388,9 +158,9 @@ Please make sure you populate them before calling this method.</p>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>inputRoles</td>
+                                    <td>query</td>
                                     <td>
-                                                <code><a href="../entitys/Role.html" target="_self" >Role[]</a></code>
+                                                <code><a href="../interfaces/User.html" target="_self" >ImportUserFilterQuery</a></code>
                                     </td>
 
                                     <td>
@@ -405,7 +175,149 @@ Please make sure you populate them before calling this method.</p>
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>    <code>string[]</code>
+                        <b>Returns : </b>        <code><a href="../interfaces/IImportUserScope.html" target="_self" >IImportUserScope</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="mapSortingQueryToDomain"></a>
+                    <span class="name">
+                        <span class="modifier">Static</span>
+                        <span ><b>mapSortingQueryToDomain</b></span>
+                        <a href="#mapSortingQueryToDomain"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>mapSortingQueryToDomain(sortingQuery: <a href="../interfaces/User.html" target="_self">ImportUserSortingQuery</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="17"
+                            class="link-to-prism">apps/server/src/modules/user-import/mapper/import-user.mapper.ts:17</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>sortingQuery</td>
+                                    <td>
+                                                <code><a href="../interfaces/User.html" target="_self" >ImportUserSortingQuery</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#SortOrderMap" target="_self" >SortOrderMap | undefined</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="mapToResponse"></a>
+                    <span class="name">
+                        <span class="modifier">Static</span>
+                        <span ><b>mapToResponse</b></span>
+                        <a href="#mapToResponse"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>mapToResponse(importUser: <a href="../interfaces/User.html" target="_self">ImportUser</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="32"
+                            class="link-to-prism">apps/server/src/modules/user-import/mapper/import-user.mapper.ts:32</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>importUser</td>
+                                    <td>
+                                                <code><a href="../interfaces/User.html" target="_self" >ImportUser</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../interfaces/User.html" target="_self" >ImportUserResponse</a></code>
 
                     </div>
                     <div class="io-description">
@@ -417,80 +329,81 @@ Please make sure you populate them before calling this method.</p>
     </table>
 </section>
 
+
+
+
+
     </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable, UnauthorizedException } from &#x27;@nestjs/common&#x27;;
-import { Role } from &#x27;../entity/role.entity&#x27;;
-import { User } from &#x27;../entity/user.entity&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { BadRequestException } from &#x27;@nestjs/common&#x27;;
+import { StringValidator } from &#x27;@shared/common&#x27;;
+import { ImportUser, IImportUserScope, SortOrderMap } from &#x27;@shared/domain&#x27;;
+import {
+	ImportUserResponse,
+	ImportUserFilterQuery,
+	ImportUserSortByQuery,
+	ImportUserSortingQuery,
+} from &#x27;../controller/dto&#x27;;
 
-// TODO move to authorization module
+import { ImportUserMatchMapper } from &#x27;./match.mapper&#x27;;
 
-@Injectable()
-export class PermissionService {
-	/**
-	 * Recursively resolve all roles and permissions of a user.
-	 * IMPORTANT: The role collections of the user and nested roles will not be loaded lazily.
-	 * Please make sure you populate them before calling this method.
-	 * @param user
-	 * @returns
-	 */
-	resolvePermissions(user: User): string[] {
-		if (!user.roles.isInitialized(true)) {
-			throw new Error(&#x27;Roles items are not loaded.&#x27;);
+import { RoleNameMapper } from &#x27;./role-name.mapper&#x27;;
+import { UserMatchMapper } from &#x27;./user-match.mapper&#x27;;
+
+export class ImportUserMapper {
+	static mapSortingQueryToDomain(sortingQuery: ImportUserSortingQuery): SortOrderMap&lt;ImportUser&gt; | undefined {
+		const { sortBy } &#x3D; sortingQuery;
+		if (sortBy &#x3D;&#x3D; null) return undefined;
+		const result: SortOrderMap&lt;ImportUser&gt; &#x3D; {};
+		switch (sortBy) {
+			case ImportUserSortByQuery.FIRSTNAME:
+			case ImportUserSortByQuery.LASTNAME:
+				result[sortBy] &#x3D; sortingQuery.sortOrder;
+				break;
+			default:
+				throw new BadRequestException();
 		}
-		const rolesAndPermissions &#x3D; this.resolvePermissionsByRoles(user.roles.getItems());
-
-		return rolesAndPermissions;
+		return result;
 	}
 
-	private resolvePermissionsByRoles(inputRoles: Role[]): string[] {
-		let permissions: string[] &#x3D; [];
-
-		for (let i &#x3D; 0; i &lt; inputRoles.length; i +&#x3D; 1) {
-			const role &#x3D; inputRoles[i];
-			if (!role.roles.isInitialized(true)) {
-				throw new Error(&#x27;Roles items are not loaded.&#x27;);
-			}
-			const innerRoles &#x3D; role.roles.getItems();
-			permissions &#x3D; [...permissions, ...role.permissions];
-
-			if (innerRoles.length &gt; 0) {
-				const subPermissions &#x3D; this.resolvePermissionsByRoles(innerRoles);
-				permissions &#x3D; [...permissions, ...subPermissions];
-			}
+	static mapToResponse(importUser: ImportUser): ImportUserResponse {
+		const dto &#x3D; new ImportUserResponse({
+			importUserId: importUser.id,
+			loginName: importUser.loginName || &#x27;&#x27;,
+			firstName: importUser.firstName,
+			lastName: importUser.lastName,
+			roleNames: importUser.roleNames.map((role) &#x3D;&gt; RoleNameMapper.mapToResponse(role)),
+			classNames: importUser.classNames,
+			flagged: importUser.flagged,
+		});
+		if (importUser.user !&#x3D; null &amp;&amp; importUser.matchedBy) {
+			const { user } &#x3D; importUser;
+			dto.match &#x3D; UserMatchMapper.mapToResponse(user, importUser.matchedBy);
 		}
-
-		permissions &#x3D; [...new Set(permissions)];
-
-		return permissions;
+		return dto;
 	}
 
-	hasUserAllSchoolPermissions(user: User, requiredPermissions: string[]): boolean {
-		if (!Array.isArray(requiredPermissions) || requiredPermissions.length &#x3D;&#x3D;&#x3D; 0) {
-			return false;
+	static mapImportUserFilterQueryToDomain(query: ImportUserFilterQuery): IImportUserScope {
+		const dto: IImportUserScope &#x3D; {};
+		if (StringValidator.isNotEmptyString(query.firstName)) dto.firstName &#x3D; query.firstName;
+		if (StringValidator.isNotEmptyString(query.lastName)) dto.lastName &#x3D; query.lastName;
+		if (StringValidator.isNotEmptyString(query.loginName)) dto.loginName &#x3D; query.loginName;
+		if (query.role !&#x3D; null) {
+			dto.role &#x3D; RoleNameMapper.mapToDomain(query.role);
 		}
-		const usersPermissions &#x3D; this.resolvePermissions(user);
-		const hasPermissions &#x3D; requiredPermissions.every((p) &#x3D;&gt; usersPermissions.includes(p));
-		return hasPermissions;
-	}
-
-	checkUserHasAllSchoolPermissions(user: User, requiredPermissions: string[]): void {
-		const hasPermission &#x3D; this.hasUserAllSchoolPermissions(user, requiredPermissions);
-		if (hasPermission !&#x3D;&#x3D; true) {
-			throw new UnauthorizedException();
+		if (StringValidator.isNotEmptyString(query.classes)) dto.classes &#x3D; query.classes;
+		if (query.match) {
+			dto.matches &#x3D; query.match.map((match) &#x3D;&gt; ImportUserMatchMapper.mapImportUserMatchScopeToDomain(match));
 		}
+		if (query.flagged &#x3D;&#x3D;&#x3D; true) dto.flagged &#x3D; true;
+		return dto;
 	}
 }
 </code></pre>
     </div>
-
 </div>
-
-
-
-
 
 
 
@@ -524,8 +437,8 @@ export class PermissionService {
 
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
-            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
-            var COMPODOC_CURRENT_PAGE_URL = 'PermissionService.html';
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
+            var COMPODOC_CURRENT_PAGE_URL = 'ImportUserMapper.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

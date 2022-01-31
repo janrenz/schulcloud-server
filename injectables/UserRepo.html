@@ -83,6 +83,10 @@
                                 <a href="#findById" >findById</a>
                             </li>
                             <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#findWithoutImportUser" >findWithoutImportUser</a>
+                            </li>
+                            <li>
                                     <span class="modifier">Private</span>
                                     <span class="modifier">Async</span>
                                 <a href="#populateRoles" >populateRoles</a>
@@ -105,12 +109,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(em: EntityManager)</code>
+<code>constructor(em: EntityManager<MongoDriver>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="6" class="link-to-prism">apps/server/src/shared/repo/user/user.repo.ts:6</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">apps/server/src/shared/repo/user/user.repo.ts:10</a></div>
                             </td>
                         </tr>
 
@@ -131,7 +135,7 @@
                                                         <td>em</td>
                                                   
                                                         <td>
-                                                                    <code>EntityManager</code>
+                                                                    <code>EntityManager&lt;MongoDriver&gt;</code>
                                                         </td>
                                                   
                                                     <td>
@@ -175,8 +179,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="9"
-                            class="link-to-prism">apps/server/src/shared/repo/user/user.repo.ts:9</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="13"
+                            class="link-to-prism">apps/server/src/shared/repo/user/user.repo.ts:13</a></div>
                 </td>
             </tr>
 
@@ -245,6 +249,103 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="findWithoutImportUser"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>findWithoutImportUser</b></span>
+                        <a href="#findWithoutImportUser"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findWithoutImportUser(school: <a href="../entitys/School.html" target="_self">School</a>, filters?: <a href="../interfaces/INameMatch.html" target="_self">INameMatch</a>, options?: <a href="../entitys/User.html" target="_self">IFindOptions&lt;User&gt;</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="27"
+                            class="link-to-prism">apps/server/src/shared/repo/user/user.repo.ts:27</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>used for importusers module to request users not referenced in importusers</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>school</td>
+                                    <td>
+                                                <code><a href="../entitys/School.html" target="_self" >School</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>filters</td>
+                                    <td>
+                                                <code><a href="../interfaces/INameMatch.html" target="_self" >INameMatch</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>options</td>
+                                    <td>
+                                                <code><a href="../entitys/User.html" target="_self" >IFindOptions&lt;User&gt;</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../interfaces/User.html" target="_self" >Promise&lt;Counted&lt;User[]&gt;&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="populateRoles"></a>
                     <span class="name">
                         <span class="modifier">Private</span>
@@ -264,8 +365,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="20"
-                            class="link-to-prism">apps/server/src/shared/repo/user/user.repo.ts:20</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="135"
+                            class="link-to-prism">apps/server/src/shared/repo/user/user.repo.ts:135</a></div>
                 </td>
             </tr>
 
@@ -319,13 +420,17 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { EntityManager } from &#x27;@mikro-orm/mongodb&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { QueryOrderMap, QueryOrderNumeric } from &#x27;@mikro-orm/core&#x27;;
+import { EntityManager, MongoDriver, ObjectId } from &#x27;@mikro-orm/mongodb&#x27;;
 import { Injectable } from &#x27;@nestjs/common&#x27;;
-import { EntityId, Role, User } from &#x27;@shared/domain&#x27;;
+import { StringValidator } from &#x27;@shared/common&#x27;;
+import { Counted, EntityId, IFindOptions, INameMatch, Role, School, SortOrder, User } from &#x27;@shared/domain&#x27;;
+import { userFactory } from &#x27;@shared/testing&#x27;;
+import { MongoPatterns } from &#x27;../mongo.patterns&#x27;;
 
 @Injectable()
 export class UserRepo {
-	constructor(private readonly em: EntityManager) {}
+	constructor(private readonly em: EntityManager&lt;MongoDriver&gt;) {}
 
 	async findById(id: EntityId, populateRoles &#x3D; false): Promise&lt;User&gt; {
 		const user &#x3D; await this.em.findOneOrFail(User, { id });
@@ -336,6 +441,117 @@ export class UserRepo {
 		}
 
 		return user;
+	}
+
+	/**
+	 * used for importusers module to request users not referenced in importusers
+	 */
+	async findWithoutImportUser(
+		school: School,
+		filters?: INameMatch,
+		options?: IFindOptions&lt;User&gt;
+	): Promise&lt;Counted&lt;User[]&gt;&gt; {
+		const { _id: schoolId } &#x3D; school;
+		if (!ObjectId.isValid(schoolId)) throw new Error(&#x27;invalid school id&#x27;);
+
+		const permittedMatch &#x3D; { schoolId };
+
+		const queryFilterMatch: { $or?: unknown[] } &#x3D; {};
+		if (filters?.name &amp;&amp; StringValidator.isNotEmptyString(filters.name, true)) {
+			const escapedName &#x3D; filters.name.replace(MongoPatterns.REGEX_MONGO_LANGUAGE_PATTERN_WHITELIST, &#x27;&#x27;).trim();
+			// TODO make db agnostic
+			if (StringValidator.isNotEmptyString(escapedName, true)) {
+				queryFilterMatch.$or &#x3D; [
+					{
+						firstName: {
+							// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+							// @ts-ignore
+							$regex: escapedName,
+							$options: &#x27;i&#x27;,
+						},
+					},
+					{
+						lastName: {
+							// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+							// @ts-ignore
+							$regex: escapedName,
+							$options: &#x27;i&#x27;,
+						},
+					},
+				];
+			}
+		}
+
+		const pipeline: unknown[] &#x3D; [
+			{ $match: permittedMatch },
+			{
+				$lookup: {
+					from: &#x27;importusers&#x27;,
+					localField: &#x27;_id&#x27;,
+					foreignField: &#x27;match_userId&#x27;,
+					as: &#x27;importusers&#x27;,
+				},
+			},
+			{
+				$match: {
+					importusers: {
+						$size: 0,
+					},
+				},
+			},
+			{ $match: queryFilterMatch },
+			{
+				$project: {
+					importusers: 0,
+				},
+			},
+		];
+
+		const countPipeline &#x3D; [...pipeline];
+		countPipeline.push({ $group: { _id: null, count: { $sum: 1 } } });
+		const total &#x3D; (await this.em.aggregate(User, countPipeline)) as { count: number }[];
+		const count &#x3D; total.length &gt; 0 ? total[0].count : 0;
+		const { pagination, order } &#x3D; options || {};
+
+		if (order) {
+			const orderQuery: QueryOrderMap &#x3D; {};
+			if (order.firstName) {
+				switch (order.firstName) {
+					case SortOrder.desc:
+						orderQuery.firstName &#x3D; QueryOrderNumeric.DESC;
+						break;
+					case SortOrder.asc:
+					default:
+						orderQuery.firstName &#x3D; QueryOrderNumeric.ASC;
+						break;
+				}
+			}
+			if (order.lastName) {
+				switch (order.lastName) {
+					case SortOrder.desc:
+						orderQuery.lastName &#x3D; QueryOrderNumeric.DESC;
+						break;
+					case SortOrder.asc:
+					default:
+						orderQuery.lastName &#x3D; QueryOrderNumeric.ASC;
+						break;
+				}
+			}
+			pipeline.push({ $sort: orderQuery });
+		}
+
+		if (pagination?.skip) {
+			pipeline.push({ $skip: pagination?.skip });
+		}
+		if (pagination?.limit) {
+			pipeline.push({ $limit: pagination?.limit });
+		}
+
+		const userDocuments &#x3D; await this.em.aggregate(User, pipeline);
+		// eslint-disable-next-line @typescript-eslint/no-unsafe-argument
+		const users &#x3D; userDocuments.map((userDocument) &#x3D;&gt; this.em.map(User, userDocument));
+		await this.em.populate(users, &#x27;roles&#x27;);
+		return [users, count];
 	}
 
 	private async populateRoles(roles: Role[]): Promise&lt;void&gt; {
