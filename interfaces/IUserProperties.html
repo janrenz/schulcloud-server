@@ -306,7 +306,7 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Collection, Entity, ManyToMany, ManyToOne, Property, Index, Unique } from &#x27;@mikro-orm/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Collection, Entity, ManyToMany, ManyToOne, Property, Index } from &#x27;@mikro-orm/core&#x27;;
 import type { Role } from &#x27;./role.entity&#x27;;
 import type { School } from &#x27;./school.entity&#x27;;
 import { BaseEntityWithTimestamps } from &#x27;./base.entity&#x27;;
@@ -322,8 +322,7 @@ export interface IUserProperties {
 @Entity({ tableName: &#x27;users&#x27; })
 export class User extends BaseEntityWithTimestamps {
 	@Property()
-	@Index({ name: &#x27;externalUserIdentifier&#x27; })
-	@Unique()
+	@Index({ name: &#x27;externalUserIdentifier&#x27;, options: { unique: true } })
 	email: string;
 
 	@Property()

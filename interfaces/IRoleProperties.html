@@ -228,7 +228,7 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Entity, Property, Unique, Index, ManyToMany, Collection } from &#x27;@mikro-orm/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Entity, Property, Index, ManyToMany, Collection } from &#x27;@mikro-orm/core&#x27;;
 import { BaseEntityWithTimestamps } from &#x27;./base.entity&#x27;;
 
 export interface IRoleProperties {
@@ -240,8 +240,7 @@ export interface IRoleProperties {
 @Entity({ tableName: &#x27;roles&#x27; })
 export class Role extends BaseEntityWithTimestamps {
 	@Property()
-	@Index({ name: &#x27;primaryRoleSearchOperation&#x27; })
-	@Unique()
+	@Index({ name: &#x27;primaryRoleSearchOperation&#x27;, options: { unique: true } })
 	name: string;
 
 	// @Enum({ items: [&#x27;a&#x27;, &#x27;b&#x27;, &#x27;c&#x27;] }) in array with no permission is valid &#x3D;&gt; validator function

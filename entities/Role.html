@@ -123,13 +123,13 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @Property()<br />@Index({name: &#x27;primaryRoleSearchOperation&#x27;})<br />@Unique()<br />
+                            @Property()<br />@Index({name: &#x27;primaryRoleSearchOperation&#x27;, options: undefined})<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">apps/server/src/shared/domain/entity/role.entity.ts:15</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">apps/server/src/shared/domain/entity/role.entity.ts:14</a></div>
                         </td>
                     </tr>
 
@@ -169,7 +169,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">apps/server/src/shared/domain/entity/role.entity.ts:19</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">apps/server/src/shared/domain/entity/role.entity.ts:18</a></div>
                         </td>
                     </tr>
 
@@ -203,7 +203,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">apps/server/src/shared/domain/entity/role.entity.ts:29</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">apps/server/src/shared/domain/entity/role.entity.ts:28</a></div>
                         </td>
                     </tr>
 
@@ -215,7 +215,7 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Entity, Property, Unique, Index, ManyToMany, Collection } from &#x27;@mikro-orm/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Entity, Property, Index, ManyToMany, Collection } from &#x27;@mikro-orm/core&#x27;;
 import { BaseEntityWithTimestamps } from &#x27;./base.entity&#x27;;
 
 export interface IRoleProperties {
@@ -227,8 +227,7 @@ export interface IRoleProperties {
 @Entity({ tableName: &#x27;roles&#x27; })
 export class Role extends BaseEntityWithTimestamps {
 	@Property()
-	@Index({ name: &#x27;primaryRoleSearchOperation&#x27; })
-	@Unique()
+	@Index({ name: &#x27;primaryRoleSearchOperation&#x27;, options: { unique: true } })
 	name: string;
 
 	// @Enum({ items: [&#x27;a&#x27;, &#x27;b&#x27;, &#x27;c&#x27;] }) in array with no permission is valid &#x3D;&gt; validator function
