@@ -1482,6 +1482,7 @@ it should ensure an empty result</p>
 		lastName: &#x60;Doe${sequence}&#x60;,
 		email: &#x60;user-${sequence}@example.com&#x60;,
 		roleNames: [RoleName.STUDENT],
+		classNames: [&#x27;firstClass&#x27;],
 		flagged: false,
 	};
 })</code>
@@ -2183,7 +2184,7 @@ Teardown: &#39;await orm.close()&#39; in after-hook!</p>
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>BaseFactory.define&lt;User, IUserProperties&gt;(User, ({ sequence }) &#x3D;&gt; {
+                        <i>Default value : </i><code>UserFactory.define(User, ({ sequence }) &#x3D;&gt; {
 	return {
 		firstName: &#x27;John&#x27;,
 		lastName: &#x60;Doe ${sequence}&#x60;,

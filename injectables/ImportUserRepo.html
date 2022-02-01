@@ -244,8 +244,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="27"
-                            class="link-to-prism">apps/server/src/shared/repo/importuser/importuser.repo.ts:27</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="30"
+                            class="link-to-prism">apps/server/src/shared/repo/importuser/importuser.repo.ts:30</a></div>
                 </td>
             </tr>
 
@@ -348,8 +348,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="45"
-                            class="link-to-prism">apps/server/src/shared/repo/importuser/importuser.repo.ts:45</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="48"
+                            class="link-to-prism">apps/server/src/shared/repo/importuser/importuser.repo.ts:48</a></div>
                 </td>
             </tr>
 
@@ -431,8 +431,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="20"
-                            class="link-to-prism">apps/server/src/shared/repo/importuser/importuser.repo.ts:20</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="23"
+                            class="link-to-prism">apps/server/src/shared/repo/importuser/importuser.repo.ts:23</a></div>
                 </td>
             </tr>
 
@@ -1154,6 +1154,9 @@ export class ImportUserRepo extends BaseRepo&lt;ImportUser&gt; {
 	async findById(id: EntityId): Promise&lt;ImportUser&gt; {
 		if (!ObjectId.isValid(id)) throw new Error(&#x27;invalid id&#x27;);
 		const importUser &#x3D; await this.em.findOneOrFail(ImportUser, { id });
+		if (importUser.user !&#x3D; null) {
+			await this.em.populate(importUser.user, &#x27;roles&#x27;);
+		}
 		return importUser;
 	}
 

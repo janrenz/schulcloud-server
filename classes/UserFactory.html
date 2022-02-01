@@ -44,7 +44,7 @@
 
 <ol class="breadcrumb">
   <li>Classes</li>
-  <li >ImportUserFactory</li>
+  <li >UserFactory</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -62,7 +62,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/shared/testing/factory/import-user.factory.ts</code>
+            <code>apps/server/src/shared/testing/factory/user.factory.ts</code>
         </p>
 
 
@@ -106,7 +106,7 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#matched" >matched</a>
+                                <a href="#withRole" >withRole</a>
                             </li>
                             <li>
                                 <a href="#afterBuild" >afterBuild</a>
@@ -208,24 +208,24 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="matched"></a>
+                    <a name="withRole"></a>
                     <span class="name">
-                        <span ><b>matched</b></span>
-                        <a href="#matched"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>withRole</b></span>
+                        <a href="#withRole"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>matched(matchedBy: <a href="../undefineds/MatchCreator.html" target="_self">MatchCreator</a>, user: <a href="../interfaces/User.html" target="_self">User</a>)</code>
+<code>withRole(name: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="10"
-                            class="link-to-prism">apps/server/src/shared/testing/factory/import-user.factory.ts:10</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="8"
+                            class="link-to-prism">apps/server/src/shared/testing/factory/user.factory.ts:8</a></div>
                 </td>
             </tr>
 
@@ -246,21 +246,9 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>matchedBy</td>
+                                    <td>name</td>
                                     <td>
-                                                <code><a href="../miscellaneous/enumerations.html#MatchCreator" target="_self" >MatchCreator</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>user</td>
-                                    <td>
-                                                <code><a href="../interfaces/User.html" target="_self" >User</a></code>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
                                     </td>
 
                                     <td>
@@ -1198,34 +1186,26 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { v4 as uuidv4 } from &#x27;uuid&#x27;;
-
-import { ImportUser, IImportUserProperties, RoleName, MatchCreator, User } from &#x27;@shared/domain&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { User, IUserProperties } from &#x27;@shared/domain&#x27;;
 import { DeepPartial } from &#x27;fishery&#x27;;
 import { schoolFactory } from &#x27;./school.factory&#x27;;
-import { systemFactory } from &#x27;./system.factory&#x27;;
 import { BaseFactory } from &#x27;./base.factory&#x27;;
+import { roleFactory } from &#x27;./role.factory&#x27;;
 
-class ImportUserFactory extends BaseFactory&lt;ImportUser, IImportUserProperties&gt; {
-	matched(matchedBy: MatchCreator, user: User): this {
-		const params: DeepPartial&lt;IImportUserProperties&gt; &#x3D; { matchedBy, user };
+class UserFactory extends BaseFactory&lt;User, IUserProperties&gt; {
+	withRole(name: string): this {
+		const params: DeepPartial&lt;IUserProperties&gt; &#x3D; { roles: roleFactory.buildList(1, { name }) };
 		return this.params(params);
 	}
 }
 
-export const importUserFactory &#x3D; ImportUserFactory.define(ImportUser, ({ sequence }) &#x3D;&gt; {
+export const userFactory &#x3D; UserFactory.define(User, ({ sequence }) &#x3D;&gt; {
 	return {
-		school: schoolFactory.build(),
-		system: systemFactory.build(),
-		ldapDn: &#x60;uid&#x3D;john${sequence},cn&#x3D;schueler,cn&#x3D;users,ou&#x3D;1,dc&#x3D;training,dc&#x3D;ucs&#x60;,
-		// eslint-disable-next-line @typescript-eslint/no-unsafe-call
-		ldapId: uuidv4() as unknown as string,
-		firstName: &#x60;John${sequence}&#x60;,
-		lastName: &#x60;Doe${sequence}&#x60;,
+		firstName: &#x27;John&#x27;,
+		lastName: &#x60;Doe ${sequence}&#x60;,
 		email: &#x60;user-${sequence}@example.com&#x60;,
-		roleNames: [RoleName.STUDENT],
-		classNames: [&#x27;firstClass&#x27;],
-		flagged: false,
+		roles: [],
+		school: schoolFactory.build(),
 	};
 });
 </code></pre>
@@ -1265,7 +1245,7 @@ export const importUserFactory &#x3D; ImportUserFactory.define(ImportUser, ({ se
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
-            var COMPODOC_CURRENT_PAGE_URL = 'ImportUserFactory.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'UserFactory.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

@@ -904,6 +904,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/UserAlreadyAssignedToImportUserError.html" data-type="entity-link" >UserAlreadyAssignedToImportUserError</a>
                             </li>
                             <li class="link">
+                                <a href="classes/UserFactory.html" data-type="entity-link" >UserFactory</a>
+                            </li>
+                            <li class="link">
                                 <a href="classes/UserFilterQuery.html" data-type="entity-link" >UserFilterQuery</a>
                             </li>
                             <li class="link">

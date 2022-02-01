@@ -733,7 +733,7 @@ export class UserImportUc {
 		const permissions &#x3D; [UserImportPermissions.SCHOOL_IMPORT_USERS_UPDATE];
 		this.permissionService.checkUserHasAllSchoolPermissions(currentUser, permissions);
 
-		const userMatch &#x3D; await this.userRepo.findById(userMatchId);
+		const userMatch &#x3D; await this.userRepo.findById(userMatchId, true);
 		const importUser &#x3D; await this.importUserRepo.findById(importUserId);
 
 		// check same school
