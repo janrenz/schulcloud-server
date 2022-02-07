@@ -91,6 +91,14 @@
                                     <span class="modifier">Async</span>
                                 <a href="#findAllFinished" >findAllFinished</a>
                             </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#finish" >finish</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#restore" >restore</a>
+                            </li>
                         </ul>
                     </td>
                 </tr>
@@ -137,8 +145,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="19"
-                            class="link-to-prism">apps/server/src/modules/task/controller/task.controller.ts:19</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="20"
+                            class="link-to-prism">apps/server/src/modules/task/controller/task.controller.ts:20</a></div>
                 </td>
             </tr>
 
@@ -227,8 +235,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="33"
-                            class="link-to-prism">apps/server/src/modules/task/controller/task.controller.ts:33</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="34"
+                            class="link-to-prism">apps/server/src/modules/task/controller/task.controller.ts:34</a></div>
                 </td>
             </tr>
 
@@ -288,6 +296,186 @@
             </tr>
         </tbody>
     </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="finish"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>finish</b></span>
+                        <a href="#finish"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>finish(taskId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Patch(&#x27;:id/finish&#x27;)<br /></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="50"
+                            class="link-to-prism">apps/server/src/modules/task/controller/task.controller.ts:50</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>taskId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>currentUser</td>
+                                    <td>
+                                                <code><a href="../interfaces/ICurrentUser.html" target="_self" >ICurrentUser</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../entitys/Task.html" target="_self" >Promise&lt;TaskResponse&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="restore"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>restore</b></span>
+                        <a href="#restore"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>restore(taskId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Patch(&#x27;:id/restore&#x27;)<br /></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="62"
+                            class="link-to-prism">apps/server/src/modules/task/controller/task.controller.ts:62</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>taskId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>currentUser</td>
+                                    <td>
+                                                <code><a href="../interfaces/ICurrentUser.html" target="_self" >ICurrentUser</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../entitys/Task.html" target="_self" >Promise&lt;TaskResponse&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </section>    </div>
 
 
@@ -296,11 +484,12 @@
 
 import { ICurrentUser } from &#x27;@shared/domain&#x27;;
 import { PaginationQuery } from &#x27;@shared/controller/&#x27;;
-import { Controller, Get, Query } from &#x27;@nestjs/common&#x27;;
+import { Controller, Get, Param, Patch, Query } from &#x27;@nestjs/common&#x27;;
 import { Authenticate, CurrentUser } from &#x27;@src/modules/authentication/decorator/auth.decorator&#x27;;
 
+import { ParseObjectIdPipe } from &#x27;@shared/controller/pipe&#x27;;
 import { TaskUC } from &#x27;../uc/task.uc&#x27;;
-import { TaskListResponse } from &#x27;./dto&#x27;;
+import { TaskListResponse, TaskResponse } from &#x27;./dto&#x27;;
 import { TaskMapper } from &#x27;../mapper/task.mapper&#x27;;
 
 @ApiTags(&#x27;Task&#x27;)
@@ -337,6 +526,30 @@ export class TaskController {
 		const { skip, limit } &#x3D; paginationQuery;
 		const result &#x3D; new TaskListResponse(taskresponses, total, skip, limit);
 		return result;
+	}
+
+	@Patch(&#x27;:id/finish&#x27;)
+	async finish(
+		@Param(&#x27;id&#x27;, ParseObjectIdPipe) taskId: string,
+		@CurrentUser() currentUser: ICurrentUser
+	): Promise&lt;TaskResponse&gt; {
+		const task &#x3D; await this.taskUc.changeFinishedForUser(currentUser.userId, taskId, true);
+
+		const response &#x3D; TaskMapper.mapToResponse(task);
+
+		return response;
+	}
+
+	@Patch(&#x27;:id/restore&#x27;)
+	async restore(
+		@Param(&#x27;id&#x27;, ParseObjectIdPipe) taskId: string,
+		@CurrentUser() currentUser: ICurrentUser
+	): Promise&lt;TaskResponse&gt; {
+		const task &#x3D; await this.taskUc.changeFinishedForUser(currentUser.userId, taskId, false);
+
+		const response &#x3D; TaskMapper.mapToResponse(task);
+
+		return response;
 	}
 }
 </code></pre>
