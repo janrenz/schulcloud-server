@@ -194,13 +194,13 @@ import { TaskStatusMapper } from &#x27;./task-status.mapper&#x27;;
 export class TaskMapper {
 	static mapToResponse(taskWithStatus: TaskWithStatusVo): TaskResponse {
 		const { task, status } &#x3D; taskWithStatus;
-		const taskDesc &#x3D; task.getDescriptions();
+		const taskDesc &#x3D; task.getParentData();
 		const statusDto &#x3D; TaskStatusMapper.mapToResponse(status);
 
 		const dto &#x3D; new TaskResponse({
 			id: task.id,
 			name: task.name,
-			courseName: taskDesc.name,
+			courseName: taskDesc.courseName,
 			createdAt: task.createdAt,
 			updatedAt: task.updatedAt,
 			status: statusDto,
@@ -210,7 +210,7 @@ export class TaskMapper {
 		dto.duedate &#x3D; task.dueDate;
 
 		dto.displayColor &#x3D; taskDesc.color;
-		dto.description &#x3D; taskDesc.description;
+		dto.description &#x3D; taskDesc.lessonName;
 
 		return dto;
 	}

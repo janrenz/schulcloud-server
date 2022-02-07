@@ -344,6 +344,7 @@ import type { User } from &#x27;./user.entity&#x27;;
 
 export interface ITaskProperties {
 	name: string;
+	description?: string;
 	availableDate?: Date;
 	dueDate?: Date;
 	private?: boolean;
@@ -374,13 +375,16 @@ export class TaskWithStatusVo {
 	}
 }
 
-export type TaskParentDescriptions &#x3D; { name: string; description: string; color: string };
+export type TaskParentDescriptions &#x3D; { courseName: string; lessonName: string; color: string };
 
 @Entity({ tableName: &#x27;homeworks&#x27; })
 @Index({ name: &#x27;findAllByParentIds_findAllForStudent&#x27;, properties: [&#x27;private&#x27;, &#x27;dueDate&#x27;, &#x27;finished&#x27;] })
 export class Task extends BaseEntityWithTimestamps {
 	@Property()
 	name: string;
+
+	@Property()
+	description: string;
 
 	@Property()
 	availableDate?: Date;
@@ -411,6 +415,7 @@ export class Task extends BaseEntityWithTimestamps {
 	constructor(props: ITaskProperties) {
 		super();
 		this.name &#x3D; props.name;
+		this.description &#x3D; props.description || &#x27;&#x27;;
 		this.availableDate &#x3D; props.availableDate;
 		this.dueDate &#x3D; props.dueDate;
 		if (props.private !&#x3D;&#x3D; undefined) this.private &#x3D; props.private;
@@ -537,18 +542,18 @@ export class Task extends BaseEntityWithTimestamps {
 	}
 
 	// TODO: based on the parent relationship
-	getDescriptions(): TaskParentDescriptions {
+	getParentData(): TaskParentDescriptions {
 		let descriptions: TaskParentDescriptions;
 		if (this.course) {
 			descriptions &#x3D; {
-				name: this.course.name,
-				description: this.lesson ? this.lesson.name : &#x27;&#x27;,
+				courseName: this.course.name,
+				lessonName: this.lesson ? this.lesson.name : &#x27;&#x27;,
 				color: this.course.color,
 			};
 		} else {
 			descriptions &#x3D; {
-				name: &#x27;&#x27;,
-				description: &#x27;&#x27;,
+				courseName: &#x27;&#x27;,
+				lessonName: &#x27;&#x27;,
 				color: &#x27;#ACACAC&#x27;,
 			};
 		}
