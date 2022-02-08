@@ -191,8 +191,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="101"
-                            class="link-to-prism">apps/server/src/shared/repo/task/task.repo.ts:101</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="104"
+                            class="link-to-prism">apps/server/src/shared/repo/task/task.repo.ts:104</a></div>
                 </td>
             </tr>
 
@@ -460,8 +460,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="159"
-                            class="link-to-prism">apps/server/src/shared/repo/task/task.repo.ts:159</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="162"
+                            class="link-to-prism">apps/server/src/shared/repo/task/task.repo.ts:162</a></div>
                 </td>
             </tr>
 
@@ -568,8 +568,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="185"
-                            class="link-to-prism">apps/server/src/shared/repo/task/task.repo.ts:185</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="188"
+                            class="link-to-prism">apps/server/src/shared/repo/task/task.repo.ts:188</a></div>
                 </td>
             </tr>
 
@@ -782,7 +782,10 @@ export class TaskRepo {
 		scope.addQuery(allForFinishedCoursesAndLessons.query);
 		scope.addQuery(allForCreator.query);
 
-		const order &#x3D; { dueDate: SortOrder.desc };
+		// The dueDate can be similar to solve pagination request missmatches we must sort it over id too.
+		// Because after executing limit() in mongoDB it is resort by similar dueDates.
+		// It exist indexes for dueDate and for _id but no combined index, because it is to expensive for only small performance boost.
+		const order &#x3D; { dueDate: SortOrder.desc, id: SortOrder.asc };
 
 		const [tasks, count] &#x3D; await this.em.findAndCount(Task, scope.query, {
 			offset: pagination?.skip,
