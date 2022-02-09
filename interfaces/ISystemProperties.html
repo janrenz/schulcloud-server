@@ -84,10 +84,15 @@
                         <td class="col-md-4">
                             <ul class="index-list">
                                 <li>
-                                            <span class="modifier">Optional</span>
                                         <a href="#alias" 
 >
                                             alias
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#oauthConfig" 
+>
+                                            oauthConfig
                                         </a>
                                 </li>
                                 <li>
@@ -97,7 +102,6 @@
                                         </a>
                                 </li>
                                 <li>
-                                            <span class="modifier">Optional</span>
                                         <a href="#url" 
 >
                                             url
@@ -141,11 +145,39 @@
                                         </td>
                                     </tr>
 
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="oauthConfig"></a>
+                                        <span class="name "><b>oauthConfig</b>
+                                            <a href="#oauthConfig">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>oauthConfig:         <code><a href="../classes/OauthConfig.html" target="_self" >OauthConfig</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
                                     <tr>
                                         <td class="col-md-4">
-                                            <i>Optional</i>
+                                            <i>Type : </i>        <code><a href="../classes/OauthConfig.html" target="_self" >OauthConfig</a></code>
+
                                         </td>
                                     </tr>
+
 
 
 
@@ -212,11 +244,6 @@
                                         </td>
                                     </tr>
 
-                                    <tr>
-                                        <td class="col-md-4">
-                                            <i>Optional</i>
-                                        </td>
-                                    </tr>
 
 
 
@@ -233,17 +260,55 @@ import { BaseEntityWithTimestamps } from &#x27;./base.entity&#x27;;
 
 export interface ISystemProperties {
 	type: string;
-	url?: string;
-	alias?: string;
+	url: string;
+	alias: string;
+	oauthConfig: OauthConfig;
 }
 
+export class OauthConfig {
+	constructor(system: System) {
+		this.clientId &#x3D; system.oauthConfig.clientId;
+		this.clientSecret &#x3D; system.oauthConfig.clientSecret;
+		this.tokenEndpoint &#x3D; system.oauthConfig.tokenEndpoint;
+		this.grantType &#x3D; system.oauthConfig.grantType;
+		this.tokenRedirectUri &#x3D; system.oauthConfig.tokenRedirectUri;
+		this.scope &#x3D; system.oauthConfig.scope;
+		this.responseType &#x3D; system.oauthConfig.responseType;
+		this.authEndpoint &#x3D; system.oauthConfig.authEndpoint;
+	}
+
+	@Property()
+	clientId: string;
+
+	@Property()
+	clientSecret: string;
+
+	@Property()
+	tokenRedirectUri: string;
+
+	@Property()
+	grantType: string;
+
+	@Property()
+	tokenEndpoint: string;
+
+	@Property()
+	authEndpoint: string;
+
+	@Property()
+	responseType: string;
+
+	@Property()
+	scope: string;
+}
 @Entity({ tableName: &#x27;systems&#x27; })
 export class System extends BaseEntityWithTimestamps {
 	constructor(props: ISystemProperties) {
 		super();
 		this.type &#x3D; props.type;
-		if (props.url !&#x3D; null) this.url &#x3D; props.url;
-		if (props.alias !&#x3D; null) this.alias &#x3D; props.alias;
+		this.url &#x3D; props.url;
+		this.alias &#x3D; props.alias;
+		this.oauthConfig &#x3D; props.oauthConfig;
 	}
 
 	@Property({})
@@ -254,6 +319,9 @@ export class System extends BaseEntityWithTimestamps {
 
 	@Property()
 	alias?: string;
+
+	@Property()
+	oauthConfig!: OauthConfig;
 }
 </code></pre>
     </div>

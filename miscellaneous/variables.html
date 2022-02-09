@@ -150,6 +150,9 @@
                             <a href="#jwtConstants" title="apps/server/src/modules/authentication/constants.ts" ><b>jwtConstants</b>&nbsp;&nbsp;&nbsp;(apps/.../constants.ts)</a>
                         </li>
                         <li>
+                            <a href="#key" title="apps/server/src/modules/oauth/oauth.module.ts" ><b>key</b>&nbsp;&nbsp;&nbsp;(apps/.../oauth.module.ts)</a>
+                        </li>
+                        <li>
                             <a href="#lessonFactory" title="apps/server/src/shared/testing/factory/lesson.factory.ts" ><b>lessonFactory</b>&nbsp;&nbsp;&nbsp;(apps/.../lesson.factory.ts)</a>
                         </li>
                         <li>
@@ -1282,6 +1285,7 @@ must use @ApiProperty</p>
                         <i>Default value : </i><code>[
 	CoreModule,
 	AuthModule,
+	OauthModule,
 	TaskModule,
 	NewsModule,
 	UserModule,
@@ -1538,6 +1542,29 @@ it should ensure an empty result</p>
                 <tr>
                     <td class="col-md-4">
                         <i>Default value : </i><code>externalAuthConfig</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>apps/server/src/modules/oauth/oauth.module.ts</h3>
+    <section>
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="key"></a>
+                    <span class="name">
+                        <span ><b>key</b></span>
+                        <a href="#key"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>Configuration.get(&#x27;LDAP_PASSWORD_ENCRYPTION_KEY&#x27;) as string</code>
                     </td>
                 </tr>
 
@@ -1939,7 +1966,19 @@ Teardown: &#39;await orm.close()&#39; in after-hook!</p>
                     <td class="col-md-4">
                         <i>Default value : </i><code>BaseFactory.define&lt;System, ISystemProperties&gt;(System, ({ sequence }) &#x3D;&gt; {
 	return {
-		type: &#x27;ldap&#x27;,
+		type: &#x27;iserv&#x27;,
+		url: &#x27;http://mock.de&#x27;,
+		alias: &#x60;system #${sequence}&#x60;,
+		oauthConfig: {
+			clientId: &#x27;12345&#x27;,
+			clientSecret: &#x27;mocksecret&#x27;,
+			tokenEndpoint: &#x27;http://mock.de/mock/auth/public/mockToken&#x27;,
+			grantType: &#x27;authorization_code&#x27;,
+			tokenRedirectUri: &#x27;http://mockhost:3030/api/v3/oauth/testsystemId/token&#x27;,
+			scope: &#x27;openid uuid&#x27;,
+			responseType: &#x27;code&#x27;,
+			authEndpoint: &#x27;mock_authEndpoint&#x27;,
+		},
 	};
 })</code>
                     </td>
