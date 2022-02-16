@@ -184,7 +184,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../interfaces/Board.html" target="_self" >Promise&lt;BoardResponse&gt;</a></code>
+                        <b>Returns : </b>        <code><a href="../classes/BoardResponse.html" target="_self" >Promise&lt;BoardResponse&gt;</a></code>
 
                     </div>
                     <div class="io-description">
@@ -204,14 +204,14 @@ import { ApiTags } from &#x27;@nestjs/swagger&#x27;;
 import { Authenticate, CurrentUser } from &#x27;@src/modules/authentication/decorator/auth.decorator&#x27;;
 import { ICurrentUser } from &#x27;@shared/domain&#x27;;
 import { RoomsUc } from &#x27;../uc/rooms.uc&#x27;;
-import { BoardMapper } from &#x27;../mapper/board.mapper&#x27;;
+import { RoomBoardResponseMapper } from &#x27;../mapper/room-board-response.mapper&#x27;;
 import { BoardResponse } from &#x27;./dto/roomBoardResponse&#x27;;
 
 @ApiTags(&#x27;Rooms&#x27;)
 @Authenticate(&#x27;jwt&#x27;)
 @Controller(&#x27;rooms&#x27;)
 export class RoomsController {
-	constructor(private readonly roomsUc: RoomsUc, private readonly mapper: BoardMapper) {}
+	constructor(private readonly roomsUc: RoomsUc, private readonly mapper: RoomBoardResponseMapper) {}
 
 	@Get(&#x27;:id/board&#x27;)
 	async getRoomBoard(

@@ -63,7 +63,13 @@
                             <a href="#BaseEntityReference" title="apps/server/src/shared/domain/entity/base.entity.ts" ><b>BaseEntityReference</b>&nbsp;&nbsp;&nbsp;(apps/.../base.entity.ts)</a>
                         </li>
                         <li>
-                            <a href="#BoardElement" title="apps/server/src/modules/learnroom/uc/rooms.uc.ts" ><b>BoardElement</b>&nbsp;&nbsp;&nbsp;(apps/.../rooms.uc.ts)</a>
+                            <a href="#BoardElementProps" title="apps/server/src/shared/domain/entity/boardelement.entity.ts" ><b>BoardElementProps</b>&nbsp;&nbsp;&nbsp;(apps/.../boardelement.entity.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#BoardElementReference" title="apps/server/src/shared/domain/entity/boardelement.entity.ts" ><b>BoardElementReference</b>&nbsp;&nbsp;&nbsp;(apps/.../boardelement.entity.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#BoardProps" title="apps/server/src/shared/domain/entity/board.entity.ts" ><b>BoardProps</b>&nbsp;&nbsp;&nbsp;(apps/.../board.entity.ts)</a>
                         </li>
                         <li>
                             <a href="#ConnectionOptions" title="apps/server/src/shared/infra/database/mongo-memory-database/types.ts" ><b>ConnectionOptions</b>&nbsp;&nbsp;&nbsp;(apps/.../types.ts)</a>
@@ -126,6 +132,12 @@
                             <a href="#Role" title="apps/server/src/modules/user/controller/dto/ResolvedUser.dto.ts" ><b>Role</b>&nbsp;&nbsp;&nbsp;(apps/.../ResolvedUser.dto.ts)</a>
                         </li>
                         <li>
+                            <a href="#RoomBoardDTO" title="apps/server/src/modules/learnroom/types/room-board.types.ts" ><b>RoomBoardDTO</b>&nbsp;&nbsp;&nbsp;(apps/.../room-board.types.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#RoomBoardElementDTO" title="apps/server/src/modules/learnroom/types/room-board.types.ts" ><b>RoomBoardElementDTO</b>&nbsp;&nbsp;&nbsp;(apps/.../room-board.types.ts)</a>
+                        </li>
+                        <li>
                             <a href="#ScopeOperator" title="apps/server/src/shared/repo/scope.ts" ><b>ScopeOperator</b>&nbsp;&nbsp;&nbsp;(apps/.../scope.ts)</a>
                         </li>
                         <li>
@@ -174,14 +186,48 @@
             </tr>
         </tbody>
     </table>
-</section>    <h3>apps/server/src/modules/learnroom/uc/rooms.uc.ts</h3>
+</section>    <h3>apps/server/src/shared/domain/entity/boardelement.entity.ts</h3>
     <section>
     <table class="table table-sm table-bordered">
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="BoardElement"></a>
-                    <span class="name "><b>BoardElement</b><a href="#BoardElement"><span class="icon ion-ios-link"></span></a></span>
+                    <a name="BoardElementProps"></a>
+                    <span class="name "><b>BoardElementProps</b><a href="#BoardElementProps"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>literal type</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="BoardElementReference"></a>
+                    <span class="name "><b>BoardElementReference</b><a href="#BoardElementReference"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>        <code><a href="../classes/Task.html" target="_self" >Task | Lesson</a></code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>apps/server/src/shared/domain/entity/board.entity.ts</h3>
+    <section>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="BoardProps"></a>
+                    <span class="name "><b>BoardProps</b><a href="#BoardProps"><span class="icon ion-ios-link"></span></a></span>
                 </td>
             </tr>
             <tr>
@@ -573,6 +619,40 @@
             <tr>
                 <td class="col-md-4">
                     <code>        <code><a href="../interfaces/IRole.html" target="_self" >IRole</a></code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>apps/server/src/modules/learnroom/types/room-board.types.ts</h3>
+    <section>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="RoomBoardDTO"></a>
+                    <span class="name "><b>RoomBoardDTO</b><a href="#RoomBoardDTO"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>literal type</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="RoomBoardElementDTO"></a>
+                    <span class="name "><b>RoomBoardElementDTO</b><a href="#RoomBoardElementDTO"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>literal type</code>
 </code>
                 </td>
             </tr>
