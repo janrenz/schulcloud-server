@@ -109,13 +109,19 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/AuthModule.html" data-type="entity-link" >AuthModule</a>
                                 <li class="chapter inner">
                                     <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                        'data-target="#injectables-links-module-AuthModule-3323dc002f52c6171241ea24d8444ef5d9d24fcebe6dfaf169bba1bf8d301cac7d675e8de6e150cd784d43baa84bc1951666f4ccdd3a842dbe4e999fe35970a5"' : 'data-target="#xs-injectables-links-module-AuthModule-3323dc002f52c6171241ea24d8444ef5d9d24fcebe6dfaf169bba1bf8d301cac7d675e8de6e150cd784d43baa84bc1951666f4ccdd3a842dbe4e999fe35970a5"' }>
+                                        'data-target="#injectables-links-module-AuthModule-9dae5b29a33ae4ceec56ac2fa82d4d64f9c370b56573d8042a6f20592a39576b40c53125233543a7fc0b5db84dea920531cadc7c61e461a5960591774268bbc5"' : 'data-target="#xs-injectables-links-module-AuthModule-9dae5b29a33ae4ceec56ac2fa82d4d64f9c370b56573d8042a6f20592a39576b40c53125233543a7fc0b5db84dea920531cadc7c61e461a5960591774268bbc5"' }>
                                         <span class="icon ion-md-arrow-round-down"></span>
                                         <span>Injectables</span>
                                         <span class="icon ion-ios-arrow-down"></span>
                                     </div>
-                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-AuthModule-3323dc002f52c6171241ea24d8444ef5d9d24fcebe6dfaf169bba1bf8d301cac7d675e8de6e150cd784d43baa84bc1951666f4ccdd3a842dbe4e999fe35970a5"' :
-                                        'id="xs-injectables-links-module-AuthModule-3323dc002f52c6171241ea24d8444ef5d9d24fcebe6dfaf169bba1bf8d301cac7d675e8de6e150cd784d43baa84bc1951666f4ccdd3a842dbe4e999fe35970a5"' }>
+                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-AuthModule-9dae5b29a33ae4ceec56ac2fa82d4d64f9c370b56573d8042a6f20592a39576b40c53125233543a7fc0b5db84dea920531cadc7c61e461a5960591774268bbc5"' :
+                                        'id="xs-injectables-links-module-AuthModule-9dae5b29a33ae4ceec56ac2fa82d4d64f9c370b56573d8042a6f20592a39576b40c53125233543a7fc0b5db84dea920531cadc7c61e461a5960591774268bbc5"' }>
+                                        <li class="link">
+                                            <a href="injectables/AccountRepo.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >AccountRepo</a>
+                                        </li>
+                                        <li class="link">
+                                            <a href="injectables/AccountUc.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >AccountUc</a>
+                                        </li>
                                         <li class="link">
                                             <a href="injectables/JwtStrategy.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >JwtStrategy</a>
                                         </li>
@@ -643,6 +649,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </div>
                             <ul class="links collapse " ${ isNormalMode ? 'id="entities-links"' : 'id="xs-entities-links"' }>
                                 <li class="link">
+                                    <a href="entities/Account.html" data-type="entity-link" >Account</a>
+                                </li>
+                                <li class="link">
                                     <a href="entities/BaseEntity.html" data-type="entity-link" >BaseEntity</a>
                                 </li>
                                 <li class="link">
@@ -813,6 +822,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="classes/EncryptedStringType.html" data-type="entity-link" >EncryptedStringType</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/EntityNotFoundError.html" data-type="entity-link" >EntityNotFoundError</a>
                             </li>
                             <li class="link">
                                 <a href="classes/ErrorResponse.html" data-type="entity-link" >ErrorResponse</a>
@@ -1028,6 +1040,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <span class="icon ion-ios-arrow-down"></span>
                             </div>
                             <ul class="links collapse " ${ isNormalMode ? 'id="injectables-links"' : 'id="xs-injectables-links"' }>
+                                <li class="link">
+                                    <a href="injectables/AccountRepo.html" data-type="entity-link" >AccountRepo</a>
+                                </li>
                                 <li class="link">
                                     <a href="injectables/BaseRepo.html" data-type="entity-link" >BaseRepo</a>
                                 </li>
