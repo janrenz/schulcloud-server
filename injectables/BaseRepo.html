@@ -62,6 +62,13 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>This repo is deprecated do not use it for new repos.</p>
+
+            </p>
 
 
 
@@ -133,7 +140,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="6" class="link-to-prism">apps/server/src/shared/repo/base.repo.ts:6</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">apps/server/src/shared/repo/base.repo.ts:9</a></div>
                             </td>
                         </tr>
 
@@ -198,8 +205,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="53"
-                            class="link-to-prism">apps/server/src/shared/repo/base.repo.ts:53</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="56"
+                            class="link-to-prism">apps/server/src/shared/repo/base.repo.ts:56</a></div>
                 </td>
             </tr>
 
@@ -235,8 +242,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="9"
-                            class="link-to-prism">apps/server/src/shared/repo/base.repo.ts:9</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="12"
+                            class="link-to-prism">apps/server/src/shared/repo/base.repo.ts:12</a></div>
                 </td>
             </tr>
 
@@ -304,8 +311,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="19"
-                            class="link-to-prism">apps/server/src/shared/repo/base.repo.ts:19</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="22"
+                            class="link-to-prism">apps/server/src/shared/repo/base.repo.ts:22</a></div>
                 </td>
             </tr>
 
@@ -375,8 +382,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="27"
-                            class="link-to-prism">apps/server/src/shared/repo/base.repo.ts:27</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="30"
+                            class="link-to-prism">apps/server/src/shared/repo/base.repo.ts:30</a></div>
                 </td>
             </tr>
 
@@ -446,8 +453,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="14"
-                            class="link-to-prism">apps/server/src/shared/repo/base.repo.ts:14</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="17"
+                            class="link-to-prism">apps/server/src/shared/repo/base.repo.ts:17</a></div>
                 </td>
             </tr>
 
@@ -515,8 +522,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="36"
-                            class="link-to-prism">apps/server/src/shared/repo/base.repo.ts:36</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="39"
+                            class="link-to-prism">apps/server/src/shared/repo/base.repo.ts:39</a></div>
                 </td>
             </tr>
 
@@ -584,8 +591,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="44"
-                            class="link-to-prism">apps/server/src/shared/repo/base.repo.ts:44</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="47"
+                            class="link-to-prism">apps/server/src/shared/repo/base.repo.ts:47</a></div>
                 </td>
             </tr>
 
@@ -655,8 +662,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="48"
-                            class="link-to-prism">apps/server/src/shared/repo/base.repo.ts:48</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="51"
+                            class="link-to-prism">apps/server/src/shared/repo/base.repo.ts:51</a></div>
                 </td>
             </tr>
 
@@ -726,8 +733,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="40"
-                            class="link-to-prism">apps/server/src/shared/repo/base.repo.ts:40</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="43"
+                            class="link-to-prism">apps/server/src/shared/repo/base.repo.ts:43</a></div>
                 </td>
             </tr>
 
@@ -785,6 +792,9 @@
 import { BaseEntity } from &#x27;@shared/domain&#x27;;
 import { EntityManager } from &#x27;@mikro-orm/mongodb&#x27;;
 
+/**
+ * This repo is deprecated do not use it for new repos.
+ */
 @Injectable()
 export class BaseRepo&lt;T extends BaseEntity&gt; {
 	constructor(protected readonly em: EntityManager) {}

@@ -230,6 +230,80 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 </li>
                             </li>
                             <li class="link">
+                                <a href="modules/FilesStorageModule.html" data-type="entity-link" >FilesStorageModule</a>
+                                    <li class="chapter inner">
+                                        <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
+                                            'data-target="#controllers-links-module-FilesStorageModule-9cd57311a19172fd4745f62f7e48b9acd46de38b3301dacb335c0c453dd489710d28d566ef2f15949c2833904f91d9f3ab352743b1515f344265dce814a37239"' : 'data-target="#xs-controllers-links-module-FilesStorageModule-9cd57311a19172fd4745f62f7e48b9acd46de38b3301dacb335c0c453dd489710d28d566ef2f15949c2833904f91d9f3ab352743b1515f344265dce814a37239"' }>
+                                            <span class="icon ion-md-swap"></span>
+                                            <span>Controllers</span>
+                                            <span class="icon ion-ios-arrow-down"></span>
+                                        </div>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="controllers-links-module-FilesStorageModule-9cd57311a19172fd4745f62f7e48b9acd46de38b3301dacb335c0c453dd489710d28d566ef2f15949c2833904f91d9f3ab352743b1515f344265dce814a37239"' :
+                                            'id="xs-controllers-links-module-FilesStorageModule-9cd57311a19172fd4745f62f7e48b9acd46de38b3301dacb335c0c453dd489710d28d566ef2f15949c2833904f91d9f3ab352743b1515f344265dce814a37239"' }>
+                                            <li class="link">
+                                                <a href="controllers/FilesStorageController.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >FilesStorageController</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                <li class="chapter inner">
+                                    <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
+                                        'data-target="#injectables-links-module-FilesStorageModule-9cd57311a19172fd4745f62f7e48b9acd46de38b3301dacb335c0c453dd489710d28d566ef2f15949c2833904f91d9f3ab352743b1515f344265dce814a37239"' : 'data-target="#xs-injectables-links-module-FilesStorageModule-9cd57311a19172fd4745f62f7e48b9acd46de38b3301dacb335c0c453dd489710d28d566ef2f15949c2833904f91d9f3ab352743b1515f344265dce814a37239"' }>
+                                        <span class="icon ion-md-arrow-round-down"></span>
+                                        <span>Injectables</span>
+                                        <span class="icon ion-ios-arrow-down"></span>
+                                    </div>
+                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-FilesStorageModule-9cd57311a19172fd4745f62f7e48b9acd46de38b3301dacb335c0c453dd489710d28d566ef2f15949c2833904f91d9f3ab352743b1515f344265dce814a37239"' :
+                                        'id="xs-injectables-links-module-FilesStorageModule-9cd57311a19172fd4745f62f7e48b9acd46de38b3301dacb335c0c453dd489710d28d566ef2f15949c2833904f91d9f3ab352743b1515f344265dce814a37239"' }>
+                                        <li class="link">
+                                            <a href="injectables/FileRecordRepo.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >FileRecordRepo</a>
+                                        </li>
+                                        <li class="link">
+                                            <a href="injectables/FilesStorageUC.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >FilesStorageUC</a>
+                                        </li>
+                                        <li class="link">
+                                            <a href="injectables/S3ClientAdapter.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >S3ClientAdapter</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </li>
+                            <li class="link">
+                                <a href="modules/FilesStorageTestModule.html" data-type="entity-link" >FilesStorageTestModule</a>
+                                    <li class="chapter inner">
+                                        <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
+                                            'data-target="#controllers-links-module-FilesStorageTestModule-9cd57311a19172fd4745f62f7e48b9acd46de38b3301dacb335c0c453dd489710d28d566ef2f15949c2833904f91d9f3ab352743b1515f344265dce814a37239"' : 'data-target="#xs-controllers-links-module-FilesStorageTestModule-9cd57311a19172fd4745f62f7e48b9acd46de38b3301dacb335c0c453dd489710d28d566ef2f15949c2833904f91d9f3ab352743b1515f344265dce814a37239"' }>
+                                            <span class="icon ion-md-swap"></span>
+                                            <span>Controllers</span>
+                                            <span class="icon ion-ios-arrow-down"></span>
+                                        </div>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="controllers-links-module-FilesStorageTestModule-9cd57311a19172fd4745f62f7e48b9acd46de38b3301dacb335c0c453dd489710d28d566ef2f15949c2833904f91d9f3ab352743b1515f344265dce814a37239"' :
+                                            'id="xs-controllers-links-module-FilesStorageTestModule-9cd57311a19172fd4745f62f7e48b9acd46de38b3301dacb335c0c453dd489710d28d566ef2f15949c2833904f91d9f3ab352743b1515f344265dce814a37239"' }>
+                                            <li class="link">
+                                                <a href="controllers/FilesStorageController.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >FilesStorageController</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                <li class="chapter inner">
+                                    <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
+                                        'data-target="#injectables-links-module-FilesStorageTestModule-9cd57311a19172fd4745f62f7e48b9acd46de38b3301dacb335c0c453dd489710d28d566ef2f15949c2833904f91d9f3ab352743b1515f344265dce814a37239"' : 'data-target="#xs-injectables-links-module-FilesStorageTestModule-9cd57311a19172fd4745f62f7e48b9acd46de38b3301dacb335c0c453dd489710d28d566ef2f15949c2833904f91d9f3ab352743b1515f344265dce814a37239"' }>
+                                        <span class="icon ion-md-arrow-round-down"></span>
+                                        <span>Injectables</span>
+                                        <span class="icon ion-ios-arrow-down"></span>
+                                    </div>
+                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-FilesStorageTestModule-9cd57311a19172fd4745f62f7e48b9acd46de38b3301dacb335c0c453dd489710d28d566ef2f15949c2833904f91d9f3ab352743b1515f344265dce814a37239"' :
+                                        'id="xs-injectables-links-module-FilesStorageTestModule-9cd57311a19172fd4745f62f7e48b9acd46de38b3301dacb335c0c453dd489710d28d566ef2f15949c2833904f91d9f3ab352743b1515f344265dce814a37239"' }>
+                                        <li class="link">
+                                            <a href="injectables/FileRecordRepo.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >FileRecordRepo</a>
+                                        </li>
+                                        <li class="link">
+                                            <a href="injectables/FilesStorageUC.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >FilesStorageUC</a>
+                                        </li>
+                                        <li class="link">
+                                            <a href="injectables/S3ClientAdapter.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >S3ClientAdapter</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </li>
+                            <li class="link">
                                 <a href="modules/FileSystemModule.html" data-type="entity-link" >FileSystemModule</a>
                                 <li class="chapter inner">
                                     <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
@@ -688,6 +762,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                     <a href="entities/File.html" data-type="entity-link" >File</a>
                                 </li>
                                 <li class="link">
+                                    <a href="entities/FileRecord.html" data-type="entity-link" >FileRecord</a>
+                                </li>
+                                <li class="link">
                                     <a href="entities/ImportUser.html" data-type="entity-link" >ImportUser</a>
                                 </li>
                                 <li class="link">
@@ -818,6 +895,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/DeleteFilesConsole.html" data-type="entity-link" >DeleteFilesConsole</a>
                             </li>
                             <li class="link">
+                                <a href="classes/DownloadFileParams.html" data-type="entity-link" >DownloadFileParams</a>
+                            </li>
+                            <li class="link">
                                 <a href="classes/DtoCreator.html" data-type="entity-link" >DtoCreator</a>
                             </li>
                             <li class="link">
@@ -828,6 +908,21 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="classes/ErrorResponse.html" data-type="entity-link" >ErrorResponse</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/FileDto.html" data-type="entity-link" >FileDto</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/FileRecord.html" data-type="entity-link" >FileRecord</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/FileRecordResponse.html" data-type="entity-link" >FileRecordResponse</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/FileRecordScope.html" data-type="entity-link" >FileRecordScope</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/FileSecurityCheck.html" data-type="entity-link" >FileSecurityCheck</a>
                             </li>
                             <li class="link">
                                 <a href="classes/GlobalErrorFilter.html" data-type="entity-link" >GlobalErrorFilter</a>
@@ -1001,6 +1096,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/UpdateNewsParams.html" data-type="entity-link" >UpdateNewsParams</a>
                             </li>
                             <li class="link">
+                                <a href="classes/UploadFileParams.html" data-type="entity-link" >UploadFileParams</a>
+                            </li>
+                            <li class="link">
                                 <a href="classes/UserAlreadyAssignedToImportUserError.html" data-type="entity-link" >UserAlreadyAssignedToImportUserError</a>
                             </li>
                             <li class="link">
@@ -1071,7 +1169,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                     <a href="injectables/DurationLoggingInterceptor.html" data-type="entity-link" >DurationLoggingInterceptor</a>
                                 </li>
                                 <li class="link">
+                                    <a href="injectables/FileRecordRepo.html" data-type="entity-link" >FileRecordRepo</a>
+                                </li>
+                                <li class="link">
                                     <a href="injectables/FilesRepo.html" data-type="entity-link" >FilesRepo</a>
+                                </li>
+                                <li class="link">
+                                    <a href="injectables/FilesStorageUC.html" data-type="entity-link" >FilesStorageUC</a>
                                 </li>
                                 <li class="link">
                                     <a href="injectables/FileStorageAdapter.html" data-type="entity-link" >FileStorageAdapter</a>
@@ -1102,6 +1206,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 </li>
                                 <li class="link">
                                     <a href="injectables/RoleRepo.html" data-type="entity-link" >RoleRepo</a>
+                                </li>
+                                <li class="link">
+                                    <a href="injectables/S3ClientAdapter.html" data-type="entity-link" >S3ClientAdapter</a>
                                 </li>
                                 <li class="link">
                                     <a href="injectables/StorageProviderRepo.html" data-type="entity-link" >StorageProviderRepo</a>
@@ -1186,10 +1293,22 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="interfaces/IErrorType.html" data-type="entity-link" >IErrorType</a>
                             </li>
                             <li class="link">
+                                <a href="interfaces/IFile.html" data-type="entity-link" >IFile</a>
+                            </li>
+                            <li class="link">
                                 <a href="interfaces/IFileProperties.html" data-type="entity-link" >IFileProperties</a>
                             </li>
                             <li class="link">
+                                <a href="interfaces/IFileRecordProperties.html" data-type="entity-link" >IFileRecordProperties</a>
+                            </li>
+                            <li class="link">
+                                <a href="interfaces/IFileSecurityCheckProperties.html" data-type="entity-link" >IFileSecurityCheckProperties</a>
+                            </li>
+                            <li class="link">
                                 <a href="interfaces/IFindOptions.html" data-type="entity-link" >IFindOptions</a>
+                            </li>
+                            <li class="link">
+                                <a href="interfaces/IGetFileResponse.html" data-type="entity-link" >IGetFileResponse</a>
                             </li>
                             <li class="link">
                                 <a href="interfaces/IGridElement.html" data-type="entity-link" >IGridElement</a>
@@ -1238,6 +1357,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="interfaces/ISchoolProperties.html" data-type="entity-link" >ISchoolProperties</a>
+                            </li>
+                            <li class="link">
+                                <a href="interfaces/IStorageClient.html" data-type="entity-link" >IStorageClient</a>
                             </li>
                             <li class="link">
                                 <a href="interfaces/IStorageProviderProperties.html" data-type="entity-link" >IStorageProviderProperties</a>
@@ -1292,6 +1414,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="interfaces/RocketChatOptions.html" data-type="entity-link" >RocketChatOptions</a>
+                            </li>
+                            <li class="link">
+                                <a href="interfaces/S3Config.html" data-type="entity-link" >S3Config</a>
                             </li>
                             <li class="link">
                                 <a href="interfaces/User.html" data-type="entity-link" >User</a>
