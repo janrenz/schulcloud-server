@@ -126,7 +126,7 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @Property()<br />
+                            @ManyToOne(&#x27;User&#x27;)<br />
                         </code>
                     </td>
                 </tr>
@@ -236,7 +236,7 @@ export abstract class BaseFile extends BaseEntityWithTimestamps {
 	@Property()
 	isDirectory!: boolean;
 
-	@Property()
+	@ManyToOne(&#x27;User&#x27;)
 	creator?: User;
 }
 

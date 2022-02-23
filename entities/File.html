@@ -232,7 +232,7 @@ export abstract class BaseFile extends BaseEntityWithTimestamps {
 	@Property()
 	isDirectory!: boolean;
 
-	@Property()
+	@ManyToOne(&#x27;User&#x27;)
 	creator?: User;
 }
 
