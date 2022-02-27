@@ -97,6 +97,10 @@
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
+                                <a href="#saveAllUsersMatches" >saveAllUsersMatches</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
                                 <a href="#setMatch" >setMatch</a>
                             </li>
                             <li>
@@ -430,6 +434,84 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="saveAllUsersMatches"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>saveAllUsersMatches</b></span>
+                        <a href="#saveAllUsersMatches"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>saveAllUsersMatches(currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Post(&#x27;migrate&#x27;)<br /></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="90"
+                            class="link-to-prism">apps/server/src/modules/user-import/controller/import-user.controller.ts:90</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>currentUser</td>
+                                    <td>
+                                                <code><a href="../interfaces/ICurrentUser.html" target="_self" >ICurrentUser</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="setMatch"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
@@ -634,7 +716,7 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Body, Controller, Delete, Get, Param, Patch, Query } from &#x27;@nestjs/common&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Body, Controller, Delete, Get, Param, Patch, Post, Query } from &#x27;@nestjs/common&#x27;;
 import { ApiTags } from &#x27;@nestjs/swagger&#x27;;
 import { PaginationQuery, ParseObjectIdPipe } from &#x27;@shared/controller&#x27;;
 import { ICurrentUser, IFindOptions, ImportUser, User } from &#x27;@shared/domain&#x27;;
@@ -720,6 +802,11 @@ export class ImportUserController {
 		const dtoList &#x3D; userList.map((user) &#x3D;&gt; UserMatchMapper.mapToResponse(user));
 		const response &#x3D; new UserMatchListResponse(dtoList, total, skip, limit);
 		return response as unknown as UserMatchListResponse;
+	}
+
+	@Post(&#x27;migrate&#x27;)
+	async saveAllUsersMatches(@CurrentUser() currentUser: ICurrentUser): Promise&lt;void&gt; {
+		await this.userImportUc.saveAllUsersMatches(currentUser.userId);
 	}
 }
 </code></pre>

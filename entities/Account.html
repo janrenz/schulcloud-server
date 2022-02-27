@@ -459,7 +459,7 @@ import { User } from &#x27;./user.entity&#x27;;
 
 export type IAccountProperties &#x3D; Readonly&lt;Omit&lt;Account, keyof BaseEntityWithTimestamps&gt;&gt;;
 
-@Entity({ tableName: &#x27;account&#x27; })
+@Entity({ tableName: &#x27;accounts&#x27; })
 export class Account extends BaseEntityWithTimestamps {
 	@Property()
 	username!: string;

@@ -191,6 +191,7 @@ export interface ISchoolProperties {
 	name: string;
 	systems?: System[];
 }
+
 @Entity({ tableName: &#x27;schools&#x27; })
 export class School extends BaseEntity {
 	constructor(props: ISchoolProperties) {
@@ -208,8 +209,11 @@ export class School extends BaseEntity {
 	@ManyToMany(&#x27;System&#x27;, undefined, { fieldName: &#x27;systems&#x27; })
 	systems &#x3D; new Collection&lt;System&gt;(this);
 
+	@Property()
+	ldapSchoolIdentifier?: string;
+
 	/* @Property()
-	systems?: System[]; */
+    systems?: System[]; */
 }
 </code></pre>
     </div>

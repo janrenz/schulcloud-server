@@ -92,11 +92,20 @@
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
+                                <a href="#saveAllUsersMatches" >saveAllUsersMatches</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
                                 <a href="#setMatch" >setMatch</a>
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
                                 <a href="#updateFlag" >updateFlag</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#updateUserAndAccount" >updateUserAndAccount</a>
                             </li>
                         </ul>
                     </td>
@@ -116,12 +125,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(importUserRepo: <a href="../injectables/ImportUserRepo.html" target="_self">ImportUserRepo</a>, userRepo: <a href="../injectables/UserRepo.html" target="_self">UserRepo</a>, permissionService: <a href="../injectables/PermissionService.html" target="_self">PermissionService</a>)</code>
+<code>constructor(accountRepo: <a href="../injectables/AccountRepo.html" target="_self">AccountRepo</a>, importUserRepo: <a href="../injectables/ImportUserRepo.html" target="_self">ImportUserRepo</a>, permissionService: <a href="../injectables/PermissionService.html" target="_self">PermissionService</a>, schoolRepo: <a href="../injectables/SchoolRepo.html" target="_self">SchoolRepo</a>, userRepo: <a href="../injectables/UserRepo.html" target="_self">UserRepo</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">apps/server/src/modules/user-import/uc/user-import.uc.ts:19</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">apps/server/src/modules/user-import/uc/user-import.uc.ts:21</a></div>
                             </td>
                         </tr>
 
@@ -139,6 +148,18 @@
                                         </thead>
                                         <tbody>
                                                 <tr>
+                                                        <td>accountRepo</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AccountRepo.html" target="_self" >AccountRepo</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
                                                         <td>importUserRepo</td>
                                                   
                                                         <td>
@@ -151,10 +172,10 @@
                                                     
                                                 </tr>
                                                 <tr>
-                                                        <td>userRepo</td>
+                                                        <td>permissionService</td>
                                                   
                                                         <td>
-                                                                        <code><a href="../injectables/UserRepo.html" target="_self" >UserRepo</a></code>
+                                                                        <code><a href="../injectables/PermissionService.html" target="_self" >PermissionService</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -163,10 +184,22 @@
                                                     
                                                 </tr>
                                                 <tr>
-                                                        <td>permissionService</td>
+                                                        <td>schoolRepo</td>
                                                   
                                                         <td>
-                                                                        <code><a href="../injectables/PermissionService.html" target="_self" >PermissionService</a></code>
+                                                                        <code><a href="../injectables/SchoolRepo.html" target="_self" >SchoolRepo</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>userRepo</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/UserRepo.html" target="_self" >UserRepo</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -210,8 +243,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="33"
-                            class="link-to-prism">apps/server/src/modules/user-import/uc/user-import.uc.ts:33</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="37"
+                            class="link-to-prism">apps/server/src/modules/user-import/uc/user-import.uc.ts:37</a></div>
                 </td>
             </tr>
 
@@ -307,8 +340,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="125"
-                            class="link-to-prism">apps/server/src/modules/user-import/uc/user-import.uc.ts:125</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="129"
+                            class="link-to-prism">apps/server/src/modules/user-import/uc/user-import.uc.ts:129</a></div>
                 </td>
             </tr>
 
@@ -415,8 +448,8 @@ The current user must have permission to read schools users and view importusers
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="81"
-                            class="link-to-prism">apps/server/src/modules/user-import/uc/user-import.uc.ts:81</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="85"
+                            class="link-to-prism">apps/server/src/modules/user-import/uc/user-import.uc.ts:85</a></div>
                 </td>
             </tr>
 
@@ -480,6 +513,77 @@ The current user must have permission to read schools users and view importusers
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="saveAllUsersMatches"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>saveAllUsersMatches</b></span>
+                        <a href="#saveAllUsersMatches"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>saveAllUsersMatches(currentUserId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="143"
+                            class="link-to-prism">apps/server/src/modules/user-import/uc/user-import.uc.ts:143</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>currentUserId</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="setMatch"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
@@ -498,8 +602,8 @@ The current user must have permission to read schools users and view importusers
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="54"
-                            class="link-to-prism">apps/server/src/modules/user-import/uc/user-import.uc.ts:54</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="58"
+                            class="link-to-prism">apps/server/src/modules/user-import/uc/user-import.uc.ts:58</a></div>
                 </td>
             </tr>
 
@@ -596,8 +700,8 @@ The current user must have permission to read schools users and view importusers
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="98"
-                            class="link-to-prism">apps/server/src/modules/user-import/uc/user-import.uc.ts:98</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="102"
+                            class="link-to-prism">apps/server/src/modules/user-import/uc/user-import.uc.ts:102</a></div>
                 </td>
             </tr>
 
@@ -669,6 +773,90 @@ The current user must have permission to read schools users and view importusers
             </tr>
         </tbody>
     </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateUserAndAccount"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span class="modifier">Async</span>
+                        <span ><b>updateUserAndAccount</b></span>
+                        <a href="#updateUserAndAccount"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>updateUserAndAccount(importUser: <a href="../interfaces/User.html" target="_self">ImportUser</a>, school: <a href="../entitys/School.html" target="_self">School</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="169"
+                            class="link-to-prism">apps/server/src/modules/user-import/uc/user-import.uc.ts:169</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>importUser</td>
+                                    <td>
+                                                <code><a href="../interfaces/User.html" target="_self" >ImportUser</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>school</td>
+                                    <td>
+                                                <code><a href="../entitys/School.html" target="_self" >School</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </section>
 
     </div>
@@ -678,26 +866,30 @@ The current user must have permission to read schools users and view importusers
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ForbiddenException, Injectable } from &#x27;@nestjs/common&#x27;;
 import { UserAlreadyAssignedToImportUserError } from &#x27;@shared/common&#x27;;
 import {
+	Counted,
 	EntityId,
 	IFindOptions,
-	Counted,
-	ImportUser,
 	IImportUserScope,
-	MatchCreator,
+	ImportUser,
 	INameMatch,
-	User,
+	MatchCreator,
+	MatchCreatorScope,
 	PermissionService,
+	School,
+	User,
 } from &#x27;@shared/domain&#x27;;
 
-import { ImportUserRepo, UserRepo } from &#x27;@shared/repo&#x27;;
+import { ImportUserRepo, SchoolRepo, UserRepo, AccountRepo } from &#x27;@shared/repo&#x27;;
 import { UserImportPermissions } from &#x27;../constants&#x27;;
 
 @Injectable()
 export class UserImportUc {
 	constructor(
+		private readonly accountRepo: AccountRepo,
 		private readonly importUserRepo: ImportUserRepo,
-		private readonly userRepo: UserRepo,
-		private readonly permissionService: PermissionService
+		private readonly permissionService: PermissionService,
+		private readonly schoolRepo: SchoolRepo,
+		private readonly userRepo: UserRepo
 	) {}
 
 	/**
@@ -811,6 +1003,46 @@ export class UserImportUc {
 
 		const unmatchedCountedUsers &#x3D; await this.userRepo.findWithoutImportUser(currentUser.school, query, options);
 		return unmatchedCountedUsers;
+	}
+
+	async saveAllUsersMatches(currentUserId: EntityId): Promise&lt;void&gt; {
+		const currentUser &#x3D; await this.userRepo.findById(currentUserId, true);
+
+		const permissions &#x3D; [UserImportPermissions.SCHOOL_IMPORT_USERS_MIGRATE];
+		this.permissionService.checkUserHasAllSchoolPermissions(currentUser, permissions);
+
+		const { school } &#x3D; currentUser;
+
+		const filters: IImportUserScope &#x3D; { matches: [MatchCreatorScope.MANUAL, MatchCreatorScope.AUTO] };
+		// TODO batch/paginated import?
+		const options: IFindOptions&lt;ImportUser&gt; &#x3D; {};
+		const [importUsers, total] &#x3D; await this.importUserRepo.findImportUsers(school, filters, options);
+		if (total &gt; 0) {
+			importUsers.map(async (importUser) &#x3D;&gt; {
+				await this.updateUserAndAccount(importUser, school);
+			});
+			await this.userRepo.flush();
+			await this.accountRepo.flush();
+		}
+
+		await this.importUserRepo.deleteImportUsersBySchool(school);
+
+		school.inUserMigration &#x3D; false;
+		await this.schoolRepo.persistAndFlush(school);
+	}
+
+	private async updateUserAndAccount(importUser: ImportUser, school: School) {
+		if (!importUser.user || !importUser.loginName || !school.ldapSchoolIdentifier) {
+			return;
+		}
+		importUser.user.ldapId &#x3D; importUser.ldapId;
+		this.userRepo.persist(importUser.user);
+
+		const account &#x3D; await this.accountRepo.findOneByUser(importUser.user);
+		account.systemId &#x3D; importUser.system._id;
+		account.password &#x3D; undefined;
+		account.username &#x3D; &#x60;${school.ldapSchoolIdentifier}/${importUser.loginName}&#x60;;
+		this.accountRepo.persist(account);
 	}
 }
 </code></pre>
