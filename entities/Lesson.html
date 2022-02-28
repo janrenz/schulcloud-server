@@ -132,7 +132,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">apps/server/src/shared/domain/entity/lesson.entity.ts:22</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">apps/server/src/shared/domain/entity/lesson.entity.ts:23</a></div>
                         </td>
                     </tr>
 
@@ -166,7 +166,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">apps/server/src/shared/domain/entity/lesson.entity.ts:19</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">apps/server/src/shared/domain/entity/lesson.entity.ts:20</a></div>
                         </td>
                     </tr>
 
@@ -201,7 +201,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">apps/server/src/shared/domain/entity/lesson.entity.ts:15</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">apps/server/src/shared/domain/entity/lesson.entity.ts:16</a></div>
                         </td>
                     </tr>
 
@@ -236,7 +236,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">apps/server/src/shared/domain/entity/lesson.entity.ts:25</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">apps/server/src/shared/domain/entity/lesson.entity.ts:26</a></div>
                         </td>
                     </tr>
 
@@ -249,6 +249,7 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Entity, ManyToOne, Property, Index } from &#x27;@mikro-orm/core&#x27;;
+import { ILearnroomElement } from &#x27;@shared/domain/interface&#x27;;
 import { BaseEntityWithTimestamps } from &#x27;./base.entity&#x27;;
 import type { Course } from &#x27;./course.entity&#x27;;
 
@@ -260,7 +261,7 @@ export interface ILessonProperties {
 }
 
 @Entity({ tableName: &#x27;lessons&#x27; })
-export class Lesson extends BaseEntityWithTimestamps {
+export class Lesson extends BaseEntityWithTimestamps implements ILearnroomElement {
 	@Property()
 	name: string;
 
@@ -280,6 +281,14 @@ export class Lesson extends BaseEntityWithTimestamps {
 		if (props.hidden !&#x3D;&#x3D; undefined) this.hidden &#x3D; props.hidden;
 		this.course &#x3D; props.course;
 		this.position &#x3D; props.position || 0;
+	}
+
+	publish() {
+		this.hidden &#x3D; false;
+	}
+
+	unpublish() {
+		this.hidden &#x3D; true;
 	}
 }
 </code></pre>

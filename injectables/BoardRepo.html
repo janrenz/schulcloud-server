@@ -97,6 +97,11 @@
                                 <a href="#getOrCreateCourseBoard" >getOrCreateCourseBoard</a>
                             </li>
                             <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#populateBoard" >populateBoard</a>
+                            </li>
+                            <li>
                                     <span class="modifier">Async</span>
                                 <a href="#save" >save</a>
                             </li>
@@ -189,8 +194,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="23"
-                            class="link-to-prism">apps/server/src/shared/repo/board/board.repo.ts:23</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="24"
+                            class="link-to-prism">apps/server/src/shared/repo/board/board.repo.ts:24</a></div>
                 </td>
             </tr>
 
@@ -331,8 +336,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="30"
-                            class="link-to-prism">apps/server/src/shared/repo/board/board.repo.ts:30</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="31"
+                            class="link-to-prism">apps/server/src/shared/repo/board/board.repo.ts:31</a></div>
                 </td>
             </tr>
 
@@ -403,8 +408,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="15"
-                            class="link-to-prism">apps/server/src/shared/repo/board/board.repo.ts:15</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="16"
+                            class="link-to-prism">apps/server/src/shared/repo/board/board.repo.ts:16</a></div>
                 </td>
             </tr>
 
@@ -456,6 +461,78 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="populateBoard"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span class="modifier">Async</span>
+                        <span ><b>populateBoard</b></span>
+                        <a href="#populateBoard"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>populateBoard(board: <a href="../entitys/Board.html" target="_self">Board</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="37"
+                            class="link-to-prism">apps/server/src/shared/repo/board/board.repo.ts:37</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>board</td>
+                                    <td>
+                                                <code><a href="../entitys/Board.html" target="_self" >Board</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>unknown</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="save"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
@@ -474,8 +551,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="36"
-                            class="link-to-prism">apps/server/src/shared/repo/board/board.repo.ts:36</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="48"
+                            class="link-to-prism">apps/server/src/shared/repo/board/board.repo.ts:48</a></div>
                 </td>
             </tr>
 
@@ -532,14 +609,15 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
 import { EntityManager } from &#x27;@mikro-orm/mongodb&#x27;;
 
-import { EntityId, Board, Course } from &#x27;@shared/domain&#x27;;
+import { EntityId, Board, Course, TaskBoardElement, LessonBoardElement } from &#x27;@shared/domain&#x27;;
 
 @Injectable()
 export class BoardRepo {
 	constructor(private readonly em: EntityManager) {}
 
 	async findByCourseId(courseId: EntityId): Promise&lt;Board&gt; {
-		const board &#x3D; this.getOrCreateCourseBoard(courseId);
+		const board &#x3D; await this.getOrCreateCourseBoard(courseId);
+		await this.populateBoard(board);
 		return board;
 	}
 
@@ -560,12 +638,24 @@ export class BoardRepo {
 
 	async findById(id: EntityId): Promise&lt;Board&gt; {
 		const board &#x3D; await this.em.findOneOrFail(Board, { id });
-		// todo: consistent population
+		await this.populateBoard(board);
+		return board;
+	}
+
+	private async populateBoard(board: Board) {
+		await board.references.init();
+		const elements &#x3D; board.references.getItems();
+		const discriminatorColumn &#x3D; &#x27;target&#x27;;
+		const taskElements &#x3D; elements.filter((el) &#x3D;&gt; el instanceof TaskBoardElement);
+		await this.em.populate(taskElements, discriminatorColumn);
+		const lessonElements &#x3D; elements.filter((el) &#x3D;&gt; el instanceof LessonBoardElement);
+		await this.em.populate(lessonElements, discriminatorColumn);
 		return board;
 	}
 
 	async save(board: Board): Promise&lt;void&gt; {
 		await this.em.persistAndFlush(board);
+		return Promise.resolve();
 	}
 }
 </code></pre>

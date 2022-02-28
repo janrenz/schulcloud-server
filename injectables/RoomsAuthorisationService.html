@@ -79,11 +79,9 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                    <span class="modifier">Private</span>
                                 <a href="#hasCourseReadPermission" >hasCourseReadPermission</a>
                             </li>
                             <li>
-                                    <span class="modifier">Private</span>
                                 <a href="#hasCourseWritePermission" >hasCourseWritePermission</a>
                             </li>
                             <li>
@@ -116,7 +114,6 @@
                 <td class="col-md-4">
                     <a name="hasCourseReadPermission"></a>
                     <span class="name">
-                        <span class="modifier">Private</span>
                         <span ><b>hasCourseReadPermission</b></span>
                         <a href="#hasCourseReadPermission"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -124,8 +121,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>hasCourseReadPermission(user: <a href="../interfaces/User.html" target="_self">User</a>, course: <a href="../classes/Course.html" target="_self">Course</a>)</code>
+<code>hasCourseReadPermission(user: <a href="../interfaces/User.html" target="_self">User</a>, course: <a href="../classes/Course.html" target="_self">Course</a>)</code>
                 </td>
             </tr>
 
@@ -199,7 +195,6 @@
                 <td class="col-md-4">
                     <a name="hasCourseWritePermission"></a>
                     <span class="name">
-                        <span class="modifier">Private</span>
                         <span ><b>hasCourseWritePermission</b></span>
                         <a href="#hasCourseWritePermission"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -207,8 +202,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>hasCourseWritePermission(user: <a href="../interfaces/User.html" target="_self">User</a>, course: <a href="../classes/Course.html" target="_self">Course</a>)</code>
+<code>hasCourseWritePermission(user: <a href="../interfaces/User.html" target="_self">User</a>, course: <a href="../classes/Course.html" target="_self">Course</a>)</code>
                 </td>
             </tr>
 
@@ -454,13 +448,13 @@ export enum TaskParentPermission {
 
 @Injectable()
 export class RoomsAuthorisationService {
-	private hasCourseWritePermission(user: User, course: Course): boolean {
+	hasCourseWritePermission(user: User, course: Course): boolean {
 		const hasPermission &#x3D; course.substitutionTeachers.contains(user) || course.teachers.contains(user);
 
 		return hasPermission;
 	}
 
-	private hasCourseReadPermission(user: User, course: Course): boolean {
+	hasCourseReadPermission(user: User, course: Course): boolean {
 		const hasPermission &#x3D;
 			course.students.contains(user) || course.substitutionTeachers.contains(user) || course.teachers.contains(user);
 

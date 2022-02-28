@@ -156,7 +156,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">apps/server/src/shared/domain/entity/task.entity.ts:55</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">apps/server/src/shared/domain/entity/task.entity.ts:56</a></div>
                         </td>
                     </tr>
 
@@ -192,7 +192,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="67" class="link-to-prism">apps/server/src/shared/domain/entity/task.entity.ts:67</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="68" class="link-to-prism">apps/server/src/shared/domain/entity/task.entity.ts:68</a></div>
                         </td>
                     </tr>
 
@@ -228,7 +228,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="64" class="link-to-prism">apps/server/src/shared/domain/entity/task.entity.ts:64</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="65" class="link-to-prism">apps/server/src/shared/domain/entity/task.entity.ts:65</a></div>
                         </td>
                     </tr>
 
@@ -263,7 +263,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">apps/server/src/shared/domain/entity/task.entity.ts:52</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">apps/server/src/shared/domain/entity/task.entity.ts:53</a></div>
                         </td>
                     </tr>
 
@@ -299,7 +299,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="58" class="link-to-prism">apps/server/src/shared/domain/entity/task.entity.ts:58</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="59" class="link-to-prism">apps/server/src/shared/domain/entity/task.entity.ts:59</a></div>
                         </td>
                     </tr>
 
@@ -333,7 +333,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="78" class="link-to-prism">apps/server/src/shared/domain/entity/task.entity.ts:78</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="79" class="link-to-prism">apps/server/src/shared/domain/entity/task.entity.ts:79</a></div>
                         </td>
                     </tr>
 
@@ -369,7 +369,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="70" class="link-to-prism">apps/server/src/shared/domain/entity/task.entity.ts:70</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="71" class="link-to-prism">apps/server/src/shared/domain/entity/task.entity.ts:71</a></div>
                         </td>
                     </tr>
 
@@ -404,7 +404,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">apps/server/src/shared/domain/entity/task.entity.ts:49</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">apps/server/src/shared/domain/entity/task.entity.ts:50</a></div>
                         </td>
                     </tr>
 
@@ -438,7 +438,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="61" class="link-to-prism">apps/server/src/shared/domain/entity/task.entity.ts:61</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="62" class="link-to-prism">apps/server/src/shared/domain/entity/task.entity.ts:62</a></div>
                         </td>
                     </tr>
 
@@ -472,7 +472,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="73" class="link-to-prism">apps/server/src/shared/domain/entity/task.entity.ts:73</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="74" class="link-to-prism">apps/server/src/shared/domain/entity/task.entity.ts:74</a></div>
                         </td>
                     </tr>
 
@@ -486,6 +486,7 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Collection, Entity, ManyToOne, OneToMany, ManyToMany, Property, Index } from &#x27;@mikro-orm/core&#x27;;
 import { EntityId } from &#x27;../types/entity-id&#x27;;
+import { ILearnroomElement } from &#x27;../interface/learnroom&#x27;;
 
 import { BaseEntityWithTimestamps } from &#x27;./base.entity&#x27;;
 import type { Course } from &#x27;./course.entity&#x27;;
@@ -530,7 +531,7 @@ export type TaskParentDescriptions &#x3D; { courseName: string; lessonName: stri
 
 @Entity({ tableName: &#x27;homeworks&#x27; })
 @Index({ name: &#x27;findAllByParentIds_findAllForStudent&#x27;, properties: [&#x27;private&#x27;, &#x27;dueDate&#x27;, &#x27;finished&#x27;] })
-export class Task extends BaseEntityWithTimestamps {
+export class Task extends BaseEntityWithTimestamps implements ILearnroomElement {
 	@Property()
 	name: string;
 
@@ -718,6 +719,15 @@ export class Task extends BaseEntityWithTimestamps {
 
 	restoreForUser(user: User) {
 		this.finished.remove(user);
+	}
+
+	publish() {
+		this.private &#x3D; false;
+		this.availableDate &#x3D; new Date(Date.now());
+	}
+
+	unpublish() {
+		this.private &#x3D; true;
 	}
 }
 </code></pre>

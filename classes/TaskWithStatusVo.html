@@ -112,7 +112,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">apps/server/src/shared/domain/entity/task.entity.ts:35</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">apps/server/src/shared/domain/entity/task.entity.ts:36</a></div>
                             </td>
                         </tr>
 
@@ -186,7 +186,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">apps/server/src/shared/domain/entity/task.entity.ts:35</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">apps/server/src/shared/domain/entity/task.entity.ts:36</a></div>
                         </td>
                     </tr>
 
@@ -212,7 +212,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">apps/server/src/shared/domain/entity/task.entity.ts:33</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">apps/server/src/shared/domain/entity/task.entity.ts:34</a></div>
                         </td>
                     </tr>
 
@@ -233,6 +233,7 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Collection, Entity, ManyToOne, OneToMany, ManyToMany, Property, Index } from &#x27;@mikro-orm/core&#x27;;
 import { EntityId } from &#x27;../types/entity-id&#x27;;
+import { ILearnroomElement } from &#x27;../interface/learnroom&#x27;;
 
 import { BaseEntityWithTimestamps } from &#x27;./base.entity&#x27;;
 import type { Course } from &#x27;./course.entity&#x27;;
@@ -277,7 +278,7 @@ export type TaskParentDescriptions &#x3D; { courseName: string; lessonName: stri
 
 @Entity({ tableName: &#x27;homeworks&#x27; })
 @Index({ name: &#x27;findAllByParentIds_findAllForStudent&#x27;, properties: [&#x27;private&#x27;, &#x27;dueDate&#x27;, &#x27;finished&#x27;] })
-export class Task extends BaseEntityWithTimestamps {
+export class Task extends BaseEntityWithTimestamps implements ILearnroomElement {
 	@Property()
 	name: string;
 
@@ -465,6 +466,15 @@ export class Task extends BaseEntityWithTimestamps {
 
 	restoreForUser(user: User) {
 		this.finished.remove(user);
+	}
+
+	publish() {
+		this.private &#x3D; false;
+		this.availableDate &#x3D; new Date(Date.now());
+	}
+
+	unpublish() {
+		this.private &#x3D; true;
 	}
 }
 </code></pre>

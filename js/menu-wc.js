@@ -1020,6 +1020,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/PatchGroupParams.html" data-type="entity-link" >PatchGroupParams</a>
                             </li>
                             <li class="link">
+                                <a href="classes/PatchVisibilityParams.html" data-type="entity-link" >PatchVisibilityParams</a>
+                            </li>
+                            <li class="link">
                                 <a href="classes/ResolvedUser.html" data-type="entity-link" >ResolvedUser</a>
                             </li>
                             <li class="link">
@@ -1341,6 +1344,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="interfaces/ILearnroom.html" data-type="entity-link" >ILearnroom</a>
+                            </li>
+                            <li class="link">
+                                <a href="interfaces/ILearnroomElement.html" data-type="entity-link" >ILearnroomElement</a>
                             </li>
                             <li class="link">
                                 <a href="interfaces/ILessonProperties.html" data-type="entity-link" >ILessonProperties</a>
