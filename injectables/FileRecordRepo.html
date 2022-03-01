@@ -505,7 +505,7 @@ export class FileRecordRepo {
 	): Promise&lt;Counted&lt;FileRecord[]&gt;&gt; {
 		const { pagination } &#x3D; options || {};
 
-		const scope &#x3D; new FileRecordScope().bySchoolId(schoolId).byTargetId(targetId);
+		const scope &#x3D; new FileRecordScope().bySchoolId(schoolId).byParentId(targetId);
 		const order &#x3D; { createdAt: SortOrder.desc, id: SortOrder.asc };
 
 		const [fileRecords, count] &#x3D; await this.em.findAndCount(FileRecord, scope.query, {

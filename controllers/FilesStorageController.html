@@ -137,8 +137,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="33"
-                            class="link-to-prism">apps/server/src/modules/files-storage/controller/files-storage.controller.ts:33</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="31"
+                            class="link-to-prism">apps/server/src/modules/files-storage/controller/files-storage.controller.ts:31</a></div>
                 </td>
             </tr>
 
@@ -221,14 +221,14 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@ApiConsumes(&#x27;multipart/form-data&#x27;)<br />@Post(&#x27;upload/:schoolId/:targetType/:targetId&#x27;)<br /></code>
+                    <code>@ApiConsumes(&#x27;multipart/form-data&#x27;)<br />@Post(&#x27;upload/:schoolId/:parentType/:parentId&#x27;)<br /></code>
                 </td>
             </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="19"
-                            class="link-to-prism">apps/server/src/modules/files-storage/controller/files-storage.controller.ts:19</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="17"
+                            class="link-to-prism">apps/server/src/modules/files-storage/controller/files-storage.controller.ts:17</a></div>
                 </td>
             </tr>
 
@@ -316,9 +316,7 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">/* istanbul ignore file */
-
-import { Body, Controller, Get, Param, Post, Req, StreamableFile } from &#x27;@nestjs/common&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Body, Controller, Get, Param, Post, Req, StreamableFile } from &#x27;@nestjs/common&#x27;;
 import { ApiConsumes, ApiTags } from &#x27;@nestjs/swagger&#x27;;
 import { FileRecord, ICurrentUser } from &#x27;@shared/domain&#x27;;
 import { Authenticate, CurrentUser } from &#x27;@src/modules/authentication/decorator/auth.decorator&#x27;;
@@ -333,7 +331,7 @@ export class FilesStorageController {
 	constructor(private readonly filesStorageUC: FilesStorageUC) {}
 
 	@ApiConsumes(&#x27;multipart/form-data&#x27;)
-	@Post(&#x27;upload/:schoolId/:targetType/:targetId&#x27;)
+	@Post(&#x27;upload/:schoolId/:parentType/:parentId&#x27;)
 	async uploadAsStream(
 		@Body() _: FileDto,
 		@Param() params: UploadFileParams,

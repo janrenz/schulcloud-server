@@ -238,13 +238,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/FilesStorageModule.html" data-type="entity-link" >FilesStorageModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#controllers-links-module-FilesStorageModule-9cd57311a19172fd4745f62f7e48b9acd46de38b3301dacb335c0c453dd489710d28d566ef2f15949c2833904f91d9f3ab352743b1515f344265dce814a37239"' : 'data-target="#xs-controllers-links-module-FilesStorageModule-9cd57311a19172fd4745f62f7e48b9acd46de38b3301dacb335c0c453dd489710d28d566ef2f15949c2833904f91d9f3ab352743b1515f344265dce814a37239"' }>
+                                            'data-target="#controllers-links-module-FilesStorageModule-815a2317c3e53932dd89873768130243bec2dbaf00cc4a496bd62b5e80e38fa4456c33ee877d0f8d769f16987d596a8f94949bfcc7a85c9f401b598c8b221441"' : 'data-target="#xs-controllers-links-module-FilesStorageModule-815a2317c3e53932dd89873768130243bec2dbaf00cc4a496bd62b5e80e38fa4456c33ee877d0f8d769f16987d596a8f94949bfcc7a85c9f401b598c8b221441"' }>
                                             <span class="icon ion-md-swap"></span>
                                             <span>Controllers</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="controllers-links-module-FilesStorageModule-9cd57311a19172fd4745f62f7e48b9acd46de38b3301dacb335c0c453dd489710d28d566ef2f15949c2833904f91d9f3ab352743b1515f344265dce814a37239"' :
-                                            'id="xs-controllers-links-module-FilesStorageModule-9cd57311a19172fd4745f62f7e48b9acd46de38b3301dacb335c0c453dd489710d28d566ef2f15949c2833904f91d9f3ab352743b1515f344265dce814a37239"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="controllers-links-module-FilesStorageModule-815a2317c3e53932dd89873768130243bec2dbaf00cc4a496bd62b5e80e38fa4456c33ee877d0f8d769f16987d596a8f94949bfcc7a85c9f401b598c8b221441"' :
+                                            'id="xs-controllers-links-module-FilesStorageModule-815a2317c3e53932dd89873768130243bec2dbaf00cc4a496bd62b5e80e38fa4456c33ee877d0f8d769f16987d596a8f94949bfcc7a85c9f401b598c8b221441"' }>
                                             <li class="link">
                                                 <a href="controllers/FilesStorageController.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >FilesStorageController</a>
                                             </li>
@@ -252,13 +252,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                     </li>
                                 <li class="chapter inner">
                                     <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                        'data-target="#injectables-links-module-FilesStorageModule-9cd57311a19172fd4745f62f7e48b9acd46de38b3301dacb335c0c453dd489710d28d566ef2f15949c2833904f91d9f3ab352743b1515f344265dce814a37239"' : 'data-target="#xs-injectables-links-module-FilesStorageModule-9cd57311a19172fd4745f62f7e48b9acd46de38b3301dacb335c0c453dd489710d28d566ef2f15949c2833904f91d9f3ab352743b1515f344265dce814a37239"' }>
+                                        'data-target="#injectables-links-module-FilesStorageModule-815a2317c3e53932dd89873768130243bec2dbaf00cc4a496bd62b5e80e38fa4456c33ee877d0f8d769f16987d596a8f94949bfcc7a85c9f401b598c8b221441"' : 'data-target="#xs-injectables-links-module-FilesStorageModule-815a2317c3e53932dd89873768130243bec2dbaf00cc4a496bd62b5e80e38fa4456c33ee877d0f8d769f16987d596a8f94949bfcc7a85c9f401b598c8b221441"' }>
                                         <span class="icon ion-md-arrow-round-down"></span>
                                         <span>Injectables</span>
                                         <span class="icon ion-ios-arrow-down"></span>
                                     </div>
-                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-FilesStorageModule-9cd57311a19172fd4745f62f7e48b9acd46de38b3301dacb335c0c453dd489710d28d566ef2f15949c2833904f91d9f3ab352743b1515f344265dce814a37239"' :
-                                        'id="xs-injectables-links-module-FilesStorageModule-9cd57311a19172fd4745f62f7e48b9acd46de38b3301dacb335c0c453dd489710d28d566ef2f15949c2833904f91d9f3ab352743b1515f344265dce814a37239"' }>
+                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-FilesStorageModule-815a2317c3e53932dd89873768130243bec2dbaf00cc4a496bd62b5e80e38fa4456c33ee877d0f8d769f16987d596a8f94949bfcc7a85c9f401b598c8b221441"' :
+                                        'id="xs-injectables-links-module-FilesStorageModule-815a2317c3e53932dd89873768130243bec2dbaf00cc4a496bd62b5e80e38fa4456c33ee877d0f8d769f16987d596a8f94949bfcc7a85c9f401b598c8b221441"' }>
                                         <li class="link">
                                             <a href="injectables/FileRecordRepo.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >FileRecordRepo</a>
                                         </li>
@@ -275,13 +275,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/FilesStorageTestModule.html" data-type="entity-link" >FilesStorageTestModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#controllers-links-module-FilesStorageTestModule-9cd57311a19172fd4745f62f7e48b9acd46de38b3301dacb335c0c453dd489710d28d566ef2f15949c2833904f91d9f3ab352743b1515f344265dce814a37239"' : 'data-target="#xs-controllers-links-module-FilesStorageTestModule-9cd57311a19172fd4745f62f7e48b9acd46de38b3301dacb335c0c453dd489710d28d566ef2f15949c2833904f91d9f3ab352743b1515f344265dce814a37239"' }>
+                                            'data-target="#controllers-links-module-FilesStorageTestModule-815a2317c3e53932dd89873768130243bec2dbaf00cc4a496bd62b5e80e38fa4456c33ee877d0f8d769f16987d596a8f94949bfcc7a85c9f401b598c8b221441"' : 'data-target="#xs-controllers-links-module-FilesStorageTestModule-815a2317c3e53932dd89873768130243bec2dbaf00cc4a496bd62b5e80e38fa4456c33ee877d0f8d769f16987d596a8f94949bfcc7a85c9f401b598c8b221441"' }>
                                             <span class="icon ion-md-swap"></span>
                                             <span>Controllers</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="controllers-links-module-FilesStorageTestModule-9cd57311a19172fd4745f62f7e48b9acd46de38b3301dacb335c0c453dd489710d28d566ef2f15949c2833904f91d9f3ab352743b1515f344265dce814a37239"' :
-                                            'id="xs-controllers-links-module-FilesStorageTestModule-9cd57311a19172fd4745f62f7e48b9acd46de38b3301dacb335c0c453dd489710d28d566ef2f15949c2833904f91d9f3ab352743b1515f344265dce814a37239"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="controllers-links-module-FilesStorageTestModule-815a2317c3e53932dd89873768130243bec2dbaf00cc4a496bd62b5e80e38fa4456c33ee877d0f8d769f16987d596a8f94949bfcc7a85c9f401b598c8b221441"' :
+                                            'id="xs-controllers-links-module-FilesStorageTestModule-815a2317c3e53932dd89873768130243bec2dbaf00cc4a496bd62b5e80e38fa4456c33ee877d0f8d769f16987d596a8f94949bfcc7a85c9f401b598c8b221441"' }>
                                             <li class="link">
                                                 <a href="controllers/FilesStorageController.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >FilesStorageController</a>
                                             </li>
@@ -289,13 +289,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                     </li>
                                 <li class="chapter inner">
                                     <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                        'data-target="#injectables-links-module-FilesStorageTestModule-9cd57311a19172fd4745f62f7e48b9acd46de38b3301dacb335c0c453dd489710d28d566ef2f15949c2833904f91d9f3ab352743b1515f344265dce814a37239"' : 'data-target="#xs-injectables-links-module-FilesStorageTestModule-9cd57311a19172fd4745f62f7e48b9acd46de38b3301dacb335c0c453dd489710d28d566ef2f15949c2833904f91d9f3ab352743b1515f344265dce814a37239"' }>
+                                        'data-target="#injectables-links-module-FilesStorageTestModule-815a2317c3e53932dd89873768130243bec2dbaf00cc4a496bd62b5e80e38fa4456c33ee877d0f8d769f16987d596a8f94949bfcc7a85c9f401b598c8b221441"' : 'data-target="#xs-injectables-links-module-FilesStorageTestModule-815a2317c3e53932dd89873768130243bec2dbaf00cc4a496bd62b5e80e38fa4456c33ee877d0f8d769f16987d596a8f94949bfcc7a85c9f401b598c8b221441"' }>
                                         <span class="icon ion-md-arrow-round-down"></span>
                                         <span>Injectables</span>
                                         <span class="icon ion-ios-arrow-down"></span>
                                     </div>
-                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-FilesStorageTestModule-9cd57311a19172fd4745f62f7e48b9acd46de38b3301dacb335c0c453dd489710d28d566ef2f15949c2833904f91d9f3ab352743b1515f344265dce814a37239"' :
-                                        'id="xs-injectables-links-module-FilesStorageTestModule-9cd57311a19172fd4745f62f7e48b9acd46de38b3301dacb335c0c453dd489710d28d566ef2f15949c2833904f91d9f3ab352743b1515f344265dce814a37239"' }>
+                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-FilesStorageTestModule-815a2317c3e53932dd89873768130243bec2dbaf00cc4a496bd62b5e80e38fa4456c33ee877d0f8d769f16987d596a8f94949bfcc7a85c9f401b598c8b221441"' :
+                                        'id="xs-injectables-links-module-FilesStorageTestModule-815a2317c3e53932dd89873768130243bec2dbaf00cc4a496bd62b5e80e38fa4456c33ee877d0f8d769f16987d596a8f94949bfcc7a85c9f401b598c8b221441"' }>
                                         <li class="link">
                                             <a href="injectables/FileRecordRepo.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >FileRecordRepo</a>
                                         </li>
@@ -1192,9 +1192,6 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                     <a href="injectables/FilesRepo.html" data-type="entity-link" >FilesRepo</a>
                                 </li>
                                 <li class="link">
-                                    <a href="injectables/FilesStorageUC.html" data-type="entity-link" >FilesStorageUC</a>
-                                </li>
-                                <li class="link">
                                     <a href="injectables/FileStorageAdapter.html" data-type="entity-link" >FileStorageAdapter</a>
                                 </li>
                                 <li class="link">
@@ -1223,9 +1220,6 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 </li>
                                 <li class="link">
                                     <a href="injectables/RoleRepo.html" data-type="entity-link" >RoleRepo</a>
-                                </li>
-                                <li class="link">
-                                    <a href="injectables/S3ClientAdapter.html" data-type="entity-link" >S3ClientAdapter</a>
                                 </li>
                                 <li class="link">
                                     <a href="injectables/SchoolRepo.html" data-type="entity-link" >SchoolRepo</a>

@@ -377,7 +377,7 @@ export enum FileSecurityCheckStatus {
 	WONTCHECK &#x3D; &#x27;wont-check&#x27;,
 }
 
-export enum FileRecordTargetType {
+export enum FileRecordParentType {
 	&#x27;User&#x27; &#x3D; &#x27;users&#x27;,
 	&#x27;School&#x27; &#x3D; &#x27;schools&#x27;,
 	&#x27;Course&#x27; &#x3D; &#x27;courses&#x27;,
@@ -424,10 +424,10 @@ export class FileSecurityCheck {
 export interface IFileRecordProperties {
 	size: number;
 	name: string;
-	type: string; // TODO mime-type enum?
+	mimeType: string;
 	securityCheck?: FileSecurityCheck;
-	targetType: FileRecordTargetType;
-	targetId: EntityId | ObjectId;
+	parentType: FileRecordParentType;
+	parentId: EntityId | ObjectId;
 	creatorId: EntityId | ObjectId;
 	lockedForUserId?: EntityId | ObjectId;
 	schoolId: EntityId | ObjectId;
@@ -439,7 +439,7 @@ export interface IFileRecordProperties {
  * and instead just use the plain object ids.
  */
 @Entity({ tableName: &#x27;filerecord&#x27; })
-@Index({ properties: [&#x27;_schoolId&#x27;, &#x27;_targetId&#x27;] })
+@Index({ properties: [&#x27;_schoolId&#x27;, &#x27;_parentId&#x27;] })
 export class FileRecord extends BaseEntityWithTimestamps {
 	@Property()
 	size: number;
@@ -448,19 +448,19 @@ export class FileRecord extends BaseEntityWithTimestamps {
 	name: string;
 
 	@Property()
-	type: string; // TODO mime-type enum?
+	mimeType: string; // TODO mime-type enum?
 
 	@Embedded(() &#x3D;&gt; FileSecurityCheck, { object: true, nullable: true })
 	securityCheck?: FileSecurityCheck;
 
 	@Enum()
-	targetType: FileRecordTargetType;
+	parentType: FileRecordParentType;
 
-	@Property({ fieldName: &#x27;target&#x27; })
-	_targetId: ObjectId;
+	@Property({ fieldName: &#x27;parent&#x27; })
+	_parentId: ObjectId;
 
-	get targetId(): EntityId {
-		return this._targetId.toHexString();
+	get parentId(): EntityId {
+		return this._parentId.toHexString();
 	}
 
 	@Property({ fieldName: &#x27;creator&#x27; })
@@ -491,10 +491,10 @@ export class FileRecord extends BaseEntityWithTimestamps {
 		super();
 		this.size &#x3D; props.size;
 		this.name &#x3D; props.name;
-		this.type &#x3D; props.type;
+		this.mimeType &#x3D; props.mimeType;
 		this.securityCheck &#x3D; props.securityCheck;
-		this.targetType &#x3D; props.targetType;
-		this._targetId &#x3D; new ObjectId(props.targetId);
+		this.parentType &#x3D; props.parentType;
+		this._parentId &#x3D; new ObjectId(props.parentId);
 		this._creatorId &#x3D; new ObjectId(props.creatorId);
 		if (props.lockedForUserId !&#x3D;&#x3D; undefined) {
 			this._lockedForUserId &#x3D; new ObjectId(props.lockedForUserId);

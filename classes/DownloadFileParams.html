@@ -129,13 +129,13 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @ApiProperty()<br />
+                            @ApiProperty()<br />@IsString()<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">apps/server/src/modules/files-storage/controller/dto/file-storage.params.ts:33</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">apps/server/src/modules/files-storage/controller/dto/file-storage.params.ts:35</a></div>
                         </td>
                     </tr>
 
@@ -170,7 +170,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">apps/server/src/modules/files-storage/controller/dto/file-storage.params.ts:30</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">apps/server/src/modules/files-storage/controller/dto/file-storage.params.ts:31</a></div>
                         </td>
                     </tr>
 
@@ -191,8 +191,8 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ApiProperty } from &#x27;@nestjs/swagger&#x27;;
 import { EntityId } from &#x27;@shared/domain&#x27;;
-import { FileRecordTargetType } from &#x27;@shared/domain/entity/filerecord.entity&#x27;;
-import { IsEnum, IsMongoId } from &#x27;class-validator&#x27;;
+import { FileRecordParentType } from &#x27;@shared/domain/entity/filerecord.entity&#x27;;
+import { Allow, IsEnum, IsMongoId, IsString } from &#x27;class-validator&#x27;;
 
 export class UploadFileParams {
 	@ApiProperty()
@@ -201,15 +201,16 @@ export class UploadFileParams {
 
 	@ApiProperty()
 	@IsMongoId()
-	targetId!: EntityId;
+	parentId!: EntityId;
 
-	@ApiProperty({ enum: FileRecordTargetType })
-	@IsEnum(FileRecordTargetType)
-	targetType!: FileRecordTargetType;
+	@ApiProperty({ enum: FileRecordParentType })
+	@IsEnum(FileRecordParentType)
+	parentType!: FileRecordParentType;
 }
 
 export class FileDto {
 	@ApiProperty({ type: &#x27;string&#x27;, format: &#x27;binary&#x27; })
+	@Allow()
 	file!: string;
 }
 
@@ -219,6 +220,7 @@ export class DownloadFileParams {
 	fileRecordId!: EntityId;
 
 	@ApiProperty()
+	@IsString()
 	fileName!: string;
 }
 </code></pre>

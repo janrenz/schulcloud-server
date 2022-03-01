@@ -677,7 +677,7 @@ This allows adding console commands to execute provider methods.</p>
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="../interfaces/S3Config.html" target="_self" >S3Config</a></code>
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
 
                     </td>
                 </tr>
@@ -746,7 +746,7 @@ This allows adding console commands to execute provider methods.</p>
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>[AuthModule, LoggerModule]</code>
+                        <i>Default value : </i><code>[AuthModule, CoreModule]</code>
                     </td>
                 </tr>
 
@@ -1683,10 +1683,10 @@ it should ensure an empty result</p>
 	return {
 		size: Math.round(Math.random() * 100000),
 		name: &#x60;file-record #${sequence}&#x60;,
-		type: &#x27;application/octet-stream&#x27;,
+		mimeType: &#x27;application/octet-stream&#x27;,
 		securityCheck: new FileSecurityCheck({}),
-		targetType: FileRecordTargetType.Course,
-		targetId: new ObjectId(),
+		parentType: FileRecordParentType.Course,
+		parentId: new ObjectId(),
 		creatorId: new ObjectId(),
 		schoolId: new ObjectId(),
 	};

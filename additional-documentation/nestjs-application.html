@@ -64,9 +64,16 @@
 <ol>
 <li>Have a MongoDB started, run <code>mongod</code> </li>
 <li>Have some seed data in datase, use <code>npm run setup</code> to reset the db and apply seed data</li>
-<li>Have RabbitMQ started, run <code>docker run -d -p 5672:5672 -p 15672:15672 --name rabbitmq rabbitmq:3.8.9-management</code>. This starts RabbitMQ on port 5672 and a web admin console at localhost:15672 (use guest:guest to login).</li>
+<li>Have RabbitMQ started, run <code>docker run -d -p 5672:5672 -p 15672:15672 --name rabbitmq rabbitmq:3.8.9-management</code>. This starts RabbitMQ on port 5672 and a web admin console at localhost:15672 (use guest:guest to login). </li>
+<li>Have MinIO (S3 compatible object storage), run [optional if you need files-storage module]</li>
 </ol>
-<h2 id="how-to-start-the-application">How to start the application</h2>
+<div><pre class="line-numbers"><code class="language-bash">docker run \
+  --name minioS3storage \
+  -p 9000:9000 \
+  -p 9001:9001 \
+  -e &quot;MINIO_ROOT_USER=`miniouser`&quot; \
+  -e &quot;MINIO_ROOT_PASSWORD=miniouser&quot; \
+  quay.io/minio/minio server /data --console-address &quot;:9001&quot;</code></pre></div><h2 id="how-to-start-the-application">How to start the application</h2>
 <p>Beside existing <a href="/">scripts</a>, for the nestJS application the following scripts have been added. Try not changing the scripts as they should match what NestJS defines by default. Execute <code>npm run ...</code></p>
 <ul>
 <li><code>nest:prebuild</code> remove existing data from previous build</li>
@@ -76,6 +83,13 @@
 <li><code>nest:start:dev</code> run application without build from sources in dev-mode with hot-reload</li>
 <li><code>nest:start:debug</code> run application in dev-mode with hot-reload and debug port opened on port :9229</li>
 <li><code>nest:start:prod</code> start applicaiton in production mode, requires <code>nest:build</code> to be executed beforehand</li>
+</ul>
+<h3 id="it-exist-a-file-storage-module-it-start-such-as-a-microservice-on-port-4444">It exist a <strong>file storage</strong> module. It start such as a microservice on port :4444</h3>
+<ul>
+<li><code>nest:start:files-storage</code> starts the nest <strong>file storage</strong></li>
+<li><code>nest:start:files-storage:dev</code> run <strong>file storage</strong> without build from sources in dev-mode with hot-reload</li>
+<li><code>nest:start:files-storage:debug</code> run <strong>file storage</strong> in dev-mode with hot-reload and debug port opened on port :9229</li>
+<li><code>nest:start:files-storage:prod</code> start <strong>file storage</strong> in production mode, requires <code>nest:build</code> to be executed beforehand</li>
 </ul>
 <h3 id="how-to-build-and-serve-the-documentation">How to build and serve the documentation</h3>
 <ul>
