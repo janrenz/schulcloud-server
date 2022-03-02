@@ -62,7 +62,7 @@
                 <h3>Prefix</h3>
             </p>
             <p class="comment">
-                <code>files-storage</code>
+                <code>file</code>
             </p>
 
 
@@ -89,7 +89,11 @@
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
-                                <a href="#uploadAsStream" >uploadAsStream</a>
+                                <a href="#list" >list</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#upload" >upload</a>
                             </li>
                         </ul>
                     </td>
@@ -137,8 +141,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="31"
-                            class="link-to-prism">apps/server/src/modules/files-storage/controller/files-storage.controller.ts:31</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="32"
+                            class="link-to-prism">apps/server/src/modules/files-storage/controller/files-storage.controller.ts:32</a></div>
                 </td>
             </tr>
 
@@ -202,18 +206,18 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="uploadAsStream"></a>
+                    <a name="list"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
-                        <span ><b>uploadAsStream</b></span>
-                        <a href="#uploadAsStream"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>list</b></span>
+                        <a href="#list"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>uploadAsStream(_: <a href="../classes/FileDto.html" target="_self">FileDto</a>, params: <a href="../classes/UploadFileParams.html" target="_self">UploadFileParams</a>, currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>, req: Request)</code>
+                    <code>list(params: <a href="../classes/FileParams.html" target="_self">FileParams</a>, currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>, paginationQuery: <a href="../classes/PaginationQuery.html" target="_self">PaginationQuery</a>)</code>
                 </td>
             </tr>
 
@@ -221,14 +225,116 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@ApiConsumes(&#x27;multipart/form-data&#x27;)<br />@Post(&#x27;upload/:schoolId/:parentType/:parentId&#x27;)<br /></code>
+                    <code>@Get(&#x27;/list/:schoolId/:parentType/:parentId&#x27;)<br /></code>
                 </td>
             </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="17"
-                            class="link-to-prism">apps/server/src/modules/files-storage/controller/files-storage.controller.ts:17</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="45"
+                            class="link-to-prism">apps/server/src/modules/files-storage/controller/files-storage.controller.ts:45</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>params</td>
+                                    <td>
+                                                <code><a href="../classes/FileParams.html" target="_self" >FileParams</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>currentUser</td>
+                                    <td>
+                                                <code><a href="../interfaces/ICurrentUser.html" target="_self" >ICurrentUser</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>paginationQuery</td>
+                                    <td>
+                                                <code><a href="../classes/PaginationQuery.html" target="_self" >PaginationQuery</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;FileRecordListResponse&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="upload"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>upload</b></span>
+                        <a href="#upload"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>upload(_: <a href="../classes/FileDto.html" target="_self">FileDto</a>, params: <a href="../classes/FileParams.html" target="_self">FileParams</a>, currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>, req: Request)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@ApiConsumes(&#x27;multipart/form-data&#x27;)<br />@Post(&#x27;/upload/:schoolId/:parentType/:parentId&#x27;)<br /></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="18"
+                            class="link-to-prism">apps/server/src/modules/files-storage/controller/files-storage.controller.ts:18</a></div>
                 </td>
             </tr>
 
@@ -263,7 +369,7 @@
                                 <tr>
                                     <td>params</td>
                                     <td>
-                                                <code><a href="../classes/UploadFileParams.html" target="_self" >UploadFileParams</a></code>
+                                                <code><a href="../classes/FileParams.html" target="_self" >FileParams</a></code>
                                     </td>
 
                                     <td>
@@ -316,25 +422,26 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Body, Controller, Get, Param, Post, Req, StreamableFile } from &#x27;@nestjs/common&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Body, Controller, Get, Param, Post, Query, Req, StreamableFile } from &#x27;@nestjs/common&#x27;;
 import { ApiConsumes, ApiTags } from &#x27;@nestjs/swagger&#x27;;
+import { PaginationQuery } from &#x27;@shared/controller&#x27;;
 import { FileRecord, ICurrentUser } from &#x27;@shared/domain&#x27;;
 import { Authenticate, CurrentUser } from &#x27;@src/modules/authentication/decorator/auth.decorator&#x27;;
 import { Request } from &#x27;express&#x27;;
 import { FilesStorageUC } from &#x27;../uc/files-storage.uc&#x27;;
-import { FileRecordResponse, DownloadFileParams, FileDto, UploadFileParams } from &#x27;./dto&#x27;;
+import { FileRecordResponse, DownloadFileParams, FileDto, FileParams, FileRecordListResponse } from &#x27;./dto&#x27;;
 
-@ApiTags(&#x27;files-storage&#x27;)
+@ApiTags(&#x27;file&#x27;)
 @Authenticate(&#x27;jwt&#x27;)
-@Controller(&#x27;files-storage&#x27;)
+@Controller(&#x27;file&#x27;)
 export class FilesStorageController {
 	constructor(private readonly filesStorageUC: FilesStorageUC) {}
 
 	@ApiConsumes(&#x27;multipart/form-data&#x27;)
-	@Post(&#x27;upload/:schoolId/:parentType/:parentId&#x27;)
-	async uploadAsStream(
+	@Post(&#x27;/upload/:schoolId/:parentType/:parentId&#x27;)
+	async upload(
 		@Body() _: FileDto,
-		@Param() params: UploadFileParams,
+		@Param() params: FileParams,
 		@CurrentUser() currentUser: ICurrentUser,
 		@Req() req: Request
 	): Promise&lt;FileRecordResponse&gt; {
@@ -356,6 +463,25 @@ export class FilesStorageController {
 			type: res.contentType,
 			disposition: &#x60;attachment; filename&#x3D;&quot;${params.fileName}&quot;&#x60;,
 		});
+	}
+
+	@Get(&#x27;/list/:schoolId/:parentType/:parentId&#x27;)
+	async list(
+		@Param() params: FileParams,
+		@CurrentUser() currentUser: ICurrentUser,
+		@Query() paginationQuery: PaginationQuery
+	): Promise&lt;FileRecordListResponse&gt; {
+		const [fileRecords, total] &#x3D; await this.filesStorageUC.fileRecordsOfParent(currentUser.userId, params);
+
+		const responseFileRecords &#x3D; fileRecords.map((fileRecord) &#x3D;&gt; {
+			return new FileRecordResponse(fileRecord);
+		});
+
+		const { skip, limit } &#x3D; paginationQuery;
+
+		const response &#x3D; new FileRecordListResponse(responseFileRecords, total, skip, limit);
+
+		return response;
 	}
 }
 </code></pre>

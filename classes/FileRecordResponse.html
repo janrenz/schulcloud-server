@@ -329,7 +329,7 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @ApiProperty({enum: FileRecordParentType})<br />
+                            @ApiProperty()<br />
                         </code>
                     </td>
                 </tr>
@@ -390,7 +390,7 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ApiProperty } from &#x27;@nestjs/swagger&#x27;;
-import { DecodeHtmlEntities } from &#x27;@shared/controller&#x27;;
+import { DecodeHtmlEntities, PaginationResponse } from &#x27;@shared/controller&#x27;;
 import { FileRecord, FileRecordParentType } from &#x27;@shared/domain/&#x27;; // we do not want entity on this place in future or?
 
 export class FileRecordResponse {
@@ -419,8 +419,18 @@ export class FileRecordResponse {
 	@ApiProperty()
 	type: string;
 
-	@ApiProperty({ enum: FileRecordParentType })
+	@ApiProperty()
 	parentType: FileRecordParentType;
+}
+
+export class FileRecordListResponse extends PaginationResponse&lt;FileRecordResponse[]&gt; {
+	constructor(data: FileRecordResponse[], total: number, skip?: number, limit?: number) {
+		super(total, skip, limit);
+		this.data &#x3D; data;
+	}
+
+	@ApiProperty({ type: [FileRecordResponse] })
+	data: FileRecordResponse[];
 }
 </code></pre>
     </div>

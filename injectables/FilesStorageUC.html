@@ -88,6 +88,10 @@
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
+                                <a href="#fileRecordsOfParent" >fileRecordsOfParent</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
                                 <a href="#upload" >upload</a>
                             </li>
                             <li>
@@ -355,6 +359,89 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="fileRecordsOfParent"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>fileRecordsOfParent</b></span>
+                        <a href="#fileRecordsOfParent"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>fileRecordsOfParent(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, params: <a href="../classes/FileParams.html" target="_self">FileParams</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="101"
+                            class="link-to-prism">apps/server/src/modules/files-storage/uc/files-storage.uc.ts:101</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>userId</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>params</td>
+                                    <td>
+                                                <code><a href="../classes/FileParams.html" target="_self" >FileParams</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/FileRecord.html" target="_self" >Promise&lt;Counted&lt;FileRecord[]&gt;&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="upload"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
@@ -366,7 +453,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>upload(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, params: <a href="../classes/UploadFileParams.html" target="_self">UploadFileParams</a>, req: Request)</code>
+                    <code>upload(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, params: <a href="../classes/FileParams.html" target="_self">FileParams</a>, req: Request)</code>
                 </td>
             </tr>
 
@@ -409,7 +496,7 @@
                                 <tr>
                                     <td>params</td>
                                     <td>
-                                                <code><a href="../classes/UploadFileParams.html" target="_self" >UploadFileParams</a></code>
+                                                <code><a href="../classes/FileParams.html" target="_self" >FileParams</a></code>
                                     </td>
 
                                     <td>
@@ -462,7 +549,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>uploadFile(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, params: <a href="../classes/UploadFileParams.html" target="_self">UploadFileParams</a>, fileDescription: <a href="../interfaces/IFile.html" target="_self">IFile</a>)</code>
+                    <code>uploadFile(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, params: <a href="../classes/FileParams.html" target="_self">FileParams</a>, fileDescription: <a href="../interfaces/IFile.html" target="_self">IFile</a>)</code>
                 </td>
             </tr>
 
@@ -505,7 +592,7 @@
                                 <tr>
                                     <td>params</td>
                                     <td>
-                                                <code><a href="../classes/UploadFileParams.html" target="_self" >UploadFileParams</a></code>
+                                                <code><a href="../classes/FileParams.html" target="_self" >FileParams</a></code>
                                     </td>
 
                                     <td>
@@ -553,16 +640,16 @@ import { Request } from &#x27;express&#x27;;
 import busboy from &#x27;busboy&#x27;;
 import internal from &#x27;stream&#x27;;
 import { FileRecordRepo } from &#x27;@shared/repo&#x27;;
-import { EntityId, FileRecord } from &#x27;@shared/domain&#x27;;
+import { Counted, EntityId, FileRecord } from &#x27;@shared/domain&#x27;;
 import { S3ClientAdapter } from &#x27;../client/s3-client.adapter&#x27;;
-import { DownloadFileParams, UploadFileParams } from &#x27;../controller/dto/file-storage.params&#x27;;
+import { DownloadFileParams, FileParams } from &#x27;../controller/dto/file-storage.params&#x27;;
 import { IFile } from &#x27;../interface/file&#x27;;
 
 @Injectable()
 export class FilesStorageUC {
 	constructor(private readonly storageClient: S3ClientAdapter, private readonly fileRecordRepo: FileRecordRepo) {}
 
-	async upload(userId: EntityId, params: UploadFileParams, req: Request) {
+	async upload(userId: EntityId, params: FileParams, req: Request) {
 		// @TODO check permissions of schoolId by user
 		// @TODO scan virus on demand?
 		// @TODO add thumbnail on demand
@@ -605,7 +692,7 @@ export class FilesStorageUC {
 		return fileDescription;
 	}
 
-	private async uploadFile(userId: EntityId, params: UploadFileParams, fileDescription: IFile) {
+	private async uploadFile(userId: EntityId, params: FileParams, fileDescription: IFile) {
 		const entity &#x3D; new FileRecord({
 			size: fileDescription.size,
 			name: fileDescription.name,
@@ -646,6 +733,12 @@ export class FilesStorageUC {
 			}
 			throw new BadRequestException(error);
 		}
+	}
+
+	async fileRecordsOfParent(userId: EntityId, params: FileParams): Promise&lt;Counted&lt;FileRecord[]&gt;&gt; {
+		const countedFileRecords &#x3D; await this.fileRecordRepo.findBySchoolIdAndParentId(params.schoolId, params.parentId);
+
+		return countedFileRecords;
 	}
 }
 </code></pre>

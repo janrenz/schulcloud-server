@@ -927,7 +927,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/FileDto.html" data-type="entity-link" >FileDto</a>
                             </li>
                             <li class="link">
+                                <a href="classes/FileParams.html" data-type="entity-link" >FileParams</a>
+                            </li>
+                            <li class="link">
                                 <a href="classes/FileRecord.html" data-type="entity-link" >FileRecord</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/FileRecordListResponse.html" data-type="entity-link" >FileRecordListResponse</a>
                             </li>
                             <li class="link">
                                 <a href="classes/FileRecordResponse.html" data-type="entity-link" >FileRecordResponse</a>
@@ -1111,9 +1117,6 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="classes/UpdateNewsParams.html" data-type="entity-link" >UpdateNewsParams</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/UploadFileParams.html" data-type="entity-link" >UploadFileParams</a>
                             </li>
                             <li class="link">
                                 <a href="classes/UserAlreadyAssignedToImportUserError.html" data-type="entity-link" >UserAlreadyAssignedToImportUserError</a>
