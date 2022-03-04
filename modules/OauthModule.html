@@ -249,7 +249,7 @@ import { AuthorizationModule } from &#x27;../authorization&#x27;;
 import { OauthSSOController } from &#x27;./controller/oauth-sso.controller&#x27;;
 import { OauthUc } from &#x27;./uc/oauth.uc&#x27;;
 
-const key &#x3D; Configuration.get(&#x27;LDAP_PASSWORD_ENCRYPTION_KEY&#x27;) as string;
+const key &#x3D; Configuration.get(&#x27;AES_KEY&#x27;) as string;
 
 @Module({
 	imports: [LoggerModule, AuthorizationModule, HttpModule],
