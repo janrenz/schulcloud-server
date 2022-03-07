@@ -448,7 +448,7 @@ export class FilesStorageController {
 	): Promise&lt;FileRecordResponse&gt; {
 		const res &#x3D; await this.filesStorageUC.upload(currentUser.userId, params, req);
 
-		const response &#x3D; new FileRecordResponse(res as FileRecord);
+		const response &#x3D; new FileRecordResponse(res);
 
 		return response;
 	}
