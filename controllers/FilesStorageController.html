@@ -141,8 +141,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="32"
-                            class="link-to-prism">apps/server/src/modules/files-storage/controller/files-storage.controller.ts:32</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="33"
+                            class="link-to-prism">apps/server/src/modules/files-storage/controller/files-storage.controller.ts:33</a></div>
                 </td>
             </tr>
 
@@ -231,8 +231,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="45"
-                            class="link-to-prism">apps/server/src/modules/files-storage/controller/files-storage.controller.ts:45</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="46"
+                            class="link-to-prism">apps/server/src/modules/files-storage/controller/files-storage.controller.ts:46</a></div>
                 </td>
             </tr>
 
@@ -333,8 +333,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="18"
-                            class="link-to-prism">apps/server/src/modules/files-storage/controller/files-storage.controller.ts:18</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="19"
+                            class="link-to-prism">apps/server/src/modules/files-storage/controller/files-storage.controller.ts:19</a></div>
                 </td>
             </tr>
 
@@ -428,6 +428,7 @@ import { PaginationQuery } from &#x27;@shared/controller&#x27;;
 import { FileRecord, ICurrentUser } from &#x27;@shared/domain&#x27;;
 import { Authenticate, CurrentUser } from &#x27;@src/modules/authentication/decorator/auth.decorator&#x27;;
 import { Request } from &#x27;express&#x27;;
+import { FileRecordUC } from &#x27;../uc/file-record.uc&#x27;;
 import { FilesStorageUC } from &#x27;../uc/files-storage.uc&#x27;;
 import { FileRecordResponse, DownloadFileParams, FileDto, FileParams, FileRecordListResponse } from &#x27;./dto&#x27;;
 
@@ -435,7 +436,7 @@ import { FileRecordResponse, DownloadFileParams, FileDto, FileParams, FileRecord
 @Authenticate(&#x27;jwt&#x27;)
 @Controller(&#x27;file&#x27;)
 export class FilesStorageController {
-	constructor(private readonly filesStorageUC: FilesStorageUC) {}
+	constructor(private readonly filesStorageUC: FilesStorageUC, private readonly fileRecordUC: FileRecordUC) {}
 
 	@ApiConsumes(&#x27;multipart/form-data&#x27;)
 	@Post(&#x27;/upload/:schoolId/:parentType/:parentId&#x27;)
@@ -471,7 +472,7 @@ export class FilesStorageController {
 		@CurrentUser() currentUser: ICurrentUser,
 		@Query() paginationQuery: PaginationQuery
 	): Promise&lt;FileRecordListResponse&gt; {
-		const [fileRecords, total] &#x3D; await this.filesStorageUC.fileRecordsOfParent(currentUser.userId, params);
+		const [fileRecords, total] &#x3D; await this.fileRecordUC.fileRecordsOfParent(currentUser.userId, params);
 
 		const responseFileRecords &#x3D; fileRecords.map((fileRecord) &#x3D;&gt; {
 			return new FileRecordResponse(fileRecord);

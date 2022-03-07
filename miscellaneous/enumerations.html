@@ -67,7 +67,7 @@
                             <a href="#FileRecordParentType" title="apps/server/src/shared/domain/entity/filerecord.entity.ts" ><b>FileRecordParentType</b>&nbsp;&nbsp;&nbsp;(apps/.../filerecord.entity.ts)</a>
                         </li>
                         <li>
-                            <a href="#FileSecurityCheckStatus" title="apps/server/src/shared/domain/entity/filerecord.entity.ts" ><b>FileSecurityCheckStatus</b>&nbsp;&nbsp;&nbsp;(apps/.../filerecord.entity.ts)</a>
+                            <a href="#FilesStorageInternalActions" title="apps/server/src/modules/files-storage/files-storage.const.ts" ><b>FilesStorageInternalActions</b>&nbsp;&nbsp;&nbsp;(apps/.../files-storage.const.ts)</a>
                         </li>
                         <li>
                             <a href="#ImportUserSortByQuery" title="apps/server/src/modules/user-import/controller/dto/import-user-sorting.query.ts" ><b>ImportUserSortByQuery</b>&nbsp;&nbsp;&nbsp;(apps/.../import-user-sorting.query.ts)</a>
@@ -98,6 +98,9 @@
                         </li>
                         <li>
                             <a href="#RoleNameResponse" title="apps/server/src/modules/user-import/controller/dto/role-name.response.ts" ><b>RoleNameResponse</b>&nbsp;&nbsp;&nbsp;(apps/.../role-name.response.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#ScanStatus" title="apps/server/src/shared/domain/entity/filerecord.entity.ts" ><b>ScanStatus</b>&nbsp;&nbsp;&nbsp;(apps/.../filerecord.entity.ts)</a>
                         </li>
                         <li>
                             <a href="#SortOrder" title="apps/server/src/shared/controller/dto/sorting.query.ts" ><b>SortOrder</b>&nbsp;&nbsp;&nbsp;(apps/.../sorting.query.ts)</a>
@@ -233,8 +236,8 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="FileSecurityCheckStatus"></a>
-                        <span class="name "><b>FileSecurityCheckStatus</b><a href="#FileSecurityCheckStatus"><span class="icon ion-ios-link"></span></a></span>
+                        <a name="ScanStatus"></a>
+                        <span class="name "><b>ScanStatus</b><a href="#ScanStatus"><span class="icon ion-ios-link"></span></a></span>
                     </td>
                 </tr>
                         <tr>
@@ -269,12 +272,45 @@
                         </tr>
                         <tr>
                             <td class="col-md-4">
-                                &nbsp;WONTCHECK
+                                &nbsp;WONT_CHECK
                             </td>
                         </tr>
                         <tr>
                             <td class="col-md-4">
                                 <i>Value : </i><code>wont-check</code>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+    <h3>apps/server/src/modules/files-storage/files-storage.const.ts</h3>
+    <section>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="FilesStorageInternalActions"></a>
+                        <span class="name "><b>FilesStorageInternalActions</b><a href="#FilesStorageInternalActions"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;downloadBySecurityToken
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Value : </i><code>/file-security/download/:token</code>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;updateSecurityStatus
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Value : </i><code>/file-security/update-status/:token</code>
                             </td>
                         </tr>
             </tbody>

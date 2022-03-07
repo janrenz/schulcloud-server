@@ -88,6 +88,10 @@
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
+                                <a href="#findBySecurityCheckRequestToken" >findBySecurityCheckRequestToken</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
                                 <a href="#findOneById" >findOneById</a>
                             </li>
                             <li>
@@ -330,6 +334,77 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="findBySecurityCheckRequestToken"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>findBySecurityCheckRequestToken</b></span>
+                        <a href="#findBySecurityCheckRequestToken"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findBySecurityCheckRequestToken(token: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="44"
+                            class="link-to-prism">apps/server/src/shared/repo/filerecord/filerecord.repo.ts:44</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>token</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/FileRecord.html" target="_self" >Promise&lt;FileRecord&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="findOneById"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
@@ -515,6 +590,10 @@ export class FileRecordRepo {
 		});
 
 		return [fileRecords, count];
+	}
+
+	async findBySecurityCheckRequestToken(token: string): Promise&lt;FileRecord&gt; {
+		return this.em.findOneOrFail(FileRecord, new FileRecordScope().bySecurityCheckRequestToken(token).query);
 	}
 }
 </code></pre>

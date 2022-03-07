@@ -35,7 +35,7 @@
 
 <ol class="breadcrumb">
     <li>Modules</li>
-    <li >MailModule</li>
+    <li >AntivirusModule</li>
 </ol>
 
 
@@ -55,7 +55,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/shared/infra/mail/mail.module.ts</code>
+            <code>apps/server/src/shared/infra/antivirus/antivirus.module.ts</code>
         </p>
 
 
@@ -87,15 +87,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>forRoot(options: <a href="../interfaces/MailModuleOptions.html" target="_self">MailModuleOptions</a>)</code>
+                    <code>forRoot(options: <a href="../interfaces/AntivirusModuleOptions.html" target="_self">AntivirusModuleOptions</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="11"
-                            class="link-to-prism">apps/server/src/shared/infra/mail/mail.module.ts:11</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="13"
+                            class="link-to-prism">apps/server/src/shared/infra/antivirus/antivirus.module.ts:13</a></div>
                 </td>
             </tr>
 
@@ -118,7 +118,7 @@
                                 <tr>
                                     <td>options</td>
                                     <td>
-                                                <code><a href="../interfaces/MailModuleOptions.html" target="_self" >MailModuleOptions</a></code>
+                                                <code><a href="../interfaces/AntivirusModuleOptions.html" target="_self" >AntivirusModuleOptions</a></code>
                                     </td>
 
                                     <td>
@@ -149,26 +149,33 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Module, DynamicModule } from &#x27;@nestjs/common&#x27;;
-import { MailService } from &#x27;./mail.service&#x27;;
+import { AntivirusService } from &#x27;./antivirus.service&#x27;;
 
-interface MailModuleOptions {
+interface AntivirusModuleOptions {
+	enabled: boolean;
+	filesServiceBaseUrl: string;
 	exchange: string;
 	routingKey: string;
 }
 
 @Module({})
-export class MailModule {
-	static forRoot(options: MailModuleOptions): DynamicModule {
+export class AntivirusModule {
+	static forRoot(options: AntivirusModuleOptions): DynamicModule {
 		return {
-			module: MailModule,
+			module: AntivirusModule,
 			providers: [
-				MailService,
+				AntivirusService,
 				{
-					provide: &#x27;MAIL_SERVICE_OPTIONS&#x27;,
-					useValue: { exchange: options.exchange, routingKey: options.routingKey },
+					provide: &#x27;ANTIVIRUS_SERVICE_OPTIONS&#x27;,
+					useValue: {
+						enabled: options.enabled,
+						filesServiceBaseUrl: options.filesServiceBaseUrl,
+						exchange: options.exchange,
+						routingKey: options.routingKey,
+					},
 				},
 			],
-			exports: [MailService],
+			exports: [AntivirusService],
 		};
 	}
 }
@@ -218,7 +225,7 @@ export class MailModule {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'module';
-            var COMPODOC_CURRENT_PAGE_URL = 'MailModule.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'AntivirusModule.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 
