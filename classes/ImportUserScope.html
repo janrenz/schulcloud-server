@@ -256,8 +256,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="85"
-                            class="link-to-prism">apps/server/src/shared/repo/importuser/importuser.scope.ts:85</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="86"
+                            class="link-to-prism">apps/server/src/shared/repo/importuser/importuser.scope.ts:86</a></div>
                 </td>
             </tr>
 
@@ -325,8 +325,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="23"
-                            class="link-to-prism">apps/server/src/shared/repo/importuser/importuser.scope.ts:23</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="24"
+                            class="link-to-prism">apps/server/src/shared/repo/importuser/importuser.scope.ts:24</a></div>
                 </td>
             </tr>
 
@@ -394,8 +394,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="37"
-                            class="link-to-prism">apps/server/src/shared/repo/importuser/importuser.scope.ts:37</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="38"
+                            class="link-to-prism">apps/server/src/shared/repo/importuser/importuser.scope.ts:38</a></div>
                 </td>
             </tr>
 
@@ -463,8 +463,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="53"
-                            class="link-to-prism">apps/server/src/shared/repo/importuser/importuser.scope.ts:53</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="54"
+                            class="link-to-prism">apps/server/src/shared/repo/importuser/importuser.scope.ts:54</a></div>
                 </td>
             </tr>
 
@@ -534,8 +534,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="99"
-                            class="link-to-prism">apps/server/src/shared/repo/importuser/importuser.scope.ts:99</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="100"
+                            class="link-to-prism">apps/server/src/shared/repo/importuser/importuser.scope.ts:100</a></div>
                 </td>
             </tr>
 
@@ -603,8 +603,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="68"
-                            class="link-to-prism">apps/server/src/shared/repo/importuser/importuser.scope.ts:68</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="69"
+                            class="link-to-prism">apps/server/src/shared/repo/importuser/importuser.scope.ts:69</a></div>
                 </td>
             </tr>
 
@@ -672,8 +672,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="9"
-                            class="link-to-prism">apps/server/src/shared/repo/importuser/importuser.scope.ts:9</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="10"
+                            class="link-to-prism">apps/server/src/shared/repo/importuser/importuser.scope.ts:10</a></div>
                 </td>
             </tr>
 
@@ -741,8 +741,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="16"
-                            class="link-to-prism">apps/server/src/shared/repo/importuser/importuser.scope.ts:16</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="17"
+                            class="link-to-prism">apps/server/src/shared/repo/importuser/importuser.scope.ts:17</a></div>
                 </td>
             </tr>
 
@@ -810,8 +810,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="112"
-                            class="link-to-prism">apps/server/src/shared/repo/importuser/importuser.scope.ts:112</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="113"
+                            class="link-to-prism">apps/server/src/shared/repo/importuser/importuser.scope.ts:113</a></div>
                 </td>
             </tr>
 
@@ -944,9 +944,10 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ObjectId } from &#x27;@mikro-orm/mongodb&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { FilterQuery } from &#x27;@mikro-orm/core&#x27;;
+import { ObjectId } from &#x27;@mikro-orm/mongodb&#x27;;
 import { StringValidator } from &#x27;@shared/common&#x27;;
-import { EntityId, ImportUser, MatchCreatorScope, RoleName, School, User } from &#x27;@shared/domain&#x27;;
+import { ImportUser, MatchCreatorScope, RoleName, School, User } from &#x27;@shared/domain&#x27;;
 import { MongoPatterns } from &#x27;../mongo.patterns&#x27;;
 import { Scope } from &#x27;../scope&#x27;;
 
@@ -954,14 +955,14 @@ export class ImportUserScope extends Scope&lt;ImportUser&gt; {
 	bySchool(school: School): ImportUserScope {
 		const schoolId &#x3D; school._id;
 		if (!ObjectId.isValid(schoolId)) throw new Error(&#x27;invalid school id&#x27;);
-		this.addQuery({ school: schoolId });
+		this.addQuery({ school });
 		return this;
 	}
 
 	byUserMatch(user: User): ImportUserScope {
 		const userId &#x3D; user._id;
 		if (!ObjectId.isValid(userId)) throw new Error(&#x27;invalid user match id&#x27;);
-		this.addQuery({ user: userId });
+		this.addQuery({ user });
 		return this;
 	}
 
@@ -1044,13 +1045,13 @@ export class ImportUserScope extends Scope&lt;ImportUser&gt; {
 	byMatches(matches: MatchCreatorScope[]) {
 		const queries &#x3D; matches
 			.map((match) &#x3D;&gt; {
-				if (match &#x3D;&#x3D;&#x3D; MatchCreatorScope.MANUAL) return { match_matchedBy: &#x27;admin&#x27; };
-				if (match &#x3D;&#x3D;&#x3D; MatchCreatorScope.AUTO) return { match_matchedBy: &#x27;auto&#x27; };
-				if (match &#x3D;&#x3D;&#x3D; MatchCreatorScope.NONE) return { match_matchedBy: { $exists: false } };
+				if (match &#x3D;&#x3D;&#x3D; MatchCreatorScope.MANUAL) return { matchedBy: &#x27;admin&#x27; };
+				if (match &#x3D;&#x3D;&#x3D; MatchCreatorScope.AUTO) return { matchedBy: &#x27;auto&#x27; };
+				if (match &#x3D;&#x3D;&#x3D; MatchCreatorScope.NONE) return { matchedBy: { $exists: false } };
 				return null;
 			})
 			.filter((match) &#x3D;&gt; match !&#x3D; null);
-		if (queries.length &gt; 0) this.addQuery({ $or: queries });
+		if (queries.length &gt; 0) this.addQuery({ $or: queries as FilterQuery&lt;ImportUser&gt;[] });
 		return this;
 	}
 

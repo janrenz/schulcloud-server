@@ -198,7 +198,7 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @Property()<br />
+                            @Property({nullable: true})<br />
                         </code>
                     </td>
                 </tr>
@@ -265,15 +265,15 @@ export interface IStorageProviderProperties {
 @Entity({ tableName: &#x27;storageproviders&#x27; })
 export class StorageProvider extends BaseEntityWithTimestamps {
 	@Property()
-	endpointUrl!: string;
+	endpointUrl: string;
 
 	@Property()
-	accessKeyId!: string;
+	accessKeyId: string;
 
 	@Property({ fieldName: &#x27;secretAccessKey&#x27;, type: EncryptedStringType })
-	secretAccessKey!: string;
+	secretAccessKey: string;
 
-	@Property()
+	@Property({ nullable: true })
 	region?: string;
 
 	constructor(props: IStorageProviderProperties) {

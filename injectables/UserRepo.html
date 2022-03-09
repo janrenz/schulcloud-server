@@ -392,8 +392,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="44"
-                            class="link-to-prism">apps/server/src/shared/repo/user/user.repo.ts:44</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="41"
+                            class="link-to-prism">apps/server/src/shared/repo/user/user.repo.ts:41</a></div>
                 </td>
             </tr>
 
@@ -490,8 +490,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="152"
-                            class="link-to-prism">apps/server/src/shared/repo/user/user.repo.ts:152</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="149"
+                            class="link-to-prism">apps/server/src/shared/repo/user/user.repo.ts:149</a></div>
                 </td>
             </tr>
 
@@ -1203,7 +1203,7 @@ import { EntityManager, MongoDriver, ObjectId } from &#x27;@mikro-orm/mongodb&#x
 import { Injectable, NotFoundException } from &#x27;@nestjs/common&#x27;;
 import { StringValidator } from &#x27;@shared/common&#x27;;
 import { BaseRepo } from &#x27;@shared/repo/base.repo&#x27;;
-import { Counted, EntityId, IFindOptions, INameMatch, Role, School, SortOrder, User } from &#x27;@shared/domain&#x27;;
+import { Counted, EntityId, IFindOptions, ImportUser, INameMatch, Role, School, SortOrder, User } from &#x27;@shared/domain&#x27;;
 import { MongoPatterns } from &#x27;../mongo.patterns&#x27;;
 
 @Injectable()
@@ -1224,16 +1224,13 @@ export class UserRepo extends BaseRepo&lt;User&gt; {
 	}
 
 	async findByLdapId(ldapId: string, systemId: string): Promise&lt;User&gt; {
-		const users: [User[], number] &#x3D; await this.em.findAndCount(User, { ldapId }, { populate: [&#x27;school.systems&#x27;] });
-		let resultUser;
-		users[0].forEach((user) &#x3D;&gt; {
+		const [users] &#x3D; await this.em.findAndCount(User, { ldapId }, { populate: [&#x27;school.systems&#x27;] });
+		const resultUser &#x3D; users.find((user) &#x3D;&gt; {
 			const { systems } &#x3D; user.school;
-			if (systems &amp;&amp; systems.getItems().find((system) &#x3D;&gt; system.id &#x3D;&#x3D;&#x3D; systemId)) {
-				resultUser &#x3D; user;
-			}
+			return systems &amp;&amp; systems.getItems().find((system) &#x3D;&gt; system.id &#x3D;&#x3D;&#x3D; systemId);
 		});
 		if (resultUser) {
-			return resultUser as User;
+			return resultUser;
 		}
 		throw new NotFoundException(&#x27;No user for this ldapId found&#x27;);
 	}
@@ -1309,7 +1306,7 @@ export class UserRepo extends BaseRepo&lt;User&gt; {
 		const { pagination, order } &#x3D; options || {};
 
 		if (order) {
-			const orderQuery: QueryOrderMap &#x3D; {};
+			const orderQuery: QueryOrderMap&lt;ImportUser&gt; &#x3D; {};
 			if (order.firstName) {
 				switch (order.firstName) {
 					case SortOrder.desc:
@@ -1345,7 +1342,7 @@ export class UserRepo extends BaseRepo&lt;User&gt; {
 		const userDocuments &#x3D; await this.em.aggregate(User, pipeline);
 		// eslint-disable-next-line @typescript-eslint/no-unsafe-argument
 		const users &#x3D; userDocuments.map((userDocument) &#x3D;&gt; this.em.map(User, userDocument));
-		await this.em.populate(users, &#x27;roles&#x27;);
+		await this.em.populate(users, [&#x27;roles&#x27;]);
 		return [users, count];
 	}
 

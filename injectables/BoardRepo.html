@@ -647,9 +647,9 @@ export class BoardRepo {
 		const elements &#x3D; board.references.getItems();
 		const discriminatorColumn &#x3D; &#x27;target&#x27;;
 		const taskElements &#x3D; elements.filter((el) &#x3D;&gt; el instanceof TaskBoardElement);
-		await this.em.populate(taskElements, discriminatorColumn);
+		await this.em.populate(taskElements, [discriminatorColumn]);
 		const lessonElements &#x3D; elements.filter((el) &#x3D;&gt; el instanceof LessonBoardElement);
-		await this.em.populate(lessonElements, discriminatorColumn);
+		await this.em.populate(lessonElements, [discriminatorColumn]);
 		return board;
 	}
 

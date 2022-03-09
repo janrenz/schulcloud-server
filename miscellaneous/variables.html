@@ -1359,6 +1359,7 @@ must use @ApiProperty</p>
 			await mongo.ensureInstance();
 			const clientUrl &#x3D; mongo.getUri();
 			return {
+				allowGlobalContext: true, // can be overridden by options
 				...options,
 				type: &#x27;mongo&#x27;,
 				clientUrl,
@@ -1658,7 +1659,7 @@ must use @ApiProperty</p>
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>{ $and: [{ _id: false }] }</code>
+                        <i>Default value : </i><code>{ $and: [{ id: false }] }</code>
                     </td>
                 </tr>
 
@@ -2275,7 +2276,7 @@ You shall not explicitly declare the AMQPConnection in your modules since it wil
                 <tr>
                     <td class="col-md-4">
                         <i>Default value : </i><code>async (): Promise&lt;MikroORM&gt; &#x3D;&gt; {
-	const orm &#x3D; await MikroORM.init({ type: &#x27;mongo&#x27;, dbName: &#x27;dummy&#x27;, entities: ALL_ENTITIES });
+	const orm &#x3D; await MikroORM.init({ type: &#x27;mongo&#x27;, dbName: &#x27;dummy&#x27;, entities: ALL_ENTITIES, allowGlobalContext: true });
 	return orm;
 }</code>
                     </td>

@@ -117,13 +117,13 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @ManyToOne(&#x27;Task&#x27;)<br />
+                            @ManyToOne(&#x27;Task&#x27;, {nullable: true})<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">apps/server/src/shared/domain/entity/boardelement.entity.ts:56</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="59" class="link-to-prism">apps/server/src/shared/domain/entity/boardelement.entity.ts:59</a></div>
                         </td>
                     </tr>
 
@@ -189,7 +189,10 @@ export class TaskBoardElement extends BoardElement {
 		this.boardElementType &#x3D; BoardElementType.Task;
 	}
 
-	@ManyToOne(&#x27;Task&#x27;)
+	// FIXME Due to a weird behaviour in the mikro-orm validation we have to
+	// disable the validation by setting the reference nullable.
+	// Remove when fixed in mikro-orm.
+	@ManyToOne(&#x27;Task&#x27;, { nullable: true })
 	target!: Task;
 }
 

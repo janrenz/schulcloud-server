@@ -129,7 +129,7 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @Property()<br />
+                            @Property({nullable: true})<br />
                         </code>
                     </td>
                 </tr>
@@ -165,7 +165,7 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @Property()<br />
+                            @Property({nullable: true})<br />
                         </code>
                     </td>
                 </tr>
@@ -270,19 +270,16 @@ export class School extends BaseEntity {
 	}
 
 	@Property()
-	name!: string;
+	name: string;
 
-	@Property()
+	@Property({ nullable: true })
 	inUserMigration?: boolean;
 
 	@ManyToMany(&#x27;System&#x27;, undefined, { fieldName: &#x27;systems&#x27; })
 	systems &#x3D; new Collection&lt;System&gt;(this);
 
-	@Property()
+	@Property({ nullable: true })
 	ldapSchoolIdentifier?: string;
-
-	/* @Property()
-    systems?: System[]; */
 }
 </code></pre>
     </div>

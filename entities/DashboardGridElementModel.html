@@ -200,7 +200,7 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @Property()<br />
+                            @Property({nullable: true})<br />
                         </code>
                     </td>
                 </tr>
@@ -327,7 +327,7 @@ export class DashboardGridElementModel extends BaseEntityWithTimestamps {
 		this.dashboard &#x3D; wrap(dashboard).toReference();
 	}
 
-	@Property()
+	@Property({ nullable: true })
 	title?: string;
 
 	@Property()

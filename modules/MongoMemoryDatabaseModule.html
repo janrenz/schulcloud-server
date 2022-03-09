@@ -94,8 +94,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="51"
-                            class="link-to-prism">apps/server/src/shared/infra/database/mongo-memory-database/mongo-memory-database.module.ts:51</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="52"
+                            class="link-to-prism">apps/server/src/shared/infra/database/mongo-memory-database/mongo-memory-database.module.ts:52</a></div>
                 </td>
             </tr>
 
@@ -165,8 +165,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="64"
-                            class="link-to-prism">apps/server/src/shared/infra/database/mongo-memory-database/mongo-memory-database.module.ts:64</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="65"
+                            class="link-to-prism">apps/server/src/shared/infra/database/mongo-memory-database/mongo-memory-database.module.ts:65</a></div>
                 </td>
             </tr>
 
@@ -210,6 +210,7 @@ const createMikroOrmModule &#x3D; async (options: MikroOrmModuleAsyncOptions): P
 			await mongo.ensureInstance();
 			const clientUrl &#x3D; mongo.getUri();
 			return {
+				allowGlobalContext: true, // can be overridden by options
 				...options,
 				type: &#x27;mongo&#x27;,
 				clientUrl,

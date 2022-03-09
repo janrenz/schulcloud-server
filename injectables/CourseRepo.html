@@ -413,7 +413,7 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { EntityManager } from &#x27;@mikro-orm/mongodb&#x27;;
 import { Injectable } from &#x27;@nestjs/common&#x27;;
-import { QueryOrderMap } from &#x27;@mikro-orm/core&#x27;;
+import { FilterQuery, QueryOrderMap } from &#x27;@mikro-orm/core&#x27;;
 
 import { EntityId, Course, Counted, IFindOptions } from &#x27;@shared/domain&#x27;;
 import { Scope } from &#x27;../scope&#x27;;
@@ -444,7 +444,7 @@ class CourseScope extends Scope&lt;Course&gt; {
 
 	forActiveCourses(): CourseScope {
 		const now &#x3D; new Date();
-		const noUntilDate &#x3D; { untilDate: { $exists: false } };
+		const noUntilDate &#x3D; { untilDate: { $exists: false } } as FilterQuery&lt;Course&gt;;
 		const untilDateInFuture &#x3D; { untilDate: { $gte: now } };
 
 		this.addQuery({ $or: [noUntilDate, untilDateInFuture] });
@@ -478,7 +478,7 @@ export class CourseRepo {
 		const queryOptions &#x3D; {
 			offset: pagination?.skip,
 			limit: pagination?.limit,
-			orderBy: order as QueryOrderMap,
+			orderBy: order as QueryOrderMap&lt;Course&gt;,
 		};
 
 		const [courses, count] &#x3D; await this.em.findAndCount(Course, scope.query, queryOptions);

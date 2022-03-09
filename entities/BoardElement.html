@@ -230,7 +230,10 @@ export class TaskBoardElement extends BoardElement {
 		this.boardElementType &#x3D; BoardElementType.Task;
 	}
 
-	@ManyToOne(&#x27;Task&#x27;)
+	// FIXME Due to a weird behaviour in the mikro-orm validation we have to
+	// disable the validation by setting the reference nullable.
+	// Remove when fixed in mikro-orm.
+	@ManyToOne(&#x27;Task&#x27;, { nullable: true })
 	target!: Task;
 }
 

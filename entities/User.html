@@ -239,7 +239,7 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @Property()<br />
+                            @Property({nullable: true})<br />
                         </code>
                     </td>
                 </tr>
@@ -358,9 +358,9 @@ export class User extends BaseEntityWithTimestamps {
 
 	@Index({ name: &#x27;searchUserForSchool&#x27; })
 	@ManyToOne(&#x27;School&#x27;, { fieldName: &#x27;schoolId&#x27; })
-	school!: School;
+	school: School;
 
-	@Property()
+	@Property({ nullable: true })
 	ldapId?: string;
 
 	constructor(props: IUserProperties) {

@@ -263,7 +263,7 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
-import BSON from &#x27;bson&#x27;;
+import { EJSON } from &#x27;bson&#x27;;
 
 @Injectable()
 export class BsonConverter {
@@ -273,7 +273,7 @@ export class BsonConverter {
 	 * @returns mongo-bson/ejson objects
 	 */
 	serialize(documents: unknown[]): unknown[] {
-		const bsonDocuments &#x3D; BSON.EJSON.serialize(documents) as unknown[];
+		const bsonDocuments &#x3D; EJSON.serialize(documents) as unknown[];
 		return bsonDocuments;
 	}
 
@@ -283,7 +283,7 @@ export class BsonConverter {
 	 * @returns mongo-json documents
 	 */
 	deserialize(bsonDocuments: unknown[]): unknown[] {
-		const jsonDocuments &#x3D; BSON.EJSON.deserialize(bsonDocuments) as unknown[];
+		const jsonDocuments &#x3D; EJSON.deserialize(bsonDocuments) as unknown[];
 		return jsonDocuments;
 	}
 }

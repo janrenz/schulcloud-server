@@ -150,7 +150,7 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @Property()<br />
+                            @Property({nullable: true})<br />
                         </code>
                     </td>
                 </tr>
@@ -186,7 +186,7 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @ManyToOne(&#x27;Course&#x27;, {fieldName: &#x27;courseId&#x27;})<br />
+                            @ManyToOne(&#x27;Course&#x27;, {fieldName: &#x27;courseId&#x27;, nullable: true})<br />
                         </code>
                     </td>
                 </tr>
@@ -222,7 +222,7 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @ManyToOne(&#x27;User&#x27;, {fieldName: &#x27;teacherId&#x27;})<br />
+                            @ManyToOne(&#x27;User&#x27;, {fieldName: &#x27;teacherId&#x27;, nullable: true})<br />
                         </code>
                     </td>
                 </tr>
@@ -293,7 +293,7 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @Property()<br />
+                            @Property({nullable: true})<br />
                         </code>
                     </td>
                 </tr>
@@ -363,7 +363,7 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @ManyToOne(&#x27;Lesson&#x27;, {fieldName: &#x27;lessonId&#x27;})<br />
+                            @ManyToOne(&#x27;Lesson&#x27;, {fieldName: &#x27;lessonId&#x27;, nullable: true})<br />
                         </code>
                     </td>
                 </tr>
@@ -538,22 +538,22 @@ export class Task extends BaseEntityWithTimestamps implements ILearnroomElement 
 	@Property()
 	description: string;
 
-	@Property()
+	@Property({ nullable: true })
 	availableDate?: Date;
 
-	@Property()
+	@Property({ nullable: true })
 	dueDate?: Date;
 
 	@Property()
 	private &#x3D; true;
 
-	@ManyToOne(&#x27;User&#x27;, { fieldName: &#x27;teacherId&#x27; })
+	@ManyToOne(&#x27;User&#x27;, { fieldName: &#x27;teacherId&#x27;, nullable: true })
 	creator?: User;
 
-	@ManyToOne(&#x27;Course&#x27;, { fieldName: &#x27;courseId&#x27; })
+	@ManyToOne(&#x27;Course&#x27;, { fieldName: &#x27;courseId&#x27;, nullable: true })
 	course?: Course;
 
-	@ManyToOne(&#x27;Lesson&#x27;, { fieldName: &#x27;lessonId&#x27; })
+	@ManyToOne(&#x27;Lesson&#x27;, { fieldName: &#x27;lessonId&#x27;, nullable: true })
 	lesson?: Lesson; // In database exist also null, but it can not set.
 
 	@OneToMany(&#x27;Submission&#x27;, &#x27;task&#x27;)

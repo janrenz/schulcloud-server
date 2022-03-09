@@ -272,7 +272,7 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @Property()<br />
+                            @Property({nullable: true})<br />
                         </code>
                     </td>
                 </tr>
@@ -374,7 +374,7 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @Property()<br />
+                            @Property({nullable: true})<br />
                         </code>
                     </td>
                 </tr>
@@ -410,7 +410,7 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @Property()<br />
+                            @Property({nullable: true})<br />
                         </code>
                     </td>
                 </tr>
@@ -560,7 +560,7 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @ManyToOne(&#x27;User&#x27;, {fieldName: &#x27;updaterId&#x27;})<br />
+                            @ManyToOne(&#x27;User&#x27;, {fieldName: &#x27;updaterId&#x27;, nullable: true})<br />
                         </code>
                     </td>
                 </tr>
@@ -618,13 +618,13 @@ export abstract class News extends BaseEntityWithTimestamps {
 	@Property()
 	displayAt: Date;
 
-	@Property()
+	@Property({ nullable: true })
 	externalId?: string;
 
-	@Property()
+	@Property({ nullable: true })
 	source?: &#x27;internal&#x27; | &#x27;rss&#x27;;
 
-	@Property()
+	@Property({ nullable: true })
 	sourceDescription?: string;
 
 	/** id reference to a collection populated later with name */
@@ -640,7 +640,7 @@ export abstract class News extends BaseEntityWithTimestamps {
 	@ManyToOne(&#x27;User&#x27;, { fieldName: &#x27;creatorId&#x27; })
 	creator!: User;
 
-	@ManyToOne(&#x27;User&#x27;, { fieldName: &#x27;updaterId&#x27; })
+	@ManyToOne(&#x27;User&#x27;, { fieldName: &#x27;updaterId&#x27;, nullable: true })
 	updater?: User;
 
 	permissions: string[] &#x3D; [];
@@ -676,18 +676,36 @@ export abstract class News extends BaseEntityWithTimestamps {
 export class SchoolNews extends News {
 	@ManyToOne(&#x27;School&#x27;)
 	target!: School;
+
+	constructor(props: INewsProperties) {
+		super(props);
+		this.targetModel &#x3D; NewsTargetModel.School;
+	}
 }
 
 @Entity({ discriminatorValue: NewsTargetModel.Course })
 export class CourseNews extends News {
-	@ManyToOne(&#x27;Course&#x27;)
+	// FIXME Due to a weird behaviour in the mikro-orm validation we have to
+	// disable the validation by setting the reference nullable.
+	// Remove when fixed in mikro-orm.
+	@ManyToOne(&#x27;Course&#x27;, { nullable: true })
 	target!: Course;
+
+	constructor(props: INewsProperties) {
+		super(props);
+		this.targetModel &#x3D; NewsTargetModel.Course;
+	}
 }
 
 @Entity({ discriminatorValue: NewsTargetModel.Team })
 export class TeamNews extends News {
 	@ManyToOne(&#x27;Team&#x27;)
 	target!: Team;
+
+	constructor(props: INewsProperties) {
+		super(props);
+		this.targetModel &#x3D; NewsTargetModel.Team;
+	}
 }
 </code></pre>
     </div>

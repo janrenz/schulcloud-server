@@ -972,7 +972,7 @@ export class TaskRepo {
 		const [taskEntities, count] &#x3D; await this.em.findAndCount(Task, query, {
 			offset: pagination?.skip,
 			limit: pagination?.limit,
-			orderBy: order as QueryOrderMap,
+			orderBy: order as QueryOrderMap&lt;Task&gt;,
 		});
 
 		await this.em.populate(taskEntities, [&#x27;course&#x27;, &#x27;lesson&#x27;, &#x27;submissions&#x27;]);

@@ -1072,7 +1072,7 @@ export class FilesRepo extends BaseRepo&lt;BaseFile&gt; {
 		const filesForCleanupQuery &#x3D; { deletedAt: { $lte: cleanupThreshold } };
 		const files &#x3D; await this.em.find(BaseFile, filesForCleanupQuery);
 		const regularFiles &#x3D; files.filter((file) &#x3D;&gt; file instanceof File);
-		await this.em.populate(regularFiles, this.propertiesToPopulate);
+		await this.em.populate(regularFiles, this.propertiesToPopulate as never[]);
 		return files;
 	}
 

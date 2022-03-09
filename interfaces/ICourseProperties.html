@@ -539,7 +539,7 @@ export class Course extends BaseEntityWithTimestamps implements ILearnroom {
 	description: string &#x3D; DEFAULT.description;
 
 	@ManyToOne(&#x27;School&#x27;, { fieldName: &#x27;schoolId&#x27; })
-	school!: School;
+	school: School;
 
 	@ManyToMany(&#x27;User&#x27;, undefined, { fieldName: &#x27;userIds&#x27; })
 	students &#x3D; new Collection&lt;User&gt;(this);
@@ -554,11 +554,11 @@ export class Course extends BaseEntityWithTimestamps implements ILearnroom {
 	@Property()
 	color: string &#x3D; DEFAULT.color;
 
-	@Property()
+	@Property({ nullable: true })
 	startDate?: Date;
 
 	@Index({ name: &#x27;activeCourses&#x27; })
-	@Property()
+	@Property({ nullable: true })
 	untilDate?: Date;
 
 	constructor(props: ICourseProperties) {
