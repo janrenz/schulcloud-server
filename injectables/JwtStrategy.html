@@ -105,7 +105,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">apps/server/src/modules/authentication/strategy/jwt.strategy.ts:10</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">apps/server/src/modules/authentication/strategy/jwt.strategy.ts:11</a></div>
                             </td>
                         </tr>
 
@@ -182,8 +182,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="20"
-                            class="link-to-prism">apps/server/src/modules/authentication/strategy/jwt.strategy.ts:20</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="24"
+                            class="link-to-prism">apps/server/src/modules/authentication/strategy/jwt.strategy.ts:24</a></div>
                 </td>
             </tr>
 
@@ -244,12 +244,16 @@ import { UserRepo } from &#x27;@shared/repo&#x27;;
 import { jwtConstants } from &#x27;../constants&#x27;;
 import { JwtPayload } from &#x27;../interface/jwt-payload&#x27;;
 import { JwtValidationAdapter } from &#x27;./jwt-validation.adapter&#x27;;
+import { JwtExtractor } from &#x27;./jwt-extractor&#x27;;
 
 @Injectable()
 export class JwtStrategy extends PassportStrategy(Strategy) {
 	constructor(private readonly userRepo: UserRepo, private readonly jwtValidationAdapter: JwtValidationAdapter) {
 		super({
-			jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
+			jwtFromRequest: ExtractJwt.fromExtractors([
+				ExtractJwt.fromAuthHeaderAsBearerToken(),
+				JwtExtractor.fromCookie(&#x27;jwt&#x27;),
+			]),
 			ignoreExpiration: false,
 			secretOrKey: jwtConstants.secret,
 			...jwtConstants.jwtOptions,

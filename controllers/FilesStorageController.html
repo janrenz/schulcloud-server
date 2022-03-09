@@ -422,10 +422,10 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Body, Controller, Get, Param, Post, Query, Req, StreamableFile } from &#x27;@nestjs/common&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Body, Controller, Get, Headers, Param, Post, Query, Req, StreamableFile } from &#x27;@nestjs/common&#x27;;
 import { ApiConsumes, ApiTags } from &#x27;@nestjs/swagger&#x27;;
 import { PaginationQuery } from &#x27;@shared/controller&#x27;;
-import { FileRecord, ICurrentUser } from &#x27;@shared/domain&#x27;;
+import { ICurrentUser } from &#x27;@shared/domain&#x27;;
 import { Authenticate, CurrentUser } from &#x27;@src/modules/authentication/decorator/auth.decorator&#x27;;
 import { Request } from &#x27;express&#x27;;
 import { FileRecordUC } from &#x27;../uc/file-record.uc&#x27;;
@@ -459,10 +459,10 @@ export class FilesStorageController {
 		@CurrentUser() currentUser: ICurrentUser
 	): Promise&lt;StreamableFile&gt; {
 		const res &#x3D; await this.filesStorageUC.download(currentUser.userId, params);
-		// @TODO set headers ?
+		// TODO set headers ?
 		return new StreamableFile(res.data, {
 			type: res.contentType,
-			disposition: &#x60;attachment; filename&#x3D;&quot;${params.fileName}&quot;&#x60;,
+			disposition: &#x60;inline; filename&#x3D;&quot;${params.fileName}&quot;&#x60;,
 		});
 	}
 

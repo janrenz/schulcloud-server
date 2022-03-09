@@ -999,6 +999,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/ImportUserSortingQuery.html" data-type="entity-link" >ImportUserSortingQuery</a>
                             </li>
                             <li class="link">
+                                <a href="classes/JwtExtractor.html" data-type="entity-link" >JwtExtractor</a>
+                            </li>
+                            <li class="link">
                                 <a href="classes/LessonFactory.html" data-type="entity-link" >LessonFactory</a>
                             </li>
                             <li class="link">
