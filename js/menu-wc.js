@@ -945,9 +945,6 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/ErrorResponse.html" data-type="entity-link" >ErrorResponse</a>
                             </li>
                             <li class="link">
-                                <a href="classes/FileDto.html" data-type="entity-link" >FileDto</a>
-                            </li>
-                            <li class="link">
                                 <a href="classes/FileParams.html" data-type="entity-link" >FileParams</a>
                             </li>
                             <li class="link">
@@ -955,6 +952,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="classes/FileRecordListResponse.html" data-type="entity-link" >FileRecordListResponse</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/FileRecordParams.html" data-type="entity-link" >FileRecordParams</a>
                             </li>
                             <li class="link">
                                 <a href="classes/FileRecordResponse.html" data-type="entity-link" >FileRecordResponse</a>
@@ -1053,6 +1053,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/PatchVisibilityParams.html" data-type="entity-link" >PatchVisibilityParams</a>
                             </li>
                             <li class="link">
+                                <a href="classes/RenameFileParams.html" data-type="entity-link" >RenameFileParams</a>
+                            </li>
+                            <li class="link">
                                 <a href="classes/ResolvedUser.html" data-type="entity-link" >ResolvedUser</a>
                             </li>
                             <li class="link">
@@ -1065,7 +1068,7 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/RoleNameMapper.html" data-type="entity-link" >RoleNameMapper</a>
                             </li>
                             <li class="link">
-                                <a href="classes/ScanResultDto.html" data-type="entity-link" >ScanResultDto</a>
+                                <a href="classes/ScanResultParams.html" data-type="entity-link" >ScanResultParams</a>
                             </li>
                             <li class="link">
                                 <a href="classes/SchoolInfoMapper.html" data-type="entity-link" >SchoolInfoMapper</a>
@@ -1078,6 +1081,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="classes/ServerConsole.html" data-type="entity-link" >ServerConsole</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/SingleFileParams.html" data-type="entity-link" >SingleFileParams</a>
                             </li>
                             <li class="link">
                                 <a href="classes/SortingQuery.html" data-type="entity-link" >SortingQuery</a>

@@ -629,7 +629,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>upload(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, params: <a href="../classes/FileParams.html" target="_self">FileParams</a>, req: Request)</code>
+                    <code>upload(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, params: <a href="../classes/FileRecordParams.html" target="_self">FileRecordParams</a>, req: Request)</code>
                 </td>
             </tr>
 
@@ -672,7 +672,7 @@
                                 <tr>
                                     <td>params</td>
                                     <td>
-                                                <code><a href="../classes/FileParams.html" target="_self" >FileParams</a></code>
+                                                <code><a href="../classes/FileRecordParams.html" target="_self" >FileRecordParams</a></code>
                                     </td>
 
                                     <td>
@@ -725,7 +725,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>uploadFile(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, params: <a href="../classes/FileParams.html" target="_self">FileParams</a>, fileDescription: <a href="../interfaces/IFile.html" target="_self">IFile</a>)</code>
+                    <code>uploadFile(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, params: <a href="../classes/FileRecordParams.html" target="_self">FileRecordParams</a>, fileDescription: <a href="../interfaces/IFile.html" target="_self">IFile</a>)</code>
                 </td>
             </tr>
 
@@ -768,7 +768,7 @@
                                 <tr>
                                     <td>params</td>
                                     <td>
-                                                <code><a href="../classes/FileParams.html" target="_self" >FileParams</a></code>
+                                                <code><a href="../classes/FileRecordParams.html" target="_self" >FileRecordParams</a></code>
                                     </td>
 
                                     <td>
@@ -820,7 +820,7 @@ import { EntityId, FileRecord, ScanStatus } from &#x27;@shared/domain&#x27;;
 import path from &#x27;path&#x27;;
 import { AntivirusService } from &#x27;@shared/infra/antivirus/antivirus.service&#x27;;
 import { S3ClientAdapter } from &#x27;../client/s3-client.adapter&#x27;;
-import { DownloadFileParams, FileParams } from &#x27;../controller/dto/file-storage.params&#x27;;
+import { DownloadFileParams, FileRecordParams } from &#x27;../controller/dto/file-storage.params&#x27;;
 import { IFile } from &#x27;../interface/file&#x27;;
 
 @Injectable()
@@ -831,7 +831,7 @@ export class FilesStorageUC {
 		private readonly antivirusService: AntivirusService
 	) {}
 
-	async upload(userId: EntityId, params: FileParams, req: Request) {
+	async upload(userId: EntityId, params: FileRecordParams, req: Request) {
 		// @TODO check permissions of schoolId by user
 		try {
 			const result &#x3D; await new Promise((resolve, reject) &#x3D;&gt; {
@@ -872,7 +872,7 @@ export class FilesStorageUC {
 		return fileDescription;
 	}
 
-	private async uploadFile(userId: EntityId, params: FileParams, fileDescription: IFile) {
+	private async uploadFile(userId: EntityId, params: FileRecordParams, fileDescription: IFile) {
 		const [fileRecords] &#x3D; await this.fileRecordRepo.findBySchoolIdAndParentId(params.schoolId, params.parentId);
 		const fileName &#x3D; this.checkFilenameExists(fileDescription.name, fileRecords);
 

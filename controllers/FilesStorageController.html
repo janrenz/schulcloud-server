@@ -93,6 +93,10 @@
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
+                                <a href="#patchFilename" >patchFilename</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
                                 <a href="#upload" >upload</a>
                             </li>
                         </ul>
@@ -141,8 +145,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="33"
-                            class="link-to-prism">apps/server/src/modules/files-storage/controller/files-storage.controller.ts:33</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="41"
+                            class="link-to-prism">apps/server/src/modules/files-storage/controller/files-storage.controller.ts:41</a></div>
                 </td>
             </tr>
 
@@ -217,7 +221,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>list(params: <a href="../classes/FileParams.html" target="_self">FileParams</a>, currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>, paginationQuery: <a href="../classes/PaginationQuery.html" target="_self">PaginationQuery</a>)</code>
+                    <code>list(params: <a href="../classes/FileRecordParams.html" target="_self">FileRecordParams</a>, currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>, paginationQuery: <a href="../classes/PaginationQuery.html" target="_self">PaginationQuery</a>)</code>
                 </td>
             </tr>
 
@@ -231,8 +235,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="46"
-                            class="link-to-prism">apps/server/src/modules/files-storage/controller/files-storage.controller.ts:46</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="54"
+                            class="link-to-prism">apps/server/src/modules/files-storage/controller/files-storage.controller.ts:54</a></div>
                 </td>
             </tr>
 
@@ -255,7 +259,7 @@
                                 <tr>
                                     <td>params</td>
                                     <td>
-                                                <code><a href="../classes/FileParams.html" target="_self" >FileParams</a></code>
+                                                <code><a href="../classes/FileRecordParams.html" target="_self" >FileRecordParams</a></code>
                                     </td>
 
                                     <td>
@@ -308,6 +312,108 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="patchFilename"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>patchFilename</b></span>
+                        <a href="#patchFilename"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>patchFilename(params: <a href="../classes/SingleFileParams.html" target="_self">SingleFileParams</a>, renameFileDto: <a href="../classes/RenameFileParams.html" target="_self">RenameFileParams</a>, currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Patch(&#x27;/rename/:fileRecordId/&#x27;)<br /></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="73"
+                            class="link-to-prism">apps/server/src/modules/files-storage/controller/files-storage.controller.ts:73</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>params</td>
+                                    <td>
+                                                <code><a href="../classes/SingleFileParams.html" target="_self" >SingleFileParams</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>renameFileDto</td>
+                                    <td>
+                                                <code><a href="../classes/RenameFileParams.html" target="_self" >RenameFileParams</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>currentUser</td>
+                                    <td>
+                                                <code><a href="../interfaces/ICurrentUser.html" target="_self" >ICurrentUser</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;FileRecordResponse&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="upload"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
@@ -319,7 +425,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>upload(_: <a href="../classes/FileDto.html" target="_self">FileDto</a>, params: <a href="../classes/FileParams.html" target="_self">FileParams</a>, currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>, req: Request)</code>
+                    <code>upload(_: <a href="../classes/FileParams.html" target="_self">FileParams</a>, params: <a href="../classes/FileRecordParams.html" target="_self">FileRecordParams</a>, currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>, req: Request)</code>
                 </td>
             </tr>
 
@@ -333,8 +439,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="19"
-                            class="link-to-prism">apps/server/src/modules/files-storage/controller/files-storage.controller.ts:19</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="27"
+                            class="link-to-prism">apps/server/src/modules/files-storage/controller/files-storage.controller.ts:27</a></div>
                 </td>
             </tr>
 
@@ -357,7 +463,7 @@
                                 <tr>
                                     <td>_</td>
                                     <td>
-                                                <code><a href="../classes/FileDto.html" target="_self" >FileDto</a></code>
+                                                <code><a href="../classes/FileParams.html" target="_self" >FileParams</a></code>
                                     </td>
 
                                     <td>
@@ -369,7 +475,7 @@
                                 <tr>
                                     <td>params</td>
                                     <td>
-                                                <code><a href="../classes/FileParams.html" target="_self" >FileParams</a></code>
+                                                <code><a href="../classes/FileRecordParams.html" target="_self" >FileRecordParams</a></code>
                                     </td>
 
                                     <td>
@@ -422,7 +528,7 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Body, Controller, Get, Headers, Param, Post, Query, Req, StreamableFile } from &#x27;@nestjs/common&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Body, Controller, Get, Param, Patch, Post, Query, Req, StreamableFile } from &#x27;@nestjs/common&#x27;;
 import { ApiConsumes, ApiTags } from &#x27;@nestjs/swagger&#x27;;
 import { PaginationQuery } from &#x27;@shared/controller&#x27;;
 import { ICurrentUser } from &#x27;@shared/domain&#x27;;
@@ -430,7 +536,15 @@ import { Authenticate, CurrentUser } from &#x27;@src/modules/authentication/deco
 import { Request } from &#x27;express&#x27;;
 import { FileRecordUC } from &#x27;../uc/file-record.uc&#x27;;
 import { FilesStorageUC } from &#x27;../uc/files-storage.uc&#x27;;
-import { FileRecordResponse, DownloadFileParams, FileDto, FileParams, FileRecordListResponse } from &#x27;./dto&#x27;;
+import {
+	FileRecordResponse,
+	DownloadFileParams,
+	FileParams,
+	FileRecordParams,
+	FileRecordListResponse,
+	SingleFileParams,
+	RenameFileParams,
+} from &#x27;./dto&#x27;;
 
 @ApiTags(&#x27;file&#x27;)
 @Authenticate(&#x27;jwt&#x27;)
@@ -441,8 +555,8 @@ export class FilesStorageController {
 	@ApiConsumes(&#x27;multipart/form-data&#x27;)
 	@Post(&#x27;/upload/:schoolId/:parentType/:parentId&#x27;)
 	async upload(
-		@Body() _: FileDto,
-		@Param() params: FileParams,
+		@Body() _: FileParams,
+		@Param() params: FileRecordParams,
 		@CurrentUser() currentUser: ICurrentUser,
 		@Req() req: Request
 	): Promise&lt;FileRecordResponse&gt; {
@@ -468,7 +582,7 @@ export class FilesStorageController {
 
 	@Get(&#x27;/list/:schoolId/:parentType/:parentId&#x27;)
 	async list(
-		@Param() params: FileParams,
+		@Param() params: FileRecordParams,
 		@CurrentUser() currentUser: ICurrentUser,
 		@Query() paginationQuery: PaginationQuery
 	): Promise&lt;FileRecordListResponse&gt; {
@@ -481,6 +595,19 @@ export class FilesStorageController {
 		const { skip, limit } &#x3D; paginationQuery;
 
 		const response &#x3D; new FileRecordListResponse(responseFileRecords, total, skip, limit);
+
+		return response;
+	}
+
+	@Patch(&#x27;/rename/:fileRecordId/&#x27;)
+	async patchFilename(
+		@Param() params: SingleFileParams,
+		@Body() renameFileDto: RenameFileParams,
+		@CurrentUser() currentUser: ICurrentUser
+	): Promise&lt;FileRecordResponse&gt; {
+		const res &#x3D; await this.fileRecordUC.patchFilename(currentUser.userId, params, renameFileDto);
+
+		const response &#x3D; new FileRecordResponse(res);
 
 		return response;
 	}

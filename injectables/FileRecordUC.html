@@ -84,6 +84,10 @@
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
+                                <a href="#patchFilename" >patchFilename</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
                                 <a href="#updateSecurityStatus" >updateSecurityStatus</a>
                             </li>
                         </ul>
@@ -109,7 +113,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">apps/server/src/modules/files-storage/uc/file-record.uc.ts:7</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">apps/server/src/modules/files-storage/uc/file-record.uc.ts:12</a></div>
                             </td>
                         </tr>
 
@@ -167,15 +171,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>fileRecordsOfParent(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, params: <a href="../classes/FileParams.html" target="_self">FileParams</a>)</code>
+                    <code>fileRecordsOfParent(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, params: <a href="../classes/FileRecordParams.html" target="_self">FileRecordParams</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="10"
-                            class="link-to-prism">apps/server/src/modules/files-storage/uc/file-record.uc.ts:10</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="27"
+                            class="link-to-prism">apps/server/src/modules/files-storage/uc/file-record.uc.ts:27</a></div>
                 </td>
             </tr>
 
@@ -210,7 +214,7 @@
                                 <tr>
                                     <td>params</td>
                                     <td>
-                                                <code><a href="../classes/FileParams.html" target="_self" >FileParams</a></code>
+                                                <code><a href="../classes/FileRecordParams.html" target="_self" >FileRecordParams</a></code>
                                     </td>
 
                                     <td>
@@ -239,6 +243,101 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="patchFilename"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>patchFilename</b></span>
+                        <a href="#patchFilename"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>patchFilename(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, params: <a href="../classes/SingleFileParams.html" target="_self">SingleFileParams</a>, data: <a href="../classes/RenameFileParams.html" target="_self">RenameFileParams</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="15"
+                            class="link-to-prism">apps/server/src/modules/files-storage/uc/file-record.uc.ts:15</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>userId</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>params</td>
+                                    <td>
+                                                <code><a href="../classes/SingleFileParams.html" target="_self" >SingleFileParams</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>data</td>
+                                    <td>
+                                                <code><a href="../classes/RenameFileParams.html" target="_self" >RenameFileParams</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>unknown</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="updateSecurityStatus"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
@@ -250,15 +349,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>updateSecurityStatus(token: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, scanResultDto: <a href="../classes/ScanResultDto.html" target="_self">ScanResultDto</a>)</code>
+                    <code>updateSecurityStatus(token: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, scanResultDto: <a href="../classes/ScanResultParams.html" target="_self">ScanResultParams</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="16"
-                            class="link-to-prism">apps/server/src/modules/files-storage/uc/file-record.uc.ts:16</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="33"
+                            class="link-to-prism">apps/server/src/modules/files-storage/uc/file-record.uc.ts:33</a></div>
                 </td>
             </tr>
 
@@ -293,7 +392,7 @@
                                 <tr>
                                     <td>scanResultDto</td>
                                     <td>
-                                                <code><a href="../classes/ScanResultDto.html" target="_self" >ScanResultDto</a></code>
+                                                <code><a href="../classes/ScanResultParams.html" target="_self" >ScanResultParams</a></code>
                                     </td>
 
                                     <td>
@@ -324,22 +423,39 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ConflictException, Injectable } from &#x27;@nestjs/common&#x27;;
 import { FileRecordRepo } from &#x27;@shared/repo&#x27;;
 import { Counted, EntityId, FileRecord, ScanStatus } from &#x27;@shared/domain&#x27;;
-import { FileParams, ScanResultDto } from &#x27;../controller/dto/file-storage.params&#x27;;
+import {
+	FileRecordParams,
+	SingleFileParams,
+	ScanResultParams,
+	RenameFileParams,
+} from &#x27;../controller/dto/file-storage.params&#x27;;
 
 @Injectable()
 export class FileRecordUC {
 	constructor(private readonly fileRecordRepo: FileRecordRepo) {}
 
-	async fileRecordsOfParent(userId: EntityId, params: FileParams): Promise&lt;Counted&lt;FileRecord[]&gt;&gt; {
+	async patchFilename(userId: EntityId, params: SingleFileParams, data: RenameFileParams) {
+		const entity &#x3D; await this.fileRecordRepo.findOneById(params.fileRecordId);
+		const [fileRecords] &#x3D; await this.fileRecordRepo.findBySchoolIdAndParentId(entity.schoolId, entity.parentId);
+		if (fileRecords.find((item) &#x3D;&gt; item.name &#x3D;&#x3D;&#x3D; data.fileName)) {
+			throw new ConflictException(&#x27;FILE_NAME_EXISTS&#x27;);
+		} else {
+			entity.name &#x3D; data.fileName;
+			await this.fileRecordRepo.save(entity);
+		}
+		return entity;
+	}
+
+	async fileRecordsOfParent(userId: EntityId, params: FileRecordParams): Promise&lt;Counted&lt;FileRecord[]&gt;&gt; {
 		const countedFileRecords &#x3D; await this.fileRecordRepo.findBySchoolIdAndParentId(params.schoolId, params.parentId);
 
 		return countedFileRecords;
 	}
 
-	async updateSecurityStatus(token: string, scanResultDto: ScanResultDto) {
+	async updateSecurityStatus(token: string, scanResultDto: ScanResultParams) {
 		const entity &#x3D; await this.fileRecordRepo.findBySecurityCheckRequestToken(token);
 		const status &#x3D; scanResultDto.virus_detected ? ScanStatus.BLOCKED : ScanStatus.VERIFIED;
 		entity.updateSecurityCheckStatus(status, scanResultDto.virus_signature);

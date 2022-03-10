@@ -195,7 +195,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>updateSecurityStatus(scanResultDto: <a href="../classes/ScanResultDto.html" target="_self">ScanResultDto</a>, token: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    <code>updateSecurityStatus(scanResultDto: <a href="../classes/ScanResultParams.html" target="_self">ScanResultParams</a>, token: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
@@ -233,7 +233,7 @@
                                 <tr>
                                     <td>scanResultDto</td>
                                     <td>
-                                                <code><a href="../classes/ScanResultDto.html" target="_self" >ScanResultDto</a></code>
+                                                <code><a href="../classes/ScanResultParams.html" target="_self" >ScanResultParams</a></code>
                                     </td>
 
                                     <td>
@@ -276,7 +276,7 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Body, Controller, Get, Param, Put, StreamableFile } from &#x27;@nestjs/common&#x27;;
 import { ApiExcludeEndpoint, ApiTags } from &#x27;@nestjs/swagger&#x27;;
-import { ScanResultDto } from &#x27;@src/modules/files-storage/controller/dto&#x27;;
+import { ScanResultParams } from &#x27;@src/modules/files-storage/controller/dto&#x27;;
 import { FilesStorageInternalActions } from &#x27;../files-storage.const&#x27;;
 import { FileRecordUC } from &#x27;../uc/file-record.uc&#x27;;
 import { FilesStorageUC } from &#x27;../uc/files-storage.uc&#x27;;
@@ -299,7 +299,7 @@ export class FileSecurityController {
 
 	@ApiExcludeEndpoint()
 	@Put(FilesStorageInternalActions.updateSecurityStatus)
-	async updateSecurityStatus(@Body() scanResultDto: ScanResultDto, @Param(&#x27;token&#x27;) token: string) {
+	async updateSecurityStatus(@Body() scanResultDto: ScanResultParams, @Param(&#x27;token&#x27;) token: string) {
 		await this.fileRecordUC.updateSecurityStatus(token, scanResultDto);
 	}
 }
