@@ -249,8 +249,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="55"
-                            class="link-to-prism">apps/server/src/modules/oauth/uc/oauth.uc.ts:55</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="57"
+                            class="link-to-prism">apps/server/src/modules/oauth/uc/oauth.uc.ts:57</a></div>
                 </td>
             </tr>
 
@@ -319,8 +319,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="87"
-                            class="link-to-prism">apps/server/src/modules/oauth/uc/oauth.uc.ts:87</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="93"
+                            class="link-to-prism">apps/server/src/modules/oauth/uc/oauth.uc.ts:93</a></div>
                 </td>
             </tr>
 
@@ -390,8 +390,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="97"
-                            class="link-to-prism">apps/server/src/modules/oauth/uc/oauth.uc.ts:97</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="103"
+                            class="link-to-prism">apps/server/src/modules/oauth/uc/oauth.uc.ts:103</a></div>
                 </td>
             </tr>
 
@@ -473,8 +473,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="105"
-                            class="link-to-prism">apps/server/src/modules/oauth/uc/oauth.uc.ts:105</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="116"
+                            class="link-to-prism">apps/server/src/modules/oauth/uc/oauth.uc.ts:116</a></div>
                 </td>
             </tr>
 
@@ -544,8 +544,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="62"
-                            class="link-to-prism">apps/server/src/modules/oauth/uc/oauth.uc.ts:62</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="68"
+                            class="link-to-prism">apps/server/src/modules/oauth/uc/oauth.uc.ts:68</a></div>
                 </td>
             </tr>
 
@@ -737,13 +737,13 @@ import { System, User } from &#x27;@shared/domain&#x27;;
 import { FeathersJwtProvider } from &#x27;@src/modules/authorization/feathers-jwt.provider&#x27;;
 import { SymetricKeyEncryptionService } from &#x27;@shared/infra/encryption/encryption.service&#x27;;
 import { lastValueFrom } from &#x27;rxjs&#x27;;
-import { ValidationError } from &#x27;@mikro-orm/core&#x27;;
 import QueryString from &#x27;qs&#x27;;
 import { TokenRequestPayload } from &#x27;../controller/dto/token-request-payload&#x27;;
 import { OauthTokenResponse } from &#x27;../controller/dto/oauth-token-response&#x27;;
 import { AuthorizationQuery } from &#x27;../controller/dto/authorization.query&#x27;;
 import { OAuthResponse } from &#x27;../controller/dto/oauth-response&#x27;;
 import { TokenRequestPayloadMapper } from &#x27;../mapper/token-request-payload.mapper&#x27;;
+import { OAuthSSOError } from &#x27;../error/oauth-sso.error&#x27;;
 
 @Injectable()
 export class OauthUc {
@@ -774,6 +774,8 @@ export class OauthUc {
 		// send response back
 		const response: OAuthResponse &#x3D; new OAuthResponse();
 		response.jwt &#x3D; jwt;
+		response.idToken &#x3D; queryToken.id_token;
+		response.logoutEndpoint &#x3D; (await this.systemRepo.findById(systemId)).oauthConfig.logoutEndpoint;
 		return response;
 	}
 
@@ -783,8 +785,12 @@ export class OauthUc {
 	 */
 	checkAuthorizationCode(query: AuthorizationQuery): string {
 		if (query.code) return query.code;
-		if (query.error) throw new ValidationError(query.error);
-		throw new ValidationError(&#x27;Authorization Query Object has no authorization code or error&#x27;);
+		let errorCode &#x3D; &#x27;sso_auth_code_step&#x27;;
+		if (query.error) {
+			errorCode &#x3D; &#x60;sso_oauth_${query.error}&#x60;;
+			this.logger.error(&#x60;SSO Oauth authorization code request return with an error: ${query.code as string}&#x60;);
+		}
+		throw new OAuthSSOError(&#x27;Authorization Query Object has no authorization code or error&#x27;, errorCode);
 	}
 
 	// 1- use Authorization Code to get a valid Token
@@ -815,7 +821,7 @@ export class OauthUc {
 	// 2- decode the Token to extract the UUID
 	decodeToken(token: string): string {
 		const decodedJwt: IJWT &#x3D; jwtDecode(token);
-		if (!decodedJwt || !decodedJwt.uuid) throw new ValidationError(&#x27;Filed to extract uuid&#x27;);
+		if (!decodedJwt || !decodedJwt.uuid) throw new OAuthSSOError(&#x27;Failed to extract uuid&#x27;, &#x27;sso_jwt_problem&#x27;);
 		const { uuid } &#x3D; decodedJwt;
 		return uuid;
 	}
@@ -824,7 +830,12 @@ export class OauthUc {
 
 	// 3- get user using the UUID (userHelpers.js?)
 	async findUserById(uuid: string, systemId: string): Promise&lt;User&gt; {
-		const user &#x3D; await this.userRepo.findByLdapId(uuid, systemId);
+		let user: User;
+		try {
+			user &#x3D; await this.userRepo.findByLdapId(uuid, systemId);
+		} catch (error) {
+			throw new OAuthSSOError(&#x27;Failed to find user with this ldapId&#x27;, &#x27;sso_user_notfound&#x27;);
+		}
 		return user;
 	}
 

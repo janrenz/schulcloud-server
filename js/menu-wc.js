@@ -1038,6 +1038,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/OAuthResponse.html" data-type="entity-link" >OAuthResponse</a>
                             </li>
                             <li class="link">
+                                <a href="classes/OAuthSSOError.html" data-type="entity-link" >OAuthSSOError</a>
+                            </li>
+                            <li class="link">
                                 <a href="classes/OauthTokenResponse.html" data-type="entity-link" >OauthTokenResponse</a>
                             </li>
                             <li class="link">

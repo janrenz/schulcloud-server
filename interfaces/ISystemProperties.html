@@ -276,6 +276,7 @@ export class OauthConfig {
 		this.responseType &#x3D; system.oauthConfig.responseType;
 		this.authEndpoint &#x3D; system.oauthConfig.authEndpoint;
 		this.provider &#x3D; system.oauthConfig.provider;
+		this.logoutEndpoint &#x3D; system.oauthConfig.logoutEndpoint;
 	}
 
 	@Property()
@@ -304,6 +305,9 @@ export class OauthConfig {
 
 	@Property()
 	provider: string;
+
+	@Property()
+	logoutEndpoint: string;
 }
 @Entity({ tableName: &#x27;systems&#x27; })
 export class System extends BaseEntityWithTimestamps {

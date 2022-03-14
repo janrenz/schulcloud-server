@@ -133,8 +133,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="21"
-                            class="link-to-prism">apps/server/src/modules/oauth/controller/oauth-sso.controller.ts:21</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="22"
+                            class="link-to-prism">apps/server/src/modules/oauth/controller/oauth-sso.controller.ts:22</a></div>
                 </td>
             </tr>
 
@@ -216,6 +216,7 @@ import { ApiTags } from &#x27;@nestjs/swagger&#x27;;
 import { ParseObjectIdPipe } from &#x27;@shared/controller/pipe/parse-object-id.pipe&#x27;;
 import { ILogger, Logger } from &#x27;@src/core/logger&#x27;;
 import { Response } from &#x27;express&#x27;;
+import { OAuthSSOError } from &#x27;../error/oauth-sso.error&#x27;;
 import { OauthUc } from &#x27;../uc/oauth.uc&#x27;;
 import { AuthorizationQuery } from &#x27;./dto/authorization.query&#x27;;
 import { OAuthResponse } from &#x27;./dto/oauth-response&#x27;;
@@ -241,12 +242,15 @@ export class OauthSSOController {
 			oauthResponse &#x3D; await this.oauthUc.startOauth(query, systemid);
 			if (oauthResponse.jwt) {
 				res.cookie(&#x27;jwt&#x27;, oauthResponse.jwt);
-				return res.redirect(&#x60;${HOST}/dashboard&#x60;);
+				const idToken &#x3D; oauthResponse.idToken as string;
+				const logoutEndpoint &#x3D; oauthResponse.logoutEndpoint as string;
+				return res.redirect(&#x60;${logoutEndpoint}?id_token_hint&#x3D;${idToken}&amp;post_logout_redirect_uri&#x3D;${HOST}/dashboard&#x60;);
 			}
 		} catch (error) {
-			this.logger.log(error);
+			this.logger.error(error);
 			oauthResponse &#x3D; new OAuthResponse();
-			oauthResponse.errorcode &#x3D; &#x27;OauthLoginFailed&#x27;;
+			if (error instanceof OAuthSSOError) oauthResponse.errorcode &#x3D; error.errorcode;
+			else oauthResponse.errorcode &#x3D; &#x27;oauth_login_failed&#x27;;
 		}
 		return res.redirect(&#x60;${HOST}/login?error&#x3D;${oauthResponse.errorcode as string}&#x60;);
 	}
