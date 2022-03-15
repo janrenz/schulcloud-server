@@ -83,6 +83,10 @@
                                 <a href="#getBoard" >getBoard</a>
                             </li>
                             <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#reorderBoardElements" >reorderBoardElements</a>
+                            </li>
+                            <li>
                                     <span class="modifier">Private</span>
                                     <span class="modifier">Async</span>
                                 <a href="#updateBoard" >updateBoard</a>
@@ -303,6 +307,101 @@
                     </div>
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="../entitys/Board.html" target="_self" >Promise&lt;RoomBoardDTO&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="reorderBoardElements"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>reorderBoardElements</b></span>
+                        <a href="#reorderBoardElements"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>reorderBoardElements(roomId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, orderedList: <a href="../undefineds/EntityId.html" target="_self">EntityId[]</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="61"
+                            class="link-to-prism">apps/server/src/modules/learnroom/uc/rooms.uc.ts:61</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>roomId</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>userId</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>orderedList</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId[]</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
 
                     </div>
                     <div class="io-description">
@@ -578,6 +677,17 @@ export class RoomsUc {
 		} else {
 			element.unpublish();
 		}
+		await this.boardRepo.save(board);
+	}
+
+	async reorderBoardElements(roomId: EntityId, userId: EntityId, orderedList: EntityId[]): Promise&lt;void&gt; {
+		const user &#x3D; await this.userRepo.findById(userId);
+		const course &#x3D; await this.courseRepo.findOne(roomId, userId);
+		if (!this.authorisationService.hasCourseWritePermission(user, course)) {
+			throw new ForbiddenException(&#x27;you are not allowed to edit this&#x27;);
+		}
+		const board &#x3D; await this.boardRepo.findByCourseId(course.id);
+		board.reorderElements(orderedList);
 		await this.boardRepo.save(board);
 	}
 }

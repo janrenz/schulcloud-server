@@ -873,6 +873,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/BoardLessonResponse.html" data-type="entity-link" >BoardLessonResponse</a>
                             </li>
                             <li class="link">
+                                <a href="classes/BoardLockedTaskResponse.html" data-type="entity-link" >BoardLockedTaskResponse</a>
+                            </li>
+                            <li class="link">
                                 <a href="classes/BoardResponse.html" data-type="entity-link" >BoardResponse</a>
                             </li>
                             <li class="link">
@@ -1051,6 +1054,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="classes/PatchGroupParams.html" data-type="entity-link" >PatchGroupParams</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/PatchOrderParams.html" data-type="entity-link" >PatchOrderParams</a>
                             </li>
                             <li class="link">
                                 <a href="classes/PatchVisibilityParams.html" data-type="entity-link" >PatchVisibilityParams</a>

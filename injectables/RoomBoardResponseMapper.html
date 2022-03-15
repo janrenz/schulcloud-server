@@ -119,8 +119,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="14"
-                            class="link-to-prism">apps/server/src/modules/learnroom/mapper/room-board-response.mapper.ts:14</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="15"
+                            class="link-to-prism">apps/server/src/modules/learnroom/mapper/room-board-response.mapper.ts:15</a></div>
                 </td>
             </tr>
 
@@ -181,8 +181,9 @@ import {
 	BoardElementResponse,
 	BoardTaskResponse,
 	BoardLessonResponse,
+	BoardLockedTaskResponse,
 } from &#x27;../controller/dto/roomBoardResponse&#x27;;
-import { RoomBoardDTO } from &#x27;../types&#x27;;
+import { RoomBoardDTO, LockedTaskDTO, RoomBoardElementTypes } from &#x27;../types&#x27;;
 import { BoardTaskStatusMapper } from &#x27;./board-taskStatus.mapper&#x27;;
 
 @Injectable()
@@ -190,7 +191,7 @@ export class RoomBoardResponseMapper {
 	mapToResponse(board: RoomBoardDTO): BoardResponse {
 		const elements: BoardElementResponse[] &#x3D; [];
 		board.elements.forEach((element) &#x3D;&gt; {
-			if (element.type &#x3D;&#x3D;&#x3D; &#x27;task&#x27;) {
+			if (element.type &#x3D;&#x3D;&#x3D; RoomBoardElementTypes.TASK) {
 				const { task: boardTask, status } &#x3D; element.content as TaskWithStatusVo;
 				const boardTaskDesc &#x3D; boardTask.getParentData();
 				const boardTaskStatus &#x3D; BoardTaskStatusMapper.mapToResponse(status);
@@ -209,9 +210,12 @@ export class RoomBoardResponseMapper {
 				mappedTask.duedate &#x3D; boardTask.dueDate;
 				mappedTask.displayColor &#x3D; boardTaskDesc.color;
 				mappedTask.description &#x3D; boardTask.description;
-				const boardElementResponse &#x3D; new BoardElementResponse({ type: &#x27;task&#x27;, content: mappedTask });
+				const boardElementResponse &#x3D; new BoardElementResponse({
+					type: RoomBoardElementTypes.TASK,
+					content: mappedTask,
+				});
 				elements.push(boardElementResponse);
-			} else if (element.type &#x3D;&#x3D;&#x3D; &#x27;lesson&#x27;) {
+			} else if (element.type &#x3D;&#x3D;&#x3D; RoomBoardElementTypes.LESSON) {
 				const boardLesson &#x3D; element.content as Lesson;
 
 				const mappedLesson &#x3D; new BoardLessonResponse({
@@ -225,7 +229,21 @@ export class RoomBoardResponseMapper {
 				const lessonCourse &#x3D; boardLesson.course;
 				mappedLesson.courseName &#x3D; lessonCourse.name;
 
-				const boardElementResponse &#x3D; new BoardElementResponse({ type: &#x27;lesson&#x27;, content: mappedLesson });
+				const boardElementResponse &#x3D; new BoardElementResponse({
+					type: RoomBoardElementTypes.LESSON,
+					content: mappedLesson,
+				});
+				elements.push(boardElementResponse);
+			} else if (element.type &#x3D;&#x3D;&#x3D; RoomBoardElementTypes.LOCKEDTASK) {
+				const data &#x3D; element.content as LockedTaskDTO;
+				const mappedLockedTask &#x3D; new BoardLockedTaskResponse({
+					id: data.id,
+					name: data.name,
+				});
+				const boardElementResponse &#x3D; new BoardElementResponse({
+					type: RoomBoardElementTypes.LOCKEDTASK,
+					content: mappedLockedTask,
+				});
 				elements.push(boardElementResponse);
 			}
 		});

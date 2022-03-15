@@ -173,7 +173,7 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Entity, Collection, ManyToMany, OneToOne, IdentifiedReference, wrap } from &#x27;@mikro-orm/core&#x27;;
-import { NotFoundException } from &#x27;@nestjs/common&#x27;;
+import { BadRequestException, NotFoundException } from &#x27;@nestjs/common&#x27;;
 import { BaseEntityWithTimestamps } from &#x27;./base.entity&#x27;;
 import { BoardElement, BoardElementType } from &#x27;./boardelement.entity&#x27;;
 import { ILearnroomElement } from &#x27;../interface&#x27;;
@@ -202,15 +202,41 @@ export class Board extends BaseEntityWithTimestamps {
 	references &#x3D; new Collection&lt;BoardElement&gt;(this);
 
 	getByTargetId(id: EntityId): ILearnroomElement {
-		const element &#x3D; this.getElements().find((el) &#x3D;&gt; el.target.id &#x3D;&#x3D;&#x3D; id);
-		if (element) {
-			return element.target;
-		}
-		throw new NotFoundException(&#x27;board does not contain such element&#x27;);
+		const element &#x3D; this.getElementByTargetId(id);
+		return element.target;
 	}
 
 	getElements() {
 		return this.references.getItems();
+	}
+
+	reorderElements(ids: EntityId[]) {
+		this.validateReordering(ids);
+
+		const elements &#x3D; ids.map((id) &#x3D;&gt; this.getElementByTargetId(id));
+
+		this.references.set(elements);
+	}
+
+	private validateReordering(reorderedIds: EntityId[]) {
+		const existingElements &#x3D; this.getElements().map((el) &#x3D;&gt; el.target.id);
+		const listsEqual &#x3D; this.checkListsContainingEqualEntities(reorderedIds, existingElements);
+		if (!listsEqual) {
+			throw new BadRequestException(&#x27;elements did not match. please fetch the elements of the board before reordering&#x27;);
+		}
+	}
+
+	private checkListsContainingEqualEntities(first: EntityId[], second: EntityId[]): boolean {
+		const firstSorted &#x3D; [...first].sort();
+		const secondSorted &#x3D; [...second].sort();
+		const isEqual &#x3D; JSON.stringify(firstSorted) &#x3D;&#x3D;&#x3D; JSON.stringify(secondSorted);
+		return isEqual;
+	}
+
+	private getElementByTargetId(id: EntityId): BoardElement {
+		const element &#x3D; this.getElements().find((el) &#x3D;&gt; el.target.id &#x3D;&#x3D;&#x3D; id);
+		if (!element) throw new NotFoundException(&#x27;board does not contain such element&#x27;);
+		return element;
 	}
 
 	syncTasksFromList(taskList: Task[]) {

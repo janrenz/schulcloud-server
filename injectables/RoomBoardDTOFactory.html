@@ -104,7 +104,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="123" class="link-to-prism">apps/server/src/modules/learnroom/uc/room-board-dto.factory.ts:123</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="141" class="link-to-prism">apps/server/src/modules/learnroom/uc/room-board-dto.factory.ts:141</a></div>
                             </td>
                         </tr>
 
@@ -167,8 +167,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="126"
-                            class="link-to-prism">apps/server/src/modules/learnroom/uc/room-board-dto.factory.ts:126</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="144"
+                            class="link-to-prism">apps/server/src/modules/learnroom/uc/room-board-dto.factory.ts:144</a></div>
                 </td>
             </tr>
 
@@ -234,7 +234,7 @@ import {
 	ITaskStatus,
 } from &#x27;@shared/domain&#x27;;
 import { RoomsAuthorisationService } from &#x27;./rooms.authorisation.service&#x27;;
-import { RoomBoardDTO, RoomBoardElementDTO } from &#x27;../types/room-board.types&#x27;;
+import { RoomBoardDTO, RoomBoardElementDTO, LockedTaskDTO, RoomBoardElementTypes } from &#x27;../types/room-board.types&#x27;;
 
 class DtoCreator {
 	room: Course;
@@ -275,9 +275,9 @@ class DtoCreator {
 		const filtered &#x3D; elements.filter((element) &#x3D;&gt; {
 			let result &#x3D; false;
 			if (element.boardElementType &#x3D;&#x3D;&#x3D; BoardElementType.Task) {
-				result &#x3D; this.authorisationService.hasTaskReadPermission(this.user, element.target as Task);
+				result &#x3D; this.authorisationService.hasTaskListPermission(this.user, element.target as Task);
 			} else if (element.boardElementType &#x3D;&#x3D;&#x3D; BoardElementType.Lesson) {
-				result &#x3D; this.authorisationService.hasLessonReadPermission(this.user, element.target as Lesson);
+				result &#x3D; this.authorisationService.hasLessonListPermission(this.user, element.target as Lesson);
 			}
 			return result;
 		});
@@ -309,10 +309,19 @@ class DtoCreator {
 	private mapTaskElement(element: BoardElement): RoomBoardElementDTO {
 		const task &#x3D; element.target as Task;
 
+		const hasReadPermission &#x3D; this.authorisationService.hasTaskReadPermission(this.user, task);
+		if (hasReadPermission) {
+			return this.mapTaskWithStatusVO(task);
+		}
+
+		return this.mapLockedTask(task);
+	}
+
+	private mapTaskWithStatusVO(task: Task): RoomBoardElementDTO {
 		const status &#x3D; this.createTaskStatus(task);
 
 		const content &#x3D; new TaskWithStatusVo(task, status);
-		return { type: &#x27;task&#x27;, content };
+		return { type: RoomBoardElementTypes.TASK, content };
 	}
 
 	private createTaskStatus(task: Task): ITaskStatus {
@@ -325,8 +334,17 @@ class DtoCreator {
 		return status;
 	}
 
+	private mapLockedTask(task: Task): RoomBoardElementDTO {
+		const content: LockedTaskDTO &#x3D; {
+			id: task.id,
+			name: task.name,
+		};
+		const result &#x3D; { type: RoomBoardElementTypes.LOCKEDTASK, content };
+		return result;
+	}
+
 	private mapLessonElement(element: BoardElement): RoomBoardElementDTO {
-		const type &#x3D; &#x27;lesson&#x27;;
+		const type &#x3D; RoomBoardElementTypes.LESSON;
 		const content &#x3D; element.target as Lesson;
 		return { type, content };
 	}

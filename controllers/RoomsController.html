@@ -91,6 +91,10 @@
                                     <span class="modifier">Async</span>
                                 <a href="#patchElementVisibility" >patchElementVisibility</a>
                             </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#patchOrderingOfElements" >patchOrderingOfElements</a>
+                            </li>
                         </ul>
                     </td>
                 </tr>
@@ -312,6 +316,108 @@
             </tr>
         </tbody>
     </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="patchOrderingOfElements"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>patchOrderingOfElements</b></span>
+                        <a href="#patchOrderingOfElements"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>patchOrderingOfElements(roomId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, params: <a href="../classes/PatchOrderParams.html" target="_self">PatchOrderParams</a>, currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Patch(&#x27;:roomid/board/order&#x27;)<br /></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="37"
+                            class="link-to-prism">apps/server/src/modules/learnroom/controller/rooms.controller.ts:37</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>roomId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>params</td>
+                                    <td>
+                                                <code><a href="../classes/PatchOrderParams.html" target="_self" >PatchOrderParams</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>currentUser</td>
+                                    <td>
+                                                <code><a href="../interfaces/ICurrentUser.html" target="_self" >ICurrentUser</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </section>    </div>
 
 
@@ -323,7 +429,7 @@ import { Authenticate, CurrentUser } from &#x27;@src/modules/authentication/deco
 import { ICurrentUser } from &#x27;@shared/domain&#x27;;
 import { RoomsUc } from &#x27;../uc/rooms.uc&#x27;;
 import { RoomBoardResponseMapper } from &#x27;../mapper/room-board-response.mapper&#x27;;
-import { BoardResponse, PatchVisibilityParams } from &#x27;./dto&#x27;;
+import { BoardResponse, PatchVisibilityParams, PatchOrderParams } from &#x27;./dto&#x27;;
 
 @ApiTags(&#x27;Rooms&#x27;)
 @Authenticate(&#x27;jwt&#x27;)
@@ -349,6 +455,15 @@ export class RoomsController {
 		@CurrentUser() currentUser: ICurrentUser
 	): Promise&lt;void&gt; {
 		await this.roomsUc.updateVisibilityOfBoardElement(roomId, elementId, currentUser.userId, params.visibility);
+	}
+
+	@Patch(&#x27;:roomid/board/order&#x27;)
+	async patchOrderingOfElements(
+		@Param(&#x27;roomid&#x27;, ParseObjectIdPipe) roomId: string,
+		@Body() params: PatchOrderParams,
+		@CurrentUser() currentUser: ICurrentUser
+	): Promise&lt;void&gt; {
+		await this.roomsUc.reorderBoardElements(roomId, currentUser.userId, params.elements);
 	}
 }
 </code></pre>

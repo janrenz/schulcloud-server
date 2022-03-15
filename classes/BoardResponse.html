@@ -118,7 +118,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="96" class="link-to-prism">apps/server/src/modules/learnroom/controller/dto/roomBoardResponse.ts:96</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="112" class="link-to-prism">apps/server/src/modules/learnroom/controller/dto/roomBoardResponse.ts:112</a></div>
                             </td>
                         </tr>
 
@@ -188,7 +188,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="118" class="link-to-prism">apps/server/src/modules/learnroom/controller/dto/roomBoardResponse.ts:118</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="134" class="link-to-prism">apps/server/src/modules/learnroom/controller/dto/roomBoardResponse.ts:134</a></div>
                         </td>
                     </tr>
 
@@ -223,7 +223,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="124" class="link-to-prism">apps/server/src/modules/learnroom/controller/dto/roomBoardResponse.ts:124</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="140" class="link-to-prism">apps/server/src/modules/learnroom/controller/dto/roomBoardResponse.ts:140</a></div>
                         </td>
                     </tr>
 
@@ -258,7 +258,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="108" class="link-to-prism">apps/server/src/modules/learnroom/controller/dto/roomBoardResponse.ts:108</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="124" class="link-to-prism">apps/server/src/modules/learnroom/controller/dto/roomBoardResponse.ts:124</a></div>
                         </td>
                     </tr>
 
@@ -293,7 +293,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="113" class="link-to-prism">apps/server/src/modules/learnroom/controller/dto/roomBoardResponse.ts:113</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="129" class="link-to-prism">apps/server/src/modules/learnroom/controller/dto/roomBoardResponse.ts:129</a></div>
                         </td>
                     </tr>
 
@@ -314,6 +314,7 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ApiProperty, ApiPropertyOptional } from &#x27;@nestjs/swagger&#x27;;
 import { DecodeHtmlEntities } from &#x27;@shared/controller&#x27;;
+import { RoomBoardElementTypes } from &#x27;../../types&#x27;;
 import { BoardTaskStatusResponse } from &#x27;./roomBoardResponse-taskStatus&#x27;;
 
 export class BoardTaskResponse {
@@ -359,6 +360,20 @@ export class BoardTaskResponse {
 	status: BoardTaskStatusResponse;
 }
 
+export class BoardLockedTaskResponse {
+	constructor({ id, name }: BoardLockedTaskResponse) {
+		this.id &#x3D; id;
+		this.name &#x3D; name;
+	}
+
+	@ApiProperty()
+	id: string;
+
+	@ApiProperty()
+	@DecodeHtmlEntities()
+	name: string;
+}
+
 export class BoardLessonResponse {
 	constructor({ id, name, hidden, createdAt, updatedAt }: BoardLessonResponse) {
 		this.id &#x3D; id;
@@ -396,14 +411,15 @@ export class BoardElementResponse {
 	}
 
 	@ApiProperty({
-		description: &#x27;ElementType. Can be any of: &quot;task&quot;, &quot;lesson&quot;.&#x27;,
+		description: &#x27;the type of the element in the content. For possible types, please refer to the enum&#x27;,
+		enum: RoomBoardElementTypes,
 	})
-	type: string;
+	type: RoomBoardElementTypes;
 
 	@ApiProperty({
 		description: &#x27;Content of the Board, either: a task or a lesson specific for the board&#x27;,
 	})
-	content: BoardTaskResponse | BoardLessonResponse;
+	content: BoardTaskResponse | BoardLockedTaskResponse | BoardLessonResponse;
 }
 
 // TODO: this and DashboardResponse should be combined
