@@ -123,7 +123,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="123" class="link-to-prism">apps/server/src/shared/domain/entity/news.entity.ts:123</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="127" class="link-to-prism">apps/server/src/shared/domain/entity/news.entity.ts:127</a></div>
                         </td>
                     </tr>
 
@@ -135,7 +135,7 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Entity, Enum, ManyToOne, Property } from &#x27;@mikro-orm/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Entity, Enum, Index, ManyToOne, Property } from &#x27;@mikro-orm/core&#x27;;
 import { BaseEntityWithTimestamps } from &#x27;./base.entity&#x27;;
 import type { Course } from &#x27;./course.entity&#x27;;
 import type { School } from &#x27;./school.entity&#x27;;
@@ -162,6 +162,9 @@ export interface INewsProperties {
 	discriminatorColumn: &#x27;targetModel&#x27;,
 	abstract: true,
 })
+@Index({ properties: [&#x27;school&#x27;, &#x27;target&#x27;] })
+@Index({ properties: [&#x27;school&#x27;, &#x27;target&#x27;, &#x27;targetModel&#x27;] })
+@Index({ properties: [&#x27;target&#x27;, &#x27;targetModel&#x27;] })
 export abstract class News extends BaseEntityWithTimestamps {
 	/** the news title */
 	@Property()
@@ -173,6 +176,7 @@ export abstract class News extends BaseEntityWithTimestamps {
 
 	/** only past news are visible for viewers, when edit permission, news visible in the future might be accessed too  */
 	@Property()
+	@Index()
 	displayAt: Date;
 
 	@Property({ nullable: true })

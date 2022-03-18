@@ -88,6 +88,10 @@
                             </li>
                             <li>
                                     <span class="modifier">Optional</span>
+                                <a href="#shareToken" >shareToken</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Optional</span>
                                 <a href="#startDate" >startDate</a>
                             </li>
                             <li>
@@ -154,7 +158,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">apps/server/src/shared/domain/entity/course.entity.ts:55</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="57" class="link-to-prism">apps/server/src/shared/domain/entity/course.entity.ts:57</a></div>
                         </td>
                     </tr>
 
@@ -194,7 +198,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">apps/server/src/shared/domain/entity/course.entity.ts:39</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">apps/server/src/shared/domain/entity/course.entity.ts:37</a></div>
                         </td>
                     </tr>
 
@@ -234,7 +238,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">apps/server/src/shared/domain/entity/course.entity.ts:36</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">apps/server/src/shared/domain/entity/course.entity.ts:34</a></div>
                         </td>
                     </tr>
 
@@ -254,7 +258,7 @@
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="../entitys/School.html" target="_self" >School</a></code>
+                        <i>Type : </i>        <code><a href="../classes/School.html" target="_self" >School</a></code>
 
                     </td>
                 </tr>
@@ -263,13 +267,49 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @ManyToOne(&#x27;School&#x27;, {fieldName: &#x27;schoolId&#x27;})<br />
+                            @Index()<br />@ManyToOne(&#x27;School&#x27;, {fieldName: &#x27;schoolId&#x27;})<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">apps/server/src/shared/domain/entity/course.entity.ts:42</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">apps/server/src/shared/domain/entity/course.entity.ts:41</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="shareToken"></a>
+                    <span class="name">
+                            <span class="modifier">Optional</span>
+                        <span ><b>shareToken</b></span>
+                        <a href="#shareToken"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @Property({nullable: true})<br />@Unique({options: undefined})<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="68" class="link-to-prism">apps/server/src/shared/domain/entity/course.entity.ts:68</a></div>
                         </td>
                     </tr>
 
@@ -305,7 +345,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="58" class="link-to-prism">apps/server/src/shared/domain/entity/course.entity.ts:58</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="60" class="link-to-prism">apps/server/src/shared/domain/entity/course.entity.ts:60</a></div>
                         </td>
                     </tr>
 
@@ -333,7 +373,7 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @ManyToMany(&#x27;User&#x27;, undefined, {fieldName: &#x27;userIds&#x27;})<br />
+                            @Index()<br />@ManyToMany(&#x27;User&#x27;, undefined, {fieldName: &#x27;userIds&#x27;})<br />
                         </code>
                     </td>
                 </tr>
@@ -367,13 +407,13 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @ManyToMany(&#x27;User&#x27;, undefined, {fieldName: &#x27;substitutionIds&#x27;})<br />
+                            @Index()<br />@ManyToMany(&#x27;User&#x27;, undefined, {fieldName: &#x27;substitutionIds&#x27;})<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">apps/server/src/shared/domain/entity/course.entity.ts:51</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">apps/server/src/shared/domain/entity/course.entity.ts:53</a></div>
                         </td>
                     </tr>
 
@@ -401,13 +441,13 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @ManyToMany(&#x27;User&#x27;, undefined, {fieldName: &#x27;teacherIds&#x27;})<br />
+                            @Index()<br />@ManyToMany(&#x27;User&#x27;, undefined, {fieldName: &#x27;teacherIds&#x27;})<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">apps/server/src/shared/domain/entity/course.entity.ts:48</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">apps/server/src/shared/domain/entity/course.entity.ts:49</a></div>
                         </td>
                     </tr>
 
@@ -437,13 +477,13 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @Index({name: &#x27;activeCourses&#x27;})<br />@Property({nullable: true})<br />
+                            @Index()<br />@Property({nullable: true})<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="62" class="link-to-prism">apps/server/src/shared/domain/entity/course.entity.ts:62</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="64" class="link-to-prism">apps/server/src/shared/domain/entity/course.entity.ts:64</a></div>
                         </td>
                     </tr>
 
@@ -455,7 +495,7 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Entity, Property, Index, ManyToOne, ManyToMany, Collection } from &#x27;@mikro-orm/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Entity, Property, Index, ManyToOne, ManyToMany, Collection, Unique } from &#x27;@mikro-orm/core&#x27;;
 
 import { ILearnroom } from &#x27;@shared/domain/interface&#x27;;
 import { LearnroomMetadata, LearnroomTypes } from &#x27;../types&#x27;;
@@ -485,8 +525,6 @@ const DEFAULT &#x3D; {
 	description: &#x27;&#x27;,
 };
 
-@Index({ name: &#x27;findAllForTeacher&#x27;, properties: [&#x27;substitutionTeachers&#x27;, &#x27;teachers&#x27;] })
-@Index({ name: &#x27;findAllByUserId&#x27;, properties: [&#x27;students&#x27;, &#x27;substitutionTeachers&#x27;, &#x27;teachers&#x27;] })
 @Entity({ tableName: &#x27;courses&#x27; })
 export class Course extends BaseEntityWithTimestamps implements ILearnroom {
 	@Property()
@@ -495,15 +533,19 @@ export class Course extends BaseEntityWithTimestamps implements ILearnroom {
 	@Property()
 	description: string &#x3D; DEFAULT.description;
 
+	@Index()
 	@ManyToOne(&#x27;School&#x27;, { fieldName: &#x27;schoolId&#x27; })
 	school: School;
 
+	@Index()
 	@ManyToMany(&#x27;User&#x27;, undefined, { fieldName: &#x27;userIds&#x27; })
 	students &#x3D; new Collection&lt;User&gt;(this);
 
+	@Index()
 	@ManyToMany(&#x27;User&#x27;, undefined, { fieldName: &#x27;teacherIds&#x27; })
 	teachers &#x3D; new Collection&lt;User&gt;(this);
 
+	@Index()
 	@ManyToMany(&#x27;User&#x27;, undefined, { fieldName: &#x27;substitutionIds&#x27; })
 	substitutionTeachers &#x3D; new Collection&lt;User&gt;(this);
 
@@ -514,9 +556,13 @@ export class Course extends BaseEntityWithTimestamps implements ILearnroom {
 	@Property({ nullable: true })
 	startDate?: Date;
 
-	@Index({ name: &#x27;activeCourses&#x27; })
+	@Index()
 	@Property({ nullable: true })
 	untilDate?: Date;
+
+	@Property({ nullable: true })
+	@Unique({ options: { sparse: true } })
+	shareToken?: string;
 
 	constructor(props: ICourseProperties) {
 		super();

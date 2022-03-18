@@ -379,7 +379,10 @@ export class TaskWithStatusVo {
 export type TaskParentDescriptions &#x3D; { courseName: string; lessonName: string; color: string };
 
 @Entity({ tableName: &#x27;homeworks&#x27; })
-@Index({ name: &#x27;findAllByParentIds_findAllForStudent&#x27;, properties: [&#x27;private&#x27;, &#x27;dueDate&#x27;, &#x27;finished&#x27;] })
+@Index({ properties: [&#x27;private&#x27;, &#x27;dueDate&#x27;, &#x27;finished&#x27;] })
+@Index({ properties: [&#x27;id&#x27;, &#x27;private&#x27;] })
+@Index({ properties: [&#x27;finished&#x27;, &#x27;course&#x27;] })
+@Index({ properties: [&#x27;finished&#x27;, &#x27;course&#x27;] })
 export class Task extends BaseEntityWithTimestamps implements ILearnroomElement {
 	@Property()
 	name: string;
@@ -391,25 +394,28 @@ export class Task extends BaseEntityWithTimestamps implements ILearnroomElement 
 	availableDate?: Date;
 
 	@Property({ nullable: true })
+	@Index()
 	dueDate?: Date;
 
 	@Property()
 	private &#x3D; true;
 
 	@ManyToOne(&#x27;User&#x27;, { fieldName: &#x27;teacherId&#x27;, nullable: true })
+	@Index()
 	creator?: User;
 
+	@Index()
 	@ManyToOne(&#x27;Course&#x27;, { fieldName: &#x27;courseId&#x27;, nullable: true })
 	course?: Course;
 
+	@Index()
 	@ManyToOne(&#x27;Lesson&#x27;, { fieldName: &#x27;lessonId&#x27;, nullable: true })
 	lesson?: Lesson; // In database exist also null, but it can not set.
 
 	@OneToMany(&#x27;Submission&#x27;, &#x27;task&#x27;)
 	submissions &#x3D; new Collection&lt;Submission&gt;(this);
 
-	// TODO: rename to finished
-	@Index({ name: &#x27;findAllByParentIds_findAllForTeacher&#x27; })
+	@Index()
 	@ManyToMany(&#x27;User&#x27;, undefined, { fieldName: &#x27;archived&#x27; })
 	finished &#x3D; new Collection&lt;User&gt;(this);
 

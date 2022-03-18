@@ -2275,8 +2275,13 @@ You shall not explicitly declare the AMQPConnection in your modules since it wil
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>async (): Promise&lt;MikroORM&gt; &#x3D;&gt; {
-	const orm &#x3D; await MikroORM.init({ type: &#x27;mongo&#x27;, dbName: &#x27;dummy&#x27;, entities: ALL_ENTITIES, allowGlobalContext: true });
+                        <i>Default value : </i><code>async (entities: EntityClass&lt;AnyEntity&gt;[] &#x3D; ALL_ENTITIES): Promise&lt;MikroORM&gt; &#x3D;&gt; {
+	const orm &#x3D; await MikroORM.init({
+		type: &#x27;mongo&#x27;,
+		dbName: &#x27;dummy&#x27;,
+		entities,
+		allowGlobalContext: true,
+	});
 	return orm;
 }</code>
                     </td>

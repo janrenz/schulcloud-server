@@ -28,7 +28,7 @@
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
-               <div class="content entity">
+               <div class="content class">
                    <div class="content-data">
 
 
@@ -36,9 +36,15 @@
 
 
 
+
+
+
+
+
+
 <ol class="breadcrumb">
-  <li>Entities</li>
-  <li >BaseEntityWithTimestamps</li>
+  <li>Classes</li>
+  <li >BaseEntity</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -62,6 +68,8 @@
 
 
 
+
+
             <section>
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
@@ -78,13 +86,7 @@
                                 <a href="#_id" >_id</a>
                             </li>
                             <li>
-                                <a href="#createdAt" >createdAt</a>
-                            </li>
-                            <li>
                                 <a href="#id" >id</a>
-                            </li>
-                            <li>
-                                <a href="#updatedAt" >updatedAt</a>
                             </li>
                         </ul>
                     </td>
@@ -98,6 +100,7 @@
         </tbody>
     </table>
 </section>
+
 
             <section>
     
@@ -132,41 +135,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">apps/server/src/shared/domain/entity/base.entity.ts:24</a></div>
-                        </td>
-                    </tr>
-
-
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="createdAt"></a>
-                    <span class="name">
-                        <span ><b>createdAt</b></span>
-                        <a href="#createdAt"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Default value : </i><code>new Date()</code>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <b>Decorators : </b>
-                        <br />
-                        <code>
-                            @Property()<br />
-                        </code>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">apps/server/src/shared/domain/entity/base.entity.ts:30</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="6" class="link-to-prism">apps/server/src/shared/domain/entity/base.entity.ts:6</a></div>
                         </td>
                     </tr>
 
@@ -201,41 +170,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">apps/server/src/shared/domain/entity/base.entity.ts:27</a></div>
-                        </td>
-                    </tr>
-
-
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="updatedAt"></a>
-                    <span class="name">
-                        <span ><b>updatedAt</b></span>
-                        <a href="#updatedAt"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Default value : </i><code>new Date()</code>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <b>Decorators : </b>
-                        <br />
-                        <code>
-                            @Property({onUpdate: () &#x3D;&gt; })<br />
-                        </code>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">apps/server/src/shared/domain/entity/base.entity.ts:33</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">apps/server/src/shared/domain/entity/base.entity.ts:9</a></div>
                         </td>
                     </tr>
 
@@ -243,15 +178,21 @@
         </tbody>
     </table>
 </section>
+
+
+
+
+
+
+
     </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Entity, PrimaryKey, Property, SerializedPrimaryKey } from &#x27;@mikro-orm/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { PrimaryKey, Property, SerializedPrimaryKey } from &#x27;@mikro-orm/core&#x27;;
 import { ObjectId } from &#x27;@mikro-orm/mongodb&#x27;;
 
-@Entity()
-export class BaseEntity {
+export abstract class BaseEntity {
 	@PrimaryKey()
 	_id!: ObjectId;
 
@@ -267,8 +208,8 @@ export type BaseEntityReference &#x3D; &#x27;id&#x27; | &#x27;_id&#x27;;
 // NOTE we have to include BaseEntityWithTimestamps in the entity discovery if we inherit from BaseEntity.
 // that can be cumbersome e.g. in tests. that&#x27;s why we define it as a root class here.
 // TODO check if we can use EntitySchema to prevent code duplication (decorators don&#x27;t work for defining properties btw.)
-@Entity()
-export class BaseEntityWithTimestamps {
+
+export abstract class BaseEntityWithTimestamps {
 	@PrimaryKey()
 	_id!: ObjectId;
 
@@ -284,12 +225,6 @@ export class BaseEntityWithTimestamps {
 </code></pre>
     </div>
 </div>
-
-
-
-
-
-
 
 
 
@@ -324,8 +259,8 @@ export class BaseEntityWithTimestamps {
 
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
-            var COMPODOC_CURRENT_PAGE_CONTEXT = 'entity';
-            var COMPODOC_CURRENT_PAGE_URL = 'BaseEntityWithTimestamps.html';
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
+            var COMPODOC_CURRENT_PAGE_URL = 'BaseEntity.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

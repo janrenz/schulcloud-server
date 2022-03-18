@@ -758,12 +758,6 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                     <a href="entities/Account.html" data-type="entity-link" >Account</a>
                                 </li>
                                 <li class="link">
-                                    <a href="entities/BaseEntity.html" data-type="entity-link" >BaseEntity</a>
-                                </li>
-                                <li class="link">
-                                    <a href="entities/BaseEntityWithTimestamps.html" data-type="entity-link" >BaseEntityWithTimestamps</a>
-                                </li>
-                                <li class="link">
                                     <a href="entities/BaseFile.html" data-type="entity-link" >BaseFile</a>
                                 </li>
                                 <li class="link">
@@ -852,6 +846,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                         </div>
                         <ul class="links collapse " ${ isNormalMode ? 'id="classes-links"' : 'id="xs-classes-links"' }>
                             <li class="link">
+                                <a href="classes/Account.html" data-type="entity-link" >Account</a>
+                            </li>
+                            <li class="link">
                                 <a href="classes/AccountScope.html" data-type="entity-link" >AccountScope</a>
                             </li>
                             <li class="link">
@@ -862,6 +859,12 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="classes/AuthorizationQuery.html" data-type="entity-link" >AuthorizationQuery</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/BaseEntity.html" data-type="entity-link" >BaseEntity</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/BaseEntityWithTimestamps.html" data-type="entity-link" >BaseEntityWithTimestamps</a>
                             </li>
                             <li class="link">
                                 <a href="classes/BaseFactory.html" data-type="entity-link" >BaseFactory</a>
@@ -891,10 +894,10 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/BusinessError.html" data-type="entity-link" >BusinessError</a>
                             </li>
                             <li class="link">
-                                <a href="classes/Course.html" data-type="entity-link" >Course</a>
+                                <a href="classes/CourseFactory.html" data-type="entity-link" >CourseFactory</a>
                             </li>
                             <li class="link">
-                                <a href="classes/CourseFactory.html" data-type="entity-link" >CourseFactory</a>
+                                <a href="classes/CourseGroup.html" data-type="entity-link" >CourseGroup</a>
                             </li>
                             <li class="link">
                                 <a href="classes/CourseMapper.html" data-type="entity-link" >CourseMapper</a>
@@ -978,6 +981,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/GridElement.html" data-type="entity-link" >GridElement</a>
                             </li>
                             <li class="link">
+                                <a href="classes/ImportUser.html" data-type="entity-link" >ImportUser</a>
+                            </li>
+                            <li class="link">
                                 <a href="classes/ImportUserFactory.html" data-type="entity-link" >ImportUserFactory</a>
                             </li>
                             <li class="link">
@@ -1018,6 +1024,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="classes/MoveElementPosition.html" data-type="entity-link" >MoveElementPosition</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/News.html" data-type="entity-link" >News</a>
                             </li>
                             <li class="link">
                                 <a href="classes/NewsFilterQuery.html" data-type="entity-link" >NewsFilterQuery</a>
@@ -1080,6 +1089,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/ScanResultParams.html" data-type="entity-link" >ScanResultParams</a>
                             </li>
                             <li class="link">
+                                <a href="classes/School.html" data-type="entity-link" >School</a>
+                            </li>
+                            <li class="link">
                                 <a href="classes/SchoolInfoMapper.html" data-type="entity-link" >SchoolInfoMapper</a>
                             </li>
                             <li class="link">
@@ -1099,6 +1111,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="classes/StringValidator.html" data-type="entity-link" >StringValidator</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/Submission.html" data-type="entity-link" >Submission</a>
                             </li>
                             <li class="link">
                                 <a href="classes/SubmissionFactory.html" data-type="entity-link" >SubmissionFactory</a>
@@ -1159,6 +1174,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="classes/UpdateNewsParams.html" data-type="entity-link" >UpdateNewsParams</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/User.html" data-type="entity-link" >User</a>
                             </li>
                             <li class="link">
                                 <a href="classes/UserAlreadyAssignedToImportUserError.html" data-type="entity-link" >UserAlreadyAssignedToImportUserError</a>

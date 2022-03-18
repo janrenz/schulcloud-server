@@ -110,6 +110,10 @@
                                     <span class="modifier">Async</span>
                                 <a href="#importCollection" >importCollection</a>
                             </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#syncIndexes" >syncIndexes</a>
+                            </li>
                         </ul>
                     </td>
                 </tr>
@@ -142,12 +146,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(em: EntityManager)</code>
+<code>constructor(em: EntityManager, orm: MikroORM)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">apps/server/src/shared/infra/database/management/database-management.service.ts:7</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">apps/server/src/shared/infra/database/management/database-management.service.ts:8</a></div>
                             </td>
                         </tr>
 
@@ -169,6 +173,18 @@
                                                   
                                                         <td>
                                                                     <code>EntityManager</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>orm</td>
+                                                  
+                                                        <td>
+                                                                    <code>MikroORM</code>
                                                         </td>
                                                   
                                                     <td>
@@ -212,8 +228,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="37"
-                            class="link-to-prism">apps/server/src/shared/infra/database/management/database-management.service.ts:37</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="38"
+                            class="link-to-prism">apps/server/src/shared/infra/database/management/database-management.service.ts:38</a></div>
                 </td>
             </tr>
 
@@ -283,8 +299,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="51"
-                            class="link-to-prism">apps/server/src/shared/infra/database/management/database-management.service.ts:51</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="52"
+                            class="link-to-prism">apps/server/src/shared/infra/database/management/database-management.service.ts:52</a></div>
                 </td>
             </tr>
 
@@ -354,8 +370,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="57"
-                            class="link-to-prism">apps/server/src/shared/infra/database/management/database-management.service.ts:57</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="58"
+                            class="link-to-prism">apps/server/src/shared/infra/database/management/database-management.service.ts:58</a></div>
                 </td>
             </tr>
 
@@ -425,8 +441,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="61"
-                            class="link-to-prism">apps/server/src/shared/infra/database/management/database-management.service.ts:61</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="62"
+                            class="link-to-prism">apps/server/src/shared/infra/database/management/database-management.service.ts:62</a></div>
                 </td>
             </tr>
 
@@ -496,8 +512,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="31"
-                            class="link-to-prism">apps/server/src/shared/infra/database/management/database-management.service.ts:31</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="32"
+                            class="link-to-prism">apps/server/src/shared/infra/database/management/database-management.service.ts:32</a></div>
                 </td>
             </tr>
 
@@ -567,8 +583,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="43"
-                            class="link-to-prism">apps/server/src/shared/infra/database/management/database-management.service.ts:43</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="44"
+                            class="link-to-prism">apps/server/src/shared/infra/database/management/database-management.service.ts:44</a></div>
                 </td>
             </tr>
 
@@ -606,8 +622,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="14"
-                            class="link-to-prism">apps/server/src/shared/infra/database/management/database-management.service.ts:14</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="15"
+                            class="link-to-prism">apps/server/src/shared/infra/database/management/database-management.service.ts:15</a></div>
                 </td>
             </tr>
 
@@ -677,8 +693,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="19"
-                            class="link-to-prism">apps/server/src/shared/infra/database/management/database-management.service.ts:19</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="20"
+                            class="link-to-prism">apps/server/src/shared/infra/database/management/database-management.service.ts:20</a></div>
                 </td>
             </tr>
 
@@ -738,6 +754,45 @@
             </tr>
         </tbody>
     </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="syncIndexes"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>syncIndexes</b></span>
+                        <a href="#syncIndexes"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>syncIndexes()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="66"
+                            class="link-to-prism">apps/server/src/shared/infra/database/management/database-management.service.ts:66</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </section>
 
             <section>
@@ -760,7 +815,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">apps/server/src/shared/infra/database/management/database-management.service.ts:10</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">apps/server/src/shared/infra/database/management/database-management.service.ts:11</a></div>
                                 </td>
                             </tr>
 
@@ -775,10 +830,11 @@
 import { EntityManager } from &#x27;@mikro-orm/mongodb&#x27;;
 import { Injectable } from &#x27;@nestjs/common&#x27;;
 import { Collection, Db } from &#x27;mongodb&#x27;;
+import { MikroORM } from &#x27;@mikro-orm/core&#x27;;
 
 @Injectable()
 export class DatabaseManagementService {
-	constructor(private em: EntityManager) {}
+	constructor(private em: EntityManager, private readonly orm: MikroORM) {}
 
 	private get db(): Db {
 		return this.em.getConnection(&#x27;write&#x27;).getDb();
@@ -790,10 +846,10 @@ export class DatabaseManagementService {
 	}
 
 	async importCollection(collectionName: string, jsonDocuments: unknown[]): Promise&lt;number&gt; {
-		const collection &#x3D; this.getDatabaseCollection(collectionName);
 		if (jsonDocuments.length &#x3D;&#x3D;&#x3D; 0) {
 			return 0;
 		}
+		const collection &#x3D; this.getDatabaseCollection(collectionName);
 		const { insertedCount } &#x3D; await collection.insertMany(jsonDocuments as BaseEntity[], {
 			forceServerObjectId: true,
 			bypassDocumentValidation: true,
@@ -833,6 +889,10 @@ export class DatabaseManagementService {
 
 	async dropCollection(collectionName: string): Promise&lt;void&gt; {
 		await this.db.dropCollection(collectionName);
+	}
+
+	async syncIndexes(): Promise&lt;void&gt; {
+		return this.orm.getSchemaGenerator().ensureIndexes();
 	}
 }
 </code></pre>

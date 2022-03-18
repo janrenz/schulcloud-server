@@ -245,6 +245,18 @@ export class DatabaseManagementConsole {
 		this.consoleWriter.info(report);
 		return collections;
 	}
+
+	@Command({
+		command: &#x27;sync-indexes&#x27;,
+		options: [],
+		description: &#x27;sync indexes from nest and mikroorm&#x27;,
+	})
+	async syncIndexes(): Promise&lt;string&gt; {
+		await this.databaseManagementUc.syncIndexes();
+		const report &#x3D; &#x27;sync of indexes is completed&#x27;;
+		this.consoleWriter.info(report);
+		return report;
+	}
 }
 </code></pre>
     </div>

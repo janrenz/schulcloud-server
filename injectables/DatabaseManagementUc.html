@@ -124,6 +124,10 @@
                                     <span class="modifier">Async</span>
                                 <a href="#seedDatabaseCollectionsFromFileSystem" >seedDatabaseCollectionsFromFileSystem</a>
                             </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#syncIndexes" >syncIndexes</a>
+                            </li>
                         </ul>
                     </td>
                 </tr>
@@ -765,6 +769,47 @@ The behaviour should match $ mongoimport</p>
             </tr>
         </tbody>
     </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="syncIndexes"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>syncIndexes</b></span>
+                        <a href="#syncIndexes"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>syncIndexes()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="217"
+                            class="link-to-prism">apps/server/src/modules/management/uc/database-management.uc.ts:217</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Updates the indexes in the database based on definitions in entities</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </section>
             <section>
     
@@ -1062,6 +1107,13 @@ export class DatabaseManagementUc {
 			})
 		);
 		return exportedCollections;
+	}
+
+	/**
+	 * Updates the indexes in the database based on definitions in entities
+	 */
+	async syncIndexes(): Promise&lt;void&gt; {
+		return this.databaseManagementService.syncIndexes();
 	}
 }
 </code></pre>

@@ -99,6 +99,9 @@
                                     <span class="modifier">Async</span>
                                 <a href="#importCollections" >importCollections</a>
                             </li>
+                            <li>
+                                <a href="#syncIndexes" >syncIndexes</a>
+                            </li>
                         </ul>
                     </td>
                 </tr>
@@ -145,8 +148,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="24"
-                            class="link-to-prism">apps/server/src/modules/management/controller/database-management.controller.ts:24</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="28"
+                            class="link-to-prism">apps/server/src/modules/management/controller/database-management.controller.ts:28</a></div>
                 </td>
             </tr>
 
@@ -223,8 +226,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="19"
-                            class="link-to-prism">apps/server/src/modules/management/controller/database-management.controller.ts:19</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="23"
+                            class="link-to-prism">apps/server/src/modules/management/controller/database-management.controller.ts:23</a></div>
                 </td>
             </tr>
 
@@ -269,8 +272,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="14"
-                            class="link-to-prism">apps/server/src/modules/management/controller/database-management.controller.ts:14</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="18"
+                            class="link-to-prism">apps/server/src/modules/management/controller/database-management.controller.ts:18</a></div>
                 </td>
             </tr>
 
@@ -333,7 +336,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>importCollections()</code>
+                    <code>importCollections(withIndexes: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
                 </td>
             </tr>
 
@@ -357,7 +360,83 @@
                 <td class="col-md-4">
 
                     <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>withIndexes</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
                         <b>Returns : </b>    <code>Promise&lt;string[]&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="syncIndexes"></a>
+                    <span class="name">
+                        <span ><b>syncIndexes</b></span>
+                        <a href="#syncIndexes"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>syncIndexes()</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Post(&#x27;sync-indexes&#x27;)<br /></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="33"
+                            class="link-to-prism">apps/server/src/modules/management/controller/database-management.controller.ts:33</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
 
                     </div>
                 </td>
@@ -368,7 +447,7 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Controller, Param, Post, All } from &#x27;@nestjs/common&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Controller, Param, Post, All, Query } from &#x27;@nestjs/common&#x27;;
 import { DatabaseManagementUc } from &#x27;../uc/database-management.uc&#x27;;
 
 @Controller(&#x27;management/database&#x27;)
@@ -376,8 +455,12 @@ export class DatabaseManagementController {
 	constructor(private databaseManagementUc: DatabaseManagementUc) {}
 
 	@All(&#x27;seed&#x27;)
-	async importCollections(): Promise&lt;string[]&gt; {
-		return this.databaseManagementUc.seedDatabaseCollectionsFromFileSystem();
+	async importCollections(@Query(&#x27;with-indexes&#x27;) withIndexes: boolean): Promise&lt;string[]&gt; {
+		const res &#x3D; await this.databaseManagementUc.seedDatabaseCollectionsFromFileSystem();
+		if (withIndexes) {
+			await this.databaseManagementUc.syncIndexes();
+		}
+		return res;
 	}
 
 	@Post(&#x27;seed/:collectionName&#x27;)
@@ -393,6 +476,11 @@ export class DatabaseManagementController {
 	@Post(&#x27;export/:collectionName&#x27;)
 	async exportCollection(@Param(&#x27;collectionName&#x27;) collectionName: string): Promise&lt;string[]&gt; {
 		return this.databaseManagementUc.exportCollectionsToFileSystem([collectionName]);
+	}
+
+	@Post(&#x27;sync-indexes&#x27;)
+	syncIndexes() {
+		return this.databaseManagementUc.syncIndexes();
 	}
 }
 </code></pre>

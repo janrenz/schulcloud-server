@@ -157,7 +157,7 @@ and instead just use the plain object ids.</p>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="101" class="link-to-prism">apps/server/src/shared/domain/entity/filerecord.entity.ts:101</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="102" class="link-to-prism">apps/server/src/shared/domain/entity/filerecord.entity.ts:102</a></div>
                         </td>
                     </tr>
 
@@ -193,7 +193,7 @@ and instead just use the plain object ids.</p>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="111" class="link-to-prism">apps/server/src/shared/domain/entity/filerecord.entity.ts:111</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="112" class="link-to-prism">apps/server/src/shared/domain/entity/filerecord.entity.ts:112</a></div>
                         </td>
                     </tr>
 
@@ -228,7 +228,7 @@ and instead just use the plain object ids.</p>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="94" class="link-to-prism">apps/server/src/shared/domain/entity/filerecord.entity.ts:94</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="95" class="link-to-prism">apps/server/src/shared/domain/entity/filerecord.entity.ts:95</a></div>
                         </td>
                     </tr>
 
@@ -263,7 +263,7 @@ and instead just use the plain object ids.</p>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="118" class="link-to-prism">apps/server/src/shared/domain/entity/filerecord.entity.ts:118</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="119" class="link-to-prism">apps/server/src/shared/domain/entity/filerecord.entity.ts:119</a></div>
                         </td>
                     </tr>
 
@@ -298,7 +298,7 @@ and instead just use the plain object ids.</p>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="85" class="link-to-prism">apps/server/src/shared/domain/entity/filerecord.entity.ts:85</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="86" class="link-to-prism">apps/server/src/shared/domain/entity/filerecord.entity.ts:86</a></div>
                         </td>
                     </tr>
 
@@ -333,7 +333,7 @@ and instead just use the plain object ids.</p>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="82" class="link-to-prism">apps/server/src/shared/domain/entity/filerecord.entity.ts:82</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="83" class="link-to-prism">apps/server/src/shared/domain/entity/filerecord.entity.ts:83</a></div>
                         </td>
                     </tr>
 
@@ -368,7 +368,7 @@ and instead just use the plain object ids.</p>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="91" class="link-to-prism">apps/server/src/shared/domain/entity/filerecord.entity.ts:91</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="92" class="link-to-prism">apps/server/src/shared/domain/entity/filerecord.entity.ts:92</a></div>
                         </td>
                     </tr>
 
@@ -403,7 +403,7 @@ and instead just use the plain object ids.</p>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="88" class="link-to-prism">apps/server/src/shared/domain/entity/filerecord.entity.ts:88</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="89" class="link-to-prism">apps/server/src/shared/domain/entity/filerecord.entity.ts:89</a></div>
                         </td>
                     </tr>
 
@@ -438,7 +438,7 @@ and instead just use the plain object ids.</p>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="79" class="link-to-prism">apps/server/src/shared/domain/entity/filerecord.entity.ts:79</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="80" class="link-to-prism">apps/server/src/shared/domain/entity/filerecord.entity.ts:80</a></div>
                         </td>
                     </tr>
 
@@ -485,7 +485,6 @@ export class FileSecurityCheck {
 	@Property()
 	reason &#x3D; &#x27;not yet scanned&#x27;;
 
-	@Index()
 	@Property()
 	requestToken?: string &#x3D; uuid();
 
@@ -525,7 +524,9 @@ export interface IFileRecordProperties {
  * and instead just use the plain object ids.
  */
 @Entity({ tableName: &#x27;filerecords&#x27; })
-@Index({ properties: [&#x27;_schoolId&#x27;, &#x27;_parentId&#x27;] })
+@Index({ properties: [&#x27;_schoolId&#x27;, &#x27;_parentId&#x27;], options: { background: true } })
+// https://github.com/mikro-orm/mikro-orm/issues/1230
+@Index({ options: { &#x27;securityCheck.requestToken&#x27;: 1 } })
 export class FileRecord extends BaseEntityWithTimestamps {
 	@Property()
 	size: number;

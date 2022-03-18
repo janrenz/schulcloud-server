@@ -91,6 +91,10 @@
                                     <span class="modifier">Async</span>
                                 <a href="#seedCollections" >seedCollections</a>
                             </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#syncIndexes" >syncIndexes</a>
+                            </li>
                         </ul>
                     </td>
                 </tr>
@@ -326,6 +330,52 @@
             </tr>
         </tbody>
     </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="syncIndexes"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>syncIndexes</b></span>
+                        <a href="#syncIndexes"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>syncIndexes()</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Command({command: &#x27;sync-indexes&#x27;, options: undefined, description: &#x27;sync indexes from nest and mikroorm&#x27;})<br /></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="63"
+                            class="link-to-prism">apps/server/src/modules/management/console/database-management.console.ts:63</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;string&gt;</code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </section>
 
 
@@ -391,6 +441,18 @@ export class DatabaseManagementConsole {
 		const report &#x3D; JSON.stringify(collections);
 		this.consoleWriter.info(report);
 		return collections;
+	}
+
+	@Command({
+		command: &#x27;sync-indexes&#x27;,
+		options: [],
+		description: &#x27;sync indexes from nest and mikroorm&#x27;,
+	})
+	async syncIndexes(): Promise&lt;string&gt; {
+		await this.databaseManagementUc.syncIndexes();
+		const report &#x3D; &#x27;sync of indexes is completed&#x27;;
+		this.consoleWriter.info(report);
+		return report;
 	}
 }
 </code></pre>
