@@ -179,15 +179,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>delete(fileRecord: <a href="../classes/FileRecord.html" target="_self">FileRecord</a>)</code>
+                    <code>delete(fileRecords: <a href="../classes/FileRecord.html" target="_self">FileRecord | FileRecord[]</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="21"
-                            class="link-to-prism">apps/server/src/shared/repo/filerecord/filerecord.repo.ts:21</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="23"
+                            class="link-to-prism">apps/server/src/shared/repo/filerecord/filerecord.repo.ts:23</a></div>
                 </td>
             </tr>
 
@@ -208,9 +208,9 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>fileRecord</td>
+                                    <td>fileRecords</td>
                                     <td>
-                                                <code><a href="../classes/FileRecord.html" target="_self" >FileRecord</a></code>
+                                                <code><a href="../classes/FileRecord.html" target="_self" >FileRecord | FileRecord[]</a></code>
                                     </td>
 
                                     <td>
@@ -257,8 +257,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="25"
-                            class="link-to-prism">apps/server/src/shared/repo/filerecord/filerecord.repo.ts:25</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="27"
+                            class="link-to-prism">apps/server/src/shared/repo/filerecord/filerecord.repo.ts:27</a></div>
                 </td>
             </tr>
 
@@ -352,8 +352,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="44"
-                            class="link-to-prism">apps/server/src/shared/repo/filerecord/filerecord.repo.ts:44</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="46"
+                            class="link-to-prism">apps/server/src/shared/repo/filerecord/filerecord.repo.ts:46</a></div>
                 </td>
             </tr>
 
@@ -487,15 +487,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>save(fileRecord: <a href="../classes/FileRecord.html" target="_self">FileRecord</a>)</code>
+                    <code>save(fileRecords: <a href="../classes/FileRecord.html" target="_self">FileRecord | FileRecord[]</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="17"
-                            class="link-to-prism">apps/server/src/shared/repo/filerecord/filerecord.repo.ts:17</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="19"
+                            class="link-to-prism">apps/server/src/shared/repo/filerecord/filerecord.repo.ts:19</a></div>
                 </td>
             </tr>
 
@@ -516,9 +516,9 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>fileRecord</td>
+                                    <td>fileRecords</td>
                                     <td>
-                                                <code><a href="../classes/FileRecord.html" target="_self" >FileRecord</a></code>
+                                                <code><a href="../classes/FileRecord.html" target="_self" >FileRecord | FileRecord[]</a></code>
                                     </td>
 
                                     <td>
@@ -561,16 +561,18 @@ export class FileRecordRepo {
 	constructor(private readonly em: EntityManager) {}
 
 	async findOneById(id: EntityId): Promise&lt;FileRecord&gt; {
-		const fileRecord &#x3D; await this.em.findOneOrFail(FileRecord, id);
+		const scope &#x3D; new FileRecordScope().byFileRecordId(id).byMarkedForDelete(false);
+		const fileRecord &#x3D; await this.em.findOneOrFail(FileRecord, scope.query);
+
 		return fileRecord;
 	}
 
-	async save(fileRecord: FileRecord): Promise&lt;void&gt; {
-		await this.em.persistAndFlush(fileRecord);
+	async save(fileRecords: FileRecord | FileRecord[]): Promise&lt;void&gt; {
+		await this.em.persistAndFlush(fileRecords);
 	}
 
-	async delete(fileRecord: FileRecord): Promise&lt;void&gt; {
-		await this.em.removeAndFlush(fileRecord);
+	async delete(fileRecords: FileRecord | FileRecord[]): Promise&lt;void&gt; {
+		await this.em.removeAndFlush(fileRecords);
 	}
 
 	async findBySchoolIdAndParentId(
@@ -580,7 +582,7 @@ export class FileRecordRepo {
 	): Promise&lt;Counted&lt;FileRecord[]&gt;&gt; {
 		const { pagination } &#x3D; options || {};
 
-		const scope &#x3D; new FileRecordScope().bySchoolId(schoolId).byParentId(parentId);
+		const scope &#x3D; new FileRecordScope().bySchoolId(schoolId).byParentId(parentId).byMarkedForDelete(false);
 		const order &#x3D; { createdAt: SortOrder.desc, id: SortOrder.asc };
 
 		const [fileRecords, count] &#x3D; await this.em.findAndCount(FileRecord, scope.query, {
@@ -593,7 +595,12 @@ export class FileRecordRepo {
 	}
 
 	async findBySecurityCheckRequestToken(token: string): Promise&lt;FileRecord&gt; {
-		return this.em.findOneOrFail(FileRecord, new FileRecordScope().bySecurityCheckRequestToken(token).query);
+		// Must also find expires in future. Please do not add .byExpires().
+		const scope &#x3D; new FileRecordScope().bySecurityCheckRequestToken(token);
+
+		const fileRecord &#x3D; await this.em.findOneOrFail(FileRecord, scope.query);
+
+		return fileRecord;
 	}
 }
 </code></pre>

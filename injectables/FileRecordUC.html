@@ -459,6 +459,7 @@ export class FileRecordUC {
 		const entity &#x3D; await this.fileRecordRepo.findBySecurityCheckRequestToken(token);
 		const status &#x3D; scanResultDto.virus_detected ? ScanStatus.BLOCKED : ScanStatus.VERIFIED;
 		entity.updateSecurityCheckStatus(status, scanResultDto.virus_signature);
+
 		await this.fileRecordRepo.save(entity);
 	}
 }

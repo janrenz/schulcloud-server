@@ -256,7 +256,7 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import internal from &#x27;stream&#x27;;
-import { IFile } from &#x27;./file&#x27;;
+import type { IFile } from &#x27;./file&#x27;;
 
 export interface IGetFileResponse {
 	data: internal.Readable;
@@ -269,6 +269,8 @@ export interface IStorageClient {
 	create(path: string, file: IFile): unknown;
 
 	get(path: string): unknown;
+
+	delete(paths: string[], expires: Date): unknown;
 }
 </code></pre>
     </div>

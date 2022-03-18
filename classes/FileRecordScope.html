@@ -109,6 +109,12 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                <a href="#byFileRecordId" >byFileRecordId</a>
+                            </li>
+                            <li>
+                                <a href="#byMarkedForDelete" >byMarkedForDelete</a>
+                            </li>
+                            <li>
                                 <a href="#byParentId" >byParentId</a>
                             </li>
                             <li>
@@ -222,6 +228,144 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="byFileRecordId"></a>
+                    <span class="name">
+                        <span ><b>byFileRecordId</b></span>
+                        <a href="#byFileRecordId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>byFileRecordId(fileRecordId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="12"
+                            class="link-to-prism">apps/server/src/shared/repo/filerecord/filerecord-scope.ts:12</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>fileRecordId</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/FileRecordScope.html" target="_self" >FileRecordScope</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="byMarkedForDelete"></a>
+                    <span class="name">
+                        <span ><b>byMarkedForDelete</b></span>
+                        <a href="#byMarkedForDelete"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>byMarkedForDelete(isMarked)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="30"
+                            class="link-to-prism">apps/server/src/shared/repo/filerecord/filerecord-scope.ts:30</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                    <td>Default value</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>isMarked</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+                                    <td>
+                                        <code>true</code>
+                                    </td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/FileRecordScope.html" target="_self" >FileRecordScope</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="byParentId"></a>
                     <span class="name">
                         <span ><b>byParentId</b></span>
@@ -307,8 +451,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="11"
-                            class="link-to-prism">apps/server/src/shared/repo/filerecord/filerecord-scope.ts:11</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="18"
+                            class="link-to-prism">apps/server/src/shared/repo/filerecord/filerecord-scope.ts:18</a></div>
                 </td>
             </tr>
 
@@ -376,8 +520,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="16"
-                            class="link-to-prism">apps/server/src/shared/repo/filerecord/filerecord-scope.ts:16</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="24"
+                            class="link-to-prism">apps/server/src/shared/repo/filerecord/filerecord-scope.ts:24</a></div>
                 </td>
             </tr>
 
@@ -517,16 +661,32 @@ import { Scope } from &#x27;../scope&#x27;;
 export class FileRecordScope extends Scope&lt;FileRecord&gt; {
 	byParentId(parentId: EntityId): FileRecordScope {
 		this.addQuery({ _parentId: new ObjectId(parentId) });
+
+		return this;
+	}
+
+	byFileRecordId(fileRecordId: EntityId): FileRecordScope {
+		this.addQuery({ id: fileRecordId });
+
 		return this;
 	}
 
 	bySchoolId(schoolId: EntityId): FileRecordScope {
 		this.addQuery({ _schoolId: new ObjectId(schoolId) });
+
 		return this;
 	}
 
 	bySecurityCheckRequestToken(token: string): FileRecordScope {
 		this.addQuery({ securityCheck: { requestToken: token } });
+
+		return this;
+	}
+
+	byMarkedForDelete(isMarked &#x3D; true): FileRecordScope {
+		const query &#x3D; isMarked ? { deletedSince: { $ne: null } } : { deletedSince: null };
+		this.addQuery(query);
+
 		return this;
 	}
 }
