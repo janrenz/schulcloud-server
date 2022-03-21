@@ -134,12 +134,25 @@
                             <li>
                                     <span class="modifier">Private</span>
                                     <span class="modifier">Async</span>
-                                <a href="#restoreExpires" >restoreExpires</a>
+                                <a href="#markForDelete" >markForDelete</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
                                     <span class="modifier">Async</span>
-                                <a href="#setExpires" >setExpires</a>
+                                <a href="#restore" >restore</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#restoreFilesOfParent" >restoreFilesOfParent</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#restoreOneFile" >restoreOneFile</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#unmarkForDelete" >unmarkForDelete</a>
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
@@ -678,8 +691,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="195"
-                            class="link-to-prism">apps/server/src/modules/files-storage/uc/files-storage.uc.ts:195</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="197"
+                            class="link-to-prism">apps/server/src/modules/files-storage/uc/files-storage.uc.ts:197</a></div>
                 </td>
             </tr>
 
@@ -981,27 +994,27 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="restoreExpires"></a>
+                    <a name="markForDelete"></a>
                     <span class="name">
                         <span class="modifier">Private</span>
                         <span class="modifier">Async</span>
-                        <span ><b>restoreExpires</b></span>
-                        <a href="#restoreExpires"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>markForDelete</b></span>
+                        <a href="#markForDelete"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>restoreExpires(fileRecords: <a href="../classes/FileRecord.html" target="_self">FileRecord[]</a>)</code>
+                    <code>markForDelete(fileRecords: <a href="../classes/FileRecord.html" target="_self">FileRecord[]</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="165"
-                            class="link-to-prism">apps/server/src/modules/files-storage/uc/files-storage.uc.ts:165</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="157"
+                            class="link-to-prism">apps/server/src/modules/files-storage/uc/files-storage.uc.ts:157</a></div>
                 </td>
             </tr>
 
@@ -1053,27 +1066,265 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="setExpires"></a>
+                    <a name="restore"></a>
                     <span class="name">
                         <span class="modifier">Private</span>
                         <span class="modifier">Async</span>
-                        <span ><b>setExpires</b></span>
-                        <a href="#setExpires"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>restore</b></span>
+                        <a href="#restore"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>setExpires(fileRecords: <a href="../classes/FileRecord.html" target="_self">FileRecord[]</a>)</code>
+                    <code>restore(fileRecords: <a href="../classes/FileRecord.html" target="_self">FileRecord[]</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="157"
-                            class="link-to-prism">apps/server/src/modules/files-storage/uc/files-storage.uc.ts:157</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="222"
+                            class="link-to-prism">apps/server/src/modules/files-storage/uc/files-storage.uc.ts:222</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>fileRecords</td>
+                                    <td>
+                                                <code><a href="../classes/FileRecord.html" target="_self" >FileRecord[]</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="restoreFilesOfParent"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>restoreFilesOfParent</b></span>
+                        <a href="#restoreFilesOfParent"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>restoreFilesOfParent(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, params: <a href="../classes/FileRecordParams.html" target="_self">FileRecordParams</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="204"
+                            class="link-to-prism">apps/server/src/modules/files-storage/uc/files-storage.uc.ts:204</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>userId</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>params</td>
+                                    <td>
+                                                <code><a href="../classes/FileRecordParams.html" target="_self" >FileRecordParams</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/FileRecord.html" target="_self" >Promise&lt;Counted&lt;FileRecord[]&gt;&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="restoreOneFile"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>restoreOneFile</b></span>
+                        <a href="#restoreOneFile"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>restoreOneFile(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, params: <a href="../classes/SingleFileParams.html" target="_self">SingleFileParams</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="215"
+                            class="link-to-prism">apps/server/src/modules/files-storage/uc/files-storage.uc.ts:215</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>userId</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>params</td>
+                                    <td>
+                                                <code><a href="../classes/SingleFileParams.html" target="_self" >SingleFileParams</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/FileRecord.html" target="_self" >Promise&lt;FileRecord&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="unmarkForDelete"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span class="modifier">Async</span>
+                        <span ><b>unmarkForDelete</b></span>
+                        <a href="#unmarkForDelete"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>unmarkForDelete(fileRecords: <a href="../classes/FileRecord.html" target="_self">FileRecord[]</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="165"
+                            class="link-to-prism">apps/server/src/modules/files-storage/uc/files-storage.uc.ts:165</a></div>
                 </td>
             </tr>
 
@@ -1507,7 +1758,7 @@ export class FilesStorageUC {
 		return newFilename;
 	}
 
-	private async setExpires(fileRecords: FileRecord[]): Promise&lt;void&gt; {
+	private async markForDelete(fileRecords: FileRecord[]): Promise&lt;void&gt; {
 		fileRecords.forEach((fileRecord) &#x3D;&gt; {
 			fileRecord.markForDelete();
 		});
@@ -1515,7 +1766,7 @@ export class FilesStorageUC {
 		await this.fileRecordRepo.save(fileRecords);
 	}
 
-	private async restoreExpires(fileRecords: FileRecord[]): Promise&lt;void&gt; {
+	private async unmarkForDelete(fileRecords: FileRecord[]): Promise&lt;void&gt; {
 		fileRecords.forEach((fileRecord) &#x3D;&gt; {
 			fileRecord.unmarkForDelete();
 		});
@@ -1526,13 +1777,13 @@ export class FilesStorageUC {
 	private async delete(fileRecords: FileRecord[]) {
 		this.logger.debug({ action: &#x27;delete&#x27;, fileRecords });
 
-		await this.setExpires(fileRecords);
+		await this.markForDelete(fileRecords);
 		try {
 			const paths &#x3D; fileRecords.map((fileRecord) &#x3D;&gt; this.createPath(fileRecord.schoolId, fileRecord.id));
 
 			await this.storageClient.delete(paths);
 		} catch (err) {
-			await this.restoreExpires(fileRecords);
+			await this.unmarkForDelete(fileRecords);
 
 			throw new InternalServerErrorException(err);
 		}
@@ -1540,7 +1791,9 @@ export class FilesStorageUC {
 
 	async deleteFilesOfParent(userId: EntityId, params: FileRecordParams): Promise&lt;Counted&lt;FileRecord[]&gt;&gt; {
 		const [fileRecords, count] &#x3D; await this.fileRecordRepo.findBySchoolIdAndParentId(params.schoolId, params.parentId);
-		await this.delete(fileRecords);
+		if (count &gt; 0) {
+			await this.delete(fileRecords);
+		}
 
 		return [fileRecords, count];
 	}
@@ -1550,6 +1803,38 @@ export class FilesStorageUC {
 		await this.delete([fileRecord]);
 
 		return fileRecord;
+	}
+
+	async restoreFilesOfParent(userId: EntityId, params: FileRecordParams): Promise&lt;Counted&lt;FileRecord[]&gt;&gt; {
+		const [fileRecords, count] &#x3D; await this.fileRecordRepo.findBySchoolIdAndParentIdAndMarkedForDelete(
+			params.schoolId,
+			params.parentId
+		);
+		if (count &gt; 0) {
+			await this.restore(fileRecords);
+		}
+		return [fileRecords, count];
+	}
+
+	async restoreOneFile(userId: EntityId, params: SingleFileParams): Promise&lt;FileRecord&gt; {
+		const fileRecord &#x3D; await this.fileRecordRepo.findOneByIdMarkedForDelete(params.fileRecordId);
+		await this.restore([fileRecord]);
+
+		return fileRecord;
+	}
+
+	private async restore(fileRecords: FileRecord[]) {
+		this.logger.debug({ action: &#x27;restore&#x27;, fileRecords });
+
+		await this.unmarkForDelete(fileRecords);
+		try {
+			const paths &#x3D; fileRecords.map((fileRecord) &#x3D;&gt; this.createPath(fileRecord.schoolId, fileRecord.id));
+
+			await this.storageClient.restore(paths);
+		} catch (err) {
+			await this.markForDelete(fileRecords);
+			throw new InternalServerErrorException(err);
+		}
 	}
 }
 </code></pre>

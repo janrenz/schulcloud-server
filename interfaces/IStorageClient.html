@@ -101,6 +101,12 @@
                                         get
                                     </a>
                                 </li>
+                                <li>
+                                    <a href="#restore" 
+>
+                                        restore
+                                    </a>
+                                </li>
                             </ul>
                         </td>
                     </tr>
@@ -133,8 +139,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="12"
-                            class="link-to-prism">apps/server/src/modules/files-storage/interface/storage-client.ts:12</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="17"
+                            class="link-to-prism">apps/server/src/modules/files-storage/interface/storage-client.ts:17</a></div>
                 </td>
             </tr>
 
@@ -200,15 +206,15 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>delete(paths: string[], expires: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank">Date</a>)</code>
+<code>delete(paths: string[])</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="16"
-                            class="link-to-prism">apps/server/src/modules/files-storage/interface/storage-client.ts:16</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="21"
+                            class="link-to-prism">apps/server/src/modules/files-storage/interface/storage-client.ts:21</a></div>
                 </td>
             </tr>
 
@@ -232,18 +238,6 @@
                                     <td>paths</td>
                                     <td>
                                             <code>string[]</code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>expires</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" >Date</a></code>
                                     </td>
 
                                     <td>
@@ -281,8 +275,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="14"
-                            class="link-to-prism">apps/server/src/modules/files-storage/interface/storage-client.ts:14</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="19"
+                            class="link-to-prism">apps/server/src/modules/files-storage/interface/storage-client.ts:19</a></div>
                 </td>
             </tr>
 
@@ -323,6 +317,68 @@
             </tr>
         </tbody>
     </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="restore"></a>
+                    <span class="name">
+                        <span ><b>restore</b></span>
+                        <a href="#restore"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>restore(paths: string[])</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="23"
+                            class="link-to-prism">apps/server/src/modules/files-storage/interface/storage-client.ts:23</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>paths</td>
+                                    <td>
+                                            <code>string[]</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </section>
 
     </div>
@@ -339,12 +395,19 @@ export interface IGetFileResponse {
 	etag: string | undefined;
 }
 
+export interface ICopyFiles {
+	sourcePath: string;
+	targetPaths: string;
+}
+
 export interface IStorageClient {
 	create(path: string, file: IFile): unknown;
 
 	get(path: string): unknown;
 
-	delete(paths: string[], expires: Date): unknown;
+	delete(paths: string[]): unknown;
+
+	restore(paths: string[]): unknown;
 }
 </code></pre>
     </div>
