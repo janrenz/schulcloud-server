@@ -125,7 +125,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>mapToDomain(query: <a href="../interfaces/User.html" target="_self">UserFilterQuery</a>)</code>
+                    <code>mapToDomain(query: <a href="../interfaces/User.html" target="_self">FilterUserParams</a>)</code>
                 </td>
             </tr>
 
@@ -156,7 +156,7 @@
                                 <tr>
                                     <td>query</td>
                                     <td>
-                                                <code><a href="../interfaces/User.html" target="_self" >UserFilterQuery</a></code>
+                                                <code><a href="../interfaces/User.html" target="_self" >FilterUserParams</a></code>
                                     </td>
 
                                     <td>
@@ -276,12 +276,12 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { StringValidator } from &#x27;@shared/common&#x27;;
 import { INameMatch, MatchCreator, User } from &#x27;@shared/domain&#x27;;
-import { RoleNameResponse, UserMatchResponse } from &#x27;../controller/dto&#x27;;
-import { UserFilterQuery } from &#x27;../controller/dto/user-filter.query&#x27;;
+import { UserRole, UserMatchResponse } from &#x27;../controller/dto&#x27;;
+import { FilterUserParams } from &#x27;../controller/dto/filter-user.params&#x27;;
 import { ImportUserMatchMapper } from &#x27;./match.mapper&#x27;;
 
 export class UserMatchMapper {
-	static mapToDomain(query: UserFilterQuery): INameMatch {
+	static mapToDomain(query: FilterUserParams): INameMatch {
 		const scope: INameMatch &#x3D; {};
 		if (query.name) {
 			if (StringValidator.isNotEmptyString(query.name, true)) {
@@ -296,20 +296,20 @@ export class UserMatchMapper {
 	static mapToResponse(user: User, matchCreator?: MatchCreator): UserMatchResponse {
 		const domainRoles &#x3D; user.roles.getItems(true);
 		const domainRoleNames &#x3D; domainRoles.map((role) &#x3D;&gt; role.name);
-		const roleNames: RoleNameResponse[] &#x3D; domainRoleNames
+		const roleNames: UserRole[] &#x3D; domainRoleNames
 			.map((roleName) &#x3D;&gt; {
 				switch (roleName) {
 					case &#x27;teacher&#x27;:
-						return RoleNameResponse.TEACHER;
+						return UserRole.TEACHER;
 					case &#x27;administrator&#x27;:
-						return RoleNameResponse.ADMIN;
+						return UserRole.ADMIN;
 					case &#x27;student&#x27;:
-						return RoleNameResponse.STUDENT;
+						return UserRole.STUDENT;
 					default:
 						return null;
 				}
 			})
-			.filter((roleName) &#x3D;&gt; roleName !&#x3D; null) as RoleNameResponse[];
+			.filter((roleName) &#x3D;&gt; roleName !&#x3D; null) as UserRole[];
 		const dto &#x3D; new UserMatchResponse({
 			userId: user.id,
 			firstName: user.firstName,

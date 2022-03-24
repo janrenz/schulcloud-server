@@ -129,7 +129,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>mapImportUserFilterQueryToDomain(query: <a href="../interfaces/User.html" target="_self">ImportUserFilterQuery</a>)</code>
+                    <code>mapImportUserFilterQueryToDomain(query: <a href="../interfaces/User.html" target="_self">FilterImportUserParams</a>)</code>
                 </td>
             </tr>
 
@@ -160,7 +160,7 @@
                                 <tr>
                                     <td>query</td>
                                     <td>
-                                                <code><a href="../interfaces/User.html" target="_self" >ImportUserFilterQuery</a></code>
+                                                <code><a href="../interfaces/User.html" target="_self" >FilterImportUserParams</a></code>
                                     </td>
 
                                     <td>
@@ -200,7 +200,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>mapSortingQueryToDomain(sortingQuery: <a href="../interfaces/User.html" target="_self">ImportUserSortingQuery</a>)</code>
+                    <code>mapSortingQueryToDomain(sortingQuery: <a href="../interfaces/User.html" target="_self">SortImportUserParams</a>)</code>
                 </td>
             </tr>
 
@@ -231,7 +231,7 @@
                                 <tr>
                                     <td>sortingQuery</td>
                                     <td>
-                                                <code><a href="../interfaces/User.html" target="_self" >ImportUserSortingQuery</a></code>
+                                                <code><a href="../interfaces/User.html" target="_self" >SortImportUserParams</a></code>
                                     </td>
 
                                     <td>
@@ -342,9 +342,9 @@ import { StringValidator } from &#x27;@shared/common&#x27;;
 import { ImportUser, IImportUserScope, SortOrderMap } from &#x27;@shared/domain&#x27;;
 import {
 	ImportUserResponse,
-	ImportUserFilterQuery,
-	ImportUserSortByQuery,
-	ImportUserSortingQuery,
+	FilterImportUserParams,
+	ImportUserSortOrder,
+	SortImportUserParams,
 } from &#x27;../controller/dto&#x27;;
 
 import { ImportUserMatchMapper } from &#x27;./match.mapper&#x27;;
@@ -353,13 +353,13 @@ import { RoleNameMapper } from &#x27;./role-name.mapper&#x27;;
 import { UserMatchMapper } from &#x27;./user-match.mapper&#x27;;
 
 export class ImportUserMapper {
-	static mapSortingQueryToDomain(sortingQuery: ImportUserSortingQuery): SortOrderMap&lt;ImportUser&gt; | undefined {
+	static mapSortingQueryToDomain(sortingQuery: SortImportUserParams): SortOrderMap&lt;ImportUser&gt; | undefined {
 		const { sortBy } &#x3D; sortingQuery;
 		if (sortBy &#x3D;&#x3D; null) return undefined;
 		const result: SortOrderMap&lt;ImportUser&gt; &#x3D; {};
 		switch (sortBy) {
-			case ImportUserSortByQuery.FIRSTNAME:
-			case ImportUserSortByQuery.LASTNAME:
+			case ImportUserSortOrder.FIRSTNAME:
+			case ImportUserSortOrder.LASTNAME:
 				result[sortBy] &#x3D; sortingQuery.sortOrder;
 				break;
 			default:
@@ -385,7 +385,7 @@ export class ImportUserMapper {
 		return dto;
 	}
 
-	static mapImportUserFilterQueryToDomain(query: ImportUserFilterQuery): IImportUserScope {
+	static mapImportUserFilterQueryToDomain(query: FilterImportUserParams): IImportUserScope {
 		const dto: IImportUserScope &#x3D; {};
 		if (StringValidator.isNotEmptyString(query.firstName)) dto.firstName &#x3D; query.firstName;
 		if (StringValidator.isNotEmptyString(query.lastName)) dto.lastName &#x3D; query.lastName;

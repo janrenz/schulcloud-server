@@ -319,7 +319,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>findAll(currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>, scope: <a href="../classes/NewsFilterQuery.html" target="_self">NewsFilterQuery</a>, pagination: <a href="../classes/PaginationQuery.html" target="_self">PaginationQuery</a>)</code>
+                    <code>findAll(currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>, scope: <a href="../classes/FilterNewsParams.html" target="_self">FilterNewsParams</a>, pagination: <a href="../classes/PaginationParams.html" target="_self">PaginationParams</a>)</code>
                 </td>
             </tr>
 
@@ -371,7 +371,7 @@
                                 <tr>
                                     <td>scope</td>
                                     <td>
-                                                <code><a href="../classes/NewsFilterQuery.html" target="_self" >NewsFilterQuery</a></code>
+                                                <code><a href="../classes/FilterNewsParams.html" target="_self" >FilterNewsParams</a></code>
                                     </td>
 
                                     <td>
@@ -383,7 +383,7 @@
                                 <tr>
                                     <td>pagination</td>
                                     <td>
-                                                <code><a href="../classes/PaginationQuery.html" target="_self" >PaginationQuery</a></code>
+                                                <code><a href="../classes/PaginationParams.html" target="_self" >PaginationParams</a></code>
                                     </td>
 
                                     <td>
@@ -613,11 +613,11 @@ The news entity has school and user names populated.</p>
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Controller, Get, Post, Body, Param, Query, Patch, Delete } from &#x27;@nestjs/common&#x27;;
 import { ApiTags } from &#x27;@nestjs/swagger&#x27;;
 import { ICurrentUser } from &#x27;@shared/domain&#x27;;
-import { ParseObjectIdPipe, PaginationQuery } from &#x27;@shared/controller&#x27;;
+import { ParseObjectIdPipe, PaginationParams } from &#x27;@shared/controller&#x27;;
 import { Authenticate, CurrentUser } from &#x27;@src/modules/authentication/decorator/auth.decorator&#x27;;
 import { NewsUc } from &#x27;../uc/news.uc&#x27;;
 
-import { CreateNewsParams, NewsFilterQuery, NewsListResponse, NewsResponse, UpdateNewsParams } from &#x27;./dto&#x27;;
+import { CreateNewsParams, FilterNewsParams, NewsListResponse, NewsResponse, UpdateNewsParams } from &#x27;./dto&#x27;;
 import { NewsMapper } from &#x27;../mapper/news.mapper&#x27;;
 
 @ApiTags(&#x27;News&#x27;)
@@ -646,8 +646,8 @@ export class NewsController {
 	@Get()
 	async findAll(
 		@CurrentUser() currentUser: ICurrentUser,
-		@Query() scope: NewsFilterQuery,
-		@Query() pagination: PaginationQuery
+		@Query() scope: FilterNewsParams,
+		@Query() pagination: PaginationParams
 	): Promise&lt;NewsListResponse&gt; {
 		const [newsList, count] &#x3D; await this.newsUc.findAllForUser(
 			currentUser.userId,

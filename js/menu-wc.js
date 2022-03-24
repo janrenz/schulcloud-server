@@ -861,7 +861,7 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/ApiValidationErrorResponse.html" data-type="entity-link" >ApiValidationErrorResponse</a>
                             </li>
                             <li class="link">
-                                <a href="classes/AuthorizationQuery.html" data-type="entity-link" >AuthorizationQuery</a>
+                                <a href="classes/AuthorizationParams.html" data-type="entity-link" >AuthorizationParams</a>
                             </li>
                             <li class="link">
                                 <a href="classes/BaseEntity.html" data-type="entity-link" >BaseEntity</a>
@@ -975,6 +975,15 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/FileSecurityCheck.html" data-type="entity-link" >FileSecurityCheck</a>
                             </li>
                             <li class="link">
+                                <a href="classes/FilterImportUserParams.html" data-type="entity-link" >FilterImportUserParams</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/FilterNewsParams.html" data-type="entity-link" >FilterNewsParams</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/FilterUserParams.html" data-type="entity-link" >FilterUserParams</a>
+                            </li>
+                            <li class="link">
                                 <a href="classes/GlobalErrorFilter.html" data-type="entity-link" >GlobalErrorFilter</a>
                             </li>
                             <li class="link">
@@ -993,9 +1002,6 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/ImportUserFactory.html" data-type="entity-link" >ImportUserFactory</a>
                             </li>
                             <li class="link">
-                                <a href="classes/ImportUserFilterQuery.html" data-type="entity-link" >ImportUserFilterQuery</a>
-                            </li>
-                            <li class="link">
                                 <a href="classes/ImportUserListResponse.html" data-type="entity-link" >ImportUserListResponse</a>
                             </li>
                             <li class="link">
@@ -1009,9 +1015,6 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="classes/ImportUserScope.html" data-type="entity-link" >ImportUserScope</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/ImportUserSortingQuery.html" data-type="entity-link" >ImportUserSortingQuery</a>
                             </li>
                             <li class="link">
                                 <a href="classes/JwtExtractor.html" data-type="entity-link" >JwtExtractor</a>
@@ -1029,13 +1032,10 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/MoveElementParams.html" data-type="entity-link" >MoveElementParams</a>
                             </li>
                             <li class="link">
-                                <a href="classes/MoveElementPosition.html" data-type="entity-link" >MoveElementPosition</a>
+                                <a href="classes/MoveElementPositionParams.html" data-type="entity-link" >MoveElementPositionParams</a>
                             </li>
                             <li class="link">
                                 <a href="classes/News.html" data-type="entity-link" >News</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/NewsFilterQuery.html" data-type="entity-link" >NewsFilterQuery</a>
                             </li>
                             <li class="link">
                                 <a href="classes/NewsListResponse.html" data-type="entity-link" >NewsListResponse</a>
@@ -1062,7 +1062,7 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/OauthTokenResponse.html" data-type="entity-link" >OauthTokenResponse</a>
                             </li>
                             <li class="link">
-                                <a href="classes/PaginationQuery.html" data-type="entity-link" >PaginationQuery</a>
+                                <a href="classes/PaginationParams.html" data-type="entity-link" >PaginationParams</a>
                             </li>
                             <li class="link">
                                 <a href="classes/PaginationResponse.html" data-type="entity-link" >PaginationResponse</a>
@@ -1080,10 +1080,10 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/RenameFileParams.html" data-type="entity-link" >RenameFileParams</a>
                             </li>
                             <li class="link">
-                                <a href="classes/ResolvedUser.html" data-type="entity-link" >ResolvedUser</a>
+                                <a href="classes/ResolvedUserMapper.html" data-type="entity-link" >ResolvedUserMapper</a>
                             </li>
                             <li class="link">
-                                <a href="classes/ResolvedUserMapper.html" data-type="entity-link" >ResolvedUserMapper</a>
+                                <a href="classes/ResolvedUserResponse.html" data-type="entity-link" >ResolvedUserResponse</a>
                             </li>
                             <li class="link">
                                 <a href="classes/RocketChatError.html" data-type="entity-link" >RocketChatError</a>
@@ -1113,7 +1113,10 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/SingleFileParams.html" data-type="entity-link" >SingleFileParams</a>
                             </li>
                             <li class="link">
-                                <a href="classes/SortingQuery.html" data-type="entity-link" >SortingQuery</a>
+                                <a href="classes/SortImportUserParams.html" data-type="entity-link" >SortImportUserParams</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/SortingParams.html" data-type="entity-link" >SortingParams</a>
                             </li>
                             <li class="link">
                                 <a href="classes/StringValidator.html" data-type="entity-link" >StringValidator</a>
@@ -1189,9 +1192,6 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="classes/UserFactory.html" data-type="entity-link" >UserFactory</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/UserFilterQuery.html" data-type="entity-link" >UserFilterQuery</a>
                             </li>
                             <li class="link">
                                 <a href="classes/UserInfoMapper.html" data-type="entity-link" >UserInfoMapper</a>

@@ -65,8 +65,8 @@
                 - index.ts // exports all entities
             - controller/ // where controllers define the api
                 - dto/ // dto&#39;s define api in/out types as a class with annotations
-                    - &lt;action-&gt;[param|query].ts // (like create-user-param.ts or pagination.query)
-                    - &lt;data-&gt;[response].ts // (like create-user-response.ts)
+                    - &lt;action-&gt;[params].ts // (like create-user.params.ts)
+                    - &lt;data-&gt;[response].ts // (like create-user.response.ts)
                     - index.ts // exports all dto&#39;s
                 - &lt;module&gt;.controller.ts // defines rest api, references main service file
                 - &lt;other&gt;.controller.ts // think about a new module when require multiple controllers :)
@@ -210,7 +210,7 @@ This possibility should not be used for new features in Feathers, but it can hel
 <h4 id="validation">Validation</h4>
 <p>Global settings of the core-module ensure <strong>request/response validation</strong> against the api definition. Simple input types might additionally use a custom <a href="https://docs.nestjs.com/pipes">pipe</a> while for complex types injected as query/body are validated by default when parsed as DTO class.</p>
 <h4 id="file-naming">File naming</h4>
-<p>Complex input DTOs are defined like [create-news].param.ts (class-name: CreateNewsParam) or [pagination].query.ts (class-name: PaginationQuery)</p>
+<p>Complex input DTOs are defined like [create-news].params.ts (class-name: CreateNewsParams).</p>
 <p>When DTO&#39;s are shared between multiple modules, locate them in the layer-related shared folder.</p>
 <blockquote>
 <p><strong>Security:</strong> When exporting data, internal entities must be mapped to a response DTO class named like [news].response.dto. The mapping ensures which data of internal entities are exported.</p>

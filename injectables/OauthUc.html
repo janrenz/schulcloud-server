@@ -242,7 +242,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>checkAuthorizationCode(query: <a href="../classes/AuthorizationQuery.html" target="_self">AuthorizationQuery</a>)</code>
+<code>checkAuthorizationCode(query: <a href="../classes/AuthorizationParams.html" target="_self">AuthorizationParams</a>)</code>
                 </td>
             </tr>
 
@@ -273,7 +273,7 @@
                                 <tr>
                                     <td>query</td>
                                     <td>
-                                                <code><a href="../classes/AuthorizationQuery.html" target="_self" >AuthorizationQuery</a></code>
+                                                <code><a href="../classes/AuthorizationParams.html" target="_self" >AuthorizationParams</a></code>
                                     </td>
 
                                     <td>
@@ -620,7 +620,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>startOauth(query: <a href="../classes/AuthorizationQuery.html" target="_self">AuthorizationQuery</a>, systemId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    <code>startOauth(query: <a href="../classes/AuthorizationParams.html" target="_self">AuthorizationParams</a>, systemId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
@@ -651,7 +651,7 @@
                                 <tr>
                                     <td>query</td>
                                     <td>
-                                                <code><a href="../classes/AuthorizationQuery.html" target="_self" >AuthorizationQuery</a></code>
+                                                <code><a href="../classes/AuthorizationParams.html" target="_self" >AuthorizationParams</a></code>
                                     </td>
 
                                     <td>
@@ -738,10 +738,10 @@ import { FeathersJwtProvider } from &#x27;@src/modules/authorization/feathers-jw
 import { SymetricKeyEncryptionService } from &#x27;@shared/infra/encryption/encryption.service&#x27;;
 import { lastValueFrom } from &#x27;rxjs&#x27;;
 import QueryString from &#x27;qs&#x27;;
-import { TokenRequestPayload } from &#x27;../controller/dto/token-request-payload&#x27;;
-import { OauthTokenResponse } from &#x27;../controller/dto/oauth-token-response&#x27;;
-import { AuthorizationQuery } from &#x27;../controller/dto/authorization.query&#x27;;
-import { OAuthResponse } from &#x27;../controller/dto/oauth-response&#x27;;
+import { TokenRequestPayload } from &#x27;../controller/dto/token-request.payload&#x27;;
+import { OauthTokenResponse } from &#x27;../controller/dto/oauth-token.response&#x27;;
+import { AuthorizationParams } from &#x27;../controller/dto/authorization.params&#x27;;
+import { OAuthResponse } from &#x27;../controller/dto/oauth.response&#x27;;
 import { TokenRequestPayloadMapper } from &#x27;../mapper/token-request-payload.mapper&#x27;;
 import { OAuthSSOError } from &#x27;../error/oauth-sso.error&#x27;;
 
@@ -760,7 +760,7 @@ export class OauthUc {
 	}
 
 	// 0- start Oauth Process
-	async startOauth(query: AuthorizationQuery, systemId: string): Promise&lt;OAuthResponse&gt; {
+	async startOauth(query: AuthorizationParams, systemId: string): Promise&lt;OAuthResponse&gt; {
 		// get the authorization code
 		const code: string &#x3D; this.checkAuthorizationCode(query);
 		// get the Tokens using the authorization code
@@ -783,7 +783,7 @@ export class OauthUc {
 	 * @query query input that has either a code or an error
 	 * @return authorization code or throws an error
 	 */
-	checkAuthorizationCode(query: AuthorizationQuery): string {
+	checkAuthorizationCode(query: AuthorizationParams): string {
 		if (query.code) return query.code;
 		let errorCode &#x3D; &#x27;sso_auth_code_step&#x27;;
 		if (query.error) {

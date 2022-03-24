@@ -44,7 +44,7 @@
 
 <ol class="breadcrumb">
   <li>Classes</li>
-  <li >ImportUserSortingQuery</li>
+  <li >AuthorizationParams</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -62,17 +62,11 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/modules/user-import/controller/dto/import-user-sorting.query.ts</code>
+            <code>apps/server/src/modules/oauth/controller/dto/authorization.params.ts</code>
         </p>
 
 
 
-            <p class="comment">
-                <h3>Extends</h3>
-            </p>
-            <p class="comment">
-                        <code><a href="../classes/SortingQuery.html" target="_self" >SortingQuery</a></code>
-            </p>
 
 
 
@@ -90,10 +84,11 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Optional</span>
-                                <a href="#sortBy" >sortBy</a>
+                                <a href="#code" >code</a>
                             </li>
                             <li>
-                                <a href="#sortOrder" >sortOrder</a>
+                                    <span class="modifier">Optional</span>
+                                <a href="#error" >error</a>
                             </li>
                         </ul>
                     </td>
@@ -118,17 +113,17 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="sortBy"></a>
+                    <a name="code"></a>
                     <span class="name">
                             <span class="modifier">Optional</span>
-                        <span ><b>sortBy</b></span>
-                        <a href="#sortBy"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>code</b></span>
+                        <a href="#code"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="../interfaces/User.html" target="_self" >ImportUserSortByQuery</a></code>
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
 
                     </td>
                 </tr>
@@ -137,20 +132,13 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @IsOptional()<br />@IsEnum(ImportUserSortByQuery)<br />@ApiPropertyOptional({enum: ImportUserSortByQuery})<br />
+                            @IsOptional()<br />@IsString()<br />@IsNotEmpty()<br />
                         </code>
                     </td>
                 </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <div class="io-line">Inherited from         <code><a href="../classes/SortingQuery.html" target="_self" >SortingQuery</a></code>
-</div>
-                            </td>
-                        </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/SortingQuery.html#source" target="_self" >SortingQuery:14</a></code>
-</div>
+                                <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">apps/server/src/modules/oauth/controller/dto/authorization.params.ts:7</a></div>
                         </td>
                     </tr>
 
@@ -161,22 +149,18 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="sortOrder"></a>
+                    <a name="error"></a>
                     <span class="name">
-                        <span ><b>sortOrder</b></span>
-                        <a href="#sortOrder"><span class="icon ion-ios-link"></span></a>
+                            <span class="modifier">Optional</span>
+                        <span ><b>error</b></span>
+                        <a href="#error"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="../miscellaneous/enumerations.html#SortOrder" target="_self" >SortOrder</a></code>
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
 
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Default value : </i><code>SortOrder.asc</code>
                     </td>
                 </tr>
                 <tr>
@@ -184,20 +168,13 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @IsOptional()<br />@IsEnum(SortOrder)<br />@ApiPropertyOptional({enum: SortOrder})<br />
+                            @IsOptional()<br />@IsString()<br />@IsNotEmpty()<br />
                         </code>
                     </td>
                 </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <div class="io-line">Inherited from         <code><a href="../classes/SortingQuery.html" target="_self" >SortingQuery</a></code>
-</div>
-                            </td>
-                        </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/SortingQuery.html#source" target="_self" >SortingQuery:18</a></code>
-</div>
+                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">apps/server/src/modules/oauth/controller/dto/authorization.params.ts:12</a></div>
                         </td>
                     </tr>
 
@@ -216,20 +193,18 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ApiPropertyOptional } from &#x27;@nestjs/swagger&#x27;;
-import { SortingQuery } from &#x27;@shared/controller&#x27;;
-import { IsEnum, IsOptional } from &#x27;class-validator&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { IsNotEmpty, IsOptional, IsString } from &#x27;class-validator&#x27;;
 
-export enum ImportUserSortByQuery {
-	FIRSTNAME &#x3D; &#x27;firstName&#x27;,
-	LASTNAME &#x3D; &#x27;lastName&#x27;,
-}
-
-export class ImportUserSortingQuery extends SortingQuery&lt;ImportUserSortByQuery&gt; {
+export class AuthorizationParams {
 	@IsOptional()
-	@IsEnum(ImportUserSortByQuery)
-	@ApiPropertyOptional({ enum: ImportUserSortByQuery })
-	sortBy?: ImportUserSortByQuery;
+	@IsString()
+	@IsNotEmpty()
+	code?: string;
+
+	@IsOptional()
+	@IsString()
+	@IsNotEmpty()
+	error?: string;
 }
 </code></pre>
     </div>
@@ -269,7 +244,7 @@ export class ImportUserSortingQuery extends SortingQuery&lt;ImportUserSortByQuer
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
-            var COMPODOC_CURRENT_PAGE_URL = 'ImportUserSortingQuery.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'AuthorizationParams.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

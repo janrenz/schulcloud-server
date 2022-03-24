@@ -70,7 +70,13 @@
                             <a href="#FilesStorageInternalActions" title="apps/server/src/modules/files-storage/files-storage.const.ts" ><b>FilesStorageInternalActions</b>&nbsp;&nbsp;&nbsp;(apps/.../files-storage.const.ts)</a>
                         </li>
                         <li>
-                            <a href="#ImportUserSortByQuery" title="apps/server/src/modules/user-import/controller/dto/import-user-sorting.query.ts" ><b>ImportUserSortByQuery</b>&nbsp;&nbsp;&nbsp;(apps/.../import-user-sorting.query.ts)</a>
+                            <a href="#FilterMatchType" title="apps/server/src/modules/user-import/controller/dto/filter-import-user.params.ts" ><b>FilterMatchType</b>&nbsp;&nbsp;&nbsp;(apps/.../filter-import-user.params.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#FilterRoleType" title="apps/server/src/modules/user-import/controller/dto/filter-import-user.params.ts" ><b>FilterRoleType</b>&nbsp;&nbsp;&nbsp;(apps/.../filter-import-user.params.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#ImportUserSortOrder" title="apps/server/src/modules/user-import/controller/dto/sort-import-user.params.ts" ><b>ImportUserSortOrder</b>&nbsp;&nbsp;&nbsp;(apps/.../sort-import-user.params.ts)</a>
                         </li>
                         <li>
                             <a href="#LearnroomTypes" title="apps/server/src/shared/domain/types/learnroom.types.ts" ><b>LearnroomTypes</b>&nbsp;&nbsp;&nbsp;(apps/.../learnroom.types.ts)</a>
@@ -79,13 +85,10 @@
                             <a href="#MatchCreator" title="apps/server/src/shared/domain/entity/import-user.entity.ts" ><b>MatchCreator</b>&nbsp;&nbsp;&nbsp;(apps/.../import-user.entity.ts)</a>
                         </li>
                         <li>
-                            <a href="#MatchCreatorResponse" title="apps/server/src/modules/user-import/controller/dto/match-creator.response.ts" ><b>MatchCreatorResponse</b>&nbsp;&nbsp;&nbsp;(apps/.../match-creator.response.ts)</a>
-                        </li>
-                        <li>
                             <a href="#MatchCreatorScope" title="apps/server/src/shared/domain/types/importuser.types.ts" ><b>MatchCreatorScope</b>&nbsp;&nbsp;&nbsp;(apps/.../importuser.types.ts)</a>
                         </li>
                         <li>
-                            <a href="#MatchFilterQuery" title="apps/server/src/modules/user-import/controller/dto/import-user-filter.query.ts" ><b>MatchFilterQuery</b>&nbsp;&nbsp;&nbsp;(apps/.../import-user-filter.query.ts)</a>
+                            <a href="#MatchType" title="apps/server/src/modules/user-import/controller/dto/match-type.ts" ><b>MatchType</b>&nbsp;&nbsp;&nbsp;(apps/.../match-type.ts)</a>
                         </li>
                         <li>
                             <a href="#NewsTargetModel" title="apps/server/src/shared/domain/types/news.types.ts" ><b>NewsTargetModel</b>&nbsp;&nbsp;&nbsp;(apps/.../news.types.ts)</a>
@@ -94,19 +97,13 @@
                             <a href="#RoleName" title="apps/server/src/shared/domain/entity/import-user.entity.ts" ><b>RoleName</b>&nbsp;&nbsp;&nbsp;(apps/.../import-user.entity.ts)</a>
                         </li>
                         <li>
-                            <a href="#RoleNameFilterQuery" title="apps/server/src/modules/user-import/controller/dto/import-user-filter.query.ts" ><b>RoleNameFilterQuery</b>&nbsp;&nbsp;&nbsp;(apps/.../import-user-filter.query.ts)</a>
-                        </li>
-                        <li>
-                            <a href="#RoleNameResponse" title="apps/server/src/modules/user-import/controller/dto/role-name.response.ts" ><b>RoleNameResponse</b>&nbsp;&nbsp;&nbsp;(apps/.../role-name.response.ts)</a>
-                        </li>
-                        <li>
                             <a href="#RoomBoardElementTypes" title="apps/server/src/modules/learnroom/types/room-board.types.ts" ><b>RoomBoardElementTypes</b>&nbsp;&nbsp;&nbsp;(apps/.../room-board.types.ts)</a>
                         </li>
                         <li>
                             <a href="#ScanStatus" title="apps/server/src/shared/domain/entity/filerecord.entity.ts" ><b>ScanStatus</b>&nbsp;&nbsp;&nbsp;(apps/.../filerecord.entity.ts)</a>
                         </li>
                         <li>
-                            <a href="#SortOrder" title="apps/server/src/shared/controller/dto/sorting.query.ts" ><b>SortOrder</b>&nbsp;&nbsp;&nbsp;(apps/.../sorting.query.ts)</a>
+                            <a href="#SortOrder" title="apps/server/src/shared/controller/dto/sorting.params.ts" ><b>SortOrder</b>&nbsp;&nbsp;&nbsp;(apps/.../sorting.params.ts)</a>
                         </li>
                         <li>
                             <a href="#SortOrder" title="apps/server/src/shared/domain/interface/find-options.ts" ><b>SortOrder</b>&nbsp;&nbsp;&nbsp;(apps/.../find-options.ts)</a>
@@ -122,6 +119,9 @@
                         </li>
                         <li>
                             <a href="#UserImportPermissions" title="apps/server/src/modules/user-import/constants.ts" ><b>UserImportPermissions</b>&nbsp;&nbsp;&nbsp;(apps/.../constants.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#UserRole" title="apps/server/src/modules/user-import/controller/dto/user-role.ts" ><b>UserRole</b>&nbsp;&nbsp;&nbsp;(apps/.../user-role.ts)</a>
                         </li>
                     </ul>
                 </td>
@@ -319,14 +319,97 @@
             </tbody>
         </table>
 </section>
-    <h3>apps/server/src/modules/user-import/controller/dto/import-user-sorting.query.ts</h3>
+    <h3>apps/server/src/modules/user-import/controller/dto/filter-import-user.params.ts</h3>
     <section>
         <table class="table table-sm table-bordered">
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="ImportUserSortByQuery"></a>
-                        <span class="name "><b>ImportUserSortByQuery</b><a href="#ImportUserSortByQuery"><span class="icon ion-ios-link"></span></a></span>
+                        <a name="FilterMatchType"></a>
+                        <span class="name "><b>FilterMatchType</b><a href="#FilterMatchType"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;AUTO
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Value : </i><code>auto</code>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;MANUAL
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Value : </i><code>admin</code>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;NONE
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Value : </i><code>none</code>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="FilterRoleType"></a>
+                        <span class="name "><b>FilterRoleType</b><a href="#FilterRoleType"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;STUDENT
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Value : </i><code>student</code>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;TEACHER
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Value : </i><code>teacher</code>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;ADMIN
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Value : </i><code>admin</code>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+    <h3>apps/server/src/modules/user-import/controller/dto/sort-import-user.params.ts</h3>
+    <section>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="ImportUserSortOrder"></a>
+                        <span class="name "><b>ImportUserSortOrder</b><a href="#ImportUserSortOrder"><span class="icon ion-ios-link"></span></a></span>
                     </td>
                 </tr>
                         <tr>
@@ -448,39 +531,6 @@
             </tbody>
         </table>
 </section>
-    <h3>apps/server/src/modules/user-import/controller/dto/match-creator.response.ts</h3>
-    <section>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="MatchCreatorResponse"></a>
-                        <span class="name "><b>MatchCreatorResponse</b><a href="#MatchCreatorResponse"><span class="icon ion-ios-link"></span></a></span>
-                    </td>
-                </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                &nbsp;AUTO
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <i>Value : </i><code>auto</code>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                &nbsp;MANUAL
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <i>Value : </i><code>admin</code>
-                            </td>
-                        </tr>
-            </tbody>
-        </table>
-</section>
     <h3>apps/server/src/shared/domain/types/importuser.types.ts</h3>
     <section>
         <table class="table table-sm table-bordered">
@@ -524,14 +574,14 @@
             </tbody>
         </table>
 </section>
-    <h3>apps/server/src/modules/user-import/controller/dto/import-user-filter.query.ts</h3>
+    <h3>apps/server/src/modules/user-import/controller/dto/match-type.ts</h3>
     <section>
         <table class="table table-sm table-bordered">
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="MatchFilterQuery"></a>
-                        <span class="name "><b>MatchFilterQuery</b><a href="#MatchFilterQuery"><span class="icon ion-ios-link"></span></a></span>
+                        <a name="MatchType"></a>
+                        <span class="name "><b>MatchType</b><a href="#MatchType"><span class="icon ion-ios-link"></span></a></span>
                     </td>
                 </tr>
                         <tr>
@@ -547,56 +597,6 @@
                         <tr>
                             <td class="col-md-4">
                                 &nbsp;MANUAL
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <i>Value : </i><code>admin</code>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                &nbsp;NONE
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <i>Value : </i><code>none</code>
-                            </td>
-                        </tr>
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="RoleNameFilterQuery"></a>
-                        <span class="name "><b>RoleNameFilterQuery</b><a href="#RoleNameFilterQuery"><span class="icon ion-ios-link"></span></a></span>
-                    </td>
-                </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                &nbsp;STUDENT
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <i>Value : </i><code>student</code>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                &nbsp;TEACHER
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <i>Value : </i><code>teacher</code>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                &nbsp;ADMIN
                             </td>
                         </tr>
                         <tr>
@@ -650,49 +650,6 @@
             </tbody>
         </table>
 </section>
-    <h3>apps/server/src/modules/user-import/controller/dto/role-name.response.ts</h3>
-    <section>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="RoleNameResponse"></a>
-                        <span class="name "><b>RoleNameResponse</b><a href="#RoleNameResponse"><span class="icon ion-ios-link"></span></a></span>
-                    </td>
-                </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                &nbsp;STUDENT
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <i>Value : </i><code>student</code>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                &nbsp;TEACHER
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <i>Value : </i><code>teacher</code>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                &nbsp;ADMIN
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <i>Value : </i><code>admin</code>
-                            </td>
-                        </tr>
-            </tbody>
-        </table>
-</section>
     <h3>apps/server/src/modules/learnroom/types/room-board.types.ts</h3>
     <section>
         <table class="table table-sm table-bordered">
@@ -736,7 +693,7 @@
             </tbody>
         </table>
 </section>
-    <h3>apps/server/src/shared/controller/dto/sorting.query.ts</h3>
+    <h3>apps/server/src/shared/controller/dto/sorting.params.ts</h3>
     <section>
         <table class="table table-sm table-bordered">
             <tbody>
@@ -923,6 +880,49 @@ They are used to read/update on @ImportUser of same school.</p>
                         <tr>
                             <td class="col-md-4">
                                 <i>Value : </i><code>IMPORT_USER_VIEW</code>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+    <h3>apps/server/src/modules/user-import/controller/dto/user-role.ts</h3>
+    <section>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="UserRole"></a>
+                        <span class="name "><b>UserRole</b><a href="#UserRole"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;STUDENT
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Value : </i><code>student</code>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;TEACHER
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Value : </i><code>teacher</code>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;ADMIN
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Value : </i><code>admin</code>
                             </td>
                         </tr>
             </tbody>

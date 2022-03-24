@@ -139,7 +139,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>findAllImportUsers(currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>, scope: <a href="../interfaces/User.html" target="_self">ImportUserFilterQuery</a>, sortingQuery: <a href="../interfaces/User.html" target="_self">ImportUserSortingQuery</a>, paginationQuery: <a href="../classes/PaginationQuery.html" target="_self">PaginationQuery</a>)</code>
+                    <code>findAllImportUsers(currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>, scope: <a href="../interfaces/User.html" target="_self">FilterImportUserParams</a>, sortingQuery: <a href="../interfaces/User.html" target="_self">SortImportUserParams</a>, pagination: <a href="../classes/PaginationParams.html" target="_self">PaginationParams</a>)</code>
                 </td>
             </tr>
 
@@ -189,7 +189,7 @@
                                 <tr>
                                     <td>scope</td>
                                     <td>
-                                                <code><a href="../interfaces/User.html" target="_self" >ImportUserFilterQuery</a></code>
+                                                <code><a href="../interfaces/User.html" target="_self" >FilterImportUserParams</a></code>
                                     </td>
 
                                     <td>
@@ -201,7 +201,7 @@
                                 <tr>
                                     <td>sortingQuery</td>
                                     <td>
-                                                <code><a href="../interfaces/User.html" target="_self" >ImportUserSortingQuery</a></code>
+                                                <code><a href="../interfaces/User.html" target="_self" >SortImportUserParams</a></code>
                                     </td>
 
                                     <td>
@@ -211,9 +211,9 @@
 
                                 </tr>
                                 <tr>
-                                    <td>paginationQuery</td>
+                                    <td>pagination</td>
                                     <td>
-                                                <code><a href="../classes/PaginationQuery.html" target="_self" >PaginationQuery</a></code>
+                                                <code><a href="../classes/PaginationParams.html" target="_self" >PaginationParams</a></code>
                                     </td>
 
                                     <td>
@@ -253,7 +253,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>findAllUnmatchedUsers(currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>, scope: <a href="../interfaces/User.html" target="_self">UserFilterQuery</a>, paginationQuery: <a href="../classes/PaginationQuery.html" target="_self">PaginationQuery</a>)</code>
+                    <code>findAllUnmatchedUsers(currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>, scope: <a href="../interfaces/User.html" target="_self">FilterUserParams</a>, pagination: <a href="../classes/PaginationParams.html" target="_self">PaginationParams</a>)</code>
                 </td>
             </tr>
 
@@ -303,7 +303,7 @@
                                 <tr>
                                     <td>scope</td>
                                     <td>
-                                                <code><a href="../interfaces/User.html" target="_self" >UserFilterQuery</a></code>
+                                                <code><a href="../interfaces/User.html" target="_self" >FilterUserParams</a></code>
                                     </td>
 
                                     <td>
@@ -313,9 +313,9 @@
 
                                 </tr>
                                 <tr>
-                                    <td>paginationQuery</td>
+                                    <td>pagination</td>
                                     <td>
-                                                <code><a href="../classes/PaginationQuery.html" target="_self" >PaginationQuery</a></code>
+                                                <code><a href="../classes/PaginationParams.html" target="_self" >PaginationParams</a></code>
                                     </td>
 
                                     <td>
@@ -718,20 +718,20 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Body, Controller, Delete, Get, Param, Patch, Post, Query } from &#x27;@nestjs/common&#x27;;
 import { ApiTags } from &#x27;@nestjs/swagger&#x27;;
-import { PaginationQuery, ParseObjectIdPipe } from &#x27;@shared/controller&#x27;;
+import { PaginationParams, ParseObjectIdPipe } from &#x27;@shared/controller&#x27;;
 import { ICurrentUser, IFindOptions, ImportUser, User } from &#x27;@shared/domain&#x27;;
 import { Authenticate, CurrentUser } from &#x27;@src/modules/authentication/decorator/auth.decorator&#x27;;
-import { ImportUserFilterQuery } from &#x27;./dto/import-user-filter.query&#x27;;
+import { FilterImportUserParams } from &#x27;./dto/filter-import-user.params&#x27;;
 import { ImportUserListResponse, ImportUserResponse } from &#x27;./dto/import-user.response&#x27;;
 import { UpdateMatchParams } from &#x27;./dto/update-match.params&#x27;;
 import { UserMatchListResponse } from &#x27;./dto/user-match.response&#x27;;
 
 import { ImportUserMapper } from &#x27;../mapper/import-user.mapper&#x27;;
-import { UserFilterQuery } from &#x27;./dto/user-filter.query&#x27;;
+import { FilterUserParams } from &#x27;./dto/filter-user.params&#x27;;
 import { UserMatchMapper } from &#x27;../mapper/user-match.mapper&#x27;;
 import { UserImportUc } from &#x27;../uc/user-import.uc&#x27;;
 import { UpdateFlagParams } from &#x27;./dto/update-flag.params&#x27;;
-import { ImportUserSortingQuery } from &#x27;./dto/import-user-sorting.query&#x27;;
+import { SortImportUserParams } from &#x27;./dto/sort-import-user.params&#x27;;
 
 @ApiTags(&#x27;UserImport&#x27;)
 @Authenticate(&#x27;jwt&#x27;)
@@ -742,15 +742,15 @@ export class ImportUserController {
 	@Get()
 	async findAllImportUsers(
 		@CurrentUser() currentUser: ICurrentUser,
-		@Query() scope: ImportUserFilterQuery,
-		@Query() sortingQuery: ImportUserSortingQuery,
-		@Query() paginationQuery: PaginationQuery
+		@Query() scope: FilterImportUserParams,
+		@Query() sortingQuery: SortImportUserParams,
+		@Query() pagination: PaginationParams
 	): Promise&lt;ImportUserListResponse&gt; {
-		const options: IFindOptions&lt;ImportUser&gt; &#x3D; { pagination: paginationQuery };
+		const options: IFindOptions&lt;ImportUser&gt; &#x3D; { pagination };
 		options.order &#x3D; ImportUserMapper.mapSortingQueryToDomain(sortingQuery);
 		const query &#x3D; ImportUserMapper.mapImportUserFilterQueryToDomain(scope);
 		const [importUserList, count] &#x3D; await this.userImportUc.findAllImportUsers(currentUser.userId, query, options);
-		const { skip, limit } &#x3D; paginationQuery;
+		const { skip, limit } &#x3D; pagination;
 		const dtoList &#x3D; importUserList.map((importUser) &#x3D;&gt; ImportUserMapper.mapToResponse(importUser));
 		const response &#x3D; new ImportUserListResponse(dtoList, count, skip, limit);
 		return response;
@@ -791,14 +791,14 @@ export class ImportUserController {
 	@Get(&#x27;unassigned&#x27;)
 	async findAllUnmatchedUsers(
 		@CurrentUser() currentUser: ICurrentUser,
-		@Query() scope: UserFilterQuery,
-		@Query() paginationQuery: PaginationQuery
+		@Query() scope: FilterUserParams,
+		@Query() pagination: PaginationParams
 	): Promise&lt;UserMatchListResponse&gt; {
-		const options: IFindOptions&lt;User&gt; &#x3D; { pagination: paginationQuery };
+		const options: IFindOptions&lt;User&gt; &#x3D; { pagination };
 
 		const query &#x3D; UserMatchMapper.mapToDomain(scope);
 		const [userList, total] &#x3D; await this.userUc.findAllUnmatchedUsers(currentUser.userId, query, options);
-		const { skip, limit } &#x3D; paginationQuery;
+		const { skip, limit } &#x3D; pagination;
 		const dtoList &#x3D; userList.map((user) &#x3D;&gt; UserMatchMapper.mapToResponse(user));
 		const response &#x3D; new UserMatchListResponse(dtoList, total, skip, limit);
 		return response as unknown as UserMatchListResponse;

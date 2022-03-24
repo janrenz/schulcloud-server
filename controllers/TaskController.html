@@ -225,7 +225,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>findAll(currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>, paginationQuery: <a href="../classes/PaginationQuery.html" target="_self">PaginationQuery</a>)</code>
+                    <code>findAll(currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>, pagination: <a href="../classes/PaginationParams.html" target="_self">PaginationParams</a>)</code>
                 </td>
             </tr>
 
@@ -273,9 +273,9 @@
 
                                 </tr>
                                 <tr>
-                                    <td>paginationQuery</td>
+                                    <td>pagination</td>
                                     <td>
-                                                <code><a href="../classes/PaginationQuery.html" target="_self" >PaginationQuery</a></code>
+                                                <code><a href="../classes/PaginationParams.html" target="_self" >PaginationParams</a></code>
                                     </td>
 
                                     <td>
@@ -315,7 +315,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>findAllFinished(currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>, paginationQuery: <a href="../classes/PaginationQuery.html" target="_self">PaginationQuery</a>)</code>
+                    <code>findAllFinished(currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>, pagination: <a href="../classes/PaginationParams.html" target="_self">PaginationParams</a>)</code>
                 </td>
             </tr>
 
@@ -363,9 +363,9 @@
 
                                 </tr>
                                 <tr>
-                                    <td>paginationQuery</td>
+                                    <td>pagination</td>
                                     <td>
-                                                <code><a href="../classes/PaginationQuery.html" target="_self" >PaginationQuery</a></code>
+                                                <code><a href="../classes/PaginationParams.html" target="_self" >PaginationParams</a></code>
                                     </td>
 
                                     <td>
@@ -578,7 +578,7 @@
 import { Controller, Delete, Get, Param, Patch, Query } from &#x27;@nestjs/common&#x27;;
 
 import { ICurrentUser } from &#x27;@shared/domain&#x27;;
-import { PaginationQuery } from &#x27;@shared/controller/&#x27;;
+import { PaginationParams } from &#x27;@shared/controller/&#x27;;
 import { Authenticate, CurrentUser } from &#x27;@src/modules/authentication/decorator/auth.decorator&#x27;;
 import { ParseObjectIdPipe } from &#x27;@shared/controller/pipe&#x27;;
 import { TaskUC } from &#x27;../uc/task.uc&#x27;;
@@ -594,13 +594,13 @@ export class TaskController {
 	@Get()
 	async findAll(
 		@CurrentUser() currentUser: ICurrentUser,
-		@Query() paginationQuery: PaginationQuery
+		@Query() pagination: PaginationParams
 	): Promise&lt;TaskListResponse&gt; {
-		const [tasksWithStatus, total] &#x3D; await this.taskUc.findAll(currentUser.userId, paginationQuery);
+		const [tasksWithStatus, total] &#x3D; await this.taskUc.findAll(currentUser.userId, pagination);
 		const taskresponses &#x3D; tasksWithStatus.map((taskWithStatus) &#x3D;&gt; {
 			return TaskMapper.mapToResponse(taskWithStatus);
 		});
-		const { skip, limit } &#x3D; paginationQuery;
+		const { skip, limit } &#x3D; pagination;
 		const result &#x3D; new TaskListResponse(taskresponses, total, skip, limit);
 		return result;
 	}
@@ -608,15 +608,15 @@ export class TaskController {
 	@Get(&#x27;finished&#x27;)
 	async findAllFinished(
 		@CurrentUser() currentUser: ICurrentUser,
-		@Query() paginationQuery: PaginationQuery
+		@Query() pagination: PaginationParams
 	): Promise&lt;TaskListResponse&gt; {
-		const [tasksWithStatus, total] &#x3D; await this.taskUc.findAllFinished(currentUser.userId, paginationQuery);
+		const [tasksWithStatus, total] &#x3D; await this.taskUc.findAllFinished(currentUser.userId, pagination);
 
 		const taskresponses &#x3D; tasksWithStatus.map((task) &#x3D;&gt; {
 			return TaskMapper.mapToResponse(task);
 		});
 
-		const { skip, limit } &#x3D; paginationQuery;
+		const { skip, limit } &#x3D; pagination;
 		const result &#x3D; new TaskListResponse(taskresponses, total, skip, limit);
 		return result;
 	}

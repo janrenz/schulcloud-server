@@ -119,7 +119,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>startOauthAuthorizationCodeFlow(query: <a href="../classes/AuthorizationQuery.html" target="_self">AuthorizationQuery</a>, res: Response, systemid: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    <code>startOauthAuthorizationCodeFlow(query: <a href="../classes/AuthorizationParams.html" target="_self">AuthorizationParams</a>, res: Response, systemid: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
@@ -157,7 +157,7 @@
                                 <tr>
                                     <td>query</td>
                                     <td>
-                                                <code><a href="../classes/AuthorizationQuery.html" target="_self" >AuthorizationQuery</a></code>
+                                                <code><a href="../classes/AuthorizationParams.html" target="_self" >AuthorizationParams</a></code>
                                     </td>
 
                                     <td>
@@ -218,8 +218,8 @@ import { ILogger, Logger } from &#x27;@src/core/logger&#x27;;
 import { Response } from &#x27;express&#x27;;
 import { OAuthSSOError } from &#x27;../error/oauth-sso.error&#x27;;
 import { OauthUc } from &#x27;../uc/oauth.uc&#x27;;
-import { AuthorizationQuery } from &#x27;./dto/authorization.query&#x27;;
-import { OAuthResponse } from &#x27;./dto/oauth-response&#x27;;
+import { AuthorizationParams } from &#x27;./dto/authorization.params&#x27;;
+import { OAuthResponse } from &#x27;./dto/oauth.response&#x27;;
 
 @ApiTags(&#x27;SSO&#x27;)
 @Controller(&#x27;sso&#x27;)
@@ -232,7 +232,7 @@ export class OauthSSOController {
 
 	@Get(&#x27;oauth/:systemid&#x27;)
 	async startOauthAuthorizationCodeFlow(
-		@Query() query: AuthorizationQuery,
+		@Query() query: AuthorizationParams,
 		@Res() res: Response,
 		@Param(&#x27;systemid&#x27;, ParseObjectIdPipe) systemid: string
 	): Promise&lt;unknown&gt; {

@@ -417,7 +417,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>list(params: <a href="../classes/FileRecordParams.html" target="_self">FileRecordParams</a>, currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>, paginationQuery: <a href="../classes/PaginationQuery.html" target="_self">PaginationQuery</a>)</code>
+                    <code>list(params: <a href="../classes/FileRecordParams.html" target="_self">FileRecordParams</a>, currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>, pagination: <a href="../classes/PaginationParams.html" target="_self">PaginationParams</a>)</code>
                 </td>
             </tr>
 
@@ -477,9 +477,9 @@
 
                                 </tr>
                                 <tr>
-                                    <td>paginationQuery</td>
+                                    <td>pagination</td>
                                     <td>
-                                                <code><a href="../classes/PaginationQuery.html" target="_self" >PaginationQuery</a></code>
+                                                <code><a href="../classes/PaginationParams.html" target="_self" >PaginationParams</a></code>
                                     </td>
 
                                     <td>
@@ -908,7 +908,7 @@
 import { ApiConsumes, ApiTags } from &#x27;@nestjs/swagger&#x27;;
 import { Request } from &#x27;express&#x27;;
 
-import { PaginationQuery } from &#x27;@shared/controller&#x27;;
+import { PaginationParams } from &#x27;@shared/controller&#x27;;
 import { ICurrentUser } from &#x27;@shared/domain&#x27;;
 import { Authenticate, CurrentUser } from &#x27;@src/modules/authentication/decorator/auth.decorator&#x27;;
 
@@ -962,7 +962,7 @@ export class FilesStorageController {
 	async list(
 		@Param() params: FileRecordParams,
 		@CurrentUser() currentUser: ICurrentUser,
-		@Query() paginationQuery: PaginationQuery
+		@Query() pagination: PaginationParams
 	): Promise&lt;FileRecordListResponse&gt; {
 		const [fileRecords, total] &#x3D; await this.fileRecordUC.fileRecordsOfParent(currentUser.userId, params);
 
@@ -970,7 +970,7 @@ export class FilesStorageController {
 			return new FileRecordResponse(fileRecord);
 		});
 
-		const { skip, limit } &#x3D; paginationQuery;
+		const { skip, limit } &#x3D; pagination;
 
 		const response &#x3D; new FileRecordListResponse(responseFileRecords, total, skip, limit);
 

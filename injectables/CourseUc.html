@@ -160,7 +160,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>findAllByUser(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, options?: <a href="../classes/PaginationQuery.html" target="_self">PaginationQuery</a>)</code>
+<code>findAllByUser(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, options?: <a href="../classes/PaginationParams.html" target="_self">PaginationParams</a>)</code>
                 </td>
             </tr>
 
@@ -203,7 +203,7 @@
                                 <tr>
                                     <td>options</td>
                                     <td>
-                                                <code><a href="../classes/PaginationQuery.html" target="_self" >PaginationQuery</a></code>
+                                                <code><a href="../classes/PaginationParams.html" target="_self" >PaginationParams</a></code>
                                     </td>
 
                                     <td>
@@ -237,13 +237,13 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
 import { EntityId, Course, Counted, SortOrder } from &#x27;@shared/domain&#x27;;
 import { CourseRepo } from &#x27;@shared/repo&#x27;;
-import { PaginationQuery } from &#x27;@shared/controller/&#x27;;
+import { PaginationParams } from &#x27;@shared/controller/&#x27;;
 
 @Injectable()
 export class CourseUc {
 	constructor(private readonly courseRepo: CourseRepo) {}
 
-	findAllByUser(userId: EntityId, options?: PaginationQuery): Promise&lt;Counted&lt;Course[]&gt;&gt; {
+	findAllByUser(userId: EntityId, options?: PaginationParams): Promise&lt;Counted&lt;Course[]&gt;&gt; {
 		return this.courseRepo.findAllByUserId(userId, {}, { pagination: options, order: { updatedAt: SortOrder.desc } });
 	}
 }

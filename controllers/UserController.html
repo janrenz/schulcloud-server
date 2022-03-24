@@ -172,7 +172,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../interfaces/User.html" target="_self" >Promise&lt;ResolvedUser&gt;</a></code>
+                        <b>Returns : </b>        <code><a href="../interfaces/User.html" target="_self" >Promise&lt;ResolvedUserResponse&gt;</a></code>
 
                     </div>
                     <div class="io-description">
@@ -193,7 +193,7 @@ import { ICurrentUser, PermissionService } from &#x27;@shared/domain&#x27;;
 
 import { Authenticate, CurrentUser } from &#x27;@src/modules/authentication/decorator/auth.decorator&#x27;;
 import { UserRepo } from &#x27;@shared/repo&#x27;;
-import { ResolvedUser } from &#x27;./dto/ResolvedUser.dto&#x27;;
+import { ResolvedUserResponse } from &#x27;./dto/resolved-user.response&#x27;;
 import { ResolvedUserMapper } from &#x27;../mapper&#x27;;
 
 @ApiTags(&#x27;User&#x27;)
@@ -203,7 +203,7 @@ export class UserController {
 	constructor(private readonly userRepo: UserRepo, private readonly permissionService: PermissionService) {}
 
 	@Get(&#x27;me&#x27;)
-	async me(@CurrentUser() currentUser: ICurrentUser): Promise&lt;ResolvedUser&gt; {
+	async me(@CurrentUser() currentUser: ICurrentUser): Promise&lt;ResolvedUserResponse&gt; {
 		const user &#x3D; await this.userRepo.findById(currentUser.userId, true);
 		const permissions &#x3D; this.permissionService.resolvePermissions(user);
 

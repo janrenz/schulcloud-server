@@ -44,7 +44,7 @@
 
 <ol class="breadcrumb">
   <li>Classes</li>
-  <li >MoveElementPosition</li>
+  <li >SortingParams</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -62,17 +62,10 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/modules/learnroom/controller/dto/movePosition.params.ts</code>
+            <code>apps/server/src/shared/controller/dto/sorting.params.ts</code>
         </p>
 
 
-            <p class="comment">
-                <h3>Description</h3>
-            </p>
-            <p class="comment">
-                <p>DTO for Updating the position of a Dashboard Element.</p>
-
-            </p>
 
 
 
@@ -90,14 +83,12 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                    <span class="modifier">Abstract</span>
                                     <span class="modifier">Optional</span>
-                                <a href="#groupIndex" >groupIndex</a>
+                                <a href="#sortBy" >sortBy</a>
                             </li>
                             <li>
-                                <a href="#x" >x</a>
-                            </li>
-                            <li>
-                                <a href="#y" >y</a>
+                                <a href="#sortOrder" >sortOrder</a>
                             </li>
                         </ul>
                     </td>
@@ -122,35 +113,33 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="groupIndex"></a>
+                    <a name="sortBy"></a>
                     <span class="name">
+                            <span class="modifier">Abstract</span>
                             <span class="modifier">Optional</span>
-                        <span ><b>groupIndex</b></span>
-                        <a href="#groupIndex"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>sortBy</b></span>
+                        <a href="#sortBy"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                        <i>Type : </i>    <code>T</code>
 
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <b>Decorators : </b>
-                        <br />
-                        <code>
-                            @IsNumber()<br />@Min(0)<br />@IsOptional()<br />@ApiPropertyOptional({description: &#x27;used to identify a position within a group.&#x27;})<br />
-                        </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">apps/server/src/modules/learnroom/controller/dto/movePosition.params.ts:23</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">apps/server/src/shared/controller/dto/sorting.params.ts:13</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Set type and Decorators in extending classes</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -158,17 +147,22 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="x"></a>
+                    <a name="sortOrder"></a>
                     <span class="name">
-                        <span ><b>x</b></span>
-                        <a href="#x"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>sortOrder</b></span>
+                        <a href="#sortOrder"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                        <i>Type : </i>        <code><a href="../miscellaneous/enumerations.html#SortOrder" target="_self" >SortOrder</a></code>
 
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>SortOrder.asc</code>
                     </td>
                 </tr>
                 <tr>
@@ -176,48 +170,13 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @IsNumber()<br />@Min(0)<br />@ApiProperty()<br />
+                            @IsOptional()<br />@IsEnum(SortOrder)<br />@ApiPropertyOptional({enum: SortOrder})<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">apps/server/src/modules/learnroom/controller/dto/movePosition.params.ts:12</a></div>
-                        </td>
-                    </tr>
-
-
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="y"></a>
-                    <span class="name">
-                        <span ><b>y</b></span>
-                        <a href="#y"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
-
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <b>Decorators : </b>
-                        <br />
-                        <code>
-                            @IsNumber()<br />@Min(0)<br />@ApiProperty()<br />
-                        </code>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">apps/server/src/modules/learnroom/controller/dto/movePosition.params.ts:17</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">apps/server/src/shared/controller/dto/sorting.params.ts:18</a></div>
                         </td>
                     </tr>
 
@@ -236,39 +195,24 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ApiProperty, ApiPropertyOptional } from &#x27;@nestjs/swagger&#x27;;
-import { ValidateNested, IsNumber, Min, IsOptional } from &#x27;class-validator&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { IsEnum, IsOptional } from &#x27;class-validator&#x27;;
+import { ApiPropertyOptional } from &#x27;@nestjs/swagger&#x27;;
 
-/**
- * DTO for Updating the position of a Dashboard Element.
- */
-
-export class MoveElementPosition {
-	@IsNumber()
-	@Min(0)
-	@ApiProperty()
-	x!: number;
-
-	@IsNumber()
-	@Min(0)
-	@ApiProperty()
-	y!: number;
-
-	@IsNumber()
-	@Min(0)
-	@IsOptional()
-	@ApiPropertyOptional({ description: &#x27;used to identify a position within a group.&#x27; })
-	groupIndex?: number;
+enum SortOrder {
+	asc &#x3D; &#x27;asc&#x27;,
+	desc &#x3D; &#x27;desc&#x27;,
 }
 
-export class MoveElementParams {
-	@ValidateNested()
-	@ApiProperty()
-	from!: MoveElementPosition;
+export abstract class SortingParams&lt;T&gt; {
+	/**
+	 * Set type and Decorators in extending classes
+	 */
+	abstract sortBy?: T;
 
-	@ValidateNested()
-	@ApiProperty()
-	to!: MoveElementPosition;
+	@IsOptional()
+	@IsEnum(SortOrder)
+	@ApiPropertyOptional({ enum: SortOrder })
+	sortOrder: SortOrder &#x3D; SortOrder.asc;
 }
 </code></pre>
     </div>
@@ -308,7 +252,7 @@ export class MoveElementParams {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
-            var COMPODOC_CURRENT_PAGE_URL = 'MoveElementPosition.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'SortingParams.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 
