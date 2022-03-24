@@ -341,6 +341,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 </li>
                             </li>
                             <li class="link">
+                                <a href="modules/IdentityManagementModule.html" data-type="entity-link" >IdentityManagementModule</a>
+                            </li>
+                            <li class="link">
                                 <a href="modules/ImportUserModule.html" data-type="entity-link" >ImportUserModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
@@ -981,6 +984,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/GridElement.html" data-type="entity-link" >GridElement</a>
                             </li>
                             <li class="link">
+                                <a href="classes/IdentityManagement.html" data-type="entity-link" >IdentityManagement</a>
+                            </li>
+                            <li class="link">
                                 <a href="classes/ImportUser.html" data-type="entity-link" >ImportUser</a>
                             </li>
                             <li class="link">
@@ -1267,6 +1273,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                     <a href="injectables/JwtAuthGuard.html" data-type="entity-link" >JwtAuthGuard</a>
                                 </li>
                                 <li class="link">
+                                    <a href="injectables/KeycloakIdentityManagement.html" data-type="entity-link" >KeycloakIdentityManagement</a>
+                                </li>
+                                <li class="link">
                                     <a href="injectables/LessonRepo.html" data-type="entity-link" >LessonRepo</a>
                                 </li>
                                 <li class="link">
@@ -1353,6 +1362,12 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="interfaces/HtmlMailContent.html" data-type="entity-link" >HtmlMailContent</a>
+                            </li>
+                            <li class="link">
+                                <a href="interfaces/IAccount.html" data-type="entity-link" >IAccount</a>
+                            </li>
+                            <li class="link">
+                                <a href="interfaces/IAccountUpdate.html" data-type="entity-link" >IAccountUpdate</a>
                             </li>
                             <li class="link">
                                 <a href="interfaces/ICollectionFilePath.html" data-type="entity-link" >ICollectionFilePath</a>
@@ -1479,6 +1494,12 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="interfaces/JwtPayload.html" data-type="entity-link" >JwtPayload</a>
+                            </li>
+                            <li class="link">
+                                <a href="interfaces/KcCredentials.html" data-type="entity-link" >KcCredentials</a>
+                            </li>
+                            <li class="link">
+                                <a href="interfaces/KcSettings.html" data-type="entity-link" >KcSettings</a>
                             </li>
                             <li class="link">
                                 <a href="interfaces/Mail.html" data-type="entity-link" >Mail</a>
