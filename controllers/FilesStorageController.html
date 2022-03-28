@@ -85,6 +85,14 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Async</span>
+                                <a href="#copy" >copy</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#copyFile" >copyFile</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
                                 <a href="#delete" >delete</a>
                             </li>
                             <li>
@@ -136,6 +144,210 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="copy"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>copy</b></span>
+                        <a href="#copy"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>copy(params: <a href="../classes/FileRecordParams.html" target="_self">FileRecordParams</a>, copyFilesParam: <a href="../classes/CopyFilesOfParentParams.html" target="_self">CopyFilesOfParentParams</a>, currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Post(&#x27;/copy/:schoolId/:parentType/:parentId&#x27;)<br /></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="146"
+                            class="link-to-prism">apps/server/src/modules/files-storage/controller/files-storage.controller.ts:146</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>params</td>
+                                    <td>
+                                                <code><a href="../classes/FileRecordParams.html" target="_self" >FileRecordParams</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>copyFilesParam</td>
+                                    <td>
+                                                <code><a href="../classes/CopyFilesOfParentParams.html" target="_self" >CopyFilesOfParentParams</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>currentUser</td>
+                                    <td>
+                                                <code><a href="../interfaces/ICurrentUser.html" target="_self" >ICurrentUser</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;FileRecordListResponse&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="copyFile"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>copyFile</b></span>
+                        <a href="#copyFile"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>copyFile(params: <a href="../classes/SingleFileParams.html" target="_self">SingleFileParams</a>, copyFileParam: <a href="../classes/CopyFileParams.html" target="_self">CopyFileParams</a>, currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Post(&#x27;/copy/:fileRecordId&#x27;)<br /></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="167"
+                            class="link-to-prism">apps/server/src/modules/files-storage/controller/files-storage.controller.ts:167</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>params</td>
+                                    <td>
+                                                <code><a href="../classes/SingleFileParams.html" target="_self" >SingleFileParams</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>copyFileParam</td>
+                                    <td>
+                                                <code><a href="../classes/CopyFileParams.html" target="_self" >CopyFileParams</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>currentUser</td>
+                                    <td>
+                                                <code><a href="../interfaces/ICurrentUser.html" target="_self" >ICurrentUser</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;FileRecordResponse&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="delete"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
@@ -161,8 +373,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="88"
-                            class="link-to-prism">apps/server/src/modules/files-storage/controller/files-storage.controller.ts:88</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="90"
+                            class="link-to-prism">apps/server/src/modules/files-storage/controller/files-storage.controller.ts:90</a></div>
                 </td>
             </tr>
 
@@ -251,8 +463,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="104"
-                            class="link-to-prism">apps/server/src/modules/files-storage/controller/files-storage.controller.ts:104</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="106"
+                            class="link-to-prism">apps/server/src/modules/files-storage/controller/files-storage.controller.ts:106</a></div>
                 </td>
             </tr>
 
@@ -341,8 +553,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="43"
-                            class="link-to-prism">apps/server/src/modules/files-storage/controller/files-storage.controller.ts:43</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="45"
+                            class="link-to-prism">apps/server/src/modules/files-storage/controller/files-storage.controller.ts:45</a></div>
                 </td>
             </tr>
 
@@ -431,8 +643,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="56"
-                            class="link-to-prism">apps/server/src/modules/files-storage/controller/files-storage.controller.ts:56</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="58"
+                            class="link-to-prism">apps/server/src/modules/files-storage/controller/files-storage.controller.ts:58</a></div>
                 </td>
             </tr>
 
@@ -533,8 +745,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="75"
-                            class="link-to-prism">apps/server/src/modules/files-storage/controller/files-storage.controller.ts:75</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="77"
+                            class="link-to-prism">apps/server/src/modules/files-storage/controller/files-storage.controller.ts:77</a></div>
                 </td>
             </tr>
 
@@ -635,8 +847,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="116"
-                            class="link-to-prism">apps/server/src/modules/files-storage/controller/files-storage.controller.ts:116</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="118"
+                            class="link-to-prism">apps/server/src/modules/files-storage/controller/files-storage.controller.ts:118</a></div>
                 </td>
             </tr>
 
@@ -725,8 +937,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="132"
-                            class="link-to-prism">apps/server/src/modules/files-storage/controller/files-storage.controller.ts:132</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="134"
+                            class="link-to-prism">apps/server/src/modules/files-storage/controller/files-storage.controller.ts:134</a></div>
                 </td>
             </tr>
 
@@ -815,8 +1027,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="29"
-                            class="link-to-prism">apps/server/src/modules/files-storage/controller/files-storage.controller.ts:29</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="31"
+                            class="link-to-prism">apps/server/src/modules/files-storage/controller/files-storage.controller.ts:31</a></div>
                 </td>
             </tr>
 
@@ -922,6 +1134,8 @@ import {
 	RenameFileParams,
 	FileRecordListResponse,
 	FileParams,
+	CopyFilesOfParentParams,
+	CopyFileParams,
 } from &#x27;./dto&#x27;;
 
 @ApiTags(&#x27;file&#x27;)
@@ -1040,6 +1254,40 @@ export class FilesStorageController {
 		@CurrentUser() currentUser: ICurrentUser
 	): Promise&lt;FileRecordResponse&gt; {
 		const fileRecord &#x3D; await this.filesStorageUC.restoreOneFile(currentUser.userId, params);
+
+		const response &#x3D; new FileRecordResponse(fileRecord);
+
+		return response;
+	}
+
+	@Post(&#x27;/copy/:schoolId/:parentType/:parentId&#x27;)
+	async copy(
+		@Param() params: FileRecordParams,
+		@Body() copyFilesParam: CopyFilesOfParentParams,
+		@CurrentUser() currentUser: ICurrentUser
+	): Promise&lt;FileRecordListResponse&gt; {
+		const [fileRecords, total] &#x3D; await this.filesStorageUC.copyFilesOfParent(
+			currentUser.userId,
+			params,
+			copyFilesParam
+		);
+
+		const responseFileRecords &#x3D; fileRecords.map((fileRecord) &#x3D;&gt; {
+			return new FileRecordResponse(fileRecord);
+		});
+
+		const response &#x3D; new FileRecordListResponse(responseFileRecords, total);
+
+		return response;
+	}
+
+	@Post(&#x27;/copy/:fileRecordId&#x27;)
+	async copyFile(
+		@Param() params: SingleFileParams,
+		@Body() copyFileParam: CopyFileParams,
+		@CurrentUser() currentUser: ICurrentUser
+	): Promise&lt;FileRecordResponse&gt; {
+		const fileRecord &#x3D; await this.filesStorageUC.copyOneFile(currentUser.userId, params, copyFileParam);
 
 		const response &#x3D; new FileRecordResponse(fileRecord);
 

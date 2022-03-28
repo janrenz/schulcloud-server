@@ -99,6 +99,19 @@
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#copy" >copy</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#copyFilesOfParent" >copyFilesOfParent</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#copyOneFile" >copyOneFile</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
                                 <a href="#createFileDescription" >createFileDescription</a>
                             </li>
                             <li>
@@ -130,6 +143,10 @@
                                     <span class="modifier">Private</span>
                                     <span class="modifier">Async</span>
                                 <a href="#downloadFile" >downloadFile</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#getNewFileRecord" >getNewFileRecord</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
@@ -186,7 +203,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">apps/server/src/modules/files-storage/uc/files-storage.uc.ts:18</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">apps/server/src/modules/files-storage/uc/files-storage.uc.ts:25</a></div>
                             </td>
                         </tr>
 
@@ -275,8 +292,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="142"
-                            class="link-to-prism">apps/server/src/modules/files-storage/uc/files-storage.uc.ts:142</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="153"
+                            class="link-to-prism">apps/server/src/modules/files-storage/uc/files-storage.uc.ts:153</a></div>
                 </td>
             </tr>
 
@@ -340,6 +357,292 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="copy"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span class="modifier">Async</span>
+                        <span ><b>copy</b></span>
+                        <a href="#copy"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>copy(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, sourceFileRecords: <a href="../classes/FileRecord.html" target="_self">FileRecord[]</a>, targetParams: <a href="../classes/FileRecordParams.html" target="_self">FileRecordParams</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="256"
+                            class="link-to-prism">apps/server/src/modules/files-storage/uc/files-storage.uc.ts:256</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>userId</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>sourceFileRecords</td>
+                                    <td>
+                                                <code><a href="../classes/FileRecord.html" target="_self" >FileRecord[]</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>targetParams</td>
+                                    <td>
+                                                <code><a href="../classes/FileRecordParams.html" target="_self" >FileRecordParams</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/FileRecord.html" target="_self" >Promise&lt;Counted&lt;FileRecord[]&gt;&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="copyFilesOfParent"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>copyFilesOfParent</b></span>
+                        <a href="#copyFilesOfParent"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>copyFilesOfParent(userId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, params: <a href="../classes/FileRecordParams.html" target="_self">FileRecordParams</a>, copyFilesParams: <a href="../classes/CopyFilesOfParentParams.html" target="_self">CopyFilesOfParentParams</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="233"
+                            class="link-to-prism">apps/server/src/modules/files-storage/uc/files-storage.uc.ts:233</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>userId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>params</td>
+                                    <td>
+                                                <code><a href="../classes/FileRecordParams.html" target="_self" >FileRecordParams</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>copyFilesParams</td>
+                                    <td>
+                                                <code><a href="../classes/CopyFilesOfParentParams.html" target="_self" >CopyFilesOfParentParams</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/FileRecord.html" target="_self" >Promise&lt;Counted&lt;FileRecord[]&gt;&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="copyOneFile"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>copyOneFile</b></span>
+                        <a href="#copyOneFile"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>copyOneFile(userId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, params: <a href="../classes/SingleFileParams.html" target="_self">SingleFileParams</a>, copyFileParams: <a href="../classes/CopyFileParams.html" target="_self">CopyFileParams</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="249"
+                            class="link-to-prism">apps/server/src/modules/files-storage/uc/files-storage.uc.ts:249</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>userId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>params</td>
+                                    <td>
+                                                <code><a href="../classes/SingleFileParams.html" target="_self" >SingleFileParams</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>copyFileParams</td>
+                                    <td>
+                                                <code><a href="../classes/CopyFileParams.html" target="_self" >CopyFileParams</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>unknown</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="createFileDescription"></a>
                     <span class="name">
                         <span class="modifier">Private</span>
@@ -358,8 +661,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="57"
-                            class="link-to-prism">apps/server/src/modules/files-storage/uc/files-storage.uc.ts:57</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="64"
+                            class="link-to-prism">apps/server/src/modules/files-storage/uc/files-storage.uc.ts:64</a></div>
                 </td>
             </tr>
 
@@ -453,8 +756,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="95"
-                            class="link-to-prism">apps/server/src/modules/files-storage/uc/files-storage.uc.ts:95</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="106"
+                            class="link-to-prism">apps/server/src/modules/files-storage/uc/files-storage.uc.ts:106</a></div>
                 </td>
             </tr>
 
@@ -537,8 +840,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="173"
-                            class="link-to-prism">apps/server/src/modules/files-storage/uc/files-storage.uc.ts:173</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="184"
+                            class="link-to-prism">apps/server/src/modules/files-storage/uc/files-storage.uc.ts:184</a></div>
                 </td>
             </tr>
 
@@ -608,8 +911,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="188"
-                            class="link-to-prism">apps/server/src/modules/files-storage/uc/files-storage.uc.ts:188</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="199"
+                            class="link-to-prism">apps/server/src/modules/files-storage/uc/files-storage.uc.ts:199</a></div>
                 </td>
             </tr>
 
@@ -691,8 +994,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="197"
-                            class="link-to-prism">apps/server/src/modules/files-storage/uc/files-storage.uc.ts:197</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="208"
+                            class="link-to-prism">apps/server/src/modules/files-storage/uc/files-storage.uc.ts:208</a></div>
                 </td>
             </tr>
 
@@ -774,8 +1077,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="108"
-                            class="link-to-prism">apps/server/src/modules/files-storage/uc/files-storage.uc.ts:108</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="119"
+                            class="link-to-prism">apps/server/src/modules/files-storage/uc/files-storage.uc.ts:119</a></div>
                 </td>
             </tr>
 
@@ -857,8 +1160,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="128"
-                            class="link-to-prism">apps/server/src/modules/files-storage/uc/files-storage.uc.ts:128</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="139"
+                            class="link-to-prism">apps/server/src/modules/files-storage/uc/files-storage.uc.ts:139</a></div>
                 </td>
             </tr>
 
@@ -929,8 +1232,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="101"
-                            class="link-to-prism">apps/server/src/modules/files-storage/uc/files-storage.uc.ts:101</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="112"
+                            class="link-to-prism">apps/server/src/modules/files-storage/uc/files-storage.uc.ts:112</a></div>
                 </td>
             </tr>
 
@@ -994,6 +1297,125 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="getNewFileRecord"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span ><b>getNewFileRecord</b></span>
+                        <a href="#getNewFileRecord"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getNewFileRecord(name: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, size: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, mimeType: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, params: <a href="../classes/FileRecordParams.html" target="_self">FileRecordParams</a>, userId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="93"
+                            class="link-to-prism">apps/server/src/modules/files-storage/uc/files-storage.uc.ts:93</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>name</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>size</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>mimeType</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>params</td>
+                                    <td>
+                                                <code><a href="../classes/FileRecordParams.html" target="_self" >FileRecordParams</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>userId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="markForDelete"></a>
                     <span class="name">
                         <span class="modifier">Private</span>
@@ -1013,8 +1435,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="157"
-                            class="link-to-prism">apps/server/src/modules/files-storage/uc/files-storage.uc.ts:157</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="168"
+                            class="link-to-prism">apps/server/src/modules/files-storage/uc/files-storage.uc.ts:168</a></div>
                 </td>
             </tr>
 
@@ -1085,8 +1507,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="222"
-                            class="link-to-prism">apps/server/src/modules/files-storage/uc/files-storage.uc.ts:222</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="288"
+                            class="link-to-prism">apps/server/src/modules/files-storage/uc/files-storage.uc.ts:288</a></div>
                 </td>
             </tr>
 
@@ -1156,8 +1578,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="204"
-                            class="link-to-prism">apps/server/src/modules/files-storage/uc/files-storage.uc.ts:204</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="215"
+                            class="link-to-prism">apps/server/src/modules/files-storage/uc/files-storage.uc.ts:215</a></div>
                 </td>
             </tr>
 
@@ -1239,8 +1661,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="215"
-                            class="link-to-prism">apps/server/src/modules/files-storage/uc/files-storage.uc.ts:215</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="226"
+                            class="link-to-prism">apps/server/src/modules/files-storage/uc/files-storage.uc.ts:226</a></div>
                 </td>
             </tr>
 
@@ -1323,8 +1745,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="165"
-                            class="link-to-prism">apps/server/src/modules/files-storage/uc/files-storage.uc.ts:165</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="176"
+                            class="link-to-prism">apps/server/src/modules/files-storage/uc/files-storage.uc.ts:176</a></div>
                 </td>
             </tr>
 
@@ -1394,8 +1816,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="28"
-                            class="link-to-prism">apps/server/src/modules/files-storage/uc/files-storage.uc.ts:28</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="35"
+                            class="link-to-prism">apps/server/src/modules/files-storage/uc/files-storage.uc.ts:35</a></div>
                 </td>
             </tr>
 
@@ -1490,8 +1912,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="69"
-                            class="link-to-prism">apps/server/src/modules/files-storage/uc/files-storage.uc.ts:69</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="76"
+                            class="link-to-prism">apps/server/src/modules/files-storage/uc/files-storage.uc.ts:76</a></div>
                 </td>
             </tr>
 
@@ -1589,7 +2011,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">apps/server/src/modules/files-storage/uc/files-storage.uc.ts:18</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">apps/server/src/modules/files-storage/uc/files-storage.uc.ts:25</a></div>
                         </td>
                     </tr>
 
@@ -1614,8 +2036,15 @@ import { AntivirusService } from &#x27;@shared/infra/antivirus/antivirus.service
 import { ILogger, Logger } from &#x27;@src/core/logger&#x27;;
 
 import { S3ClientAdapter } from &#x27;../client/s3-client.adapter&#x27;;
-import { DownloadFileParams, FileRecordParams, SingleFileParams } from &#x27;../controller/dto/file-storage.params&#x27;;
+import {
+	CopyFileParams,
+	CopyFilesOfParentParams,
+	DownloadFileParams,
+	FileRecordParams,
+	SingleFileParams,
+} from &#x27;../controller/dto/file-storage.params&#x27;;
 import { IFile } from &#x27;../interface/file&#x27;;
+import { ICopyFiles } from &#x27;../interface&#x27;;
 
 @Injectable()
 export class FilesStorageUC {
@@ -1673,16 +2102,7 @@ export class FilesStorageUC {
 	private async uploadFile(userId: EntityId, params: FileRecordParams, fileDescription: IFile) {
 		const [fileRecords] &#x3D; await this.fileRecordRepo.findBySchoolIdAndParentId(params.schoolId, params.parentId);
 		const fileName &#x3D; this.checkFilenameExists(fileDescription.name, fileRecords);
-
-		const entity &#x3D; new FileRecord({
-			size: fileDescription.size,
-			name: fileName,
-			mimeType: fileDescription.mimeType,
-			parentType: params.parentType,
-			parentId: params.parentId,
-			creatorId: userId,
-			schoolId: params.schoolId,
-		});
+		const entity &#x3D; this.getNewFileRecord(fileName, fileDescription.size, fileDescription.mimeType, params, userId);
 		try {
 			await this.fileRecordRepo.save(entity);
 			const folder &#x3D; [params.schoolId, entity.id].join(&#x27;/&#x27;);
@@ -1694,6 +2114,19 @@ export class FilesStorageUC {
 			await this.fileRecordRepo.delete(entity);
 			throw error;
 		}
+	}
+
+	private getNewFileRecord(name: string, size: number, mimeType: string, params: FileRecordParams, userId: string) {
+		const entity &#x3D; new FileRecord({
+			size,
+			name,
+			mimeType,
+			parentType: params.parentType,
+			parentId: params.parentId,
+			creatorId: userId,
+			schoolId: params.schoolId,
+		});
+		return entity;
 	}
 
 	private createPath(schoolId: EntityId, fileRecordId: EntityId): string {
@@ -1821,6 +2254,61 @@ export class FilesStorageUC {
 		await this.restore([fileRecord]);
 
 		return fileRecord;
+	}
+
+	async copyFilesOfParent(
+		userId: string,
+		params: FileRecordParams,
+		copyFilesParams: CopyFilesOfParentParams
+	): Promise&lt;Counted&lt;FileRecord[]&gt;&gt; {
+		const [fileRecords, count] &#x3D; await this.fileRecordRepo.findBySchoolIdAndParentId(params.schoolId, params.parentId);
+
+		if (count &#x3D;&#x3D;&#x3D; 0) {
+			return [fileRecords, count];
+		}
+
+		const newRecords &#x3D; await this.copy(userId, fileRecords, copyFilesParams.target);
+
+		return newRecords;
+	}
+
+	async copyOneFile(userId: string, params: SingleFileParams, copyFileParams: CopyFileParams) {
+		const fileRecord &#x3D; await this.fileRecordRepo.findOneById(params.fileRecordId);
+		const [newRecord] &#x3D; await this.copy(userId, [fileRecord], copyFileParams.target);
+
+		return newRecord[0];
+	}
+
+	private async copy(
+		userId: EntityId,
+		sourceFileRecords: FileRecord[],
+		targetParams: FileRecordParams
+	): Promise&lt;Counted&lt;FileRecord[]&gt;&gt; {
+		this.logger.debug({ action: &#x27;copy&#x27;, sourceFileRecords, targetParams });
+		let newRecords: FileRecord[] &#x3D; [];
+		const paths: Array&lt;ICopyFiles&gt; &#x3D; [];
+
+		newRecords &#x3D; await Promise.all(
+			sourceFileRecords.map(async (item) &#x3D;&gt; {
+				const entity &#x3D; this.getNewFileRecord(item.name, item.size, item.mimeType, targetParams, userId);
+				entity.securityCheck &#x3D; item.securityCheck;
+				await this.fileRecordRepo.save(entity);
+
+				paths.push({
+					sourcePath: [item.schoolId, item.id].join(&#x27;/&#x27;),
+					targetPath: [entity.schoolId, entity.id].join(&#x27;/&#x27;),
+				});
+				return entity;
+			})
+		);
+
+		try {
+			await this.storageClient.copy(paths);
+			return [newRecords, newRecords.length];
+		} catch (error) {
+			await this.fileRecordRepo.delete(newRecords);
+			throw error;
+		}
 	}
 
 	private async restore(fileRecords: FileRecord[]) {

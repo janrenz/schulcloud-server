@@ -98,7 +98,6 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                    <span class="modifier">Private</span>
                                     <span class="modifier">Async</span>
                                 <a href="#copy" >copy</a>
                             </li>
@@ -215,7 +214,6 @@
                 <td class="col-md-4">
                     <a name="copy"></a>
                     <span class="name">
-                        <span class="modifier">Private</span>
                         <span class="modifier">Async</span>
                         <span ><b>copy</b></span>
                         <a href="#copy"><span class="icon ion-ios-link"></span></a>
@@ -849,7 +847,7 @@ export class S3ClientAdapter implements IStorageClient {
 		this.logger.debug({ action: &#x27;delete&#x27;, params: { paths, bucket: this.config.bucket } });
 
 		const copyPaths &#x3D; paths.map((path) &#x3D;&gt; {
-			return { sourcePath: path, targetPaths: &#x60;${this.deletedFolderName}/${path}&#x60; };
+			return { sourcePath: path, targetPath: &#x60;${this.deletedFolderName}/${path}&#x60; };
 		});
 
 		const result &#x3D; await this.copy(copyPaths);
@@ -865,7 +863,7 @@ export class S3ClientAdapter implements IStorageClient {
 		this.logger.debug({ action: &#x27;restore&#x27;, params: { paths, bucket: this.config.bucket } });
 
 		const copyPaths &#x3D; paths.map((path) &#x3D;&gt; {
-			return { sourcePath: &#x60;${this.deletedFolderName}/${path}&#x60;, targetPaths: path };
+			return { sourcePath: &#x60;${this.deletedFolderName}/${path}&#x60;, targetPath: path };
 		});
 
 		const result &#x3D; await this.copy(copyPaths);
@@ -878,12 +876,12 @@ export class S3ClientAdapter implements IStorageClient {
 		return result;
 	}
 
-	private async copy(paths: ICopyFiles[]) {
+	async copy(paths: ICopyFiles[]) {
 		const copyRequests &#x3D; paths.map(async (path) &#x3D;&gt; {
 			const req &#x3D; new CopyObjectCommand({
 				Bucket: this.config.bucket,
 				CopySource: &#x60;${this.config.bucket}/${path.sourcePath}&#x60;,
-				Key: &#x60;${path.targetPaths}&#x60;,
+				Key: &#x60;${path.targetPath}&#x60;,
 			});
 
 			const data &#x3D; await this.client.send(req);

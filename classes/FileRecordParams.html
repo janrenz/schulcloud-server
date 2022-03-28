@@ -230,7 +230,7 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ApiProperty } from &#x27;@nestjs/swagger&#x27;;
 import { EntityId } from &#x27;@shared/domain&#x27;;
 import { FileRecordParentType } from &#x27;@shared/domain/entity/filerecord.entity&#x27;;
-import { Allow, IsEnum, IsMongoId, IsString } from &#x27;class-validator&#x27;;
+import { Allow, IsEnum, IsMongoId, IsString, ValidateNested } from &#x27;class-validator&#x27;;
 
 export class FileRecordParams {
 	@ApiProperty()
@@ -281,6 +281,22 @@ export class RenameFileParams {
 	@ApiProperty()
 	@IsString()
 	fileName!: string;
+}
+
+export class CopyFilesOfParentParams {
+	@ApiProperty()
+	@ValidateNested()
+	target!: FileRecordParams;
+}
+
+export class CopyFileParams {
+	@ApiProperty()
+	@ValidateNested()
+	target!: FileRecordParams;
+
+	@ApiProperty()
+	@IsString()
+	fileNamePrefix!: string;
 }
 </code></pre>
     </div>
