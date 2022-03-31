@@ -238,6 +238,11 @@ Therefore, the <code>*.repo.integration.spec.js</code> should be used.</p>
     });</code></pre></div><blockquote>
 <p>When Jest reports open handles that not have been closed, ensure all Promises are awaited and all application parts started are correctly closed.</p>
 </blockquote>
+<h4 id="entity-factories">Entity Factories</h4>
+<p>To fill the in-memory-db we use factories. They are located in <code>\apps\server\src\shared\testing\factory</code>. If you create a new one, please add it to the index.ts in that folder.</p>
+<h4 id="accessing-the-in-memory-db">Accessing the in-memory-db</h4>
+<p>While debugging the tests, the URL to the in-memory-db can be found in the <code>EntityManager</code> instance of your repo in <code>em.config.options.clientUrl</code>.</p>
+<p>Copy paste this URL to your DB Tool e.g. MongoDB Compass. You will find a database called &#39;test&#39; with the data you created for your test.</p>
 <h3 id="mapping-tests">Mapping Tests</h3>
 <p>Mapping tests are Unit Tests which verify the correct mapping between entities and Dto objects.
 These tests should not have any external dependencies to other layers like database or use cases.</p>

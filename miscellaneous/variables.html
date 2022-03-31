@@ -196,6 +196,9 @@
                             <a href="#oneDay" title="apps/server/src/shared/testing/factory/course.factory.ts" ><b>oneDay</b>&nbsp;&nbsp;&nbsp;(apps/.../course.factory.ts)</a>
                         </li>
                         <li>
+                            <a href="#passwordPattern" title="apps/server/src/modules/authentication/controller/dto/password-pattern.ts" ><b>passwordPattern</b>&nbsp;&nbsp;&nbsp;(apps/.../password-pattern.ts)</a>
+                        </li>
+                        <li>
                             <a href="#providers" title="apps/server/src/modules/files-storage/files-storage.module.ts" ><b>providers</b>&nbsp;&nbsp;&nbsp;(apps/.../files-storage.module.ts)</a>
                         </li>
                         <li>
@@ -315,10 +318,9 @@
                     <td class="col-md-4">
                         <i>Default value : </i><code>BaseFactory.define&lt;Account, IAccountProperties&gt;(Account, ({ sequence }) &#x3D;&gt; {
 	return {
+		username: &#x60;account #${sequence}&#x60;,
+		user: userFactory.build(),
 		system: systemFactory.build(),
-		username: &#x60;jon${sequence}&#x60;,
-		userId: new ObjectId(),
-		systemId: new ObjectId(),
 	};
 })</code>
                     </td>
@@ -2158,6 +2160,31 @@ You shall not explicitly declare the AMQPConnection in your modules since it wil
                 <tr>
                     <td class="col-md-4">
                         <i>Default value : </i><code>serverErrorTypes</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>apps/server/src/modules/authentication/controller/dto/password-pattern.ts</h3>
+    <section>
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="passwordPattern"></a>
+                    <span class="name">
+                        <span ><b>passwordPattern</b></span>
+                        <a href="#passwordPattern"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new RegExp(
+	/^(?&#x3D;.*[A-Z])(?&#x3D;.*[0-9])(?&#x3D;.*[a-z])(?&#x3D;.*[-_!&lt;&gt;§$%&amp;/()&#x3D;?\\;:,.#+*~&#x27;])\S.{6,253}\S$/
+)</code>
                     </td>
                 </tr>
 
