@@ -153,8 +153,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="25"
-                            class="link-to-prism">apps/server/src/modules/user-import/controller/import-user.controller.ts:25</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="30"
+                            class="link-to-prism">apps/server/src/modules/user-import/controller/import-user.controller.ts:30</a></div>
                 </td>
             </tr>
 
@@ -267,8 +267,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="74"
-                            class="link-to-prism">apps/server/src/modules/user-import/controller/import-user.controller.ts:74</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="83"
+                            class="link-to-prism">apps/server/src/modules/user-import/controller/import-user.controller.ts:83</a></div>
                 </td>
             </tr>
 
@@ -369,8 +369,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="53"
-                            class="link-to-prism">apps/server/src/modules/user-import/controller/import-user.controller.ts:53</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="60"
+                            class="link-to-prism">apps/server/src/modules/user-import/controller/import-user.controller.ts:60</a></div>
                 </td>
             </tr>
 
@@ -459,8 +459,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="90"
-                            class="link-to-prism">apps/server/src/modules/user-import/controller/import-user.controller.ts:90</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="100"
+                            class="link-to-prism">apps/server/src/modules/user-import/controller/import-user.controller.ts:100</a></div>
                 </td>
             </tr>
 
@@ -537,8 +537,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="42"
-                            class="link-to-prism">apps/server/src/modules/user-import/controller/import-user.controller.ts:42</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="48"
+                            class="link-to-prism">apps/server/src/modules/user-import/controller/import-user.controller.ts:48</a></div>
                 </td>
             </tr>
 
@@ -639,8 +639,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="63"
-                            class="link-to-prism">apps/server/src/modules/user-import/controller/import-user.controller.ts:63</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="71"
+                            class="link-to-prism">apps/server/src/modules/user-import/controller/import-user.controller.ts:71</a></div>
                 </td>
             </tr>
 
@@ -718,20 +718,25 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Body, Controller, Delete, Get, Param, Patch, Post, Query } from &#x27;@nestjs/common&#x27;;
 import { ApiTags } from &#x27;@nestjs/swagger&#x27;;
+
 import { PaginationParams, ParseObjectIdPipe } from &#x27;@shared/controller&#x27;;
 import { ICurrentUser, IFindOptions, ImportUser, User } from &#x27;@shared/domain&#x27;;
 import { Authenticate, CurrentUser } from &#x27;@src/modules/authentication/decorator/auth.decorator&#x27;;
-import { FilterImportUserParams } from &#x27;./dto/filter-import-user.params&#x27;;
-import { ImportUserListResponse, ImportUserResponse } from &#x27;./dto/import-user.response&#x27;;
-import { UpdateMatchParams } from &#x27;./dto/update-match.params&#x27;;
-import { UserMatchListResponse } from &#x27;./dto/user-match.response&#x27;;
 
-import { ImportUserMapper } from &#x27;../mapper/import-user.mapper&#x27;;
-import { FilterUserParams } from &#x27;./dto/filter-user.params&#x27;;
-import { UserMatchMapper } from &#x27;../mapper/user-match.mapper&#x27;;
 import { UserImportUc } from &#x27;../uc/user-import.uc&#x27;;
-import { UpdateFlagParams } from &#x27;./dto/update-flag.params&#x27;;
-import { SortImportUserParams } from &#x27;./dto/sort-import-user.params&#x27;;
+import { ImportUserMapper } from &#x27;../mapper/import-user.mapper&#x27;;
+import { UserMatchMapper } from &#x27;../mapper/user-match.mapper&#x27;;
+
+import {
+	FilterImportUserParams,
+	ImportUserListResponse,
+	ImportUserResponse,
+	UpdateMatchParams,
+	UserMatchListResponse,
+	FilterUserParams,
+	UpdateFlagParams,
+	SortImportUserParams,
+} from &#x27;./dto&#x27;;
 
 @ApiTags(&#x27;UserImport&#x27;)
 @Authenticate(&#x27;jwt&#x27;)
@@ -753,6 +758,7 @@ export class ImportUserController {
 		const { skip, limit } &#x3D; pagination;
 		const dtoList &#x3D; importUserList.map((importUser) &#x3D;&gt; ImportUserMapper.mapToResponse(importUser));
 		const response &#x3D; new ImportUserListResponse(dtoList, count, skip, limit);
+
 		return response;
 	}
 
@@ -764,6 +770,7 @@ export class ImportUserController {
 	): Promise&lt;ImportUserResponse&gt; {
 		const result &#x3D; await this.userImportUc.setMatch(currentUser.userId, importUserId, params.userId);
 		const response &#x3D; ImportUserMapper.mapToResponse(result);
+
 		return response;
 	}
 
@@ -774,6 +781,7 @@ export class ImportUserController {
 	): Promise&lt;ImportUserResponse&gt; {
 		const result &#x3D; await this.userImportUc.removeMatch(currentUser.userId, importUserId);
 		const response &#x3D; ImportUserMapper.mapToResponse(result);
+
 		return response;
 	}
 
@@ -785,6 +793,7 @@ export class ImportUserController {
 	): Promise&lt;ImportUserResponse&gt; {
 		const result &#x3D; await this.userImportUc.updateFlag(currentUser.userId, importUserId, params.flagged);
 		const response &#x3D; ImportUserMapper.mapToResponse(result);
+
 		return response;
 	}
 
@@ -801,6 +810,7 @@ export class ImportUserController {
 		const { skip, limit } &#x3D; pagination;
 		const dtoList &#x3D; userList.map((user) &#x3D;&gt; UserMatchMapper.mapToResponse(user));
 		const response &#x3D; new UserMatchListResponse(dtoList, total, skip, limit);
+
 		return response as unknown as UserMatchListResponse;
 	}
 

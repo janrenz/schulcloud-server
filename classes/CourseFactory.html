@@ -1208,19 +1208,12 @@ class CourseFactory extends BaseFactory&lt;Course, ICourseProperties&gt; {
 	}
 }
 
-export const courseFactory &#x3D; CourseFactory.define(Course, ({ sequence, params }) &#x3D;&gt; {
-	let school: School;
-	if (params?.school) {
-		school &#x3D; params.school as School;
-	} else {
-		school &#x3D; schoolFactory.build();
-	}
-
+export const courseFactory &#x3D; CourseFactory.define(Course, ({ sequence }) &#x3D;&gt; {
 	return {
 		name: &#x60;course #${sequence}&#x60;,
 		description: &#x60;course #${sequence} description&#x60;,
 		color: &#x27;#FFFFFF&#x27;,
-		school,
+		school: schoolFactory.build(),
 	};
 });
 </code></pre>

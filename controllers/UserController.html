@@ -85,6 +85,10 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Async</span>
+                                <a href="#changeLanguage" >changeLanguage</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
                                 <a href="#me" >me</a>
                             </li>
                         </ul>
@@ -104,6 +108,96 @@
     <h3 id="methods">
         Methods
     </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="changeLanguage"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>changeLanguage</b></span>
+                        <a href="#changeLanguage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>changeLanguage(params: <a href="../classes/ChangeLanguageParams.html" target="_self">ChangeLanguageParams</a>, currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Patch(&#x27;/language&#x27;)<br /></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="29"
+                            class="link-to-prism">apps/server/src/modules/user/controller/user.controller.ts:29</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>params</td>
+                                    <td>
+                                                <code><a href="../classes/ChangeLanguageParams.html" target="_self" >ChangeLanguageParams</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>currentUser</td>
+                                    <td>
+                                                <code><a href="../interfaces/ICurrentUser.html" target="_self" >ICurrentUser</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/SuccessfulResponse.html" target="_self" >Promise&lt;SuccessfulResponse&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
     <table class="table table-sm table-bordered">
         <tbody>
             <tr>
@@ -133,8 +227,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="18"
-                            class="link-to-prism">apps/server/src/modules/user/controller/user.controller.ts:18</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="19"
+                            class="link-to-prism">apps/server/src/modules/user/controller/user.controller.ts:19</a></div>
                 </td>
             </tr>
 
@@ -187,30 +281,42 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ApiTags } from &#x27;@nestjs/swagger&#x27;;
+import { Body, Controller, Get, Patch } from &#x27;@nestjs/common&#x27;;
 
-import { Controller, Get } from &#x27;@nestjs/common&#x27;;
-import { ICurrentUser, PermissionService } from &#x27;@shared/domain&#x27;;
-
+import { ICurrentUser } from &#x27;@shared/domain&#x27;;
 import { Authenticate, CurrentUser } from &#x27;@src/modules/authentication/decorator/auth.decorator&#x27;;
-import { UserRepo } from &#x27;@shared/repo&#x27;;
-import { ResolvedUserResponse } from &#x27;./dto/resolved-user.response&#x27;;
+
 import { ResolvedUserMapper } from &#x27;../mapper&#x27;;
+import { UserUC } from &#x27;../uc/user.uc&#x27;;
+
+import { ResolvedUserResponse, ChangeLanguageParams, SuccessfulResponse } from &#x27;./dto&#x27;;
 
 @ApiTags(&#x27;User&#x27;)
 @Authenticate(&#x27;jwt&#x27;)
 @Controller(&#x27;user&#x27;)
 export class UserController {
-	constructor(private readonly userRepo: UserRepo, private readonly permissionService: PermissionService) {}
+	constructor(private readonly userUc: UserUC) {}
 
 	@Get(&#x27;me&#x27;)
 	async me(@CurrentUser() currentUser: ICurrentUser): Promise&lt;ResolvedUserResponse&gt; {
-		const user &#x3D; await this.userRepo.findById(currentUser.userId, true);
-		const permissions &#x3D; this.permissionService.resolvePermissions(user);
+		const [user, permissions] &#x3D; await this.userUc.me(currentUser.userId);
 
 		// only the root roles of the user get published
 		const resolvedUser &#x3D; ResolvedUserMapper.mapToResponse(user, permissions, user.roles.getItems());
 
 		return resolvedUser;
+	}
+
+	@Patch(&#x27;/language&#x27;)
+	async changeLanguage(
+		@Body() params: ChangeLanguageParams,
+		@CurrentUser() currentUser: ICurrentUser
+	): Promise&lt;SuccessfulResponse&gt; {
+		const result &#x3D; await this.userUc.patchLanguage(currentUser.userId, params);
+
+		const successfulResponse &#x3D; new SuccessfulResponse(result);
+
+		return successfulResponse;
 	}
 }
 </code></pre>

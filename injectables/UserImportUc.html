@@ -847,7 +847,7 @@ The current user must have permission to read schools users and view importusers
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
 
                     </div>
                     <div class="io-description">
@@ -1032,7 +1032,7 @@ export class UserImportUc {
 		await this.schoolRepo.persistAndFlush(school);
 	}
 
-	private async updateUserAndAccount(importUser: ImportUser, school: School) {
+	private async updateUserAndAccount(importUser: ImportUser, school: School): Promise&lt;void&gt; {
 		if (!importUser.user || !importUser.loginName || !school.ldapSchoolIdentifier) {
 			return;
 		}

@@ -62,7 +62,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/modules/user/mapper/ResolvedUser.mapper.ts</code>
+            <code>apps/server/src/modules/user/mapper/resolved-user.mapper.ts</code>
         </p>
 
 
@@ -129,7 +129,7 @@
             <tr>
                 <td class="col-md-4">
                     <div class="io-line">Defined in <a href="" data-line="5"
-                            class="link-to-prism">apps/server/src/modules/user/mapper/ResolvedUser.mapper.ts:5</a></div>
+                            class="link-to-prism">apps/server/src/modules/user/mapper/resolved-user.mapper.ts:5</a></div>
                 </td>
             </tr>
 
@@ -227,8 +227,8 @@ export class ResolvedUserMapper {
 	static mapToResponse(user: User, permissions: string[] &#x3D; [], roles: Role[] &#x3D; []): ResolvedUserResponse {
 		const dto &#x3D; new ResolvedUserResponse();
 		dto.id &#x3D; user.id;
-		dto.firstName &#x3D; user.firstName || &#x27;&#x27;;
-		dto.lastName &#x3D; user.lastName || &#x27;&#x27;;
+		dto.firstName &#x3D; user.firstName;
+		dto.lastName &#x3D; user.lastName;
 		dto.createdAt &#x3D; user.createdAt;
 		dto.updatedAt &#x3D; user.updatedAt;
 		dto.schoolId &#x3D; user.school.toString();
