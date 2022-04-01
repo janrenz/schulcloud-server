@@ -85,6 +85,10 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Async</span>
+                                <a href="#endSchoolInMaintenance" >endSchoolInMaintenance</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
                                 <a href="#findAllImportUsers" >findAllImportUsers</a>
                             </li>
                             <li>
@@ -102,6 +106,10 @@
                             <li>
                                     <span class="modifier">Async</span>
                                 <a href="#setMatch" >setMatch</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#startSchoolInUserMigration" >startSchoolInUserMigration</a>
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
@@ -124,6 +132,84 @@
     <h3 id="methods">
         Methods
     </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="endSchoolInMaintenance"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>endSchoolInMaintenance</b></span>
+                        <a href="#endSchoolInMaintenance"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>endSchoolInMaintenance(currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Post(&#x27;startSync&#x27;)<br /></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="110"
+                            class="link-to-prism">apps/server/src/modules/user-import/controller/import-user.controller.ts:110</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>currentUser</td>
+                                    <td>
+                                                <code><a href="../interfaces/ICurrentUser.html" target="_self" >ICurrentUser</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
     <table class="table table-sm table-bordered">
         <tbody>
             <tr>
@@ -614,6 +700,84 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="startSchoolInUserMigration"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>startSchoolInUserMigration</b></span>
+                        <a href="#startSchoolInUserMigration"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>startSchoolInUserMigration(currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Post(&#x27;startUserMigration&#x27;)<br /></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="105"
+                            class="link-to-prism">apps/server/src/modules/user-import/controller/import-user.controller.ts:105</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>currentUser</td>
+                                    <td>
+                                                <code><a href="../interfaces/ICurrentUser.html" target="_self" >ICurrentUser</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="updateFlag"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
@@ -817,6 +981,16 @@ export class ImportUserController {
 	@Post(&#x27;migrate&#x27;)
 	async saveAllUsersMatches(@CurrentUser() currentUser: ICurrentUser): Promise&lt;void&gt; {
 		await this.userImportUc.saveAllUsersMatches(currentUser.userId);
+	}
+
+	@Post(&#x27;startUserMigration&#x27;)
+	async startSchoolInUserMigration(@CurrentUser() currentUser: ICurrentUser): Promise&lt;void&gt; {
+		await this.userImportUc.startSchoolInUserMigration(currentUser.userId);
+	}
+
+	@Post(&#x27;startSync&#x27;)
+	async endSchoolInMaintenance(@CurrentUser() currentUser: ICurrentUser): Promise&lt;void&gt; {
+		await this.userImportUc.endSchoolInMaintenance(currentUser.userId);
 	}
 }
 </code></pre>
