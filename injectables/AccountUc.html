@@ -79,8 +79,26 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#calcPasswordHash" >calcPasswordHash</a>
+                            </li>
+                            <li>
                                     <span class="modifier">Async</span>
                                 <a href="#changePasswordForUser" >changePasswordForUser</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#checkPassword" >checkPassword</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#checkUniqueEmail" >checkUniqueEmail</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#hasPermissionsToChangeOwnName" >hasPermissionsToChangeOwnName</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
@@ -95,9 +113,12 @@
                                 <a href="#isDemoUser" >isDemoUser</a>
                             </li>
                             <li>
-                                    <span class="modifier">Private</span>
                                     <span class="modifier">Async</span>
-                                <a href="#updatePassword" >updatePassword</a>
+                                <a href="#replaceMyTemporaryPassword" >replaceMyTemporaryPassword</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#updateMyAccount" >updateMyAccount</a>
                             </li>
                         </ul>
                     </td>
@@ -122,7 +143,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">apps/server/src/modules/authentication/uc/account.uc.ts:11</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">apps/server/src/modules/authentication/uc/account.uc.ts:16</a></div>
                             </td>
                         </tr>
 
@@ -193,26 +214,26 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="changePasswordForUser"></a>
+                    <a name="calcPasswordHash"></a>
                     <span class="name">
-                        <span class="modifier">Async</span>
-                        <span ><b>changePasswordForUser</b></span>
-                        <a href="#changePasswordForUser"><span class="icon ion-ios-link"></span></a>
+                        <span class="modifier">Private</span>
+                        <span ><b>calcPasswordHash</b></span>
+                        <a href="#calcPasswordHash"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>changePasswordForUser(currentUserId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, targetUserId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, passwordNew: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    <code>calcPasswordHash(password: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="59"
-                            class="link-to-prism">apps/server/src/modules/authentication/uc/account.uc.ts:59</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="251"
+                            class="link-to-prism">apps/server/src/modules/authentication/uc/account.uc.ts:251</a></div>
                 </td>
             </tr>
 
@@ -233,6 +254,80 @@
                             </thead>
                             <tbody>
                                 <tr>
+                                    <td>password</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;string&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="changePasswordForUser"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>changePasswordForUser</b></span>
+                        <a href="#changePasswordForUser"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>changePasswordForUser(currentUserId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, targetUserId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, passwordNew: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="170"
+                            class="link-to-prism">apps/server/src/modules/authentication/uc/account.uc.ts:170</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>This method is used to administratively change a user&#39;s password.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
                                     <td>currentUserId</td>
                                     <td>
                                                 <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
@@ -243,6 +338,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>the current user</p>
+
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>targetUserId</td>
@@ -255,9 +354,197 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>the target user, whose password is changed</p>
+
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>passwordNew</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>the target user&#39;s new password</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="checkPassword"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span class="modifier">Async</span>
+                        <span ><b>checkPassword</b></span>
+                        <a href="#checkPassword"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>checkPassword(enteredPassword: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, hashedAccountPassword: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="255"
+                            class="link-to-prism">apps/server/src/modules/authentication/uc/account.uc.ts:255</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>enteredPassword</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>hashedAccountPassword</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>unknown</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="checkUniqueEmail"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span class="modifier">Async</span>
+                        <span ><b>checkUniqueEmail</b></span>
+                        <a href="#checkUniqueEmail"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>checkUniqueEmail(account: <a href="../classes/Account.html" target="_self">Account</a>, user: <a href="../interfaces/User.html" target="_self">User</a>, email: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="259"
+                            class="link-to-prism">apps/server/src/modules/authentication/uc/account.uc.ts:259</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>account</td>
+                                    <td>
+                                                <code><a href="../classes/Account.html" target="_self" >Account</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>user</td>
+                                    <td>
+                                                <code><a href="../interfaces/User.html" target="_self" >User</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>email</td>
                                     <td>
                                                 <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
                                     </td>
@@ -275,6 +562,77 @@
                     </div>
                     <div class="io-description">
                         <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="hasPermissionsToChangeOwnName"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span ><b>hasPermissionsToChangeOwnName</b></span>
+                        <a href="#hasPermissionsToChangeOwnName"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>hasPermissionsToChangeOwnName(currentUser: <a href="../interfaces/User.html" target="_self">User</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="217"
+                            class="link-to-prism">apps/server/src/modules/authentication/uc/account.uc.ts:217</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>currentUser</td>
+                                    <td>
+                                                <code><a href="../interfaces/User.html" target="_self" >User</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
 
                     </div>
                     <div class="io-description">
@@ -306,8 +664,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="33"
-                            class="link-to-prism">apps/server/src/modules/authentication/uc/account.uc.ts:33</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="225"
+                            class="link-to-prism">apps/server/src/modules/authentication/uc/account.uc.ts:225</a></div>
                 </td>
             </tr>
 
@@ -389,8 +747,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="18"
-                            class="link-to-prism">apps/server/src/modules/authentication/uc/account.uc.ts:18</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="207"
+                            class="link-to-prism">apps/server/src/modules/authentication/uc/account.uc.ts:207</a></div>
                 </td>
             </tr>
 
@@ -472,8 +830,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="24"
-                            class="link-to-prism">apps/server/src/modules/authentication/uc/account.uc.ts:24</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="213"
+                            class="link-to-prism">apps/server/src/modules/authentication/uc/account.uc.ts:213</a></div>
                 </td>
             </tr>
 
@@ -525,33 +883,35 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="updatePassword"></a>
+                    <a name="replaceMyTemporaryPassword"></a>
                     <span class="name">
-                        <span class="modifier">Private</span>
                         <span class="modifier">Async</span>
-                        <span ><b>updatePassword</b></span>
-                        <a href="#updatePassword"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>replaceMyTemporaryPassword</b></span>
+                        <a href="#replaceMyTemporaryPassword"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>updatePassword(account: <a href="../classes/Account.html" target="_self">Account</a>, password: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    <code>replaceMyTemporaryPassword(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, password: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, confirmPassword: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="28"
-                            class="link-to-prism">apps/server/src/modules/authentication/uc/account.uc.ts:28</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="110"
+                            class="link-to-prism">apps/server/src/modules/authentication/uc/account.uc.ts:110</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>This method is used to replace my (currentUser) temporary password.
+Callable when the current user&#39;s password was force set or this is the first login.</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -562,13 +922,14 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>account</td>
+                                    <td>userId</td>
                                     <td>
-                                                <code><a href="../classes/Account.html" target="_self" >Account</a></code>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
                                     </td>
 
                                     <td>
@@ -576,6 +937,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>the current user</p>
+
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>password</td>
@@ -588,6 +953,120 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>the new password</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>confirmPassword</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>the new password (has to match password)</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateMyAccount"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>updateMyAccount</b></span>
+                        <a href="#updateMyAccount"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>updateMyAccount(currentUser: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, params: <a href="../classes/PatchMyAccountParams.html" target="_self">PatchMyAccountParams</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="29"
+                            class="link-to-prism">apps/server/src/modules/authentication/uc/account.uc.ts:29</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>This method allows to update my (currentUser) account details.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>currentUser</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>the current user</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>params</td>
+                                    <td>
+                                                <code><a href="../classes/PatchMyAccountParams.html" target="_self" >PatchMyAccountParams</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>account details</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -611,15 +1090,20 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { EntityNotFoundError } from &#x27;@shared/common/error&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { AuthorizationError, EntityNotFoundError, ValidationError } from &#x27;@shared/common/error&#x27;;
 import { ForbiddenException, Injectable } from &#x27;@nestjs/common&#x27;;
 import { Account, EntityId, PermissionService, User } from &#x27;@shared/domain&#x27;;
 import { UserRepo } from &#x27;@shared/repo&#x27;;
 import { AccountRepo } from &#x27;@shared/repo/account&#x27;;
 import bcrypt from &#x27;bcryptjs&#x27;;
+import { ForbiddenOperationError } from &#x27;@shared/common/error/forbidden-operation.error&#x27;;
+import { PatchMyAccountParams } from &#x27;../controller/dto&#x27;;
 
-// TODO remove schulcloud-server\test\helper\passwordHelpers.test.js
-// TODO remove schulcloud-server\src\utils\passwordHelpers.js
+type UserPreferences &#x3D; {
+	// first login completed
+	firstLogin: boolean;
+};
+
 @Injectable()
 export class AccountUc {
 	constructor(
@@ -628,47 +1112,153 @@ export class AccountUc {
 		private readonly permissionService: PermissionService
 	) {}
 
-	private hasRole(user: User, roleName: string) {
-		return user.roles.getItems().some((role) &#x3D;&gt; {
-			return role.name &#x3D;&#x3D;&#x3D; roleName;
-		});
+	/**
+	 * This method allows to update my (currentUser) account details.
+	 *
+	 * @param currentUser the current user
+	 * @param params account details
+	 */
+	async updateMyAccount(currentUser: EntityId, params: PatchMyAccountParams) {
+		let account: Account;
+		try {
+			account &#x3D; await this.accountRepo.findByUserId(currentUser);
+		} catch (err) {
+			throw new EntityNotFoundError(&#x27;Account&#x27;);
+		}
+
+		if (account.system) {
+			throw new ForbiddenOperationError(&#x27;External account details can not be changed.&#x27;);
+		}
+
+		if (!params.passwordOld || !account.password || !(await this.checkPassword(params.passwordOld, account.password))) {
+			throw new AuthorizationError(&#x27;Dein Passwort ist nicht korrekt!&#x27;);
+		}
+
+		let user: User;
+		try {
+			user &#x3D; await this.userRepo.findById(currentUser, true);
+		} catch (err) {
+			throw new EntityNotFoundError(&#x27;User&#x27;);
+		}
+
+		if (this.isDemoUser(user)) {
+			throw new ForbiddenOperationError(&#x27;Demo users can not change their account details.&#x27;);
+		}
+
+		let updateUser &#x3D; false;
+		let updateAccount &#x3D; false;
+		if (params.passwordNew) {
+			account.password &#x3D; await this.calcPasswordHash(params.passwordNew);
+			updateAccount &#x3D; true;
+		}
+		if (params.email &amp;&amp; user.email !&#x3D;&#x3D; params.email) {
+			const newMail &#x3D; params.email.toLowerCase();
+			await this.checkUniqueEmail(account, user, newMail);
+			user.email &#x3D; newMail;
+			account.username &#x3D; newMail;
+			updateUser &#x3D; true;
+			updateAccount &#x3D; true;
+		}
+
+		if (params.firstName &amp;&amp; user.firstName !&#x3D;&#x3D; params.firstName) {
+			if (!this.hasPermissionsToChangeOwnName(user)) {
+				throw new ForbiddenOperationError(&#x27;No permission to change first name&#x27;);
+			}
+			user.firstName &#x3D; params.firstName;
+			updateUser &#x3D; true;
+		}
+		if (params.lastName &amp;&amp; user.lastName !&#x3D;&#x3D; params.lastName) {
+			if (!this.hasPermissionsToChangeOwnName(user)) {
+				throw new ForbiddenOperationError(&#x27;No permission to change last name&#x27;);
+			}
+			user.lastName &#x3D; params.lastName;
+			updateUser &#x3D; true;
+		}
+
+		if (updateUser) {
+			try {
+				await this.userRepo.update(user);
+			} catch (err) {
+				throw new EntityNotFoundError(User.name);
+			}
+		}
+		if (updateAccount) {
+			try {
+				await this.accountRepo.update(account);
+			} catch (err) {
+				throw new EntityNotFoundError(Account.name);
+			}
+		}
 	}
 
-	private isDemoUser(currentUser: User) {
-		return this.hasRole(currentUser, &#x27;demoStudent&#x27;) || this.hasRole(currentUser, &#x27;demoTeacher&#x27;);
+	/**
+	 * This method is used to replace my (currentUser) temporary password.
+	 * Callable when the current user&#x27;s password was force set or this is the first login.
+	 *
+	 * @param userId the current user
+	 * @param password the new password
+	 * @param confirmPassword the new password (has to match password)
+	 */
+	async replaceMyTemporaryPassword(userId: EntityId, password: string, confirmPassword: string): Promise&lt;void&gt; {
+		if (password !&#x3D;&#x3D; confirmPassword) {
+			throw new ForbiddenOperationError(&#x27;Password and confirm password do not match.&#x27;);
+		}
+
+		let user: User;
+		try {
+			user &#x3D; await this.userRepo.findById(userId);
+		} catch (err) {
+			throw new EntityNotFoundError(User.name);
+		}
+
+		if (this.isDemoUser(user)) {
+			throw new ForbiddenOperationError(&#x27;Demo users can not change their password.&#x27;);
+		}
+
+		const userPreferences &#x3D; &lt;UserPreferences&gt;user.preferences;
+
+		if (!user.forcePasswordChange &amp;&amp; userPreferences.firstLogin) {
+			throw new ForbiddenOperationError(&#x27;The password is not temporary, hence can not be changed.&#x27;);
+		} // Password change was forces or this is a first logon for the user
+
+		let account: Account;
+		try {
+			account &#x3D; await this.accountRepo.findByUserId(userId);
+		} catch (err) {
+			throw new EntityNotFoundError(Account.name);
+		}
+
+		if (account.system) {
+			throw new ForbiddenOperationError(&#x27;External account details can not be changed.&#x27;);
+		}
+
+		if (!account.password) {
+			throw new Error(&#x27;The account does not have a password to compare against.&#x27;);
+		} else if (await this.checkPassword(password, account.password)) {
+			throw new ForbiddenOperationError(&#x27;New password can not be same as old password.&#x27;);
+		}
+
+		try {
+			account.password &#x3D; await this.calcPasswordHash(password);
+			await this.accountRepo.update(account);
+		} catch (err) {
+			throw new EntityNotFoundError(Account.name);
+		}
+		try {
+			user.forcePasswordChange &#x3D; false;
+			await this.userRepo.update(user);
+		} catch (err) {
+			throw new EntityNotFoundError(User.name);
+		}
 	}
 
-	private async updatePassword(account: Account, password: string) {
-		account.password &#x3D; await bcrypt.hash(password, 10);
-		await this.accountRepo.update(account);
-	}
-
-	private hasPermissionsToChangePassword(currentUser: User, targetUser: User) {
-		if (this.hasRole(currentUser, &#x27;superhero&#x27;)) {
-			return true;
-		}
-		if (!(currentUser.school.id &#x3D;&#x3D;&#x3D; targetUser.school.id)) {
-			return false;
-		}
-		if (this.isDemoUser(currentUser)) {
-			return false;
-		}
-
-		const permissionsToCheck: string[] &#x3D; [];
-		if (this.hasRole(targetUser, &#x27;student&#x27;)) {
-			permissionsToCheck.push(&#x27;STUDENT_EDIT&#x27;);
-		}
-		if (this.hasRole(targetUser, &#x27;teacher&#x27;)) {
-			permissionsToCheck.push(&#x27;TEACHER_EDIT&#x27;);
-		}
-		if (permissionsToCheck.length &#x3D;&#x3D;&#x3D; 0) {
-			// target user is neither student nor teacher. Undefined what to do
-			return false;
-		}
-
-		return this.permissionService.hasUserAllSchoolPermissions(currentUser, permissionsToCheck);
-	}
-
+	/**
+	 * This method is used to administratively change a user&#x27;s password.
+	 *
+	 * @param currentUserId the current user
+	 * @param targetUserId  the target user, whose password is changed
+	 * @param passwordNew the target user&#x27;s new password
+	 */
 	async changePasswordForUser(currentUserId: EntityId, targetUserId: EntityId, passwordNew: string): Promise&lt;void&gt; {
 		// load user data
 		let targetAccount: Account;
@@ -699,9 +1289,78 @@ export class AccountUc {
 			throw new EntityNotFoundError(&#x27;User&#x27;);
 		}
 		try {
-			await this.updatePassword(targetAccount, passwordNew);
+			targetAccount.password &#x3D; await this.calcPasswordHash(passwordNew);
+			await this.accountRepo.update(targetAccount);
 		} catch (err) {
 			throw new EntityNotFoundError(&#x27;Account&#x27;);
+		}
+	}
+
+	private hasRole(user: User, roleName: string) {
+		return user.roles.getItems().some((role) &#x3D;&gt; {
+			return role.name &#x3D;&#x3D;&#x3D; roleName;
+		});
+	}
+
+	private isDemoUser(currentUser: User) {
+		return this.hasRole(currentUser, &#x27;demoStudent&#x27;) || this.hasRole(currentUser, &#x27;demoTeacher&#x27;);
+	}
+
+	private hasPermissionsToChangeOwnName(currentUser: User) {
+		return (
+			this.hasRole(currentUser, &#x27;superhero&#x27;) ||
+			this.hasRole(currentUser, &#x27;teacher&#x27;) ||
+			this.hasRole(currentUser, &#x27;administrator&#x27;)
+		);
+	}
+
+	private hasPermissionsToChangePassword(currentUser: User, targetUser: User) {
+		if (this.hasRole(currentUser, &#x27;superhero&#x27;)) {
+			return true;
+		}
+		if (!(currentUser.school.id &#x3D;&#x3D;&#x3D; targetUser.school.id)) {
+			return false;
+		}
+		if (this.isDemoUser(currentUser)) {
+			return false;
+		}
+
+		const permissionsToCheck: string[] &#x3D; [];
+		if (this.hasRole(targetUser, &#x27;student&#x27;)) {
+			permissionsToCheck.push(&#x27;STUDENT_EDIT&#x27;);
+		}
+		if (this.hasRole(targetUser, &#x27;teacher&#x27;)) {
+			permissionsToCheck.push(&#x27;TEACHER_EDIT&#x27;);
+		}
+		if (permissionsToCheck.length &#x3D;&#x3D;&#x3D; 0) {
+			// target user is neither student nor teacher. Undefined what to do
+			return false;
+		}
+
+		return this.permissionService.hasUserAllSchoolPermissions(currentUser, permissionsToCheck);
+	}
+
+	private calcPasswordHash(password: string): Promise&lt;string&gt; {
+		return bcrypt.hash(password, 10);
+	}
+
+	private async checkPassword(enteredPassword: string, hashedAccountPassword: string) {
+		return bcrypt.compare(enteredPassword, hashedAccountPassword);
+	}
+
+	private async checkUniqueEmail(account: Account, user: User, email: string): Promise&lt;void&gt; {
+		const [foundUsers, foundAccounts] &#x3D; await Promise.all([
+			this.userRepo.findByEmail(email),
+			this.accountRepo.findByUsername(email),
+		]);
+
+		if (
+			foundUsers.length &gt; 1 ||
+			foundAccounts.length &gt; 1 ||
+			(foundUsers.length &#x3D;&#x3D;&#x3D; 1 &amp;&amp; foundUsers[0].id !&#x3D;&#x3D; user.id) ||
+			(foundAccounts.length &#x3D;&#x3D;&#x3D; 1 &amp;&amp; foundAccounts[0].id !&#x3D;&#x3D; account.id)
+		) {
+			throw new ValidationError(&#x60;Die E-Mail Adresse ist bereits in Verwendung!&#x60;);
 		}
 	}
 }

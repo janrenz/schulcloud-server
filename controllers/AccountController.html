@@ -87,6 +87,14 @@
                                     <span class="modifier">Async</span>
                                 <a href="#changePassword" >changePassword</a>
                             </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#replaceMyPassword" >replaceMyPassword</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#updateMyAccount" >updateMyAccount</a>
+                            </li>
                         </ul>
                     </td>
                 </tr>
@@ -205,6 +213,186 @@
             </tr>
         </tbody>
     </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="replaceMyPassword"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>replaceMyPassword</b></span>
+                        <a href="#replaceMyPassword"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>replaceMyPassword(currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>, params: <a href="../classes/PatchMyPasswordParams.html" target="_self">PatchMyPasswordParams</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Patch(&#x27;me/password&#x27;)<br /></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="32"
+                            class="link-to-prism">apps/server/src/modules/authentication/controller/account.controller.ts:32</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>currentUser</td>
+                                    <td>
+                                                <code><a href="../interfaces/ICurrentUser.html" target="_self" >ICurrentUser</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>params</td>
+                                    <td>
+                                                <code><a href="../classes/PatchMyPasswordParams.html" target="_self" >PatchMyPasswordParams</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateMyAccount"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>updateMyAccount</b></span>
+                        <a href="#updateMyAccount"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>updateMyAccount(currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>, params: <a href="../classes/PatchMyAccountParams.html" target="_self">PatchMyAccountParams</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Patch(&#x27;me&#x27;)<br /></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="27"
+                            class="link-to-prism">apps/server/src/modules/authentication/controller/account.controller.ts:27</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>currentUser</td>
+                                    <td>
+                                                <code><a href="../interfaces/ICurrentUser.html" target="_self" >ICurrentUser</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>params</td>
+                                    <td>
+                                                <code><a href="../classes/PatchMyAccountParams.html" target="_self" >PatchMyAccountParams</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </section>    </div>
 
 
@@ -217,7 +405,7 @@ import { ICurrentUser } from &#x27;@shared/domain&#x27;;
 import { Authenticate, CurrentUser } from &#x27;@src/modules/authentication/decorator/auth.decorator&#x27;;
 import { ParseObjectIdPipe } from &#x27;@shared/controller&#x27;;
 import { AccountUc } from &#x27;../uc/account.uc&#x27;;
-import { ChangePasswordParams } from &#x27;./dto/change-password.params&#x27;;
+import { ChangePasswordParams, PatchMyAccountParams, PatchMyPasswordParams } from &#x27;./dto&#x27;;
 
 @ApiTags(&#x27;account&#x27;)
 @Authenticate(&#x27;jwt&#x27;)
@@ -232,6 +420,19 @@ export class AccountController {
 		@Body() { password }: ChangePasswordParams
 	): Promise&lt;void&gt; {
 		await this.accountUc.changePasswordForUser(currentUser.userId, userId, password);
+	}
+
+	@Patch(&#x27;me&#x27;)
+	async updateMyAccount(@CurrentUser() currentUser: ICurrentUser, @Body() params: PatchMyAccountParams): Promise&lt;void&gt; {
+		return this.accountUc.updateMyAccount(currentUser.userId, params);
+	}
+
+	@Patch(&#x27;me/password&#x27;)
+	async replaceMyPassword(
+		@CurrentUser() currentUser: ICurrentUser,
+		@Body() params: PatchMyPasswordParams
+	): Promise&lt;void&gt; {
+		return this.accountUc.replaceMyTemporaryPassword(currentUser.userId, params.password, params.confirmPassword);
 	}
 }
 </code></pre>

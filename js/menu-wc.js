@@ -921,6 +921,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/ApiValidationErrorResponse.html" data-type="entity-link" >ApiValidationErrorResponse</a>
                             </li>
                             <li class="link">
+                                <a href="classes/AuthorizationError.html" data-type="entity-link" >AuthorizationError</a>
+                            </li>
+                            <li class="link">
                                 <a href="classes/AuthorizationParams.html" data-type="entity-link" >AuthorizationParams</a>
                             </li>
                             <li class="link">
@@ -1056,6 +1059,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/FilterUserParams.html" data-type="entity-link" >FilterUserParams</a>
                             </li>
                             <li class="link">
+                                <a href="classes/ForbiddenOperationError.html" data-type="entity-link" >ForbiddenOperationError</a>
+                            </li>
+                            <li class="link">
                                 <a href="classes/GlobalErrorFilter.html" data-type="entity-link" >GlobalErrorFilter</a>
                             </li>
                             <li class="link">
@@ -1141,6 +1147,12 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="classes/PatchGroupParams.html" data-type="entity-link" >PatchGroupParams</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/PatchMyAccountParams.html" data-type="entity-link" >PatchMyAccountParams</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/PatchMyPasswordParams.html" data-type="entity-link" >PatchMyPasswordParams</a>
                             </li>
                             <li class="link">
                                 <a href="classes/PatchOrderParams.html" data-type="entity-link" >PatchOrderParams</a>
