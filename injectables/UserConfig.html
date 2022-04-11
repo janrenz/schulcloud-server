@@ -78,7 +78,7 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#avaibleLanguage" >avaibleLanguage</a>
+                                <a href="#availableLanguages" >availableLanguages</a>
                             </li>
                         </ul>
                     </td>
@@ -93,7 +93,7 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#getAviableLanguages" >getAviableLanguages</a>
+                                <a href="#getAvailableLanguages" >getAvailableLanguages</a>
                             </li>
                         </ul>
                     </td>
@@ -135,16 +135,16 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="getAviableLanguages"></a>
+                    <a name="getAvailableLanguages"></a>
                     <span class="name">
-                        <span ><b>getAviableLanguages</b></span>
-                        <a href="#getAviableLanguages"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>getAvailableLanguages</b></span>
+                        <a href="#getAvailableLanguages"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>getAviableLanguages()</code>
+<code>getAvailableLanguages()</code>
                 </td>
             </tr>
 
@@ -178,10 +178,10 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="avaibleLanguage"></a>
+                    <a name="availableLanguages"></a>
                     <span class="name">
-                        <span ><b>avaibleLanguage</b></span>
-                        <a href="#avaibleLanguage"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>availableLanguages</b></span>
+                        <a href="#availableLanguages"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
@@ -211,14 +211,14 @@ import { Configuration } from &#x27;@hpi-schul-cloud/commons&#x27;;
 
 @Injectable()
 export class UserConfig {
-	avaibleLanguage: string;
+	availableLanguages: string;
 
 	constructor() {
-		this.avaibleLanguage &#x3D; Configuration.get(&#x27;I18N__AVAILABLE_LANGUAGES&#x27;) as string;
+		this.availableLanguages &#x3D; Configuration.get(&#x27;I18N__AVAILABLE_LANGUAGES&#x27;) as string;
 	}
 
-	getAviableLanguages(): string[] {
-		const languages &#x3D; this.avaibleLanguage.split(&#x27;,&#x27;);
+	getAvailableLanguages(): string[] {
+		const languages &#x3D; this.availableLanguages.split(&#x27;,&#x27;);
 
 		return languages;
 	}
