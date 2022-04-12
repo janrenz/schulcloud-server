@@ -85,6 +85,12 @@
                             <a href="#config" title="jest.config.ts" ><b>config</b>&nbsp;&nbsp;&nbsp;(jest.config.ts)</a>
                         </li>
                         <li>
+                            <a href="#config" title="apps/server/src/server.config.ts" ><b>config</b>&nbsp;&nbsp;&nbsp;(apps/.../server.config.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#config" title="apps/server/src/modules/files-storage/files-storage.config.ts" ><b>config</b>&nbsp;&nbsp;&nbsp;(apps/.../files-storage.config.ts)</a>
+                        </li>
+                        <li>
                             <a href="#config" title="apps/server/src/modules/files-storage/files-storage.module.ts" ><b>config</b>&nbsp;&nbsp;&nbsp;(apps/.../files-storage.module.ts)</a>
                         </li>
                         <li>
@@ -232,9 +238,6 @@
                             <a href="#providers" title="apps/server/src/modules/management/management.module.ts" ><b>providers</b>&nbsp;&nbsp;&nbsp;(apps/.../management.module.ts)</a>
                         </li>
                         <li>
-                            <a href="#REQUEST_TIMEOUT" title="apps/server/src/shared/common/interceptor/constants.ts" ><b>REQUEST_TIMEOUT</b>&nbsp;&nbsp;&nbsp;(apps/.../constants.ts)</a>
-                        </li>
-                        <li>
                             <a href="#roleFactory" title="apps/server/src/shared/testing/factory/role.factory.ts" ><b>roleFactory</b>&nbsp;&nbsp;&nbsp;(apps/.../role.factory.ts)</a>
                         </li>
                         <li>
@@ -308,9 +311,6 @@
                         </li>
                         <li>
                             <a href="#" title="apps/server/src/modules/authentication/strategy/jwt-validation.adapter.ts" ><b></b>&nbsp;&nbsp;&nbsp;(apps/.../jwt-validation.adapter.ts)</a>
-                        </li>
-                        <li>
-                            <a href="#" title="apps/server/src/shared/common/interceptor/constants.ts" ><b></b>&nbsp;&nbsp;&nbsp;(apps/.../constants.ts)</a>
                         </li>
                         <li>
                             <a href="#" title="apps/server/src/shared/infra/file-system/file-system.adapter.ts" ><b></b>&nbsp;&nbsp;&nbsp;(apps/.../file-system.adapter.ts)</a>
@@ -726,6 +726,68 @@ This allows adding console commands to execute provider methods.</p>
         </tbody>
     </table>
 </section>
+    <h3>apps/server/src/server.config.ts</h3>
+    <section>
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="config"></a>
+                    <span class="name">
+                        <span ><b>config</b></span>
+                        <a href="#config"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/IServerConfig.html" target="_self" >IServerConfig</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+	INCOMING_REQUEST_TIMEOUT: Configuration.get(&#x27;INCOMING_REQUEST_TIMEOUT_API&#x27;) as number,
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>apps/server/src/modules/files-storage/files-storage.config.ts</h3>
+    <section>
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="config"></a>
+                    <span class="name">
+                        <span ><b>config</b></span>
+                        <a href="#config"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/IFileStorageConfig.html" target="_self" >IFileStorageConfig</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+	INCOMING_REQUEST_TIMEOUT: Configuration.get(&#x27;FILES_STORAGE__INCOMING_REQUEST_TIMEOUT&#x27;) as number,
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
     <h3>apps/server/src/modules/files-storage/files-storage.module.ts</h3>
     <section>
     <h3></h3>    <table class="table table-sm table-bordered">
@@ -837,6 +899,10 @@ This allows adding console commands to execute provider methods.</p>
                 <tr>
                     <td class="col-md-4">
                         <i>Default value : </i><code>[
+	ConfigModule.forRoot({
+		isGlobal: true,
+		load: [fileStorageConfig],
+	}),
 	AuthModule,
 	CoreModule,
 	AntivirusModule.forRoot({
@@ -1695,6 +1761,10 @@ must use @ApiProperty</p>
                 <tr>
                     <td class="col-md-4">
                         <i>Default value : </i><code>[
+	ConfigModule.forRoot({
+		isGlobal: true,
+		load: [serverConfig],
+	}),
 	CoreModule,
 	AuthModule,
 	OauthModule,
@@ -2524,49 +2594,6 @@ You shall not explicitly declare the AMQPConnection in your modules since it wil
                         <i>Default value : </i><code>new RegExp(
 	/^(?&#x3D;.*[A-Z])(?&#x3D;.*[0-9])(?&#x3D;.*[a-z])(?&#x3D;.*[-_!&lt;&gt;§$%&amp;/()&#x3D;?\\;:,.#+*~&#x27;])\S.{6,253}\S$/
 )</code>
-                    </td>
-                </tr>
-
-
-        </tbody>
-    </table>
-</section>
-    <h3>apps/server/src/shared/common/interceptor/constants.ts</h3>
-    <section>
-    <h3></h3>    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="REQUEST_TIMEOUT"></a>
-                    <span class="name">
-                        <span ><b>REQUEST_TIMEOUT</b></span>
-                        <a href="#REQUEST_TIMEOUT"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Default value : </i><code>Configuration.get(&#x27;REQUEST_TIMEOUT&#x27;) as number</code>
-                    </td>
-                </tr>
-
-
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name=""></a>
-                    <span class="name">
-                        <span ><b></b></span>
-                        <a href="#"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Default value : </i><code>config</code>
                     </td>
                 </tr>
 

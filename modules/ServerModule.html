@@ -285,30 +285,35 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { DynamicModule, Module, NotFoundException } from &#x27;@nestjs/common&#x27;;
-import { Configuration } from &#x27;@hpi-schul-cloud/commons&#x27;;
-import { MailModule } from &#x27;@shared/infra/mail&#x27;;
-import { RocketChatModule } from &#x27;@src/modules/rocketchat&#x27;;
-import { LearnroomModule } from &#x27;@src/modules/learnroom&#x27;;
-import { CoreModule } from &#x27;@src/core&#x27;;
-import { TaskModule } from &#x27;@src/modules/task&#x27;;
-import { UserModule } from &#x27;@src/modules/user&#x27;;
-import { NewsModule } from &#x27;@src/modules/news&#x27;;
-import { FilesModule } from &#x27;@src/modules/files&#x27;;
-import { RabbitMQWrapperModule, RabbitMQWrapperTestModule } from &#x27;@shared/infra/rabbitmq/rabbitmq.module&#x27;;
-
-import { MikroOrmModule, MikroOrmModuleSyncOptions } from &#x27;@mikro-orm/nestjs&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Configuration } from &#x27;@hpi-schul-cloud/commons&#x27;;
 import { Dictionary, IPrimaryKey } from &#x27;@mikro-orm/core&#x27;;
+import { MikroOrmModule, MikroOrmModuleSyncOptions } from &#x27;@mikro-orm/nestjs&#x27;;
+import { DynamicModule, Module, NotFoundException } from &#x27;@nestjs/common&#x27;;
+import { ConfigModule } from &#x27;@nestjs/config&#x27;;
 import { ALL_ENTITIES } from &#x27;@shared/domain&#x27;;
 import { MongoMemoryDatabaseModule } from &#x27;@shared/infra/database&#x27;;
 import { MongoDatabaseModuleOptions } from &#x27;@shared/infra/database/mongo-memory-database/types&#x27;;
+import { MailModule } from &#x27;@shared/infra/mail&#x27;;
+import { RabbitMQWrapperModule, RabbitMQWrapperTestModule } from &#x27;@shared/infra/rabbitmq/rabbitmq.module&#x27;;
+import { CoreModule } from &#x27;@src/core&#x27;;
+import { FilesModule } from &#x27;@src/modules/files&#x27;;
+import { LearnroomModule } from &#x27;@src/modules/learnroom&#x27;;
+import { NewsModule } from &#x27;@src/modules/news&#x27;;
+import { RocketChatModule } from &#x27;@src/modules/rocketchat&#x27;;
+import { TaskModule } from &#x27;@src/modules/task&#x27;;
+import { UserModule } from &#x27;@src/modules/user&#x27;;
+import { DB_PASSWORD, DB_URL, DB_USERNAME } from &#x27;./config&#x27;;
 import { AuthModule } from &#x27;./modules/authentication/auth.module&#x27;;
-import { ServerController } from &#x27;./server.controller&#x27;;
-import { ImportUserModule } from &#x27;./modules/user-import/user-import.module&#x27;;
 import { OauthModule } from &#x27;./modules/oauth&#x27;;
-import { DB_URL, DB_USERNAME, DB_PASSWORD } from &#x27;./config&#x27;;
+import { ImportUserModule } from &#x27;./modules/user-import/user-import.module&#x27;;
+import serverConfig from &#x27;./server.config&#x27;;
+import { ServerController } from &#x27;./server.controller&#x27;;
 
 const serverModules &#x3D; [
+	ConfigModule.forRoot({
+		isGlobal: true,
+		load: [serverConfig],
+	}),
 	CoreModule,
 	AuthModule,
 	OauthModule,

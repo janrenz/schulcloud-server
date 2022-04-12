@@ -250,22 +250,26 @@
 import { S3Client } from &#x27;@aws-sdk/client-s3&#x27;;
 import { MikroOrmModule, MikroOrmModuleSyncOptions } from &#x27;@mikro-orm/nestjs&#x27;;
 import { Configuration } from &#x27;@hpi-schul-cloud/commons&#x27;;
+import { ConfigModule } from &#x27;@nestjs/config&#x27;;
+import { Dictionary, IPrimaryKey } from &#x27;@mikro-orm/core&#x27;;
+
 import { FileRecordRepo } from &#x27;@shared/repo&#x27;;
 import { AuthModule } from &#x27;@src/modules/authentication/auth.module&#x27;;
 import { MongoMemoryDatabaseModule } from &#x27;@shared/infra/database&#x27;;
-import { Dictionary, IPrimaryKey } from &#x27;@mikro-orm/core&#x27;;
 import { MongoDatabaseModuleOptions } from &#x27;@shared/infra/database/mongo-memory-database/types&#x27;;
 import { CoreModule } from &#x27;@src/core&#x27;;
 import { RabbitMQWrapperModule, RabbitMQWrapperTestModule } from &#x27;@shared/infra/rabbitmq/rabbitmq.module&#x27;;
 import { AntivirusModule } from &#x27;@shared/infra/antivirus/antivirus.module&#x27;;
 import { ALL_ENTITIES } from &#x27;@shared/domain&#x27;;
 import { DB_URL, DB_USERNAME, DB_PASSWORD } from &#x27;@src/config&#x27;;
+
 import { FilesStorageController } from &#x27;./controller/files-storage.controller&#x27;;
 import { S3ClientAdapter } from &#x27;./client/s3-client.adapter&#x27;;
 import { S3Config } from &#x27;./interface/config&#x27;;
 import { FilesStorageUC } from &#x27;./uc/files-storage.uc&#x27;;
 import { FileRecordUC } from &#x27;./uc/file-record.uc&#x27;;
 import { FileSecurityController } from &#x27;./controller/file-security.controller&#x27;;
+import fileStorageConfig from &#x27;./files-storage.config&#x27;;
 
 // The configurations lookup
 // config/development.json for development
@@ -279,6 +283,10 @@ export const config: S3Config &#x3D; {
 };
 
 const imports &#x3D; [
+	ConfigModule.forRoot({
+		isGlobal: true,
+		load: [fileStorageConfig],
+	}),
 	AuthModule,
 	CoreModule,
 	AntivirusModule.forRoot({
