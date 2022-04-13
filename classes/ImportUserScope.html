@@ -1047,7 +1047,7 @@ export class ImportUserScope extends Scope&lt;ImportUser&gt; {
 			.map((match) &#x3D;&gt; {
 				if (match &#x3D;&#x3D;&#x3D; MatchCreatorScope.MANUAL) return { matchedBy: &#x27;admin&#x27; };
 				if (match &#x3D;&#x3D;&#x3D; MatchCreatorScope.AUTO) return { matchedBy: &#x27;auto&#x27; };
-				if (match &#x3D;&#x3D;&#x3D; MatchCreatorScope.NONE) return { matchedBy: { $exists: false } };
+				if (match &#x3D;&#x3D;&#x3D; MatchCreatorScope.NONE) return { matchedBy: null };
 				return null;
 			})
 			.filter((match) &#x3D;&gt; match !&#x3D; null);
