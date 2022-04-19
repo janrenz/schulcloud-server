@@ -94,10 +94,14 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#_getPublicKey" >_getPublicKey</a>
+                            </li>
+                            <li>
                                 <a href="#checkAuthorizationCode" >checkAuthorizationCode</a>
                             </li>
                             <li>
-                                <a href="#decodeToken" >decodeToken</a>
+                                <a href="#extractUUID" >extractUUID</a>
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
@@ -114,6 +118,10 @@
                             <li>
                                     <span class="modifier">Async</span>
                                 <a href="#startOauth" >startOauth</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#validateToken" >validateToken</a>
                             </li>
                         </ul>
                     </td>
@@ -138,7 +146,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">apps/server/src/modules/oauth/uc/oauth.uc.ts:21</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">apps/server/src/modules/oauth/uc/oauth.uc.ts:22</a></div>
                             </td>
                         </tr>
 
@@ -233,6 +241,77 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="_getPublicKey"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>_getPublicKey</b></span>
+                        <a href="#_getPublicKey"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>_getPublicKey(system: <a href="../entitys/System.html" target="_self">System</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="92"
+                            class="link-to-prism">apps/server/src/modules/oauth/uc/oauth.uc.ts:92</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>system</td>
+                                    <td>
+                                                <code><a href="../entitys/System.html" target="_self" >System</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;string&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="checkAuthorizationCode"></a>
                     <span class="name">
                         <span ><b>checkAuthorizationCode</b></span>
@@ -249,8 +328,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="57"
-                            class="link-to-prism">apps/server/src/modules/oauth/uc/oauth.uc.ts:57</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="61"
+                            class="link-to-prism">apps/server/src/modules/oauth/uc/oauth.uc.ts:61</a></div>
                 </td>
             </tr>
 
@@ -303,24 +382,24 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="decodeToken"></a>
+                    <a name="extractUUID"></a>
                     <span class="name">
-                        <span ><b>decodeToken</b></span>
-                        <a href="#decodeToken"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>extractUUID</b></span>
+                        <a href="#extractUUID"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>decodeToken(token: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+<code>extractUUID(decodedJwt: <a href="../interfaces/IJWT.html" target="_self">IJWT</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="93"
-                            class="link-to-prism">apps/server/src/modules/oauth/uc/oauth.uc.ts:93</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="113"
+                            class="link-to-prism">apps/server/src/modules/oauth/uc/oauth.uc.ts:113</a></div>
                 </td>
             </tr>
 
@@ -341,9 +420,9 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>token</td>
+                                    <td>decodedJwt</td>
                                     <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                <code><a href="../interfaces/IJWT.html" target="_self" >IJWT</a></code>
                                     </td>
 
                                     <td>
@@ -390,8 +469,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="103"
-                            class="link-to-prism">apps/server/src/modules/oauth/uc/oauth.uc.ts:103</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="119"
+                            class="link-to-prism">apps/server/src/modules/oauth/uc/oauth.uc.ts:119</a></div>
                 </td>
             </tr>
 
@@ -473,8 +552,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="116"
-                            class="link-to-prism">apps/server/src/modules/oauth/uc/oauth.uc.ts:116</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="129"
+                            class="link-to-prism">apps/server/src/modules/oauth/uc/oauth.uc.ts:129</a></div>
                 </td>
             </tr>
 
@@ -537,15 +616,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>requestToken(code: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, systemId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    <code>requestToken(code: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, system: <a href="../entitys/System.html" target="_self">System</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="68"
-                            class="link-to-prism">apps/server/src/modules/oauth/uc/oauth.uc.ts:68</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="71"
+                            class="link-to-prism">apps/server/src/modules/oauth/uc/oauth.uc.ts:71</a></div>
                 </td>
             </tr>
 
@@ -578,9 +657,9 @@
 
                                 </tr>
                                 <tr>
-                                    <td>systemId</td>
+                                    <td>system</td>
                                     <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                <code><a href="../entitys/System.html" target="_self" >System</a></code>
                                     </td>
 
                                     <td>
@@ -688,6 +767,89 @@
             </tr>
         </tbody>
     </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="validateToken"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>validateToken</b></span>
+                        <a href="#validateToken"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>validateToken(idToken: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, system: <a href="../entitys/System.html" target="_self">System</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="101"
+                            class="link-to-prism">apps/server/src/modules/oauth/uc/oauth.uc.ts:101</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>idToken</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>system</td>
+                                    <td>
+                                                <code><a href="../entitys/System.html" target="_self" >System</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../interfaces/IJWT.html" target="_self" >Promise&lt;IJWT&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </section>
             <section>
     
@@ -714,7 +876,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">apps/server/src/modules/oauth/uc/oauth.uc.ts:21</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">apps/server/src/modules/oauth/uc/oauth.uc.ts:22</a></div>
                         </td>
                     </tr>
 
@@ -730,7 +892,6 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Inject, Injectable } from &#x27;@nestjs/common&#x27;;
 import { ILogger, Logger } from &#x27;@src/core/logger&#x27;;
 import { HttpService } from &#x27;@nestjs/axios&#x27;;
-import jwtDecode from &#x27;jwt-decode&#x27;;
 import { SystemRepo } from &#x27;@shared/repo/system&#x27;;
 import { UserRepo } from &#x27;@shared/repo&#x27;;
 import { System, User } from &#x27;@shared/domain&#x27;;
@@ -738,6 +899,8 @@ import { FeathersJwtProvider } from &#x27;@src/modules/authorization/feathers-jw
 import { SymetricKeyEncryptionService } from &#x27;@shared/infra/encryption/encryption.service&#x27;;
 import { lastValueFrom } from &#x27;rxjs&#x27;;
 import QueryString from &#x27;qs&#x27;;
+import jwt from &#x27;jsonwebtoken&#x27;;
+import JwksRsa from &#x27;jwks-rsa&#x27;;
 import { TokenRequestPayload } from &#x27;../controller/dto/token-request.payload&#x27;;
 import { OauthTokenResponse } from &#x27;../controller/dto/oauth-token.response&#x27;;
 import { AuthorizationParams } from &#x27;../controller/dto/authorization.params&#x27;;
@@ -759,23 +922,26 @@ export class OauthUc {
 		this.logger &#x3D; new Logger(OauthUc.name);
 	}
 
-	// 0- start Oauth Process
 	async startOauth(query: AuthorizationParams, systemId: string): Promise&lt;OAuthResponse&gt; {
-		// get the authorization code
 		const code: string &#x3D; this.checkAuthorizationCode(query);
-		// get the Tokens using the authorization code
-		const queryToken: OauthTokenResponse &#x3D; await this.requestToken(code, systemId);
-		// extract the uuid from the token
-		const uuid &#x3D; this.decodeToken(queryToken.id_token);
-		// get the user using the uuid
+
+		const system: System &#x3D; await this.systemRepo.findById(systemId);
+
+		const queryToken: OauthTokenResponse &#x3D; await this.requestToken(code, system);
+
+		const decodedToken: IJWT &#x3D; await this.validateToken(queryToken.id_token, system);
+
+		const uuid: string &#x3D; this.extractUUID(decodedToken);
+
 		const user: User &#x3D; await this.findUserById(uuid, systemId);
-		// create JWT for the user
-		const jwt: string &#x3D; await this.getJWTForUser(user);
-		// send response back
+
+		const jwtResponse: string &#x3D; await this.getJWTForUser(user);
+
 		const response: OAuthResponse &#x3D; new OAuthResponse();
-		response.jwt &#x3D; jwt;
+		response.jwt &#x3D; jwtResponse;
 		response.idToken &#x3D; queryToken.id_token;
-		response.logoutEndpoint &#x3D; (await this.systemRepo.findById(systemId)).oauthConfig.logoutEndpoint;
+		response.logoutEndpoint &#x3D; system.oauthConfig.logoutEndpoint;
+
 		return response;
 	}
 
@@ -793,16 +959,13 @@ export class OauthUc {
 		throw new OAuthSSOError(&#x27;Authorization Query Object has no authorization code or error&#x27;, errorCode);
 	}
 
-	// 1- use Authorization Code to get a valid Token
-	async requestToken(code: string, systemId: string): Promise&lt;OauthTokenResponse&gt; {
-		const system: System &#x3D; await this.systemRepo.findById(systemId);
+	async requestToken(code: string, system: System): Promise&lt;OauthTokenResponse&gt; {
 		const decryptedClientSecret: string &#x3D; this.oAuthEncryptionService.decrypt(system.oauthConfig.clientSecret);
 		const tokenRequestPayload: TokenRequestPayload &#x3D; TokenRequestPayloadMapper.mapToResponse(
 			system,
 			decryptedClientSecret,
 			code
 		);
-
 		const responseTokenObservable &#x3D; this.httpService.post&lt;OauthTokenResponse&gt;(
 			tokenRequestPayload.tokenEndpoint,
 			QueryString.stringify(tokenRequestPayload.tokenRequestParams),
@@ -813,22 +976,37 @@ export class OauthUc {
 				},
 			}
 		);
-
 		const responseToken &#x3D; await lastValueFrom(responseTokenObservable);
 		return responseToken.data;
 	}
 
-	// 2- decode the Token to extract the UUID
-	decodeToken(token: string): string {
-		const decodedJwt: IJWT &#x3D; jwtDecode(token);
+	async _getPublicKey(system: System): Promise&lt;string&gt; {
+		const client: JwksRsa.JwksClient &#x3D; JwksRsa({
+			cache: true,
+			jwksUri: system.oauthConfig.jwksEndpoint,
+		});
+		const key: JwksRsa.SigningKey &#x3D; await client.getSigningKey();
+		return key.getPublicKey();
+	}
+
+	async validateToken(idToken: string, system: System): Promise&lt;IJWT&gt; {
+		const publicKey &#x3D; await this._getPublicKey(system);
+		const verifiedJWT &#x3D; jwt.verify(idToken, publicKey, {
+			algorithms: [&#x27;RS256&#x27;],
+			issuer: system.oauthConfig.issuer,
+			audience: system.oauthConfig.clientId,
+		});
+		if (typeof verifiedJWT &#x3D;&#x3D;&#x3D; &#x27;string&#x27; || verifiedJWT instanceof String)
+			throw new OAuthSSOError(&#x27;Failed to validate idToken&#x27;, &#x27;sso_token_verfication_error&#x27;);
+		return verifiedJWT as IJWT;
+	}
+
+	extractUUID(decodedJwt: IJWT): string {
 		if (!decodedJwt || !decodedJwt.uuid) throw new OAuthSSOError(&#x27;Failed to extract uuid&#x27;, &#x27;sso_jwt_problem&#x27;);
 		const { uuid } &#x3D; decodedJwt;
 		return uuid;
 	}
 
-	// 1.1- Token Validation? (later)
-
-	// 3- get user using the UUID (userHelpers.js?)
 	async findUserById(uuid: string, systemId: string): Promise&lt;User&gt; {
 		let user: User;
 		try {
@@ -839,12 +1017,9 @@ export class OauthUc {
 		return user;
 	}
 
-	// 3.1- User bestätigen?
-
-	// 4- JWT erzeugen (oder finden)
 	async getJWTForUser(user: User): Promise&lt;string&gt; {
-		const jwt: string &#x3D; await this.jwtService.generateJwt(user.id);
-		return jwt;
+		const jwtResponse: string &#x3D; await this.jwtService.generateJwt(user.id);
+		return jwtResponse;
 	}
 }
 

@@ -135,7 +135,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="73" class="link-to-prism">apps/server/src/shared/domain/entity/system.entity.ts:73</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="81" class="link-to-prism">apps/server/src/shared/domain/entity/system.entity.ts:81</a></div>
                         </td>
                     </tr>
 
@@ -170,7 +170,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="76" class="link-to-prism">apps/server/src/shared/domain/entity/system.entity.ts:76</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="84" class="link-to-prism">apps/server/src/shared/domain/entity/system.entity.ts:84</a></div>
                         </td>
                     </tr>
 
@@ -205,7 +205,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="67" class="link-to-prism">apps/server/src/shared/domain/entity/system.entity.ts:67</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="75" class="link-to-prism">apps/server/src/shared/domain/entity/system.entity.ts:75</a></div>
                         </td>
                     </tr>
 
@@ -241,7 +241,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="70" class="link-to-prism">apps/server/src/shared/domain/entity/system.entity.ts:70</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="78" class="link-to-prism">apps/server/src/shared/domain/entity/system.entity.ts:78</a></div>
                         </td>
                     </tr>
 
@@ -276,6 +276,8 @@ export class OauthConfig {
 		this.authEndpoint &#x3D; system.oauthConfig.authEndpoint;
 		this.provider &#x3D; system.oauthConfig.provider;
 		this.logoutEndpoint &#x3D; system.oauthConfig.logoutEndpoint;
+		this.issuer &#x3D; system.oauthConfig.issuer;
+		this.jwksEndpoint &#x3D; system.oauthConfig.jwksEndpoint;
 	}
 
 	@Property()
@@ -307,6 +309,12 @@ export class OauthConfig {
 
 	@Property()
 	logoutEndpoint: string;
+
+	@Property()
+	issuer: string;
+
+	@Property()
+	jwksEndpoint: string;
 }
 @Entity({ tableName: &#x27;systems&#x27; })
 export class System extends BaseEntityWithTimestamps {
