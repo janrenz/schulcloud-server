@@ -918,6 +918,24 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/Account.html" data-type="entity-link" >Account</a>
                             </li>
                             <li class="link">
+                                <a href="classes/AccountByIdBodyParams.html" data-type="entity-link" >AccountByIdBodyParams</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/AccountByIdParams.html" data-type="entity-link" >AccountByIdParams</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/AccountResponse.html" data-type="entity-link" >AccountResponse</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/AccountResponseMapper.html" data-type="entity-link" >AccountResponseMapper</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/AccountSearchListResponse.html" data-type="entity-link" >AccountSearchListResponse</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/AccountSearchQueryParams.html" data-type="entity-link" >AccountSearchQueryParams</a>
+                            </li>
+                            <li class="link">
                                 <a href="classes/ApiValidationError.html" data-type="entity-link" >ApiValidationError</a>
                             </li>
                             <li class="link">
@@ -964,9 +982,6 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="classes/ChangeLanguageParams.html" data-type="entity-link" >ChangeLanguageParams</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/ChangePasswordParams.html" data-type="entity-link" >ChangePasswordParams</a>
                             </li>
                             <li class="link">
                                 <a href="classes/CopyFileParams.html" data-type="entity-link" >CopyFileParams</a>
