@@ -151,7 +151,7 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(newsRepo: <a href="../injectables/NewsRepo.html" target="_self">NewsRepo</a>, authorizationService: <a href="../injectables/AuthorizationService.html" target="_self">AuthorizationService</a>)</code>
+<code>constructor(newsRepo: <a href="../injectables/NewsRepo.html" target="_self">NewsRepo</a>, authorizationService: <a href="../injectables/FeathersAuthorizationService.html" target="_self">FeathersAuthorizationService</a>)</code>
                     </td>
                 </tr>
                         <tr>
@@ -189,7 +189,7 @@
                                                         <td>authorizationService</td>
                                                   
                                                         <td>
-                                                                        <code><a href="../injectables/AuthorizationService.html" target="_self" >AuthorizationService</a></code>
+                                                                        <code><a href="../injectables/FeathersAuthorizationService.html" target="_self" >FeathersAuthorizationService</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -1052,18 +1052,18 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
 import {
 	EntityId,
-	IFindOptions,
-	News,
-	SortOrder,
-	NewsTargetModel,
 	ICreateNews,
+	IFindOptions,
 	INewsScope,
 	IUpdateNews,
+	News,
+	NewsTargetModel,
+	SortOrder,
 } from &#x27;@shared/domain&#x27;;
 import { Counted } from &#x27;@shared/domain/types&#x27;;
-import { Logger, ILogger } from &#x27;@src/core/logger&#x27;;
-import { AuthorizationService } from &#x27;@src/modules/authorization/authorization.service&#x27;;
 import { NewsRepo, NewsTargetFilter } from &#x27;@shared/repo&#x27;;
+import { ILogger, Logger } from &#x27;@src/core/logger&#x27;;
+import { FeathersAuthorizationService } from &#x27;@src/modules/authorization/feathers-authorization.service&#x27;;
 
 type Permission &#x3D; &#x27;NEWS_VIEW&#x27; | &#x27;NEWS_EDIT&#x27;;
 
@@ -1071,7 +1071,7 @@ type Permission &#x3D; &#x27;NEWS_VIEW&#x27; | &#x27;NEWS_EDIT&#x27;;
 export class NewsUc {
 	private logger: ILogger;
 
-	constructor(private newsRepo: NewsRepo, private authorizationService: AuthorizationService) {
+	constructor(private newsRepo: NewsRepo, private authorizationService: FeathersAuthorizationService) {
 		this.logger &#x3D; new Logger(NewsUc.name);
 	}
 

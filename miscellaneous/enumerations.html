@@ -64,6 +64,9 @@
                             <a href="#AccountSearchType" title="apps/server/src/modules/authentication/controller/dto/account-search-type.ts" ><b>AccountSearchType</b>&nbsp;&nbsp;&nbsp;(apps/.../account-search-type.ts)</a>
                         </li>
                         <li>
+                            <a href="#Actions" title="apps/server/src/shared/domain/rules/actions.enum.ts" ><b>Actions</b>&nbsp;&nbsp;&nbsp;(apps/.../actions.enum.ts)</a>
+                        </li>
+                        <li>
                             <a href="#BoardElementType" title="apps/server/src/shared/domain/entity/boardelement.entity.ts" ><b>BoardElementType</b>&nbsp;&nbsp;&nbsp;(apps/.../boardelement.entity.ts)</a>
                         </li>
                         <li>
@@ -100,6 +103,9 @@
                             <a href="#NewsTargetModel" title="apps/server/src/shared/domain/types/news.types.ts" ><b>NewsTargetModel</b>&nbsp;&nbsp;&nbsp;(apps/.../news.types.ts)</a>
                         </li>
                         <li>
+                            <a href="#Permission" title="apps/server/src/shared/domain/rules/permission.enum.ts" ><b>Permission</b>&nbsp;&nbsp;&nbsp;(apps/.../permission.enum.ts)</a>
+                        </li>
+                        <li>
                             <a href="#RoleName" title="apps/server/src/shared/domain/entity/import-user.entity.ts" ><b>RoleName</b>&nbsp;&nbsp;&nbsp;(apps/.../import-user.entity.ts)</a>
                         </li>
                         <li>
@@ -115,13 +121,7 @@
                             <a href="#SortOrder" title="apps/server/src/shared/domain/interface/find-options.ts" ><b>SortOrder</b>&nbsp;&nbsp;&nbsp;(apps/.../find-options.ts)</a>
                         </li>
                         <li>
-                            <a href="#TaskDashBoardPermission" title="apps/server/src/modules/task/uc/task.authorization.service.ts" ><b>TaskDashBoardPermission</b>&nbsp;&nbsp;&nbsp;(apps/.../task.authorization.service.ts)</a>
-                        </li>
-                        <li>
                             <a href="#TaskParentPermission" title="apps/server/src/modules/learnroom/uc/rooms.authorisation.service.ts" ><b>TaskParentPermission</b>&nbsp;&nbsp;&nbsp;(apps/.../rooms.authorisation.service.ts)</a>
-                        </li>
-                        <li>
-                            <a href="#TaskParentPermission" title="apps/server/src/modules/task/uc/task.authorization.service.ts" ><b>TaskParentPermission</b>&nbsp;&nbsp;&nbsp;(apps/.../task.authorization.service.ts)</a>
                         </li>
                         <li>
                             <a href="#UserImportPermissions" title="apps/server/src/modules/user-import/constants.ts" ><b>UserImportPermissions</b>&nbsp;&nbsp;&nbsp;(apps/.../constants.ts)</a>
@@ -164,6 +164,29 @@
                         <tr>
                             <td class="col-md-4">
                                 <i>Value : </i><code>username</code>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+    <h3>apps/server/src/shared/domain/rules/actions.enum.ts</h3>
+    <section>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="Actions"></a>
+                        <span class="name "><b>Actions</b><a href="#Actions"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;read
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;write
                             </td>
                         </tr>
             </tbody>
@@ -752,6 +775,39 @@
             </tbody>
         </table>
 </section>
+    <h3>apps/server/src/shared/domain/rules/permission.enum.ts</h3>
+    <section>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="Permission"></a>
+                        <span class="name "><b>Permission</b><a href="#Permission"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;TASK_DASHBOARD_TEACHER_VIEW_V3
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Value : </i><code>TASK_DASHBOARD_TEACHER_VIEW_V3</code>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;TASK_DASHBOARD_VIEW_V3
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Value : </i><code>TASK_DASHBOARD_VIEW_V3</code>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
     <h3>apps/server/src/modules/learnroom/types/room-board.types.ts</h3>
     <section>
         <table class="table table-sm table-bordered">
@@ -846,59 +902,6 @@
                         <tr>
                             <td class="col-md-4">
                                 <i>Value : </i><code>desc</code>
-                            </td>
-                        </tr>
-            </tbody>
-        </table>
-</section>
-    <h3>apps/server/src/modules/task/uc/task.authorization.service.ts</h3>
-    <section>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="TaskDashBoardPermission"></a>
-                        <span class="name "><b>TaskDashBoardPermission</b><a href="#TaskDashBoardPermission"><span class="icon ion-ios-link"></span></a></span>
-                    </td>
-                </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                &nbsp;teacherDashboard
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <i>Value : </i><code>TASK_DASHBOARD_TEACHER_VIEW_V3</code>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                &nbsp;studentDashboard
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <i>Value : </i><code>TASK_DASHBOARD_VIEW_V3</code>
-                            </td>
-                        </tr>
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="TaskParentPermission"></a>
-                        <span class="name "><b>TaskParentPermission</b><a href="#TaskParentPermission"><span class="icon ion-ios-link"></span></a></span>
-                    </td>
-                </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                &nbsp;read
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                &nbsp;write
                             </td>
                         </tr>
             </tbody>

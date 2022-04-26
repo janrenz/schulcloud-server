@@ -1461,8 +1461,7 @@ Callable when the current user&#39;s password was force set or this is the first
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import bcrypt from &#x27;bcryptjs&#x27;;
-import { Injectable } from &#x27;@nestjs/common&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
 import {
 	AuthorizationError,
 	EntityNotFoundError,
@@ -1471,13 +1470,14 @@ import {
 } from &#x27;@shared/common/error&#x27;;
 import { Account, EntityId, ICurrentUser, PermissionService, RoleName, User } from &#x27;@shared/domain&#x27;;
 import { AccountRepo, UserRepo } from &#x27;@shared/repo&#x27;;
+import bcrypt from &#x27;bcryptjs&#x27;;
 import {
 	AccountByIdBodyParams,
 	AccountByIdParams,
 	AccountResponse,
 	AccountSearchListResponse,
-	AccountSearchType,
 	AccountSearchQueryParams,
+	AccountSearchType,
 	PatchMyAccountParams,
 } from &#x27;../controller/dto&#x27;;
 import { AccountResponseMapper } from &#x27;../mapper/account-response.mapper&#x27;;
