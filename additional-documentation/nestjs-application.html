@@ -74,7 +74,7 @@
   -e &quot;MINIO_ROOT_USER=`miniouser`&quot; \
   -e &quot;MINIO_ROOT_PASSWORD=miniouser&quot; \
   quay.io/minio/minio server /data --console-address &quot;:9001&quot;</code></pre></div><ol start="5">
-<li>Have Keycloak (IAM Provider) run [currently not needed, but will be mandatory in the future]. For more information look <a href="./doc/keycloak.md">here</a>.</li>
+<li>Have Keycloak (IAM Provider) run [currently not needed, but will be mandatory in the future]. For more information look <a href="./nestjs-application/keycloak.html">here</a>.</li>
 </ol>
 <div><pre class="line-numbers"><code class="language-bash">docker run \
   --name keycloak \
