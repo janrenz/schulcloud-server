@@ -282,9 +282,9 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
-import { Course, Lesson, TaskWithStatusVo } from &#x27;@shared/domain&#x27;;
+import { Course, TaskWithStatusVo } from &#x27;@shared/domain&#x27;;
 import { BoardElementResponse, BoardLessonResponse, BoardResponse, BoardTaskResponse } from &#x27;../controller/dto&#x27;;
-import { RoomBoardDTO, RoomBoardElementTypes } from &#x27;../types&#x27;;
+import { LessonMetaData, RoomBoardDTO, RoomBoardElementTypes } from &#x27;../types&#x27;;
 import { BoardTaskStatusMapper } from &#x27;./board-taskStatus.mapper&#x27;;
 
 @Injectable()
@@ -308,7 +308,7 @@ export class RoomBoardResponseMapper {
 			if (element.type &#x3D;&#x3D;&#x3D; RoomBoardElementTypes.TASK) {
 				elements.push(this.mapTask(element.content as TaskWithStatusVo));
 			} else if (element.type &#x3D;&#x3D;&#x3D; RoomBoardElementTypes.LESSON) {
-				elements.push(this.mapLesson(element.content as Lesson));
+				elements.push(this.mapLesson(element.content as LessonMetaData));
 			}
 		});
 		return elements;
@@ -340,17 +340,16 @@ export class RoomBoardResponseMapper {
 		return boardElementResponse;
 	};
 
-	private mapLesson &#x3D; (lesson: Lesson): BoardElementResponse &#x3D;&gt; {
+	private mapLesson &#x3D; (lesson: LessonMetaData): BoardElementResponse &#x3D;&gt; {
 		const mappedLesson &#x3D; new BoardLessonResponse({
 			id: lesson.id,
 			name: lesson.name,
 			hidden: lesson.hidden,
 			createdAt: lesson.createdAt,
 			updatedAt: lesson.updatedAt,
+			numberOfTasks: lesson.numberOfTasks,
+			courseName: lesson.courseName,
 		});
-
-		const lessonCourse &#x3D; lesson.course;
-		mappedLesson.courseName &#x3D; lessonCourse.name;
 
 		const boardElementResponse &#x3D; new BoardElementResponse({
 			type: RoomBoardElementTypes.LESSON,

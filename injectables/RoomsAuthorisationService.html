@@ -472,7 +472,7 @@ export class RoomsAuthorisationService {
 		if (task.course) {
 			hasCoursePermission &#x3D; this.hasCourseReadPermission(user, task.course);
 
-			if (task.private || (task.availableDate &amp;&amp; task.availableDate &gt; new Date(Date.now()))) {
+			if (!task.isPublished()) {
 				hasCoursePermission &#x3D; this.hasCourseWritePermission(user, task.course);
 			}
 		}

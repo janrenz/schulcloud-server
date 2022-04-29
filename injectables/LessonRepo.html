@@ -503,7 +503,7 @@ export class LessonRepo extends BaseRepo&lt;Lesson&gt; {
 
 		const [lessons, count] &#x3D; await this._em.findAndCount(Lesson, scope.query, { orderBy: order });
 
-		await this._em.populate(lessons, [&#x27;course&#x27;]);
+		await this._em.populate(lessons, [&#x27;course&#x27;, &#x27;tasks&#x27;]);
 
 		return [lessons, count];
 	}

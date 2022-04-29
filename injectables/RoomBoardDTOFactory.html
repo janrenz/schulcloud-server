@@ -104,7 +104,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="122" class="link-to-prism">apps/server/src/modules/learnroom/uc/room-board-dto.factory.ts:122</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="141" class="link-to-prism">apps/server/src/modules/learnroom/uc/room-board-dto.factory.ts:141</a></div>
                             </td>
                         </tr>
 
@@ -167,8 +167,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="125"
-                            class="link-to-prism">apps/server/src/modules/learnroom/uc/room-board-dto.factory.ts:125</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="144"
+                            class="link-to-prism">apps/server/src/modules/learnroom/uc/room-board-dto.factory.ts:144</a></div>
                 </td>
             </tr>
 
@@ -326,8 +326,27 @@ class DtoCreator {
 
 	private mapLessonElement(element: BoardElement): RoomBoardElementDTO {
 		const type &#x3D; RoomBoardElementTypes.LESSON;
-		const content &#x3D; element.target as Lesson;
+		const lesson &#x3D; element.target as Lesson;
+		const content &#x3D; {
+			id: lesson.id,
+			name: lesson.name,
+			hidden: lesson.hidden,
+			createdAt: lesson.createdAt,
+			updatedAt: lesson.updatedAt,
+			numberOfTasks: this.getNumberOfLessonTasks(lesson),
+			courseName: lesson.course.name,
+		};
 		return { type, content };
+	}
+
+	private getNumberOfLessonTasks(lesson: Lesson) {
+		let numberOfTasks: number;
+		if (this.isTeacher()) {
+			numberOfTasks &#x3D; lesson.getNumberOfTasksForTeacher();
+		} else {
+			numberOfTasks &#x3D; lesson.getNumberOfTasksForStudent();
+		}
+		return numberOfTasks;
 	}
 
 	private buildDTOWithElements(elements: RoomBoardElementDTO[]): RoomBoardDTO {
