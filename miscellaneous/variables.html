@@ -2843,8 +2843,16 @@ Teardown: &#39;await orm.close()&#39; in after-hook!</p>
                 <tr>
                     <td class="col-md-4">
                         <i>Default value : </i><code>TaskFactory.define(Task, ({ sequence }) &#x3D;&gt; {
+	const school &#x3D; schoolFactory.build();
+	const creator &#x3D; userFactory.build({ school });
 	// private is by default in constructor true, but in the most test cases we need private: false
-	return { name: &#x60;task #${sequence}&#x60;, private: false, availableDate: yesterday };
+	return {
+		name: &#x60;task #${sequence}&#x60;,
+		private: false,
+		availableDate: yesterday,
+		creator,
+		school,
+	};
 })</code>
                     </td>
                 </tr>
