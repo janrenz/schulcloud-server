@@ -85,13 +85,14 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Configuration } from &#x27;@hpi-schul-cloud/commons&#x27;;
-
 import { ICoreModuleConfig } from &#x27;@src/core&#x27;;
+import { AvailableLogLevel } from &#x27;@src/core/logger&#x27;;
 
 export interface IFileStorageConfig extends ICoreModuleConfig {}
 
 const config: IFileStorageConfig &#x3D; {
 	INCOMING_REQUEST_TIMEOUT: Configuration.get(&#x27;FILES_STORAGE__INCOMING_REQUEST_TIMEOUT&#x27;) as number,
+	AVAILABLE_LOG_LEVELS: (Configuration.get(&#x27;NEST_AVAILABLE_LOG_LEVELS&#x27;) as string).split(&#x27;,&#x27;) as AvailableLogLevel[],
 };
 
 export default () &#x3D;&gt; config;

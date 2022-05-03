@@ -312,6 +312,7 @@ import { ServerController } from &#x27;./server.controller&#x27;;
 const serverModules &#x3D; [
 	ConfigModule.forRoot({
 		isGlobal: true,
+		validationOptions: { infer: true },
 		load: [serverConfig],
 	}),
 	CoreModule,

@@ -329,8 +329,8 @@ Customizations:</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="99"
-                            class="link-to-prism">apps/server/src/server.module.ts:99</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="100"
+                            class="link-to-prism">apps/server/src/server.module.ts:100</a></div>
                 </td>
             </tr>
 
@@ -410,6 +410,7 @@ import { ServerController } from &#x27;./server.controller&#x27;;
 const serverModules &#x3D; [
 	ConfigModule.forRoot({
 		isGlobal: true,
+		validationOptions: { infer: true },
 		load: [serverConfig],
 	}),
 	CoreModule,

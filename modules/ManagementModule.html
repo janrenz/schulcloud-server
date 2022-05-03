@@ -228,23 +228,31 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { DynamicModule, Module, NotFoundException } from &#x27;@nestjs/common&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Dictionary, IPrimaryKey } from &#x27;@mikro-orm/core&#x27;;
 import { MikroOrmModule, MikroOrmModuleSyncOptions } from &#x27;@mikro-orm/nestjs&#x27;;
-import { Dictionary, IPrimaryKey } from &#x27;@mikro-orm/core&#x27;;
-
+import { DynamicModule, Module, NotFoundException } from &#x27;@nestjs/common&#x27;;
+import { ConfigModule } from &#x27;@nestjs/config&#x27;;
 import { ALL_ENTITIES } from &#x27;@shared/domain&#x27;;
-import { FileSystemModule } from &#x27;@shared/infra/file-system&#x27;;
 import { ConsoleWriterService } from &#x27;@shared/infra/console&#x27;;
-import { DB_URL, DB_USERNAME, DB_PASSWORD } from &#x27;@src/config&#x27;;
-import { MongoMemoryDatabaseModule, DatabaseManagementService, DatabaseManagementModule } from &#x27;@shared/infra/database&#x27;;
+import { DatabaseManagementModule, DatabaseManagementService, MongoMemoryDatabaseModule } from &#x27;@shared/infra/database&#x27;;
 import { MongoDatabaseModuleOptions } from &#x27;@shared/infra/database/mongo-memory-database/types&#x27;;
-
-import { DatabaseManagementController } from &#x27;./controller/database-management.controller&#x27;;
-import { DatabaseManagementUc } from &#x27;./uc/database-management.uc&#x27;;
-import { BsonConverter } from &#x27;./converter/bson.converter&#x27;;
+import { FileSystemModule } from &#x27;@shared/infra/file-system&#x27;;
+import { DB_PASSWORD, DB_URL, DB_USERNAME } from &#x27;@src/config&#x27;;
+import serverConfig from &#x27;@src/server.config&#x27;;
 import { DatabaseManagementConsole } from &#x27;./console/database-management.console&#x27;;
+import { DatabaseManagementController } from &#x27;./controller/database-management.controller&#x27;;
+import { BsonConverter } from &#x27;./converter/bson.converter&#x27;;
+import { DatabaseManagementUc } from &#x27;./uc/database-management.uc&#x27;;
 
-const imports &#x3D; [FileSystemModule, DatabaseManagementModule];
+const imports &#x3D; [
+	FileSystemModule,
+	DatabaseManagementModule,
+	ConfigModule.forRoot({
+		isGlobal: true,
+		validationOptions: { infer: true },
+		load: [serverConfig],
+	}),
+];
 
 const providers &#x3D; [
 	DatabaseManagementUc,

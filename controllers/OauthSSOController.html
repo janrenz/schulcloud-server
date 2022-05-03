@@ -133,8 +133,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="22"
-                            class="link-to-prism">apps/server/src/modules/oauth/controller/oauth-sso.controller.ts:22</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="20"
+                            class="link-to-prism">apps/server/src/modules/oauth/controller/oauth-sso.controller.ts:20</a></div>
                 </td>
             </tr>
 
@@ -214,7 +214,7 @@
 import { Controller, Get, Param, Query, Res } from &#x27;@nestjs/common&#x27;;
 import { ApiTags } from &#x27;@nestjs/swagger&#x27;;
 import { ParseObjectIdPipe } from &#x27;@shared/controller/pipe/parse-object-id.pipe&#x27;;
-import { ILogger, Logger } from &#x27;@src/core/logger&#x27;;
+import { Logger } from &#x27;@src/core/logger&#x27;;
 import { Response } from &#x27;express&#x27;;
 import { OAuthSSOError } from &#x27;../error/oauth-sso.error&#x27;;
 import { OauthUc } from &#x27;../uc/oauth.uc&#x27;;
@@ -224,10 +224,8 @@ import { OAuthResponse } from &#x27;./dto/oauth.response&#x27;;
 @ApiTags(&#x27;SSO&#x27;)
 @Controller(&#x27;sso&#x27;)
 export class OauthSSOController {
-	private logger: ILogger;
-
-	constructor(private readonly oauthUc: OauthUc) {
-		this.logger &#x3D; new Logger(OauthSSOController.name);
+	constructor(private readonly oauthUc: OauthUc, private logger: Logger) {
+		this.logger.setContext(OauthSSOController.name);
 	}
 
 	@Get(&#x27;oauth/:systemid&#x27;)

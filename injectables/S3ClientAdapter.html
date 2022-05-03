@@ -81,10 +81,6 @@
                                     <span class="modifier">Private</span>
                                 <a href="#deletedFolderName" >deletedFolderName</a>
                             </li>
-                            <li>
-                                    <span class="modifier">Private</span>
-                                <a href="#logger" >logger</a>
-                            </li>
                         </ul>
                     </td>
                 </tr>
@@ -148,12 +144,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(client: S3Client, config: <a href="../interfaces/S3Config.html" target="_self">S3Config</a>)</code>
+<code>constructor(client: S3Client, config: <a href="../interfaces/S3Config.html" target="_self">S3Config</a>, logger: <a href="../injectables/Logger.html" target="_self">Logger</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">apps/server/src/modules/files-storage/client/s3-client.adapter.ts:22</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">apps/server/src/modules/files-storage/client/s3-client.adapter.ts:18</a></div>
                             </td>
                         </tr>
 
@@ -187,6 +183,18 @@
                                                   
                                                         <td>
                                                                         <code><a href="../interfaces/S3Config.html" target="_self" >S3Config</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>logger</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/Logger.html" target="_self" >Logger</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -721,34 +729,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">apps/server/src/modules/files-storage/client/s3-client.adapter.ts:22</a></div>
-                        </td>
-                    </tr>
-
-
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="logger"></a>
-                    <span class="name">
-                            <span class="modifier">Private</span>
-                        <span ><b>logger</b></span>
-                        <a href="#logger"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="../injectables/Logger.html" target="_self" >ILogger</a></code>
-
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">apps/server/src/modules/files-storage/client/s3-client.adapter.ts:20</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">apps/server/src/modules/files-storage/client/s3-client.adapter.ts:18</a></div>
                         </td>
                     </tr>
 
@@ -762,30 +743,30 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
+	CopyObjectCommand,
+	CopyObjectCommandOutput,
 	CreateBucketCommand,
+	DeleteObjectsCommand,
 	GetObjectCommand,
 	S3Client,
 	ServiceOutputTypes,
-	CopyObjectCommand,
-	DeleteObjectsCommand,
-	CopyObjectCommandOutput,
 } from &#x27;@aws-sdk/client-s3&#x27;;
 import { Upload } from &#x27;@aws-sdk/lib-storage&#x27;;
 import { Inject, Injectable } from &#x27;@nestjs/common&#x27;;
+import { Logger } from &#x27;@src/core/logger&#x27;;
 import { Readable } from &#x27;stream&#x27;;
-
-import { ILogger, Logger } from &#x27;@src/core/logger&#x27;;
-
-import { S3Config, IGetFileResponse, IStorageClient, IFile, ICopyFiles } from &#x27;../interface&#x27;;
+import { ICopyFiles, IFile, IGetFileResponse, IStorageClient, S3Config } from &#x27;../interface&#x27;;
 
 @Injectable()
 export class S3ClientAdapter implements IStorageClient {
-	private logger: ILogger;
-
 	private deletedFolderName &#x3D; &#x27;trash&#x27;;
 
-	constructor(@Inject(&#x27;S3_Client&#x27;) readonly client: S3Client, @Inject(&#x27;S3_Config&#x27;) readonly config: S3Config) {
-		this.logger &#x3D; new Logger(&#x27;S3Client&#x27;);
+	constructor(
+		@Inject(&#x27;S3_Client&#x27;) readonly client: S3Client,
+		@Inject(&#x27;S3_Config&#x27;) readonly config: S3Config,
+		private logger: Logger
+	) {
+		this.logger.setContext(S3ClientAdapter.name);
 	}
 
 	async createBucket() {

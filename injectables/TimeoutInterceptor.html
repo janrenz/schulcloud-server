@@ -242,7 +242,7 @@ This will not stop the running services behind the controller.</p>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable, NestInterceptor, ExecutionContext, CallHandler, RequestTimeoutException } from &#x27;@nestjs/common&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { CallHandler, ExecutionContext, Injectable, NestInterceptor, RequestTimeoutException } from &#x27;@nestjs/common&#x27;;
 import { ConfigService } from &#x27;@nestjs/config&#x27;;
 import { Observable, throwError, TimeoutError } from &#x27;rxjs&#x27;;
 import { catchError, timeout } from &#x27;rxjs/operators&#x27;;
@@ -257,7 +257,7 @@ export class TimeoutInterceptor implements NestInterceptor {
 	constructor(private readonly configService: ConfigService&lt;IInterceptorConfig, true&gt;) {}
 
 	intercept(context: ExecutionContext, next: CallHandler): Observable&lt;any&gt; {
-		const requestTimeout &#x3D; this.configService.get(&#x27;INCOMING_REQUEST_TIMEOUT&#x27;, { infer: true });
+		const requestTimeout &#x3D; this.configService.get&lt;number&gt;(&#x27;INCOMING_REQUEST_TIMEOUT&#x27;);
 		return next.handle().pipe(
 			timeout(requestTimeout),
 			catchError((err: Error) &#x3D;&gt; {

@@ -781,6 +781,8 @@ This allows adding console commands to execute provider methods.</p>
                     <td class="col-md-4">
                         <i>Default value : </i><code>{
 	INCOMING_REQUEST_TIMEOUT: Configuration.get(&#x27;INCOMING_REQUEST_TIMEOUT_API&#x27;) as number,
+	AVAILABLE_LOG_LEVELS: (Configuration.get(&#x27;NEST_AVAILABLE_LOG_LEVELS&#x27;) as string).split(&#x27;,&#x27;) as AvailableLogLevel[],
+	AVAILABLE_LANGUAGES: (Configuration.get(&#x27;I18N__AVAILABLE_LANGUAGES&#x27;) as string).split(&#x27;,&#x27;),
 }</code>
                     </td>
                 </tr>
@@ -812,6 +814,7 @@ This allows adding console commands to execute provider methods.</p>
                     <td class="col-md-4">
                         <i>Default value : </i><code>{
 	INCOMING_REQUEST_TIMEOUT: Configuration.get(&#x27;FILES_STORAGE__INCOMING_REQUEST_TIMEOUT&#x27;) as number,
+	AVAILABLE_LOG_LEVELS: (Configuration.get(&#x27;NEST_AVAILABLE_LOG_LEVELS&#x27;) as string).split(&#x27;,&#x27;) as AvailableLogLevel[],
 }</code>
                     </td>
                 </tr>
@@ -994,6 +997,7 @@ This allows adding console commands to execute provider methods.</p>
 	},
 	S3ClientAdapter,
 	FileRecordRepo,
+	Logger,
 ]</code>
                     </td>
                 </tr>
@@ -1144,7 +1148,15 @@ must use @ApiProperty</p>
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>[FileSystemModule, DatabaseManagementModule]</code>
+                        <i>Default value : </i><code>[
+	FileSystemModule,
+	DatabaseManagementModule,
+	ConfigModule.forRoot({
+		isGlobal: true,
+		validationOptions: { infer: true },
+		load: [serverConfig],
+	}),
+]</code>
                     </td>
                 </tr>
 
@@ -1795,6 +1807,7 @@ must use @ApiProperty</p>
                         <i>Default value : </i><code>[
 	ConfigModule.forRoot({
 		isGlobal: true,
+		validationOptions: { infer: true },
 		load: [serverConfig],
 	}),
 	CoreModule,
