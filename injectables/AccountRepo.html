@@ -85,12 +85,15 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                <a href="#deleteById" >deleteById</a>
+                            </li>
+                            <li>
                                     <span class="modifier">Async</span>
                                 <a href="#findByUserId" >findByUserId</a>
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
-                                <a href="#findOneByUser" >findOneByUser</a>
+                                <a href="#findByUserIdOrFail" >findByUserIdOrFail</a>
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
@@ -163,6 +166,75 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="deleteById"></a>
+                    <span class="name">
+                        <span ><b>deleteById</b></span>
+                        <a href="#deleteById"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>deleteById(accountId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="44"
+                            class="link-to-prism">apps/server/src/shared/repo/account/account.repo.ts:44</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>accountId</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="findByUserId"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
@@ -181,8 +253,79 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="14"
-                            class="link-to-prism">apps/server/src/shared/repo/account/account.repo.ts:14</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="13"
+                            class="link-to-prism">apps/server/src/shared/repo/account/account.repo.ts:13</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>userId</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/Account.html" target="_self" >Promise&lt;Account | null&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findByUserIdOrFail"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>findByUserIdOrFail</b></span>
+                        <a href="#findByUserIdOrFail"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findByUserIdOrFail(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="17"
+                            class="link-to-prism">apps/server/src/shared/repo/account/account.repo.ts:17</a></div>
                 </td>
             </tr>
 
@@ -234,77 +377,6 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="findOneByUser"></a>
-                    <span class="name">
-                        <span class="modifier">Async</span>
-                        <span ><b>findOneByUser</b></span>
-                        <a href="#findOneByUser"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>findOneByUser(user: <a href="../interfaces/User.html" target="_self">User</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="18"
-                            class="link-to-prism">apps/server/src/shared/repo/account/account.repo.ts:18</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>user</td>
-                                    <td>
-                                                <code><a href="../interfaces/User.html" target="_self" >User</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/Account.html" target="_self" >Promise&lt;Account&gt;</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
                     <a name="flush"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
@@ -323,8 +395,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="33"
-                            class="link-to-prism">apps/server/src/shared/repo/account/account.repo.ts:33</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="32"
+                            class="link-to-prism">apps/server/src/shared/repo/account/account.repo.ts:32</a></div>
                 </td>
             </tr>
 
@@ -360,8 +432,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="22"
-                            class="link-to-prism">apps/server/src/shared/repo/account/account.repo.ts:22</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="21"
+                            class="link-to-prism">apps/server/src/shared/repo/account/account.repo.ts:21</a></div>
                 </td>
             </tr>
 
@@ -449,8 +521,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="29"
-                            class="link-to-prism">apps/server/src/shared/repo/account/account.repo.ts:29</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="28"
+                            class="link-to-prism">apps/server/src/shared/repo/account/account.repo.ts:28</a></div>
                 </td>
             </tr>
 
@@ -521,8 +593,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="45"
-                            class="link-to-prism">apps/server/src/shared/repo/account/account.repo.ts:45</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="49"
+                            class="link-to-prism">apps/server/src/shared/repo/account/account.repo.ts:49</a></div>
                 </td>
             </tr>
 
@@ -628,8 +700,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="37"
-                            class="link-to-prism">apps/server/src/shared/repo/account/account.repo.ts:37</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="36"
+                            class="link-to-prism">apps/server/src/shared/repo/account/account.repo.ts:36</a></div>
                 </td>
             </tr>
 
@@ -732,8 +804,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="41"
-                            class="link-to-prism">apps/server/src/shared/repo/account/account.repo.ts:41</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="40"
+                            class="link-to-prism">apps/server/src/shared/repo/account/account.repo.ts:40</a></div>
                 </td>
             </tr>
 
@@ -1067,7 +1139,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">apps/server/src/shared/repo/account/account.repo.ts:10</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">apps/server/src/shared/repo/account/account.repo.ts:9</a></div>
                                 </td>
                             </tr>
 
@@ -1082,7 +1154,6 @@
 import { BaseRepo } from &#x27;@shared/repo/base.repo&#x27;;
 import { EntityId } from &#x27;@shared/domain&#x27;;
 import { Account } from &#x27;@shared/domain/entity/account.entity&#x27;;
-import { User } from &#x27;@shared/domain/entity/user.entity&#x27;;
 import { AnyEntity, EntityName, Primary } from &#x27;@mikro-orm/core&#x27;;
 
 @Injectable()
@@ -1091,12 +1162,12 @@ export class AccountRepo extends BaseRepo&lt;Account&gt; {
 		return Account;
 	}
 
-	async findByUserId(userId: EntityId): Promise&lt;Account&gt; {
-		return this._em.findOneOrFail(Account, { user: userId });
+	async findByUserId(userId: EntityId): Promise&lt;Account | null&gt; {
+		return this._em.findOne(Account, { user: userId });
 	}
 
-	async findOneByUser(user: User): Promise&lt;Account&gt; {
-		return this.findByUserId(user.id);
+	async findByUserIdOrFail(userId: EntityId): Promise&lt;Account&gt; {
+		return this._em.findOneOrFail(Account, { user: userId });
 	}
 
 	getObjectReference&lt;Entity extends AnyEntity&lt;Entity&gt;&gt;(
@@ -1120,6 +1191,11 @@ export class AccountRepo extends BaseRepo&lt;Account&gt; {
 
 	async searchByUsernamePartialMatch(username: string, skip &#x3D; 0, limit &#x3D; 10): Promise&lt;[Account[], number]&gt; {
 		return this.searchByUsername(username, skip, limit, false);
+	}
+
+	deleteById(accountId: EntityId) {
+		const accountReference &#x3D; this._em.getReference(Account, accountId);
+		return this._em.removeAndFlush(accountReference);
 	}
 
 	private async searchByUsername(

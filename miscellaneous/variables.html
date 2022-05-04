@@ -2483,12 +2483,12 @@ You shall not explicitly declare the AMQPConnection in your modules since it wil
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>(user: User): ICurrentUser &#x3D;&gt; {
+                        <i>Default value : </i><code>(user: User, account?: Account): ICurrentUser &#x3D;&gt; {
 	const currentUser: Partial&lt;ICurrentUser&gt; &#x3D; {
 		userId: user.id,
 		roles: user.roles.getItems().map((r) &#x3D;&gt; r.id),
 		schoolId: user.school.id,
-		accountId: new ObjectId().toHexString(),
+		accountId: account ? account.id : new ObjectId().toHexString(),
 	};
 	return currentUser as ICurrentUser; // TODO is partial!
 }</code>

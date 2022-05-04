@@ -120,13 +120,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/AuthModule.html" data-type="entity-link" >AuthModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#controllers-links-module-AuthModule-23d855078395ada59872074bccbee70605473b6afbda9c261e292d6b0642aa3fb5f69585329edf0d4f08a70f3329ec91383b88c14200c740de2dead3f6b8216f"' : 'data-target="#xs-controllers-links-module-AuthModule-23d855078395ada59872074bccbee70605473b6afbda9c261e292d6b0642aa3fb5f69585329edf0d4f08a70f3329ec91383b88c14200c740de2dead3f6b8216f"' }>
+                                            'data-target="#controllers-links-module-AuthModule-fc913e20e060c65beee094375d78c7261315382e0a652c48e87cdfe9c3526ced3b31f24da01d82b99341b27bf32328c791235ade26c9e3382f37d37967e1aaf1"' : 'data-target="#xs-controllers-links-module-AuthModule-fc913e20e060c65beee094375d78c7261315382e0a652c48e87cdfe9c3526ced3b31f24da01d82b99341b27bf32328c791235ade26c9e3382f37d37967e1aaf1"' }>
                                             <span class="icon ion-md-swap"></span>
                                             <span>Controllers</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="controllers-links-module-AuthModule-23d855078395ada59872074bccbee70605473b6afbda9c261e292d6b0642aa3fb5f69585329edf0d4f08a70f3329ec91383b88c14200c740de2dead3f6b8216f"' :
-                                            'id="xs-controllers-links-module-AuthModule-23d855078395ada59872074bccbee70605473b6afbda9c261e292d6b0642aa3fb5f69585329edf0d4f08a70f3329ec91383b88c14200c740de2dead3f6b8216f"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="controllers-links-module-AuthModule-fc913e20e060c65beee094375d78c7261315382e0a652c48e87cdfe9c3526ced3b31f24da01d82b99341b27bf32328c791235ade26c9e3382f37d37967e1aaf1"' :
+                                            'id="xs-controllers-links-module-AuthModule-fc913e20e060c65beee094375d78c7261315382e0a652c48e87cdfe9c3526ced3b31f24da01d82b99341b27bf32328c791235ade26c9e3382f37d37967e1aaf1"' }>
                                             <li class="link">
                                                 <a href="controllers/AccountController.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >AccountController</a>
                                             </li>
@@ -134,15 +134,18 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                     </li>
                                 <li class="chapter inner">
                                     <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                        'data-target="#injectables-links-module-AuthModule-23d855078395ada59872074bccbee70605473b6afbda9c261e292d6b0642aa3fb5f69585329edf0d4f08a70f3329ec91383b88c14200c740de2dead3f6b8216f"' : 'data-target="#xs-injectables-links-module-AuthModule-23d855078395ada59872074bccbee70605473b6afbda9c261e292d6b0642aa3fb5f69585329edf0d4f08a70f3329ec91383b88c14200c740de2dead3f6b8216f"' }>
+                                        'data-target="#injectables-links-module-AuthModule-fc913e20e060c65beee094375d78c7261315382e0a652c48e87cdfe9c3526ced3b31f24da01d82b99341b27bf32328c791235ade26c9e3382f37d37967e1aaf1"' : 'data-target="#xs-injectables-links-module-AuthModule-fc913e20e060c65beee094375d78c7261315382e0a652c48e87cdfe9c3526ced3b31f24da01d82b99341b27bf32328c791235ade26c9e3382f37d37967e1aaf1"' }>
                                         <span class="icon ion-md-arrow-round-down"></span>
                                         <span>Injectables</span>
                                         <span class="icon ion-ios-arrow-down"></span>
                                     </div>
-                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-AuthModule-23d855078395ada59872074bccbee70605473b6afbda9c261e292d6b0642aa3fb5f69585329edf0d4f08a70f3329ec91383b88c14200c740de2dead3f6b8216f"' :
-                                        'id="xs-injectables-links-module-AuthModule-23d855078395ada59872074bccbee70605473b6afbda9c261e292d6b0642aa3fb5f69585329edf0d4f08a70f3329ec91383b88c14200c740de2dead3f6b8216f"' }>
+                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-AuthModule-fc913e20e060c65beee094375d78c7261315382e0a652c48e87cdfe9c3526ced3b31f24da01d82b99341b27bf32328c791235ade26c9e3382f37d37967e1aaf1"' :
+                                        'id="xs-injectables-links-module-AuthModule-fc913e20e060c65beee094375d78c7261315382e0a652c48e87cdfe9c3526ced3b31f24da01d82b99341b27bf32328c791235ade26c9e3382f37d37967e1aaf1"' }>
                                         <li class="link">
                                             <a href="injectables/AccountRepo.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >AccountRepo</a>
+                                        </li>
+                                        <li class="link">
+                                            <a href="injectables/AccountService.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >AccountService</a>
                                         </li>
                                         <li class="link">
                                             <a href="injectables/AccountUc.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >AccountUc</a>
@@ -155,6 +158,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                         </li>
                                         <li class="link">
                                             <a href="injectables/PermissionService.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >PermissionService</a>
+                                        </li>
+                                        <li class="link">
+                                            <a href="injectables/SystemRepo.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >SystemRepo</a>
                                         </li>
                                         <li class="link">
                                             <a href="injectables/UserRepo.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >UserRepo</a>
@@ -950,10 +956,19 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/AccountByIdParams.html" data-type="entity-link" >AccountByIdParams</a>
                             </li>
                             <li class="link">
+                                <a href="classes/AccountDto.html" data-type="entity-link" >AccountDto</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/AccountEntityToDtoMapper.html" data-type="entity-link" >AccountEntityToDtoMapper</a>
+                            </li>
+                            <li class="link">
                                 <a href="classes/AccountResponse.html" data-type="entity-link" >AccountResponse</a>
                             </li>
                             <li class="link">
                                 <a href="classes/AccountResponseMapper.html" data-type="entity-link" >AccountResponseMapper</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/AccountSaveDto.html" data-type="entity-link" >AccountSaveDto</a>
                             </li>
                             <li class="link">
                                 <a href="classes/AccountSearchListResponse.html" data-type="entity-link" >AccountSearchListResponse</a>

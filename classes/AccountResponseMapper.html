@@ -87,6 +87,10 @@
                                     <span class="modifier">Static</span>
                                 <a href="#mapToResponse" >mapToResponse</a>
                             </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#mapToResponseFromEntity" >mapToResponseFromEntity</a>
+                            </li>
                         </ul>
                     </td>
                 </tr>
@@ -121,15 +125,86 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>mapToResponse(account: <a href="../classes/Account.html" target="_self">Account</a>)</code>
+                    <code>mapToResponse(account: <a href="../classes/AccountDto.html" target="_self">AccountDto</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="5"
-                            class="link-to-prism">apps/server/src/modules/authentication/mapper/account-response.mapper.ts:5</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="15"
+                            class="link-to-prism">apps/server/src/modules/authentication/mapper/account-response.mapper.ts:15</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>account</td>
+                                    <td>
+                                                <code><a href="../classes/AccountDto.html" target="_self" >AccountDto</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/AccountResponse.html" target="_self" >AccountResponse</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="mapToResponseFromEntity"></a>
+                    <span class="name">
+                        <span class="modifier">Static</span>
+                        <span ><b>mapToResponseFromEntity</b></span>
+                        <a href="#mapToResponseFromEntity"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>mapToResponseFromEntity(account: <a href="../classes/Account.html" target="_self">Account</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="6"
+                            class="link-to-prism">apps/server/src/modules/authentication/mapper/account-response.mapper.ts:6</a></div>
                 </td>
             </tr>
 
@@ -189,12 +264,22 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Account } from &#x27;@shared/domain&#x27;;
 import { AccountResponse } from &#x27;../controller/dto&#x27;;
+import { AccountDto } from &#x27;../services/dto/account.dto&#x27;;
 
 export class AccountResponseMapper {
-	static mapToResponse(account: Account): AccountResponse {
+	static mapToResponseFromEntity(account: Account): AccountResponse {
 		return new AccountResponse({
 			id: account.id,
 			userId: account.user.id,
+			activated: account.activated ?? false,
+			username: account.username,
+		});
+	}
+
+	static mapToResponse(account: AccountDto): AccountResponse {
+		return new AccountResponse({
+			id: account.id,
+			userId: account.userId,
 			activated: account.activated ?? false,
 			username: account.username,
 		});
