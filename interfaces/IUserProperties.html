@@ -117,6 +117,13 @@
                                 </li>
                                 <li>
                                             <span class="modifier">Optional</span>
+                                        <a href="#ldapDn" 
+>
+                                            ldapDn
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
                                         <a href="#ldapId" 
 >
                                             ldapId
@@ -331,6 +338,44 @@
                         <tbody>
                                 <tr>
                                     <td class="col-md-4">
+                                        <a name="ldapDn"></a>
+                                        <span class="name "><b>ldapDn</b>
+                                            <a href="#ldapDn">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>ldapDn:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
                                         <a name="ldapId"></a>
                                         <span class="name "><b>ldapId</b>
                                             <a href="#ldapId">
@@ -493,6 +538,7 @@ export interface IUserProperties {
 	lastName: string;
 	school: School;
 	roles: Role[];
+	ldapDn?: string;
 	ldapId?: string;
 	language?: LanguageType;
 	forcePasswordChange?: boolean;
@@ -526,6 +572,10 @@ export class User extends BaseEntityWithTimestamps implements IEntityWithSchool 
 
 	@Property({ nullable: true })
 	@Index()
+	ldapDn?: string;
+
+	@Property({ nullable: true })
+	@Index()
 	ldapId?: string;
 
 	@Property({ nullable: true })
@@ -544,6 +594,7 @@ export class User extends BaseEntityWithTimestamps implements IEntityWithSchool 
 		this.email &#x3D; props.email;
 		this.school &#x3D; props.school;
 		this.roles.set(props.roles);
+		this.ldapDn &#x3D; props.ldapDn;
 		this.ldapId &#x3D; props.ldapId;
 		this.forcePasswordChange &#x3D; props.forcePasswordChange;
 		this.language &#x3D; props.language;
