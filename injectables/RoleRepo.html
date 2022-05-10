@@ -238,7 +238,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>findByName(name: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    <code>findByName(name: <a href="../entitys/Role.html" target="_self">RoleName</a>)</code>
                 </td>
             </tr>
 
@@ -269,7 +269,7 @@
                                 <tr>
                                     <td>name</td>
                                     <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                <code><a href="../entitys/Role.html" target="_self" >RoleName</a></code>
                                     </td>
 
                                     <td>
@@ -519,7 +519,7 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
-import { EntityId, Role } from &#x27;@shared/domain&#x27;;
+import { EntityId, Role, RoleName } from &#x27;@shared/domain&#x27;;
 import { BaseRepo } from &#x27;../base.repo&#x27;;
 
 @Injectable()
@@ -530,7 +530,7 @@ export class RoleRepo extends BaseRepo&lt;Role&gt; {
 
 	cacheExpiration &#x3D; 60000;
 
-	async findByName(name: string): Promise&lt;Role&gt; {
+	async findByName(name: RoleName): Promise&lt;Role&gt; {
 		const role &#x3D; await this._em.findOneOrFail(Role, { name }, { cache: this.cacheExpiration });
 		return role;
 	}

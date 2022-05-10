@@ -2296,7 +2296,7 @@ You shall not explicitly declare the AMQPConnection in your modules since it wil
 		firstName: &#x60;John${sequence}&#x60;,
 		lastName: &#x60;Doe${sequence}&#x60;,
 		email: &#x60;user-${sequence}@example.com&#x60;,
-		roleNames: [RoleName.STUDENT],
+		roleNames: [RoleName.STUDENT as IImportUserRoleName],
 		classNames: [&#x27;firstClass&#x27;],
 		flagged: false,
 	};
@@ -2663,7 +2663,7 @@ You shall not explicitly declare the AMQPConnection in your modules since it wil
                     <td class="col-md-4">
                         <i>Default value : </i><code>BaseFactory.define&lt;Role, IRoleProperties&gt;(Role, ({ sequence }) &#x3D;&gt; {
 	return {
-		name: &#x60;role #${sequence}&#x60;,
+		name: &#x60;role #${sequence}&#x60; as unknown as RoleName,
 	};
 })</code>
                     </td>

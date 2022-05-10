@@ -115,10 +115,16 @@
                             <a href="#IAccountProperties" title="apps/server/src/shared/domain/entity/account.entity.ts" ><b>IAccountProperties</b>&nbsp;&nbsp;&nbsp;(apps/.../account.entity.ts)</a>
                         </li>
                         <li>
+                            <a href="#IImportUserRoleName" title="apps/server/src/shared/domain/entity/import-user.entity.ts" ><b>IImportUserRoleName</b>&nbsp;&nbsp;&nbsp;(apps/.../import-user.entity.ts)</a>
+                        </li>
+                        <li>
                             <a href="#IPermissionsAndRoles" title="apps/server/src/shared/domain/interface/user.ts" ><b>IPermissionsAndRoles</b>&nbsp;&nbsp;&nbsp;(apps/.../user.ts)</a>
                         </li>
                         <li>
                             <a href="#IUpdateNews" title="apps/server/src/shared/domain/types/news.types.ts" ><b>IUpdateNews</b>&nbsp;&nbsp;&nbsp;(apps/.../news.types.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#IUserRoleName" title="apps/server/src/shared/domain/rules/rolename.enum.ts" ><b>IUserRoleName</b>&nbsp;&nbsp;&nbsp;(apps/.../rolename.enum.ts)</a>
                         </li>
                         <li>
                             <a href="#LearnroomMetadata" title="apps/server/src/shared/domain/types/learnroom.types.ts" ><b>LearnroomMetadata</b>&nbsp;&nbsp;&nbsp;(apps/.../learnroom.types.ts)</a>
@@ -130,10 +136,10 @@
                             <a href="#MongoDatabaseModuleOptions" title="apps/server/src/shared/infra/database/mongo-memory-database/types.ts" ><b>MongoDatabaseModuleOptions</b>&nbsp;&nbsp;&nbsp;(apps/.../types.ts)</a>
                         </li>
                         <li>
-                            <a href="#NewsTarget" title="apps/server/src/shared/domain/types/news.types.ts" ><b>NewsTarget</b>&nbsp;&nbsp;&nbsp;(apps/.../news.types.ts)</a>
+                            <a href="#NewsPermission" title="apps/server/src/modules/news/uc/news.uc.ts" ><b>NewsPermission</b>&nbsp;&nbsp;&nbsp;(apps/.../news.uc.ts)</a>
                         </li>
                         <li>
-                            <a href="#Permission" title="apps/server/src/modules/news/uc/news.uc.ts" ><b>Permission</b>&nbsp;&nbsp;&nbsp;(apps/.../news.uc.ts)</a>
+                            <a href="#NewsTarget" title="apps/server/src/shared/domain/types/news.types.ts" ><b>NewsTarget</b>&nbsp;&nbsp;&nbsp;(apps/.../news.types.ts)</a>
                         </li>
                         <li>
                             <a href="#RequestLoggingBody" title="apps/server/src/core/logger/interfaces/logger.interface.ts" ><b>RequestLoggingBody</b>&nbsp;&nbsp;&nbsp;(apps/.../logger.interface.ts)</a>
@@ -164,6 +170,9 @@
                         </li>
                         <li>
                             <a href="#TaskParentDescriptions" title="apps/server/src/shared/domain/entity/task.entity.ts" ><b>TaskParentDescriptions</b>&nbsp;&nbsp;&nbsp;(apps/.../task.entity.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#UserImportPermissions" title="apps/server/src/modules/user-import/uc/user-import.uc.ts" ><b>UserImportPermissions</b>&nbsp;&nbsp;&nbsp;(apps/.../user-import.uc.ts)</a>
                         </li>
                         <li>
                             <a href="#UserPreferences" title="apps/server/src/modules/authentication/uc/account.uc.ts" ><b>UserPreferences</b>&nbsp;&nbsp;&nbsp;(apps/.../account.uc.ts)</a>
@@ -562,6 +571,24 @@
             </tr>
         </tbody>
     </table>
+</section>    <h3>apps/server/src/shared/domain/entity/import-user.entity.ts</h3>
+    <section>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="IImportUserRoleName"></a>
+                    <span class="name "><b>IImportUserRoleName</b><a href="#IImportUserRoleName"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>        <code><a href="../entitys/Role.html" target="_self" >RoleName.ADMINISTRATOR | RoleName.TEACHER | RoleName.STUDENT</a></code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </section>    <h3>apps/server/src/shared/domain/interface/user.ts</h3>
     <section>
     <table class="table table-sm table-bordered">
@@ -615,6 +642,24 @@
             <tr>
                 <td class="col-md-4">
                     <code>        <code><a href="../classes/School.html" target="_self" >School | Team | Course</a></code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>apps/server/src/shared/domain/rules/rolename.enum.ts</h3>
+    <section>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="IUserRoleName"></a>
+                    <span class="name "><b>IUserRoleName</b><a href="#IUserRoleName"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>        <code><a href="../entitys/Role.html" target="_self" >RoleName.ADMINISTRATOR | RoleName.TEACHER | RoleName.STUDENT | RoleName.SUPERHERO | RoleName.EXPERT | RoleName.DEMOSTUDENT | RoleName.DEMOTEACHER</a></code>
 </code>
                 </td>
             </tr>
@@ -694,13 +739,13 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="Permission"></a>
-                    <span class="name "><b>Permission</b><a href="#Permission"><span class="icon ion-ios-link"></span></a></span>
+                    <a name="NewsPermission"></a>
+                    <span class="name "><b>NewsPermission</b><a href="#NewsPermission"><span class="icon ion-ios-link"></span></a></span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-                    <code>    <code>&quot;NEWS_VIEW&quot; | &quot;NEWS_EDIT&quot;</code>
+                    <code>        <code><a href="../miscellaneous/enumerations.html#Permission" target="_self" >Permission.NEWS_VIEW | Permission.NEWS_EDIT</a></code>
 </code>
                 </td>
             </tr>
@@ -809,6 +854,24 @@
             <tr>
                 <td class="col-md-4">
                     <code>    <code>literal type</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>apps/server/src/modules/user-import/uc/user-import.uc.ts</h3>
+    <section>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="UserImportPermissions"></a>
+                    <span class="name "><b>UserImportPermissions</b><a href="#UserImportPermissions"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>        <code><a href="../miscellaneous/enumerations.html#Permission" target="_self" >Permission.SCHOOL_IMPORT_USERS_MIGRATE | Permission.SCHOOL_IMPORT_USERS_UPDATE | Permission.SCHOOL_IMPORT_USERS_VIEW</a></code>
 </code>
                 </td>
             </tr>
