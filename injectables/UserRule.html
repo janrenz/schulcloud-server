@@ -40,7 +40,7 @@
 
 <ol class="breadcrumb">
   <li>Injectables</li>
-  <li >AuthorizationService</li>
+  <li >UserRule</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -58,7 +58,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/modules/authorization/authorization.service.ts</code>
+            <code>apps/server/src/shared/domain/rules/user.rule.ts</code>
         </p>
 
 
@@ -85,19 +85,7 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                    <span class="modifier">Async</span>
-                                <a href="#checkPermissionByReferences" >checkPermissionByReferences</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Async</span>
-                                <a href="#getUserWithPermissions" >getUserWithPermissions</a>
-                            </li>
-                            <li>
                                 <a href="#hasPermission" >hasPermission</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Async</span>
-                                <a href="#hasPermissionByReferences" >hasPermissionByReferences</a>
                             </li>
                             <li>
                                 <a href="#checkAllPermissions" >checkAllPermissions</a>
@@ -145,286 +133,12 @@
     </table>
 </section>
 
-            <section>
-    <h3 id="constructor">Constructor</h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-<code>constructor(courseRule: <a href="../injectables/CourseRule.html" target="_self">CourseRule</a>, taskRule: <a href="../injectables/TaskRule.html" target="_self">TaskRule</a>, schoolRule: <a href="../injectables/SchoolRule.html" target="_self">SchoolRule</a>, userRule: <a href="../injectables/UserRule.html" target="_self">UserRule</a>, service: <a href="../injectables/ReferenceLoader.html" target="_self">ReferenceLoader</a>)</code>
-                    </td>
-                </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">apps/server/src/modules/authorization/authorization.service.ts:20</a></div>
-                            </td>
-                        </tr>
-
-                <tr>
-                    <td class="col-md-4">
-                            <div>
-                                    <b>Parameters :</b>
-                                    <table class="params">
-                                        <thead>
-                                            <tr>
-                                                <td>Name</td>
-                                                    <td>Type</td>
-                                                <td>Optional</td>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                                <tr>
-                                                        <td>courseRule</td>
-                                                  
-                                                        <td>
-                                                                        <code><a href="../injectables/CourseRule.html" target="_self" >CourseRule</a></code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                                <tr>
-                                                        <td>taskRule</td>
-                                                  
-                                                        <td>
-                                                                        <code><a href="../injectables/TaskRule.html" target="_self" >TaskRule</a></code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                                <tr>
-                                                        <td>schoolRule</td>
-                                                  
-                                                        <td>
-                                                                        <code><a href="../injectables/SchoolRule.html" target="_self" >SchoolRule</a></code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                                <tr>
-                                                        <td>userRule</td>
-                                                  
-                                                        <td>
-                                                                        <code><a href="../injectables/UserRule.html" target="_self" >UserRule</a></code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                                <tr>
-                                                        <td>service</td>
-                                                  
-                                                        <td>
-                                                                        <code><a href="../injectables/ReferenceLoader.html" target="_self" >ReferenceLoader</a></code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                        </tbody>
-                                    </table>
-                            </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-</section>
 
             <section>
     
     <h3 id="methods">
         Methods
     </h3>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="checkPermissionByReferences"></a>
-                    <span class="name">
-                        <span class="modifier">Async</span>
-                        <span ><b>checkPermissionByReferences</b></span>
-                        <a href="#checkPermissionByReferences"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>checkPermissionByReferences(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, entityName: <a href="../undefineds/AllowedAuthorizationEntityType.html" target="_self">AllowedAuthorizationEntityType</a>, entityId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, context: <a href="../interfaces/IPermissionContext.html" target="_self">IPermissionContext</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="66"
-                            class="link-to-prism">apps/server/src/modules/authorization/authorization.service.ts:66</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>userId</td>
-                                    <td>
-                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>entityName</td>
-                                    <td>
-                                                <code><a href="../miscellaneous/enumerations.html#AllowedAuthorizationEntityType" target="_self" >AllowedAuthorizationEntityType</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>entityId</td>
-                                    <td>
-                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>context</td>
-                                    <td>
-                                                <code><a href="../interfaces/IPermissionContext.html" target="_self" >IPermissionContext</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="getUserWithPermissions"></a>
-                    <span class="name">
-                        <span class="modifier">Async</span>
-                        <span ><b>getUserWithPermissions</b></span>
-                        <a href="#getUserWithPermissions"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>getUserWithPermissions(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="77"
-                            class="link-to-prism">apps/server/src/modules/authorization/authorization.service.ts:77</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>userId</td>
-                                    <td>
-                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>    <code>unknown</code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
     <table class="table table-sm table-bordered">
         <tbody>
             <tr>
@@ -438,7 +152,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>hasPermission(user: <a href="../interfaces/User.html" target="_self">User</a>, entity: <a href="../interfaces/IEntity.html" target="_self">IEntity</a>, context: <a href="../interfaces/IPermissionContext.html" target="_self">IPermissionContext</a>)</code>
+<code>hasPermission(user: <a href="../interfaces/User.html" target="_self">User</a>, entity: <a href="../interfaces/User.html" target="_self">User</a>, context: <a href="../interfaces/IPermissionContext.html" target="_self">IPermissionContext</a>)</code>
                 </td>
             </tr>
 
@@ -451,7 +165,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/BaseRule.html#source" target="_self" >BaseRule:31</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/BaseRule.html#source" target="_self" >BaseRule:8</a></code>
 </div>
                 </td>
             </tr>
@@ -487,7 +201,7 @@
                                 <tr>
                                     <td>entity</td>
                                     <td>
-                                                <code><a href="../interfaces/IEntity.html" target="_self" >IEntity</a></code>
+                                                <code><a href="../interfaces/User.html" target="_self" >User</a></code>
                                     </td>
 
                                     <td>
@@ -515,113 +229,6 @@
                     </div>
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="hasPermissionByReferences"></a>
-                    <span class="name">
-                        <span class="modifier">Async</span>
-                        <span ><b>hasPermissionByReferences</b></span>
-                        <a href="#hasPermissionByReferences"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>hasPermissionByReferences(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, entityName: <a href="../undefineds/AllowedAuthorizationEntityType.html" target="_self">AllowedAuthorizationEntityType</a>, entityId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, context: <a href="../interfaces/IPermissionContext.html" target="_self">IPermissionContext</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="49"
-                            class="link-to-prism">apps/server/src/modules/authorization/authorization.service.ts:49</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>userId</td>
-                                    <td>
-                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>entityName</td>
-                                    <td>
-                                                <code><a href="../miscellaneous/enumerations.html#AllowedAuthorizationEntityType" target="_self" >AllowedAuthorizationEntityType</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>entityId</td>
-                                    <td>
-                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>context</td>
-                                    <td>
-                                                <code><a href="../interfaces/IPermissionContext.html" target="_self" >IPermissionContext</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>    <code>Promise&lt;boolean&gt;</code>
 
                     </div>
                     <div class="io-description">
@@ -1641,84 +1248,18 @@ Please make sure you populate them before calling this method.</p>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ForbiddenException, Injectable, NotImplementedException } from &#x27;@nestjs/common&#x27;;
-import {
-	BaseRule,
-	Course,
-	CourseRule,
-	EntityId,
-	IEntity,
-	School,
-	Task,
-	TaskRule,
-	User,
-	UserRule,
-} from &#x27;@shared/domain&#x27;;
-import { IPermissionContext } from &#x27;@shared/domain/interface/permission&#x27;;
-import { SchoolRule } from &#x27;@shared/domain/rules/school.rule&#x27;;
-import { AllowedAuthorizationEntityType } from &#x27;./interfaces&#x27;;
-import { ReferenceLoader } from &#x27;./reference.loader&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
+import type { User } from &#x27;../entity&#x27;;
+import { IPermissionContext } from &#x27;../interface/permission&#x27;;
+import { BaseRule } from &#x27;./base.rule&#x27;;
 
 @Injectable()
-export class AuthorizationService extends BaseRule {
-	constructor(
-		private readonly courseRule: CourseRule,
-		private readonly taskRule: TaskRule,
-		private readonly schoolRule: SchoolRule,
-		private readonly userRule: UserRule,
-		private readonly service: ReferenceLoader
-	) {
-		super();
-	}
+export class UserRule extends BaseRule {
+	hasPermission(user: User, entity: User, context: IPermissionContext): boolean {
+		const hasPermission &#x3D; this.hasAllPermissions(user, context.requiredPermissions);
+		const isOwner &#x3D; user &#x3D;&#x3D;&#x3D; entity;
 
-	hasPermission(user: User, entity: IEntity, context: IPermissionContext): boolean {
-		let permission &#x3D; false;
-
-		if (entity instanceof Task) {
-			permission &#x3D; this.taskRule.hasPermission(user, entity, context);
-		} else if (entity instanceof Course) {
-			permission &#x3D; this.courseRule.hasPermission(user, entity, context);
-		} else if (entity instanceof School) {
-			permission &#x3D; this.schoolRule.hasPermission(user, entity, context);
-		} else if (entity instanceof User) {
-			permission &#x3D; this.userRule.hasPermission(user, entity, context);
-		} else {
-			throw new NotImplementedException(&#x27;RULE_NOT_IMPLEMENT&#x27;);
-		}
-
-		return permission;
-	}
-
-	async hasPermissionByReferences(
-		userId: EntityId,
-		entityName: AllowedAuthorizationEntityType,
-		entityId: EntityId,
-		context: IPermissionContext
-	): Promise&lt;boolean&gt; {
-		let permission &#x3D; false;
-		const [user, entity] &#x3D; await Promise.all([
-			this.service.getUserWithPermissions(userId),
-			this.service.loadEntity(entityName, entityId),
-		]);
-
-		permission &#x3D; this.hasPermission(user, entity, context);
-
-		return permission;
-	}
-
-	async checkPermissionByReferences(
-		userId: EntityId,
-		entityName: AllowedAuthorizationEntityType,
-		entityId: EntityId,
-		context: IPermissionContext
-	) {
-		if (!(await this.hasPermissionByReferences(userId, entityName, entityId, context))) {
-			throw new ForbiddenException();
-		}
-	}
-
-	async getUserWithPermissions(userId: EntityId) {
-		return this.service.getUserWithPermissions(userId);
+		return hasPermission || isOwner;
 	}
 }
 </code></pre>
@@ -1764,7 +1305,7 @@ export class AuthorizationService extends BaseRule {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
-            var COMPODOC_CURRENT_PAGE_URL = 'AuthorizationService.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'UserRule.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

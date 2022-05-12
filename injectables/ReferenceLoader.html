@@ -40,7 +40,7 @@
 
 <ol class="breadcrumb">
   <li>Injectables</li>
-  <li >JwtStrategy</li>
+  <li >ReferenceLoader</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -58,7 +58,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/modules/authentication/strategy/jwt.strategy.ts</code>
+            <code>apps/server/src/modules/authorization/reference.loader.ts</code>
         </p>
 
 
@@ -80,7 +80,11 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Async</span>
-                                <a href="#validate" >validate</a>
+                                <a href="#getUserWithPermissions" >getUserWithPermissions</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#loadEntity" >loadEntity</a>
                             </li>
                         </ul>
                     </td>
@@ -100,12 +104,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(userRepo: <a href="../injectables/UserRepo.html" target="_self">UserRepo</a>, jwtValidationAdapter: <a href="../injectables/JwtValidationAdapter.html" target="_self">JwtValidationAdapter</a>)</code>
+<code>constructor(userRepo: <a href="../injectables/UserRepo.html" target="_self">UserRepo</a>, courseRepo: <a href="../injectables/CourseRepo.html" target="_self">CourseRepo</a>, taskRepo: <a href="../injectables/TaskRepo.html" target="_self">TaskRepo</a>, schoolRepo: <a href="../injectables/SchoolRepo.html" target="_self">SchoolRepo</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">apps/server/src/modules/authentication/strategy/jwt.strategy.ts:11</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">apps/server/src/modules/authorization/reference.loader.ts:7</a></div>
                             </td>
                         </tr>
 
@@ -135,10 +139,34 @@
                                                     
                                                 </tr>
                                                 <tr>
-                                                        <td>jwtValidationAdapter</td>
+                                                        <td>courseRepo</td>
                                                   
                                                         <td>
-                                                                        <code><a href="../injectables/JwtValidationAdapter.html" target="_self" >JwtValidationAdapter</a></code>
+                                                                        <code><a href="../injectables/CourseRepo.html" target="_self" >CourseRepo</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>taskRepo</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/TaskRepo.html" target="_self" >TaskRepo</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>schoolRepo</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/SchoolRepo.html" target="_self" >SchoolRepo</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -164,26 +192,26 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="validate"></a>
+                    <a name="getUserWithPermissions"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
-                        <span ><b>validate</b></span>
-                        <a href="#validate"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>getUserWithPermissions</b></span>
+                        <a href="#getUserWithPermissions"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>validate(payload: <a href="../interfaces/JwtPayload.html" target="_self">JwtPayload</a>)</code>
+                    <code>getUserWithPermissions(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="24"
-                            class="link-to-prism">apps/server/src/modules/authentication/strategy/jwt.strategy.ts:24</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="31"
+                            class="link-to-prism">apps/server/src/modules/authorization/reference.loader.ts:31</a></div>
                 </td>
             </tr>
 
@@ -204,9 +232,9 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>payload</td>
+                                    <td>userId</td>
                                     <td>
-                                                <code><a href="../interfaces/JwtPayload.html" target="_self" >JwtPayload</a></code>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
                                     </td>
 
                                     <td>
@@ -221,7 +249,90 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../interfaces/JwtPayload.html" target="_self" >Promise&lt;JwtPayload&gt;</a></code>
+                        <b>Returns : </b>    <code>unknown</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadEntity"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>loadEntity</b></span>
+                        <a href="#loadEntity"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>loadEntity(entityName: <a href="../undefineds/AllowedAuthorizationEntityType.html" target="_self">AllowedAuthorizationEntityType</a>, entityId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="15"
+                            class="link-to-prism">apps/server/src/modules/authorization/reference.loader.ts:15</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>entityName</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/enumerations.html#AllowedAuthorizationEntityType" target="_self" >AllowedAuthorizationEntityType</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>entityId</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>unknown</code>
 
                     </div>
                     <div class="io-description">
@@ -237,42 +348,40 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable, UnauthorizedException } from &#x27;@nestjs/common&#x27;;
-import { PassportStrategy } from &#x27;@nestjs/passport&#x27;;
-import { UserRepo } from &#x27;@shared/repo&#x27;;
-import { ExtractJwt, Strategy } from &#x27;passport-jwt&#x27;;
-import { jwtConstants } from &#x27;../constants&#x27;;
-import { JwtPayload } from &#x27;../interface/jwt-payload&#x27;;
-import { JwtExtractor } from &#x27;./jwt-extractor&#x27;;
-import { JwtValidationAdapter } from &#x27;./jwt-validation.adapter&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable, NotImplementedException } from &#x27;@nestjs/common&#x27;;
+import { Course, EntityId, School, Task, User } from &#x27;@shared/domain&#x27;;
+import { CourseRepo, SchoolRepo, TaskRepo, UserRepo } from &#x27;@shared/repo&#x27;;
+import { AllowedAuthorizationEntityType } from &#x27;./interfaces&#x27;;
 
 @Injectable()
-export class JwtStrategy extends PassportStrategy(Strategy) {
-	constructor(private readonly userRepo: UserRepo, private readonly jwtValidationAdapter: JwtValidationAdapter) {
-		super({
-			jwtFromRequest: ExtractJwt.fromExtractors([
-				ExtractJwt.fromAuthHeaderAsBearerToken(),
-				JwtExtractor.fromCookie(&#x27;jwt&#x27;),
-			]),
-			ignoreExpiration: false,
-			secretOrKey: jwtConstants.secret,
-			...jwtConstants.jwtOptions,
-		});
+export class ReferenceLoader {
+	constructor(
+		private readonly userRepo: UserRepo,
+		private readonly courseRepo: CourseRepo,
+		private readonly taskRepo: TaskRepo,
+		private readonly schoolRepo: SchoolRepo
+	) {}
+
+	async loadEntity(entityName: AllowedAuthorizationEntityType, entityId: EntityId) {
+		let entity: Task | Course | User | School;
+		if (entityName &#x3D;&#x3D;&#x3D; AllowedAuthorizationEntityType.Task) {
+			entity &#x3D; await this.taskRepo.findById(entityId);
+		} else if (entityName &#x3D;&#x3D;&#x3D; AllowedAuthorizationEntityType.Course) {
+			entity &#x3D; await this.courseRepo.findById(entityId);
+		} else if (entityName &#x3D;&#x3D;&#x3D; AllowedAuthorizationEntityType.School) {
+			entity &#x3D; await this.schoolRepo.findById(entityId);
+		} else if (entityName &#x3D;&#x3D;&#x3D; AllowedAuthorizationEntityType.User) {
+			entity &#x3D; await this.userRepo.findById(entityId);
+		} else {
+			throw new NotImplementedException(&#x27;REPO_NOT_IMPLEMENT&#x27;);
+		}
+		return entity;
 	}
 
-	async validate(payload: JwtPayload): Promise&lt;JwtPayload&gt; {
-		// check jwt is whitelisted and extend whitelist entry
-		const { accountId, jti, userId } &#x3D; payload;
-		await this.jwtValidationAdapter.isWhitelisted(accountId, jti);
-		// check user exists
-		try {
-			await this.userRepo.findById(userId);
-		} catch (err) {
-			throw new UnauthorizedException(&#x27;Unauthorized.&#x27;);
-		}
+	async getUserWithPermissions(userId: EntityId) {
+		const user &#x3D; await this.userRepo.findById(userId, true);
 
-		// TODO: check user/account is active and has one role
-		return payload;
+		return user;
 	}
 }
 </code></pre>
@@ -318,7 +427,7 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
-            var COMPODOC_CURRENT_PAGE_URL = 'JwtStrategy.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'ReferenceLoader.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

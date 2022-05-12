@@ -94,6 +94,9 @@
                                 <a href="#checkOneOfPermissions" >checkOneOfPermissions</a>
                             </li>
                             <li>
+                                <a href="#checkPermission" >checkPermission</a>
+                            </li>
+                            <li>
                                 <a href="#checkSameSchool" >checkSameSchool</a>
                             </li>
                             <li>
@@ -149,7 +152,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>hasPermission(user: <a href="../interfaces/User.html" target="_self">User</a>, course: <a href="../entitys/Course.html" target="_self">Course</a>, action: <a href="../undefineds/Actions.html" target="_self">Actions</a>)</code>
+<code>hasPermission(user: <a href="../interfaces/User.html" target="_self">User</a>, entity: <a href="../entitys/Course.html" target="_self">Course</a>, context: <a href="../interfaces/IPermissionContext.html" target="_self">IPermissionContext</a>)</code>
                 </td>
             </tr>
 
@@ -162,7 +165,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/BaseRule.html#source" target="_self" >BaseRule:8</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/BaseRule.html#source" target="_self" >BaseRule:9</a></code>
 </div>
                 </td>
             </tr>
@@ -196,7 +199,7 @@
 
                                 </tr>
                                 <tr>
-                                    <td>course</td>
+                                    <td>entity</td>
                                     <td>
                                                 <code><a href="../entitys/Course.html" target="_self" >Course</a></code>
                                     </td>
@@ -208,9 +211,9 @@
 
                                 </tr>
                                 <tr>
-                                    <td>action</td>
+                                    <td>context</td>
                                     <td>
-                                                <code><a href="../miscellaneous/enumerations.html#Actions" target="_self" >Actions</a></code>
+                                                <code><a href="../interfaces/IPermissionContext.html" target="_self" >IPermissionContext</a></code>
                                     </td>
 
                                     <td>
@@ -261,7 +264,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/BaseRule.html#source" target="_self" >BaseRule:58</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/BaseRule.html#source" target="_self" >BaseRule:64</a></code>
 </div>
                 </td>
             </tr>
@@ -348,7 +351,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/BaseRule.html#source" target="_self" >BaseRule:77</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/BaseRule.html#source" target="_self" >BaseRule:83</a></code>
 </div>
                 </td>
             </tr>
@@ -413,6 +416,105 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="checkPermission"></a>
+                    <span class="name">
+                        <span ><b>checkPermission</b></span>
+                        <a href="#checkPermission"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>checkPermission(user: <a href="../interfaces/User.html" target="_self">User</a>, entity: <a href="../interfaces/IEntity.html" target="_self">IEntity</a>, context: <a href="../interfaces/IPermissionContext.html" target="_self">IPermissionContext</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../classes/BaseRule.html" target="_self" >BaseRule</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../classes/BaseRule.html#source" target="_self" >BaseRule:10</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>user</td>
+                                    <td>
+                                                <code><a href="../interfaces/User.html" target="_self" >User</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>entity</td>
+                                    <td>
+                                                <code><a href="../interfaces/IEntity.html" target="_self" >IEntity</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>context</td>
+                                    <td>
+                                                <code><a href="../interfaces/IPermissionContext.html" target="_self" >IPermissionContext</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="checkSameSchool"></a>
                     <span class="name">
                         <span ><b>checkSameSchool</b></span>
@@ -435,7 +537,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/BaseRule.html#source" target="_self" >BaseRule:118</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/BaseRule.html#source" target="_self" >BaseRule:124</a></code>
 </div>
                 </td>
             </tr>
@@ -522,7 +624,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/BaseRule.html#source" target="_self" >BaseRule:96</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/BaseRule.html#source" target="_self" >BaseRule:102</a></code>
 </div>
                 </td>
             </tr>
@@ -659,7 +761,7 @@ const userRefProps = [&amp;#39;creator&amp;#39;]
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/BaseRule.html#source" target="_self" >BaseRule:46</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/BaseRule.html#source" target="_self" >BaseRule:52</a></code>
 </div>
                 </td>
             </tr>
@@ -746,7 +848,7 @@ const userRefProps = [&amp;#39;creator&amp;#39;]
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/BaseRule.html#source" target="_self" >BaseRule:65</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/BaseRule.html#source" target="_self" >BaseRule:71</a></code>
 </div>
                 </td>
             </tr>
@@ -833,7 +935,7 @@ const userRefProps = [&amp;#39;creator&amp;#39;]
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/BaseRule.html#source" target="_self" >BaseRule:129</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/BaseRule.html#source" target="_self" >BaseRule:135</a></code>
 </div>
                 </td>
             </tr>
@@ -923,7 +1025,7 @@ For each other operations please define, use the string based permissions inside
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/BaseRule.html#source" target="_self" >BaseRule:111</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/BaseRule.html#source" target="_self" >BaseRule:117</a></code>
 </div>
                 </td>
             </tr>
@@ -1010,7 +1112,7 @@ For each other operations please define, use the string based permissions inside
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/BaseRule.html#source" target="_self" >BaseRule:15</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/BaseRule.html#source" target="_self" >BaseRule:21</a></code>
 </div>
                 </td>
             </tr>
@@ -1091,7 +1193,7 @@ Please make sure you populate them before calling this method.</p>
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/BaseRule.html#source" target="_self" >BaseRule:24</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/BaseRule.html#source" target="_self" >BaseRule:30</a></code>
 </div>
                 </td>
             </tr>
@@ -1147,18 +1249,24 @@ Please make sure you populate them before calling this method.</p>
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
-import type { Course, User } from &#x27;@shared/domain&#x27;;
+import type { Course, User } from &#x27;../entity&#x27;;
+import { IPermissionContext } from &#x27;../interface/permission&#x27;;
 import { Actions } from &#x27;./actions.enum&#x27;;
 import { BaseRule } from &#x27;./base.rule&#x27;;
 
 @Injectable()
 export class CourseRule extends BaseRule {
-	hasPermission(user: User, course: Course, action: Actions): boolean {
-		const hasPermission &#x3D; this.hasAccessToEntity(
-			user,
-			course,
-			action &#x3D;&#x3D;&#x3D; Actions.read ? [&#x27;teachers&#x27;, &#x27;substitutionTeachers&#x27;, &#x27;students&#x27;] : [&#x27;teachers&#x27;, &#x27;substitutionTeachers&#x27;]
-		);
+	hasPermission(user: User, entity: Course, context: IPermissionContext): boolean {
+		const { action, requiredPermissions } &#x3D; context;
+		const hasPermission &#x3D;
+			this.hasAllPermissions(user, requiredPermissions) &amp;&amp;
+			this.hasAccessToEntity(
+				user,
+				entity,
+				action &#x3D;&#x3D;&#x3D; Actions.read
+					? [&#x27;teachers&#x27;, &#x27;substitutionTeachers&#x27;, &#x27;students&#x27;]
+					: [&#x27;teachers&#x27;, &#x27;substitutionTeachers&#x27;]
+			);
 
 		return hasPermission;
 	}
