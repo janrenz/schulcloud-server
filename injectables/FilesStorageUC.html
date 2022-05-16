@@ -1629,8 +1629,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="321"
-                            class="link-to-prism">apps/server/src/modules/files-storage/uc/files-storage.uc.ts:321</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="333"
+                            class="link-to-prism">apps/server/src/modules/files-storage/uc/files-storage.uc.ts:333</a></div>
                 </td>
             </tr>
 
@@ -2407,25 +2407,37 @@ export class FilesStorageUC {
 		targetParams: FileRecordParams
 	): Promise&lt;Counted&lt;FileRecord[]&gt;&gt; {
 		this.logger.debug({ action: &#x27;copy&#x27;, sourceFileRecords, targetParams });
-		let newRecords: FileRecord[] &#x3D; [];
+		const newRecords: FileRecord[] &#x3D; [];
 		const paths: Array&lt;ICopyFiles&gt; &#x3D; [];
 
-		newRecords &#x3D; await Promise.all(
+		await Promise.all(
 			sourceFileRecords.map(async (item) &#x3D;&gt; {
-				const entity &#x3D; this.getNewFileRecord(item.name, item.size, item.mimeType, targetParams, userId);
-				entity.securityCheck &#x3D; item.securityCheck;
-				await this.fileRecordRepo.save(entity);
+				if (item.securityCheck.status !&#x3D;&#x3D; ScanStatus.BLOCKED &amp;&amp; !item.deletedSince) {
+					const entity &#x3D; this.getNewFileRecord(item.name, item.size, item.mimeType, targetParams, userId);
+					if (item.securityCheck.status !&#x3D;&#x3D; ScanStatus.PENDING) {
+						entity.securityCheck &#x3D; item.securityCheck;
+					}
 
-				paths.push({
-					sourcePath: [item.schoolId, item.id].join(&#x27;/&#x27;),
-					targetPath: [entity.schoolId, entity.id].join(&#x27;/&#x27;),
-				});
-				return entity;
+					await this.fileRecordRepo.save(entity);
+					newRecords.push(entity);
+					paths.push({
+						sourcePath: [item.schoolId, item.id].join(&#x27;/&#x27;),
+						targetPath: [entity.schoolId, entity.id].join(&#x27;/&#x27;),
+					});
+				}
 			})
 		);
 
 		try {
 			await this.storageClient.copy(paths);
+			const pendedFileRecords &#x3D; newRecords.filter((item) &#x3D;&gt; {
+				if (item.securityCheck.status &#x3D;&#x3D;&#x3D; ScanStatus.PENDING) {
+					return this.antivirusService.send(item);
+				}
+				return false;
+			});
+
+			await Promise.all(pendedFileRecords);
 			return [newRecords, newRecords.length];
 		} catch (error) {
 			await this.fileRecordRepo.delete(newRecords);
