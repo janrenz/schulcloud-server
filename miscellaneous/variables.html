@@ -232,7 +232,7 @@
                             <a href="#PARAGRAPH_TAGS" title="apps/server/src/shared/controller/transformer/sanitize-html.transformer.ts" ><b>PARAGRAPH_TAGS</b>&nbsp;&nbsp;&nbsp;(apps/.../sanitize-html.transformer.ts)</a>
                         </li>
                         <li>
-                            <a href="#passwordPattern" title="apps/server/src/modules/authentication/controller/dto/password-pattern.ts" ><b>passwordPattern</b>&nbsp;&nbsp;&nbsp;(apps/.../password-pattern.ts)</a>
+                            <a href="#passwordPattern" title="apps/server/src/modules/account/controller/dto/password-pattern.ts" ><b>passwordPattern</b>&nbsp;&nbsp;&nbsp;(apps/.../password-pattern.ts)</a>
                         </li>
                         <li>
                             <a href="#PermissionContexts" title="apps/server/src/modules/files-storage/files-storage.const.ts" ><b>PermissionContexts</b>&nbsp;&nbsp;&nbsp;(apps/.../files-storage.const.ts)</a>
@@ -352,8 +352,7 @@
                         <i>Default value : </i><code>BaseFactory.define&lt;Account, IAccountProperties&gt;(Account, ({ sequence }) &#x3D;&gt; {
 	return {
 		username: &#x60;account #${sequence}&#x60;,
-		user: userFactory.build(),
-		system: systemFactory.build(),
+		userId: new ObjectId(),
 	};
 })</code>
                     </td>
@@ -742,7 +741,7 @@ This allows adding console commands to execute provider methods.</p>
 			branches: 80,
 			functions: 80,
 			lines: 80,
-			statements: -8,
+			statements: -7,
 		},
 		// add custom paths: &#x27;./apps/server/path...&#x27;: { branches: X, functions: ... }
 	},
@@ -2668,7 +2667,7 @@ You shall not explicitly declare the AMQPConnection in your modules since it wil
         </tbody>
     </table>
 </section>
-    <h3>apps/server/src/modules/authentication/controller/dto/password-pattern.ts</h3>
+    <h3>apps/server/src/modules/account/controller/dto/password-pattern.ts</h3>
     <section>
     <h3></h3>    <table class="table table-sm table-bordered">
         <tbody>
