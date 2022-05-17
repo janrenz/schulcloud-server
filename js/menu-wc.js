@@ -791,13 +791,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/TaskModule.html" data-type="entity-link" >TaskModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#controllers-links-module-TaskModule-f267694564473dcc155299a7d22f6ebe8399e4caacbbc50307553ca111a04b862c7426d02b69976c4062f5b225fbe9513a47ea342c8d4cd4a9dd3d8144094f2d"' : 'data-target="#xs-controllers-links-module-TaskModule-f267694564473dcc155299a7d22f6ebe8399e4caacbbc50307553ca111a04b862c7426d02b69976c4062f5b225fbe9513a47ea342c8d4cd4a9dd3d8144094f2d"' }>
+                                            'data-target="#controllers-links-module-TaskModule-c6f1962533efa7ca872c9d1499d49f3522457935c5643a34d9515206d3aaf6525b79b12eeecff4197cd782bc4af845bf51e08b50d2ed59245066c1321571cf70"' : 'data-target="#xs-controllers-links-module-TaskModule-c6f1962533efa7ca872c9d1499d49f3522457935c5643a34d9515206d3aaf6525b79b12eeecff4197cd782bc4af845bf51e08b50d2ed59245066c1321571cf70"' }>
                                             <span class="icon ion-md-swap"></span>
                                             <span>Controllers</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="controllers-links-module-TaskModule-f267694564473dcc155299a7d22f6ebe8399e4caacbbc50307553ca111a04b862c7426d02b69976c4062f5b225fbe9513a47ea342c8d4cd4a9dd3d8144094f2d"' :
-                                            'id="xs-controllers-links-module-TaskModule-f267694564473dcc155299a7d22f6ebe8399e4caacbbc50307553ca111a04b862c7426d02b69976c4062f5b225fbe9513a47ea342c8d4cd4a9dd3d8144094f2d"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="controllers-links-module-TaskModule-c6f1962533efa7ca872c9d1499d49f3522457935c5643a34d9515206d3aaf6525b79b12eeecff4197cd782bc4af845bf51e08b50d2ed59245066c1321571cf70"' :
+                                            'id="xs-controllers-links-module-TaskModule-c6f1962533efa7ca872c9d1499d49f3522457935c5643a34d9515206d3aaf6525b79b12eeecff4197cd782bc4af845bf51e08b50d2ed59245066c1321571cf70"' }>
                                             <li class="link">
                                                 <a href="controllers/TaskController.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >TaskController</a>
                                             </li>
@@ -805,18 +805,24 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                     </li>
                                 <li class="chapter inner">
                                     <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                        'data-target="#injectables-links-module-TaskModule-f267694564473dcc155299a7d22f6ebe8399e4caacbbc50307553ca111a04b862c7426d02b69976c4062f5b225fbe9513a47ea342c8d4cd4a9dd3d8144094f2d"' : 'data-target="#xs-injectables-links-module-TaskModule-f267694564473dcc155299a7d22f6ebe8399e4caacbbc50307553ca111a04b862c7426d02b69976c4062f5b225fbe9513a47ea342c8d4cd4a9dd3d8144094f2d"' }>
+                                        'data-target="#injectables-links-module-TaskModule-c6f1962533efa7ca872c9d1499d49f3522457935c5643a34d9515206d3aaf6525b79b12eeecff4197cd782bc4af845bf51e08b50d2ed59245066c1321571cf70"' : 'data-target="#xs-injectables-links-module-TaskModule-c6f1962533efa7ca872c9d1499d49f3522457935c5643a34d9515206d3aaf6525b79b12eeecff4197cd782bc4af845bf51e08b50d2ed59245066c1321571cf70"' }>
                                         <span class="icon ion-md-arrow-round-down"></span>
                                         <span>Injectables</span>
                                         <span class="icon ion-ios-arrow-down"></span>
                                     </div>
-                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-TaskModule-f267694564473dcc155299a7d22f6ebe8399e4caacbbc50307553ca111a04b862c7426d02b69976c4062f5b225fbe9513a47ea342c8d4cd4a9dd3d8144094f2d"' :
-                                        'id="xs-injectables-links-module-TaskModule-f267694564473dcc155299a7d22f6ebe8399e4caacbbc50307553ca111a04b862c7426d02b69976c4062f5b225fbe9513a47ea342c8d4cd4a9dd3d8144094f2d"' }>
+                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-TaskModule-c6f1962533efa7ca872c9d1499d49f3522457935c5643a34d9515206d3aaf6525b79b12eeecff4197cd782bc4af845bf51e08b50d2ed59245066c1321571cf70"' :
+                                        'id="xs-injectables-links-module-TaskModule-c6f1962533efa7ca872c9d1499d49f3522457935c5643a34d9515206d3aaf6525b79b12eeecff4197cd782bc4af845bf51e08b50d2ed59245066c1321571cf70"' }>
                                         <li class="link">
                                             <a href="injectables/CourseRepo.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >CourseRepo</a>
                                         </li>
                                         <li class="link">
                                             <a href="injectables/LessonRepo.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >LessonRepo</a>
+                                        </li>
+                                        <li class="link">
+                                            <a href="injectables/TaskCopyService.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >TaskCopyService</a>
+                                        </li>
+                                        <li class="link">
+                                            <a href="injectables/TaskCopyUC.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >TaskCopyUC</a>
                                         </li>
                                         <li class="link">
                                             <a href="injectables/TaskRepo.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >TaskRepo</a>
@@ -1324,6 +1330,15 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/Task.html" data-type="entity-link" >Task</a>
                             </li>
                             <li class="link">
+                                <a href="classes/TaskCopyApiParams.html" data-type="entity-link" >TaskCopyApiParams</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/TaskCopyApiResponse.html" data-type="entity-link" >TaskCopyApiResponse</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/TaskCopyMapper.html" data-type="entity-link" >TaskCopyMapper</a>
+                            </li>
+                            <li class="link">
                                 <a href="classes/TaskFactory.html" data-type="entity-link" >TaskFactory</a>
                             </li>
                             <li class="link">
@@ -1506,6 +1521,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 </li>
                                 <li class="link">
                                     <a href="injectables/SystemRepo.html" data-type="entity-link" >SystemRepo</a>
+                                </li>
+                                <li class="link">
+                                    <a href="injectables/TaskCopyService.html" data-type="entity-link" >TaskCopyService</a>
                                 </li>
                                 <li class="link">
                                     <a href="injectables/TaskRepo.html" data-type="entity-link" >TaskRepo</a>

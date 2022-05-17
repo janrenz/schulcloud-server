@@ -85,6 +85,10 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Async</span>
+                                <a href="#copyTask" >copyTask</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
                                 <a href="#delete" >delete</a>
                             </li>
                             <li>
@@ -124,6 +128,108 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="copyTask"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>copyTask</b></span>
+                        <a href="#copyTask"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>copyTask(currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>, taskId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, params: <a href="../classes/TaskCopyApiParams.html" target="_self">TaskCopyApiParams</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Post(&#x27;:id/copy&#x27;)<br /></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="85"
+                            class="link-to-prism">apps/server/src/modules/task/controller/task.controller.ts:85</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>currentUser</td>
+                                    <td>
+                                                <code><a href="../interfaces/ICurrentUser.html" target="_self" >ICurrentUser</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>taskId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>params</td>
+                                    <td>
+                                                <code><a href="../classes/TaskCopyApiParams.html" target="_self" >TaskCopyApiParams</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../entitys/Task.html" target="_self" >Promise&lt;TaskCopyApiResponse&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="delete"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
@@ -149,8 +255,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="72"
-                            class="link-to-prism">apps/server/src/modules/task/controller/task.controller.ts:72</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="75"
+                            class="link-to-prism">apps/server/src/modules/task/controller/task.controller.ts:75</a></div>
                 </td>
             </tr>
 
@@ -239,8 +345,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="18"
-                            class="link-to-prism">apps/server/src/modules/task/controller/task.controller.ts:18</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="21"
+                            class="link-to-prism">apps/server/src/modules/task/controller/task.controller.ts:21</a></div>
                 </td>
             </tr>
 
@@ -329,8 +435,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="32"
-                            class="link-to-prism">apps/server/src/modules/task/controller/task.controller.ts:32</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="35"
+                            class="link-to-prism">apps/server/src/modules/task/controller/task.controller.ts:35</a></div>
                 </td>
             </tr>
 
@@ -419,8 +525,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="48"
-                            class="link-to-prism">apps/server/src/modules/task/controller/task.controller.ts:48</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="51"
+                            class="link-to-prism">apps/server/src/modules/task/controller/task.controller.ts:51</a></div>
                 </td>
             </tr>
 
@@ -509,8 +615,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="60"
-                            class="link-to-prism">apps/server/src/modules/task/controller/task.controller.ts:60</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="63"
+                            class="link-to-prism">apps/server/src/modules/task/controller/task.controller.ts:63</a></div>
                 </td>
             </tr>
 
@@ -574,21 +680,24 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Controller, Delete, Get, Param, Patch, Query } from &#x27;@nestjs/common&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Body, Controller, Delete, Get, Param, Patch, Post, Query } from &#x27;@nestjs/common&#x27;;
 import { ApiTags } from &#x27;@nestjs/swagger&#x27;;
 import { PaginationParams } from &#x27;@shared/controller/&#x27;;
 import { ParseObjectIdPipe } from &#x27;@shared/controller/pipe&#x27;;
 import { ICurrentUser } from &#x27;@shared/domain&#x27;;
 import { Authenticate, CurrentUser } from &#x27;@src/modules/authentication/decorator/auth.decorator&#x27;;
+import { TaskCopyMapper } from &#x27;../mapper/task-copy.mapper&#x27;;
 import { TaskMapper } from &#x27;../mapper/task.mapper&#x27;;
+import { TaskCopyUC } from &#x27;../uc/task-copy.uc&#x27;;
 import { TaskUC } from &#x27;../uc/task.uc&#x27;;
-import { TaskListResponse, TaskResponse } from &#x27;./dto&#x27;;
+import { TaskCopyApiResponse, TaskListResponse, TaskResponse } from &#x27;./dto&#x27;;
+import { TaskCopyApiParams } from &#x27;./dto/task-copy.params&#x27;;
 
 @ApiTags(&#x27;Task&#x27;)
 @Authenticate(&#x27;jwt&#x27;)
 @Controller(&#x27;tasks&#x27;)
 export class TaskController {
-	constructor(private readonly taskUc: TaskUC) {}
+	constructor(private readonly taskUc: TaskUC, private readonly taskCopyUc: TaskCopyUC) {}
 
 	@Get()
 	async findAll(
@@ -652,6 +761,21 @@ export class TaskController {
 		const result &#x3D; await this.taskUc.delete(currentUser.userId, taskId);
 
 		return result;
+	}
+
+	@Post(&#x27;:id/copy&#x27;)
+	async copyTask(
+		@CurrentUser() currentUser: ICurrentUser,
+		@Param(&#x27;id&#x27;, ParseObjectIdPipe) taskId: string,
+		@Body() params: TaskCopyApiParams
+	): Promise&lt;TaskCopyApiResponse&gt; {
+		const copyStatus &#x3D; await this.taskCopyUc.copyTask(
+			currentUser.userId,
+			taskId,
+			TaskCopyMapper.mapTaskCopyToDomain(params)
+		);
+		const dto &#x3D; TaskCopyMapper.mapToResponse(copyStatus);
+		return dto;
 	}
 }
 </code></pre>
