@@ -163,14 +163,14 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@Post(&#x27;/copy/:schoolId/:parentType/:parentId&#x27;)<br /></code>
+                    <code>@ApiOperation({summary: &#x27;Copy all files of a parent entityId to a target entitId&#x27;})<br />@ApiResponse({status: 201, type: FileRecordListResponse})<br />@ApiResponse({status: 400, type: ApiValidationError})<br />@ApiResponse({status: 403, type: ForbiddenException})<br />@ApiResponse({status: 500, type: InternalServerErrorException})<br />@Post(&#x27;/copy/:schoolId/:parentType/:parentId&#x27;)<br /></code>
                 </td>
             </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="160"
-                            class="link-to-prism">apps/server/src/modules/files-storage/controller/files-storage.controller.ts:160</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="220"
+                            class="link-to-prism">apps/server/src/modules/files-storage/controller/files-storage.controller.ts:220</a></div>
                 </td>
             </tr>
 
@@ -265,14 +265,14 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@Post(&#x27;/copy/:fileRecordId&#x27;)<br /></code>
+                    <code>@ApiOperation({summary: &#x27;Copy a single file in the same target entityId scope.&#x27;})<br />@ApiResponse({status: 201, type: FileRecordResponse})<br />@ApiResponse({status: 400, type: ApiValidationError})<br />@ApiResponse({status: 403, type: ForbiddenException})<br />@ApiResponse({status: 404, type: NotFoundException})<br />@ApiResponse({status: 500, type: InternalServerErrorException})<br />@Post(&#x27;/copy/:fileRecordId&#x27;)<br /></code>
                 </td>
             </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="181"
-                            class="link-to-prism">apps/server/src/modules/files-storage/controller/files-storage.controller.ts:181</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="247"
+                            class="link-to-prism">apps/server/src/modules/files-storage/controller/files-storage.controller.ts:247</a></div>
                 </td>
             </tr>
 
@@ -367,14 +367,14 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@Delete(&#x27;/delete/:schoolId/:parentType/:parentId&#x27;)<br />@UseInterceptors(RequestLoggingInterceptor)<br /></code>
+                    <code>@ApiOperation({summary: &#x27;Mark all files of a parent entityId for deletion. The files are permanently deleted after a certain time.&#x27;})<br />@ApiResponse({status: 200, type: FileRecordListResponse})<br />@ApiResponse({status: 400, type: ApiValidationError})<br />@ApiResponse({status: 403, type: ForbiddenException})<br />@ApiResponse({status: 500, type: InternalServerErrorException})<br />@Delete(&#x27;/delete/:schoolId/:parentType/:parentId&#x27;)<br />@UseInterceptors(RequestLoggingInterceptor)<br /></code>
                 </td>
             </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="103"
-                            class="link-to-prism">apps/server/src/modules/files-storage/controller/files-storage.controller.ts:103</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="144"
+                            class="link-to-prism">apps/server/src/modules/files-storage/controller/files-storage.controller.ts:144</a></div>
                 </td>
             </tr>
 
@@ -457,14 +457,14 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@Delete(&#x27;/delete/:fileRecordId&#x27;)<br />@UseInterceptors(RequestLoggingInterceptor)<br /></code>
+                    <code>@ApiOperation({summary: &#x27;Mark a single file for deletion. The files are permanently deleted after a certain time.&#x27;})<br />@ApiResponse({status: 200, type: FileRecordResponse})<br />@ApiResponse({status: 400, type: ApiValidationError})<br />@ApiResponse({status: 403, type: ForbiddenException})<br />@ApiResponse({status: 500, type: InternalServerErrorException})<br />@Delete(&#x27;/delete/:fileRecordId&#x27;)<br />@UseInterceptors(RequestLoggingInterceptor)<br /></code>
                 </td>
             </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="120"
-                            class="link-to-prism">apps/server/src/modules/files-storage/controller/files-storage.controller.ts:120</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="166"
+                            class="link-to-prism">apps/server/src/modules/files-storage/controller/files-storage.controller.ts:166</a></div>
                 </td>
             </tr>
 
@@ -547,14 +547,14 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@Get(&#x27;/download/:fileRecordId/:fileName&#x27;)<br /></code>
+                    <code>@ApiOperation({summary: &#x27;Streamable download of a binary file.&#x27;})<br />@ApiResponse({status: 200, type: StreamableFile})<br />@ApiResponse({status: 400, type: ApiValidationError})<br />@ApiResponse({status: 403, type: ForbiddenException})<br />@ApiResponse({status: 404, type: NotFoundException})<br />@ApiResponse({status: 406, type: NotAcceptableException})<br />@ApiResponse({status: 500, type: InternalServerErrorException})<br />@Get(&#x27;/download/:fileRecordId/:fileName&#x27;)<br /></code>
                 </td>
             </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="56"
-                            class="link-to-prism">apps/server/src/modules/files-storage/controller/files-storage.controller.ts:56</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="75"
+                            class="link-to-prism">apps/server/src/modules/files-storage/controller/files-storage.controller.ts:75</a></div>
                 </td>
             </tr>
 
@@ -637,14 +637,14 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@Get(&#x27;/list/:schoolId/:parentType/:parentId&#x27;)<br /></code>
+                    <code>@ApiOperation({summary: &#x27;Get a list of file meta data of a parent entityId.&#x27;})<br />@ApiResponse({status: 200, type: FileRecordListResponse})<br />@ApiResponse({status: 400, type: ApiValidationError})<br />@ApiResponse({status: 403, type: ForbiddenException})<br />@Get(&#x27;/list/:schoolId/:parentType/:parentId&#x27;)<br /></code>
                 </td>
             </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="69"
-                            class="link-to-prism">apps/server/src/modules/files-storage/controller/files-storage.controller.ts:69</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="92"
+                            class="link-to-prism">apps/server/src/modules/files-storage/controller/files-storage.controller.ts:92</a></div>
                 </td>
             </tr>
 
@@ -739,14 +739,14 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@Patch(&#x27;/rename/:fileRecordId/&#x27;)<br />@UseInterceptors(RequestLoggingInterceptor)<br /></code>
+                    <code>@ApiOperation({summary: &#x27;Rename a single file.&#x27;})<br />@ApiResponse({status: 200, type: FileRecordResponse})<br />@ApiResponse({status: 400, type: ApiValidationError})<br />@ApiResponse({status: 403, type: ForbiddenException})<br />@ApiResponse({status: 404, type: NotFoundException})<br />@ApiResponse({status: 409, type: ConflictException, description: &#x27;File with same name already exist in parent scope.&#x27;})<br />@Patch(&#x27;/rename/:fileRecordId/&#x27;)<br />@UseInterceptors(RequestLoggingInterceptor)<br /></code>
                 </td>
             </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="89"
-                            class="link-to-prism">apps/server/src/modules/files-storage/controller/files-storage.controller.ts:89</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="122"
+                            class="link-to-prism">apps/server/src/modules/files-storage/controller/files-storage.controller.ts:122</a></div>
                 </td>
             </tr>
 
@@ -841,14 +841,14 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@Post(&#x27;/restore/:schoolId/:parentType/:parentId&#x27;)<br /></code>
+                    <code>@ApiOperation({summary: &#x27;Restore all files of a parent entityId that are marked for deletion.&#x27;})<br />@ApiResponse({status: 201, type: FileRecordListResponse})<br />@ApiResponse({status: 400, type: ApiValidationError})<br />@ApiResponse({status: 403, type: ForbiddenException})<br />@Post(&#x27;/restore/:schoolId/:parentType/:parentId&#x27;)<br /></code>
                 </td>
             </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="132"
-                            class="link-to-prism">apps/server/src/modules/files-storage/controller/files-storage.controller.ts:132</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="182"
+                            class="link-to-prism">apps/server/src/modules/files-storage/controller/files-storage.controller.ts:182</a></div>
                 </td>
             </tr>
 
@@ -931,14 +931,14 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@Post(&#x27;/restore/:fileRecordId&#x27;)<br /></code>
+                    <code>@ApiOperation({summary: &#x27;Restore a single file that is marked for deletion.&#x27;})<br />@ApiResponse({status: 201, type: FileRecordResponse})<br />@ApiResponse({status: 400, type: ApiValidationError})<br />@ApiResponse({status: 403, type: ForbiddenException})<br />@ApiResponse({status: 404, type: NotFoundException})<br />@Post(&#x27;/restore/:fileRecordId&#x27;)<br /></code>
                 </td>
             </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="148"
-                            class="link-to-prism">apps/server/src/modules/files-storage/controller/files-storage.controller.ts:148</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="203"
+                            class="link-to-prism">apps/server/src/modules/files-storage/controller/files-storage.controller.ts:203</a></div>
                 </td>
             </tr>
 
@@ -1021,14 +1021,14 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@ApiConsumes(&#x27;multipart/form-data&#x27;)<br />@Post(&#x27;/upload/:schoolId/:parentType/:parentId&#x27;)<br /></code>
+                    <code>@ApiOperation({summary: &#x27;Streamable upload of a binary file.&#x27;})<br />@ApiResponse({status: 201, type: FileRecordResponse})<br />@ApiResponse({status: 400, type: ApiValidationError})<br />@ApiResponse({status: 400, type: BadRequestException})<br />@ApiResponse({status: 403, type: ForbiddenException})<br />@ApiResponse({status: 500, type: InternalServerErrorException})<br />@ApiConsumes(&#x27;multipart/form-data&#x27;)<br />@Post(&#x27;/upload/:schoolId/:parentType/:parentId&#x27;)<br /></code>
                 </td>
             </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="42"
-                            class="link-to-prism">apps/server/src/modules/files-storage/controller/files-storage.controller.ts:42</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="54"
+                            class="link-to-prism">apps/server/src/modules/files-storage/controller/files-storage.controller.ts:54</a></div>
                 </td>
             </tr>
 
@@ -1117,10 +1117,16 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
+	BadRequestException,
 	Body,
+	ConflictException,
 	Controller,
 	Delete,
+	ForbiddenException,
 	Get,
+	InternalServerErrorException,
+	NotAcceptableException,
+	NotFoundException,
 	Param,
 	Patch,
 	Post,
@@ -1129,8 +1135,8 @@
 	StreamableFile,
 	UseInterceptors,
 } from &#x27;@nestjs/common&#x27;;
-import { ApiConsumes, ApiTags } from &#x27;@nestjs/swagger&#x27;;
-import { RequestLoggingInterceptor } from &#x27;@shared/common&#x27;;
+import { ApiConsumes, ApiOperation, ApiResponse, ApiTags } from &#x27;@nestjs/swagger&#x27;;
+import { ApiValidationError, RequestLoggingInterceptor } from &#x27;@shared/common&#x27;;
 import { PaginationParams } from &#x27;@shared/controller&#x27;;
 import { ICurrentUser } from &#x27;@shared/domain&#x27;;
 import { Authenticate, CurrentUser } from &#x27;@src/modules/authentication/decorator/auth.decorator&#x27;;
@@ -1155,6 +1161,12 @@ import {
 export class FilesStorageController {
 	constructor(private readonly filesStorageUC: FilesStorageUC, private readonly fileRecordUC: FileRecordUC) {}
 
+	@ApiOperation({ summary: &#x27;Streamable upload of a binary file.&#x27; })
+	@ApiResponse({ status: 201, type: FileRecordResponse })
+	@ApiResponse({ status: 400, type: ApiValidationError })
+	@ApiResponse({ status: 400, type: BadRequestException })
+	@ApiResponse({ status: 403, type: ForbiddenException })
+	@ApiResponse({ status: 500, type: InternalServerErrorException })
 	@ApiConsumes(&#x27;multipart/form-data&#x27;)
 	@Post(&#x27;/upload/:schoolId/:parentType/:parentId&#x27;)
 	async upload(
@@ -1170,6 +1182,13 @@ export class FilesStorageController {
 		return response;
 	}
 
+	@ApiOperation({ summary: &#x27;Streamable download of a binary file.&#x27; })
+	@ApiResponse({ status: 200, type: StreamableFile })
+	@ApiResponse({ status: 400, type: ApiValidationError })
+	@ApiResponse({ status: 403, type: ForbiddenException })
+	@ApiResponse({ status: 404, type: NotFoundException })
+	@ApiResponse({ status: 406, type: NotAcceptableException })
+	@ApiResponse({ status: 500, type: InternalServerErrorException })
 	@Get(&#x27;/download/:fileRecordId/:fileName&#x27;)
 	async download(
 		@Param() params: DownloadFileParams,
@@ -1183,6 +1202,10 @@ export class FilesStorageController {
 		});
 	}
 
+	@ApiOperation({ summary: &#x27;Get a list of file meta data of a parent entityId.&#x27; })
+	@ApiResponse({ status: 200, type: FileRecordListResponse })
+	@ApiResponse({ status: 400, type: ApiValidationError })
+	@ApiResponse({ status: 403, type: ForbiddenException })
 	@Get(&#x27;/list/:schoolId/:parentType/:parentId&#x27;)
 	async list(
 		@Param() params: FileRecordParams,
@@ -1202,6 +1225,16 @@ export class FilesStorageController {
 		return response;
 	}
 
+	@ApiOperation({ summary: &#x27;Rename a single file.&#x27; })
+	@ApiResponse({ status: 200, type: FileRecordResponse })
+	@ApiResponse({ status: 400, type: ApiValidationError })
+	@ApiResponse({ status: 403, type: ForbiddenException })
+	@ApiResponse({ status: 404, type: NotFoundException })
+	@ApiResponse({
+		status: 409,
+		type: ConflictException,
+		description: &#x27;File with same name already exist in parent scope.&#x27;,
+	})
 	@Patch(&#x27;/rename/:fileRecordId/&#x27;)
 	@UseInterceptors(RequestLoggingInterceptor)
 	async patchFilename(
@@ -1216,6 +1249,14 @@ export class FilesStorageController {
 		return response;
 	}
 
+	@ApiOperation({
+		summary:
+			&#x27;Mark all files of a parent entityId for deletion. The files are permanently deleted after a certain time.&#x27;,
+	})
+	@ApiResponse({ status: 200, type: FileRecordListResponse })
+	@ApiResponse({ status: 400, type: ApiValidationError })
+	@ApiResponse({ status: 403, type: ForbiddenException })
+	@ApiResponse({ status: 500, type: InternalServerErrorException })
 	@Delete(&#x27;/delete/:schoolId/:parentType/:parentId&#x27;)
 	@UseInterceptors(RequestLoggingInterceptor)
 	async delete(
@@ -1233,6 +1274,11 @@ export class FilesStorageController {
 		return response;
 	}
 
+	@ApiOperation({ summary: &#x27;Mark a single file for deletion. The files are permanently deleted after a certain time.&#x27; })
+	@ApiResponse({ status: 200, type: FileRecordResponse })
+	@ApiResponse({ status: 400, type: ApiValidationError })
+	@ApiResponse({ status: 403, type: ForbiddenException })
+	@ApiResponse({ status: 500, type: InternalServerErrorException })
 	@Delete(&#x27;/delete/:fileRecordId&#x27;)
 	@UseInterceptors(RequestLoggingInterceptor)
 	async deleteFile(
@@ -1246,6 +1292,10 @@ export class FilesStorageController {
 		return response;
 	}
 
+	@ApiOperation({ summary: &#x27;Restore all files of a parent entityId that are marked for deletion.&#x27; })
+	@ApiResponse({ status: 201, type: FileRecordListResponse })
+	@ApiResponse({ status: 400, type: ApiValidationError })
+	@ApiResponse({ status: 403, type: ForbiddenException })
 	@Post(&#x27;/restore/:schoolId/:parentType/:parentId&#x27;)
 	async restore(
 		@Param() params: FileRecordParams,
@@ -1262,6 +1312,11 @@ export class FilesStorageController {
 		return response;
 	}
 
+	@ApiOperation({ summary: &#x27;Restore a single file that is marked for deletion.&#x27; })
+	@ApiResponse({ status: 201, type: FileRecordResponse })
+	@ApiResponse({ status: 400, type: ApiValidationError })
+	@ApiResponse({ status: 403, type: ForbiddenException })
+	@ApiResponse({ status: 404, type: NotFoundException })
 	@Post(&#x27;/restore/:fileRecordId&#x27;)
 	async restoreFile(
 		@Param() params: SingleFileParams,
@@ -1274,6 +1329,11 @@ export class FilesStorageController {
 		return response;
 	}
 
+	@ApiOperation({ summary: &#x27;Copy all files of a parent entityId to a target entitId&#x27; })
+	@ApiResponse({ status: 201, type: FileRecordListResponse })
+	@ApiResponse({ status: 400, type: ApiValidationError })
+	@ApiResponse({ status: 403, type: ForbiddenException })
+	@ApiResponse({ status: 500, type: InternalServerErrorException })
 	@Post(&#x27;/copy/:schoolId/:parentType/:parentId&#x27;)
 	async copy(
 		@Param() params: FileRecordParams,
@@ -1295,6 +1355,12 @@ export class FilesStorageController {
 		return response;
 	}
 
+	@ApiOperation({ summary: &#x27;Copy a single file in the same target entityId scope.&#x27; })
+	@ApiResponse({ status: 201, type: FileRecordResponse })
+	@ApiResponse({ status: 400, type: ApiValidationError })
+	@ApiResponse({ status: 403, type: ForbiddenException })
+	@ApiResponse({ status: 404, type: NotFoundException })
+	@ApiResponse({ status: 500, type: InternalServerErrorException })
 	@Post(&#x27;/copy/:fileRecordId&#x27;)
 	async copyFile(
 		@Param() params: SingleFileParams,

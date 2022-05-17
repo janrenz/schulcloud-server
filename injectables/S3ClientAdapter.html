@@ -94,6 +94,7 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                    <span class="modifier">Public</span>
                                     <span class="modifier">Async</span>
                                 <a href="#copy" >copy</a>
                             </li>
@@ -103,6 +104,7 @@
                                 <a href="#create" >create</a>
                             </li>
                             <li>
+                                    <span class="modifier">Public</span>
                                     <span class="modifier">Async</span>
                                 <a href="#createBucket" >createBucket</a>
                             </li>
@@ -222,6 +224,7 @@
                 <td class="col-md-4">
                     <a name="copy"></a>
                     <span class="name">
+                        <span class="modifier">Public</span>
                         <span class="modifier">Async</span>
                         <span ><b>copy</b></span>
                         <a href="#copy"><span class="icon ion-ios-link"></span></a>
@@ -238,8 +241,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="116"
-                            class="link-to-prism">apps/server/src/modules/files-storage/client/s3-client.adapter.ts:116</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="136"
+                            class="link-to-prism">apps/server/src/modules/files-storage/client/s3-client.adapter.ts:136</a></div>
                 </td>
             </tr>
 
@@ -310,8 +313,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="56"
-                            class="link-to-prism">apps/server/src/modules/files-storage/client/s3-client.adapter.ts:56</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="65"
+                            class="link-to-prism">apps/server/src/modules/files-storage/client/s3-client.adapter.ts:65</a></div>
                 </td>
             </tr>
 
@@ -377,6 +380,7 @@
                 <td class="col-md-4">
                     <a name="createBucket"></a>
                     <span class="name">
+                        <span class="modifier">Public</span>
                         <span class="modifier">Async</span>
                         <span ><b>createBucket</b></span>
                         <a href="#createBucket"><span class="icon ion-ios-link"></span></a>
@@ -393,8 +397,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="28"
-                            class="link-to-prism">apps/server/src/modules/files-storage/client/s3-client.adapter.ts:28</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="29"
+                            class="link-to-prism">apps/server/src/modules/files-storage/client/s3-client.adapter.ts:29</a></div>
                 </td>
             </tr>
 
@@ -433,8 +437,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="83"
-                            class="link-to-prism">apps/server/src/modules/files-storage/client/s3-client.adapter.ts:83</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="95"
+                            class="link-to-prism">apps/server/src/modules/files-storage/client/s3-client.adapter.ts:95</a></div>
                 </td>
             </tr>
 
@@ -505,8 +509,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="40"
-                            class="link-to-prism">apps/server/src/modules/files-storage/client/s3-client.adapter.ts:40</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="43"
+                            class="link-to-prism">apps/server/src/modules/files-storage/client/s3-client.adapter.ts:43</a></div>
                 </td>
             </tr>
 
@@ -577,8 +581,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="132"
-                            class="link-to-prism">apps/server/src/modules/files-storage/client/s3-client.adapter.ts:132</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="160"
+                            class="link-to-prism">apps/server/src/modules/files-storage/client/s3-client.adapter.ts:160</a></div>
                 </td>
             </tr>
 
@@ -649,8 +653,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="99"
-                            class="link-to-prism">apps/server/src/modules/files-storage/client/s3-client.adapter.ts:99</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="115"
+                            class="link-to-prism">apps/server/src/modules/files-storage/client/s3-client.adapter.ts:115</a></div>
                 </td>
             </tr>
 
@@ -752,7 +756,7 @@
 	ServiceOutputTypes,
 } from &#x27;@aws-sdk/client-s3&#x27;;
 import { Upload } from &#x27;@aws-sdk/lib-storage&#x27;;
-import { Inject, Injectable } from &#x27;@nestjs/common&#x27;;
+import { Inject, Injectable, InternalServerErrorException } from &#x27;@nestjs/common&#x27;;
 import { Logger } from &#x27;@src/core/logger&#x27;;
 import { Readable } from &#x27;stream&#x27;;
 import { ICopyFiles, IFile, IGetFileResponse, IStorageClient, S3Config } from &#x27;../interface&#x27;;
@@ -769,36 +773,47 @@ export class S3ClientAdapter implements IStorageClient {
 		this.logger.setContext(S3ClientAdapter.name);
 	}
 
-	async createBucket() {
+	// is public but only used internally
+	public async createBucket() {
 		try {
+			this.logger.debug({ action: &#x27;create bucket&#x27;, params: { bucket: this.config.bucket } });
+
 			const req &#x3D; new CreateBucketCommand({ Bucket: this.config.bucket });
 			await this.client.send(req);
-		} catch (error) {
-			if (error instanceof Error) {
-				this.logger.error(&#x60;${error.message} &quot;${this.config.bucket}&quot;&#x60;);
+		} catch (err) {
+			if (err instanceof Error) {
+				this.logger.error(&#x60;${err.message} &quot;${this.config.bucket}&quot;&#x60;);
 			}
-			throw error;
+			throw new InternalServerErrorException(err, &#x27;S3ClientAdapter:createBucket&#x27;);
 		}
 	}
 
 	public async get(path: string): Promise&lt;IGetFileResponse&gt; {
-		const req &#x3D; new GetObjectCommand({
-			Bucket: this.config.bucket,
-			Key: path,
-		});
+		try {
+			this.logger.debug({ action: &#x27;get&#x27;, params: { path, bucket: this.config.bucket } });
 
-		const data &#x3D; await this.client.send(req);
+			const req &#x3D; new GetObjectCommand({
+				Bucket: this.config.bucket,
+				Key: path,
+			});
 
-		return {
-			data: data.Body as Readable,
-			contentType: data.ContentType,
-			contentLength: data.ContentLength,
-			etag: data.ETag,
-		};
+			const data &#x3D; await this.client.send(req);
+
+			return {
+				data: data.Body as Readable,
+				contentType: data.ContentType,
+				contentLength: data.ContentLength,
+				etag: data.ETag,
+			};
+		} catch (err) {
+			throw new InternalServerErrorException(err, &#x27;S3ClientAdapter:get&#x27;);
+		}
 	}
 
 	public async create(path: string, file: IFile): Promise&lt;ServiceOutputTypes&gt; {
 		try {
+			this.logger.debug({ action: &#x27;create&#x27;, params: { path, bucket: this.config.bucket } });
+
 			const req &#x3D; {
 				Body: file.buffer,
 				Bucket: this.config.bucket,
@@ -813,64 +828,81 @@ export class S3ClientAdapter implements IStorageClient {
 			const a &#x3D; await res.done();
 
 			return a;
-		} catch (error) {
+		} catch (err) {
 			// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-			if (error.Code &amp;&amp; error.Code &#x3D;&#x3D;&#x3D; &#x27;NoSuchBucket&#x27;) {
+			if (err.Code &amp;&amp; err.Code &#x3D;&#x3D;&#x3D; &#x27;NoSuchBucket&#x27;) {
 				await this.createBucket();
 
 				return this.create(path, file);
 			}
-			throw error;
+
+			throw new InternalServerErrorException(err, &#x27;S3ClientAdapter:create&#x27;);
 		}
 	}
 
 	public async delete(paths: string[]): Promise&lt;CopyObjectCommandOutput[]&gt; {
-		this.logger.debug({ action: &#x27;delete&#x27;, params: { paths, bucket: this.config.bucket } });
+		try {
+			this.logger.debug({ action: &#x27;delete&#x27;, params: { paths, bucket: this.config.bucket } });
 
-		const copyPaths &#x3D; paths.map((path) &#x3D;&gt; {
-			return { sourcePath: path, targetPath: &#x60;${this.deletedFolderName}/${path}&#x60; };
-		});
+			const copyPaths &#x3D; paths.map((path) &#x3D;&gt; {
+				return { sourcePath: path, targetPath: &#x60;${this.deletedFolderName}/${path}&#x60; };
+			});
 
-		const result &#x3D; await this.copy(copyPaths);
+			const result &#x3D; await this.copy(copyPaths);
 
-		// try catch with rollback is not needed,
-		// because the second copyRequest try override existing files in trash folder
-		await this.remove(paths);
+			// try catch with rollback is not needed,
+			// because the second copyRequest try override existing files in trash folder
+			await this.remove(paths);
 
-		return result;
+			return result;
+		} catch (err) {
+			throw new InternalServerErrorException(err, &#x27;S3ClientAdapter:delete&#x27;);
+		}
 	}
 
 	public async restore(paths: string[]): Promise&lt;CopyObjectCommandOutput[]&gt; {
-		this.logger.debug({ action: &#x27;restore&#x27;, params: { paths, bucket: this.config.bucket } });
+		try {
+			this.logger.debug({ action: &#x27;restore&#x27;, params: { paths, bucket: this.config.bucket } });
 
-		const copyPaths &#x3D; paths.map((path) &#x3D;&gt; {
-			return { sourcePath: &#x60;${this.deletedFolderName}/${path}&#x60;, targetPath: path };
-		});
-
-		const result &#x3D; await this.copy(copyPaths);
-
-		// try catch with rollback is not needed,
-		// because the second copyRequest try override existing files in trash folder
-		const deleteObjects &#x3D; copyPaths.map((p) &#x3D;&gt; p.sourcePath);
-		await this.remove(deleteObjects);
-
-		return result;
-	}
-
-	async copy(paths: ICopyFiles[]) {
-		const copyRequests &#x3D; paths.map(async (path) &#x3D;&gt; {
-			const req &#x3D; new CopyObjectCommand({
-				Bucket: this.config.bucket,
-				CopySource: &#x60;${this.config.bucket}/${path.sourcePath}&#x60;,
-				Key: &#x60;${path.targetPath}&#x60;,
+			const copyPaths &#x3D; paths.map((path) &#x3D;&gt; {
+				return { sourcePath: &#x60;${this.deletedFolderName}/${path}&#x60;, targetPath: path };
 			});
 
-			const data &#x3D; await this.client.send(req);
+			const result &#x3D; await this.copy(copyPaths);
 
-			return data;
-		});
+			// try catch with rollback is not needed,
+			// because the second copyRequest try override existing files in trash folder
+			const deleteObjects &#x3D; copyPaths.map((p) &#x3D;&gt; p.sourcePath);
+			await this.remove(deleteObjects);
 
-		return Promise.all(copyRequests);
+			return result;
+		} catch (err) {
+			throw new InternalServerErrorException(err, &#x27;S3ClientAdapter:restore&#x27;);
+		}
+	}
+
+	public async copy(paths: ICopyFiles[]) {
+		try {
+			this.logger.debug({ action: &#x27;copy&#x27;, params: { paths, bucket: this.config.bucket } });
+
+			const copyRequests &#x3D; paths.map(async (path) &#x3D;&gt; {
+				const req &#x3D; new CopyObjectCommand({
+					Bucket: this.config.bucket,
+					CopySource: &#x60;${this.config.bucket}/${path.sourcePath}&#x60;,
+					Key: &#x60;${path.targetPath}&#x60;,
+				});
+
+				const data &#x3D; await this.client.send(req);
+
+				return data;
+			});
+
+			const result &#x3D; await Promise.all(copyRequests);
+
+			return result;
+		} catch (err) {
+			throw new InternalServerErrorException(err, &#x27;S3ClientAdapter:copy&#x27;);
+		}
 	}
 
 	private async remove(paths: string[]) {

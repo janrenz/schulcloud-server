@@ -79,6 +79,9 @@
                             <a href="#CopyStatusEnum" title="apps/server/src/shared/domain/types/copy.types.ts" ><b>CopyStatusEnum</b>&nbsp;&nbsp;&nbsp;(apps/.../copy.types.ts)</a>
                         </li>
                         <li>
+                            <a href="#ErrorType" title="apps/server/src/modules/files-storage/files-storage.const.ts" ><b>ErrorType</b>&nbsp;&nbsp;&nbsp;(apps/.../files-storage.const.ts)</a>
+                        </li>
+                        <li>
                             <a href="#FileRecordParentType" title="apps/server/src/shared/domain/entity/filerecord.entity.ts" ><b>FileRecordParentType</b>&nbsp;&nbsp;&nbsp;(apps/.../filerecord.entity.ts)</a>
                         </li>
                         <li>
@@ -377,6 +380,69 @@
             </tbody>
         </table>
 </section>
+    <h3>apps/server/src/modules/files-storage/files-storage.const.ts</h3>
+    <section>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="ErrorType"></a>
+                        <span class="name "><b>ErrorType</b><a href="#ErrorType"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;FILE_IS_BLOCKED
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Value : </i><code>File is blocked.</code>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;FILE_NOT_FOUND
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Value : </i><code>File not found.</code>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="FilesStorageInternalActions"></a>
+                        <span class="name "><b>FilesStorageInternalActions</b><a href="#FilesStorageInternalActions"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;downloadBySecurityToken
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Value : </i><code>/file-security/download/:token</code>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;updateSecurityStatus
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Value : </i><code>/file-security/update-status/:token</code>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
     <h3>apps/server/src/shared/domain/entity/filerecord.entity.ts</h3>
     <section>
         <table class="table table-sm table-bordered">
@@ -465,39 +531,6 @@
                         <tr>
                             <td class="col-md-4">
                                 <i>Value : </i><code>blocked</code>
-                            </td>
-                        </tr>
-            </tbody>
-        </table>
-</section>
-    <h3>apps/server/src/modules/files-storage/files-storage.const.ts</h3>
-    <section>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="FilesStorageInternalActions"></a>
-                        <span class="name "><b>FilesStorageInternalActions</b><a href="#FilesStorageInternalActions"><span class="icon ion-ios-link"></span></a></span>
-                    </td>
-                </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                &nbsp;downloadBySecurityToken
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <i>Value : </i><code>/file-security/download/:token</code>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                &nbsp;updateSecurityStatus
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <i>Value : </i><code>/file-security/update-status/:token</code>
                             </td>
                         </tr>
             </tbody>
