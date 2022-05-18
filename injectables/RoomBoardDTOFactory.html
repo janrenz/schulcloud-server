@@ -104,7 +104,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="141" class="link-to-prism">apps/server/src/modules/learnroom/uc/room-board-dto.factory.ts:141</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="135" class="link-to-prism">apps/server/src/modules/learnroom/uc/room-board-dto.factory.ts:135</a></div>
                             </td>
                         </tr>
 
@@ -167,8 +167,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="144"
-                            class="link-to-prism">apps/server/src/modules/learnroom/uc/room-board-dto.factory.ts:144</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="138"
+                            class="link-to-prism">apps/server/src/modules/learnroom/uc/room-board-dto.factory.ts:138</a></div>
                 </td>
             </tr>
 
@@ -233,7 +233,7 @@ import {
 	TaskWithStatusVo,
 	User,
 } from &#x27;@shared/domain&#x27;;
-import { RoomBoardDTO, RoomBoardElementDTO, RoomBoardElementTypes } from &#x27;../types/room-board.types&#x27;;
+import { LessonMetaData, RoomBoardDTO, RoomBoardElementDTO, RoomBoardElementTypes } from &#x27;../types/room-board.types&#x27;;
 import { RoomsAuthorisationService } from &#x27;./rooms.authorisation.service&#x27;;
 
 class DtoCreator {
@@ -327,26 +327,20 @@ class DtoCreator {
 	private mapLessonElement(element: BoardElement): RoomBoardElementDTO {
 		const type &#x3D; RoomBoardElementTypes.LESSON;
 		const lesson &#x3D; element.target as Lesson;
-		const content &#x3D; {
+		const content: LessonMetaData &#x3D; {
 			id: lesson.id,
 			name: lesson.name,
 			hidden: lesson.hidden,
 			createdAt: lesson.createdAt,
 			updatedAt: lesson.updatedAt,
-			numberOfTasks: this.getNumberOfLessonTasks(lesson),
 			courseName: lesson.course.name,
+			numberOfPublishedTasks: lesson.getNumberOfPublishedTasks(),
 		};
-		return { type, content };
-	}
-
-	private getNumberOfLessonTasks(lesson: Lesson) {
-		let numberOfTasks: number;
 		if (this.isTeacher()) {
-			numberOfTasks &#x3D; lesson.getNumberOfTasksForTeacher();
-		} else {
-			numberOfTasks &#x3D; lesson.getNumberOfTasksForStudent();
+			content.numberOfDraftTasks &#x3D; lesson.getNumberOfDraftTasks();
+			content.numberOfPlannedTasks &#x3D; lesson.getNumberOfPlannedTasks();
 		}
-		return numberOfTasks;
+		return { type, content };
 	}
 
 	private buildDTOWithElements(elements: RoomBoardElementDTO[]): RoomBoardDTO {

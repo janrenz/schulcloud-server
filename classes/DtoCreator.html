@@ -120,10 +120,6 @@
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
-                                <a href="#getNumberOfLessonTasks" >getNumberOfLessonTasks</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Private</span>
                                 <a href="#isTeacher" >isTeacher</a>
                             </li>
                             <li>
@@ -339,8 +335,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="129"
-                            class="link-to-prism">apps/server/src/modules/learnroom/uc/room-board-dto.factory.ts:129</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="123"
+                            class="link-to-prism">apps/server/src/modules/learnroom/uc/room-board-dto.factory.ts:123</a></div>
                 </td>
             </tr>
 
@@ -521,77 +517,6 @@
                     </div>
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="getNumberOfLessonTasks"></a>
-                    <span class="name">
-                        <span class="modifier">Private</span>
-                        <span ><b>getNumberOfLessonTasks</b></span>
-                        <a href="#getNumberOfLessonTasks"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>getNumberOfLessonTasks(lesson: <a href="../entitys/Lesson.html" target="_self">Lesson</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="119"
-                            class="link-to-prism">apps/server/src/modules/learnroom/uc/room-board-dto.factory.ts:119</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>lesson</td>
-                                    <td>
-                                                <code><a href="../entitys/Lesson.html" target="_self" >Lesson</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
 
                     </div>
                     <div class="io-description">
@@ -912,7 +837,7 @@ import {
 	TaskWithStatusVo,
 	User,
 } from &#x27;@shared/domain&#x27;;
-import { RoomBoardDTO, RoomBoardElementDTO, RoomBoardElementTypes } from &#x27;../types/room-board.types&#x27;;
+import { LessonMetaData, RoomBoardDTO, RoomBoardElementDTO, RoomBoardElementTypes } from &#x27;../types/room-board.types&#x27;;
 import { RoomsAuthorisationService } from &#x27;./rooms.authorisation.service&#x27;;
 
 class DtoCreator {
@@ -1006,26 +931,20 @@ class DtoCreator {
 	private mapLessonElement(element: BoardElement): RoomBoardElementDTO {
 		const type &#x3D; RoomBoardElementTypes.LESSON;
 		const lesson &#x3D; element.target as Lesson;
-		const content &#x3D; {
+		const content: LessonMetaData &#x3D; {
 			id: lesson.id,
 			name: lesson.name,
 			hidden: lesson.hidden,
 			createdAt: lesson.createdAt,
 			updatedAt: lesson.updatedAt,
-			numberOfTasks: this.getNumberOfLessonTasks(lesson),
 			courseName: lesson.course.name,
+			numberOfPublishedTasks: lesson.getNumberOfPublishedTasks(),
 		};
-		return { type, content };
-	}
-
-	private getNumberOfLessonTasks(lesson: Lesson) {
-		let numberOfTasks: number;
 		if (this.isTeacher()) {
-			numberOfTasks &#x3D; lesson.getNumberOfTasksForTeacher();
-		} else {
-			numberOfTasks &#x3D; lesson.getNumberOfTasksForStudent();
+			content.numberOfDraftTasks &#x3D; lesson.getNumberOfDraftTasks();
+			content.numberOfPlannedTasks &#x3D; lesson.getNumberOfPlannedTasks();
 		}
-		return numberOfTasks;
+		return { type, content };
 	}
 
 	private buildDTOWithElements(elements: RoomBoardElementDTO[]): RoomBoardDTO {

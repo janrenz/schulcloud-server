@@ -620,12 +620,12 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable, ForbiddenException } from &#x27;@nestjs/common&#x27;;
-import { EntityId, Board } from &#x27;@shared/domain&#x27;;
-import { CourseRepo, LessonRepo, TaskRepo, UserRepo, BoardRepo } from &#x27;@shared/repo&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ForbiddenException, Injectable } from &#x27;@nestjs/common&#x27;;
+import { Board, EntityId } from &#x27;@shared/domain&#x27;;
+import { BoardRepo, CourseRepo, LessonRepo, TaskRepo, UserRepo } from &#x27;@shared/repo&#x27;;
+import { RoomBoardDTO } from &#x27;../types/room-board.types&#x27;;
 import { RoomBoardDTOFactory } from &#x27;./room-board-dto.factory&#x27;;
 import { RoomsAuthorisationService } from &#x27;./rooms.authorisation.service&#x27;;
-import { RoomBoardDTO } from &#x27;../types/room-board.types&#x27;;
 
 @Injectable()
 export class RoomsUc {
@@ -653,8 +653,8 @@ export class RoomsUc {
 	private async updateBoard(board: Board, roomId: EntityId, userId: EntityId): Promise&lt;Board&gt; {
 		const [courseLessons] &#x3D; await this.lessonRepo.findAllByCourseIds([roomId]);
 		const [courseTasks] &#x3D; await this.taskRepo.findBySingleParent(userId, roomId);
-		board.syncLessonsFromList(courseLessons);
 		board.syncTasksFromList(courseTasks);
+		board.syncLessonsFromList(courseLessons);
 		await this.boardRepo.save(board);
 		return board;
 	}
