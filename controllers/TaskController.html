@@ -153,8 +153,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="85"
-                            class="link-to-prism">apps/server/src/modules/task/controller/task.controller.ts:85</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="86"
+                            class="link-to-prism">apps/server/src/modules/task/controller/task.controller.ts:86</a></div>
                 </td>
             </tr>
 
@@ -216,7 +216,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../entitys/Task.html" target="_self" >Promise&lt;TaskCopyApiResponse&gt;</a></code>
+                        <b>Returns : </b>        <code><a href="../classes/CopyApiResponse.html" target="_self" >Promise&lt;CopyApiResponse&gt;</a></code>
 
                     </div>
                     <div class="io-description">
@@ -255,8 +255,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="75"
-                            class="link-to-prism">apps/server/src/modules/task/controller/task.controller.ts:75</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="76"
+                            class="link-to-prism">apps/server/src/modules/task/controller/task.controller.ts:76</a></div>
                 </td>
             </tr>
 
@@ -345,8 +345,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="21"
-                            class="link-to-prism">apps/server/src/modules/task/controller/task.controller.ts:21</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="22"
+                            class="link-to-prism">apps/server/src/modules/task/controller/task.controller.ts:22</a></div>
                 </td>
             </tr>
 
@@ -435,8 +435,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="35"
-                            class="link-to-prism">apps/server/src/modules/task/controller/task.controller.ts:35</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="36"
+                            class="link-to-prism">apps/server/src/modules/task/controller/task.controller.ts:36</a></div>
                 </td>
             </tr>
 
@@ -525,8 +525,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="51"
-                            class="link-to-prism">apps/server/src/modules/task/controller/task.controller.ts:51</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="52"
+                            class="link-to-prism">apps/server/src/modules/task/controller/task.controller.ts:52</a></div>
                 </td>
             </tr>
 
@@ -615,8 +615,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="63"
-                            class="link-to-prism">apps/server/src/modules/task/controller/task.controller.ts:63</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="64"
+                            class="link-to-prism">apps/server/src/modules/task/controller/task.controller.ts:64</a></div>
                 </td>
             </tr>
 
@@ -686,11 +686,12 @@ import { PaginationParams } from &#x27;@shared/controller/&#x27;;
 import { ParseObjectIdPipe } from &#x27;@shared/controller/pipe&#x27;;
 import { ICurrentUser } from &#x27;@shared/domain&#x27;;
 import { Authenticate, CurrentUser } from &#x27;@src/modules/authentication/decorator/auth.decorator&#x27;;
-import { TaskCopyMapper } from &#x27;../mapper/task-copy.mapper&#x27;;
+import { CopyApiResponse } from &#x27;@src/modules/learnroom/controller/dto/copy.response&#x27;;
+import { CopyMapper } from &#x27;@src/modules/learnroom/mapper/copy.mapper&#x27;;
 import { TaskMapper } from &#x27;../mapper/task.mapper&#x27;;
 import { TaskCopyUC } from &#x27;../uc/task-copy.uc&#x27;;
 import { TaskUC } from &#x27;../uc/task.uc&#x27;;
-import { TaskCopyApiResponse, TaskListResponse, TaskResponse } from &#x27;./dto&#x27;;
+import { TaskListResponse, TaskResponse } from &#x27;./dto&#x27;;
 import { TaskCopyApiParams } from &#x27;./dto/task-copy.params&#x27;;
 
 @ApiTags(&#x27;Task&#x27;)
@@ -768,13 +769,13 @@ export class TaskController {
 		@CurrentUser() currentUser: ICurrentUser,
 		@Param(&#x27;id&#x27;, ParseObjectIdPipe) taskId: string,
 		@Body() params: TaskCopyApiParams
-	): Promise&lt;TaskCopyApiResponse&gt; {
+	): Promise&lt;CopyApiResponse&gt; {
 		const copyStatus &#x3D; await this.taskCopyUc.copyTask(
 			currentUser.userId,
 			taskId,
-			TaskCopyMapper.mapTaskCopyToDomain(params)
+			CopyMapper.mapTaskCopyToDomain(params)
 		);
-		const dto &#x3D; TaskCopyMapper.mapToResponse(copyStatus);
+		const dto &#x3D; CopyMapper.mapToResponse(copyStatus);
 		return dto;
 	}
 }

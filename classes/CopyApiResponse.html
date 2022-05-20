@@ -44,7 +44,7 @@
 
 <ol class="breadcrumb">
   <li>Classes</li>
-  <li >CourseCopyApiResponse</li>
+  <li >CopyApiResponse</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -62,7 +62,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/modules/learnroom/controller/dto/course-copy.response.ts</code>
+            <code>apps/server/src/modules/learnroom/controller/dto/copy.response.ts</code>
         </p>
 
 
@@ -70,7 +70,7 @@
                 <h3>Description</h3>
             </p>
             <p class="comment">
-                <p>DTO for returning a course copy status document via api.</p>
+                <p>DTO for returning a copy status document via api.</p>
 
             </p>
 
@@ -125,12 +125,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(undefined: <a href="../classes/CourseCopyApiResponse.html" target="_self">CourseCopyApiResponse</a>)</code>
+<code>constructor(undefined: <a href="../classes/CopyApiResponse.html" target="_self">CopyApiResponse</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">apps/server/src/modules/learnroom/controller/dto/course-copy.response.ts:7</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">apps/server/src/modules/learnroom/controller/dto/copy.response.ts:7</a></div>
                             </td>
                         </tr>
 
@@ -150,7 +150,7 @@
                                                 <tr>
                                                   
                                                         <td>
-                                                                        <code><a href="../classes/CourseCopyApiResponse.html" target="_self" >CourseCopyApiResponse</a></code>
+                                                                        <code><a href="../classes/CopyApiResponse.html" target="_self" >CopyApiResponse</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -186,7 +186,7 @@
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="../classes/CourseCopyApiResponse.html" target="_self" >CourseCopyApiResponse[]</a></code>
+                        <i>Type : </i>        <code><a href="../classes/CopyApiResponse.html" target="_self" >CopyApiResponse[]</a></code>
 
                     </td>
                 </tr>
@@ -201,7 +201,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">apps/server/src/modules/learnroom/controller/dto/course-copy.response.ts:41</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">apps/server/src/modules/learnroom/controller/dto/copy.response.ts:41</a></div>
                         </td>
                     </tr>
 
@@ -237,7 +237,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">apps/server/src/modules/learnroom/controller/dto/course-copy.response.ts:17</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">apps/server/src/modules/learnroom/controller/dto/copy.response.ts:17</a></div>
                         </td>
                     </tr>
 
@@ -272,7 +272,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">apps/server/src/modules/learnroom/controller/dto/course-copy.response.ts:36</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">apps/server/src/modules/learnroom/controller/dto/copy.response.ts:36</a></div>
                         </td>
                     </tr>
 
@@ -307,7 +307,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">apps/server/src/modules/learnroom/controller/dto/course-copy.response.ts:22</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">apps/server/src/modules/learnroom/controller/dto/copy.response.ts:22</a></div>
                         </td>
                     </tr>
 
@@ -327,7 +327,7 @@
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#ElementType" target="_self" >CopyElementType</a></code>
+                        <i>Type : </i>        <code><a href="../miscellaneous/enumerations.html#CopyElementType" target="_self" >CopyElementType</a></code>
 
                     </td>
                 </tr>
@@ -342,7 +342,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">apps/server/src/modules/learnroom/controller/dto/course-copy.response.ts:29</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">apps/server/src/modules/learnroom/controller/dto/copy.response.ts:29</a></div>
                         </td>
                     </tr>
 
@@ -365,10 +365,10 @@
 import { CopyElementType, CopyStatusEnum } from &#x27;@shared/domain/types/copy.types&#x27;;
 
 /**
- * DTO for returning a course copy status document via api.
+ * DTO for returning a copy status document via api.
  */
-export class CourseCopyApiResponse {
-	constructor({ title, type, status }: CourseCopyApiResponse) {
+export class CopyApiResponse {
+	constructor({ title, type, status }: CopyApiResponse) {
 		this.title &#x3D; title;
 		this.type &#x3D; type;
 		this.status &#x3D; status;
@@ -401,7 +401,7 @@ export class CourseCopyApiResponse {
 	@ApiPropertyOptional({
 		description: &#x27;List of included sub elements&#x27;,
 	})
-	elements?: CourseCopyApiResponse[];
+	elements?: CopyApiResponse[];
 }
 </code></pre>
     </div>
@@ -441,7 +441,7 @@ export class CourseCopyApiResponse {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
-            var COMPODOC_CURRENT_PAGE_URL = 'CourseCopyApiResponse.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'CopyApiResponse.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

@@ -196,7 +196,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/CourseCopyApiResponse.html" target="_self" >Promise&lt;CourseCopyApiResponse&gt;</a></code>
+                        <b>Returns : </b>        <code><a href="../classes/CopyApiResponse.html" target="_self" >Promise&lt;CopyApiResponse&gt;</a></code>
 
                     </div>
                     <div class="io-description">
@@ -521,12 +521,12 @@ import { ApiTags } from &#x27;@nestjs/swagger&#x27;;
 import { ParseObjectIdPipe } from &#x27;@shared/controller&#x27;;
 import { ICurrentUser } from &#x27;@shared/domain&#x27;;
 import { Authenticate, CurrentUser } from &#x27;@src/modules/authentication/decorator/auth.decorator&#x27;;
-import { CourseCopyMapper } from &#x27;../mapper/course-copy.mapper&#x27;;
+import { CopyMapper } from &#x27;../mapper/copy.mapper&#x27;;
 import { RoomBoardResponseMapper } from &#x27;../mapper/room-board-response.mapper&#x27;;
 import { CourseCopyUC } from &#x27;../uc/course-copy.uc&#x27;;
 import { RoomsUc } from &#x27;../uc/rooms.uc&#x27;;
 import { BoardResponse, PatchOrderParams, PatchVisibilityParams } from &#x27;./dto&#x27;;
-import { CourseCopyApiResponse } from &#x27;./dto/course-copy.response&#x27;;
+import { CopyApiResponse } from &#x27;./dto/copy.response&#x27;;
 
 @ApiTags(&#x27;Rooms&#x27;)
 @Authenticate(&#x27;jwt&#x27;)
@@ -571,9 +571,9 @@ export class RoomsController {
 	async copyCourse(
 		@CurrentUser() currentUser: ICurrentUser,
 		@Param(&#x27;roomid&#x27;, ParseObjectIdPipe) courseId: string
-	): Promise&lt;CourseCopyApiResponse&gt; {
+	): Promise&lt;CopyApiResponse&gt; {
 		const copyStatus &#x3D; await this.courseCopyUc.copyCourse(currentUser.userId, courseId);
-		const dto &#x3D; CourseCopyMapper.mapToResponse(copyStatus);
+		const dto &#x3D; CopyMapper.mapToResponse(copyStatus);
 		return dto;
 	}
 }

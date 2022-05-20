@@ -1075,16 +1075,16 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/ChangeLanguageParams.html" data-type="entity-link" >ChangeLanguageParams</a>
                             </li>
                             <li class="link">
+                                <a href="classes/CopyApiResponse.html" data-type="entity-link" >CopyApiResponse</a>
+                            </li>
+                            <li class="link">
                                 <a href="classes/CopyFileParams.html" data-type="entity-link" >CopyFileParams</a>
                             </li>
                             <li class="link">
                                 <a href="classes/CopyFilesOfParentParams.html" data-type="entity-link" >CopyFilesOfParentParams</a>
                             </li>
                             <li class="link">
-                                <a href="classes/CourseCopyApiResponse.html" data-type="entity-link" >CourseCopyApiResponse</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/CourseCopyMapper.html" data-type="entity-link" >CourseCopyMapper</a>
+                                <a href="classes/CopyMapper.html" data-type="entity-link" >CopyMapper</a>
                             </li>
                             <li class="link">
                                 <a href="classes/CourseFactory.html" data-type="entity-link" >CourseFactory</a>
@@ -1343,12 +1343,6 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="classes/TaskCopyApiParams.html" data-type="entity-link" >TaskCopyApiParams</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/TaskCopyApiResponse.html" data-type="entity-link" >TaskCopyApiResponse</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/TaskCopyMapper.html" data-type="entity-link" >TaskCopyMapper</a>
                             </li>
                             <li class="link">
                                 <a href="classes/TaskFactory.html" data-type="entity-link" >TaskFactory</a>
