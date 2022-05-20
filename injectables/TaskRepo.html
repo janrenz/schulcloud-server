@@ -167,8 +167,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="100"
-                            class="link-to-prism">apps/server/src/shared/repo/task/task.repo.ts:100</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="87"
+                            class="link-to-prism">apps/server/src/shared/repo/task/task.repo.ts:87</a></div>
                 </td>
             </tr>
 
@@ -442,8 +442,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="158"
-                            class="link-to-prism">apps/server/src/shared/repo/task/task.repo.ts:158</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="145"
+                            class="link-to-prism">apps/server/src/shared/repo/task/task.repo.ts:145</a></div>
                 </td>
             </tr>
 
@@ -550,8 +550,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="184"
-                            class="link-to-prism">apps/server/src/shared/repo/task/task.repo.ts:184</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="171"
+                            class="link-to-prism">apps/server/src/shared/repo/task/task.repo.ts:171</a></div>
                 </td>
             </tr>
 
@@ -798,7 +798,7 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { FilterQuery, QueryOrderMap } from &#x27;@mikro-orm/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { FilterQuery } from &#x27;@mikro-orm/core&#x27;;
 import { Injectable } from &#x27;@nestjs/common&#x27;;
 import { Counted, EntityId, IFindOptions, SortOrder, Task } from &#x27;@shared/domain&#x27;;
 import { BaseRepo } from &#x27;../base.repo&#x27;;
@@ -826,8 +826,6 @@ export class TaskRepo extends BaseRepo&lt;Task&gt; {
 		},
 		options?: IFindOptions&lt;Task&gt;
 	): Promise&lt;Counted&lt;Task[]&gt;&gt; {
-		const { pagination } &#x3D; options || {};
-
 		const scope &#x3D; new TaskScope(&#x27;$or&#x27;);
 
 		const parentsOpen &#x3D; new TaskScope(&#x27;$or&#x27;);
@@ -870,20 +868,9 @@ export class TaskRepo extends BaseRepo&lt;Task&gt; {
 		scope.addQuery(allForFinishedCoursesAndLessons.query);
 		scope.addQuery(allForCreator.query);
 
-		// The dueDate can be similar to solve pagination request missmatches we must sort it over id too.
-		// Because after executing limit() in mongoDB it is resort by similar dueDates.
-		// It exist indexes for dueDate and for _id but no combined index, because it is to expensive for only small performance boost.
-		const order &#x3D; { dueDate: SortOrder.desc, id: SortOrder.asc };
+		const countedTaskList &#x3D; await this.findTasksAndCount(scope.query, options);
 
-		const [tasks, count] &#x3D; await this._em.findAndCount(Task, scope.query, {
-			offset: pagination?.skip,
-			limit: pagination?.limit,
-			orderBy: order,
-		});
-
-		await this._em.populate(tasks, [&#x27;course&#x27;, &#x27;lesson&#x27;, &#x27;submissions&#x27;]);
-
-		return [tasks, count];
+		return countedTaskList;
 	}
 
 	/**
@@ -982,11 +969,22 @@ export class TaskRepo extends BaseRepo&lt;Task&gt; {
 	}
 
 	private async findTasksAndCount(query: FilterQuery&lt;Task&gt;, options?: IFindOptions&lt;Task&gt;): Promise&lt;Counted&lt;Task[]&gt;&gt; {
-		const { pagination, order } &#x3D; options || {};
+		const pagination &#x3D; options?.pagination || {};
+		const order &#x3D; options?.order || {};
+
+		// In order to solve pagination missmatches we apply a default order by _id. This is necessary
+		// because other fields like the dueDate can be equal or null.
+		// When pagination is used, sorting takes place on every page and if ambiguous leads to unwanted results.
+		// Note: Indexes for dueDate and for _id do exist but there&#x27;s no combined index.
+		// This is okay, because the combined index would be too expensive for the particular purpose here.
+		if (order._id &#x3D;&#x3D; null) {
+			order._id &#x3D; SortOrder.asc;
+		}
+
 		const [taskEntities, count] &#x3D; await this._em.findAndCount(Task, query, {
 			offset: pagination?.skip,
 			limit: pagination?.limit,
-			orderBy: order as QueryOrderMap&lt;Task&gt;,
+			orderBy: order,
 		});
 
 		await this._em.populate(taskEntities, [&#x27;course&#x27;, &#x27;lesson&#x27;, &#x27;submissions&#x27;]);

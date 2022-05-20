@@ -996,7 +996,7 @@ export class TaskUC {
 				lessonIdsOfOpenCourses,
 				lessonIdsOfFinishedCourses,
 			},
-			{ pagination }
+			{ pagination, order: { dueDate: SortOrder.desc } }
 		);
 
 		const taskWithStatusVos &#x3D; tasks.map((task) &#x3D;&gt; {
