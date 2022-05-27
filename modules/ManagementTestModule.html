@@ -280,8 +280,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="75"
-                            class="link-to-prism">apps/server/src/modules/management/management.module.ts:75</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="81"
+                            class="link-to-prism">apps/server/src/modules/management/management.module.ts:81</a></div>
                 </td>
             </tr>
 
@@ -334,7 +334,8 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Dictionary, IPrimaryKey } from &#x27;@mikro-orm/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Configuration } from &#x27;@hpi-schul-cloud/commons/lib&#x27;;
+import { Dictionary, IPrimaryKey } from &#x27;@mikro-orm/core&#x27;;
 import { MikroOrmModule, MikroOrmModuleSyncOptions } from &#x27;@mikro-orm/nestjs&#x27;;
 import { DynamicModule, Module, NotFoundException } from &#x27;@nestjs/common&#x27;;
 import { ConfigModule } from &#x27;@nestjs/config&#x27;;
@@ -343,6 +344,7 @@ import { ConsoleWriterService } from &#x27;@shared/infra/console&#x27;;
 import { DatabaseManagementModule, DatabaseManagementService, MongoMemoryDatabaseModule } from &#x27;@shared/infra/database&#x27;;
 import { MongoDatabaseModuleOptions } from &#x27;@shared/infra/database/mongo-memory-database/types&#x27;;
 import { FileSystemModule } from &#x27;@shared/infra/file-system&#x27;;
+import { KeycloakModule } from &#x27;@shared/infra/identity-management/keycloak/keycloak.module&#x27;;
 import { DB_PASSWORD, DB_URL, DB_USERNAME } from &#x27;@src/config&#x27;;
 import serverConfig from &#x27;@src/server.config&#x27;;
 import { DatabaseManagementConsole } from &#x27;./console/database-management.console&#x27;;
@@ -350,7 +352,7 @@ import { DatabaseManagementController } from &#x27;./controller/database-managem
 import { BsonConverter } from &#x27;./converter/bson.converter&#x27;;
 import { DatabaseManagementUc } from &#x27;./uc/database-management.uc&#x27;;
 
-const imports &#x3D; [
+const baseImports &#x3D; [
 	FileSystemModule,
 	DatabaseManagementModule,
 	ConfigModule.forRoot({
@@ -359,6 +361,10 @@ const imports &#x3D; [
 		load: [serverConfig],
 	}),
 ];
+
+const imports &#x3D; (Configuration.get(&#x27;FEATURE_IDENTITY_MANAGEMENT_ENABLED&#x27;) as boolean)
+	? [...baseImports, KeycloakModule]
+	: baseImports;
 
 const providers &#x3D; [
 	DatabaseManagementUc,

@@ -146,6 +146,9 @@
                                 class="icon ion-ios-information-circle-outline"></a></h3>
                     <ul class="list-group">
                         <li class="list-group-item">
+                            <a href="../modules/.html"></a>
+                        </li>
+                        <li class="list-group-item">
                             <a href="../modules/ConsoleWriterModule.html">ConsoleWriterModule</a>
                         </li>
                         <li class="list-group-item">
@@ -164,9 +167,11 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Module } from &#x27;@nestjs/common&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Configuration } from &#x27;@hpi-schul-cloud/commons/lib&#x27;;
+import { Module } from &#x27;@nestjs/common&#x27;;
 import { ConfigModule } from &#x27;@nestjs/config&#x27;;
 import { ConsoleWriterModule } from &#x27;@shared/infra/console/console-writer/console-writer.module&#x27;;
+import { KeycloakModule } from &#x27;@shared/infra/identity-management/keycloak/keycloak.module&#x27;;
 import { FilesModule } from &#x27;@src/modules/files&#x27;;
 import { ManagementModule } from &#x27;@src/modules/management/management.module&#x27;;
 import serverConfig from &#x27;@src/server.config&#x27;;
@@ -184,6 +189,7 @@ import { ServerConsole } from &#x27;./server.console&#x27;;
 			validationOptions: { infer: true },
 			load: [serverConfig],
 		}),
+		...((Configuration.get(&#x27;FEATURE_IDENTITY_MANAGEMENT_ENABLED&#x27;) as boolean) ? [KeycloakModule] : []),
 	],
 	providers: [
 		/** add console services as providers */
