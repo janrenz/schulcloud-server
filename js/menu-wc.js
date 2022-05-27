@@ -1306,6 +1306,12 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/SchoolInfoResponse.html" data-type="entity-link" >SchoolInfoResponse</a>
                             </li>
                             <li class="link">
+                                <a href="classes/SchoolRolePermission.html" data-type="entity-link" >SchoolRolePermission</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/SchoolRoles.html" data-type="entity-link" >SchoolRoles</a>
+                            </li>
+                            <li class="link">
                                 <a href="classes/Scope.html" data-type="entity-link" >Scope</a>
                             </li>
                             <li class="link">

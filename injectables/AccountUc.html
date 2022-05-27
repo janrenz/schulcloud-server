@@ -97,16 +97,20 @@
                                 <a href="#deleteAccountById" >deleteAccountById</a>
                             </li>
                             <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#extractRoles" >extractRoles</a>
+                            </li>
+                            <li>
                                     <span class="modifier">Async</span>
                                 <a href="#findAccountById" >findAccountById</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
-                                <a href="#hasPermissionsToChangeOwnName" >hasPermissionsToChangeOwnName</a>
+                                <a href="#hasPermissionsToAccessAccount" >hasPermissionsToAccessAccount</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
-                                <a href="#hasPermissionsToUpdateAccount" >hasPermissionsToUpdateAccount</a>
+                                <a href="#hasPermissionsToChangeOwnName" >hasPermissionsToChangeOwnName</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
@@ -120,6 +124,10 @@
                             <li>
                                     <span class="modifier">Async</span>
                                 <a href="#replaceMyTemporaryPassword" >replaceMyTemporaryPassword</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#schoolPermissionExists" >schoolPermissionExists</a>
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
@@ -156,7 +164,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">apps/server/src/modules/account/uc/account.uc.ts:30</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">apps/server/src/modules/account/uc/account.uc.ts:41</a></div>
                             </td>
                         </tr>
 
@@ -245,8 +253,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="330"
-                            class="link-to-prism">apps/server/src/modules/account/uc/account.uc.ts:330</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="407"
+                            class="link-to-prism">apps/server/src/modules/account/uc/account.uc.ts:407</a></div>
                 </td>
             </tr>
 
@@ -317,8 +325,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="334"
-                            class="link-to-prism">apps/server/src/modules/account/uc/account.uc.ts:334</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="411"
+                            class="link-to-prism">apps/server/src/modules/account/uc/account.uc.ts:411</a></div>
                 </td>
             </tr>
 
@@ -401,8 +409,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="338"
-                            class="link-to-prism">apps/server/src/modules/account/uc/account.uc.ts:338</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="415"
+                            class="link-to-prism">apps/server/src/modules/account/uc/account.uc.ts:415</a></div>
                 </td>
             </tr>
 
@@ -496,8 +504,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="157"
-                            class="link-to-prism">apps/server/src/modules/account/uc/account.uc.ts:157</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="172"
+                            class="link-to-prism">apps/server/src/modules/account/uc/account.uc.ts:172</a></div>
                 </td>
             </tr>
 
@@ -572,6 +580,77 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="extractRoles"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span ><b>extractRoles</b></span>
+                        <a href="#extractRoles"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>extractRoles(inputRoles: <a href="../entitys/Role.html" target="_self">Role[]</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="394"
+                            class="link-to-prism">apps/server/src/modules/account/uc/account.uc.ts:394</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>inputRoles</td>
+                                    <td>
+                                                <code><a href="../entitys/Role.html" target="_self" >Role[]</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>string[]</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="findAccountById"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
@@ -590,8 +669,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="81"
-                            class="link-to-prism">apps/server/src/modules/account/uc/account.uc.ts:81</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="96"
+                            class="link-to-prism">apps/server/src/modules/account/uc/account.uc.ts:96</a></div>
                 </td>
             </tr>
 
@@ -666,97 +745,26 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="hasPermissionsToChangeOwnName"></a>
+                    <a name="hasPermissionsToAccessAccount"></a>
                     <span class="name">
                         <span class="modifier">Private</span>
-                        <span ><b>hasPermissionsToChangeOwnName</b></span>
-                        <a href="#hasPermissionsToChangeOwnName"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>hasPermissionsToAccessAccount</b></span>
+                        <a href="#hasPermissionsToAccessAccount"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>hasPermissionsToChangeOwnName(currentUser: <a href="../interfaces/User.html" target="_self">User</a>)</code>
+                    <code>hasPermissionsToAccessAccount(currentUser: <a href="../interfaces/User.html" target="_self">User</a>, targetUser: <a href="../interfaces/User.html" target="_self">User</a>, action: "READ" | "UPDATE" | "DELETE" | "CREATE")</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="299"
-                            class="link-to-prism">apps/server/src/modules/account/uc/account.uc.ts:299</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>currentUser</td>
-                                    <td>
-                                                <code><a href="../interfaces/User.html" target="_self" >User</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="hasPermissionsToUpdateAccount"></a>
-                    <span class="name">
-                        <span class="modifier">Private</span>
-                        <span ><b>hasPermissionsToUpdateAccount</b></span>
-                        <a href="#hasPermissionsToUpdateAccount"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>hasPermissionsToUpdateAccount(currentUser: <a href="../interfaces/User.html" target="_self">User</a>, targetUser: <a href="../interfaces/User.html" target="_self">User</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="307"
-                            class="link-to-prism">apps/server/src/modules/account/uc/account.uc.ts:307</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="316"
+                            class="link-to-prism">apps/server/src/modules/account/uc/account.uc.ts:316</a></div>
                 </td>
             </tr>
 
@@ -790,6 +798,89 @@
                                 </tr>
                                 <tr>
                                     <td>targetUser</td>
+                                    <td>
+                                                <code><a href="../interfaces/User.html" target="_self" >User</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>action</td>
+                                    <td>
+                                            <code>&quot;READ&quot; | &quot;UPDATE&quot; | &quot;DELETE&quot; | &quot;CREATE&quot;</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="hasPermissionsToChangeOwnName"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span ><b>hasPermissionsToChangeOwnName</b></span>
+                        <a href="#hasPermissionsToChangeOwnName"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>hasPermissionsToChangeOwnName(currentUser: <a href="../interfaces/User.html" target="_self">User</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="308"
+                            class="link-to-prism">apps/server/src/modules/account/uc/account.uc.ts:308</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>currentUser</td>
                                     <td>
                                                 <code><a href="../interfaces/User.html" target="_self" >User</a></code>
                                     </td>
@@ -838,8 +929,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="288"
-                            class="link-to-prism">apps/server/src/modules/account/uc/account.uc.ts:288</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="297"
+                            class="link-to-prism">apps/server/src/modules/account/uc/account.uc.ts:297</a></div>
                 </td>
             </tr>
 
@@ -922,8 +1013,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="294"
-                            class="link-to-prism">apps/server/src/modules/account/uc/account.uc.ts:294</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="303"
+                            class="link-to-prism">apps/server/src/modules/account/uc/account.uc.ts:303</a></div>
                 </td>
             </tr>
 
@@ -993,8 +1084,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="244"
-                            class="link-to-prism">apps/server/src/modules/account/uc/account.uc.ts:244</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="253"
+                            class="link-to-prism">apps/server/src/modules/account/uc/account.uc.ts:253</a></div>
                 </td>
             </tr>
 
@@ -1086,6 +1177,101 @@ Callable when the current user&#39;s password was force set or this is the first
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="schoolPermissionExists"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span ><b>schoolPermissionExists</b></span>
+                        <a href="#schoolPermissionExists"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>schoolPermissionExists(roles: string[], school: <a href="../classes/School.html" target="_self">School</a>, permissions: string[])</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="382"
+                            class="link-to-prism">apps/server/src/modules/account/uc/account.uc.ts:382</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>roles</td>
+                                    <td>
+                                            <code>string[]</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>school</td>
+                                    <td>
+                                                <code><a href="../classes/School.html" target="_self" >School</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>permissions</td>
+                                    <td>
+                                            <code>string[]</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="searchAccounts"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
@@ -1104,8 +1290,8 @@ Callable when the current user&#39;s password was force set or this is the first
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="46"
-                            class="link-to-prism">apps/server/src/modules/account/uc/account.uc.ts:46</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="56"
+                            class="link-to-prism">apps/server/src/modules/account/uc/account.uc.ts:56</a></div>
                 </td>
             </tr>
 
@@ -1198,8 +1384,8 @@ Callable when the current user&#39;s password was force set or this is the first
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="98"
-                            class="link-to-prism">apps/server/src/modules/account/uc/account.uc.ts:98</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="113"
+                            class="link-to-prism">apps/server/src/modules/account/uc/account.uc.ts:113</a></div>
                 </td>
             </tr>
 
@@ -1308,8 +1494,8 @@ Callable when the current user&#39;s password was force set or this is the first
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="172"
-                            class="link-to-prism">apps/server/src/modules/account/uc/account.uc.ts:172</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="187"
+                            class="link-to-prism">apps/server/src/modules/account/uc/account.uc.ts:187</a></div>
                 </td>
             </tr>
 
@@ -1394,10 +1580,21 @@ import {
 	ValidationError,
 } from &#x27;@shared/common/error&#x27;;
 import bcrypt from &#x27;bcryptjs&#x27;;
-import { Account, EntityId, ICurrentUser, PermissionService, RoleName, User } from &#x27;@shared/domain&#x27;;
+import {
+	Account,
+	EntityId,
+	ICurrentUser,
+	Permission,
+	PermissionService,
+	Role,
+	RoleName,
+	School,
+	User,
+} from &#x27;@shared/domain&#x27;;
 import { UserRepo } from &#x27;@shared/repo&#x27;;
 import { AccountService } from &#x27;@src/modules/account/services/account.service&#x27;;
 import { AccountDto } from &#x27;@src/modules/account/services/dto/account.dto&#x27;;
+import { Configuration } from &#x27;@hpi-schul-cloud/commons/lib&#x27;;
 import {
 	AccountByIdBodyParams,
 	AccountByIdParams,
@@ -1429,33 +1626,37 @@ export class AccountUc {
 	 * @param query the request query
 	 * @throws {ValidationError}
 	 * @throws {ForbiddenOperationError}
-	 * @throws {EntityNotFoundError}
 	 */
 	async searchAccounts(currentUser: ICurrentUser, query: AccountSearchQueryParams): Promise&lt;AccountSearchListResponse&gt; {
 		const skip &#x3D; query.skip ?? 0;
 		const limit &#x3D; query.limit ?? 10;
+		const executingUser &#x3D; await this.userRepo.findById(currentUser.userId, true);
 
-		if (!(await this.isSuperhero(currentUser))) {
-			throw new ForbiddenOperationError(&#x27;Current user is not authorized to search for accounts.&#x27;);
+		if (query.type &#x3D;&#x3D;&#x3D; AccountSearchType.USERNAME) {
+			if (!(await this.isSuperhero(currentUser))) {
+				throw new ForbiddenOperationError(&#x27;Current user is not authorized to search for accounts.&#x27;);
+			}
+			// eslint-disable-next-line no-case-declarations
+			const { accounts, total } &#x3D; await this.accountService.searchByUsernamePartialMatch(query.value, skip, limit);
+			// eslint-disable-next-line no-case-declarations
+			const accountList &#x3D; accounts.map((tempAccount) &#x3D;&gt; AccountResponseMapper.mapToResponse(tempAccount));
+			return new AccountSearchListResponse(accountList, total, skip, limit);
+		}
+		if (query.type &#x3D;&#x3D;&#x3D; AccountSearchType.USER_ID) {
+			const targetUser &#x3D; await this.userRepo.findById(query.value, true);
+			const permission &#x3D; this.hasPermissionsToAccessAccount(executingUser, targetUser, &#x27;READ&#x27;);
+
+			if (!permission) {
+				throw new ForbiddenOperationError(&#x27;Current user is not authorized to search for accounts by user id.&#x27;);
+			}
+			const account &#x3D; await this.accountService.findByUserId(query.value);
+			if (account) {
+				return new AccountSearchListResponse([AccountResponseMapper.mapToResponse(account)], 1, 0, 1);
+			}
+			return new AccountSearchListResponse([], 0, 0, 0);
 		}
 
-		switch (query.type) {
-			case AccountSearchType.USER_ID:
-				// eslint-disable-next-line no-case-declarations
-				const account &#x3D; await this.accountService.findByUserId(query.value);
-				if (account) {
-					return new AccountSearchListResponse([AccountResponseMapper.mapToResponse(account)], 1, 0, 1);
-				}
-				return new AccountSearchListResponse([], 0, 0, 0);
-			case AccountSearchType.USERNAME:
-				// eslint-disable-next-line no-case-declarations
-				const { accounts, total } &#x3D; await this.accountService.searchByUsernamePartialMatch(query.value, skip, limit);
-				// eslint-disable-next-line no-case-declarations
-				const accountList &#x3D; accounts.map((tempAccount) &#x3D;&gt; AccountResponseMapper.mapToResponse(tempAccount));
-				return new AccountSearchListResponse(accountList, total, skip, limit);
-			default:
-				throw new ValidationError(&#x27;Invalid search type.&#x27;);
-		}
+		throw new ValidationError(&#x27;Invalid search type.&#x27;);
 	}
 
 	/**
@@ -1495,7 +1696,7 @@ export class AccountUc {
 		let updateUser &#x3D; false;
 		let updateAccount &#x3D; false;
 
-		if (!this.hasPermissionsToUpdateAccount(executingUser, targetUser)) {
+		if (!this.hasPermissionsToAccessAccount(executingUser, targetUser, &#x27;UPDATE&#x27;)) {
 			throw new ForbiddenOperationError(&#x27;Current user is not authorized to update target account.&#x27;);
 		}
 		if (body.password !&#x3D;&#x3D; undefined) {
@@ -1558,6 +1759,7 @@ export class AccountUc {
 	 * @param params account details
 	 */
 	async updateMyAccount(currentUserId: EntityId, params: PatchMyAccountParams) {
+		const user &#x3D; await this.userRepo.findById(currentUserId, true);
 		const account: AccountDto &#x3D; await this.accountService.findByUserIdOrFail(currentUserId);
 
 		if (account.systemId) {
@@ -1566,13 +1768,6 @@ export class AccountUc {
 
 		if (!params.passwordOld || !account.password || !(await this.checkPassword(params.passwordOld, account.password))) {
 			throw new AuthorizationError(&#x27;Dein Passwort ist nicht korrekt!&#x27;);
-		}
-
-		let user: User;
-		try {
-			user &#x3D; await this.userRepo.findById(currentUserId, true);
-		} catch (err) {
-			throw new EntityNotFoundError(&#x27;User&#x27;);
 		}
 
 		let updateUser &#x3D; false;
@@ -1686,13 +1881,17 @@ export class AccountUc {
 
 	private hasPermissionsToChangeOwnName(currentUser: User) {
 		return (
-			this.hasRole(currentUser, &#x27;superhero&#x27;) ||
-			this.hasRole(currentUser, &#x27;teacher&#x27;) ||
-			this.hasRole(currentUser, &#x27;administrator&#x27;)
+			this.hasRole(currentUser, RoleName.SUPERHERO) ||
+			this.hasRole(currentUser, RoleName.TEACHER) ||
+			this.hasRole(currentUser, RoleName.ADMINISTRATOR)
 		);
 	}
 
-	private hasPermissionsToUpdateAccount(currentUser: User, targetUser: User) {
+	private hasPermissionsToAccessAccount(
+		currentUser: User,
+		targetUser: User,
+		action: &#x27;READ&#x27; | &#x27;UPDATE&#x27; | &#x27;DELETE&#x27; | &#x27;CREATE&#x27;
+	) {
 		if (this.hasRole(currentUser, RoleName.SUPERHERO)) {
 			return true;
 		}
@@ -1702,17 +1901,81 @@ export class AccountUc {
 
 		const permissionsToCheck: string[] &#x3D; [];
 		if (this.hasRole(targetUser, RoleName.STUDENT)) {
-			permissionsToCheck.push(&#x27;STUDENT_EDIT&#x27;);
+			// eslint-disable-next-line default-case
+			switch (action) {
+				case &#x27;READ&#x27;:
+					permissionsToCheck.push(Permission.STUDENT_LIST);
+					break;
+				case &#x27;UPDATE&#x27;:
+					permissionsToCheck.push(Permission.STUDENT_EDIT);
+					break;
+				// for future endpoints
+				/* case &#x27;CREATE&#x27;:
+					permissionsToCheck.push(&#x27;STUDENT_CREATE&#x27;);
+					break;
+				case &#x27;DELETE&#x27;:
+					permissionsToCheck.push(&#x27;STUDENT_DELETE&#x27;);
+					break; 
+				*/
+			}
 		}
 		if (this.hasRole(targetUser, RoleName.TEACHER)) {
-			permissionsToCheck.push(&#x27;TEACHER_EDIT&#x27;);
+			// eslint-disable-next-line default-case
+			switch (action) {
+				case &#x27;READ&#x27;:
+					permissionsToCheck.push(Permission.TEACHER_LIST);
+					break;
+				case &#x27;UPDATE&#x27;:
+					permissionsToCheck.push(Permission.TEACHER_EDIT);
+					break;
+				// for future endpoints
+				/* case &#x27;CREATE&#x27;:
+					permissionsToCheck.push(&#x27;TEACHER_CREATE&#x27;);
+					break;
+				case &#x27;DELETE&#x27;:
+					permissionsToCheck.push(&#x27;TEACHER_DELETE&#x27;);
+					break; 
+ 				*/
+			}
 		}
 		if (permissionsToCheck.length &#x3D;&#x3D;&#x3D; 0) {
 			// target user is neither student nor teacher. Undefined what to do
 			return false;
 		}
 
-		return this.permissionService.hasUserAllSchoolPermissions(currentUser, permissionsToCheck);
+		return (
+			this.permissionService.hasUserAllSchoolPermissions(currentUser, permissionsToCheck) ||
+			this.schoolPermissionExists(
+				this.extractRoles(currentUser.roles.getItems()),
+				currentUser.school,
+				permissionsToCheck
+			)
+		);
+	}
+
+	private schoolPermissionExists(roles: string[], school: School, permissions: string[]): boolean {
+		if (Configuration.get(&#x27;TEACHER_STUDENT_VISIBILITY__IS_CONFIGURABLE&#x27;)) {
+			if (
+				roles.find((role) &#x3D;&gt; role &#x3D;&#x3D;&#x3D; RoleName.TEACHER) &amp;&amp;
+				permissions.find((permission) &#x3D;&gt; permission &#x3D;&#x3D;&#x3D; Permission.STUDENT_LIST)
+			) {
+				return school.permissions?.teacher?.STUDENT_LIST ?? false;
+			}
+		}
+		return false;
+	}
+
+	private extractRoles(inputRoles: Role[]): string[] {
+		const roles: string[] &#x3D; [];
+
+		for (let i &#x3D; 0; i &lt; inputRoles.length; i +&#x3D; 1) {
+			const role &#x3D; inputRoles[i];
+			roles.push(role.name);
+			const innerRoles &#x3D; role.roles.getItems().map((x) &#x3D;&gt; x.name);
+			roles.push(...innerRoles);
+		}
+
+		return roles;
 	}
 
 	private calcPasswordHash(password: string): Promise&lt;string&gt; {

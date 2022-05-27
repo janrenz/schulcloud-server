@@ -363,7 +363,7 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Collection, Entity, Property, ManyToMany, Index } from &#x27;@mikro-orm/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Collection, Entity, Property, ManyToMany, Index, Embedded, Embeddable } from &#x27;@mikro-orm/core&#x27;;
 import { BaseEntity } from &#x27;./base.entity&#x27;;
 import { System } from &#x27;./system.entity&#x27;;
 
@@ -374,6 +374,24 @@ export interface ISchoolProperties {
 	name: string;
 	officialSchoolNumber?: string;
 	systems?: System[];
+}
+
+@Embeddable()
+export class SchoolRolePermission {
+	@Property({ nullable: true })
+	STUDENT_LIST?: boolean;
+
+	@Property({ nullable: true })
+	LERNSTORE_VIEW?: boolean;
+}
+
+@Embeddable()
+export class SchoolRoles {
+	@Property({ nullable: true, fieldName: &#x27;student&#x27; })
+	student?: SchoolRolePermission;
+
+	@Property({ nullable: true, fieldName: &#x27;teacher&#x27; })
+	teacher?: SchoolRolePermission;
 }
 
 @Entity({ tableName: &#x27;schools&#x27; })
@@ -406,6 +424,9 @@ export class School extends BaseEntity {
 
 	@ManyToMany(&#x27;System&#x27;, undefined, { fieldName: &#x27;systems&#x27; })
 	systems &#x3D; new Collection&lt;System&gt;(this);
+
+	@Embedded(() &#x3D;&gt; SchoolRoles, { object: true, nullable: true, prefix: false })
+	permissions?: SchoolRoles;
 }
 </code></pre>
     </div>

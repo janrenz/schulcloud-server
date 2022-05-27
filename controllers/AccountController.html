@@ -153,8 +153,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="83"
-                            class="link-to-prism">apps/server/src/modules/account/controller/account.controller.ts:83</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="85"
+                            class="link-to-prism">apps/server/src/modules/account/controller/account.controller.ts:85</a></div>
                 </td>
             </tr>
 
@@ -243,8 +243,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="42"
-                            class="link-to-prism">apps/server/src/modules/account/controller/account.controller.ts:42</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="44"
+                            class="link-to-prism">apps/server/src/modules/account/controller/account.controller.ts:44</a></div>
                 </td>
             </tr>
 
@@ -333,8 +333,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="96"
-                            class="link-to-prism">apps/server/src/modules/account/controller/account.controller.ts:96</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="98"
+                            class="link-to-prism">apps/server/src/modules/account/controller/account.controller.ts:98</a></div>
                 </td>
             </tr>
 
@@ -417,14 +417,14 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@Get()<br />@ApiOperation({summary: &#x27;Returns all accounts which satisfies the given criteria. Superhero role is REQUIRED.&#x27;})<br />@ApiResponse({status: 200, type: AccountSearchListResponse, description: &#x27;Returns a paged list of accounts.&#x27;})<br />@ApiResponse({status: 400, type: ValidationError, description: &#x27;Request data has invalid format.&#x27;})<br />@ApiResponse({status: 403, type: ForbiddenOperationError, description: &#x27;User is not a superhero.&#x27;})<br />@ApiResponse({status: 404, type: EntityNotFoundError, description: &#x27;User id not found.&#x27;})<br /></code>
+                    <code>@Get()<br />@ApiOperation({summary: &#x27;Returns all accounts which satisfies the given criteria. For unlimited access Superhero role is REQUIRED.&#x27;})<br />@ApiResponse({status: 200, type: AccountSearchListResponse, description: &#x27;Returns a paged list of accounts.&#x27;})<br />@ApiResponse({status: 400, type: ValidationError, description: &#x27;Request data has invalid format.&#x27;})<br />@ApiResponse({status: 403, type: ForbiddenOperationError, description: &#x27;User is not a superhero or administrator.&#x27;})<br /></code>
                 </td>
             </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="29"
-                            class="link-to-prism">apps/server/src/modules/account/controller/account.controller.ts:29</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="31"
+                            class="link-to-prism">apps/server/src/modules/account/controller/account.controller.ts:31</a></div>
                 </td>
             </tr>
 
@@ -513,8 +513,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="69"
-                            class="link-to-prism">apps/server/src/modules/account/controller/account.controller.ts:69</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="71"
+                            class="link-to-prism">apps/server/src/modules/account/controller/account.controller.ts:71</a></div>
                 </td>
             </tr>
 
@@ -615,8 +615,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="59"
-                            class="link-to-prism">apps/server/src/modules/account/controller/account.controller.ts:59</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="61"
+                            class="link-to-prism">apps/server/src/modules/account/controller/account.controller.ts:61</a></div>
                 </td>
             </tr>
 
@@ -703,11 +703,13 @@ export class AccountController {
 	constructor(private readonly accountUc: AccountUc) {}
 
 	@Get()
-	@ApiOperation({ summary: &#x27;Returns all accounts which satisfies the given criteria. Superhero role is REQUIRED.&#x27; })
+	@ApiOperation({
+		summary:
+			&#x27;Returns all accounts which satisfies the given criteria. For unlimited access Superhero role is REQUIRED.&#x27;,
+	})
 	@ApiResponse({ status: 200, type: AccountSearchListResponse, description: &#x27;Returns a paged list of accounts.&#x27; })
 	@ApiResponse({ status: 400, type: ValidationError, description: &#x27;Request data has invalid format.&#x27; })
-	@ApiResponse({ status: 403, type: ForbiddenOperationError, description: &#x27;User is not a superhero.&#x27; })
-	@ApiResponse({ status: 404, type: EntityNotFoundError, description: &#x27;User id not found.&#x27; })
+	@ApiResponse({ status: 403, type: ForbiddenOperationError, description: &#x27;User is not a superhero or administrator.&#x27; })
 	async searchAccounts(
 		@CurrentUser() currentUser: ICurrentUser,
 		@Query() query: AccountSearchQueryParams

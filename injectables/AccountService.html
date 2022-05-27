@@ -79,7 +79,6 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                    <span class="modifier">Async</span>
                                 <a href="#delete" >delete</a>
                             </li>
                             <li>
@@ -182,7 +181,6 @@
                 <td class="col-md-4">
                     <a name="delete"></a>
                     <span class="name">
-                        <span class="modifier">Async</span>
                         <span ><b>delete</b></span>
                         <a href="#delete"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -190,16 +188,15 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>delete(account: <a href="../classes/AccountDto.html" target="_self">AccountDto</a>)</code>
+<code>delete(account: <a href="../classes/AccountDto.html" target="_self">AccountDto</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="65"
-                            class="link-to-prism">apps/server/src/modules/account/services/account.service.ts:65</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="64"
+                            class="link-to-prism">apps/server/src/modules/account/services/account.service.ts:64</a></div>
                 </td>
             </tr>
 
@@ -482,8 +479,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="83"
-                            class="link-to-prism">apps/server/src/modules/account/services/account.service.ts:83</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="82"
+                            class="link-to-prism">apps/server/src/modules/account/services/account.service.ts:82</a></div>
                 </td>
             </tr>
 
@@ -624,8 +621,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="78"
-                            class="link-to-prism">apps/server/src/modules/account/services/account.service.ts:78</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="77"
+                            class="link-to-prism">apps/server/src/modules/account/services/account.service.ts:77</a></div>
                 </td>
             </tr>
 
@@ -695,8 +692,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="69"
-                            class="link-to-prism">apps/server/src/modules/account/services/account.service.ts:69</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="68"
+                            class="link-to-prism">apps/server/src/modules/account/services/account.service.ts:68</a></div>
                 </td>
             </tr>
 
@@ -834,11 +831,10 @@ export class AccountService {
 				credentialHash: accountDto.credentialHash,
 			});
 		}
-		await this.accountRepo.save(account);
-		return Promise.resolve();
+		return this.accountRepo.save(account);
 	}
 
-	async delete(account: AccountDto): Promise&lt;void&gt; {
+	delete(account: AccountDto): Promise&lt;void&gt; {
 		return this.accountRepo.deleteById(account.id);
 	}
 
