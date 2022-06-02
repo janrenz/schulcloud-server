@@ -405,9 +405,7 @@
 	LessonBoardElement,
 	DashboardModelEntity,
 	DashboardGridElementModel,
-	BaseFile,
 	File,
-	Directory,
 	StorageProvider,
 	Lesson,
 	Role,
@@ -1958,12 +1956,11 @@ must use @ApiProperty</p>
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>BaseFactory.define&lt;Directory, IFileProperties&gt;(Directory, ({ sequence }) &#x3D;&gt; {
+                        <i>Default value : </i><code>BaseFactory.define&lt;File, IFileProperties&gt;(File, ({ sequence }) &#x3D;&gt; {
 	return {
-		storageFileName: &#x60;directory-${sequence}&#x60;,
-		bucket: &#x27;test-bucket&#x27;,
-		storageProvider: storageProviderFactory.build(),
+		isDirectory: true,
 		creator: userFactory.build(),
+		name: &#x60;directory-${sequence}&#x60;,
 	};
 })</code>
                     </td>
@@ -1990,7 +1987,9 @@ must use @ApiProperty</p>
 		storageFileName: &#x60;file-${sequence}&#x60;,
 		bucket: &#x27;test-bucket&#x27;,
 		storageProvider: storageProviderFactory.build(),
+		isDirectory: false,
 		creator: userFactory.build(),
+		name: &#x60;file-${sequence}&#x60;,
 	};
 })</code>
                     </td>

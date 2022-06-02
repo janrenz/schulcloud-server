@@ -225,7 +225,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>deleteFile(file: <a href="../entitys/BaseFile.html" target="_self">BaseFile</a>)</code>
+                    <code>deleteFile(file: <a href="../entitys/File.html" target="_self">File</a>)</code>
                 </td>
             </tr>
 
@@ -256,7 +256,7 @@
                                 <tr>
                                     <td>file</td>
                                     <td>
-                                                <code><a href="../entitys/BaseFile.html" target="_self" >BaseFile</a></code>
+                                                <code><a href="../entitys/File.html" target="_self" >File</a></code>
                                     </td>
 
                                     <td>
@@ -342,7 +342,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>    <code>Promise&lt;BaseFile[]&gt;</code>
+                        <b>Returns : </b>        <code><a href="../entitys/File.html" target="_self" >Promise&lt;File[]&gt;</a></code>
 
                     </div>
                     <div class="io-description">
@@ -653,34 +653,34 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
-import { EntityManager } from &#x27;@mikro-orm/mongodb&#x27;;
-import { BaseFile, File } from &#x27;@shared/domain&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { EntityManager } from &#x27;@mikro-orm/mongodb&#x27;;
+import { Injectable } from &#x27;@nestjs/common&#x27;;
+import { File } from &#x27;@shared/domain&#x27;;
 import { FileStorageAdapter } from &#x27;@shared/infra/filestorage&#x27;;
 import { BaseRepo } from &#x27;../base.repo&#x27;;
 
 @Injectable()
-export class FilesRepo extends BaseRepo&lt;BaseFile&gt; {
+export class FilesRepo extends BaseRepo&lt;File&gt; {
 	constructor(private fileStorageAdapter: FileStorageAdapter, protected readonly _em: EntityManager) {
 		super(_em);
 	}
 
 	get entityName() {
-		return BaseFile;
+		return File;
 	}
 
 	propertiesToPopulate &#x3D; [&#x27;storageProvider&#x27;];
 
-	async findAllFilesForCleanup(cleanupThreshold: Date): Promise&lt;BaseFile[]&gt; {
+	async findAllFilesForCleanup(cleanupThreshold: Date): Promise&lt;File[]&gt; {
 		const filesForCleanupQuery &#x3D; { deletedAt: { $lte: cleanupThreshold } };
-		const files &#x3D; await this._em.find(BaseFile, filesForCleanupQuery);
-		const regularFiles &#x3D; files.filter((file) &#x3D;&gt; file instanceof File);
+		const files &#x3D; await this._em.find(File, filesForCleanupQuery);
+		const regularFiles &#x3D; files.filter((file) &#x3D;&gt; file.isDirectory &#x3D;&#x3D;&#x3D; false);
 		await this._em.populate(regularFiles, this.propertiesToPopulate as never[]);
 		return files;
 	}
 
-	async deleteFile(file: BaseFile): Promise&lt;void&gt; {
-		if (file instanceof File) await this.fileStorageAdapter.deleteFile(file);
+	async deleteFile(file: File): Promise&lt;void&gt; {
+		if (file.isDirectory &#x3D;&#x3D;&#x3D; false) await this.fileStorageAdapter.deleteFile(file);
 		await this.delete(file);
 	}
 }

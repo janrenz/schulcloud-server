@@ -943,9 +943,6 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                     <a href="entities/Account.html" data-type="entity-link" >Account</a>
                                 </li>
                                 <li class="link">
-                                    <a href="entities/BaseFile.html" data-type="entity-link" >BaseFile</a>
-                                </li>
-                                <li class="link">
                                     <a href="entities/Board.html" data-type="entity-link" >Board</a>
                                 </li>
                                 <li class="link">
@@ -965,9 +962,6 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 </li>
                                 <li class="link">
                                     <a href="entities/DashboardModelEntity.html" data-type="entity-link" >DashboardModelEntity</a>
-                                </li>
-                                <li class="link">
-                                    <a href="entities/Directory.html" data-type="entity-link" >Directory</a>
                                 </li>
                                 <li class="link">
                                     <a href="entities/File.html" data-type="entity-link" >File</a>

@@ -79,7 +79,19 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#copyTaskFiles" >copyTaskFiles</a>
+                            </li>
+                            <li>
                                 <a href="#copyTaskMetadata" >copyTaskMetadata</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#defaultTaskStatusElements" >defaultTaskStatusElements</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#inferStatusFromElements" >inferStatusFromElements</a>
                             </li>
                         </ul>
                     </td>
@@ -99,6 +111,77 @@
     <h3 id="methods">
         Methods
     </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="copyTaskFiles"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span ><b>copyTaskFiles</b></span>
+                        <a href="#copyTaskFiles"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>copyTaskFiles(task: <a href="../classes/Task.html" target="_self">Task</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="61"
+                            class="link-to-prism">apps/server/src/shared/domain/service/task-copy.service.ts:61</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>task</td>
+                                    <td>
+                                                <code><a href="../classes/Task.html" target="_self" >Task</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#CopyStatus" target="_self" >CopyStatus[]</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
     <table class="table table-sm table-bordered">
         <tbody>
             <tr>
@@ -168,6 +251,116 @@
             </tr>
         </tbody>
     </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="defaultTaskStatusElements"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span ><b>defaultTaskStatusElements</b></span>
+                        <a href="#defaultTaskStatusElements"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>defaultTaskStatusElements()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="41"
+                            class="link-to-prism">apps/server/src/shared/domain/service/task-copy.service.ts:41</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#CopyStatus" target="_self" >CopyStatus[]</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="inferStatusFromElements"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span ><b>inferStatusFromElements</b></span>
+                        <a href="#inferStatusFromElements"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>inferStatusFromElements(elements: <a href="../undefineds/CopyStatus.html" target="_self">CopyStatus[]</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="89"
+                            class="link-to-prism">apps/server/src/shared/domain/service/task-copy.service.ts:89</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>elements</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#CopyStatus" target="_self" >CopyStatus[]</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#CopyStatus" target="_self" >CopyStatusEnum</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </section>
 
     </div>
@@ -176,7 +369,7 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
 import { Course, Task, User } from &#x27;@shared/domain/entity&#x27;;
-import { CopyElementType, CopyStatusDTO, CopyStatusEnum } from &#x27;@shared/domain/types&#x27;;
+import { CopyElementType, CopyStatus, CopyStatusEnum } from &#x27;@shared/domain/types&#x27;;
 
 export type TaskCopyParams &#x3D; {
 	originalTask: Task;
@@ -187,7 +380,7 @@ export type TaskCopyParams &#x3D; {
 
 export type TaskCopyResponse &#x3D; {
 	copy: Task;
-	status: CopyStatusDTO;
+	status: CopyStatus;
 };
 
 @Injectable()
@@ -200,35 +393,73 @@ export class TaskCopyService {
 			creator: params.user,
 			course: params.destinationCourse,
 		});
-		const status &#x3D; {
+
+		const elements &#x3D; [...this.defaultTaskStatusElements(), ...this.copyTaskFiles(params.originalTask)];
+
+		const status: CopyStatus &#x3D; {
 			title: copy.name,
 			type: CopyElementType.TASK,
-			status: CopyStatusEnum.PARTIAL,
+			status: this.inferStatusFromElements(elements),
 			copyEntity: copy,
-			elements: [
+			elements,
+		};
+
+		return { copy, status };
+	}
+
+	private defaultTaskStatusElements(): CopyStatus[] {
+		return [
+			{
+				title: &#x27;metadata&#x27;,
+				type: CopyElementType.LEAF,
+				status: CopyStatusEnum.SUCCESS,
+			},
+			{
+				title: &#x27;description&#x27;,
+				type: CopyElementType.LEAF,
+				status: CopyStatusEnum.SUCCESS,
+			},
+			{
+				title: &#x27;submissions&#x27;,
+				type: CopyElementType.LEAF,
+				status: CopyStatusEnum.NOT_DOING,
+			},
+		];
+	}
+
+	private copyTaskFiles(task: Task): CopyStatus[] {
+		const fileNames &#x3D; task.getFileNames();
+		if (fileNames.length &#x3D;&#x3D;&#x3D; 1) {
+			return [
 				{
-					title: &#x27;metadata&#x27;,
-					type: CopyElementType.LEAF,
-					status: CopyStatusEnum.SUCCESS,
-				},
-				{
-					title: &#x27;description&#x27;,
-					type: CopyElementType.LEAF,
-					status: CopyStatusEnum.SUCCESS,
-				},
-				{
-					title: &#x27;submissions&#x27;,
-					type: CopyElementType.LEAF,
-					status: CopyStatusEnum.NOT_DOING,
-				},
-				{
-					title: &#x27;files&#x27;,
+					title: fileNames[0],
 					type: CopyElementType.LEAF,
 					status: CopyStatusEnum.NOT_IMPLEMENTED,
 				},
-			],
-		};
-		return { copy, status };
+			];
+		}
+		if (fileNames.length &gt; 1) {
+			const elements &#x3D; fileNames.map((title) &#x3D;&gt; ({
+				title,
+				type: CopyElementType.FILE,
+				status: CopyStatusEnum.NOT_IMPLEMENTED,
+			}));
+			const fileStatus &#x3D; {
+				title: &#x27;files&#x27;,
+				type: CopyElementType.LEAF,
+				status: CopyStatusEnum.NOT_IMPLEMENTED,
+				elements,
+			};
+			return [fileStatus];
+		}
+		return [];
+	}
+
+	private inferStatusFromElements(elements: CopyStatus[]): CopyStatusEnum {
+		const childrenStatusArray &#x3D; elements.map((el) &#x3D;&gt; el.status);
+		// if (childrenStatusArray.includes(CopyStatusEnum.FAIL)) return CopyStatusEnum.PARTIAL; &lt;- unused case, commented for now due to lack of test coverage and no scenario
+		if (childrenStatusArray.includes(CopyStatusEnum.NOT_IMPLEMENTED)) return CopyStatusEnum.PARTIAL;
+		return CopyStatusEnum.SUCCESS;
 	}
 }
 </code></pre>

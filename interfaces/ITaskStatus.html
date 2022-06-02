@@ -340,6 +340,7 @@ import { ILearnroomElement } from &#x27;../interface/learnroom&#x27;;
 import { EntityId } from &#x27;../types/entity-id&#x27;;
 import { BaseEntityWithTimestamps } from &#x27;./base.entity&#x27;;
 import type { Course } from &#x27;./course.entity&#x27;;
+import type { File } from &#x27;./file.entity&#x27;;
 import type { Lesson } from &#x27;./lesson.entity&#x27;;
 import type { Submission } from &#x27;./submission.entity&#x27;;
 import type { User } from &#x27;./user.entity&#x27;;
@@ -356,6 +357,7 @@ export interface ITaskProperties {
 	lesson?: Lesson;
 	submissions?: Submission[];
 	finished?: User[];
+	files?: File[];
 }
 
 export interface ITaskStatus {
@@ -425,6 +427,9 @@ export class Task extends BaseEntityWithTimestamps implements ILearnroomElement,
 	@ManyToMany(&#x27;User&#x27;, undefined, { fieldName: &#x27;archived&#x27; })
 	finished &#x3D; new Collection&lt;User&gt;(this);
 
+	@ManyToMany(&#x27;File&#x27;, undefined, { fieldName: &#x27;fileIds&#x27;, nullable: true })
+	files &#x3D; new Collection&lt;File&gt;(this);
+
 	constructor(props: ITaskProperties) {
 		super();
 		this.name &#x3D; props.name;
@@ -438,6 +443,7 @@ export class Task extends BaseEntityWithTimestamps implements ILearnroomElement,
 		this.lesson &#x3D; props.lesson;
 		this.submissions.set(props.submissions || []);
 		this.finished.set(props.finished || []);
+		this.files.set(props.files || []);
 	}
 
 	isFinishedForUser(user: User): boolean {
@@ -593,6 +599,19 @@ export class Task extends BaseEntityWithTimestamps implements ILearnroomElement,
 		}
 
 		return descriptions;
+	}
+
+	private getFileItems(): File[] {
+		if (!this.files.isInitialized(true)) {
+			throw new Error(&#x27;File items are not loaded.&#x27;);
+		}
+		const files &#x3D; this.files.getItems();
+		return files;
+	}
+
+	getFileNames(): string[] {
+		const attachedFileIds &#x3D; this.getFileItems().map((file) &#x3D;&gt; file.name);
+		return attachedFileIds;
 	}
 
 	finishForUser(user: User) {

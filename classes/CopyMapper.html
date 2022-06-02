@@ -196,7 +196,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>mapToResponse(copyStatus: <a href="../undefineds/CopyStatusDTO.html" target="_self">CopyStatusDTO</a>)</code>
+                    <code>mapToResponse(copyStatus: <a href="../undefineds/CopyStatus.html" target="_self">CopyStatus</a>)</code>
                 </td>
             </tr>
 
@@ -227,7 +227,7 @@
                                 <tr>
                                     <td>copyStatus</td>
                                     <td>
-                                                <code><a href="../miscellaneous/typealiases.html#CopyStatusDTO" target="_self" >CopyStatusDTO</a></code>
+                                                <code><a href="../miscellaneous/typealiases.html#CopyStatus" target="_self" >CopyStatus</a></code>
                                     </td>
 
                                     <td>
@@ -262,13 +262,13 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { CopyStatusDTO } from &#x27;@shared/domain&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { CopyStatus } from &#x27;@shared/domain&#x27;;
 import { TaskCopyApiParams } from &#x27;@src/modules/task/controller/dto/task-copy.params&#x27;;
 import { TaskCopyParentParams } from &#x27;@src/modules/task/uc/task-copy.uc&#x27;;
 import { CopyApiResponse } from &#x27;../controller/dto/copy.response&#x27;;
 
 export class CopyMapper {
-	static mapToResponse(copyStatus: CopyStatusDTO): CopyApiResponse {
+	static mapToResponse(copyStatus: CopyStatus): CopyApiResponse {
 		const dto &#x3D; new CopyApiResponse({
 			title: copyStatus.title,
 			type: copyStatus.type,
