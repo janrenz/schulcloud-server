@@ -82,6 +82,11 @@
                                     <span class="modifier">Async</span>
                                 <a href="#copyTask" >copyTask</a>
                             </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#getDestinationCourse" >getDestinationCourse</a>
+                            </li>
                         </ul>
                     </td>
                 </tr>
@@ -279,6 +284,90 @@
             </tr>
         </tbody>
     </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getDestinationCourse"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span class="modifier">Async</span>
+                        <span ><b>getDestinationCourse</b></span>
+                        <a href="#getDestinationCourse"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getDestinationCourse(courseId: string | undefined, user: <a href="../interfaces/User.html" target="_self">User</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="42"
+                            class="link-to-prism">apps/server/src/modules/task/uc/task-copy.uc.ts:42</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>courseId</td>
+                                    <td>
+                                            <code>string | undefined</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>user</td>
+                                    <td>
+                                                <code><a href="../interfaces/User.html" target="_self" >User</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>unknown</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </section>
 
     </div>
@@ -286,13 +375,13 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ForbiddenException, Injectable, NotFoundException } from &#x27;@nestjs/common&#x27;;
-import { Actions, CopyStatus, EntityId } from &#x27;@shared/domain&#x27;;
+import { Actions, CopyStatus, EntityId, User } from &#x27;@shared/domain&#x27;;
 import { TaskCopyService } from &#x27;../../../shared/domain/service/task-copy.service&#x27;;
 import { CourseRepo, TaskRepo } from &#x27;../../../shared/repo&#x27;;
 import { AuthorizationService } from &#x27;../../authorization&#x27;;
 
 export type TaskCopyParentParams &#x3D; {
-	courseId: EntityId;
+	courseId?: EntityId;
 	lessonId?: EntityId;
 };
 
@@ -316,15 +405,7 @@ export class TaskCopyUC {
 		) {
 			throw new NotFoundException(&#x27;could not find task to copy&#x27;);
 		}
-		const destinationCourse &#x3D; await this.courseRepo.findById(parentParams.courseId);
-		if (
-			!this.authorisation.hasPermission(user, destinationCourse, {
-				action: Actions.write,
-				requiredPermissions: [],
-			})
-		) {
-			throw new ForbiddenException(&#x27;you dont have permission to add to this course&#x27;);
-		}
+		const destinationCourse &#x3D; await this.getDestinationCourse(parentParams.courseId, user);
 		const { copy, status } &#x3D; this.taskCopyService.copyTaskMetadata({
 			originalTask,
 			destinationCourse,
@@ -332,6 +413,22 @@ export class TaskCopyUC {
 		});
 		await this.taskRepo.save(copy);
 		return status;
+	}
+
+	private async getDestinationCourse(courseId: string | undefined, user: User) {
+		if (courseId) {
+			const destinationCourse &#x3D; await this.courseRepo.findById(courseId);
+			if (
+				!this.authorisation.hasPermission(user, destinationCourse, {
+					action: Actions.write,
+					requiredPermissions: [],
+				})
+			) {
+				throw new ForbiddenException(&#x27;you dont have permission to add to this course&#x27;);
+			}
+			return destinationCourse;
+		}
+		return undefined;
 	}
 }
 </code></pre>

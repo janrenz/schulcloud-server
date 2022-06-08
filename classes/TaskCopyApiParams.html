@@ -90,6 +90,7 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                    <span class="modifier">Optional</span>
                                 <a href="#courseId" >courseId</a>
                             </li>
                             <li>
@@ -121,6 +122,7 @@
                 <td class="col-md-4">
                     <a name="courseId"></a>
                     <span class="name">
+                            <span class="modifier">Optional</span>
                         <span ><b>courseId</b></span>
                         <a href="#courseId"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -137,13 +139,13 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @IsMongoId()<br />@ApiProperty({pattern: &#x27;[a-f0-9]{24}&#x27;, description: &#x27;Destination course parent Id the task is copied to&#x27;})<br />
+                            @IsOptional()<br />@IsMongoId()<br />@ApiPropertyOptional({pattern: &#x27;[a-f0-9]{24}&#x27;, description: &#x27;Destination course parent Id the task is copied to&#x27;})<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">apps/server/src/modules/task/controller/dto/task-copy.params.ts:13</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">apps/server/src/modules/task/controller/dto/task-copy.params.ts:14</a></div>
                         </td>
                     </tr>
 
@@ -179,7 +181,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">apps/server/src/modules/task/controller/dto/task-copy.params.ts:21</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">apps/server/src/modules/task/controller/dto/task-copy.params.ts:22</a></div>
                         </td>
                     </tr>
 
@@ -198,19 +200,20 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ApiProperty, ApiPropertyOptional } from &#x27;@nestjs/swagger&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ApiPropertyOptional } from &#x27;@nestjs/swagger&#x27;;
 import { IsMongoId, IsOptional } from &#x27;class-validator&#x27;;
 
 /**
  * DTO for creating a task copy.
  */
 export class TaskCopyApiParams {
+	@IsOptional()
 	@IsMongoId()
-	@ApiProperty({
+	@ApiPropertyOptional({
 		pattern: &#x27;[a-f0-9]{24}&#x27;,
 		description: &#x27;Destination course parent Id the task is copied to&#x27;,
 	})
-	courseId!: string;
+	courseId?: string;
 
 	@IsOptional()
 	@IsMongoId()
