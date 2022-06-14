@@ -69,6 +69,21 @@
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
         <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#repos" >repos</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
 
                 <tr>
                     <td class="col-md-4">
@@ -85,6 +100,10 @@
                             <li>
                                     <span class="modifier">Async</span>
                                 <a href="#loadEntity" >loadEntity</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#resolveRepo" >resolveRepo</a>
                             </li>
                         </ul>
                     </td>
@@ -109,7 +128,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">apps/server/src/modules/authorization/reference.loader.ts:7</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">apps/server/src/modules/authorization/reference.loader.ts:8</a></div>
                             </td>
                         </tr>
 
@@ -210,8 +229,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="31"
-                            class="link-to-prism">apps/server/src/modules/authorization/reference.loader.ts:31</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="36"
+                            class="link-to-prism">apps/server/src/modules/authorization/reference.loader.ts:36</a></div>
                 </td>
             </tr>
 
@@ -281,8 +300,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="15"
-                            class="link-to-prism">apps/server/src/modules/authorization/reference.loader.ts:15</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="30"
+                            class="link-to-prism">apps/server/src/modules/authorization/reference.loader.ts:30</a></div>
                 </td>
             </tr>
 
@@ -342,6 +361,115 @@
             </tr>
         </tbody>
     </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="resolveRepo"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span ><b>resolveRepo</b></span>
+                        <a href="#resolveRepo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>resolveRepo(type: <a href="../undefineds/AllowedAuthorizationEntityType.html" target="_self">AllowedAuthorizationEntityType</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="22"
+                            class="link-to-prism">apps/server/src/modules/authorization/reference.loader.ts:22</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>type</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/enumerations.html#AllowedAuthorizationEntityType" target="_self" >AllowedAuthorizationEntityType</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+            <section>
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="repos"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>repos</b></span>
+                        <a href="#repos"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/User.html" target="_self" >Map&lt;AllowedAuthorizationEntityType | TaskRepo | CourseRepo | UserRepo | SchoolRepo&gt;</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Map()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">apps/server/src/modules/authorization/reference.loader.ts:8</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
 </section>
 
     </div>
@@ -349,32 +477,37 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable, NotImplementedException } from &#x27;@nestjs/common&#x27;;
-import { Course, EntityId, School, Task, User } from &#x27;@shared/domain&#x27;;
+import { EntityId } from &#x27;@shared/domain&#x27;;
 import { CourseRepo, SchoolRepo, TaskRepo, UserRepo } from &#x27;@shared/repo&#x27;;
 import { AllowedAuthorizationEntityType } from &#x27;./interfaces&#x27;;
 
 @Injectable()
 export class ReferenceLoader {
+	private repos: Map&lt;AllowedAuthorizationEntityType, TaskRepo | CourseRepo | UserRepo | SchoolRepo&gt; &#x3D; new Map();
+
 	constructor(
 		private readonly userRepo: UserRepo,
 		private readonly courseRepo: CourseRepo,
 		private readonly taskRepo: TaskRepo,
 		private readonly schoolRepo: SchoolRepo
-	) {}
+	) {
+		this.repos.set(AllowedAuthorizationEntityType.Task, this.taskRepo);
+		this.repos.set(AllowedAuthorizationEntityType.Course, this.courseRepo);
+		this.repos.set(AllowedAuthorizationEntityType.User, this.userRepo);
+		this.repos.set(AllowedAuthorizationEntityType.School, this.schoolRepo);
+	}
+
+	private resolveRepo(type: AllowedAuthorizationEntityType) {
+		const repo &#x3D; this.repos.get(type);
+		if (repo) {
+			return repo;
+		}
+		throw new NotImplementedException(&#x27;REPO_NOT_IMPLEMENT&#x27;);
+	}
 
 	async loadEntity(entityName: AllowedAuthorizationEntityType, entityId: EntityId) {
-		let entity: Task | Course | User | School;
-		if (entityName &#x3D;&#x3D;&#x3D; AllowedAuthorizationEntityType.Task) {
-			entity &#x3D; await this.taskRepo.findById(entityId);
-		} else if (entityName &#x3D;&#x3D;&#x3D; AllowedAuthorizationEntityType.Course) {
-			entity &#x3D; await this.courseRepo.findById(entityId);
-		} else if (entityName &#x3D;&#x3D;&#x3D; AllowedAuthorizationEntityType.School) {
-			entity &#x3D; await this.schoolRepo.findById(entityId);
-		} else if (entityName &#x3D;&#x3D;&#x3D; AllowedAuthorizationEntityType.User) {
-			entity &#x3D; await this.userRepo.findById(entityId);
-		} else {
-			throw new NotImplementedException(&#x27;REPO_NOT_IMPLEMENT&#x27;);
-		}
+		const entity &#x3D; await this.resolveRepo(entityName).findById(entityId);
+
 		return entity;
 	}
 
