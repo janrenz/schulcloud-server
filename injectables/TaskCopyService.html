@@ -133,8 +133,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="61"
-                            class="link-to-prism">apps/server/src/shared/domain/service/task-copy.service.ts:61</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="56"
+                            class="link-to-prism">apps/server/src/shared/domain/service/task-copy.service.ts:56</a></div>
                 </td>
             </tr>
 
@@ -202,8 +202,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="19"
-                            class="link-to-prism">apps/server/src/shared/domain/service/task-copy.service.ts:19</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="14"
+                            class="link-to-prism">apps/server/src/shared/domain/service/task-copy.service.ts:14</a></div>
                 </td>
             </tr>
 
@@ -241,7 +241,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/Task.html" target="_self" >TaskCopyResponse</a></code>
+                        <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#CopyStatus" target="_self" >CopyStatus</a></code>
 
                     </div>
                     <div class="io-description">
@@ -273,8 +273,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="41"
-                            class="link-to-prism">apps/server/src/shared/domain/service/task-copy.service.ts:41</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="36"
+                            class="link-to-prism">apps/server/src/shared/domain/service/task-copy.service.ts:36</a></div>
                 </td>
             </tr>
 
@@ -312,8 +312,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="89"
-                            class="link-to-prism">apps/server/src/shared/domain/service/task-copy.service.ts:89</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="84"
+                            class="link-to-prism">apps/server/src/shared/domain/service/task-copy.service.ts:84</a></div>
                 </td>
             </tr>
 
@@ -378,14 +378,9 @@ export type TaskCopyParams &#x3D; {
 	user: User;
 };
 
-export type TaskCopyResponse &#x3D; {
-	copy: Task;
-	status: CopyStatus;
-};
-
 @Injectable()
 export class TaskCopyService {
-	copyTaskMetadata(params: TaskCopyParams): TaskCopyResponse {
+	copyTaskMetadata(params: TaskCopyParams): CopyStatus {
 		const copy &#x3D; new Task({
 			name: params.originalTask.name,
 			description: params.originalTask.description,
@@ -404,7 +399,7 @@ export class TaskCopyService {
 			elements,
 		};
 
-		return { copy, status };
+		return status;
 	}
 
 	private defaultTaskStatusElements(): CopyStatus[] {

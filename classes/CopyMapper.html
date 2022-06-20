@@ -279,7 +279,7 @@ export class CopyMapper {
 			dto.id &#x3D; copyStatus.copyEntity.id;
 		}
 		if (copyStatus.elements) {
-			dto.elements &#x3D; copyStatus.elements;
+			dto.elements &#x3D; copyStatus.elements.map((status) &#x3D;&gt; CopyMapper.mapToResponse(status));
 		}
 		return dto;
 	}

@@ -110,7 +110,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">apps/server/src/modules/task/uc/task-copy.uc.ts:13</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">apps/server/src/modules/task/uc/task-copy.uc.ts:12</a></div>
                             </td>
                         </tr>
 
@@ -211,8 +211,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="21"
-                            class="link-to-prism">apps/server/src/modules/task/uc/task-copy.uc.ts:21</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="20"
+                            class="link-to-prism">apps/server/src/modules/task/uc/task-copy.uc.ts:20</a></div>
                 </td>
             </tr>
 
@@ -307,8 +307,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="37"
-                            class="link-to-prism">apps/server/src/modules/task/uc/task-copy.uc.ts:37</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="40"
+                            class="link-to-prism">apps/server/src/modules/task/uc/task-copy.uc.ts:40</a></div>
                 </td>
             </tr>
 
@@ -375,10 +375,9 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ForbiddenException, Injectable, NotFoundException } from &#x27;@nestjs/common&#x27;;
-import { CopyStatus, EntityId, PermissionContextBuilder, User } from &#x27;@shared/domain&#x27;;
-import { TaskCopyService } from &#x27;../../../shared/domain/service/task-copy.service&#x27;;
-import { CourseRepo, TaskRepo } from &#x27;../../../shared/repo&#x27;;
-import { AuthorizationService } from &#x27;../../authorization&#x27;;
+import { CopyStatus, EntityId, PermissionContextBuilder, Task, TaskCopyService, User } from &#x27;@shared/domain&#x27;;
+import { CourseRepo, TaskRepo } from &#x27;@shared/repo&#x27;;
+import { AuthorizationService } from &#x27;@src/modules/authorization&#x27;;
 
 export type TaskCopyParentParams &#x3D; {
 	courseId?: EntityId;
@@ -401,12 +400,16 @@ export class TaskCopyUC {
 			throw new NotFoundException(&#x27;could not find task to copy&#x27;);
 		}
 		const destinationCourse &#x3D; await this.getDestinationCourse(parentParams.courseId, user);
-		const { copy, status } &#x3D; this.taskCopyService.copyTaskMetadata({
+		const status &#x3D; this.taskCopyService.copyTaskMetadata({
 			originalTask,
 			destinationCourse,
 			user,
 		});
-		await this.taskRepo.save(copy);
+
+		if (status.copyEntity) {
+			const taskCopy &#x3D; status.copyEntity as Task;
+			await this.taskRepo.save(taskCopy);
+		}
 		return status;
 	}
 

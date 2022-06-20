@@ -100,12 +100,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(courseRepo: <a href="../injectables/CourseRepo.html" target="_self">CourseRepo</a>, authorisation: <a href="../injectables/AuthorizationService.html" target="_self">AuthorizationService</a>, courseCopyService: <a href="../injectables/CourseCopyService.html" target="_self">CourseCopyService</a>)</code>
+<code>constructor(courseRepo: <a href="../injectables/CourseRepo.html" target="_self">CourseRepo</a>, boardRepo: <a href="../injectables/BoardRepo.html" target="_self">BoardRepo</a>, authorisation: <a href="../injectables/AuthorizationService.html" target="_self">AuthorizationService</a>, courseCopyService: <a href="../injectables/CourseCopyService.html" target="_self">CourseCopyService</a>, boardCopyService: <a href="../injectables/BoardCopyService.html" target="_self">BoardCopyService</a>, roomsService: <a href="../injectables/RoomsService.html" target="_self">RoomsService</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">apps/server/src/modules/learnroom/uc/course-copy.uc.ts:8</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">apps/server/src/modules/learnroom/uc/course-copy.uc.ts:9</a></div>
                             </td>
                         </tr>
 
@@ -135,6 +135,18 @@
                                                     
                                                 </tr>
                                                 <tr>
+                                                        <td>boardRepo</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/BoardRepo.html" target="_self" >BoardRepo</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
                                                         <td>authorisation</td>
                                                   
                                                         <td>
@@ -151,6 +163,30 @@
                                                   
                                                         <td>
                                                                         <code><a href="../injectables/CourseCopyService.html" target="_self" >CourseCopyService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>boardCopyService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/BoardCopyService.html" target="_self" >BoardCopyService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>roomsService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/RoomsService.html" target="_self" >RoomsService</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -194,8 +230,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="15"
-                            class="link-to-prism">apps/server/src/modules/learnroom/uc/course-copy.uc.ts:15</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="19"
+                            class="link-to-prism">apps/server/src/modules/learnroom/uc/course-copy.uc.ts:19</a></div>
                 </td>
             </tr>
 
@@ -261,37 +297,48 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ForbiddenException, Injectable } from &#x27;@nestjs/common&#x27;;
-import { Actions, CopyStatus, EntityId, Permission } from &#x27;@shared/domain&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
+import { Actions, Board, BoardCopyService, CopyStatus, Course, EntityId, Permission } from &#x27;@shared/domain&#x27;;
 import { CourseCopyService } from &#x27;@shared/domain/service/course-copy.service&#x27;;
+import { BoardRepo, CourseRepo } from &#x27;@shared/repo&#x27;;
 import { AuthorizationService } from &#x27;@src/modules/authorization/authorization.service&#x27;;
-import { CourseRepo } from &#x27;../../../shared/repo&#x27;;
+import { RoomsService } from &#x27;./rooms.service&#x27;;
 
 @Injectable()
 export class CourseCopyUC {
 	constructor(
 		private readonly courseRepo: CourseRepo,
+		private readonly boardRepo: BoardRepo,
 		private readonly authorisation: AuthorizationService,
-		private readonly courseCopyService: CourseCopyService
+		private readonly courseCopyService: CourseCopyService,
+		private readonly boardCopyService: BoardCopyService,
+		private readonly roomsService: RoomsService
 	) {}
 
 	async copyCourse(userId: EntityId, courseId: EntityId): Promise&lt;CopyStatus&gt; {
 		const user &#x3D; await this.authorisation.getUserWithPermissions(userId);
 		const originalCourse &#x3D; await this.courseRepo.findById(courseId);
-		if (
-			!this.authorisation.hasPermission(user, originalCourse, {
-				action: Actions.write,
-				requiredPermissions: [Permission.COURSE_CREATE],
-			})
-		) {
-			throw new ForbiddenException();
-		}
-		const { copy, status } &#x3D; this.courseCopyService.copyCourseMetadata({
-			originalCourse,
-			user,
+		let originalBoard &#x3D; await this.boardRepo.findByCourseId(courseId);
+		originalBoard &#x3D; await this.roomsService.updateBoard(originalBoard, courseId, userId);
+
+		this.authorisation.checkPermission(user, originalCourse, {
+			action: Actions.write,
+			requiredPermissions: [Permission.COURSE_CREATE],
 		});
-		await this.courseRepo.save(copy);
-		return status;
+
+		const statusCourse &#x3D; this.courseCopyService.copyCourse({ originalCourse, user });
+		const courseCopy &#x3D; statusCourse.copyEntity as Course;
+
+		const statusBoard &#x3D; this.boardCopyService.copyBoard({ originalBoard, destinationCourse: courseCopy, user });
+		const boardCopy &#x3D; statusBoard.copyEntity as Board;
+
+		await this.courseRepo.save(courseCopy);
+		await this.boardRepo.save(boardCopy);
+
+		statusCourse.elements ||&#x3D; [];
+		statusCourse.elements.push(statusBoard);
+
+		return statusCourse;
 	}
 }
 </code></pre>
