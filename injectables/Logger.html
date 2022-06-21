@@ -377,7 +377,7 @@ export class Logger extends ConsoleLogger implements ILogger {
 			Configuration.get(&#x27;NODE_ENV&#x27;) &#x3D;&#x3D;&#x3D; &#x27;production&#x27;
 				? [JSON.stringify({ message, trace: trace || null })]
 				: [message, trace];
-		this.printMessages(messages, context || this.context);
+		super.error(messages);
 	}
 }
 </code></pre>
