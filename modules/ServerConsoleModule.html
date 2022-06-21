@@ -168,10 +168,14 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Configuration } from &#x27;@hpi-schul-cloud/commons/lib&#x27;;
-import { Module } from &#x27;@nestjs/common&#x27;;
+import { Dictionary, IPrimaryKey } from &#x27;@mikro-orm/core&#x27;;
+import { MikroOrmModule } from &#x27;@mikro-orm/nestjs&#x27;;
+import { Module, NotFoundException } from &#x27;@nestjs/common&#x27;;
 import { ConfigModule } from &#x27;@nestjs/config&#x27;;
+import { ALL_ENTITIES } from &#x27;@shared/domain&#x27;;
 import { ConsoleWriterModule } from &#x27;@shared/infra/console/console-writer/console-writer.module&#x27;;
 import { KeycloakModule } from &#x27;@shared/infra/identity-management/keycloak/keycloak.module&#x27;;
+import { DB_PASSWORD, DB_URL, DB_USERNAME } from &#x27;@src/config&#x27;;
 import { FilesModule } from &#x27;@src/modules/files&#x27;;
 import { ManagementModule } from &#x27;@src/modules/management/management.module&#x27;;
 import serverConfig from &#x27;@src/server.config&#x27;;
@@ -190,6 +194,19 @@ import { ServerConsole } from &#x27;./server.console&#x27;;
 			load: [serverConfig],
 		}),
 		...((Configuration.get(&#x27;FEATURE_IDENTITY_MANAGEMENT_ENABLED&#x27;) as boolean) ? [KeycloakModule] : []),
+		MikroOrmModule.forRoot({
+			// TODO repeats server module definitions
+			type: &#x27;mongo&#x27;,
+			clientUrl: DB_URL,
+			password: DB_PASSWORD,
+			user: DB_USERNAME,
+			entities: ALL_ENTITIES,
+			allowGlobalContext: true,
+			findOneOrFailHandler: (entityName: string, where: Dictionary | IPrimaryKey) &#x3D;&gt; {
+				// eslint-disable-next-line @typescript-eslint/restrict-template-expressions
+				return new NotFoundException(&#x60;The requested ${entityName}: ${where} has not been found.&#x60;);
+			},
+		}),
 	],
 	providers: [
 		/** add console services as providers */

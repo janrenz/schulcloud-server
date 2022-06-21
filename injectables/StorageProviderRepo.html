@@ -85,6 +85,11 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                    <span class="modifier">Public</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#findAll" >findAll</a>
+                            </li>
+                            <li>
                                     <span class="modifier">Async</span>
                                 <a href="#delete" >delete</a>
                             </li>
@@ -128,6 +133,46 @@
     <h3 id="methods">
         Methods
     </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findAll"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span class="modifier">Async</span>
+                        <span ><b>findAll</b></span>
+                        <a href="#findAll"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findAll()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="13"
+                            class="link-to-prism">apps/server/src/shared/repo/storageprovider/storageprovider.repo.ts:13</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>unknown</code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
     <table class="table table-sm table-bordered">
         <tbody>
             <tr>
@@ -400,6 +445,13 @@ import { BaseRepo } from &#x27;../base.repo&#x27;;
 export class StorageProviderRepo extends BaseRepo&lt;StorageProvider&gt; {
 	get entityName() {
 		return StorageProvider;
+	}
+
+	// Temporary functionality for migration to new fileservice
+	// TODO: Remove when BC-1496 is done!
+	public async findAll() {
+		const result &#x3D; await this._em.find(this.entityName, {});
+		return result;
 	}
 }
 </code></pre>

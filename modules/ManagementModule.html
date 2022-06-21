@@ -244,17 +244,12 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Configuration } from &#x27;@hpi-schul-cloud/commons/lib&#x27;;
-import { Dictionary, IPrimaryKey } from &#x27;@mikro-orm/core&#x27;;
-import { MikroOrmModule, MikroOrmModuleSyncOptions } from &#x27;@mikro-orm/nestjs&#x27;;
-import { DynamicModule, Module, NotFoundException } from &#x27;@nestjs/common&#x27;;
+import { Module } from &#x27;@nestjs/common&#x27;;
 import { ConfigModule } from &#x27;@nestjs/config&#x27;;
-import { ALL_ENTITIES } from &#x27;@shared/domain&#x27;;
 import { ConsoleWriterService } from &#x27;@shared/infra/console&#x27;;
-import { DatabaseManagementModule, DatabaseManagementService, MongoMemoryDatabaseModule } from &#x27;@shared/infra/database&#x27;;
-import { MongoDatabaseModuleOptions } from &#x27;@shared/infra/database/mongo-memory-database/types&#x27;;
+import { DatabaseManagementModule, DatabaseManagementService } from &#x27;@shared/infra/database&#x27;;
 import { FileSystemModule } from &#x27;@shared/infra/file-system&#x27;;
 import { KeycloakModule } from &#x27;@shared/infra/identity-management/keycloak/keycloak.module&#x27;;
-import { DB_PASSWORD, DB_URL, DB_USERNAME } from &#x27;@src/config&#x27;;
 import serverConfig from &#x27;@src/server.config&#x27;;
 import { DatabaseManagementConsole } from &#x27;./console/database-management.console&#x27;;
 import { DatabaseManagementController } from &#x27;./controller/database-management.controller&#x27;;
@@ -287,49 +282,12 @@ const providers &#x3D; [
 
 const controllers &#x3D; [DatabaseManagementController];
 
-export const defaultMikroOrmOptions: MikroOrmModuleSyncOptions &#x3D; {
-	findOneOrFailHandler: (entityName: string, where: Dictionary | IPrimaryKey) &#x3D;&gt; {
-		// eslint-disable-next-line @typescript-eslint/restrict-template-expressions
-		return new NotFoundException(&#x60;The requested ${entityName}: ${where} has not been found.&#x60;);
-	},
-};
-
 @Module({
-	imports: [
-		...imports,
-		MikroOrmModule.forRoot({
-			...defaultMikroOrmOptions,
-			// TODO repeats server module definitions
-			type: &#x27;mongo&#x27;,
-			clientUrl: DB_URL,
-			password: DB_PASSWORD,
-			user: DB_USERNAME,
-			entities: ALL_ENTITIES,
-			allowGlobalContext: true,
-			findOneOrFailHandler: (entityName: string, where: Dictionary | IPrimaryKey) &#x3D;&gt; {
-				// eslint-disable-next-line @typescript-eslint/restrict-template-expressions
-				return new NotFoundException(&#x60;The requested ${entityName}: ${where} has not been found.&#x60;);
-			},
-		}),
-	],
+	imports: [...imports],
 	providers,
 	controllers,
 })
 export class ManagementModule {}
-
-@Module({
-	imports: [...imports, MongoMemoryDatabaseModule.forRoot({ ...defaultMikroOrmOptions })],
-	providers,
-	controllers,
-})
-export class ManagementTestModule {
-	static forRoot(options?: MongoDatabaseModuleOptions): DynamicModule {
-		return {
-			module: ManagementModule,
-			imports: [MongoMemoryDatabaseModule.forRoot({ ...defaultMikroOrmOptions, ...options })],
-		};
-	}
-}
 </code></pre>
     </div>
 </div>
