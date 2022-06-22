@@ -94,7 +94,7 @@
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
-                                <a href="#findByLdapId" >findByLdapId</a>
+                                <a href="#findByLdapIdorFail" >findByLdapIdorFail</a>
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
@@ -174,8 +174,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="149"
-                            class="link-to-prism">apps/server/src/shared/repo/user/user.repo.ts:149</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="146"
+                            class="link-to-prism">apps/server/src/shared/repo/user/user.repo.ts:146</a></div>
                 </td>
             </tr>
 
@@ -321,18 +321,18 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="findByLdapId"></a>
+                    <a name="findByLdapIdorFail"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
-                        <span ><b>findByLdapId</b></span>
-                        <a href="#findByLdapId"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>findByLdapIdorFail</b></span>
+                        <a href="#findByLdapIdorFail"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>findByLdapId(ldapId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, systemId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    <code>findByLdapIdorFail(ldapId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, systemId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
@@ -422,8 +422,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="41"
-                            class="link-to-prism">apps/server/src/shared/repo/user/user.repo.ts:41</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="38"
+                            class="link-to-prism">apps/server/src/shared/repo/user/user.repo.ts:38</a></div>
                 </td>
             </tr>
 
@@ -519,8 +519,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="171"
-                            class="link-to-prism">apps/server/src/shared/repo/user/user.repo.ts:171</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="168"
+                            class="link-to-prism">apps/server/src/shared/repo/user/user.repo.ts:168</a></div>
                 </td>
             </tr>
 
@@ -559,8 +559,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="155"
-                            class="link-to-prism">apps/server/src/shared/repo/user/user.repo.ts:155</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="152"
+                            class="link-to-prism">apps/server/src/shared/repo/user/user.repo.ts:152</a></div>
                 </td>
             </tr>
 
@@ -628,8 +628,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="167"
-                            class="link-to-prism">apps/server/src/shared/repo/user/user.repo.ts:167</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="164"
+                            class="link-to-prism">apps/server/src/shared/repo/user/user.repo.ts:164</a></div>
                 </td>
             </tr>
 
@@ -866,7 +866,7 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { QueryOrderMap, QueryOrderNumeric } from &#x27;@mikro-orm/core&#x27;;
 import { ObjectId } from &#x27;@mikro-orm/mongodb&#x27;;
-import { Injectable, NotFoundException } from &#x27;@nestjs/common&#x27;;
+import { Injectable } from &#x27;@nestjs/common&#x27;;
 import { StringValidator } from &#x27;@shared/common&#x27;;
 import { Counted, EntityId, IFindOptions, ImportUser, INameMatch, Role, School, SortOrder, User } from &#x27;@shared/domain&#x27;;
 import { BaseRepo } from &#x27;@shared/repo/base.repo&#x27;;
@@ -889,16 +889,13 @@ export class UserRepo extends BaseRepo&lt;User&gt; {
 		return user;
 	}
 
-	async findByLdapId(ldapId: string, systemId: string): Promise&lt;User&gt; {
+	async findByLdapIdorFail(ldapId: string, systemId: string): Promise&lt;User&gt; {
 		const [users] &#x3D; await this._em.findAndCount(User, { ldapId }, { populate: [&#x27;school.systems&#x27;] });
 		const resultUser &#x3D; users.find((user) &#x3D;&gt; {
 			const { systems } &#x3D; user.school;
 			return systems &amp;&amp; systems.getItems().find((system) &#x3D;&gt; system.id &#x3D;&#x3D;&#x3D; systemId);
 		});
-		if (resultUser) {
-			return resultUser;
-		}
-		throw new NotFoundException(&#x27;No user for this ldapId found&#x27;);
+		return resultUser ?? Promise.reject();
 	}
 
 	/**
