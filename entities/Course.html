@@ -604,7 +604,7 @@ export class Course extends BaseEntityWithTimestamps implements ILearnroom, IEnt
 
 	private getShortTitle(): string {
 		const [firstChar, secondChar] &#x3D; [...this.name];
-		const pattern &#x3D; /\p{Emoji}/u;
+		const pattern &#x3D; /\p{Extended_Pictographic}/u;
 		if (pattern.test(firstChar)) {
 			return firstChar;
 		}
