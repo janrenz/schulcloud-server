@@ -82,6 +82,10 @@
                                 <a href="#delete" >delete</a>
                             </li>
                             <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#encryptPassword" >encryptPassword</a>
+                            </li>
+                            <li>
                                     <span class="modifier">Async</span>
                                 <a href="#findById" >findById</a>
                             </li>
@@ -235,6 +239,77 @@
                     </div>
                     <div class="io-description">
                         <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="encryptPassword"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span ><b>encryptPassword</b></span>
+                        <a href="#encryptPassword"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>encryptPassword(password: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="90"
+                            class="link-to-prism">apps/server/src/modules/account/services/account.service.ts:90</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>password</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;string&gt;</code>
 
                     </div>
                     <div class="io-description">
@@ -774,11 +849,11 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ObjectId } from &#x27;@mikro-orm/mongodb&#x27;;
 import { Injectable } from &#x27;@nestjs/common&#x27;;
 import { EntityNotFoundError } from &#x27;@shared/common&#x27;;
+import bcrypt from &#x27;bcryptjs&#x27;;
 import { Account, EntityId } from &#x27;@shared/domain&#x27;;
 import { AccountRepo } from &#x27;@shared/repo&#x27;;
-import { AccountEntityToDtoMapper } from &#x27;../mapper/account-entity-to-dto.mapper&#x27;;
-import { AccountDto } from &#x27;./dto/account.dto&#x27;;
-import { AccountSaveDto } from &#x27;./dto/account.save.dto&#x27;;
+import { AccountEntityToDtoMapper } from &#x27;../mapper&#x27;;
+import { AccountDto, AccountSaveDto } from &#x27;./dto&#x27;;
 
 @Injectable()
 export class AccountService {
@@ -815,7 +890,7 @@ export class AccountService {
 			account.activated &#x3D; accountDto.activated;
 			account.expiresAt &#x3D; accountDto.expiresAt;
 			account.lasttriedFailedLogin &#x3D; accountDto.lasttriedFailedLogin;
-			account.password &#x3D; accountDto.password;
+			account.password &#x3D; accountDto.password ? await this.encryptPassword(accountDto.password) : undefined;
 			account.credentialHash &#x3D; accountDto.credentialHash;
 			account.token &#x3D; accountDto.token;
 		} else {
@@ -826,7 +901,7 @@ export class AccountService {
 				activated: accountDto.activated,
 				expiresAt: accountDto.expiresAt,
 				lasttriedFailedLogin: accountDto.lasttriedFailedLogin,
-				password: accountDto.password,
+				password: accountDto.password ? await this.encryptPassword(accountDto.password) : undefined,
 				token: accountDto.token,
 				credentialHash: accountDto.credentialHash,
 			});
@@ -858,6 +933,10 @@ export class AccountService {
 			AccountEntityToDtoMapper.mapToDto(accountEntity)
 		);
 		return { accounts: accountDtos, total: accountEntities[1] };
+	}
+
+	private encryptPassword(password: string): Promise&lt;string&gt; {
+		return bcrypt.hash(password, 10);
 	}
 }
 </code></pre>

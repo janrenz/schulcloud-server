@@ -103,6 +103,7 @@
                                 <a href="#token" >token</a>
                             </li>
                             <li>
+                                    <span class="modifier">Optional</span>
                                 <a href="#userId" >userId</a>
                             </li>
                             <li>
@@ -384,6 +385,7 @@
                 <td class="col-md-4">
                     <a name="userId"></a>
                     <span class="name">
+                            <span class="modifier">Optional</span>
                         <span ><b>userId</b></span>
                         <a href="#userId"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -476,7 +478,7 @@ export class Account extends BaseEntityWithTimestamps {
 	credentialHash?: string;
 
 	@Property({ nullable: true, unique: false })
-	userId: ObjectId;
+	userId?: ObjectId;
 
 	@Property({ nullable: true })
 	systemId?: ObjectId;
