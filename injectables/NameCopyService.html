@@ -40,7 +40,7 @@
 
 <ol class="breadcrumb">
   <li>Injectables</li>
-  <li >CourseCopyService</li>
+  <li >NameCopyService</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -58,7 +58,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/shared/domain/service/course-copy.service.ts</code>
+            <code>apps/server/src/shared/domain/service/name-copy.service.ts</code>
         </p>
 
 
@@ -79,7 +79,7 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#copyCourse" >copyCourse</a>
+                                <a href="#deriveCopyName" >deriveCopyName</a>
                             </li>
                         </ul>
                     </td>
@@ -93,54 +93,6 @@
     </table>
 </section>
 
-            <section>
-    <h3 id="constructor">Constructor</h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-<code>constructor(nameCopyService: <a href="../injectables/NameCopyService.html" target="_self">NameCopyService</a>)</code>
-                    </td>
-                </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">apps/server/src/shared/domain/service/course-copy.service.ts:12</a></div>
-                            </td>
-                        </tr>
-
-                <tr>
-                    <td class="col-md-4">
-                            <div>
-                                    <b>Parameters :</b>
-                                    <table class="params">
-                                        <thead>
-                                            <tr>
-                                                <td>Name</td>
-                                                    <td>Type</td>
-                                                <td>Optional</td>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                                <tr>
-                                                        <td>nameCopyService</td>
-                                                  
-                                                        <td>
-                                                                        <code><a href="../injectables/NameCopyService.html" target="_self" >NameCopyService</a></code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                        </tbody>
-                                    </table>
-                            </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-</section>
 
             <section>
     
@@ -151,24 +103,24 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="copyCourse"></a>
+                    <a name="deriveCopyName"></a>
                     <span class="name">
-                        <span ><b>copyCourse</b></span>
-                        <a href="#copyCourse"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>deriveCopyName</b></span>
+                        <a href="#deriveCopyName"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>copyCourse(params: <a href="../entitys/Course.html" target="_self">CourseCopyParams</a>)</code>
+<code>deriveCopyName(name: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="15"
-                            class="link-to-prism">apps/server/src/shared/domain/service/course-copy.service.ts:15</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="5"
+                            class="link-to-prism">apps/server/src/shared/domain/service/name-copy.service.ts:5</a></div>
                 </td>
             </tr>
 
@@ -189,9 +141,9 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>params</td>
+                                    <td>name</td>
                                     <td>
-                                                <code><a href="../entitys/Course.html" target="_self" >CourseCopyParams</a></code>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
                                     </td>
 
                                     <td>
@@ -206,7 +158,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#CopyStatus" target="_self" >CopyStatus</a></code>
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
 
                     </div>
                     <div class="io-description">
@@ -223,81 +175,17 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
-import { Course, User } from &#x27;@shared/domain/entity&#x27;;
-import { CopyElementType, CopyStatus, CopyStatusEnum } from &#x27;@shared/domain/types&#x27;;
-import { NameCopyService } from &#x27;./name-copy.service&#x27;;
-
-export type CourseCopyParams &#x3D; {
-	originalCourse: Course;
-	user: User;
-};
 
 @Injectable()
-export class CourseCopyService {
-	constructor(private readonly nameCopyService: NameCopyService) {}
-
-	copyCourse(params: CourseCopyParams): CopyStatus {
-		const copy &#x3D; new Course({
-			school: params.user.school,
-			name: this.nameCopyService.deriveCopyName(params.originalCourse.name),
-			color: params.originalCourse.color,
-			teachers: [params.user],
-		});
-		const status &#x3D; {
-			title: copy.name,
-			type: CopyElementType.COURSE,
-			status: CopyStatusEnum.PARTIAL,
-			copyEntity: copy,
-			elements: [
-				{
-					title: &#x27;metadata&#x27;,
-					type: CopyElementType.LEAF,
-					status: CopyStatusEnum.SUCCESS,
-				},
-				{
-					title: &#x27;teachers&#x27;,
-					type: CopyElementType.LEAF,
-					status: CopyStatusEnum.NOT_DOING,
-				},
-				{
-					title: &#x27;substitutionTeachers&#x27;,
-					type: CopyElementType.LEAF,
-					status: CopyStatusEnum.NOT_DOING,
-				},
-				{
-					title: &#x27;students&#x27;,
-					type: CopyElementType.LEAF,
-					status: CopyStatusEnum.NOT_DOING,
-				},
-				{
-					title: &#x27;classes&#x27;,
-					type: CopyElementType.LEAF,
-					status: CopyStatusEnum.NOT_DOING,
-				},
-				{
-					title: &#x27;ltiTools&#x27;,
-					type: CopyElementType.LEAF,
-					status: CopyStatusEnum.NOT_DOING,
-				},
-				{
-					title: &#x27;times&#x27;,
-					type: CopyElementType.LEAF,
-					status: CopyStatusEnum.NOT_IMPLEMENTED,
-				},
-				{
-					title: &#x27;files&#x27;,
-					type: CopyElementType.FILE,
-					status: CopyStatusEnum.NOT_IMPLEMENTED,
-				},
-				{
-					title: &#x27;coursegroups&#x27;,
-					type: CopyElementType.LEAF,
-					status: CopyStatusEnum.NOT_IMPLEMENTED,
-				},
-			],
-		};
-
-		return status;
+export class NameCopyService {
+	deriveCopyName(name: string): string {
+		let number &#x3D; 1;
+		const matches &#x3D; name.match(/^(?&lt;name&gt;.*) \((?&lt;number&gt;\d+)\)$/);
+		if (matches &amp;&amp; matches.groups) {
+			name &#x3D; matches.groups.name;
+			number &#x3D; Number(matches.groups.number) + 1;
+		}
+		return &#x60;${name} (${number})&#x60;;
 	}
 }
 </code></pre>
@@ -343,7 +231,7 @@ export class CourseCopyService {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
-            var COMPODOC_CURRENT_PAGE_URL = 'CourseCopyService.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'NameCopyService.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 
