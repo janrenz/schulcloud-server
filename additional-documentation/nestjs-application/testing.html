@@ -168,7 +168,54 @@ Every provider can be overwritten with custom provider implementation for testin
 
       sampleService = moduleRef.get&lt;SampleService&gt;(SampleService);
       sampleController = moduleRef.get&lt;SampleController&gt;(CatsController);
-    });</code></pre></div><h2 id="unit-tests-vs-integration-tests">Unit Tests vs Integration Tests</h2>
+    });</code></pre></div><h2 id="mocking">Mocking</h2>
+<p>Using the utilities provided by NestJs, we can easily inject mocks into our testing module. The mocks themselves, we create using a <a href="https://www.npmjs.com/package/@golevelup/ts-jest">library</a> by @golevelup.</p>
+<p>You can create a mock using <code>createMock&lt;Class&gt;()</code>. As result you will recieved a <code>DeepMocked&lt;Class&gt;</code></p>
+<div><pre class="line-numbers"><code class="language-Typescript">let fut: FeatureUnderTest;
+let mockService: DeepMocked&lt;MockService&gt;;
+
+beforeEach(async () =&gt; {
+    const module = await Test.createTestingModule({
+        providers: [
+            FeatureUnderTest,
+            {
+                provide: MockService,
+                useValue: createMock&lt;MockService&gt;(),
+            },
+        ],
+    }).compile();
+
+    fut = module.get(FeatureUnderTest);
+    mockService = module.get(MockService);
+});
+
+afterEach(async () =&gt; {
+    await module.close();
+});</code></pre></div><p>the resulting mock has all the functions of the original <code>Class</code>, replaced with jest spies. This gives you the full intellij features of the original class including code completion and typesavety, combined with all the features of spies.</p>
+<div><pre class="line-numbers"><code class="language-Typescript">describe(&#39;somefunction&#39;, () =&gt; {
+    describe(&#39;when service returns user&#39;, () =&gt; {
+        const setup = () =&gt; {
+            const resultUser = userFactory.buildWithId();
+
+            mockService.getUser.mockReturnValue(resultUser);
+
+            return { resultUser };
+        };
+
+        it(&#39;should call service&#39;, async () =&gt; {
+            setup();
+            await fut.somefunction();
+            expect(mockService.getUser).toHaveBeenCalled();
+        });
+
+        it(&#39;should return user passed by service&#39;, async () =&gt; {
+            const { resultUser } = setup();
+            const result = await fut.somefunction();
+            expect(result).toEqual(resultUser);
+        });
+    });
+});
+</code></pre></div><h2 id="unit-tests-vs-integration-tests">Unit Tests vs Integration Tests</h2>
 <p>In Unit Tests we access directly only the component which is currently testing.
 Any dependencies should be mocked or are replaced with default testing implementation.
 Especially the database access and database calls should be mocked.</p>
