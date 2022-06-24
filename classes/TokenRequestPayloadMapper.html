@@ -125,15 +125,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>mapCreateTokenRequestPayload(system: <a href="../entitys/System.html" target="_self">System</a>, params: <a href="../classes/TokenRequestParams.html" target="_self">TokenRequestParams</a>)</code>
+                    <code>mapCreateTokenRequestPayload(oauthConfig: <a href="../classes/OauthConfig.html" target="_self">OauthConfig</a>, params: <a href="../classes/TokenRequestParams.html" target="_self">TokenRequestParams</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="13"
-                            class="link-to-prism">apps/server/src/modules/oauth/mapper/token-request-payload.mapper.ts:13</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="12"
+                            class="link-to-prism">apps/server/src/modules/oauth/mapper/token-request-payload.mapper.ts:12</a></div>
                 </td>
             </tr>
 
@@ -154,9 +154,9 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>system</td>
+                                    <td>oauthConfig</td>
                                     <td>
-                                                <code><a href="../entitys/System.html" target="_self" >System</a></code>
+                                                <code><a href="../classes/OauthConfig.html" target="_self" >OauthConfig</a></code>
                                     </td>
 
                                     <td>
@@ -208,7 +208,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>mapToResponse(system: <a href="../entitys/System.html" target="_self">System</a>, decryptedClientSecret: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, code: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    <code>mapToResponse(oauthConfig: <a href="../classes/OauthConfig.html" target="_self">OauthConfig</a>, decryptedClientSecret: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, code: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
@@ -237,9 +237,9 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>system</td>
+                                    <td>oauthConfig</td>
                                     <td>
-                                                <code><a href="../entitys/System.html" target="_self" >System</a></code>
+                                                <code><a href="../classes/OauthConfig.html" target="_self" >OauthConfig</a></code>
                                     </td>
 
                                     <td>
@@ -298,24 +298,22 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { System } from &#x27;@shared/domain&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { OauthConfig } from &#x27;@shared/domain&#x27;;
 import { TokenRequestParams } from &#x27;../controller/dto/token-request.params&#x27;;
 import { TokenRequestPayload } from &#x27;../controller/dto/token-request.payload&#x27;;
 import { TokenRequestParamsMapper } from &#x27;./token-request-params.mapper&#x27;;
 
 export class TokenRequestPayloadMapper {
-	static mapToResponse(system: System, decryptedClientSecret: string, code: string): TokenRequestPayload {
-		const params &#x3D; TokenRequestParamsMapper.mapToResponse(system, decryptedClientSecret, code);
-		const dto &#x3D; this.mapCreateTokenRequestPayload(system, params);
-		return dto;
+	static mapToResponse(oauthConfig: OauthConfig, decryptedClientSecret: string, code: string): TokenRequestPayload {
+		const params &#x3D; TokenRequestParamsMapper.mapToResponse(oauthConfig, decryptedClientSecret, code);
+		return this.mapCreateTokenRequestPayload(oauthConfig, params);
 	}
 
-	static mapCreateTokenRequestPayload(system: System, params: TokenRequestParams): TokenRequestPayload {
-		const dto &#x3D; {
-			tokenEndpoint: system.oauthConfig.tokenEndpoint,
+	static mapCreateTokenRequestPayload(oauthConfig: OauthConfig, params: TokenRequestParams): TokenRequestPayload {
+		return {
+			tokenEndpoint: oauthConfig.tokenEndpoint,
 			tokenRequestParams: params,
 		};
-		return dto;
 	}
 }
 </code></pre>

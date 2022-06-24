@@ -79,6 +79,7 @@
                                 <a href="#alias" >alias</a>
                             </li>
                             <li>
+                                    <span class="modifier">Optional</span>
                                 <a href="#oauthConfig" >oauthConfig</a>
                             </li>
                             <li>
@@ -135,7 +136,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="81" class="link-to-prism">apps/server/src/shared/domain/entity/system.entity.ts:81</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="85" class="link-to-prism">apps/server/src/shared/domain/entity/system.entity.ts:85</a></div>
                         </td>
                     </tr>
 
@@ -148,6 +149,7 @@
                 <td class="col-md-4">
                     <a name="oauthConfig"></a>
                     <span class="name">
+                            <span class="modifier">Optional</span>
                         <span ><b>oauthConfig</b></span>
                         <a href="#oauthConfig"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -164,13 +166,13 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @Property()<br />
+                            @Property({nullable: true})<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="84" class="link-to-prism">apps/server/src/shared/domain/entity/system.entity.ts:84</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="88" class="link-to-prism">apps/server/src/shared/domain/entity/system.entity.ts:88</a></div>
                         </td>
                     </tr>
 
@@ -205,7 +207,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="75" class="link-to-prism">apps/server/src/shared/domain/entity/system.entity.ts:75</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="79" class="link-to-prism">apps/server/src/shared/domain/entity/system.entity.ts:79</a></div>
                         </td>
                     </tr>
 
@@ -241,7 +243,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="78" class="link-to-prism">apps/server/src/shared/domain/entity/system.entity.ts:78</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="82" class="link-to-prism">apps/server/src/shared/domain/entity/system.entity.ts:82</a></div>
                         </td>
                     </tr>
 
@@ -265,19 +267,20 @@ export interface ISystemProperties {
 }
 
 export class OauthConfig {
-	constructor(system: System) {
-		this.clientId &#x3D; system.oauthConfig.clientId;
-		this.clientSecret &#x3D; system.oauthConfig.clientSecret;
-		this.tokenEndpoint &#x3D; system.oauthConfig.tokenEndpoint;
-		this.grantType &#x3D; system.oauthConfig.grantType;
-		this.tokenRedirectUri &#x3D; system.oauthConfig.tokenRedirectUri;
-		this.scope &#x3D; system.oauthConfig.scope;
-		this.responseType &#x3D; system.oauthConfig.responseType;
-		this.authEndpoint &#x3D; system.oauthConfig.authEndpoint;
-		this.provider &#x3D; system.oauthConfig.provider;
-		this.logoutEndpoint &#x3D; system.oauthConfig.logoutEndpoint;
-		this.issuer &#x3D; system.oauthConfig.issuer;
-		this.jwksEndpoint &#x3D; system.oauthConfig.jwksEndpoint;
+	constructor(oauthConfig: OauthConfig) {
+		this.clientId &#x3D; oauthConfig.clientId;
+		this.clientSecret &#x3D; oauthConfig.clientSecret;
+		this.tokenEndpoint &#x3D; oauthConfig.tokenEndpoint;
+		this.grantType &#x3D; oauthConfig.grantType;
+		this.tokenRedirectUri &#x3D; oauthConfig.tokenRedirectUri;
+		this.scope &#x3D; oauthConfig.scope;
+		this.responseType &#x3D; oauthConfig.responseType;
+		this.authEndpoint &#x3D; oauthConfig.authEndpoint;
+		this.provider &#x3D; oauthConfig.provider;
+		this.logoutEndpoint &#x3D; oauthConfig.logoutEndpoint;
+		this.issuer &#x3D; oauthConfig.issuer;
+		this.jwksEndpoint &#x3D; oauthConfig.jwksEndpoint;
+		this.codeRedirectUri &#x3D; oauthConfig.codeRedirectUri;
 	}
 
 	@Property()
@@ -315,6 +318,9 @@ export class OauthConfig {
 
 	@Property()
 	jwksEndpoint: string;
+
+	@Property()
+	codeRedirectUri: string;
 }
 @Entity({ tableName: &#x27;systems&#x27; })
 export class System extends BaseEntityWithTimestamps {
@@ -335,8 +341,8 @@ export class System extends BaseEntityWithTimestamps {
 	@Property({ nullable: true })
 	alias?: string;
 
-	@Property()
-	oauthConfig: OauthConfig;
+	@Property({ nullable: true })
+	oauthConfig?: OauthConfig;
 }
 </code></pre>
     </div>

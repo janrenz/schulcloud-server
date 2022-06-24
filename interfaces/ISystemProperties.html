@@ -266,19 +266,20 @@ export interface ISystemProperties {
 }
 
 export class OauthConfig {
-	constructor(system: System) {
-		this.clientId &#x3D; system.oauthConfig.clientId;
-		this.clientSecret &#x3D; system.oauthConfig.clientSecret;
-		this.tokenEndpoint &#x3D; system.oauthConfig.tokenEndpoint;
-		this.grantType &#x3D; system.oauthConfig.grantType;
-		this.tokenRedirectUri &#x3D; system.oauthConfig.tokenRedirectUri;
-		this.scope &#x3D; system.oauthConfig.scope;
-		this.responseType &#x3D; system.oauthConfig.responseType;
-		this.authEndpoint &#x3D; system.oauthConfig.authEndpoint;
-		this.provider &#x3D; system.oauthConfig.provider;
-		this.logoutEndpoint &#x3D; system.oauthConfig.logoutEndpoint;
-		this.issuer &#x3D; system.oauthConfig.issuer;
-		this.jwksEndpoint &#x3D; system.oauthConfig.jwksEndpoint;
+	constructor(oauthConfig: OauthConfig) {
+		this.clientId &#x3D; oauthConfig.clientId;
+		this.clientSecret &#x3D; oauthConfig.clientSecret;
+		this.tokenEndpoint &#x3D; oauthConfig.tokenEndpoint;
+		this.grantType &#x3D; oauthConfig.grantType;
+		this.tokenRedirectUri &#x3D; oauthConfig.tokenRedirectUri;
+		this.scope &#x3D; oauthConfig.scope;
+		this.responseType &#x3D; oauthConfig.responseType;
+		this.authEndpoint &#x3D; oauthConfig.authEndpoint;
+		this.provider &#x3D; oauthConfig.provider;
+		this.logoutEndpoint &#x3D; oauthConfig.logoutEndpoint;
+		this.issuer &#x3D; oauthConfig.issuer;
+		this.jwksEndpoint &#x3D; oauthConfig.jwksEndpoint;
+		this.codeRedirectUri &#x3D; oauthConfig.codeRedirectUri;
 	}
 
 	@Property()
@@ -316,6 +317,9 @@ export class OauthConfig {
 
 	@Property()
 	jwksEndpoint: string;
+
+	@Property()
+	codeRedirectUri: string;
 }
 @Entity({ tableName: &#x27;systems&#x27; })
 export class System extends BaseEntityWithTimestamps {
@@ -336,8 +340,8 @@ export class System extends BaseEntityWithTimestamps {
 	@Property({ nullable: true })
 	alias?: string;
 
-	@Property()
-	oauthConfig: OauthConfig;
+	@Property({ nullable: true })
+	oauthConfig?: OauthConfig;
 }
 </code></pre>
     </div>
