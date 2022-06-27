@@ -85,6 +85,10 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Static</span>
+                                <a href="#mapLessonCopyToDomain" >mapLessonCopyToDomain</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
                                 <a href="#mapTaskCopyToDomain" >mapTaskCopyToDomain</a>
                             </li>
                             <li>
@@ -114,6 +118,77 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="mapLessonCopyToDomain"></a>
+                    <span class="name">
+                        <span class="modifier">Static</span>
+                        <span ><b>mapLessonCopyToDomain</b></span>
+                        <a href="#mapLessonCopyToDomain"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>mapLessonCopyToDomain(params: <a href="../classes/LessonCopyApiParams.html" target="_self">LessonCopyApiParams</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="25"
+                            class="link-to-prism">apps/server/src/modules/learnroom/mapper/copy.mapper.ts:25</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>params</td>
+                                    <td>
+                                                <code><a href="../classes/LessonCopyApiParams.html" target="_self" >LessonCopyApiParams</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../entitys/Lesson.html" target="_self" >LessonCopyParentParams</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="mapTaskCopyToDomain"></a>
                     <span class="name">
                         <span class="modifier">Static</span>
@@ -132,8 +207,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="23"
-                            class="link-to-prism">apps/server/src/modules/learnroom/mapper/copy.mapper.ts:23</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="33"
+                            class="link-to-prism">apps/server/src/modules/learnroom/mapper/copy.mapper.ts:33</a></div>
                 </td>
             </tr>
 
@@ -203,8 +278,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="7"
-                            class="link-to-prism">apps/server/src/modules/learnroom/mapper/copy.mapper.ts:7</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="9"
+                            class="link-to-prism">apps/server/src/modules/learnroom/mapper/copy.mapper.ts:9</a></div>
                 </td>
             </tr>
 
@@ -265,6 +340,8 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { CopyStatus } from &#x27;@shared/domain&#x27;;
 import { TaskCopyApiParams } from &#x27;@src/modules/task/controller/dto/task-copy.params&#x27;;
 import { TaskCopyParentParams } from &#x27;@src/modules/task/uc/task-copy.uc&#x27;;
+import { LessonCopyApiParams } from &#x27;@src/modules/learnroom/controller/dto/lesson/lesson-copy.params&#x27;;
+import { LessonCopyParentParams } from &#x27;@src/modules/learnroom/uc/lesson-copy.uc&#x27;;
 import { CopyApiResponse } from &#x27;../controller/dto/copy.response&#x27;;
 
 export class CopyMapper {
@@ -281,6 +358,14 @@ export class CopyMapper {
 		if (copyStatus.elements) {
 			dto.elements &#x3D; copyStatus.elements.map((status) &#x3D;&gt; CopyMapper.mapToResponse(status));
 		}
+		return dto;
+	}
+
+	static mapLessonCopyToDomain(params: LessonCopyApiParams): LessonCopyParentParams {
+		const dto &#x3D; {
+			courseId: params.courseId,
+		};
+
 		return dto;
 	}
 

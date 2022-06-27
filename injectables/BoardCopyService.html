@@ -81,6 +81,10 @@
                             <li>
                                 <a href="#copyBoard" >copyBoard</a>
                             </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#inferStatusFromElements" >inferStatusFromElements</a>
+                            </li>
                         </ul>
                     </td>
                 </tr>
@@ -228,6 +232,77 @@
             </tr>
         </tbody>
     </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="inferStatusFromElements"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span ><b>inferStatusFromElements</b></span>
+                        <a href="#inferStatusFromElements"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>inferStatusFromElements(elements: <a href="../undefineds/CopyStatus.html" target="_self">CopyStatus[]</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="61"
+                            class="link-to-prism">apps/server/src/shared/domain/service/board-copy.service.ts:61</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>elements</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#CopyStatus" target="_self" >CopyStatus[]</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#CopyStatus" target="_self" >CopyStatusEnum</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </section>
 
     </div>
@@ -254,7 +329,7 @@ export class BoardCopyService {
 	) {}
 
 	copyBoard(params: BoardCopyParams): CopyStatus {
-		const elementStatuses: CopyStatus[] &#x3D; [];
+		const elements: CopyStatus[] &#x3D; [];
 		const references: BoardElement[] &#x3D; [];
 
 		params.originalBoard.getElements().forEach((element) &#x3D;&gt; {
@@ -265,18 +340,20 @@ export class BoardCopyService {
 					user: params.user,
 					destinationCourse: params.destinationCourse,
 				});
-				elementStatuses.push(status);
+				elements.push(status);
 				const taskBoardElement &#x3D; BoardElement.FromTask(status.copyEntity as Task);
 				references.push(taskBoardElement);
 			}
 			if (element.boardElementType &#x3D;&#x3D;&#x3D; BoardElementType.Lesson) {
 				const originalLesson &#x3D; element.target as Lesson;
-				const { status } &#x3D; this.lessonCopyService.copyLesson({
+				const status &#x3D; this.lessonCopyService.copyLesson({
 					originalLesson,
 					user: params.user,
 					destinationCourse: params.destinationCourse,
 				});
-				elementStatuses.push(status);
+				elements.push(status);
+				const lessonBardElement &#x3D; BoardElement.FromLesson(status.copyEntity as Lesson);
+				references.push(lessonBardElement);
 			}
 		});
 
@@ -284,12 +361,23 @@ export class BoardCopyService {
 		const status &#x3D; {
 			title: &#x27;board&#x27;,
 			type: CopyElementType.BOARD,
-			status: CopyStatusEnum.FAIL,
-			elements: elementStatuses,
+			status: this.inferStatusFromElements(elements),
 			copyEntity: copy,
+			elements,
 		};
 
 		return status;
+	}
+
+	private inferStatusFromElements(elements: CopyStatus[]): CopyStatusEnum {
+		const elementsStatuses &#x3D; elements.map((el) &#x3D;&gt; el.status);
+		if (elementsStatuses.every((status) &#x3D;&gt; status !&#x3D;&#x3D; CopyStatusEnum.SUCCESS)) {
+			return CopyStatusEnum.FAIL;
+		}
+		if (elementsStatuses.some((status) &#x3D;&gt; status !&#x3D;&#x3D; CopyStatusEnum.SUCCESS)) {
+			return CopyStatusEnum.PARTIAL;
+		}
+		return CopyStatusEnum.SUCCESS;
 	}
 }
 </code></pre>

@@ -178,12 +178,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(courseRule: <a href="../injectables/CourseRule.html" target="_self">CourseRule</a>, taskRule: <a href="../injectables/TaskRule.html" target="_self">TaskRule</a>, schoolRule: <a href="../injectables/SchoolRule.html" target="_self">SchoolRule</a>, userRule: <a href="../injectables/UserRule.html" target="_self">UserRule</a>, teamRule: <a href="../injectables/TeamRule.html" target="_self">TeamRule</a>, loader: <a href="../injectables/ReferenceLoader.html" target="_self">ReferenceLoader</a>)</code>
+<code>constructor(courseRule: <a href="../injectables/CourseRule.html" target="_self">CourseRule</a>, lessonRule: <a href="../injectables/LessonRule.html" target="_self">LessonRule</a>, schoolRule: <a href="../injectables/SchoolRule.html" target="_self">SchoolRule</a>, taskRule: <a href="../injectables/TaskRule.html" target="_self">TaskRule</a>, teamRule: <a href="../injectables/TeamRule.html" target="_self">TeamRule</a>, userRule: <a href="../injectables/UserRule.html" target="_self">UserRule</a>, loader: <a href="../injectables/ReferenceLoader.html" target="_self">ReferenceLoader</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">apps/server/src/modules/authorization/authorization.service.ts:9</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">apps/server/src/modules/authorization/authorization.service.ts:18</a></div>
                             </td>
                         </tr>
 
@@ -213,10 +213,10 @@
                                                     
                                                 </tr>
                                                 <tr>
-                                                        <td>taskRule</td>
+                                                        <td>lessonRule</td>
                                                   
                                                         <td>
-                                                                        <code><a href="../injectables/TaskRule.html" target="_self" >TaskRule</a></code>
+                                                                        <code><a href="../injectables/LessonRule.html" target="_self" >LessonRule</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -237,10 +237,10 @@
                                                     
                                                 </tr>
                                                 <tr>
-                                                        <td>userRule</td>
+                                                        <td>taskRule</td>
                                                   
                                                         <td>
-                                                                        <code><a href="../injectables/UserRule.html" target="_self" >UserRule</a></code>
+                                                                        <code><a href="../injectables/TaskRule.html" target="_self" >TaskRule</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -253,6 +253,18 @@
                                                   
                                                         <td>
                                                                         <code><a href="../injectables/TeamRule.html" target="_self" >TeamRule</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>userRule</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/UserRule.html" target="_self" >UserRule</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -306,8 +318,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="22"
-                            class="link-to-prism">apps/server/src/modules/authorization/authorization.service.ts:22</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="39"
+                            class="link-to-prism">apps/server/src/modules/authorization/authorization.service.ts:39</a></div>
                 </td>
             </tr>
 
@@ -401,8 +413,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="41"
-                            class="link-to-prism">apps/server/src/modules/authorization/authorization.service.ts:41</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="58"
+                            class="link-to-prism">apps/server/src/modules/authorization/authorization.service.ts:58</a></div>
                 </td>
             </tr>
 
@@ -508,8 +520,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="52"
-                            class="link-to-prism">apps/server/src/modules/authorization/authorization.service.ts:52</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="69"
+                            class="link-to-prism">apps/server/src/modules/authorization/authorization.service.ts:69</a></div>
                 </td>
             </tr>
 
@@ -579,8 +591,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="28"
-                            class="link-to-prism">apps/server/src/modules/authorization/authorization.service.ts:28</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="45"
+                            class="link-to-prism">apps/server/src/modules/authorization/authorization.service.ts:45</a></div>
                 </td>
             </tr>
 
@@ -1931,7 +1943,16 @@ Please make sure you populate them before calling this method.</p>
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ForbiddenException, Injectable } from &#x27;@nestjs/common&#x27;;
-import { BasePermissionManager, CourseRule, EntityId, SchoolRule, TaskRule, User, UserRule } from &#x27;@shared/domain&#x27;;
+import {
+	BasePermissionManager,
+	CourseRule,
+	EntityId,
+	LessonRule,
+	SchoolRule,
+	TaskRule,
+	User,
+	UserRule,
+} from &#x27;@shared/domain&#x27;;
 import { IPermissionContext, PermissionTypes } from &#x27;@shared/domain/interface&#x27;;
 import { TeamRule } from &#x27;@shared/domain/rules/team.rule&#x27;;
 import { AllowedAuthorizationEntityType } from &#x27;./interfaces&#x27;;
@@ -1941,14 +1962,22 @@ import { ReferenceLoader } from &#x27;./reference.loader&#x27;;
 export class AuthorizationService extends BasePermissionManager {
 	constructor(
 		private readonly courseRule: CourseRule,
-		private readonly taskRule: TaskRule,
+		private readonly lessonRule: LessonRule,
 		private readonly schoolRule: SchoolRule,
-		private readonly userRule: UserRule,
+		private readonly taskRule: TaskRule,
 		private readonly teamRule: TeamRule,
+		private readonly userRule: UserRule,
 		private readonly loader: ReferenceLoader
 	) {
 		super();
-		this.registerPermissions([this.courseRule, this.taskRule, this.userRule, this.schoolRule, this.teamRule]);
+		this.registerPermissions([
+			this.courseRule,
+			this.lessonRule,
+			this.taskRule,
+			this.teamRule,
+			this.userRule,
+			this.schoolRule,
+		]);
 	}
 
 	checkPermission(user: User, entity: PermissionTypes, context: IPermissionContext) {

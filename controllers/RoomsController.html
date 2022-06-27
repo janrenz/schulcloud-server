@@ -89,6 +89,10 @@
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
+                                <a href="#copyLesson" >copyLesson</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
                                 <a href="#getRoomBoard" >getRoomBoard</a>
                             </li>
                             <li>
@@ -145,8 +149,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="53"
-                            class="link-to-prism">apps/server/src/modules/learnroom/controller/rooms.controller.ts:53</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="56"
+                            class="link-to-prism">apps/server/src/modules/learnroom/controller/rooms.controller.ts:56</a></div>
                 </td>
             </tr>
 
@@ -210,6 +214,108 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="copyLesson"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>copyLesson</b></span>
+                        <a href="#copyLesson"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>copyLesson(currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>, lessonId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, params: <a href="../classes/LessonCopyApiParams.html" target="_self">LessonCopyApiParams</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Post(&#x27;lessons/:lessonid/copy&#x27;)<br /></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="66"
+                            class="link-to-prism">apps/server/src/modules/learnroom/controller/rooms.controller.ts:66</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>currentUser</td>
+                                    <td>
+                                                <code><a href="../interfaces/ICurrentUser.html" target="_self" >ICurrentUser</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>lessonId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>params</td>
+                                    <td>
+                                                <code><a href="../classes/LessonCopyApiParams.html" target="_self" >LessonCopyApiParams</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/CopyApiResponse.html" target="_self" >Promise&lt;CopyApiResponse&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="getRoomBoard"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
@@ -235,8 +341,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="24"
-                            class="link-to-prism">apps/server/src/modules/learnroom/controller/rooms.controller.ts:24</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="27"
+                            class="link-to-prism">apps/server/src/modules/learnroom/controller/rooms.controller.ts:27</a></div>
                 </td>
             </tr>
 
@@ -325,8 +431,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="34"
-                            class="link-to-prism">apps/server/src/modules/learnroom/controller/rooms.controller.ts:34</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="37"
+                            class="link-to-prism">apps/server/src/modules/learnroom/controller/rooms.controller.ts:37</a></div>
                 </td>
             </tr>
 
@@ -439,8 +545,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="44"
-                            class="link-to-prism">apps/server/src/modules/learnroom/controller/rooms.controller.ts:44</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="47"
+                            class="link-to-prism">apps/server/src/modules/learnroom/controller/rooms.controller.ts:47</a></div>
                 </td>
             </tr>
 
@@ -521,12 +627,14 @@ import { ApiTags } from &#x27;@nestjs/swagger&#x27;;
 import { ParseObjectIdPipe } from &#x27;@shared/controller&#x27;;
 import { ICurrentUser } from &#x27;@shared/domain&#x27;;
 import { Authenticate, CurrentUser } from &#x27;@src/modules/authentication/decorator/auth.decorator&#x27;;
+import { LessonCopyUC } from &#x27;@src/modules/learnroom/uc/lesson-copy.uc&#x27;;
 import { CopyMapper } from &#x27;../mapper/copy.mapper&#x27;;
 import { RoomBoardResponseMapper } from &#x27;../mapper/room-board-response.mapper&#x27;;
 import { CourseCopyUC } from &#x27;../uc/course-copy.uc&#x27;;
 import { RoomsUc } from &#x27;../uc/rooms.uc&#x27;;
 import { BoardResponse, PatchOrderParams, PatchVisibilityParams } from &#x27;./dto&#x27;;
 import { CopyApiResponse } from &#x27;./dto/copy.response&#x27;;
+import { LessonCopyApiParams } from &#x27;./dto/lesson/lesson-copy.params&#x27;;
 
 @ApiTags(&#x27;Rooms&#x27;)
 @Authenticate(&#x27;jwt&#x27;)
@@ -535,7 +643,8 @@ export class RoomsController {
 	constructor(
 		private readonly roomsUc: RoomsUc,
 		private readonly mapper: RoomBoardResponseMapper,
-		private readonly courseCopyUc: CourseCopyUC
+		private readonly courseCopyUc: CourseCopyUC,
+		private readonly lessonCopyUc: LessonCopyUC
 	) {}
 
 	@Get(&#x27;:roomid/board&#x27;)
@@ -573,6 +682,21 @@ export class RoomsController {
 		@Param(&#x27;roomid&#x27;, ParseObjectIdPipe) courseId: string
 	): Promise&lt;CopyApiResponse&gt; {
 		const copyStatus &#x3D; await this.courseCopyUc.copyCourse(currentUser.userId, courseId);
+		const dto &#x3D; CopyMapper.mapToResponse(copyStatus);
+		return dto;
+	}
+
+	@Post(&#x27;lessons/:lessonid/copy&#x27;)
+	async copyLesson(
+		@CurrentUser() currentUser: ICurrentUser,
+		@Param(&#x27;lessonid&#x27;, ParseObjectIdPipe) lessonId: string,
+		@Body() params: LessonCopyApiParams
+	): Promise&lt;CopyApiResponse&gt; {
+		const copyStatus &#x3D; await this.lessonCopyUc.copyLesson(
+			currentUser.userId,
+			lessonId,
+			CopyMapper.mapLessonCopyToDomain(params)
+		);
 		const dto &#x3D; CopyMapper.mapToResponse(copyStatus);
 		return dto;
 	}

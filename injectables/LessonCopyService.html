@@ -93,6 +93,54 @@
     </table>
 </section>
 
+            <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(nameCopyService: <a href="../injectables/NameCopyService.html" target="_self">NameCopyService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">apps/server/src/shared/domain/service/lesson-copy.service.ts:13</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>nameCopyService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/NameCopyService.html" target="_self" >NameCopyService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
 
             <section>
     
@@ -119,8 +167,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="18"
-                            class="link-to-prism">apps/server/src/shared/domain/service/lesson-copy.service.ts:18</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="16"
+                            class="link-to-prism">apps/server/src/shared/domain/service/lesson-copy.service.ts:16</a></div>
                 </td>
             </tr>
 
@@ -158,7 +206,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../entitys/Lesson.html" target="_self" >LessonCopyResponse</a></code>
+                        <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#CopyStatus" target="_self" >CopyStatus</a></code>
 
                     </div>
                     <div class="io-description">
@@ -175,6 +223,7 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
+import { NameCopyService } from &#x27;./name-copy.service&#x27;;
 import { Course, Lesson, User } from &#x27;../entity&#x27;;
 import { CopyElementType, CopyStatus, CopyStatusEnum } from &#x27;../types&#x27;;
 
@@ -184,22 +233,33 @@ export type LessonCopyParams &#x3D; {
 	user: User;
 };
 
-export type LessonCopyResponse &#x3D; {
-	// copy: Lesson;
-	status: CopyStatus;
-};
-
 @Injectable()
 export class LessonCopyService {
-	copyLesson(params: LessonCopyParams): LessonCopyResponse {
-		const result &#x3D; {
-			status: {
-				title: params.originalLesson.name,
-				type: CopyElementType.LESSON,
-				status: CopyStatusEnum.NOT_IMPLEMENTED,
-			},
+	constructor(private readonly nameCopyService: NameCopyService) {}
+
+	copyLesson(params: LessonCopyParams): CopyStatus {
+		const copy &#x3D; new Lesson({
+			course: params.destinationCourse,
+			hidden: true,
+			name: this.nameCopyService.deriveCopyName(params.originalLesson.name),
+			position: params.originalLesson.position,
+		});
+
+		const status: CopyStatus &#x3D; {
+			title: copy.name,
+			type: CopyElementType.LESSON,
+			status: CopyStatusEnum.SUCCESS,
+			copyEntity: copy,
+			elements: [
+				{
+					title: &#x27;metadata&#x27;,
+					type: CopyElementType.LEAF,
+					status: CopyStatusEnum.SUCCESS,
+				},
+			],
 		};
-		return result;
+
+		return status;
 	}
 }
 </code></pre>
