@@ -259,8 +259,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="22"
-                            class="link-to-prism">apps/server/src/shared/domain/rules/base-permission-manager.ts:22</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="20"
+                            class="link-to-prism">apps/server/src/shared/domain/rules/base-permission-manager.ts:20</a></div>
                 </td>
             </tr>
 
@@ -354,8 +354,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="18"
-                            class="link-to-prism">apps/server/src/shared/domain/rules/base-permission-manager.ts:18</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="16"
+                            class="link-to-prism">apps/server/src/shared/domain/rules/base-permission-manager.ts:16</a></div>
                 </td>
             </tr>
 
@@ -1425,9 +1425,7 @@ export abstract class BasePermissionManager extends AuthorisationUtils implement
 	protected selectStrategie &#x3D; new SingleSelectStrategie&lt;BasePermission&gt;();
 
 	private selectPermissions(user: User, entity: PermissionTypes, context?: IPermissionContext): BasePermission[] {
-		const permissions &#x3D; this.permissions.filter((publisher) &#x3D;&gt; publisher.isApplicable(user, entity, context));
-
-		return permissions;
+		return this.permissions.filter((publisher) &#x3D;&gt; publisher.isApplicable(user, entity, context));
 	}
 
 	protected registerPermissions(permissions: BasePermission[]): void {
@@ -1438,9 +1436,7 @@ export abstract class BasePermissionManager extends AuthorisationUtils implement
 		const permissions &#x3D; this.selectPermissions(user, entity, context);
 		const permission &#x3D; this.selectStrategie.match(permissions);
 
-		const hasPermission &#x3D; permission.hasPermission(user, entity, context);
-
-		return hasPermission;
+		return permission.hasPermission(user, entity, context);
 	}
 }
 </code></pre>

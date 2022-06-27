@@ -178,12 +178,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(courseRule: <a href="../injectables/CourseRule.html" target="_self">CourseRule</a>, taskRule: <a href="../injectables/TaskRule.html" target="_self">TaskRule</a>, schoolRule: <a href="../injectables/SchoolRule.html" target="_self">SchoolRule</a>, userRule: <a href="../injectables/UserRule.html" target="_self">UserRule</a>, loader: <a href="../injectables/ReferenceLoader.html" target="_self">ReferenceLoader</a>)</code>
+<code>constructor(courseRule: <a href="../injectables/CourseRule.html" target="_self">CourseRule</a>, taskRule: <a href="../injectables/TaskRule.html" target="_self">TaskRule</a>, schoolRule: <a href="../injectables/SchoolRule.html" target="_self">SchoolRule</a>, userRule: <a href="../injectables/UserRule.html" target="_self">UserRule</a>, teamRule: <a href="../injectables/TeamRule.html" target="_self">TeamRule</a>, loader: <a href="../injectables/ReferenceLoader.html" target="_self">ReferenceLoader</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">apps/server/src/modules/authorization/authorization.service.ts:8</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">apps/server/src/modules/authorization/authorization.service.ts:9</a></div>
                             </td>
                         </tr>
 
@@ -249,6 +249,18 @@
                                                     
                                                 </tr>
                                                 <tr>
+                                                        <td>teamRule</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/TeamRule.html" target="_self" >TeamRule</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
                                                         <td>loader</td>
                                                   
                                                         <td>
@@ -294,8 +306,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="20"
-                            class="link-to-prism">apps/server/src/modules/authorization/authorization.service.ts:20</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="22"
+                            class="link-to-prism">apps/server/src/modules/authorization/authorization.service.ts:22</a></div>
                 </td>
             </tr>
 
@@ -567,8 +579,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="26"
-                            class="link-to-prism">apps/server/src/modules/authorization/authorization.service.ts:26</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="28"
+                            class="link-to-prism">apps/server/src/modules/authorization/authorization.service.ts:28</a></div>
                 </td>
             </tr>
 
@@ -678,7 +690,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/BasePermissionManager.html#source" target="_self" >BasePermissionManager:22</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/BasePermissionManager.html#source" target="_self" >BasePermissionManager:20</a></code>
 </div>
                 </td>
             </tr>
@@ -779,7 +791,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/BasePermissionManager.html#source" target="_self" >BasePermissionManager:18</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/BasePermissionManager.html#source" target="_self" >BasePermissionManager:16</a></code>
 </div>
                 </td>
             </tr>
@@ -1919,8 +1931,9 @@ Please make sure you populate them before calling this method.</p>
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ForbiddenException, Injectable } from &#x27;@nestjs/common&#x27;;
-import { CourseRule, EntityId, TaskRule, User, UserRule, SchoolRule, BasePermissionManager } from &#x27;@shared/domain&#x27;;
+import { BasePermissionManager, CourseRule, EntityId, SchoolRule, TaskRule, User, UserRule } from &#x27;@shared/domain&#x27;;
 import { IPermissionContext, PermissionTypes } from &#x27;@shared/domain/interface&#x27;;
+import { TeamRule } from &#x27;@shared/domain/rules/team.rule&#x27;;
 import { AllowedAuthorizationEntityType } from &#x27;./interfaces&#x27;;
 import { ReferenceLoader } from &#x27;./reference.loader&#x27;;
 
@@ -1931,10 +1944,11 @@ export class AuthorizationService extends BasePermissionManager {
 		private readonly taskRule: TaskRule,
 		private readonly schoolRule: SchoolRule,
 		private readonly userRule: UserRule,
+		private readonly teamRule: TeamRule,
 		private readonly loader: ReferenceLoader
 	) {
 		super();
-		this.registerPermissions([this.courseRule, this.taskRule, this.userRule, this.schoolRule]);
+		this.registerPermissions([this.courseRule, this.taskRule, this.userRule, this.schoolRule, this.teamRule]);
 	}
 
 	checkPermission(user: User, entity: PermissionTypes, context: IPermissionContext) {
@@ -1953,9 +1967,7 @@ export class AuthorizationService extends BasePermissionManager {
 			this.loader.getUserWithPermissions(userId),
 			this.loader.loadEntity(entityName, entityId),
 		]);
-		const permission &#x3D; this.hasPermission(user, entity, context);
-
-		return permission;
+		return this.hasPermission(user, entity, context);
 	}
 
 	async checkPermissionByReferences(
