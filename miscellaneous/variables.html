@@ -307,6 +307,9 @@
                             <a href="#taskFactory" title="apps/server/src/shared/testing/factory/task.factory.ts" ><b>taskFactory</b>&nbsp;&nbsp;&nbsp;(apps/.../task.factory.ts)</a>
                         </li>
                         <li>
+                            <a href="#tasksQuery" title="apps/server/src/modules/files/repo/orphaned-files.repo.ts" ><b>tasksQuery</b>&nbsp;&nbsp;&nbsp;(apps/.../orphaned-files.repo.ts)</a>
+                        </li>
+                        <li>
                             <a href="#teamFactory" title="apps/server/src/shared/testing/factory/team.factory.ts" ><b>teamFactory</b>&nbsp;&nbsp;&nbsp;(apps/.../team.factory.ts)</a>
                         </li>
                         <li>
@@ -3215,6 +3218,76 @@ Teardown: &#39;await orm.close()&#39; in after-hook!</p>
                 <tr>
                     <td class="col-md-4">
                         <i>Default value : </i><code>new Date(Date.now() - 86400000)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>apps/server/src/modules/files/repo/orphaned-files.repo.ts</h3>
+    <section>
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="tasksQuery"></a>
+                    <span class="name">
+                        <span ><b>tasksQuery</b></span>
+                        <a href="#tasksQuery"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+	{
+		$lookup: {
+			from: &#x27;homeworks&#x27;,
+			localField: &#x27;parent&#x27;,
+			foreignField: &#x27;_id&#x27;,
+			as: &#x27;homeworks&#x27;,
+		},
+	},
+	{
+		$set: {
+			homework: { $arrayElemAt: [&#x27;$homeworks&#x27;, 0] },
+		},
+	},
+	{
+		$lookup: {
+			from: &#x27;files_filerecords&#x27;,
+			localField: &#x27;_id&#x27;,
+			foreignField: &#x27;filerecordId&#x27;,
+			as: &#x27;files_filerecords&#x27;,
+		},
+	},
+	{
+		$set: {
+			file_filerecord: { $arrayElemAt: [&#x27;$files_filerecords&#x27;, 0] },
+		},
+	},
+	{
+		$match: {
+			$or: [
+				{ homework: null },
+				{
+					$expr: {
+						$not: {
+							$in: [&#x27;$file_filerecord.fileId&#x27;, &#x27;$homework.fileIds&#x27;],
+						},
+					},
+				},
+			],
+		},
+	},
+]</code>
                     </td>
                 </tr>
 

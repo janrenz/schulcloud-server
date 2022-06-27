@@ -216,7 +216,7 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { GetObjectCommand, S3Client } from &#x27;@aws-sdk/client-s3&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { DeleteObjectCommand, GetObjectCommand, S3Client } from &#x27;@aws-sdk/client-s3&#x27;;
 import { Upload } from &#x27;@aws-sdk/lib-storage&#x27;;
 import { Inject, Injectable, OnModuleInit } from &#x27;@nestjs/common&#x27;;
 import { EntityId } from &#x27;@shared/domain&#x27;;
@@ -268,6 +268,15 @@ export class SyncFilesStorageService implements OnModuleInit {
 		} else {
 			throw new Error(&#x60;Unable to find storage provider with id ${item.source.storageProviderId}&#x60;);
 		}
+	}
+
+	async removeFile(path: string) {
+		const req &#x3D; new DeleteObjectCommand({
+			Bucket: this.config.bucket,
+			Key: path,
+		});
+
+		return this.destinationClient.send(req);
 	}
 
 	private createDestinationProvider(config: S3Config) {
