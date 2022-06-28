@@ -1313,6 +1313,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/ErrorResponse.html" data-type="entity-link" >ErrorResponse</a>
                             </li>
                             <li class="link">
+                                <a href="classes/File.html" data-type="entity-link" >File</a>
+                            </li>
+                            <li class="link">
                                 <a href="classes/FileParams.html" data-type="entity-link" >FileParams</a>
                             </li>
                             <li class="link">
