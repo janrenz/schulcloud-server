@@ -2418,7 +2418,7 @@ import {
 	FileRecordParams,
 	SingleFileParams,
 } from &#x27;../controller/dto/file-storage.params&#x27;;
-import { PermissionContexts, ErrorType } from &#x27;../files-storage.const&#x27;;
+import { ErrorType, PermissionContexts } from &#x27;../files-storage.const&#x27;;
 import { ICopyFiles } from &#x27;../interface&#x27;;
 import { IFile } from &#x27;../interface/file&#x27;;
 import { FileStorageMapper } from &#x27;../mapper/parent-type.mapper&#x27;;
@@ -2441,7 +2441,7 @@ export class FilesStorageUC {
 		req: Request
 	): Promise&lt;FileRecord&gt; {
 		const result &#x3D; await new Promise((resolve, reject) &#x3D;&gt; {
-			const requestStream &#x3D; busboy({ headers: req.headers });
+			const requestStream &#x3D; busboy({ headers: req.headers, defParamCharset: &#x27;utf8&#x27; });
 
 			// eslint-disable-next-line @typescript-eslint/no-misused-promises
 			requestStream.on(&#x27;file&#x27;, async (_name, file, info): Promise&lt;void&gt; &#x3D;&gt; {
