@@ -374,11 +374,11 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable, ForbiddenException } from &#x27;@nestjs/common&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ForbiddenException, Injectable } from &#x27;@nestjs/common&#x27;;
 import { CopyStatus, EntityId, Lesson, LessonCopyService, PermissionContextBuilder, User } from &#x27;@shared/domain&#x27;;
-import { AuthorizationService } from &#x27;@src/modules/authorization&#x27;;
-import { CourseRepo, LessonRepo } from &#x27;@shared/repo&#x27;;
 import { Permission } from &#x27;@shared/domain/interface/permission.enum&#x27;;
+import { CourseRepo, LessonRepo } from &#x27;@shared/repo&#x27;;
+import { AuthorizationService } from &#x27;@src/modules/authorization&#x27;;
 
 export type LessonCopyParentParams &#x3D; {
 	courseId?: EntityId;

@@ -1951,6 +1951,12 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="interfaces/ICollectionFilePath.html" data-type="entity-link" >ICollectionFilePath</a>
                             </li>
                             <li class="link">
+                                <a href="interfaces/IComponentProperties.html" data-type="entity-link" >IComponentProperties</a>
+                            </li>
+                            <li class="link">
+                                <a href="interfaces/IComponentTextProperties.html" data-type="entity-link" >IComponentTextProperties</a>
+                            </li>
+                            <li class="link">
                                 <a href="interfaces/ICopyFiles.html" data-type="entity-link" >ICopyFiles</a>
                             </li>
                             <li class="link">

@@ -2655,9 +2655,20 @@ You shall not explicitly declare the AMQPConnection in your modules since it wil
 		course &#x3D; courseFactory.build();
 	}
 
+	const contents: IComponentProperties[] &#x3D; [];
+	if (params.contents) {
+		params.contents.forEach((element) &#x3D;&gt; {
+			contents.push(element);
+		});
+	}
+
+	const hidden &#x3D; params.hidden || false;
+
 	return {
 		name: &#x60;lesson #${sequence}&#x60;,
 		course,
+		contents,
+		hidden,
 	};
 })</code>
                     </td>
