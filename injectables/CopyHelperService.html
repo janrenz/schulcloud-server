@@ -40,7 +40,7 @@
 
 <ol class="breadcrumb">
   <li>Injectables</li>
-  <li >NameCopyService</li>
+  <li >CopyHelperService</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -58,7 +58,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/shared/domain/service/name-copy.service.ts</code>
+            <code>apps/server/src/shared/domain/service/copy-helper.service.ts</code>
         </p>
 
 
@@ -80,6 +80,9 @@
                         <ul class="index-list">
                             <li>
                                 <a href="#deriveCopyName" >deriveCopyName</a>
+                            </li>
+                            <li>
+                                <a href="#deriveStatusFromElements" >deriveStatusFromElements</a>
                             </li>
                         </ul>
                     </td>
@@ -119,8 +122,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="5"
-                            class="link-to-prism">apps/server/src/shared/domain/service/name-copy.service.ts:5</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="22"
+                            class="link-to-prism">apps/server/src/shared/domain/service/copy-helper.service.ts:22</a></div>
                 </td>
             </tr>
 
@@ -168,6 +171,75 @@
             </tr>
         </tbody>
     </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deriveStatusFromElements"></a>
+                    <span class="name">
+                        <span ><b>deriveStatusFromElements</b></span>
+                        <a href="#deriveStatusFromElements"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>deriveStatusFromElements(elements: <a href="../undefineds/CopyStatus.html" target="_self">CopyStatus[]</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="8"
+                            class="link-to-prism">apps/server/src/shared/domain/service/copy-helper.service.ts:8</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>elements</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#CopyStatus" target="_self" >CopyStatus[]</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#CopyStatus" target="_self" >CopyStatusEnum</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </section>
 
     </div>
@@ -175,9 +247,26 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
+import { CopyStatus, CopyStatusEnum } from &#x27;../types&#x27;;
+
+const isAtLeastPartialSuccessfull &#x3D; (status) &#x3D;&gt; status &#x3D;&#x3D;&#x3D; CopyStatusEnum.PARTIAL || status &#x3D;&#x3D;&#x3D; CopyStatusEnum.SUCCESS;
 
 @Injectable()
-export class NameCopyService {
+export class CopyHelperService {
+	deriveStatusFromElements(elements: CopyStatus[]): CopyStatusEnum {
+		const elementsStatuses &#x3D; elements.map((el) &#x3D;&gt; el.status);
+
+		if (elementsStatuses.every((status) &#x3D;&gt; !isAtLeastPartialSuccessfull(status))) {
+			return CopyStatusEnum.FAIL;
+		}
+
+		if (elementsStatuses.some((status) &#x3D;&gt; status !&#x3D;&#x3D; CopyStatusEnum.SUCCESS)) {
+			return CopyStatusEnum.PARTIAL;
+		}
+
+		return CopyStatusEnum.SUCCESS;
+	}
+
 	deriveCopyName(name: string): string {
 		let number &#x3D; 1;
 		const matches &#x3D; name.match(/^(?&lt;name&gt;.*) \((?&lt;number&gt;\d+)\)$/);
@@ -231,7 +320,7 @@ export class NameCopyService {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
-            var COMPODOC_CURRENT_PAGE_URL = 'NameCopyService.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'CopyHelperService.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

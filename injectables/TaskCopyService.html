@@ -89,10 +89,6 @@
                                     <span class="modifier">Private</span>
                                 <a href="#defaultTaskStatusElements" >defaultTaskStatusElements</a>
                             </li>
-                            <li>
-                                    <span class="modifier">Private</span>
-                                <a href="#inferStatusFromElements" >inferStatusFromElements</a>
-                            </li>
                         </ul>
                     </td>
                 </tr>
@@ -105,6 +101,54 @@
     </table>
 </section>
 
+            <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(copyHelperService: <a href="../injectables/CopyHelperService.html" target="_self">CopyHelperService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">apps/server/src/shared/domain/service/task-copy.service.ts:14</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>copyHelperService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/CopyHelperService.html" target="_self" >CopyHelperService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
 
             <section>
     
@@ -133,8 +177,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="56"
-                            class="link-to-prism">apps/server/src/shared/domain/service/task-copy.service.ts:56</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="59"
+                            class="link-to-prism">apps/server/src/shared/domain/service/task-copy.service.ts:59</a></div>
                 </td>
             </tr>
 
@@ -202,8 +246,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="14"
-                            class="link-to-prism">apps/server/src/shared/domain/service/task-copy.service.ts:14</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="17"
+                            class="link-to-prism">apps/server/src/shared/domain/service/task-copy.service.ts:17</a></div>
                 </td>
             </tr>
 
@@ -273,8 +317,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="36"
-                            class="link-to-prism">apps/server/src/shared/domain/service/task-copy.service.ts:36</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="39"
+                            class="link-to-prism">apps/server/src/shared/domain/service/task-copy.service.ts:39</a></div>
                 </td>
             </tr>
 
@@ -290,77 +334,6 @@
             </tr>
         </tbody>
     </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="inferStatusFromElements"></a>
-                    <span class="name">
-                        <span class="modifier">Private</span>
-                        <span ><b>inferStatusFromElements</b></span>
-                        <a href="#inferStatusFromElements"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>inferStatusFromElements(elements: <a href="../undefineds/CopyStatus.html" target="_self">CopyStatus[]</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="84"
-                            class="link-to-prism">apps/server/src/shared/domain/service/task-copy.service.ts:84</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>elements</td>
-                                    <td>
-                                                <code><a href="../miscellaneous/typealiases.html#CopyStatus" target="_self" >CopyStatus[]</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#CopyStatus" target="_self" >CopyStatusEnum</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
 </section>
 
     </div>
@@ -370,6 +343,7 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
 import { Course, Task, User } from &#x27;@shared/domain/entity&#x27;;
 import { CopyElementType, CopyStatus, CopyStatusEnum } from &#x27;@shared/domain/types&#x27;;
+import { CopyHelperService } from &#x27;./copy-helper.service&#x27;;
 
 export type TaskCopyParams &#x3D; {
 	originalTask: Task;
@@ -380,6 +354,8 @@ export type TaskCopyParams &#x3D; {
 
 @Injectable()
 export class TaskCopyService {
+	constructor(private readonly copyHelperService: CopyHelperService) {}
+
 	copyTaskMetadata(params: TaskCopyParams): CopyStatus {
 		const copy &#x3D; new Task({
 			name: params.originalTask.name,
@@ -394,7 +370,7 @@ export class TaskCopyService {
 		const status: CopyStatus &#x3D; {
 			title: copy.name,
 			type: CopyElementType.TASK,
-			status: this.inferStatusFromElements(elements),
+			status: this.copyHelperService.deriveStatusFromElements(elements),
 			copyEntity: copy,
 			elements,
 		};
@@ -424,16 +400,7 @@ export class TaskCopyService {
 
 	private copyTaskFiles(task: Task): CopyStatus[] {
 		const fileNames &#x3D; task.getFileNames();
-		if (fileNames.length &#x3D;&#x3D;&#x3D; 1) {
-			return [
-				{
-					title: fileNames[0],
-					type: CopyElementType.LEAF,
-					status: CopyStatusEnum.NOT_IMPLEMENTED,
-				},
-			];
-		}
-		if (fileNames.length &gt; 1) {
+		if (fileNames.length &gt; 0) {
 			const elements &#x3D; fileNames.map((title) &#x3D;&gt; ({
 				title,
 				type: CopyElementType.FILE,
@@ -441,22 +408,13 @@ export class TaskCopyService {
 			}));
 			const fileStatus &#x3D; {
 				title: &#x27;files&#x27;,
-				type: CopyElementType.LEAF,
+				type: CopyElementType.FILE_GROUP,
 				status: CopyStatusEnum.NOT_IMPLEMENTED,
 				elements,
 			};
 			return [fileStatus];
 		}
 		return [];
-	}
-
-	private inferStatusFromElements(elements: CopyStatus[]): CopyStatusEnum {
-		const childrenStatusArray &#x3D; elements.map((el) &#x3D;&gt; el.status);
-		// if (childrenStatusArray.includes(CopyStatusEnum.FAIL)) return CopyStatusEnum.PARTIAL; &lt;- unused case, commented for now due to lack of test coverage and no scenario
-		if (childrenStatusArray.includes(CopyStatusEnum.NOT_IMPLEMENTED)) {
-			return CopyStatusEnum.PARTIAL;
-		}
-		return CopyStatusEnum.SUCCESS;
 	}
 }
 </code></pre>

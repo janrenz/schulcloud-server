@@ -111,7 +111,7 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(nameCopyService: <a href="../injectables/NameCopyService.html" target="_self">NameCopyService</a>)</code>
+<code>constructor(copyHelperService: <a href="../injectables/CopyHelperService.html" target="_self">CopyHelperService</a>)</code>
                     </td>
                 </tr>
                         <tr>
@@ -134,10 +134,10 @@
                                         </thead>
                                         <tbody>
                                                 <tr>
-                                                        <td>nameCopyService</td>
+                                                        <td>copyHelperService</td>
                                                   
                                                         <td>
-                                                                        <code><a href="../injectables/NameCopyService.html" target="_self" >NameCopyService</a></code>
+                                                                        <code><a href="../injectables/CopyHelperService.html" target="_self" >CopyHelperService</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -418,7 +418,7 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
 import { ComponentType, Course, IComponentProperties, Lesson, User } from &#x27;../entity&#x27;;
 import { CopyElementType, CopyStatus, CopyStatusEnum } from &#x27;../types&#x27;;
-import { NameCopyService } from &#x27;./name-copy.service&#x27;;
+import { CopyHelperService } from &#x27;./copy-helper.service&#x27;;
 
 export type LessonCopyParams &#x3D; {
 	originalLesson: Lesson;
@@ -428,13 +428,13 @@ export type LessonCopyParams &#x3D; {
 
 @Injectable()
 export class LessonCopyService {
-	constructor(private readonly nameCopyService: NameCopyService) {}
+	constructor(private readonly copyHelperService: CopyHelperService) {}
 
 	copyLesson(params: LessonCopyParams): CopyStatus {
 		const copy &#x3D; new Lesson({
 			course: params.destinationCourse,
 			hidden: true,
-			name: this.nameCopyService.deriveCopyName(params.originalLesson.name),
+			name: this.copyHelperService.deriveCopyName(params.originalLesson.name),
 			position: params.originalLesson.position,
 			contents: this.copyTextComponent(params.originalLesson.contents || []),
 		});

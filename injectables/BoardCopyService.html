@@ -81,10 +81,6 @@
                             <li>
                                 <a href="#copyBoard" >copyBoard</a>
                             </li>
-                            <li>
-                                    <span class="modifier">Private</span>
-                                <a href="#inferStatusFromElements" >inferStatusFromElements</a>
-                            </li>
                         </ul>
                     </td>
                 </tr>
@@ -103,12 +99,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(taskCopyService: <a href="../injectables/TaskCopyService.html" target="_self">TaskCopyService</a>, lessonCopyService: <a href="../injectables/LessonCopyService.html" target="_self">LessonCopyService</a>)</code>
+<code>constructor(taskCopyService: <a href="../injectables/TaskCopyService.html" target="_self">TaskCopyService</a>, lessonCopyService: <a href="../injectables/LessonCopyService.html" target="_self">LessonCopyService</a>, copyHelperService: <a href="../injectables/CopyHelperService.html" target="_self">CopyHelperService</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">apps/server/src/shared/domain/service/board-copy.service.ts:14</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">apps/server/src/shared/domain/service/board-copy.service.ts:15</a></div>
                             </td>
                         </tr>
 
@@ -142,6 +138,18 @@
                                                   
                                                         <td>
                                                                         <code><a href="../injectables/LessonCopyService.html" target="_self" >LessonCopyService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>copyHelperService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/CopyHelperService.html" target="_self" >CopyHelperService</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -183,8 +191,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="20"
-                            class="link-to-prism">apps/server/src/shared/domain/service/board-copy.service.ts:20</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="22"
+                            class="link-to-prism">apps/server/src/shared/domain/service/board-copy.service.ts:22</a></div>
                 </td>
             </tr>
 
@@ -232,77 +240,6 @@
             </tr>
         </tbody>
     </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="inferStatusFromElements"></a>
-                    <span class="name">
-                        <span class="modifier">Private</span>
-                        <span ><b>inferStatusFromElements</b></span>
-                        <a href="#inferStatusFromElements"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>inferStatusFromElements(elements: <a href="../undefineds/CopyStatus.html" target="_self">CopyStatus[]</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="61"
-                            class="link-to-prism">apps/server/src/shared/domain/service/board-copy.service.ts:61</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>elements</td>
-                                    <td>
-                                                <code><a href="../miscellaneous/typealiases.html#CopyStatus" target="_self" >CopyStatus[]</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#CopyStatus" target="_self" >CopyStatusEnum</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
 </section>
 
     </div>
@@ -311,7 +248,8 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
 import { Board, BoardElement, BoardElementType, Course, Lesson, Task, User } from &#x27;../entity&#x27;;
-import { CopyElementType, CopyStatus, CopyStatusEnum } from &#x27;../types&#x27;;
+import { CopyElementType, CopyStatus } from &#x27;../types&#x27;;
+import { CopyHelperService } from &#x27;./copy-helper.service&#x27;;
 import { LessonCopyService } from &#x27;./lesson-copy.service&#x27;;
 import { TaskCopyService } from &#x27;./task-copy.service&#x27;;
 
@@ -325,7 +263,8 @@ export type BoardCopyParams &#x3D; {
 export class BoardCopyService {
 	constructor(
 		private readonly taskCopyService: TaskCopyService,
-		private readonly lessonCopyService: LessonCopyService
+		private readonly lessonCopyService: LessonCopyService,
+		private readonly copyHelperService: CopyHelperService
 	) {}
 
 	copyBoard(params: BoardCopyParams): CopyStatus {
@@ -361,23 +300,12 @@ export class BoardCopyService {
 		const status &#x3D; {
 			title: &#x27;board&#x27;,
 			type: CopyElementType.BOARD,
-			status: this.inferStatusFromElements(elements),
+			status: this.copyHelperService.deriveStatusFromElements(elements),
 			copyEntity: copy,
 			elements,
 		};
 
 		return status;
-	}
-
-	private inferStatusFromElements(elements: CopyStatus[]): CopyStatusEnum {
-		const elementsStatuses &#x3D; elements.map((el) &#x3D;&gt; el.status);
-		if (elementsStatuses.every((status) &#x3D;&gt; status !&#x3D;&#x3D; CopyStatusEnum.SUCCESS)) {
-			return CopyStatusEnum.FAIL;
-		}
-		if (elementsStatuses.some((status) &#x3D;&gt; status !&#x3D;&#x3D; CopyStatusEnum.SUCCESS)) {
-			return CopyStatusEnum.PARTIAL;
-		}
-		return CopyStatusEnum.SUCCESS;
 	}
 }
 </code></pre>
