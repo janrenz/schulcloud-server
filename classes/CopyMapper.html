@@ -200,7 +200,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>mapTaskCopyToDomain(params: <a href="../classes/TaskCopyApiParams.html" target="_self">TaskCopyApiParams</a>)</code>
+                    <code>mapTaskCopyToDomain(params: <a href="../classes/TaskCopyApiParams.html" target="_self">TaskCopyApiParams</a>, jwt: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
@@ -232,6 +232,18 @@
                                     <td>params</td>
                                     <td>
                                                 <code><a href="../classes/TaskCopyApiParams.html" target="_self" >TaskCopyApiParams</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>jwt</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
                                     </td>
 
                                     <td>
@@ -369,10 +381,11 @@ export class CopyMapper {
 		return dto;
 	}
 
-	static mapTaskCopyToDomain(params: TaskCopyApiParams): TaskCopyParentParams {
+	static mapTaskCopyToDomain(params: TaskCopyApiParams, jwt: string): TaskCopyParentParams {
 		const dto &#x3D; {
 			courseId: params.courseId,
 			lessonId: params.lessonId,
+			jwt,
 		};
 
 		return dto;

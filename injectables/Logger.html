@@ -174,7 +174,7 @@ CAUTION: PREPARE STRINGS AS LOG DATA, DO NOT LOG COMPLEX DATA STRUCTURES</p>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>error(message, trace?, context?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+<code>error(message, trace?)</code>
                 </td>
             </tr>
 
@@ -197,15 +197,12 @@ CAUTION: PREPARE STRINGS AS LOG DATA, DO NOT LOG COMPLEX DATA STRUCTURES</p>
                             <thead>
                                 <tr>
                                     <td>Name</td>
-                                    <td>Type</td>
                                     <td>Optional</td>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <td>message</td>
-                                    <td>
-                                    </td>
 
                                     <td>
                                         No
@@ -215,20 +212,6 @@ CAUTION: PREPARE STRINGS AS LOG DATA, DO NOT LOG COMPLEX DATA STRUCTURES</p>
                                 </tr>
                                 <tr>
                                     <td>trace</td>
-                                    <td>
-                                    </td>
-
-                                    <td>
-                                        Yes
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>context</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                    </td>
 
                                     <td>
                                         Yes
@@ -339,9 +322,9 @@ CAUTION: PREPARE STRINGS AS LOG DATA, DO NOT LOG COMPLEX DATA STRUCTURES</p>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ConsoleLogger, Injectable, LogLevel, Scope } from &#x27;@nestjs/common&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Configuration } from &#x27;@hpi-schul-cloud/commons&#x27;;
+import { ConsoleLogger, Injectable, LogLevel, Scope } from &#x27;@nestjs/common&#x27;;
 import { ConfigService } from &#x27;@nestjs/config&#x27;;
-import { Configuration } from &#x27;@hpi-schul-cloud/commons&#x27;;
 import { ILoggerConfig, RequestLoggingBody } from &#x27;./interfaces&#x27;;
 import { AvailableLogLevel, ILogger } from &#x27;./interfaces/logger.interface&#x27;;
 
@@ -372,7 +355,7 @@ export class Logger extends ConsoleLogger implements ILogger {
 		this.printMessages([JSON.stringify(message)], context || this.context, &#x27;HTTP Request&#x27; as LogLevel);
 	}
 
-	error(message: unknown, trace?: unknown, context?: string): void {
+	error(message: unknown, trace?: unknown): void {
 		const messages &#x3D;
 			Configuration.get(&#x27;NODE_ENV&#x27;) &#x3D;&#x3D;&#x3D; &#x27;production&#x27;
 				? [JSON.stringify({ message, trace: trace || null })]

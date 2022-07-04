@@ -139,7 +139,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>copyTask(currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>, taskId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, params: <a href="../classes/TaskCopyApiParams.html" target="_self">TaskCopyApiParams</a>)</code>
+                    <code>copyTask(currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>, taskId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, params: <a href="../classes/TaskCopyApiParams.html" target="_self">TaskCopyApiParams</a>, jwt: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
@@ -153,8 +153,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="86"
-                            class="link-to-prism">apps/server/src/modules/task/controller/task.controller.ts:86</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="87"
+                            class="link-to-prism">apps/server/src/modules/task/controller/task.controller.ts:87</a></div>
                 </td>
             </tr>
 
@@ -210,6 +210,18 @@
 
 
                                 </tr>
+                                <tr>
+                                    <td>jwt</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -255,8 +267,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="76"
-                            class="link-to-prism">apps/server/src/modules/task/controller/task.controller.ts:76</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="77"
+                            class="link-to-prism">apps/server/src/modules/task/controller/task.controller.ts:77</a></div>
                 </td>
             </tr>
 
@@ -345,8 +357,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="22"
-                            class="link-to-prism">apps/server/src/modules/task/controller/task.controller.ts:22</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="23"
+                            class="link-to-prism">apps/server/src/modules/task/controller/task.controller.ts:23</a></div>
                 </td>
             </tr>
 
@@ -435,8 +447,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="36"
-                            class="link-to-prism">apps/server/src/modules/task/controller/task.controller.ts:36</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="37"
+                            class="link-to-prism">apps/server/src/modules/task/controller/task.controller.ts:37</a></div>
                 </td>
             </tr>
 
@@ -525,8 +537,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="52"
-                            class="link-to-prism">apps/server/src/modules/task/controller/task.controller.ts:52</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="53"
+                            class="link-to-prism">apps/server/src/modules/task/controller/task.controller.ts:53</a></div>
                 </td>
             </tr>
 
@@ -615,8 +627,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="64"
-                            class="link-to-prism">apps/server/src/modules/task/controller/task.controller.ts:64</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="65"
+                            class="link-to-prism">apps/server/src/modules/task/controller/task.controller.ts:65</a></div>
                 </td>
             </tr>
 
@@ -685,7 +697,8 @@ import { ApiTags } from &#x27;@nestjs/swagger&#x27;;
 import { PaginationParams } from &#x27;@shared/controller/&#x27;;
 import { ParseObjectIdPipe } from &#x27;@shared/controller/pipe&#x27;;
 import { ICurrentUser } from &#x27;@shared/domain&#x27;;
-import { Authenticate, CurrentUser } from &#x27;@src/modules/authentication/decorator/auth.decorator&#x27;;
+import { Authenticate, CurrentUser, JWT } from &#x27;@src/modules/authentication/decorator/auth.decorator&#x27;;
+// todo  @src/modules/learnroom/* must be replaced
 import { CopyApiResponse } from &#x27;@src/modules/learnroom/controller/dto/copy.response&#x27;;
 import { CopyMapper } from &#x27;@src/modules/learnroom/mapper/copy.mapper&#x27;;
 import { TaskMapper } from &#x27;../mapper/task.mapper&#x27;;
@@ -768,12 +781,13 @@ export class TaskController {
 	async copyTask(
 		@CurrentUser() currentUser: ICurrentUser,
 		@Param(&#x27;id&#x27;, ParseObjectIdPipe) taskId: string,
-		@Body() params: TaskCopyApiParams
+		@Body() params: TaskCopyApiParams,
+		@JWT() jwt: string
 	): Promise&lt;CopyApiResponse&gt; {
 		const copyStatus &#x3D; await this.taskCopyUc.copyTask(
 			currentUser.userId,
 			taskId,
-			CopyMapper.mapTaskCopyToDomain(params)
+			CopyMapper.mapTaskCopyToDomain(params, jwt)
 		);
 		const dto &#x3D; CopyMapper.mapToResponse(copyStatus);
 		return dto;
