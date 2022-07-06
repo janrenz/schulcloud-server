@@ -325,6 +325,9 @@
                             <a href="#schoolNewsFactory" title="apps/server/src/shared/testing/factory/news.factory.ts" ><b>schoolNewsFactory</b>&nbsp;&nbsp;&nbsp;(apps/.../news.factory.ts)</a>
                         </li>
                         <li>
+                            <a href="#schoolYearFactory" title="apps/server/src/shared/testing/factory/schoolyear.factory.ts" ><b>schoolYearFactory</b>&nbsp;&nbsp;&nbsp;(apps/.../schoolyear.factory.ts)</a>
+                        </li>
+                        <li>
                             <a href="#serializeDataIfNeeded" title="apps/server/src/modules/files-storage-client/filesStorageApi/v3/common.ts" ><b>serializeDataIfNeeded</b>&nbsp;&nbsp;&nbsp;(apps/.../common.ts)</a>
                         </li>
                         <li>
@@ -496,6 +499,7 @@
 	School,
 	SchoolRoles,
 	SchoolRolePermission,
+	SchoolYear,
 	Submission,
 	Task,
 	Team,
@@ -4483,7 +4487,40 @@ You shall not explicitly declare the AMQPConnection in your modules since it wil
                 <tr>
                     <td class="col-md-4">
                         <i>Default value : </i><code>BaseFactory.define&lt;School, ISchoolProperties&gt;(School, ({ sequence }) &#x3D;&gt; {
-	return { name: &#x60;school #${sequence}&#x60; };
+	return {
+		name: &#x60;school #${sequence}&#x60;,
+		schoolYear: schoolYearFactory.build(),
+	};
+})</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>apps/server/src/shared/testing/factory/schoolyear.factory.ts</h3>
+    <section>
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="schoolYearFactory"></a>
+                    <span class="name">
+                        <span ><b>schoolYearFactory</b></span>
+                        <a href="#schoolYearFactory"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>BaseFactory.define&lt;SchoolYear, ISchoolYearProperties&gt;(SchoolYear, () &#x3D;&gt; {
+	const year &#x3D; new Date().getFullYear();
+	const nextYear &#x3D; (year + 1).toString().substr(-2);
+	const name &#x3D; &#x60;${year}/${nextYear}&#x60;;
+	const startDate &#x3D; new Date(&#x60;${year}-08-01&#x60;);
+	const endDate &#x3D; new Date(&#x60;${year + 1}-07-31&#x60;);
+	return { name, startDate, endDate };
 })</code>
                     </td>
                 </tr>

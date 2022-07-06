@@ -138,7 +138,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">apps/server/src/shared/domain/entity/school.entity.ts:38</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">apps/server/src/shared/domain/entity/school.entity.ts:40</a></div>
                         </td>
                     </tr>
 
@@ -174,7 +174,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">apps/server/src/shared/domain/entity/school.entity.ts:41</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">apps/server/src/shared/domain/entity/school.entity.ts:43</a></div>
                         </td>
                     </tr>
 
@@ -193,8 +193,9 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Collection, Entity, Property, ManyToMany, Index, Embedded, Embeddable } from &#x27;@mikro-orm/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Collection, Embeddable, Embedded, Entity, Index, ManyToMany, ManyToOne, Property } from &#x27;@mikro-orm/core&#x27;;
 import { BaseEntity } from &#x27;./base.entity&#x27;;
+import { SchoolYear } from &#x27;./schoolyear.entity&#x27;;
 import { System } from &#x27;./system.entity&#x27;;
 
 export enum SchoolFeatures {
@@ -216,6 +217,7 @@ export interface ISchoolProperties {
 	officialSchoolNumber?: string;
 	systems?: System[];
 	features?: SchoolFeatures[];
+	schoolYear?: SchoolYear;
 }
 
 @Embeddable()
@@ -248,6 +250,7 @@ export class School extends BaseEntity {
 		if (props.officialSchoolNumber) this.officialSchoolNumber &#x3D; props.officialSchoolNumber;
 		if (props.systems) this.systems.set(props.systems);
 		if (props.features) this.features &#x3D; props.features;
+		if (props.schoolYear) this.schoolYear &#x3D; props.schoolYear;
 	}
 
 	@Property({ nullable: true })
@@ -273,6 +276,9 @@ export class School extends BaseEntity {
 
 	@Embedded(() &#x3D;&gt; SchoolRoles, { object: true, nullable: true, prefix: false })
 	permissions?: SchoolRoles;
+
+	@ManyToOne(&#x27;SchoolYear&#x27;, { fieldName: &#x27;currentYear&#x27;, nullable: true })
+	schoolYear?: SchoolYear;
 }
 </code></pre>
     </div>

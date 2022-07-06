@@ -1146,6 +1146,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                     <a href="entities/SchoolNews.html" data-type="entity-link" >SchoolNews</a>
                                 </li>
                                 <li class="link">
+                                    <a href="entities/SchoolYear.html" data-type="entity-link" >SchoolYear</a>
+                                </li>
+                                <li class="link">
                                     <a href="entities/StorageProvider.html" data-type="entity-link" >StorageProvider</a>
                                 </li>
                                 <li class="link">
@@ -1898,6 +1901,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                     <a href="injectables/SchoolRule.html" data-type="entity-link" >SchoolRule</a>
                                 </li>
                                 <li class="link">
+                                    <a href="injectables/SchoolYearRepo.html" data-type="entity-link" >SchoolYearRepo</a>
+                                </li>
+                                <li class="link">
                                     <a href="injectables/StorageProviderRepo.html" data-type="entity-link" >StorageProviderRepo</a>
                                 </li>
                                 <li class="link">
@@ -2191,6 +2197,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="interfaces/ISchoolProperties.html" data-type="entity-link" >ISchoolProperties</a>
+                            </li>
+                            <li class="link">
+                                <a href="interfaces/ISchoolYearProperties.html" data-type="entity-link" >ISchoolYearProperties</a>
                             </li>
                             <li class="link">
                                 <a href="interfaces/IServerConfig.html" data-type="entity-link" >IServerConfig</a>
