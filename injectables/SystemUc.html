@@ -82,6 +82,10 @@
                                     <span class="modifier">Async</span>
                                 <a href="#findByFilter" >findByFilter</a>
                             </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#findById" >findById</a>
+                            </li>
                         </ul>
                     </td>
                 </tr>
@@ -105,7 +109,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">apps/server/src/modules/system/uc/system.uc.ts:8</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">apps/server/src/modules/system/uc/system.uc.ts:7</a></div>
                             </td>
                         </tr>
 
@@ -170,8 +174,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="11"
-                            class="link-to-prism">apps/server/src/modules/system/uc/system.uc.ts:11</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="10"
+                            class="link-to-prism">apps/server/src/modules/system/uc/system.uc.ts:10</a></div>
                 </td>
             </tr>
 
@@ -237,6 +241,77 @@
             </tr>
         </tbody>
     </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findById"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>findById</b></span>
+                        <a href="#findById"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findById(id: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="15"
+                            class="link-to-prism">apps/server/src/modules/system/uc/system.uc.ts:15</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/SystemDto.html" target="_self" >Promise&lt;SystemDto&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </section>
 
     </div>
@@ -245,16 +320,21 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
 import { SystemService } from &#x27;@src/modules/system/service/system.service&#x27;;
-import { SystemOauthResponse } from &#x27;@src/modules/system/controller/dto/system-oauth.response&#x27;;
-import { SystemOauthResponseMapper } from &#x27;@src/modules/system/controller/mapper/system-oauth-response.mapper&#x27;;
 import { SystemDto } from &#x27;@src/modules/system/service/dto/system.dto&#x27;;
+import { EntityId } from &#x27;@shared/domain&#x27;;
 
 @Injectable()
 export class SystemUc {
 	constructor(private readonly systemService: SystemService) {}
 
 	async findByFilter(type: string | undefined &#x3D; &#x27;&#x27;, onlyOauth &#x3D; false): Promise&lt;SystemDto[]&gt; {
-		return this.systemService.find(type, onlyOauth);
+		const promise: Promise&lt;SystemDto[]&gt; &#x3D; this.systemService.find(type, onlyOauth);
+		return promise;
+	}
+
+	async findById(id: EntityId): Promise&lt;SystemDto&gt; {
+		const promise: Promise&lt;SystemDto&gt; &#x3D; this.systemService.findById(id);
+		return promise;
 	}
 }
 </code></pre>

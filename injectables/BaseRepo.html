@@ -446,9 +446,8 @@ export abstract class BaseRepo&lt;T extends BaseEntity&gt; {
 	}
 
 	async findById(id: EntityId): Promise&lt;T&gt; {
-		const entity &#x3D; await this._em.findOneOrFail(this.entityName, id as FilterQuery&lt;T&gt;);
-
-		return entity;
+		const promise: Promise&lt;T&gt; &#x3D; this._em.findOneOrFail(this.entityName, id as FilterQuery&lt;T&gt;);
+		return promise;
 	}
 }
 </code></pre>

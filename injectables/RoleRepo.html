@@ -104,7 +104,15 @@
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
+                                <a href="#findByIds" >findByIds</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
                                 <a href="#findByName" >findByName</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#findByNames" >findByNames</a>
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
@@ -227,6 +235,77 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="findByIds"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>findByIds</b></span>
+                        <a href="#findByIds"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findByIds(ids: string[])</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="28"
+                            class="link-to-prism">apps/server/src/shared/repo/role/role.repo.ts:28</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>ids</td>
+                                    <td>
+                                            <code>string[]</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../entitys/Role.html" target="_self" >Promise&lt;Role[]&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="findByName"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
@@ -285,6 +364,77 @@
                     </div>
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="../entitys/Role.html" target="_self" >Promise&lt;Role&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findByNames"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>findByNames</b></span>
+                        <a href="#findByNames"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findByNames(names: <a href="../entitys/Role.html" target="_self">RoleName[]</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="23"
+                            class="link-to-prism">apps/server/src/shared/repo/role/role.repo.ts:23</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>names</td>
+                                    <td>
+                                                <code><a href="../entitys/Role.html" target="_self" >RoleName[]</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../entitys/Role.html" target="_self" >Promise&lt;Role[]&gt;</a></code>
 
                     </div>
                     <div class="io-description">
@@ -531,14 +681,23 @@ export class RoleRepo extends BaseRepo&lt;Role&gt; {
 	cacheExpiration &#x3D; 60000;
 
 	async findByName(name: RoleName): Promise&lt;Role&gt; {
-		const role &#x3D; await this._em.findOneOrFail(Role, { name }, { cache: this.cacheExpiration });
-		return role;
+		const promise: Promise&lt;Role&gt; &#x3D; this._em.findOneOrFail(Role, { name }, { cache: this.cacheExpiration });
+		return promise;
 	}
 
 	async findById(id: EntityId): Promise&lt;Role&gt; {
-		const role &#x3D; await this._em.findOneOrFail(Role, { id }, { cache: this.cacheExpiration });
+		const promise: Promise&lt;Role&gt; &#x3D; this._em.findOneOrFail(Role, { id }, { cache: this.cacheExpiration });
+		return promise;
+	}
 
-		return role;
+	async findByNames(names: RoleName[]): Promise&lt;Role[]&gt; {
+		const promise: Promise&lt;Role[]&gt; &#x3D; this._em.find(Role, { name: { $in: names } }, { cache: this.cacheExpiration });
+		return promise;
+	}
+
+	async findByIds(ids: string[]): Promise&lt;Role[]&gt; {
+		const promise: Promise&lt;Role[]&gt; &#x3D; this._em.find(Role, { id: { $in: ids } }, { cache: this.cacheExpiration });
+		return promise;
 	}
 }
 </code></pre>

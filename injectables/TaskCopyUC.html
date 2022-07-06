@@ -387,10 +387,10 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ForbiddenException, Injectable, NotFoundException } from &#x27;@nestjs/common&#x27;;
-import { CopyStatus, EntityId, PermissionContextBuilder, User, TaskCopyService, Task } from &#x27;@shared/domain&#x27;;
+import { CopyStatus, EntityId, PermissionContextBuilder, Task, TaskCopyService, User } from &#x27;@shared/domain&#x27;;
 import { CourseRepo, TaskRepo } from &#x27;@shared/repo&#x27;;
 import { AuthorizationService } from &#x27;@src/modules/authorization&#x27;;
-import { FilesStorageClientAdapterService, FileParamBuilder } from &#x27;@src/modules/files-storage-client&#x27;;
+import { FilesStorageClientAdapterService } from &#x27;@src/modules/files-storage-client&#x27;;
 
 // todo: it look like it is required not optional
 export type TaskCopyParentParams &#x3D; {

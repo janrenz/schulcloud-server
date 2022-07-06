@@ -40,7 +40,7 @@
 
 <ol class="breadcrumb">
   <li>Injectables</li>
-  <li >UserUC</li>
+  <li >SchoolUc</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -58,7 +58,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/modules/user/uc/user.uc.ts</code>
+            <code>apps/server/src/modules/school/uc/school.uc.ts</code>
         </p>
 
 
@@ -79,16 +79,12 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                    <span class="modifier">Private</span>
-                                <a href="#checkAvaibleLanguages" >checkAvaibleLanguages</a>
+                                    <span class="modifier">Async</span>
+                                <a href="#createOrUpdate" >createOrUpdate</a>
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
-                                <a href="#me" >me</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Async</span>
-                                <a href="#patchLanguage" >patchLanguage</a>
+                                <a href="#saveProvisioningSchoolOutputDto" >saveProvisioningSchoolOutputDto</a>
                             </li>
                         </ul>
                     </td>
@@ -108,12 +104,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(userRepo: <a href="../injectables/UserRepo.html" target="_self">UserRepo</a>, permissionService: <a href="../injectables/PermissionService.html" target="_self">PermissionService</a>, configService: <a href="../classes/User.html" target="_self">ConfigService&lt;IUserConfig | &gt;</a>)</code>
+<code>constructor(schoolService: <a href="../injectables/SchoolService.html" target="_self">SchoolService</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">apps/server/src/modules/user/uc/user.uc.ts:9</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">apps/server/src/modules/school/uc/school.uc.ts:8</a></div>
                             </td>
                         </tr>
 
@@ -131,34 +127,10 @@
                                         </thead>
                                         <tbody>
                                                 <tr>
-                                                        <td>userRepo</td>
+                                                        <td>schoolService</td>
                                                   
                                                         <td>
-                                                                        <code><a href="../injectables/UserRepo.html" target="_self" >UserRepo</a></code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                                <tr>
-                                                        <td>permissionService</td>
-                                                  
-                                                        <td>
-                                                                        <code><a href="../injectables/PermissionService.html" target="_self" >PermissionService</a></code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                                <tr>
-                                                        <td>configService</td>
-                                                  
-                                                        <td>
-                                                                        <code><a href="../classes/User.html" target="_self" >ConfigService&lt;IUserConfig | &gt;</a></code>
+                                                                        <code><a href="../injectables/SchoolService.html" target="_self" >SchoolService</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -184,26 +156,26 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="checkAvaibleLanguages"></a>
+                    <a name="createOrUpdate"></a>
                     <span class="name">
-                        <span class="modifier">Private</span>
-                        <span ><b>checkAvaibleLanguages</b></span>
-                        <a href="#checkAvaibleLanguages"><span class="icon ion-ios-link"></span></a>
+                        <span class="modifier">Async</span>
+                        <span ><b>createOrUpdate</b></span>
+                        <a href="#createOrUpdate"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>checkAvaibleLanguages(settedLanguage: <a href="../undefineds/LanguageType.html" target="_self">LanguageType</a>)</code>
+                    <code>createOrUpdate(schoolDto: <a href="../classess/SchoolDto.html" target="_self">SchoolDto</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="23"
-                            class="link-to-prism">apps/server/src/modules/user/uc/user.uc.ts:23</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="15"
+                            class="link-to-prism">apps/server/src/modules/school/uc/school.uc.ts:15</a></div>
                 </td>
             </tr>
 
@@ -224,9 +196,9 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>settedLanguage</td>
+                                    <td>schoolDto</td>
                                     <td>
-                                                <code><a href="../miscellaneous/enumerations.html#LanguageType" target="_self" >LanguageType</a></code>
+                                                <code><a href="../classess/SchoolDto.html" target="_self" >SchoolDto</a></code>
                                     </td>
 
                                     <td>
@@ -241,7 +213,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>    <code>void | Error</code>
+                        <b>Returns : </b>        <code><a href="../entitys/School.html" target="_self" >Promise&lt;SchoolDto&gt;</a></code>
 
                     </div>
                     <div class="io-description">
@@ -255,26 +227,26 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="me"></a>
+                    <a name="saveProvisioningSchoolOutputDto"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
-                        <span ><b>me</b></span>
-                        <a href="#me"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>saveProvisioningSchoolOutputDto</b></span>
+                        <a href="#saveProvisioningSchoolOutputDto"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>me(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>)</code>
+                    <code>saveProvisioningSchoolOutputDto(schoolDto: <a href="../classes/ProvisioningSchoolOutputDto.html" target="_self">ProvisioningSchoolOutputDto</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="16"
-                            class="link-to-prism">apps/server/src/modules/user/uc/user.uc.ts:16</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="11"
+                            class="link-to-prism">apps/server/src/modules/school/uc/school.uc.ts:11</a></div>
                 </td>
             </tr>
 
@@ -295,9 +267,9 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>userId</td>
+                                    <td>schoolDto</td>
                                     <td>
-                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
+                                                <code><a href="../classes/ProvisioningSchoolOutputDto.html" target="_self" >ProvisioningSchoolOutputDto</a></code>
                                     </td>
 
                                     <td>
@@ -312,90 +284,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>    <code>Promise&lt;&gt;</code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="patchLanguage"></a>
-                    <span class="name">
-                        <span class="modifier">Async</span>
-                        <span ><b>patchLanguage</b></span>
-                        <a href="#patchLanguage"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>patchLanguage(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, params: <a href="../classes/ChangeLanguageParams.html" target="_self">ChangeLanguageParams</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="29"
-                            class="link-to-prism">apps/server/src/modules/user/uc/user.uc.ts:29</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>userId</td>
-                                    <td>
-                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>params</td>
-                                    <td>
-                                                <code><a href="../classes/ChangeLanguageParams.html" target="_self" >ChangeLanguageParams</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>    <code>Promise&lt;boolean&gt;</code>
+                        <b>Returns : </b>        <code><a href="../entitys/School.html" target="_self" >Promise&lt;SchoolDto&gt;</a></code>
 
                     </div>
                     <div class="io-description">
@@ -411,41 +300,22 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { BadRequestException, Injectable } from &#x27;@nestjs/common&#x27;;
-import { ConfigService } from &#x27;@nestjs/config&#x27;;
-import { EntityId, LanguageType, PermissionService, User } from &#x27;@shared/domain&#x27;;
-import { UserRepo } from &#x27;@shared/repo&#x27;;
-import { ChangeLanguageParams } from &#x27;../controller/dto&#x27;;
-import { IUserConfig } from &#x27;../interfaces&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
+import { SchoolDto } from &#x27;@src/modules/school/uc/dto/school.dto&#x27;;
+import { SchoolService } from &#x27;@src/modules/school/service/school.service&#x27;;
+import { ProvisioningSchoolOutputDto } from &#x27;@src/modules/provisioning/dto/provisioning-school-output.dto&#x27;;
+import { SchoolUcMapper } from &#x27;@src/modules/school/mapper/school.uc.mapper&#x27;;
 
 @Injectable()
-export class UserUC {
-	constructor(
-		private readonly userRepo: UserRepo,
-		private readonly permissionService: PermissionService,
-		private readonly configService: ConfigService&lt;IUserConfig, true&gt;
-	) {}
+export class SchoolUc {
+	constructor(readonly schoolService: SchoolService) {}
 
-	async me(userId: EntityId): Promise&lt;[User, string[]]&gt; {
-		const user &#x3D; await this.userRepo.findById(userId, true);
-		const permissions &#x3D; this.permissionService.resolvePermissions(user);
-
-		return [user, permissions];
+	async saveProvisioningSchoolOutputDto(schoolDto: ProvisioningSchoolOutputDto): Promise&lt;SchoolDto&gt; {
+		return this.createOrUpdate(SchoolUcMapper.mapFromProvisioningSchoolOutputDtoToSchoolDto(schoolDto));
 	}
 
-	private checkAvaibleLanguages(settedLanguage: LanguageType): void | Error {
-		if (!this.configService.get&lt;string[]&gt;(&#x27;AVAILABLE_LANGUAGES&#x27;).includes(settedLanguage)) {
-			throw new BadRequestException(&#x27;Language is not activated.&#x27;);
-		}
-	}
-
-	async patchLanguage(userId: EntityId, params: ChangeLanguageParams): Promise&lt;boolean&gt; {
-		this.checkAvaibleLanguages(params.language);
-		const user &#x3D; await this.userRepo.findById(userId);
-		user.language &#x3D; params.language;
-		await this.userRepo.save(user);
-
-		return true;
+	async createOrUpdate(schoolDto: SchoolDto): Promise&lt;SchoolDto&gt; {
+		return this.schoolService.createOrUpdateSchool(schoolDto);
 	}
 }
 </code></pre>
@@ -491,7 +361,7 @@ export class UserUC {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
-            var COMPODOC_CURRENT_PAGE_URL = 'UserUC.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'SchoolUc.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

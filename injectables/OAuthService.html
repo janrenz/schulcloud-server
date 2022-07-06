@@ -641,7 +641,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>getOAuthError(error: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+<code>getOAuthError(error)</code>
                 </td>
             </tr>
 
@@ -664,16 +664,12 @@
                             <thead>
                                 <tr>
                                     <td>Name</td>
-                                    <td>Type</td>
                                     <td>Optional</td>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <td>error</td>
-                                    <td>
-                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
-                                    </td>
 
                                     <td>
                                         No
@@ -1050,8 +1046,8 @@ export class OAuthService {
 		private readonly jwtService: FeathersJwtProvider,
 		private readonly httpService: HttpService,
 		private readonly oAuthEncryptionService: SymetricKeyEncryptionService,
-		private iservOauthService: IservOAuthService,
-		private logger: Logger
+		private readonly iservOauthService: IservOAuthService,
+		private readonly logger: Logger
 	) {
 		this.logger.setContext(OAuthService.name);
 	}
@@ -1132,8 +1128,8 @@ export class OAuthService {
 	}
 
 	async getJWTForUser(user: User): Promise&lt;string&gt; {
-		const jwtResponse: string &#x3D; await this.jwtService.generateJwt(user.id);
-		return jwtResponse;
+		const stringPromise &#x3D; this.jwtService.generateJwt(user.id);
+		return stringPromise;
 	}
 
 	buildResponse(oauthConfig: OauthConfig, queryToken: OauthTokenResponse) {
@@ -1185,7 +1181,7 @@ export class OAuthService {
 		return oauthResponse;
 	}
 
-	getOAuthError(error: any): OAuthResponse {
+	getOAuthError(error: unknown): OAuthResponse {
 		this.logger.error(error);
 		const oauthResponse &#x3D; new OAuthResponse();
 		if (error instanceof OAuthSSOError) {
