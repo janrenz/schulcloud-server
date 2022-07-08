@@ -79,6 +79,9 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                <a href="#deleteTeam" >deleteTeam</a>
+                            </li>
+                            <li>
                                     <span class="modifier">Async</span>
                                 <a href="#findRoleById" >findRoleById</a>
                             </li>
@@ -108,12 +111,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(adapter: <a href="../injectables/CollaborativeStorageAdapter.html" target="_self">CollaborativeStorageAdapter</a>, roleRepo: <a href="../injectables/RoleRepo.html" target="_self">RoleRepo</a>, teamsMapper: <a href="../injectables/TeamMapper.html" target="_self">TeamMapper</a>, roleMapper: <a href="../injectables/RoleMapper.html" target="_self">RoleMapper</a>, teamsRepo: <a href="../injectables/TeamsRepo.html" target="_self">TeamsRepo</a>, authService: <a href="../injectables/AuthorizationService.html" target="_self">AuthorizationService</a>)</code>
+<code>constructor(adapter: <a href="../injectables/CollaborativeStorageAdapter.html" target="_self">CollaborativeStorageAdapter</a>, roleRepo: <a href="../injectables/RoleRepo.html" target="_self">RoleRepo</a>, teamsMapper: <a href="../injectables/TeamMapper.html" target="_self">TeamMapper</a>, roleMapper: <a href="../injectables/RoleMapper.html" target="_self">RoleMapper</a>, teamsRepo: <a href="../injectables/TeamsRepo.html" target="_self">TeamsRepo</a>, authService: <a href="../injectables/AuthorizationService.html" target="_self">AuthorizationService</a>, logger: <a href="../injectables/Logger.html" target="_self">Logger</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">apps/server/src/modules/collaborative-storage/services/collaborative-storage.service.ts:14</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">apps/server/src/modules/collaborative-storage/services/collaborative-storage.service.ts:15</a></div>
                             </td>
                         </tr>
 
@@ -202,6 +205,18 @@
                                                     </td>
                                                     
                                                 </tr>
+                                                <tr>
+                                                        <td>logger</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/Logger.html" target="_self" >Logger</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
                                         </tbody>
                                     </table>
                             </div>
@@ -216,6 +231,75 @@
     <h3 id="methods">
         Methods
     </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteTeam"></a>
+                    <span class="name">
+                        <span ><b>deleteTeam</b></span>
+                        <a href="#deleteTeam"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>deleteTeam(teamId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="73"
+                            class="link-to-prism">apps/server/src/modules/collaborative-storage/services/collaborative-storage.service.ts:73</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>teamId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
     <table class="table table-sm table-bordered">
         <tbody>
             <tr>
@@ -238,8 +322,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="41"
-                            class="link-to-prism">apps/server/src/modules/collaborative-storage/services/collaborative-storage.service.ts:41</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="44"
+                            class="link-to-prism">apps/server/src/modules/collaborative-storage/services/collaborative-storage.service.ts:44</a></div>
                 </td>
             </tr>
 
@@ -317,8 +401,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="32"
-                            class="link-to-prism">apps/server/src/modules/collaborative-storage/services/collaborative-storage.service.ts:32</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="35"
+                            class="link-to-prism">apps/server/src/modules/collaborative-storage/services/collaborative-storage.service.ts:35</a></div>
                 </td>
             </tr>
 
@@ -417,8 +501,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="52"
-                            class="link-to-prism">apps/server/src/modules/collaborative-storage/services/collaborative-storage.service.ts:52</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="55"
+                            class="link-to-prism">apps/server/src/modules/collaborative-storage/services/collaborative-storage.service.ts:55</a></div>
                 </td>
             </tr>
 
@@ -533,6 +617,7 @@ import { RoleRepo, TeamsRepo } from &#x27;@shared/repo&#x27;;
 import { CollaborativeStorageAdapter } from &#x27;@shared/infra/collaborative-storage&#x27;;
 import { NextcloudStrategy } from &#x27;@shared/infra/collaborative-storage/strategy/nextcloud.strategy&#x27;;
 import { AuthorizationService } from &#x27;@src/modules/authorization&#x27;;
+import { Logger } from &#x27;@src/core/logger&#x27;;
 import { RoleMapper } from &#x27;../mapper/role.mapper&#x27;;
 import { TeamMapper } from &#x27;../mapper/team.mapper&#x27;;
 import { RoleDto } from &#x27;./dto/role.dto&#x27;;
@@ -547,8 +632,10 @@ export class CollaborativeStorageService {
 		private teamsMapper: TeamMapper,
 		private roleMapper: RoleMapper,
 		private teamsRepo: TeamsRepo,
-		private authService: AuthorizationService
+		private authService: AuthorizationService,
+		private logger: Logger
 	) {
+		this.logger.setContext(CollaborativeStorageService.name);
 		this.adapter.setStrategy(new NextcloudStrategy());
 	}
 
@@ -594,6 +681,10 @@ export class CollaborativeStorageService {
 			await this.findRoleById(roleId),
 			teamPermissions
 		);
+	}
+
+	deleteTeam(teamId: string) {
+		this.adapter.deleteTeam(teamId);
 	}
 }
 </code></pre>

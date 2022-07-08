@@ -178,7 +178,7 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(courseRule: <a href="../injectables/CourseRule.html" target="_self">CourseRule</a>, lessonRule: <a href="../injectables/LessonRule.html" target="_self">LessonRule</a>, schoolRule: <a href="../injectables/SchoolRule.html" target="_self">SchoolRule</a>, taskRule: <a href="../injectables/TaskRule.html" target="_self">TaskRule</a>, teamRule: <a href="../injectables/TeamRule.html" target="_self">TeamRule</a>, userRule: <a href="../injectables/UserRule.html" target="_self">UserRule</a>, loader: <a href="../injectables/ReferenceLoader.html" target="_self">ReferenceLoader</a>)</code>
+<code>constructor(courseRule: <a href="../injectables/CourseRule.html" target="_self">CourseRule</a>, lessonRule: <a href="../injectables/LessonRule.html" target="_self">LessonRule</a>, schoolRule: <a href="../injectables/SchoolRule.html" target="_self">SchoolRule</a>, taskRule: <a href="../injectables/TaskRule.html" target="_self">TaskRule</a>, userRule: <a href="../injectables/UserRule.html" target="_self">UserRule</a>, teamRule: <a href="../injectables/TeamRule.html" target="_self">TeamRule</a>, loader: <a href="../injectables/ReferenceLoader.html" target="_self">ReferenceLoader</a>)</code>
                     </td>
                 </tr>
                         <tr>
@@ -249,10 +249,10 @@
                                                     
                                                 </tr>
                                                 <tr>
-                                                        <td>teamRule</td>
+                                                        <td>userRule</td>
                                                   
                                                         <td>
-                                                                        <code><a href="../injectables/TeamRule.html" target="_self" >TeamRule</a></code>
+                                                                        <code><a href="../injectables/UserRule.html" target="_self" >UserRule</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -261,10 +261,10 @@
                                                     
                                                 </tr>
                                                 <tr>
-                                                        <td>userRule</td>
+                                                        <td>teamRule</td>
                                                   
                                                         <td>
-                                                                        <code><a href="../injectables/UserRule.html" target="_self" >UserRule</a></code>
+                                                                        <code><a href="../injectables/TeamRule.html" target="_self" >TeamRule</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -1965,8 +1965,8 @@ export class AuthorizationService extends BasePermissionManager {
 		private readonly lessonRule: LessonRule,
 		private readonly schoolRule: SchoolRule,
 		private readonly taskRule: TaskRule,
-		private readonly teamRule: TeamRule,
 		private readonly userRule: UserRule,
+		private readonly teamRule: TeamRule,
 		private readonly loader: ReferenceLoader
 	) {
 		super();

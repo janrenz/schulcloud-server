@@ -251,13 +251,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/CollaborativeStorageAdapterModule.html" data-type="entity-link" >CollaborativeStorageAdapterModule</a>
                                 <li class="chapter inner">
                                     <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                        'data-target="#injectables-links-module-CollaborativeStorageAdapterModule-fa0d2999bff06d054470c6faec7fbd39fb3c24aaf04a585c80498ee6552f93edf1dcde9f826441439c58822a303069f86a8b5891ad06489b7a03d4e40c140950"' : 'data-target="#xs-injectables-links-module-CollaborativeStorageAdapterModule-fa0d2999bff06d054470c6faec7fbd39fb3c24aaf04a585c80498ee6552f93edf1dcde9f826441439c58822a303069f86a8b5891ad06489b7a03d4e40c140950"' }>
+                                        'data-target="#injectables-links-module-CollaborativeStorageAdapterModule-6c4607150a802a2c3da3bde3e1cb16d8172e69a69f00c7ff6fad2db9d53b1e8a640172c3bd02527e26dbb7190ab6803038d6a4f162c9b80dee2c85ed6eed491e"' : 'data-target="#xs-injectables-links-module-CollaborativeStorageAdapterModule-6c4607150a802a2c3da3bde3e1cb16d8172e69a69f00c7ff6fad2db9d53b1e8a640172c3bd02527e26dbb7190ab6803038d6a4f162c9b80dee2c85ed6eed491e"' }>
                                         <span class="icon ion-md-arrow-round-down"></span>
                                         <span>Injectables</span>
                                         <span class="icon ion-ios-arrow-down"></span>
                                     </div>
-                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-CollaborativeStorageAdapterModule-fa0d2999bff06d054470c6faec7fbd39fb3c24aaf04a585c80498ee6552f93edf1dcde9f826441439c58822a303069f86a8b5891ad06489b7a03d4e40c140950"' :
-                                        'id="xs-injectables-links-module-CollaborativeStorageAdapterModule-fa0d2999bff06d054470c6faec7fbd39fb3c24aaf04a585c80498ee6552f93edf1dcde9f826441439c58822a303069f86a8b5891ad06489b7a03d4e40c140950"' }>
+                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-CollaborativeStorageAdapterModule-6c4607150a802a2c3da3bde3e1cb16d8172e69a69f00c7ff6fad2db9d53b1e8a640172c3bd02527e26dbb7190ab6803038d6a4f162c9b80dee2c85ed6eed491e"' :
+                                        'id="xs-injectables-links-module-CollaborativeStorageAdapterModule-6c4607150a802a2c3da3bde3e1cb16d8172e69a69f00c7ff6fad2db9d53b1e8a640172c3bd02527e26dbb7190ab6803038d6a4f162c9b80dee2c85ed6eed491e"' }>
                                         <li class="link">
                                             <a href="injectables/CollaborativeStorageAdapter.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >CollaborativeStorageAdapter</a>
                                         </li>
@@ -271,13 +271,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/CollaborativeStorageModule.html" data-type="entity-link" >CollaborativeStorageModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#controllers-links-module-CollaborativeStorageModule-e9eb462a38c102c0b9f5eb432ce378a07d1c0eee8815af469b893e2f5989d0015cdeb57981d388f4afe6f19d0a74c5d43a747754290de1da7346289ccbc991fa"' : 'data-target="#xs-controllers-links-module-CollaborativeStorageModule-e9eb462a38c102c0b9f5eb432ce378a07d1c0eee8815af469b893e2f5989d0015cdeb57981d388f4afe6f19d0a74c5d43a747754290de1da7346289ccbc991fa"' }>
+                                            'data-target="#controllers-links-module-CollaborativeStorageModule-972b0521bff388deb305820879579f0af4f65d0421a67aeb369285e48fec51dbc9a5217132ca09228263003acea75159ad2853f2cef9bec1f8a96f303f3ed7fa"' : 'data-target="#xs-controllers-links-module-CollaborativeStorageModule-972b0521bff388deb305820879579f0af4f65d0421a67aeb369285e48fec51dbc9a5217132ca09228263003acea75159ad2853f2cef9bec1f8a96f303f3ed7fa"' }>
                                             <span class="icon ion-md-swap"></span>
                                             <span>Controllers</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="controllers-links-module-CollaborativeStorageModule-e9eb462a38c102c0b9f5eb432ce378a07d1c0eee8815af469b893e2f5989d0015cdeb57981d388f4afe6f19d0a74c5d43a747754290de1da7346289ccbc991fa"' :
-                                            'id="xs-controllers-links-module-CollaborativeStorageModule-e9eb462a38c102c0b9f5eb432ce378a07d1c0eee8815af469b893e2f5989d0015cdeb57981d388f4afe6f19d0a74c5d43a747754290de1da7346289ccbc991fa"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="controllers-links-module-CollaborativeStorageModule-972b0521bff388deb305820879579f0af4f65d0421a67aeb369285e48fec51dbc9a5217132ca09228263003acea75159ad2853f2cef9bec1f8a96f303f3ed7fa"' :
+                                            'id="xs-controllers-links-module-CollaborativeStorageModule-972b0521bff388deb305820879579f0af4f65d0421a67aeb369285e48fec51dbc9a5217132ca09228263003acea75159ad2853f2cef9bec1f8a96f303f3ed7fa"' }>
                                             <li class="link">
                                                 <a href="controllers/CollaborativeStorageController.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >CollaborativeStorageController</a>
                                             </li>
@@ -285,13 +285,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                     </li>
                                 <li class="chapter inner">
                                     <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                        'data-target="#injectables-links-module-CollaborativeStorageModule-e9eb462a38c102c0b9f5eb432ce378a07d1c0eee8815af469b893e2f5989d0015cdeb57981d388f4afe6f19d0a74c5d43a747754290de1da7346289ccbc991fa"' : 'data-target="#xs-injectables-links-module-CollaborativeStorageModule-e9eb462a38c102c0b9f5eb432ce378a07d1c0eee8815af469b893e2f5989d0015cdeb57981d388f4afe6f19d0a74c5d43a747754290de1da7346289ccbc991fa"' }>
+                                        'data-target="#injectables-links-module-CollaborativeStorageModule-972b0521bff388deb305820879579f0af4f65d0421a67aeb369285e48fec51dbc9a5217132ca09228263003acea75159ad2853f2cef9bec1f8a96f303f3ed7fa"' : 'data-target="#xs-injectables-links-module-CollaborativeStorageModule-972b0521bff388deb305820879579f0af4f65d0421a67aeb369285e48fec51dbc9a5217132ca09228263003acea75159ad2853f2cef9bec1f8a96f303f3ed7fa"' }>
                                         <span class="icon ion-md-arrow-round-down"></span>
                                         <span>Injectables</span>
                                         <span class="icon ion-ios-arrow-down"></span>
                                     </div>
-                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-CollaborativeStorageModule-e9eb462a38c102c0b9f5eb432ce378a07d1c0eee8815af469b893e2f5989d0015cdeb57981d388f4afe6f19d0a74c5d43a747754290de1da7346289ccbc991fa"' :
-                                        'id="xs-injectables-links-module-CollaborativeStorageModule-e9eb462a38c102c0b9f5eb432ce378a07d1c0eee8815af469b893e2f5989d0015cdeb57981d388f4afe6f19d0a74c5d43a747754290de1da7346289ccbc991fa"' }>
+                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-CollaborativeStorageModule-972b0521bff388deb305820879579f0af4f65d0421a67aeb369285e48fec51dbc9a5217132ca09228263003acea75159ad2853f2cef9bec1f8a96f303f3ed7fa"' :
+                                        'id="xs-injectables-links-module-CollaborativeStorageModule-972b0521bff388deb305820879579f0af4f65d0421a67aeb369285e48fec51dbc9a5217132ca09228263003acea75159ad2853f2cef9bec1f8a96f303f3ed7fa"' }>
                                         <li class="link">
                                             <a href="injectables/CollaborativeStorageService.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >CollaborativeStorageService</a>
                                         </li>
@@ -2211,6 +2211,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="interfaces/GlobalConstants.html" data-type="entity-link" >GlobalConstants</a>
                             </li>
                             <li class="link">
+                                <a href="interfaces/GroupfoldersFolder.html" data-type="entity-link" >GroupfoldersFolder</a>
+                            </li>
+                            <li class="link">
                                 <a href="interfaces/HtmlMailContent.html" data-type="entity-link" >HtmlMailContent</a>
                             </li>
                             <li class="link">
@@ -2442,10 +2445,10 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="interfaces/MailServiceOptions.html" data-type="entity-link" >MailServiceOptions</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/NewsTargetFilter.html" data-type="entity-link" >NewsTargetFilter</a>
+                                <a href="interfaces/Meta.html" data-type="entity-link" >Meta</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/NextcloudGroupfolders.html" data-type="entity-link" >NextcloudGroupfolders</a>
+                                <a href="interfaces/NewsTargetFilter.html" data-type="entity-link" >NewsTargetFilter</a>
                             </li>
                             <li class="link">
                                 <a href="interfaces/NextcloudGroups.html" data-type="entity-link" >NextcloudGroups</a>
@@ -2470,6 +2473,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="interfaces/S3Config.html" data-type="entity-link" >S3Config</a>
+                            </li>
+                            <li class="link">
+                                <a href="interfaces/SuccessfulRes.html" data-type="entity-link" >SuccessfulRes</a>
                             </li>
                             <li class="link">
                                 <a href="interfaces/User.html" data-type="entity-link" >User</a>

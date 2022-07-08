@@ -137,8 +137,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="30"
-                            class="link-to-prism">apps/server/src/modules/collaborative-storage/controller/collaborative-storage.controller.ts:30</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="33"
+                            class="link-to-prism">apps/server/src/modules/collaborative-storage/controller/collaborative-storage.controller.ts:33</a></div>
                 </td>
             </tr>
 
@@ -233,6 +233,7 @@
 import { Body, Controller, Param, Patch } from &#x27;@nestjs/common&#x27;;
 import { Authenticate, CurrentUser } from &#x27;@src/modules/authentication/decorator/auth.decorator&#x27;;
 import { ICurrentUser } from &#x27;@shared/domain&#x27;;
+import { Logger } from &#x27;@src/core/logger&#x27;;
 import { CollaborativeStorageUc } from &#x27;../uc/collaborative-storage.uc&#x27;;
 import { TeamPermissionsBody } from &#x27;./dto/team-permissions.body.params&#x27;;
 import { TeamRoleDto } from &#x27;./dto/team-role.params&#x27;;
@@ -245,7 +246,9 @@ import { TeamRoleDto } from &#x27;./dto/team-role.params&#x27;;
 @Authenticate(&#x27;jwt&#x27;)
 @Controller(&#x27;collaborative-storage&#x27;)
 export class CollaborativeStorageController {
-	constructor(private readonly teamStorageUc: CollaborativeStorageUc) {}
+	constructor(private readonly teamStorageUc: CollaborativeStorageUc, private logger: Logger) {
+		this.logger.setContext(CollaborativeStorageController.name);
+	}
 
 	/**
 	 * Updates the CRUD Permissions(+Share) for a specific Role in a Team
