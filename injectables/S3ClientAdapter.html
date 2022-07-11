@@ -94,6 +94,10 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#checkStreamResponsive" >checkStreamResponsive</a>
+                            </li>
+                            <li>
                                     <span class="modifier">Public</span>
                                     <span class="modifier">Async</span>
                                 <a href="#copy" >copy</a>
@@ -222,6 +226,89 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="checkStreamResponsive"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span ><b>checkStreamResponsive</b></span>
+                        <a href="#checkStreamResponsive"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>checkStreamResponsive(stream: Readable, context: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="182"
+                            class="link-to-prism">apps/server/src/modules/files-storage/client/s3-client.adapter.ts:182</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>stream</td>
+                                    <td>
+                                            <code>Readable</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>context</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="copy"></a>
                     <span class="name">
                         <span class="modifier">Public</span>
@@ -241,8 +328,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="141"
-                            class="link-to-prism">apps/server/src/modules/files-storage/client/s3-client.adapter.ts:141</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="147"
+                            class="link-to-prism">apps/server/src/modules/files-storage/client/s3-client.adapter.ts:147</a></div>
                 </td>
             </tr>
 
@@ -313,8 +400,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="65"
-                            class="link-to-prism">apps/server/src/modules/files-storage/client/s3-client.adapter.ts:65</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="72"
+                            class="link-to-prism">apps/server/src/modules/files-storage/client/s3-client.adapter.ts:72</a></div>
                 </td>
             </tr>
 
@@ -437,8 +524,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="95"
-                            class="link-to-prism">apps/server/src/modules/files-storage/client/s3-client.adapter.ts:95</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="101"
+                            class="link-to-prism">apps/server/src/modules/files-storage/client/s3-client.adapter.ts:101</a></div>
                 </td>
             </tr>
 
@@ -581,8 +668,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="165"
-                            class="link-to-prism">apps/server/src/modules/files-storage/client/s3-client.adapter.ts:165</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="171"
+                            class="link-to-prism">apps/server/src/modules/files-storage/client/s3-client.adapter.ts:171</a></div>
                 </td>
             </tr>
 
@@ -653,8 +740,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="120"
-                            class="link-to-prism">apps/server/src/modules/files-storage/client/s3-client.adapter.ts:120</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="126"
+                            class="link-to-prism">apps/server/src/modules/files-storage/client/s3-client.adapter.ts:126</a></div>
                 </td>
             </tr>
 
@@ -756,7 +843,7 @@
 	ServiceOutputTypes,
 } from &#x27;@aws-sdk/client-s3&#x27;;
 import { Upload } from &#x27;@aws-sdk/lib-storage&#x27;;
-import { Inject, Injectable, InternalServerErrorException } from &#x27;@nestjs/common&#x27;;
+import { Inject, Injectable, InternalServerErrorException, NotFoundException } from &#x27;@nestjs/common&#x27;;
 import { Logger } from &#x27;@src/core/logger&#x27;;
 import { Readable } from &#x27;stream&#x27;;
 import { ICopyFiles, IFile, IGetFileResponse, IStorageClient, S3Config } from &#x27;../interface&#x27;;
@@ -776,7 +863,7 @@ export class S3ClientAdapter implements IStorageClient {
 	// is public but only used internally
 	public async createBucket() {
 		try {
-			this.logger.debug({ action: &#x27;create bucket&#x27;, params: { bucket: this.config.bucket } });
+			this.logger.log({ action: &#x27;create bucket&#x27;, params: { bucket: this.config.bucket } });
 
 			const req &#x3D; new CreateBucketCommand({ Bucket: this.config.bucket });
 			await this.client.send(req);
@@ -790,7 +877,7 @@ export class S3ClientAdapter implements IStorageClient {
 
 	public async get(path: string): Promise&lt;IGetFileResponse&gt; {
 		try {
-			this.logger.debug({ action: &#x27;get&#x27;, params: { path, bucket: this.config.bucket } });
+			this.logger.log({ action: &#x27;get&#x27;, params: { path, bucket: this.config.bucket } });
 
 			const req &#x3D; new GetObjectCommand({
 				Bucket: this.config.bucket,
@@ -798,21 +885,28 @@ export class S3ClientAdapter implements IStorageClient {
 			});
 
 			const data &#x3D; await this.client.send(req);
+			const stream &#x3D; data.Body as Readable;
 
+			this.checkStreamResponsive(stream, path);
 			return {
-				data: data.Body as Readable,
+				data: stream,
 				contentType: data.ContentType,
 				contentLength: data.ContentLength,
 				etag: data.ETag,
 			};
 		} catch (err) {
+			// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+			if (err.message &amp;&amp; err.message &#x3D;&#x3D;&#x3D; &#x27;NoSuchKey&#x27;) {
+				this.logger.log(&#x60;could not find one of the files for deletion with id ${path}&#x60;);
+				throw new NotFoundException(&#x27;NoSuchKey&#x27;);
+			}
 			throw new InternalServerErrorException(err, &#x27;S3ClientAdapter:get&#x27;);
 		}
 	}
 
 	public async create(path: string, file: IFile): Promise&lt;ServiceOutputTypes&gt; {
 		try {
-			this.logger.debug({ action: &#x27;create&#x27;, params: { path, bucket: this.config.bucket } });
+			this.logger.log({ action: &#x27;create&#x27;, params: { path, bucket: this.config.bucket } });
 
 			const req &#x3D; {
 				Body: file.buffer,
@@ -826,14 +920,13 @@ export class S3ClientAdapter implements IStorageClient {
 			});
 
 			const a &#x3D; await res.done();
-
 			return a;
 		} catch (err) {
 			// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
 			if (err.Code &amp;&amp; err.Code &#x3D;&#x3D;&#x3D; &#x27;NoSuchBucket&#x27;) {
 				await this.createBucket();
 
-				return this.create(path, file);
+				return await this.create(path, file);
 			}
 
 			throw new InternalServerErrorException(err, &#x27;S3ClientAdapter:create&#x27;);
@@ -842,7 +935,7 @@ export class S3ClientAdapter implements IStorageClient {
 
 	public async delete(paths: string[]): Promise&lt;CopyObjectCommandOutput[]&gt; {
 		try {
-			this.logger.debug({ action: &#x27;delete&#x27;, params: { paths, bucket: this.config.bucket } });
+			this.logger.log({ action: &#x27;delete&#x27;, params: { paths, bucket: this.config.bucket } });
 
 			const copyPaths &#x3D; paths.map((path) &#x3D;&gt; {
 				return { sourcePath: path, targetPath: &#x60;${this.deletedFolderName}/${path}&#x60; };
@@ -867,7 +960,7 @@ export class S3ClientAdapter implements IStorageClient {
 
 	public async restore(paths: string[]): Promise&lt;CopyObjectCommandOutput[]&gt; {
 		try {
-			this.logger.debug({ action: &#x27;restore&#x27;, params: { paths, bucket: this.config.bucket } });
+			this.logger.log({ action: &#x27;restore&#x27;, params: { paths, bucket: this.config.bucket } });
 
 			const copyPaths &#x3D; paths.map((path) &#x3D;&gt; {
 				return { sourcePath: &#x60;${this.deletedFolderName}/${path}&#x60;, targetPath: path };
@@ -888,7 +981,7 @@ export class S3ClientAdapter implements IStorageClient {
 
 	public async copy(paths: ICopyFiles[]) {
 		try {
-			this.logger.debug({ action: &#x27;copy&#x27;, params: { paths, bucket: this.config.bucket } });
+			this.logger.log({ action: &#x27;copy&#x27;, params: { paths, bucket: this.config.bucket } });
 
 			const copyRequests &#x3D; paths.map(async (path) &#x3D;&gt; {
 				const req &#x3D; new CopyObjectCommand({
@@ -918,6 +1011,23 @@ export class S3ClientAdapter implements IStorageClient {
 		});
 
 		return this.client.send(req);
+	}
+
+	/* istanbul ignore next */
+	private checkStreamResponsive(stream: Readable, context: string) {
+		let timer: NodeJS.Timeout;
+		const refreshTimeout &#x3D; () &#x3D;&gt; {
+			// eslint-disable-next-line @typescript-eslint/no-unsafe-argument
+			if (timer) clearTimeout(timer);
+			timer &#x3D; setTimeout(() &#x3D;&gt; {
+				this.logger.log(&#x60;Stream unresponsive: S3 object key ${context}&#x60;);
+				stream.destroy();
+			}, 60 * 1000);
+		};
+
+		stream.on(&#x27;data&#x27;, () &#x3D;&gt; {
+			refreshTimeout();
+		});
 	}
 }
 </code></pre>
