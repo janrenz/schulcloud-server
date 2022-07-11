@@ -177,8 +177,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="59"
-                            class="link-to-prism">apps/server/src/shared/domain/service/task-copy.service.ts:59</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="56"
+                            class="link-to-prism">apps/server/src/shared/domain/service/task-copy.service.ts:56</a></div>
                 </td>
             </tr>
 
@@ -381,18 +381,15 @@ export class TaskCopyService {
 	private defaultTaskStatusElements(): CopyStatus[] {
 		return [
 			{
-				title: &#x27;metadata&#x27;,
-				type: CopyElementType.LEAF,
+				type: CopyElementType.METADATA,
 				status: CopyStatusEnum.SUCCESS,
 			},
 			{
-				title: &#x27;description&#x27;,
-				type: CopyElementType.LEAF,
+				type: CopyElementType.CONTENT,
 				status: CopyStatusEnum.SUCCESS,
 			},
 			{
-				title: &#x27;submissions&#x27;,
-				type: CopyElementType.LEAF,
+				type: CopyElementType.SUBMISSION_GROUP,
 				status: CopyStatusEnum.NOT_DOING,
 			},
 		];

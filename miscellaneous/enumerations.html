@@ -136,10 +136,10 @@
                             <a href="#SchoolFeatures" title="apps/server/src/shared/domain/entity/school.entity.ts" ><b>SchoolFeatures</b>&nbsp;&nbsp;&nbsp;(apps/.../school.entity.ts)</a>
                         </li>
                         <li>
-                            <a href="#SortOrder" title="apps/server/src/shared/domain/interface/find-options.ts" ><b>SortOrder</b>&nbsp;&nbsp;&nbsp;(apps/.../find-options.ts)</a>
+                            <a href="#SortOrder" title="apps/server/src/shared/controller/dto/sorting.params.ts" ><b>SortOrder</b>&nbsp;&nbsp;&nbsp;(apps/.../sorting.params.ts)</a>
                         </li>
                         <li>
-                            <a href="#SortOrder" title="apps/server/src/shared/controller/dto/sorting.params.ts" ><b>SortOrder</b>&nbsp;&nbsp;&nbsp;(apps/.../sorting.params.ts)</a>
+                            <a href="#SortOrder" title="apps/server/src/shared/domain/interface/find-options.ts" ><b>SortOrder</b>&nbsp;&nbsp;&nbsp;(apps/.../find-options.ts)</a>
                         </li>
                         <li>
                             <a href="#SystemProvisioningStrategy" title="apps/server/src/shared/domain/interface/system-provisioning.strategy.ts" ><b>SystemProvisioningStrategy</b>&nbsp;&nbsp;&nbsp;(apps/.../system-provisioning.strategy.ts)</a>
@@ -359,7 +359,17 @@
                         </tr>
                         <tr>
                             <td class="col-md-4">
-                                <i>Value : </i><code>board</code>
+                                <i>Value : </i><code>BOARD</code>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;CONTENT
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Value : </i><code>CONTENT</code>
                             </td>
                         </tr>
                         <tr>
@@ -369,7 +379,17 @@
                         </tr>
                         <tr>
                             <td class="col-md-4">
-                                <i>Value : </i><code>course</code>
+                                <i>Value : </i><code>COURSE</code>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;COURSEGROUP_GROUP
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Value : </i><code>COURSEGROUP_GROUP</code>
                             </td>
                         </tr>
                         <tr>
@@ -379,7 +399,7 @@
                         </tr>
                         <tr>
                             <td class="col-md-4">
-                                <i>Value : </i><code>file</code>
+                                <i>Value : </i><code>FILE</code>
                             </td>
                         </tr>
                         <tr>
@@ -389,7 +409,7 @@
                         </tr>
                         <tr>
                             <td class="col-md-4">
-                                <i>Value : </i><code>file-group</code>
+                                <i>Value : </i><code>FILE_GROUP</code>
                             </td>
                         </tr>
                         <tr>
@@ -399,7 +419,7 @@
                         </tr>
                         <tr>
                             <td class="col-md-4">
-                                <i>Value : </i><code>leaf</code>
+                                <i>Value : </i><code>LEAF</code>
                             </td>
                         </tr>
                         <tr>
@@ -409,17 +429,7 @@
                         </tr>
                         <tr>
                             <td class="col-md-4">
-                                <i>Value : </i><code>lesson</code>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                &nbsp;TASK
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <i>Value : </i><code>task</code>
+                                <i>Value : </i><code>LESSON</code>
                             </td>
                         </tr>
                         <tr>
@@ -429,7 +439,7 @@
                         </tr>
                         <tr>
                             <td class="col-md-4">
-                                <i>Value : </i><code>lesson-content</code>
+                                <i>Value : </i><code>LESSON_CONTENT</code>
                             </td>
                         </tr>
                         <tr>
@@ -439,7 +449,67 @@
                         </tr>
                         <tr>
                             <td class="col-md-4">
-                                <i>Value : </i><code>lesson-content-group</code>
+                                <i>Value : </i><code>LESSON_CONTENT_GROUP</code>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;LTITOOL_GROUP
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Value : </i><code>LTITOOL_GROUP</code>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;METADATA
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Value : </i><code>METADATA</code>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;SUBMISSION_GROUP
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Value : </i><code>SUBMISSION_GROUP</code>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;TASK
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Value : </i><code>TASK</code>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;TIME_GROUP
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Value : </i><code>TIME_GROUP</code>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;USER_GROUP
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Value : </i><code>USER_GROUP</code>
                             </td>
                         </tr>
             </tbody>
@@ -2770,7 +2840,7 @@
             </tbody>
         </table>
 </section>
-    <h3>apps/server/src/shared/domain/interface/find-options.ts</h3>
+    <h3>apps/server/src/shared/controller/dto/sorting.params.ts</h3>
     <section>
         <table class="table table-sm table-bordered">
             <tbody>
@@ -2803,7 +2873,7 @@
             </tbody>
         </table>
 </section>
-    <h3>apps/server/src/shared/controller/dto/sorting.params.ts</h3>
+    <h3>apps/server/src/shared/domain/interface/find-options.ts</h3>
     <section>
         <table class="table table-sm table-bordered">
             <tbody>

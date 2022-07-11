@@ -101,6 +101,7 @@
                                 <a href="#status" >status</a>
                             </li>
                             <li>
+                                    <span class="modifier">Optional</span>
                                 <a href="#title" >title</a>
                             </li>
                             <li>
@@ -195,13 +196,13 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @ApiPropertyOptional({description: &#x27;List of included sub elements with recursive type structure&#x27;})<br />
+                            @ApiPropertyOptional({type: undefined, description: &#x27;List of included sub elements with recursive type structure&#x27;})<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">apps/server/src/modules/learnroom/controller/dto/copy.response.ts:41</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">apps/server/src/modules/learnroom/controller/dto/copy.response.ts:42</a></div>
                         </td>
                     </tr>
 
@@ -285,6 +286,7 @@
                 <td class="col-md-4">
                     <a name="title"></a>
                     <span class="name">
+                            <span class="modifier">Optional</span>
                         <span ><b>title</b></span>
                         <a href="#title"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -301,7 +303,7 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @ApiProperty({description: &#x27;Title of copied element&#x27;})<br />
+                            @ApiPropertyOptional({description: &#x27;Title of copied element&#x27;})<br />
                         </code>
                     </td>
                 </tr>
@@ -369,7 +371,7 @@ import { CopyElementType, CopyStatusEnum } from &#x27;@shared/domain/types/copy.
  */
 export class CopyApiResponse {
 	constructor({ title, type, status }: CopyApiResponse) {
-		this.title &#x3D; title;
+		if (title) this.title &#x3D; title;
 		this.type &#x3D; type;
 		this.status &#x3D; status;
 	}
@@ -379,10 +381,10 @@ export class CopyApiResponse {
 	})
 	id?: string;
 
-	@ApiProperty({
+	@ApiPropertyOptional({
 		description: &#x27;Title of copied element&#x27;,
 	})
-	title: string;
+	title?: string;
 
 	@ApiProperty({
 		type: &#x27;string&#x27;,
@@ -399,6 +401,7 @@ export class CopyApiResponse {
 	status: CopyStatusEnum;
 
 	@ApiPropertyOptional({
+		type: [CopyApiResponse],
 		description: &#x27;List of included sub elements with recursive type structure&#x27;,
 	})
 	elements?: CopyApiResponse[];

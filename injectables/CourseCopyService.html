@@ -248,48 +248,27 @@ export class CourseCopyService {
 
 		const elements &#x3D; [
 			{
-				title: &#x27;metadata&#x27;,
-				type: CopyElementType.LEAF,
+				type: CopyElementType.METADATA,
 				status: CopyStatusEnum.SUCCESS,
 			},
 			{
-				title: &#x27;teachers&#x27;,
-				type: CopyElementType.LEAF,
+				type: CopyElementType.USER_GROUP, // teachers, substitutionTeachers, students,...
 				status: CopyStatusEnum.NOT_DOING,
 			},
 			{
-				title: &#x27;substitutionTeachers&#x27;,
-				type: CopyElementType.LEAF,
+				type: CopyElementType.LTITOOL_GROUP,
 				status: CopyStatusEnum.NOT_DOING,
 			},
 			{
-				title: &#x27;students&#x27;,
-				type: CopyElementType.LEAF,
+				type: CopyElementType.TIME_GROUP,
 				status: CopyStatusEnum.NOT_DOING,
 			},
 			{
-				title: &#x27;classes&#x27;,
-				type: CopyElementType.LEAF,
-				status: CopyStatusEnum.NOT_DOING,
-			},
-			{
-				title: &#x27;ltiTools&#x27;,
-				type: CopyElementType.LEAF,
-				status: CopyStatusEnum.NOT_DOING,
-			},
-			{
-				title: &#x27;times&#x27;,
-				type: CopyElementType.LEAF,
-				status: CopyStatusEnum.NOT_IMPLEMENTED,
-			},
-			{
-				title: &#x27;files&#x27;,
 				type: CopyElementType.FILE_GROUP,
 				status: CopyStatusEnum.NOT_IMPLEMENTED,
 			},
 			{
-				title: &#x27;coursegroups&#x27;,
-				type: CopyElementType.LEAF,
+				type: CopyElementType.COURSEGROUP_GROUP,
 				status: CopyStatusEnum.NOT_IMPLEMENTED,
 			},
 		];

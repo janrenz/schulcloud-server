@@ -396,8 +396,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="84"
-                            class="link-to-prism">apps/server/src/shared/domain/service/lesson-copy.service.ts:84</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="83"
+                            class="link-to-prism">apps/server/src/shared/domain/service/lesson-copy.service.ts:83</a></div>
                 </td>
             </tr>
 
@@ -566,8 +566,7 @@ export class LessonCopyService {
 	private lessonStatusMetadata(): CopyStatus[] {
 		return [
 			{
-				title: &#x27;metadata&#x27;,
-				type: CopyElementType.LEAF,
+				type: CopyElementType.METADATA,
 				status: CopyStatusEnum.SUCCESS,
 			},
 		];
@@ -576,7 +575,6 @@ export class LessonCopyService {
 	private lessonStatusContent(elements: CopyStatus[]): CopyStatus[] {
 		if (elements.length &gt; 0) {
 			const componentStatus &#x3D; {
-				title: &#x27;contents&#x27;,
 				type: CopyElementType.LESSON_CONTENT_GROUP,
 				status: this.copyHelperService.deriveStatusFromElements(elements),
 				elements,
