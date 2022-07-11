@@ -122,8 +122,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="22"
-                            class="link-to-prism">apps/server/src/shared/domain/service/copy-helper.service.ts:22</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="24"
+                            class="link-to-prism">apps/server/src/shared/domain/service/copy-helper.service.ts:24</a></div>
                 </td>
             </tr>
 
@@ -256,11 +256,13 @@ export class CopyHelperService {
 	deriveStatusFromElements(elements: CopyStatus[]): CopyStatusEnum {
 		const elementsStatuses &#x3D; elements.map((el) &#x3D;&gt; el.status);
 
-		if (elementsStatuses.every((status) &#x3D;&gt; !isAtLeastPartialSuccessfull(status))) {
+		const filtered &#x3D; elementsStatuses.filter((status) &#x3D;&gt; status !&#x3D;&#x3D; CopyStatusEnum.NOT_DOING);
+
+		if (filtered.every((status) &#x3D;&gt; !isAtLeastPartialSuccessfull(status))) {
 			return CopyStatusEnum.FAIL;
 		}
 
-		if (elementsStatuses.some((status) &#x3D;&gt; status !&#x3D;&#x3D; CopyStatusEnum.SUCCESS)) {
+		if (filtered.some((status) &#x3D;&gt; status !&#x3D;&#x3D; CopyStatusEnum.SUCCESS)) {
 			return CopyStatusEnum.PARTIAL;
 		}
 
