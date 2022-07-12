@@ -192,13 +192,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/AuthorizationModule.html" data-type="entity-link" >AuthorizationModule</a>
                                 <li class="chapter inner">
                                     <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                        'data-target="#injectables-links-module-AuthorizationModule-b03843b63e62a8167c0f473c755e7fc2043e8c494c0775030ff936805658e3bf2036c37a2b939324de87068f6fa7ac0f94cf84302eefc678c2528e85755bd91a"' : 'data-target="#xs-injectables-links-module-AuthorizationModule-b03843b63e62a8167c0f473c755e7fc2043e8c494c0775030ff936805658e3bf2036c37a2b939324de87068f6fa7ac0f94cf84302eefc678c2528e85755bd91a"' }>
+                                        'data-target="#injectables-links-module-AuthorizationModule-efdc952c69cbaa1524523226a6dd56247be304059f0e9a7f614d9cbc3f9202a212745fabc1a45cad8b92c4ea043046e859a29790bbbc62921083403f5f31e5ee"' : 'data-target="#xs-injectables-links-module-AuthorizationModule-efdc952c69cbaa1524523226a6dd56247be304059f0e9a7f614d9cbc3f9202a212745fabc1a45cad8b92c4ea043046e859a29790bbbc62921083403f5f31e5ee"' }>
                                         <span class="icon ion-md-arrow-round-down"></span>
                                         <span>Injectables</span>
                                         <span class="icon ion-ios-arrow-down"></span>
                                     </div>
-                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-AuthorizationModule-b03843b63e62a8167c0f473c755e7fc2043e8c494c0775030ff936805658e3bf2036c37a2b939324de87068f6fa7ac0f94cf84302eefc678c2528e85755bd91a"' :
-                                        'id="xs-injectables-links-module-AuthorizationModule-b03843b63e62a8167c0f473c755e7fc2043e8c494c0775030ff936805658e3bf2036c37a2b939324de87068f6fa7ac0f94cf84302eefc678c2528e85755bd91a"' }>
+                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-AuthorizationModule-efdc952c69cbaa1524523226a6dd56247be304059f0e9a7f614d9cbc3f9202a212745fabc1a45cad8b92c4ea043046e859a29790bbbc62921083403f5f31e5ee"' :
+                                        'id="xs-injectables-links-module-AuthorizationModule-efdc952c69cbaa1524523226a6dd56247be304059f0e9a7f614d9cbc3f9202a212745fabc1a45cad8b92c4ea043046e859a29790bbbc62921083403f5f31e5ee"' }>
                                         <li class="link">
                                             <a href="injectables/AuthorizationService.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >AuthorizationService</a>
                                         </li>
@@ -219,6 +219,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                         </li>
                                         <li class="link">
                                             <a href="injectables/FileRecordRepo.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >FileRecordRepo</a>
+                                        </li>
+                                        <li class="link">
+                                            <a href="injectables/LessonRepo.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >LessonRepo</a>
                                         </li>
                                         <li class="link">
                                             <a href="injectables/LessonRule.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >LessonRule</a>

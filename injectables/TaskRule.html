@@ -125,12 +125,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(courseRule: <a href="../injectables/CourseRule.html" target="_self">CourseRule</a>)</code>
+<code>constructor(courseRule: <a href="../injectables/CourseRule.html" target="_self">CourseRule</a>, lessonRule: <a href="../injectables/LessonRule.html" target="_self">LessonRule</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">apps/server/src/shared/domain/rules/task.rule.ts:8</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">apps/server/src/shared/domain/rules/task.rule.ts:10</a></div>
                             </td>
                         </tr>
 
@@ -152,6 +152,18 @@
                                                   
                                                         <td>
                                                                         <code><a href="../injectables/CourseRule.html" target="_self" >CourseRule</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>lessonRule</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/LessonRule.html" target="_self" >LessonRule</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -201,7 +213,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/BasePermission.html#source" target="_self" >BasePermission:19</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/BasePermission.html#source" target="_self" >BasePermission:21</a></code>
 </div>
                 </td>
             </tr>
@@ -302,7 +314,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/BasePermission.html#source" target="_self" >BasePermission:13</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/BasePermission.html#source" target="_self" >BasePermission:15</a></code>
 </div>
                 </td>
             </tr>
@@ -410,13 +422,15 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
 import { Task, User } from &#x27;../entity&#x27;;
+import { RoleName } from &#x27;../interface&#x27;;
 import { IPermissionContext } from &#x27;../interface/permission&#x27;;
 import { BasePermission } from &#x27;./base-permission&#x27;;
 import { CourseRule } from &#x27;./course.rule&#x27;;
+import { LessonRule } from &#x27;./lesson.rule&#x27;;
 
 @Injectable()
 export class TaskRule extends BasePermission&lt;Task&gt; {
-	constructor(private readonly courseRule: CourseRule) {
+	constructor(private readonly courseRule: CourseRule, private readonly lessonRule: LessonRule) {
 		super();
 	}
 
@@ -428,13 +442,21 @@ export class TaskRule extends BasePermission&lt;Task&gt; {
 
 	public hasPermission(user: User, entity: Task, context: IPermissionContext): boolean {
 		const { action, requiredPermissions } &#x3D; context;
+		const isStudent &#x3D; this.utils.hasRole(user, RoleName.STUDENT);
 		const hasPermission &#x3D; this.utils.hasAllPermissions(user, requiredPermissions);
 		const isCreator &#x3D; this.utils.hasAccessToEntity(user, entity, [&#x27;creator&#x27;]);
-		let hasCoursePermission &#x3D; false;
-		if (entity.course) {
-			hasCoursePermission &#x3D; this.courseRule.hasPermission(user, entity.course, { action, requiredPermissions: [] });
+
+		if (!isCreator &amp;&amp; isStudent &amp;&amp; entity.isDraft()) {
+			return false;
 		}
-		const result &#x3D; hasPermission &amp;&amp; (isCreator || hasCoursePermission);
+
+		let hasParentPermission &#x3D; false;
+		if (entity.lesson) {
+			hasParentPermission &#x3D; this.lessonRule.hasPermission(user, entity.lesson, { action, requiredPermissions: [] });
+		} else if (entity.course) {
+			hasParentPermission &#x3D; this.courseRule.hasPermission(user, entity.course, { action, requiredPermissions: [] });
+		}
+		const result &#x3D; hasPermission &amp;&amp; (isCreator || hasParentPermission);
 
 		return result;
 	}

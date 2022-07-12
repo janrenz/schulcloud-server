@@ -676,7 +676,7 @@ const userRefProps = [&amp;#39;creator&amp;#39;]
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>hasRole(user: <a href="../interfaces/User.html" target="_self">User</a>, roleName: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+<code>hasRole(user: <a href="../interfaces/User.html" target="_self">User</a>, roleName: <a href="../interfaces/User.html" target="_self">IUserRoleName</a>)</code>
                 </td>
             </tr>
 
@@ -722,7 +722,7 @@ For each other operations please define, use the string based permissions inside
                                 <tr>
                                     <td>roleName</td>
                                     <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                <code><a href="../interfaces/User.html" target="_self" >IUserRoleName</a></code>
                                     </td>
 
                                     <td>
@@ -982,7 +982,7 @@ Please make sure you populate them before calling this method.</p>
 import { Injectable, UnauthorizedException } from &#x27;@nestjs/common&#x27;;
 import type { Role } from &#x27;../entity/role.entity&#x27;;
 import { User } from &#x27;../entity/user.entity&#x27;;
-import { IEntity, IEntityWithSchool } from &#x27;../interface&#x27;;
+import { IEntity, IEntityWithSchool, IUserRoleName } from &#x27;../interface&#x27;;
 
 @Injectable()
 export class AuthorisationUtils {
@@ -1107,7 +1107,7 @@ export class AuthorisationUtils {
 	 * Please not use role instead of permission. It is only for do something for target if it has the role xy.
 	 * For each other operations please define, use the string based permissions inside the roles.
 	 */
-	hasRole(user: User, roleName: string) {
+	hasRole(user: User, roleName: IUserRoleName) {
 		if (!user.roles.isInitialized(true)) {
 			throw new Error(&#x27;Roles items are not loaded.&#x27;);
 		}

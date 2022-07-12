@@ -193,19 +193,19 @@ import { AllowedAuthorizationEntityType } from &#x27;@src/modules/authorization/
 
 export class FileStorageMapper {
 	static mapToAllowedAuthorizationEntityType(type: FileRecordParentType): AllowedAuthorizationEntityType {
-		let result: AllowedAuthorizationEntityType;
-		if (type &#x3D;&#x3D;&#x3D; FileRecordParentType.Course) {
-			result &#x3D; AllowedAuthorizationEntityType.Course;
-		} else if (type &#x3D;&#x3D;&#x3D; FileRecordParentType.Task) {
-			result &#x3D; AllowedAuthorizationEntityType.Task;
-		} else if (type &#x3D;&#x3D;&#x3D; FileRecordParentType.School) {
-			result &#x3D; AllowedAuthorizationEntityType.School;
-		} else if (type &#x3D;&#x3D;&#x3D; FileRecordParentType.User) {
-			result &#x3D; AllowedAuthorizationEntityType.User;
-		} else {
+		const types: Map&lt;FileRecordParentType, AllowedAuthorizationEntityType&gt; &#x3D; new Map();
+		types.set(FileRecordParentType.Task, AllowedAuthorizationEntityType.Task);
+		types.set(FileRecordParentType.Course, AllowedAuthorizationEntityType.Course);
+		types.set(FileRecordParentType.User, AllowedAuthorizationEntityType.User);
+		types.set(FileRecordParentType.School, AllowedAuthorizationEntityType.School);
+		types.set(FileRecordParentType.Lesson, AllowedAuthorizationEntityType.Lesson);
+
+		const res &#x3D; types.get(type);
+
+		if (!res) {
 			throw new NotImplementedException();
 		}
-		return result;
+		return res;
 	}
 }
 </code></pre>
