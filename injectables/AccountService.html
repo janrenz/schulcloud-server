@@ -82,6 +82,9 @@
                                 <a href="#delete" >delete</a>
                             </li>
                             <li>
+                                <a href="#deleteByUserId" >deleteByUserId</a>
+                            </li>
+                            <li>
                                     <span class="modifier">Private</span>
                                 <a href="#encryptPassword" >encryptPassword</a>
                             </li>
@@ -98,8 +101,8 @@
                                 <a href="#findByUserIdOrFail" >findByUserIdOrFail</a>
                             </li>
                             <li>
-                                    <span class="modifier">Private</span>
-                                <a href="#mapSearchResult" >mapSearchResult</a>
+                                    <span class="modifier">Async</span>
+                                <a href="#findMultipleByUserId" >findMultipleByUserId</a>
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
@@ -112,6 +115,10 @@
                             <li>
                                     <span class="modifier">Async</span>
                                 <a href="#searchByUsernamePartialMatch" >searchByUsernamePartialMatch</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#updateUsername" >updateUsername</a>
                             </li>
                         </ul>
                     </td>
@@ -192,15 +199,15 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>delete(account: <a href="../classes/AccountDto.html" target="_self">AccountDto</a>)</code>
+<code>delete(id: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="64"
-                            class="link-to-prism">apps/server/src/modules/account/services/account.service.ts:64</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="78"
+                            class="link-to-prism">apps/server/src/modules/account/services/account.service.ts:78</a></div>
                 </td>
             </tr>
 
@@ -221,9 +228,78 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>account</td>
+                                    <td>id</td>
                                     <td>
-                                                <code><a href="../classes/AccountDto.html" target="_self" >AccountDto</a></code>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteByUserId"></a>
+                    <span class="name">
+                        <span ><b>deleteByUserId</b></span>
+                        <a href="#deleteByUserId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>deleteByUserId(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="82"
+                            class="link-to-prism">apps/server/src/modules/account/services/account.service.ts:82</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>userId</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
                                     </td>
 
                                     <td>
@@ -270,8 +346,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="90"
-                            class="link-to-prism">apps/server/src/modules/account/services/account.service.ts:90</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="100"
+                            class="link-to-prism">apps/server/src/modules/account/services/account.service.ts:100</a></div>
                 </td>
             </tr>
 
@@ -412,8 +488,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="19"
-                            class="link-to-prism">apps/server/src/modules/account/services/account.service.ts:19</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="24"
+                            class="link-to-prism">apps/server/src/modules/account/services/account.service.ts:24</a></div>
                 </td>
             </tr>
 
@@ -483,8 +559,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="24"
-                            class="link-to-prism">apps/server/src/modules/account/services/account.service.ts:24</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="29"
+                            class="link-to-prism">apps/server/src/modules/account/services/account.service.ts:29</a></div>
                 </td>
             </tr>
 
@@ -536,26 +612,26 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="mapSearchResult"></a>
+                    <a name="findMultipleByUserId"></a>
                     <span class="name">
-                        <span class="modifier">Private</span>
-                        <span ><b>mapSearchResult</b></span>
-                        <a href="#mapSearchResult"><span class="icon ion-ios-link"></span></a>
+                        <span class="modifier">Async</span>
+                        <span ><b>findMultipleByUserId</b></span>
+                        <a href="#findMultipleByUserId"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>mapSearchResult(accountEntities: <a href="../classes/Account.html" target="_self">[Account[], number]</a>)</code>
+                    <code>findMultipleByUserId(userIds: <a href="../undefineds/EntityId.html" target="_self">EntityId[]</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="82"
-                            class="link-to-prism">apps/server/src/modules/account/services/account.service.ts:82</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="19"
+                            class="link-to-prism">apps/server/src/modules/account/services/account.service.ts:19</a></div>
                 </td>
             </tr>
 
@@ -576,9 +652,9 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>accountEntities</td>
+                                    <td>userIds</td>
                                     <td>
-                                                <code><a href="../classes/Account.html" target="_self" >[Account[], number]</a></code>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId[]</a></code>
                                     </td>
 
                                     <td>
@@ -593,7 +669,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>    <code>{ accounts: {}; total: number; }</code>
+                        <b>Returns : </b>        <code><a href="../entitys/Account.html" target="_self" >Promise&lt;AccountDto[]&gt;</a></code>
 
                     </div>
                     <div class="io-description">
@@ -625,8 +701,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="32"
-                            class="link-to-prism">apps/server/src/modules/account/services/account.service.ts:32</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="37"
+                            class="link-to-prism">apps/server/src/modules/account/services/account.service.ts:37</a></div>
                 </td>
             </tr>
 
@@ -664,7 +740,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
+                        <b>Returns : </b>        <code><a href="../entitys/Account.html" target="_self" >Promise&lt;AccountDto&gt;</a></code>
 
                     </div>
                     <div class="io-description">
@@ -696,8 +772,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="77"
-                            class="link-to-prism">apps/server/src/modules/account/services/account.service.ts:77</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="95"
+                            class="link-to-prism">apps/server/src/modules/account/services/account.service.ts:95</a></div>
                 </td>
             </tr>
 
@@ -767,8 +843,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="68"
-                            class="link-to-prism">apps/server/src/modules/account/services/account.service.ts:68</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="86"
+                            class="link-to-prism">apps/server/src/modules/account/services/account.service.ts:86</a></div>
                 </td>
             </tr>
 
@@ -840,6 +916,89 @@
             </tr>
         </tbody>
     </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateUsername"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>updateUsername</b></span>
+                        <a href="#updateUsername"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>updateUsername(accountId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, username: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="70"
+                            class="link-to-prism">apps/server/src/modules/account/services/account.service.ts:70</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>accountId</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>username</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../entitys/Account.html" target="_self" >Promise&lt;AccountDto&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </section>
 
     </div>
@@ -864,6 +1023,11 @@ export class AccountService {
 		return AccountEntityToDtoMapper.mapToDto(accountEntity);
 	}
 
+	async findMultipleByUserId(userIds: EntityId[]): Promise&lt;AccountDto[]&gt; {
+		const accountEntities &#x3D; await this.accountRepo.findMultipleByUserId(userIds);
+		return AccountEntityToDtoMapper.mapAccountsToDto(accountEntities);
+	}
+
 	async findByUserId(userId: EntityId): Promise&lt;AccountDto | null&gt; {
 		const accountEntity &#x3D; await this.accountRepo.findByUserId(userId);
 		return accountEntity ? AccountEntityToDtoMapper.mapToDto(accountEntity) : null;
@@ -877,7 +1041,7 @@ export class AccountService {
 		return AccountEntityToDtoMapper.mapToDto(accountEntity);
 	}
 
-	async save(accountDto: AccountSaveDto): Promise&lt;void&gt; {
+	async save(accountDto: AccountSaveDto): Promise&lt;AccountDto&gt; {
 		// Check if the ID is correct?
 		// const user &#x3D; await this.userRepo.findById(accountDto.userId);
 		// const system &#x3D; accountDto.systemId ? await this.systemRepo.findById(accountDto.systemId) : undefined;
@@ -906,11 +1070,24 @@ export class AccountService {
 				credentialHash: accountDto.credentialHash,
 			});
 		}
-		return this.accountRepo.save(account);
+		await this.accountRepo.save(account);
+		return AccountEntityToDtoMapper.mapToDto(account);
 	}
 
-	delete(account: AccountDto): Promise&lt;void&gt; {
-		return this.accountRepo.deleteById(account.id);
+	async updateUsername(accountId: EntityId, username: string): Promise&lt;AccountDto&gt; {
+		const account &#x3D; await this.accountRepo.findById(accountId);
+		account.username &#x3D; username;
+		account.updatedAt &#x3D; new Date();
+		await this.accountRepo.save(account);
+		return AccountEntityToDtoMapper.mapToDto(account);
+	}
+
+	delete(id: EntityId): Promise&lt;void&gt; {
+		return this.accountRepo.deleteById(id);
+	}
+
+	deleteByUserId(userId: EntityId): Promise&lt;void&gt; {
+		return this.accountRepo.deleteByUserId(userId);
 	}
 
 	async searchByUsernamePartialMatch(
@@ -919,20 +1096,12 @@ export class AccountService {
 		limit: number
 	): Promise&lt;{ accounts: AccountDto[]; total: number }&gt; {
 		const accountEntities &#x3D; await this.accountRepo.searchByUsernamePartialMatch(userName, skip, limit);
-		return this.mapSearchResult(accountEntities);
+		return AccountEntityToDtoMapper.mapSearchResult(accountEntities);
 	}
 
 	async searchByUsernameExactMatch(userName: string): Promise&lt;{ accounts: AccountDto[]; total: number }&gt; {
 		const accountEntities &#x3D; await this.accountRepo.searchByUsernameExactMatch(userName);
-		return this.mapSearchResult(accountEntities);
-	}
-
-	private mapSearchResult(accountEntities: [Account[], number]) {
-		const foundAccounts &#x3D; accountEntities[0];
-		const accountDtos: AccountDto[] &#x3D; foundAccounts.map((accountEntity) &#x3D;&gt;
-			AccountEntityToDtoMapper.mapToDto(accountEntity)
-		);
-		return { accounts: accountDtos, total: accountEntities[1] };
+		return AccountEntityToDtoMapper.mapSearchResult(accountEntities);
 	}
 
 	private encryptPassword(password: string): Promise&lt;string&gt; {

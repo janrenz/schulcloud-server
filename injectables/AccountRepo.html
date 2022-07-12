@@ -85,7 +85,12 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                    <span class="modifier">Async</span>
                                 <a href="#deleteById" >deleteById</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#deleteByUserId" >deleteByUserId</a>
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
@@ -94,6 +99,10 @@
                             <li>
                                     <span class="modifier">Async</span>
                                 <a href="#findByUserIdOrFail" >findByUserIdOrFail</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#findMultipleByUserId" >findMultipleByUserId</a>
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
@@ -168,6 +177,7 @@
                 <td class="col-md-4">
                     <a name="deleteById"></a>
                     <span class="name">
+                        <span class="modifier">Async</span>
                         <span ><b>deleteById</b></span>
                         <a href="#deleteById"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -175,15 +185,16 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>deleteById(accountId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>)</code>
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>deleteById(accountId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="49"
-                            class="link-to-prism">apps/server/src/shared/repo/account/account.repo.ts:49</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="54"
+                            class="link-to-prism">apps/server/src/shared/repo/account/account.repo.ts:54</a></div>
                 </td>
             </tr>
 
@@ -221,7 +232,78 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteByUserId"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>deleteByUserId</b></span>
+                        <a href="#deleteByUserId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>deleteByUserId(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="59"
+                            class="link-to-prism">apps/server/src/shared/repo/account/account.repo.ts:59</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>userId</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
 
                     </div>
                     <div class="io-description">
@@ -331,8 +413,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="22"
-                            class="link-to-prism">apps/server/src/shared/repo/account/account.repo.ts:22</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="27"
+                            class="link-to-prism">apps/server/src/shared/repo/account/account.repo.ts:27</a></div>
                 </td>
             </tr>
 
@@ -384,6 +466,77 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="findMultipleByUserId"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>findMultipleByUserId</b></span>
+                        <a href="#findMultipleByUserId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findMultipleByUserId(userIds: <a href="../undefineds/EntityId.html" target="_self">EntityId[] | ObjectId[]</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="22"
+                            class="link-to-prism">apps/server/src/shared/repo/account/account.repo.ts:22</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>userIds</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId[] | ObjectId[]</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/Account.html" target="_self" >Promise&lt;Account[]&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="flush"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
@@ -402,8 +555,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="37"
-                            class="link-to-prism">apps/server/src/shared/repo/account/account.repo.ts:37</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="42"
+                            class="link-to-prism">apps/server/src/shared/repo/account/account.repo.ts:42</a></div>
                 </td>
             </tr>
 
@@ -439,8 +592,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="26"
-                            class="link-to-prism">apps/server/src/shared/repo/account/account.repo.ts:26</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="31"
+                            class="link-to-prism">apps/server/src/shared/repo/account/account.repo.ts:31</a></div>
                 </td>
             </tr>
 
@@ -528,8 +681,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="33"
-                            class="link-to-prism">apps/server/src/shared/repo/account/account.repo.ts:33</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="38"
+                            class="link-to-prism">apps/server/src/shared/repo/account/account.repo.ts:38</a></div>
                 </td>
             </tr>
 
@@ -600,8 +753,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="54"
-                            class="link-to-prism">apps/server/src/shared/repo/account/account.repo.ts:54</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="64"
+                            class="link-to-prism">apps/server/src/shared/repo/account/account.repo.ts:64</a></div>
                 </td>
             </tr>
 
@@ -707,8 +860,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="41"
-                            class="link-to-prism">apps/server/src/shared/repo/account/account.repo.ts:41</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="46"
+                            class="link-to-prism">apps/server/src/shared/repo/account/account.repo.ts:46</a></div>
                 </td>
             </tr>
 
@@ -811,8 +964,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="45"
-                            class="link-to-prism">apps/server/src/shared/repo/account/account.repo.ts:45</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="50"
+                            class="link-to-prism">apps/server/src/shared/repo/account/account.repo.ts:50</a></div>
                 </td>
             </tr>
 
@@ -1178,6 +1331,11 @@ export class AccountRepo extends BaseRepo&lt;Account&gt; {
 		return this._em.findOne(Account, { userId: new ObjectId(userId) });
 	}
 
+	async findMultipleByUserId(userIds: EntityId[] | ObjectId[]): Promise&lt;Account[]&gt; {
+		const objectIds &#x3D; userIds.map((id: EntityId | ObjectId) &#x3D;&gt; new ObjectId(id));
+		return this._em.find(Account, { userId: objectIds });
+	}
+
 	async findByUserIdOrFail(userId: EntityId | ObjectId): Promise&lt;Account&gt; {
 		return this._em.findOneOrFail(Account, { userId: new ObjectId(userId) });
 	}
@@ -1205,8 +1363,13 @@ export class AccountRepo extends BaseRepo&lt;Account&gt; {
 		return this.searchByUsername(username, skip, limit, false);
 	}
 
-	deleteById(accountId: EntityId) {
+	async deleteById(accountId: EntityId): Promise&lt;void&gt; {
 		const accountReference &#x3D; this._em.getReference(Account, accountId);
+		return this._em.removeAndFlush(accountReference);
+	}
+
+	async deleteByUserId(userId: EntityId): Promise&lt;void&gt; {
+		const accountReference &#x3D; this._em.getReference(Account, userId);
 		return this._em.removeAndFlush(accountReference);
 	}
 
