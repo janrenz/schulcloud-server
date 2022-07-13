@@ -44,7 +44,7 @@
 
 <ol class="breadcrumb">
   <li>Classes</li>
-  <li >TokenRequestParamsMapper</li>
+  <li >TokenRequestMapper</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -62,7 +62,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/modules/oauth/mapper/token-request-params.mapper.ts</code>
+            <code>apps/server/src/modules/oauth/mapper/token-request.mapper.ts</code>
         </p>
 
 
@@ -85,11 +85,11 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Static</span>
-                                <a href="#mapCreateTokenRequestParams" >mapCreateTokenRequestParams</a>
+                                <a href="#createTokenRequestPayload" >createTokenRequestPayload</a>
                             </li>
                             <li>
                                     <span class="modifier">Static</span>
-                                <a href="#mapToResponse" >mapToResponse</a>
+                                <a href="#mapCreateTokenRequestPayload" >mapCreateTokenRequestPayload</a>
                             </li>
                         </ul>
                     </td>
@@ -114,26 +114,26 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="mapCreateTokenRequestParams"></a>
+                    <a name="createTokenRequestPayload"></a>
                     <span class="name">
                         <span class="modifier">Static</span>
-                        <span ><b>mapCreateTokenRequestParams</b></span>
-                        <a href="#mapCreateTokenRequestParams"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>createTokenRequestPayload</b></span>
+                        <a href="#createTokenRequestPayload"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>mapCreateTokenRequestParams(oauthConfig: <a href="../classes/OauthConfig.html" target="_self">OauthConfig</a>, decryptedClientSecret: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, code: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    <code>createTokenRequestPayload(oauthConfig: <a href="../classes/OauthConfig.html" target="_self">OauthConfig</a>, decryptedClientSecret: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, code: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="9"
-                            class="link-to-prism">apps/server/src/modules/oauth/mapper/token-request-params.mapper.ts:9</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="5"
+                            class="link-to-prism">apps/server/src/modules/oauth/mapper/token-request.mapper.ts:5</a></div>
                 </td>
             </tr>
 
@@ -195,7 +195,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/TokenRequestParams.html" target="_self" >TokenRequestParams</a></code>
+                        <b>Returns : </b>        <code><a href="../classes/TokenRequestPayload.html" target="_self" >TokenRequestPayload</a></code>
 
                     </div>
                     <div class="io-description">
@@ -209,26 +209,26 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="mapToResponse"></a>
+                    <a name="mapCreateTokenRequestPayload"></a>
                     <span class="name">
                         <span class="modifier">Static</span>
-                        <span ><b>mapToResponse</b></span>
-                        <a href="#mapToResponse"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>mapCreateTokenRequestPayload</b></span>
+                        <a href="#mapCreateTokenRequestPayload"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>mapToResponse(oauthConfig: <a href="../classes/OauthConfig.html" target="_self">OauthConfig</a>, decryptedClientSecret: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, code: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    <code>mapCreateTokenRequestPayload(oauthConfig: <a href="../classes/OauthConfig.html" target="_self">OauthConfig</a>, decryptedClientSecret: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, code: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="5"
-                            class="link-to-prism">apps/server/src/modules/oauth/mapper/token-request-params.mapper.ts:5</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="13"
+                            class="link-to-prism">apps/server/src/modules/oauth/mapper/token-request.mapper.ts:13</a></div>
                 </td>
             </tr>
 
@@ -290,7 +290,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/TokenRequestParams.html" target="_self" >TokenRequestParams</a></code>
+                        <b>Returns : </b>        <code><a href="../classes/TokenRequestPayload.html" target="_self" >TokenRequestPayload</a></code>
 
                     </div>
                     <div class="io-description">
@@ -311,22 +311,27 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { OauthConfig } from &#x27;@shared/domain&#x27;;
-import { TokenRequestParams } from &#x27;../controller/dto/token-request.params&#x27;;
+import { TokenRequestPayload } from &#x27;../controller/dto/token-request.payload&#x27;;
 
-export class TokenRequestParamsMapper {
-	static mapToResponse(oauthConfig: OauthConfig, decryptedClientSecret: string, code: string): TokenRequestParams {
-		return this.mapCreateTokenRequestParams(oauthConfig, decryptedClientSecret, code);
-	}
-
-	static mapCreateTokenRequestParams(
+export class TokenRequestMapper {
+	static createTokenRequestPayload(
 		oauthConfig: OauthConfig,
 		decryptedClientSecret: string,
 		code: string
-	): TokenRequestParams {
+	): TokenRequestPayload {
+		return this.mapCreateTokenRequestPayload(oauthConfig, decryptedClientSecret, code);
+	}
+
+	static mapCreateTokenRequestPayload(
+		oauthConfig: OauthConfig,
+		decryptedClientSecret: string,
+		code: string
+	): TokenRequestPayload {
 		return {
+			tokenEndpoint: oauthConfig.tokenEndpoint,
 			client_id: oauthConfig.clientId,
 			client_secret: decryptedClientSecret,
-			redirect_uri: oauthConfig.tokenRedirectUri,
+			redirect_uri: oauthConfig.redirectUri,
 			grant_type: oauthConfig.grantType,
 			code,
 		};
@@ -370,7 +375,7 @@ export class TokenRequestParamsMapper {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
-            var COMPODOC_CURRENT_PAGE_URL = 'TokenRequestParamsMapper.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'TokenRequestMapper.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

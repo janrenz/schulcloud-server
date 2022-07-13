@@ -1864,16 +1864,10 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/TestBootstrapConsole.html" data-type="entity-link" >TestBootstrapConsole</a>
                             </li>
                             <li class="link">
-                                <a href="classes/TokenRequestParams.html" data-type="entity-link" >TokenRequestParams</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/TokenRequestParamsMapper.html" data-type="entity-link" >TokenRequestParamsMapper</a>
+                                <a href="classes/TokenRequestMapper.html" data-type="entity-link" >TokenRequestMapper</a>
                             </li>
                             <li class="link">
                                 <a href="classes/TokenRequestPayload.html" data-type="entity-link" >TokenRequestPayload</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/TokenRequestPayloadMapper.html" data-type="entity-link" >TokenRequestPayloadMapper</a>
                             </li>
                             <li class="link">
                                 <a href="classes/UpdateFlagParams.html" data-type="entity-link" >UpdateFlagParams</a>
