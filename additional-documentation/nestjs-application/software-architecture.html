@@ -68,10 +68,8 @@
 <li>it should be easy to react to changing requirements during our development process</li>
 </ul>
 </li>
-<li>Change Security<ul>
+<li>Change Security</li>
 <li>it should be easy to determine the correctness of the system after making any changes</li>
-</ul>
-</li>
 </ul>
 <h2 id="principles">Principles</h2>
 <p>In order to achieve these goals, we try to follow the principles detailed below.
@@ -84,9 +82,7 @@ These principles apply to all layers of our software, from lines of code and met
 </li>
 <li><strong>Open/Closed Principle</strong><ul>
 <li>design to be open to extension, but closed to modification</li>
-</ul>
-</li>
-<li><strong>Liskov Substitution</strong><ul>
+<li><strong>Liskov Substitution</strong></li>
 <li>the specific input may be more generic than its interface</li>
 <li>the specific output may be more specialized than its interface</li>
 </ul>
@@ -125,19 +121,20 @@ These principles apply to all layers of our software, from lines of code and met
 <p>The Domain Layer contains the business logic of the application. As mentioned above, it is not allowed to know about anything outside the domain layer itself.</p>
 <p><img src="../../assets/domain-layer.png" alt="API Layer Dependencies" class="img-responsive"></p>
 <p>The entry point for any call to the domain layer is always a usecase (UC). A usecase is the description of a single business process within the domain.</p>
-<p><strong>A usecase only does orchestration</strong></p>
+<p>A usecase <strong>only does orchestration</strong></p>
 <p>It might:</p>
 <ul>
 <li>make calls to repository or factory interfaces to get the business objects it needs (that are implemented in the repository layer)</li>
 <li>use business objects and domain services to perform actions or get data it needs</li>
 <li>make authorisation checks using the authorisation service</li>
-<li>make calls to usecases in other modules to delegate things it doesnt know itself</li>
+<li>make calls to services of other modules that are explicitly exported by that module</li>
 <li>make calls to a repository interface to persist changes it made (implemented in the repository layer)</li>
 <li>make calls to a different infra service interface defined in the domain layer (implemented by the repository layer) to perform actions that are implemented outside the domain (like sending an email to a user)</li>
 <li>use a mapper to transform its data into a DTO it wants to return</li>
 </ul>
 <p>It should not:</p>
 <ul>
+<li>call other usecases</li>
 <li>perform any logic or data transformations itself</li>
 <li>do any error handling by itself</li>
 <li>make any decisions by itself</li>
@@ -163,6 +160,8 @@ These principles apply to all layers of our software, from lines of code and met
 <li>the modules define an explicit public interface of usecases and types they expose to other modules</li>
 <li>no module should ever try to access a class of a different module that is not explicitly exported</li>
 <li>no injectable should ever be defined in more than one module</li>
+<li>a module should only export services to be used by other modules.</li>
+<li>a module that other modules might need to import, especially in another mikroservice, should not contain controllers.</li>
 </ul>
 
                    </div><div class="search-results">
