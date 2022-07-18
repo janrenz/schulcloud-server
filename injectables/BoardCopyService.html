@@ -79,6 +79,7 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                    <span class="modifier">Async</span>
                                 <a href="#copyBoard" >copyBoard</a>
                             </li>
                         </ul>
@@ -177,6 +178,7 @@
                 <td class="col-md-4">
                     <a name="copyBoard"></a>
                     <span class="name">
+                        <span class="modifier">Async</span>
                         <span ><b>copyBoard</b></span>
                         <a href="#copyBoard"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -184,7 +186,8 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>copyBoard(params: <a href="../entitys/Board.html" target="_self">BoardCopyParams</a>)</code>
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>copyBoard(params: <a href="../entitys/Board.html" target="_self">BoardCopyParams</a>)</code>
                 </td>
             </tr>
 
@@ -230,7 +233,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#CopyStatus" target="_self" >CopyStatus</a></code>
+                        <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#CopyStatus" target="_self" >Promise&lt;CopyStatus&gt;</a></code>
 
                     </div>
                     <div class="io-description">
@@ -267,11 +270,14 @@ export class BoardCopyService {
 		private readonly copyHelperService: CopyHelperService
 	) {}
 
-	copyBoard(params: BoardCopyParams): CopyStatus {
+	async copyBoard(params: BoardCopyParams): Promise&lt;CopyStatus&gt; {
 		const elements: CopyStatus[] &#x3D; [];
 		const references: BoardElement[] &#x3D; [];
 
-		params.originalBoard.getElements().forEach((element) &#x3D;&gt; {
+		const boardElements &#x3D; params.originalBoard.getElements();
+		for (let i &#x3D; 0; i &lt; boardElements.length; i +&#x3D; 1) {
+			const element &#x3D; boardElements[i];
+
 			if (element.boardElementType &#x3D;&#x3D;&#x3D; BoardElementType.Task) {
 				const originalTask &#x3D; element.target as Task;
 				const status &#x3D; this.taskCopyService.copyTaskMetadata({
@@ -282,10 +288,10 @@ export class BoardCopyService {
 				elements.push(status);
 				const taskBoardElement &#x3D; BoardElement.FromTask(status.copyEntity as Task);
 				references.push(taskBoardElement);
-			}
-			if (element.boardElementType &#x3D;&#x3D;&#x3D; BoardElementType.Lesson) {
+			} else if (element.boardElementType &#x3D;&#x3D;&#x3D; BoardElementType.Lesson) {
 				const originalLesson &#x3D; element.target as Lesson;
-				const status &#x3D; this.lessonCopyService.copyLesson({
+				// eslint-disable-next-line no-await-in-loop
+				const status &#x3D; await this.lessonCopyService.copyLesson({
 					originalLesson,
 					user: params.user,
 					destinationCourse: params.destinationCourse,
@@ -294,7 +300,7 @@ export class BoardCopyService {
 				const lessonBardElement &#x3D; BoardElement.FromLesson(status.copyEntity as Lesson);
 				references.push(lessonBardElement);
 			}
-		});
+		}
 
 		const copy &#x3D; new Board({ references, course: params.destinationCourse });
 		const status &#x3D; {

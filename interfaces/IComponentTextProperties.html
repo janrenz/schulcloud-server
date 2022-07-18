@@ -153,9 +153,10 @@ export interface ILessonProperties {
 }
 
 export enum ComponentType {
-	TEXT &#x3D; &#x27;text&#x27;,
-	LERNSTORE &#x3D; &#x27;resources&#x27;,
+	ETHERPAD &#x3D; &#x27;Etherpad&#x27;,
 	GEOGEBRA &#x3D; &#x27;geoGebra&#x27;,
+	LERNSTORE &#x3D; &#x27;resources&#x27;,
+	TEXT &#x3D; &#x27;text&#x27;,
 }
 
 export interface IComponentTextProperties {
@@ -169,20 +170,30 @@ export interface IComponentGeogebraProperties {
 export interface IComponentLernstoreProperties {
 	resources: [
 		{
-			url: string;
-			title: string;
-			description: string;
 			client: string;
+			description: string;
 			merlinReference?: string;
+			title: string;
+			url: string;
 		}
 	];
+}
+
+export interface IComponentEtherpadProperties {
+	description: string;
+	title: string;
+	url: string;
 }
 
 export interface IComponentProperties {
 	title: string;
 	hidden: boolean;
 	component: ComponentType;
-	content: IComponentTextProperties | IComponentGeogebraProperties | IComponentLernstoreProperties;
+	content:
+		| IComponentTextProperties
+		| IComponentGeogebraProperties
+		| IComponentLernstoreProperties
+		| IComponentEtherpadProperties;
 }
 
 @Entity({ tableName: &#x27;lessons&#x27; })

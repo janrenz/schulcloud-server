@@ -40,7 +40,7 @@
 
 <ol class="breadcrumb">
   <li>Injectables</li>
-  <li >CourseCopyUC</li>
+  <li >EtherpadService</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -58,7 +58,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/modules/learnroom/uc/course-copy.uc.ts</code>
+            <code>apps/server/src/shared/domain/service/etherpad.service.ts</code>
         </p>
 
 
@@ -80,7 +80,7 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Async</span>
-                                <a href="#copyCourse" >copyCourse</a>
+                                <a href="#createEtherpad" >createEtherpad</a>
                             </li>
                         </ul>
                     </td>
@@ -100,12 +100,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(courseRepo: <a href="../injectables/CourseRepo.html" target="_self">CourseRepo</a>, boardRepo: <a href="../injectables/BoardRepo.html" target="_self">BoardRepo</a>, authorisation: <a href="../injectables/AuthorizationService.html" target="_self">AuthorizationService</a>, courseCopyService: <a href="../injectables/CourseCopyService.html" target="_self">CourseCopyService</a>, boardCopyService: <a href="../injectables/BoardCopyService.html" target="_self">BoardCopyService</a>, roomsService: <a href="../injectables/RoomsService.html" target="_self">RoomsService</a>, copyHelperService: <a href="../injectables/CopyHelperService.html" target="_self">CopyHelperService</a>)</code>
+<code>constructor(feathersServiceProvider: <a href="../injectables/FeathersServiceProvider.html" target="_self">FeathersServiceProvider</a>, logger: <a href="../injectables/Logger.html" target="_self">Logger</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">apps/server/src/modules/learnroom/uc/course-copy.uc.ts:18</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">apps/server/src/shared/domain/service/etherpad.service.ts:9</a></div>
                             </td>
                         </tr>
 
@@ -123,10 +123,10 @@
                                         </thead>
                                         <tbody>
                                                 <tr>
-                                                        <td>courseRepo</td>
+                                                        <td>feathersServiceProvider</td>
                                                   
                                                         <td>
-                                                                        <code><a href="../injectables/CourseRepo.html" target="_self" >CourseRepo</a></code>
+                                                                        <code><a href="../injectables/FeathersServiceProvider.html" target="_self" >FeathersServiceProvider</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -135,70 +135,10 @@
                                                     
                                                 </tr>
                                                 <tr>
-                                                        <td>boardRepo</td>
+                                                        <td>logger</td>
                                                   
                                                         <td>
-                                                                        <code><a href="../injectables/BoardRepo.html" target="_self" >BoardRepo</a></code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                                <tr>
-                                                        <td>authorisation</td>
-                                                  
-                                                        <td>
-                                                                        <code><a href="../injectables/AuthorizationService.html" target="_self" >AuthorizationService</a></code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                                <tr>
-                                                        <td>courseCopyService</td>
-                                                  
-                                                        <td>
-                                                                        <code><a href="../injectables/CourseCopyService.html" target="_self" >CourseCopyService</a></code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                                <tr>
-                                                        <td>boardCopyService</td>
-                                                  
-                                                        <td>
-                                                                        <code><a href="../injectables/BoardCopyService.html" target="_self" >BoardCopyService</a></code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                                <tr>
-                                                        <td>roomsService</td>
-                                                  
-                                                        <td>
-                                                                        <code><a href="../injectables/RoomsService.html" target="_self" >RoomsService</a></code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                                <tr>
-                                                        <td>copyHelperService</td>
-                                                  
-                                                        <td>
-                                                                        <code><a href="../injectables/CopyHelperService.html" target="_self" >CopyHelperService</a></code>
+                                                                        <code><a href="../injectables/Logger.html" target="_self" >Logger</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -224,26 +164,26 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="copyCourse"></a>
+                    <a name="createEtherpad"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
-                        <span ><b>copyCourse</b></span>
-                        <a href="#copyCourse"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>createEtherpad</b></span>
+                        <a href="#createEtherpad"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>copyCourse(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, courseId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>)</code>
+                    <code>createEtherpad(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, courseId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, title: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, description: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="29"
-                            class="link-to-prism">apps/server/src/modules/learnroom/uc/course-copy.uc.ts:29</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="12"
+                            class="link-to-prism">apps/server/src/shared/domain/service/etherpad.service.ts:12</a></div>
                 </td>
             </tr>
 
@@ -278,7 +218,31 @@
                                 <tr>
                                     <td>courseId</td>
                                     <td>
-                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>title</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>description</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
                                     </td>
 
                                     <td>
@@ -293,7 +257,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#CopyStatus" target="_self" >Promise&lt;CopyStatus&gt;</a></code>
+                        <b>Returns : </b>    <code>Promise&lt;string | &gt;</code>
 
                     </div>
                     <div class="io-description">
@@ -309,62 +273,36 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
-import {
-	Actions,
-	Board,
-	BoardCopyService,
-	CopyHelperService,
-	CopyStatus,
-	Course,
-	EntityId,
-	Permission,
-} from &#x27;@shared/domain&#x27;;
-import { CourseCopyService } from &#x27;@shared/domain/service/course-copy.service&#x27;;
-import { BoardRepo, CourseRepo } from &#x27;@shared/repo&#x27;;
-import { AuthorizationService } from &#x27;@src/modules/authorization/authorization.service&#x27;;
-import { RoomsService } from &#x27;./rooms.service&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { FeathersServiceProvider } from &#x27;@shared/infra/feathers/feathers-service.provider&#x27;;
+import { Logger } from &#x27;@src/core/logger&#x27;;
+import { Injectable } from &#x27;@nestjs/common&#x27;;
+import { EntityId } from &#x27;@shared/domain/types&#x27;;
+
+export type PadResponse &#x3D; { data: { padID: string } };
 
 @Injectable()
-export class CourseCopyUC {
-	constructor(
-		private readonly courseRepo: CourseRepo,
-		private readonly boardRepo: BoardRepo,
-		private readonly authorisation: AuthorizationService,
-		private readonly courseCopyService: CourseCopyService,
-		private readonly boardCopyService: BoardCopyService,
-		private readonly roomsService: RoomsService,
-		private readonly copyHelperService: CopyHelperService
-	) {}
+export class EtherpadService {
+	constructor(private readonly feathersServiceProvider: FeathersServiceProvider, private logger: Logger) {}
 
-	async copyCourse(userId: EntityId, courseId: EntityId): Promise&lt;CopyStatus&gt; {
-		const user &#x3D; await this.authorisation.getUserWithPermissions(userId);
-		const originalCourse &#x3D; await this.courseRepo.findById(courseId);
-		let originalBoard &#x3D; await this.boardRepo.findByCourseId(courseId);
-		originalBoard &#x3D; await this.roomsService.updateBoard(originalBoard, courseId, userId);
-
-		this.authorisation.checkPermission(user, originalCourse, {
-			action: Actions.write,
-			requiredPermissions: [Permission.COURSE_CREATE],
-		});
-
-		const [existingCourses] &#x3D; await this.courseRepo.findAllByUserId(userId);
-		const existingNames &#x3D; existingCourses.map((course: Course) &#x3D;&gt; course.name);
-
-		const copyName &#x3D; this.copyHelperService.deriveCopyName(originalCourse.name, existingNames);
-
-		const statusCourse &#x3D; this.courseCopyService.copyCourse({ originalCourse, user, copyName });
-		const courseCopy &#x3D; statusCourse.copyEntity as Course;
-		await this.courseRepo.save(courseCopy);
-
-		const statusBoard &#x3D; await this.boardCopyService.copyBoard({ originalBoard, destinationCourse: courseCopy, user });
-		const boardCopy &#x3D; statusBoard.copyEntity as Board;
-		await this.boardRepo.save(boardCopy);
-
-		statusCourse.elements ||&#x3D; [];
-		statusCourse.elements.push(statusBoard);
-
-		return statusCourse;
+	async createEtherpad(
+		userId: EntityId,
+		courseId: string,
+		title: string,
+		description: string
+	): Promise&lt;string | false&gt; {
+		const data &#x3D; {
+			courseId,
+			padName: title,
+			text: description,
+		};
+		try {
+			const service &#x3D; this.feathersServiceProvider.getService(&#x27;/etherpad/pads&#x27;);
+			const pad &#x3D; (await service.create(data, { account: { userId } })) as PadResponse;
+			return pad.data.padID;
+		} catch (error) {
+			this.logger.error(&#x27;Could not create new Etherpad&#x27;, error);
+			return false;
+		}
 	}
 }
 </code></pre>
@@ -410,7 +348,7 @@ export class CourseCopyUC {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
-            var COMPODOC_CURRENT_PAGE_URL = 'CourseCopyUC.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'EtherpadService.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

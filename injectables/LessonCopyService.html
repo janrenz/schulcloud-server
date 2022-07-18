@@ -80,13 +80,21 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Private</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#copyEtherpad" >copyEtherpad</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Static</span>
                                 <a href="#copyGeogebra" >copyGeogebra</a>
                             </li>
                             <li>
+                                    <span class="modifier">Async</span>
                                 <a href="#copyLesson" >copyLesson</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
+                                    <span class="modifier">Async</span>
                                 <a href="#copyLessonContent" >copyLessonContent</a>
                             </li>
                             <li>
@@ -95,6 +103,7 @@
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
+                                    <span class="modifier">Static</span>
                                 <a href="#lessonStatusMetadata" >lessonStatusMetadata</a>
                             </li>
                         </ul>
@@ -115,12 +124,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(copyHelperService: <a href="../injectables/CopyHelperService.html" target="_self">CopyHelperService</a>)</code>
+<code>constructor(copyHelperService: <a href="../injectables/CopyHelperService.html" target="_self">CopyHelperService</a>, etherpadService: <a href="../injectables/EtherpadService.html" target="_self">EtherpadService</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">apps/server/src/shared/domain/service/lesson-copy.service.ts:14</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">apps/server/src/shared/domain/service/lesson-copy.service.ts:25</a></div>
                             </td>
                         </tr>
 
@@ -149,6 +158,18 @@
                                                     </td>
                                                     
                                                 </tr>
+                                                <tr>
+                                                        <td>etherpadService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/EtherpadService.html" target="_self" >EtherpadService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
                                         </tbody>
                                     </table>
                             </div>
@@ -167,9 +188,94 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="copyEtherpad"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span class="modifier">Async</span>
+                        <span ><b>copyEtherpad</b></span>
+                        <a href="#copyEtherpad"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>copyEtherpad(originalElement: <a href="../interfaces/IComponentProperties.html" target="_self">IComponentProperties</a>, params: <a href="../entitys/Lesson.html" target="_self">LessonCopyParams</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="109"
+                            class="link-to-prism">apps/server/src/shared/domain/service/lesson-copy.service.ts:109</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>originalElement</td>
+                                    <td>
+                                                <code><a href="../interfaces/IComponentProperties.html" target="_self" >IComponentProperties</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>params</td>
+                                    <td>
+                                                <code><a href="../entitys/Lesson.html" target="_self" >LessonCopyParams</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../interfaces/IComponentProperties.html" target="_self" >Promise&lt;IComponentProperties | &gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="copyGeogebra"></a>
                     <span class="name">
                         <span class="modifier">Private</span>
+                        <span class="modifier">Static</span>
                         <span ><b>copyGeogebra</b></span>
                         <a href="#copyGeogebra"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -185,8 +291,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="68"
-                            class="link-to-prism">apps/server/src/shared/domain/service/lesson-copy.service.ts:68</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="103"
+                            class="link-to-prism">apps/server/src/shared/domain/service/lesson-copy.service.ts:103</a></div>
                 </td>
             </tr>
 
@@ -240,6 +346,7 @@
                 <td class="col-md-4">
                     <a name="copyLesson"></a>
                     <span class="name">
+                        <span class="modifier">Async</span>
                         <span ><b>copyLesson</b></span>
                         <a href="#copyLesson"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -247,15 +354,16 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>copyLesson(params: <a href="../entitys/Lesson.html" target="_self">LessonCopyParams</a>)</code>
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>copyLesson(params: <a href="../entitys/Lesson.html" target="_self">LessonCopyParams</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="17"
-                            class="link-to-prism">apps/server/src/shared/domain/service/lesson-copy.service.ts:17</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="31"
+                            class="link-to-prism">apps/server/src/shared/domain/service/lesson-copy.service.ts:31</a></div>
                 </td>
             </tr>
 
@@ -293,7 +401,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#CopyStatus" target="_self" >CopyStatus</a></code>
+                        <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#CopyStatus" target="_self" >Promise&lt;CopyStatus&gt;</a></code>
 
                     </div>
                     <div class="io-description">
@@ -310,6 +418,7 @@
                     <a name="copyLessonContent"></a>
                     <span class="name">
                         <span class="modifier">Private</span>
+                        <span class="modifier">Async</span>
                         <span ><b>copyLessonContent</b></span>
                         <a href="#copyLessonContent"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -318,15 +427,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>copyLessonContent(content: <a href="../interfaces/IComponentProperties.html" target="_self">IComponentProperties[]</a>)</code>
+                    <code>copyLessonContent(content: <a href="../interfaces/IComponentProperties.html" target="_self">IComponentProperties[]</a>, params: <a href="../entitys/Lesson.html" target="_self">LessonCopyParams</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="40"
-                            class="link-to-prism">apps/server/src/shared/domain/service/lesson-copy.service.ts:40</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="54"
+                            class="link-to-prism">apps/server/src/shared/domain/service/lesson-copy.service.ts:54</a></div>
                 </td>
             </tr>
 
@@ -358,13 +467,25 @@
 
 
                                 </tr>
+                                <tr>
+                                    <td>params</td>
+                                    <td>
+                                                <code><a href="../entitys/Lesson.html" target="_self" >LessonCopyParams</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
                             </tbody>
                         </table>
                     </div>
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>    <code>literal type</code>
+                        <b>Returns : </b>    <code>Promise&lt;literal type&gt;</code>
 
                     </div>
                     <div class="io-description">
@@ -396,8 +517,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="84"
-                            class="link-to-prism">apps/server/src/shared/domain/service/lesson-copy.service.ts:84</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="141"
+                            class="link-to-prism">apps/server/src/shared/domain/service/lesson-copy.service.ts:141</a></div>
                 </td>
             </tr>
 
@@ -452,6 +573,7 @@
                     <a name="lessonStatusMetadata"></a>
                     <span class="name">
                         <span class="modifier">Private</span>
+                        <span class="modifier">Static</span>
                         <span ><b>lessonStatusMetadata</b></span>
                         <a href="#lessonStatusMetadata"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -467,8 +589,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="75"
-                            class="link-to-prism">apps/server/src/shared/domain/service/lesson-copy.service.ts:75</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="132"
+                            class="link-to-prism">apps/server/src/shared/domain/service/lesson-copy.service.ts:132</a></div>
                 </td>
             </tr>
 
@@ -491,7 +613,18 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
-import { ComponentType, Course, IComponentGeogebraProperties, IComponentProperties, Lesson, User } from &#x27;../entity&#x27;;
+import { randomBytes } from &#x27;crypto&#x27;;
+import { Configuration } from &#x27;@hpi-schul-cloud/commons&#x27;;
+import { EtherpadService } from &#x27;./etherpad.service&#x27;;
+import {
+	ComponentType,
+	Course,
+	IComponentEtherpadProperties,
+	IComponentGeogebraProperties,
+	IComponentProperties,
+	Lesson,
+	User,
+} from &#x27;../entity&#x27;;
 import { CopyElementType, CopyStatus, CopyStatusEnum } from &#x27;../types&#x27;;
 import { CopyHelperService } from &#x27;./copy-helper.service&#x27;;
 
@@ -504,10 +637,13 @@ export type LessonCopyParams &#x3D; {
 
 @Injectable()
 export class LessonCopyService {
-	constructor(private readonly copyHelperService: CopyHelperService) {}
+	constructor(
+		private readonly copyHelperService: CopyHelperService,
+		private readonly etherpadService: EtherpadService
+	) {}
 
-	copyLesson(params: LessonCopyParams): CopyStatus {
-		const { copiedContent, contentStatus } &#x3D; this.copyLessonContent(params.originalLesson.contents || []);
+	async copyLesson(params: LessonCopyParams): Promise&lt;CopyStatus&gt; {
+		const { copiedContent, contentStatus } &#x3D; await this.copyLessonContent(params.originalLesson.contents || [], params);
 		const copy &#x3D; new Lesson({
 			course: params.destinationCourse,
 			hidden: true,
@@ -516,7 +652,7 @@ export class LessonCopyService {
 			contents: copiedContent,
 		});
 
-		const elements &#x3D; [...this.lessonStatusMetadata(), ...contentStatus];
+		const elements &#x3D; [...LessonCopyService.lessonStatusMetadata(), ...contentStatus];
 
 		const status: CopyStatus &#x3D; {
 			title: copy.name,
@@ -529,13 +665,18 @@ export class LessonCopyService {
 		return status;
 	}
 
-	private copyLessonContent(content: IComponentProperties[]): {
+	private async copyLessonContent(
+		content: IComponentProperties[],
+		params: LessonCopyParams
+	): Promise&lt;{
 		copiedContent: IComponentProperties[];
 		contentStatus: CopyStatus[];
-	} {
+	}&gt; {
+		const etherpadEnabled &#x3D; Configuration.get(&#x27;FEATURE_ETHERPAD_ENABLED&#x27;) as boolean;
 		const copiedContent: IComponentProperties[] &#x3D; [];
 		const copiedContentStatus: CopyStatus[] &#x3D; [];
-		content.forEach((element) &#x3D;&gt; {
+		for (let i &#x3D; 0; i &lt; content.length; i +&#x3D; 1) {
+			const element &#x3D; content[i];
 			if (element.component &#x3D;&#x3D;&#x3D; ComponentType.TEXT || element.component &#x3D;&#x3D;&#x3D; ComponentType.LERNSTORE) {
 				copiedContent.push(element);
 				copiedContentStatus.push({
@@ -543,8 +684,9 @@ export class LessonCopyService {
 					type: CopyElementType.LESSON_CONTENT,
 					status: CopyStatusEnum.SUCCESS,
 				});
-			} else if (element.component &#x3D;&#x3D;&#x3D; ComponentType.GEOGEBRA) {
-				const geoGebraContent &#x3D; this.copyGeogebra(element);
+			}
+			if (element.component &#x3D;&#x3D;&#x3D; ComponentType.GEOGEBRA) {
+				const geoGebraContent &#x3D; LessonCopyService.copyGeogebra(element);
 				copiedContent.push(geoGebraContent);
 				copiedContentStatus.push({
 					title: element.title,
@@ -552,19 +694,56 @@ export class LessonCopyService {
 					status: CopyStatusEnum.PARTIAL,
 				});
 			}
-		});
+			if (element.component &#x3D;&#x3D;&#x3D; ComponentType.ETHERPAD &amp;&amp; etherpadEnabled) {
+				// eslint-disable-next-line no-await-in-loop
+				const etherpadContent &#x3D; await this.copyEtherpad(element, params);
+				const etherpadStatus &#x3D; {
+					title: element.title,
+					type: CopyElementType.LESSON_CONTENT,
+					status: CopyStatusEnum.PARTIAL,
+				};
+				if (etherpadContent) {
+					copiedContent.push(etherpadContent);
+				} else {
+					etherpadStatus.status &#x3D; CopyStatusEnum.FAIL;
+				}
+				copiedContentStatus.push(etherpadStatus);
+			}
+		}
 		const contentStatus &#x3D; this.lessonStatusContent(copiedContentStatus);
 		return { copiedContent, contentStatus };
 	}
 
-	private copyGeogebra(originalElement: IComponentProperties): IComponentProperties {
-		const copy &#x3D; { ...originalElement, hidden: true };
-		const content &#x3D; { ...copy.content, materialId: &#x27;&#x27; } as IComponentGeogebraProperties;
-		copy.content &#x3D; content;
+	private static copyGeogebra(originalElement: IComponentProperties): IComponentProperties {
+		const copy &#x3D; { ...originalElement, hidden: true } as IComponentProperties;
+		copy.content &#x3D; { ...copy.content, materialId: &#x27;&#x27; } as IComponentGeogebraProperties;
 		return copy;
 	}
 
-	private lessonStatusMetadata(): CopyStatus[] {
+	private async copyEtherpad(
+		originalElement: IComponentProperties,
+		params: LessonCopyParams
+	): Promise&lt;IComponentProperties | false&gt; {
+		const copy &#x3D; { ...originalElement } as IComponentProperties;
+		const content &#x3D; { ...copy.content, url: &#x27;&#x27; } as IComponentEtherpadProperties;
+		content.title &#x3D; randomBytes(12).toString(&#x27;hex&#x27;);
+
+		const etherpadPadId &#x3D; await this.etherpadService.createEtherpad(
+			params.user.id,
+			params.destinationCourse.id,
+			content.title,
+			&#x27;&#x27;
+		);
+		if (etherpadPadId) {
+			const etherpadUri &#x3D; Configuration.get(&#x27;ETHERPAD__PAD_URI&#x27;) as string;
+			content.url &#x3D; &#x60;${etherpadUri}/${etherpadPadId}&#x60;;
+			copy.content &#x3D; content;
+			return copy;
+		}
+		return false;
+	}
+
+	private static lessonStatusMetadata(): CopyStatus[] {
 		return [
 			{
 				type: CopyElementType.METADATA,
