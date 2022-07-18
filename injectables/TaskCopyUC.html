@@ -87,6 +87,11 @@
                                     <span class="modifier">Async</span>
                                 <a href="#getDestinationCourse" >getDestinationCourse</a>
                             </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#getDestinationLesson" >getDestinationLesson</a>
+                            </li>
                         </ul>
                     </td>
                 </tr>
@@ -105,12 +110,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(taskRepo: <a href="../injectables/TaskRepo.html" target="_self">TaskRepo</a>, courseRepo: <a href="../injectables/CourseRepo.html" target="_self">CourseRepo</a>, authorisation: <a href="../injectables/AuthorizationService.html" target="_self">AuthorizationService</a>, taskCopyService: <a href="../injectables/TaskCopyService.html" target="_self">TaskCopyService</a>, copyHelperService: <a href="../injectables/CopyHelperService.html" target="_self">CopyHelperService</a>, filesStorageClient: <a href="../injectables/FilesStorageClientAdapterService.html" target="_self">FilesStorageClientAdapterService</a>)</code>
+<code>constructor(taskRepo: <a href="../injectables/TaskRepo.html" target="_self">TaskRepo</a>, courseRepo: <a href="../injectables/CourseRepo.html" target="_self">CourseRepo</a>, lessonRepo: <a href="../injectables/LessonRepo.html" target="_self">LessonRepo</a>, authorisation: <a href="../injectables/AuthorizationService.html" target="_self">AuthorizationService</a>, taskCopyService: <a href="../injectables/TaskCopyService.html" target="_self">TaskCopyService</a>, copyHelperService: <a href="../injectables/CopyHelperService.html" target="_self">CopyHelperService</a>, filesStorageClient: <a href="../injectables/FilesStorageClientAdapterService.html" target="_self">FilesStorageClientAdapterService</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">apps/server/src/modules/task/uc/task-copy.uc.ts:24</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">apps/server/src/modules/task/uc/task-copy.uc.ts:25</a></div>
                             </td>
                         </tr>
 
@@ -144,6 +149,18 @@
                                                   
                                                         <td>
                                                                         <code><a href="../injectables/CourseRepo.html" target="_self" >CourseRepo</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>lessonRepo</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/LessonRepo.html" target="_self" >LessonRepo</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -235,8 +252,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="34"
-                            class="link-to-prism">apps/server/src/modules/task/uc/task-copy.uc.ts:34</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="36"
+                            class="link-to-prism">apps/server/src/modules/task/uc/task-copy.uc.ts:36</a></div>
                 </td>
             </tr>
 
@@ -331,8 +348,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="66"
-                            class="link-to-prism">apps/server/src/modules/task/uc/task-copy.uc.ts:66</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="76"
+                            class="link-to-prism">apps/server/src/modules/task/uc/task-copy.uc.ts:76</a></div>
                 </td>
             </tr>
 
@@ -392,6 +409,90 @@
             </tr>
         </tbody>
     </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getDestinationLesson"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span class="modifier">Async</span>
+                        <span ><b>getDestinationLesson</b></span>
+                        <a href="#getDestinationLesson"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getDestinationLesson(lessonId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, user: <a href="../interfaces/User.html" target="_self">User</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="84"
+                            class="link-to-prism">apps/server/src/modules/task/uc/task-copy.uc.ts:84</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>lessonId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>user</td>
+                                    <td>
+                                                <code><a href="../interfaces/User.html" target="_self" >User</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>unknown</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </section>
 
     </div>
@@ -404,12 +505,13 @@ import {
 	CopyStatus,
 	Course,
 	EntityId,
+	Lesson,
 	PermissionContextBuilder,
 	Task,
 	TaskCopyService,
 	User,
 } from &#x27;@shared/domain&#x27;;
-import { CourseRepo, TaskRepo } from &#x27;@shared/repo&#x27;;
+import { CourseRepo, LessonRepo, TaskRepo } from &#x27;@shared/repo&#x27;;
 import { AuthorizationService } from &#x27;@src/modules/authorization&#x27;;
 import { FilesStorageClientAdapterService } from &#x27;@src/modules/files-storage-client&#x27;;
 
@@ -425,6 +527,7 @@ export class TaskCopyUC {
 	constructor(
 		private readonly taskRepo: TaskRepo,
 		private readonly courseRepo: CourseRepo,
+		private readonly lessonRepo: LessonRepo,
 		private readonly authorisation: AuthorizationService,
 		private readonly taskCopyService: TaskCopyService,
 		private readonly copyHelperService: CopyHelperService,
@@ -448,9 +551,17 @@ export class TaskCopyUC {
 		}
 
 		const copyName &#x3D; this.copyHelperService.deriveCopyName(originalTask.name, existingNames);
+
+		let destinationLesson: Lesson | undefined;
+
+		if (parentParams.lessonId) {
+			destinationLesson &#x3D; await this.getDestinationLesson(parentParams.lessonId, user);
+		}
+
 		const status &#x3D; this.taskCopyService.copyTaskMetadata({
 			originalTask,
 			destinationCourse,
+			destinationLesson,
 			user,
 			copyName,
 		});
@@ -469,6 +580,14 @@ export class TaskCopyUC {
 			throw new ForbiddenException(&#x27;you dont have permission to add to this course&#x27;);
 		}
 		return destinationCourse;
+	}
+
+	private async getDestinationLesson(lessonId: string, user: User) {
+		const destinationLesson &#x3D; await this.lessonRepo.findById(lessonId);
+		if (!this.authorisation.hasPermission(user, destinationLesson, PermissionContextBuilder.write([]))) {
+			throw new ForbiddenException(&#x27;you dont have permission to add to this lesson&#x27;);
+		}
+		return destinationLesson;
 	}
 }
 </code></pre>

@@ -177,8 +177,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="57"
-                            class="link-to-prism">apps/server/src/shared/domain/service/task-copy.service.ts:57</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="58"
+                            class="link-to-prism">apps/server/src/shared/domain/service/task-copy.service.ts:58</a></div>
                 </td>
             </tr>
 
@@ -317,8 +317,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="40"
-                            class="link-to-prism">apps/server/src/shared/domain/service/task-copy.service.ts:40</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="41"
+                            class="link-to-prism">apps/server/src/shared/domain/service/task-copy.service.ts:41</a></div>
                 </td>
             </tr>
 
@@ -341,14 +341,14 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
-import { Course, Task, User } from &#x27;@shared/domain/entity&#x27;;
+import { Course, Lesson, Task, User } from &#x27;@shared/domain/entity&#x27;;
 import { CopyElementType, CopyStatus, CopyStatusEnum } from &#x27;@shared/domain/types&#x27;;
 import { CopyHelperService } from &#x27;./copy-helper.service&#x27;;
 
 export type TaskCopyParams &#x3D; {
 	originalTask: Task;
 	destinationCourse?: Course;
-	// destinationLesson?: Lesson;
+	destinationLesson?: Lesson;
 	user: User;
 	copyName?: string;
 };
@@ -364,6 +364,7 @@ export class TaskCopyService {
 			school: params.user.school,
 			creator: params.user,
 			course: params.destinationCourse,
+			lesson: params.destinationLesson,
 		});
 
 		const elements &#x3D; [...this.defaultTaskStatusElements(), ...this.copyTaskFiles(params.originalTask)];
