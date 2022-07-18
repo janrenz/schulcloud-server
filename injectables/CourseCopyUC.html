@@ -100,12 +100,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(courseRepo: <a href="../injectables/CourseRepo.html" target="_self">CourseRepo</a>, boardRepo: <a href="../injectables/BoardRepo.html" target="_self">BoardRepo</a>, authorisation: <a href="../injectables/AuthorizationService.html" target="_self">AuthorizationService</a>, courseCopyService: <a href="../injectables/CourseCopyService.html" target="_self">CourseCopyService</a>, boardCopyService: <a href="../injectables/BoardCopyService.html" target="_self">BoardCopyService</a>, roomsService: <a href="../injectables/RoomsService.html" target="_self">RoomsService</a>)</code>
+<code>constructor(courseRepo: <a href="../injectables/CourseRepo.html" target="_self">CourseRepo</a>, boardRepo: <a href="../injectables/BoardRepo.html" target="_self">BoardRepo</a>, authorisation: <a href="../injectables/AuthorizationService.html" target="_self">AuthorizationService</a>, courseCopyService: <a href="../injectables/CourseCopyService.html" target="_self">CourseCopyService</a>, boardCopyService: <a href="../injectables/BoardCopyService.html" target="_self">BoardCopyService</a>, roomsService: <a href="../injectables/RoomsService.html" target="_self">RoomsService</a>, copyHelperService: <a href="../injectables/CopyHelperService.html" target="_self">CopyHelperService</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">apps/server/src/modules/learnroom/uc/course-copy.uc.ts:9</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">apps/server/src/modules/learnroom/uc/course-copy.uc.ts:18</a></div>
                             </td>
                         </tr>
 
@@ -194,6 +194,18 @@
                                                     </td>
                                                     
                                                 </tr>
+                                                <tr>
+                                                        <td>copyHelperService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/CopyHelperService.html" target="_self" >CopyHelperService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
                                         </tbody>
                                     </table>
                             </div>
@@ -230,8 +242,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="19"
-                            class="link-to-prism">apps/server/src/modules/learnroom/uc/course-copy.uc.ts:19</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="29"
+                            class="link-to-prism">apps/server/src/modules/learnroom/uc/course-copy.uc.ts:29</a></div>
                 </td>
             </tr>
 
@@ -298,7 +310,16 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
-import { Actions, Board, BoardCopyService, CopyStatus, Course, EntityId, Permission } from &#x27;@shared/domain&#x27;;
+import {
+	Actions,
+	Board,
+	BoardCopyService,
+	CopyHelperService,
+	CopyStatus,
+	Course,
+	EntityId,
+	Permission,
+} from &#x27;@shared/domain&#x27;;
 import { CourseCopyService } from &#x27;@shared/domain/service/course-copy.service&#x27;;
 import { BoardRepo, CourseRepo } from &#x27;@shared/repo&#x27;;
 import { AuthorizationService } from &#x27;@src/modules/authorization/authorization.service&#x27;;
@@ -312,7 +333,8 @@ export class CourseCopyUC {
 		private readonly authorisation: AuthorizationService,
 		private readonly courseCopyService: CourseCopyService,
 		private readonly boardCopyService: BoardCopyService,
-		private readonly roomsService: RoomsService
+		private readonly roomsService: RoomsService,
+		private readonly copyHelperService: CopyHelperService
 	) {}
 
 	async copyCourse(userId: EntityId, courseId: EntityId): Promise&lt;CopyStatus&gt; {
@@ -326,7 +348,12 @@ export class CourseCopyUC {
 			requiredPermissions: [Permission.COURSE_CREATE],
 		});
 
-		const statusCourse &#x3D; this.courseCopyService.copyCourse({ originalCourse, user });
+		const [existingCourses] &#x3D; await this.courseRepo.findAllByUserId(userId);
+		const existingNames &#x3D; existingCourses.map((course: Course) &#x3D;&gt; course.name);
+
+		const copyName &#x3D; this.copyHelperService.deriveCopyName(originalCourse.name, existingNames);
+
+		const statusCourse &#x3D; this.courseCopyService.copyCourse({ originalCourse, user, copyName });
 		const courseCopy &#x3D; statusCourse.copyEntity as Course;
 
 		const statusBoard &#x3D; this.boardCopyService.copyBoard({ originalBoard, destinationCourse: courseCopy, user });

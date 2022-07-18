@@ -120,7 +120,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">apps/server/src/shared/domain/service/lesson-copy.service.ts:13</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">apps/server/src/shared/domain/service/lesson-copy.service.ts:14</a></div>
                             </td>
                         </tr>
 
@@ -185,8 +185,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="67"
-                            class="link-to-prism">apps/server/src/shared/domain/service/lesson-copy.service.ts:67</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="68"
+                            class="link-to-prism">apps/server/src/shared/domain/service/lesson-copy.service.ts:68</a></div>
                 </td>
             </tr>
 
@@ -254,8 +254,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="16"
-                            class="link-to-prism">apps/server/src/shared/domain/service/lesson-copy.service.ts:16</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="17"
+                            class="link-to-prism">apps/server/src/shared/domain/service/lesson-copy.service.ts:17</a></div>
                 </td>
             </tr>
 
@@ -325,8 +325,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="39"
-                            class="link-to-prism">apps/server/src/shared/domain/service/lesson-copy.service.ts:39</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="40"
+                            class="link-to-prism">apps/server/src/shared/domain/service/lesson-copy.service.ts:40</a></div>
                 </td>
             </tr>
 
@@ -396,8 +396,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="83"
-                            class="link-to-prism">apps/server/src/shared/domain/service/lesson-copy.service.ts:83</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="84"
+                            class="link-to-prism">apps/server/src/shared/domain/service/lesson-copy.service.ts:84</a></div>
                 </td>
             </tr>
 
@@ -467,8 +467,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="74"
-                            class="link-to-prism">apps/server/src/shared/domain/service/lesson-copy.service.ts:74</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="75"
+                            class="link-to-prism">apps/server/src/shared/domain/service/lesson-copy.service.ts:75</a></div>
                 </td>
             </tr>
 
@@ -499,6 +499,7 @@ export type LessonCopyParams &#x3D; {
 	originalLesson: Lesson;
 	destinationCourse: Course;
 	user: User;
+	copyName?: string;
 };
 
 @Injectable()
@@ -510,7 +511,7 @@ export class LessonCopyService {
 		const copy &#x3D; new Lesson({
 			course: params.destinationCourse,
 			hidden: true,
-			name: this.copyHelperService.deriveCopyName(params.originalLesson.name),
+			name: params.copyName ?? params.originalLesson.name,
 			position: params.originalLesson.position,
 			contents: copiedContent,
 		});

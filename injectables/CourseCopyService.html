@@ -104,7 +104,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">apps/server/src/shared/domain/service/course-copy.service.ts:12</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">apps/server/src/shared/domain/service/course-copy.service.ts:13</a></div>
                             </td>
                         </tr>
 
@@ -167,8 +167,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="15"
-                            class="link-to-prism">apps/server/src/shared/domain/service/course-copy.service.ts:15</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="16"
+                            class="link-to-prism">apps/server/src/shared/domain/service/course-copy.service.ts:16</a></div>
                 </td>
             </tr>
 
@@ -230,6 +230,7 @@ import { CopyHelperService } from &#x27;./copy-helper.service&#x27;;
 export type CourseCopyParams &#x3D; {
 	originalCourse: Course;
 	user: User;
+	copyName?: string;
 };
 
 @Injectable()
@@ -239,7 +240,7 @@ export class CourseCopyService {
 	copyCourse(params: CourseCopyParams): CopyStatus {
 		const copy &#x3D; new Course({
 			school: params.user.school,
-			name: this.copyHelperService.deriveCopyName(params.originalCourse.name),
+			name: params.copyName ?? params.originalCourse.name,
 			color: params.originalCourse.color,
 			teachers: [params.user],
 			startDate: params.user.school.schoolYear?.startDate,

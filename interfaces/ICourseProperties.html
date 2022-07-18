@@ -570,9 +570,9 @@ export class Course extends BaseEntityWithTimestamps implements ILearnroom, IEnt
 		if (props.name) this.name &#x3D; props.name;
 		if (props.description) this.description &#x3D; props.description;
 		this.school &#x3D; props.school;
-		if (props.students) this.students.set(props.students);
-		if (props.teachers) this.teachers.set(props.teachers);
-		if (props.substitutionTeachers) this.substitutionTeachers.set(props.substitutionTeachers);
+		this.students.set(props.students || []);
+		this.teachers.set(props.teachers || []);
+		this.substitutionTeachers.set(props.substitutionTeachers || []);
 		if (props.color) this.color &#x3D; props.color;
 		if (props.untilDate) this.untilDate &#x3D; props.untilDate;
 		if (props.startDate) this.startDate &#x3D; props.startDate;

@@ -105,12 +105,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(taskRepo: <a href="../injectables/TaskRepo.html" target="_self">TaskRepo</a>, courseRepo: <a href="../injectables/CourseRepo.html" target="_self">CourseRepo</a>, authorisation: <a href="../injectables/AuthorizationService.html" target="_self">AuthorizationService</a>, taskCopyService: <a href="../injectables/TaskCopyService.html" target="_self">TaskCopyService</a>, filesStorageClient: <a href="../injectables/FilesStorageClientAdapterService.html" target="_self">FilesStorageClientAdapterService</a>)</code>
+<code>constructor(taskRepo: <a href="../injectables/TaskRepo.html" target="_self">TaskRepo</a>, courseRepo: <a href="../injectables/CourseRepo.html" target="_self">CourseRepo</a>, authorisation: <a href="../injectables/AuthorizationService.html" target="_self">AuthorizationService</a>, taskCopyService: <a href="../injectables/TaskCopyService.html" target="_self">TaskCopyService</a>, copyHelperService: <a href="../injectables/CopyHelperService.html" target="_self">CopyHelperService</a>, filesStorageClient: <a href="../injectables/FilesStorageClientAdapterService.html" target="_self">FilesStorageClientAdapterService</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">apps/server/src/modules/task/uc/task-copy.uc.ts:15</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">apps/server/src/modules/task/uc/task-copy.uc.ts:24</a></div>
                             </td>
                         </tr>
 
@@ -176,6 +176,18 @@
                                                     
                                                 </tr>
                                                 <tr>
+                                                        <td>copyHelperService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/CopyHelperService.html" target="_self" >CopyHelperService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
                                                         <td>filesStorageClient</td>
                                                   
                                                         <td>
@@ -223,8 +235,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="24"
-                            class="link-to-prism">apps/server/src/modules/task/uc/task-copy.uc.ts:24</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="34"
+                            class="link-to-prism">apps/server/src/modules/task/uc/task-copy.uc.ts:34</a></div>
                 </td>
             </tr>
 
@@ -312,15 +324,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>getDestinationCourse(courseId: string | undefined, user: <a href="../interfaces/User.html" target="_self">User</a>)</code>
+                    <code>getDestinationCourse(courseId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, user: <a href="../interfaces/User.html" target="_self">User</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="44"
-                            class="link-to-prism">apps/server/src/modules/task/uc/task-copy.uc.ts:44</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="66"
+                            class="link-to-prism">apps/server/src/modules/task/uc/task-copy.uc.ts:66</a></div>
                 </td>
             </tr>
 
@@ -343,7 +355,7 @@
                                 <tr>
                                     <td>courseId</td>
                                     <td>
-                                            <code>string | undefined</code>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
                                     </td>
 
                                     <td>
@@ -387,7 +399,16 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ForbiddenException, Injectable, NotFoundException } from &#x27;@nestjs/common&#x27;;
-import { CopyStatus, EntityId, PermissionContextBuilder, Task, TaskCopyService, User } from &#x27;@shared/domain&#x27;;
+import {
+	CopyHelperService,
+	CopyStatus,
+	Course,
+	EntityId,
+	PermissionContextBuilder,
+	Task,
+	TaskCopyService,
+	User,
+} from &#x27;@shared/domain&#x27;;
 import { CourseRepo, TaskRepo } from &#x27;@shared/repo&#x27;;
 import { AuthorizationService } from &#x27;@src/modules/authorization&#x27;;
 import { FilesStorageClientAdapterService } from &#x27;@src/modules/files-storage-client&#x27;;
@@ -406,6 +427,7 @@ export class TaskCopyUC {
 		private readonly courseRepo: CourseRepo,
 		private readonly authorisation: AuthorizationService,
 		private readonly taskCopyService: TaskCopyService,
+		private readonly copyHelperService: CopyHelperService,
 		private readonly filesStorageClient: FilesStorageClientAdapterService
 	) {}
 
@@ -415,29 +437,38 @@ export class TaskCopyUC {
 		if (!this.authorisation.hasPermission(user, originalTask, PermissionContextBuilder.read([]))) {
 			throw new NotFoundException(&#x27;could not find task to copy&#x27;);
 		}
-		const destinationCourse &#x3D; await this.getDestinationCourse(parentParams.courseId, user);
+
+		let existingNames: string[] &#x3D; [];
+		let destinationCourse: Course | undefined;
+
+		if (parentParams.courseId) {
+			destinationCourse &#x3D; await this.getDestinationCourse(parentParams.courseId, user);
+			const [existingTasks] &#x3D; await this.taskRepo.findBySingleParent(&#x27;&#x27;, parentParams.courseId);
+			existingNames &#x3D; (existingTasks || []).map((t) &#x3D;&gt; t.name);
+		}
+
+		const copyName &#x3D; this.copyHelperService.deriveCopyName(originalTask.name, existingNames);
 		const status &#x3D; this.taskCopyService.copyTaskMetadata({
 			originalTask,
 			destinationCourse,
 			user,
+			copyName,
 		});
 
 		if (status.copyEntity) {
 			const taskCopy &#x3D; status.copyEntity as Task;
 			await this.taskRepo.save(taskCopy);
 		}
+
 		return status;
 	}
 
-	private async getDestinationCourse(courseId: string | undefined, user: User) {
-		if (courseId) {
-			const destinationCourse &#x3D; await this.courseRepo.findById(courseId);
-			if (!this.authorisation.hasPermission(user, destinationCourse, PermissionContextBuilder.write([]))) {
-				throw new ForbiddenException(&#x27;you dont have permission to add to this course&#x27;);
-			}
-			return destinationCourse;
+	private async getDestinationCourse(courseId: string, user: User) {
+		const destinationCourse &#x3D; await this.courseRepo.findById(courseId);
+		if (!this.authorisation.hasPermission(user, destinationCourse, PermissionContextBuilder.write([]))) {
+			throw new ForbiddenException(&#x27;you dont have permission to add to this course&#x27;);
 		}
-		return undefined;
+		return destinationCourse;
 	}
 }
 </code></pre>
