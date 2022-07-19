@@ -641,15 +641,15 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>getOAuthError(error)</code>
+<code>getOAuthError(error, provider: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="182"
-                            class="link-to-prism">apps/server/src/modules/oauth/service/oauth.service.ts:182</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="183"
+                            class="link-to-prism">apps/server/src/modules/oauth/service/oauth.service.ts:183</a></div>
                 </td>
             </tr>
 
@@ -664,12 +664,27 @@
                             <thead>
                                 <tr>
                                     <td>Name</td>
+                                    <td>Type</td>
                                     <td>Optional</td>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <td>error</td>
+                                    <td>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>provider</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
 
                                     <td>
                                         No
@@ -713,8 +728,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="166"
-                            class="link-to-prism">apps/server/src/modules/oauth/service/oauth.service.ts:166</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="167"
+                            class="link-to-prism">apps/server/src/modules/oauth/service/oauth.service.ts:167</a></div>
                 </td>
             </tr>
 
@@ -1178,7 +1193,8 @@ export class OAuthService {
 			return oauthResponse;
 		} catch (error) {
 			this.logger.log(error);
-			return this.getOAuthError(error as string);
+			const system: System &#x3D; await this.systemRepo.findById(systemId);
+			return this.getOAuthError(error as string, system.oauthConfig?.provider as string);
 		}
 	}
 
@@ -1198,7 +1214,7 @@ export class OAuthService {
 		return oauthResponse;
 	}
 
-	getOAuthError(error: unknown): OAuthResponse {
+	getOAuthError(error: unknown, provider: string): OAuthResponse {
 		this.logger.error(error);
 		const oauthResponse &#x3D; new OAuthResponse();
 		if (error instanceof OAuthSSOError) {
@@ -1206,7 +1222,9 @@ export class OAuthService {
 		} else {
 			oauthResponse.errorcode &#x3D; &#x27;oauth_login_failed&#x27;;
 		}
-		oauthResponse.redirect &#x3D; &#x60;${Configuration.get(&#x27;HOST&#x27;) as string}/login?error&#x3D;${oauthResponse.errorcode}&#x60;;
+		oauthResponse.redirect &#x3D; &#x60;${Configuration.get(&#x27;HOST&#x27;) as string}/login?error&#x3D;${
+			oauthResponse.errorcode
+		}&amp;provider&#x3D;${provider}&#x60;;
 		return oauthResponse;
 	}
 }
