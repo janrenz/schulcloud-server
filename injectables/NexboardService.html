@@ -40,7 +40,7 @@
 
 <ol class="breadcrumb">
   <li>Injectables</li>
-  <li >EtherpadService</li>
+  <li >NexboardService</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -58,7 +58,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/shared/domain/service/etherpad.service.ts</code>
+            <code>apps/server/src/shared/domain/service/nexboard.service.ts</code>
         </p>
 
 
@@ -80,7 +80,7 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Async</span>
-                                <a href="#createEtherpad" >createEtherpad</a>
+                                <a href="#createNexboard" >createNexboard</a>
                             </li>
                         </ul>
                     </td>
@@ -105,7 +105,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">apps/server/src/shared/domain/service/etherpad.service.ts:9</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">apps/server/src/shared/domain/service/nexboard.service.ts:9</a></div>
                             </td>
                         </tr>
 
@@ -164,18 +164,18 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="createEtherpad"></a>
+                    <a name="createNexboard"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
-                        <span ><b>createEtherpad</b></span>
-                        <a href="#createEtherpad"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>createNexboard</b></span>
+                        <a href="#createNexboard"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>createEtherpad(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, courseId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, title: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    <code>createNexboard(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, title: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, description: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
@@ -183,7 +183,7 @@
             <tr>
                 <td class="col-md-4">
                     <div class="io-line">Defined in <a href="" data-line="12"
-                            class="link-to-prism">apps/server/src/shared/domain/service/etherpad.service.ts:12</a></div>
+                            class="link-to-prism">apps/server/src/shared/domain/service/nexboard.service.ts:12</a></div>
                 </td>
             </tr>
 
@@ -216,7 +216,7 @@
 
                                 </tr>
                                 <tr>
-                                    <td>courseId</td>
+                                    <td>title</td>
                                     <td>
                                                 <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
                                     </td>
@@ -228,7 +228,7 @@
 
                                 </tr>
                                 <tr>
-                                    <td>title</td>
+                                    <td>description</td>
                                     <td>
                                                 <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
                                     </td>
@@ -245,7 +245,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>    <code>Promise&lt;string | &gt;</code>
+                        <b>Returns : </b>    <code>Promise&lt;literal type | &gt;</code>
 
                     </div>
                     <div class="io-description">
@@ -266,23 +266,27 @@ import { Logger } from &#x27;@src/core/logger&#x27;;
 import { Injectable } from &#x27;@nestjs/common&#x27;;
 import { EntityId } from &#x27;@shared/domain/types&#x27;;
 
-export type PadResponse &#x3D; { data: { padID: string } };
+export type NexboardResponse &#x3D; { id: string; publicLink: string };
 
 @Injectable()
-export class EtherpadService {
+export class NexboardService {
 	constructor(private readonly feathersServiceProvider: FeathersServiceProvider, private logger: Logger) {}
 
-	async createEtherpad(userId: EntityId, courseId: string, title: string): Promise&lt;string | false&gt; {
+	async createNexboard(
+		userId: EntityId,
+		title: string,
+		description: string
+	): Promise&lt;{ board: string; url: string } | false&gt; {
 		const data &#x3D; {
-			courseId,
-			padName: title,
+			title,
+			description,
 		};
 		try {
-			const service &#x3D; this.feathersServiceProvider.getService(&#x27;/etherpad/pads&#x27;);
-			const pad &#x3D; (await service.create(data, { account: { userId } })) as PadResponse;
-			return pad.data.padID;
+			const service &#x3D; this.feathersServiceProvider.getService(&#x27;/nexboard/boards&#x27;);
+			const nexBoard &#x3D; (await service.create(data, { account: { userId } })) as NexboardResponse;
+			return { board: nexBoard.id, url: nexBoard.publicLink };
 		} catch (error) {
-			this.logger.error(&#x27;Could not create new Etherpad&#x27;, error);
+			this.logger.error(&#x27;Could not create new Nexboard&#x27;, error);
 			return false;
 		}
 	}
@@ -330,7 +334,7 @@ export class EtherpadService {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
-            var COMPODOC_CURRENT_PAGE_URL = 'EtherpadService.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'NexboardService.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

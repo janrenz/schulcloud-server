@@ -103,6 +103,11 @@
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#copyNexboard" >copyNexboard</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
                                 <a href="#lessonStatusContent" >lessonStatusContent</a>
                             </li>
                             <li>
@@ -128,12 +133,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(copyHelperService: <a href="../injectables/CopyHelperService.html" target="_self">CopyHelperService</a>, taskCopyService: <a href="../injectables/TaskCopyService.html" target="_self">TaskCopyService</a>, etherpadService: <a href="../injectables/EtherpadService.html" target="_self">EtherpadService</a>)</code>
+<code>constructor(copyHelperService: <a href="../injectables/CopyHelperService.html" target="_self">CopyHelperService</a>, taskCopyService: <a href="../injectables/TaskCopyService.html" target="_self">TaskCopyService</a>, etherpadService: <a href="../injectables/EtherpadService.html" target="_self">EtherpadService</a>, nexboardService: <a href="../injectables/NexboardService.html" target="_self">NexboardService</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">apps/server/src/shared/domain/service/lesson-copy.service.ts:26</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">apps/server/src/shared/domain/service/lesson-copy.service.ts:28</a></div>
                             </td>
                         </tr>
 
@@ -186,6 +191,18 @@
                                                     </td>
                                                     
                                                 </tr>
+                                                <tr>
+                                                        <td>nexboardService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/NexboardService.html" target="_self" >NexboardService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
                                         </tbody>
                                     </table>
                             </div>
@@ -223,8 +240,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="141"
-                            class="link-to-prism">apps/server/src/shared/domain/service/lesson-copy.service.ts:141</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="160"
+                            class="link-to-prism">apps/server/src/shared/domain/service/lesson-copy.service.ts:160</a></div>
                 </td>
             </tr>
 
@@ -307,8 +324,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="112"
-                            class="link-to-prism">apps/server/src/shared/domain/service/lesson-copy.service.ts:112</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="131"
+                            class="link-to-prism">apps/server/src/shared/domain/service/lesson-copy.service.ts:131</a></div>
                 </td>
             </tr>
 
@@ -378,8 +395,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="33"
-                            class="link-to-prism">apps/server/src/shared/domain/service/lesson-copy.service.ts:33</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="36"
+                            class="link-to-prism">apps/server/src/shared/domain/service/lesson-copy.service.ts:36</a></div>
                 </td>
             </tr>
 
@@ -450,8 +467,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="63"
-                            class="link-to-prism">apps/server/src/shared/domain/service/lesson-copy.service.ts:63</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="66"
+                            class="link-to-prism">apps/server/src/shared/domain/service/lesson-copy.service.ts:66</a></div>
                 </td>
             </tr>
 
@@ -533,8 +550,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="118"
-                            class="link-to-prism">apps/server/src/shared/domain/service/lesson-copy.service.ts:118</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="137"
+                            class="link-to-prism">apps/server/src/shared/domain/service/lesson-copy.service.ts:137</a></div>
                 </td>
             </tr>
 
@@ -622,6 +639,90 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="copyNexboard"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span class="modifier">Async</span>
+                        <span ><b>copyNexboard</b></span>
+                        <a href="#copyNexboard"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>copyNexboard(originalElement: <a href="../interfaces/IComponentProperties.html" target="_self">IComponentProperties</a>, params: <a href="../entitys/Lesson.html" target="_self">LessonCopyParams</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="182"
+                            class="link-to-prism">apps/server/src/shared/domain/service/lesson-copy.service.ts:182</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>originalElement</td>
+                                    <td>
+                                                <code><a href="../interfaces/IComponentProperties.html" target="_self" >IComponentProperties</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>params</td>
+                                    <td>
+                                                <code><a href="../entitys/Lesson.html" target="_self" >LessonCopyParams</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../interfaces/IComponentProperties.html" target="_self" >Promise&lt;IComponentProperties | &gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="lessonStatusContent"></a>
                     <span class="name">
                         <span class="modifier">Private</span>
@@ -640,8 +741,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="173"
-                            class="link-to-prism">apps/server/src/shared/domain/service/lesson-copy.service.ts:173</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="208"
+                            class="link-to-prism">apps/server/src/shared/domain/service/lesson-copy.service.ts:208</a></div>
                 </td>
             </tr>
 
@@ -712,8 +813,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="164"
-                            class="link-to-prism">apps/server/src/shared/domain/service/lesson-copy.service.ts:164</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="199"
+                            class="link-to-prism">apps/server/src/shared/domain/service/lesson-copy.service.ts:199</a></div>
                 </td>
             </tr>
 
@@ -739,11 +840,13 @@
 import { randomBytes } from &#x27;crypto&#x27;;
 import { Configuration } from &#x27;@hpi-schul-cloud/commons&#x27;;
 import { EtherpadService } from &#x27;./etherpad.service&#x27;;
+import { NexboardService } from &#x27;./nexboard.service&#x27;;
 import {
 	ComponentType,
 	Course,
 	IComponentEtherpadProperties,
 	IComponentGeogebraProperties,
+	IComponentNexboardProperties,
 	IComponentProperties,
 	Lesson,
 	User,
@@ -764,7 +867,8 @@ export class LessonCopyService {
 	constructor(
 		private readonly copyHelperService: CopyHelperService,
 		private readonly taskCopyService: TaskCopyService,
-		private readonly etherpadService: EtherpadService
+		private readonly etherpadService: EtherpadService,
+		private readonly nexboardService: NexboardService
 	) {}
 
 	async copyLesson(params: LessonCopyParams): Promise&lt;CopyStatus&gt; {
@@ -805,6 +909,7 @@ export class LessonCopyService {
 		contentStatus: CopyStatus[];
 	}&gt; {
 		const etherpadEnabled &#x3D; Configuration.get(&#x27;FEATURE_ETHERPAD_ENABLED&#x27;) as boolean;
+		const nexboardEnabled &#x3D; Configuration.get(&#x27;FEATURE_NEXBOARD_ENABLED&#x27;) as boolean;
 		const copiedContent: IComponentProperties[] &#x3D; [];
 		const copiedContentStatus: CopyStatus[] &#x3D; [];
 		for (let i &#x3D; 0; i &lt; content.length; i +&#x3D; 1) {
@@ -840,6 +945,21 @@ export class LessonCopyService {
 					etherpadStatus.status &#x3D; CopyStatusEnum.FAIL;
 				}
 				copiedContentStatus.push(etherpadStatus);
+			}
+			if (element.component &#x3D;&#x3D;&#x3D; ComponentType.NEXBOARD &amp;&amp; nexboardEnabled) {
+				// eslint-disable-next-line no-await-in-loop
+				const nexboardContent &#x3D; await this.copyNexboard(element, params);
+				const nexboardStatus &#x3D; {
+					title: element.title,
+					type: CopyElementType.LESSON_CONTENT,
+					status: CopyStatusEnum.PARTIAL,
+				};
+				if (nexboardContent) {
+					copiedContent.push(nexboardContent);
+				} else {
+					nexboardStatus.status &#x3D; CopyStatusEnum.FAIL;
+				}
+				copiedContentStatus.push(nexboardStatus);
 			}
 		}
 		const contentStatus &#x3D; this.lessonStatusContent(copiedContentStatus);
@@ -886,12 +1006,28 @@ export class LessonCopyService {
 		const etherpadPadId &#x3D; await this.etherpadService.createEtherpad(
 			params.user.id,
 			params.destinationCourse.id,
-			content.title,
-			&#x27;&#x27;
+			content.title
 		);
 		if (etherpadPadId) {
 			const etherpadUri &#x3D; Configuration.get(&#x27;ETHERPAD__PAD_URI&#x27;) as string;
 			content.url &#x3D; &#x60;${etherpadUri}/${etherpadPadId}&#x60;;
+			copy.content &#x3D; content;
+			return copy;
+		}
+		return false;
+	}
+
+	private async copyNexboard(
+		originalElement: IComponentProperties,
+		params: LessonCopyParams
+	): Promise&lt;IComponentProperties | false&gt; {
+		const copy &#x3D; { ...originalElement } as IComponentProperties;
+		const content &#x3D; { ...copy.content, url: &#x27;&#x27;, board: &#x27;&#x27; } as IComponentNexboardProperties;
+
+		const nexboard &#x3D; await this.nexboardService.createNexboard(params.user.id, content.title, content.description);
+		if (nexboard) {
+			content.url &#x3D; nexboard.url;
+			content.board &#x3D; nexboard.board;
 			copy.content &#x3D; content;
 			return copy;
 		}
