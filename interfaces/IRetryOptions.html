@@ -255,6 +255,23 @@ export class KeycloakConsole {
 		);
 	}
 
+	@Command({
+		command: &#x27;configure&#x27;,
+		description: &#x27;Configures Keycloak identity providers.&#x27;,
+		options: KeycloakConsole.retryFlags,
+	})
+	async configureIdentityProviders(options: IRetryOptions): Promise&lt;void&gt; {
+		await this.repeatCommand(
+			&#x27;configure&#x27;,
+			async () &#x3D;&gt; {
+				const count &#x3D; await this.keycloakManagementUc.configureIdentityProviders();
+				this.console.info(&#x60;Configured ${count} identity provider(s).&#x60;);
+			},
+			options.retryCount,
+			options.retryDelay
+		);
+	}
+
 	private async repeatCommand&lt;T&gt;(
 		commandName: string,
 		command: () &#x3D;&gt; Promise&lt;T&gt;,

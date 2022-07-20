@@ -617,13 +617,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/KeycloakModule.html" data-type="entity-link" >KeycloakModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#controllers-links-module-KeycloakModule-a0d0b261ecd3600dc811a8c032442359d956739820f7766f5397429c579ccdb64777f122eca78bd8a77c553fd7155745ed45d49062df6adc911e37e5a06d03b7"' : 'data-target="#xs-controllers-links-module-KeycloakModule-a0d0b261ecd3600dc811a8c032442359d956739820f7766f5397429c579ccdb64777f122eca78bd8a77c553fd7155745ed45d49062df6adc911e37e5a06d03b7"' }>
+                                            'data-target="#controllers-links-module-KeycloakModule-2c9428cc1bc44404732b9428bdd0e1ff2b3bbfd9646d4200473342320e1e212c124ae5b4f168b2dde2f624b517374ec184697171f704abbe3bcc5e7ee997a589"' : 'data-target="#xs-controllers-links-module-KeycloakModule-2c9428cc1bc44404732b9428bdd0e1ff2b3bbfd9646d4200473342320e1e212c124ae5b4f168b2dde2f624b517374ec184697171f704abbe3bcc5e7ee997a589"' }>
                                             <span class="icon ion-md-swap"></span>
                                             <span>Controllers</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="controllers-links-module-KeycloakModule-a0d0b261ecd3600dc811a8c032442359d956739820f7766f5397429c579ccdb64777f122eca78bd8a77c553fd7155745ed45d49062df6adc911e37e5a06d03b7"' :
-                                            'id="xs-controllers-links-module-KeycloakModule-a0d0b261ecd3600dc811a8c032442359d956739820f7766f5397429c579ccdb64777f122eca78bd8a77c553fd7155745ed45d49062df6adc911e37e5a06d03b7"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="controllers-links-module-KeycloakModule-2c9428cc1bc44404732b9428bdd0e1ff2b3bbfd9646d4200473342320e1e212c124ae5b4f168b2dde2f624b517374ec184697171f704abbe3bcc5e7ee997a589"' :
+                                            'id="xs-controllers-links-module-KeycloakModule-2c9428cc1bc44404732b9428bdd0e1ff2b3bbfd9646d4200473342320e1e212c124ae5b4f168b2dde2f624b517374ec184697171f704abbe3bcc5e7ee997a589"' }>
                                             <li class="link">
                                                 <a href="controllers/KeycloakManagementController.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >KeycloakManagementController</a>
                                             </li>
@@ -631,18 +631,21 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                     </li>
                                 <li class="chapter inner">
                                     <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                        'data-target="#injectables-links-module-KeycloakModule-a0d0b261ecd3600dc811a8c032442359d956739820f7766f5397429c579ccdb64777f122eca78bd8a77c553fd7155745ed45d49062df6adc911e37e5a06d03b7"' : 'data-target="#xs-injectables-links-module-KeycloakModule-a0d0b261ecd3600dc811a8c032442359d956739820f7766f5397429c579ccdb64777f122eca78bd8a77c553fd7155745ed45d49062df6adc911e37e5a06d03b7"' }>
+                                        'data-target="#injectables-links-module-KeycloakModule-2c9428cc1bc44404732b9428bdd0e1ff2b3bbfd9646d4200473342320e1e212c124ae5b4f168b2dde2f624b517374ec184697171f704abbe3bcc5e7ee997a589"' : 'data-target="#xs-injectables-links-module-KeycloakModule-2c9428cc1bc44404732b9428bdd0e1ff2b3bbfd9646d4200473342320e1e212c124ae5b4f168b2dde2f624b517374ec184697171f704abbe3bcc5e7ee997a589"' }>
                                         <span class="icon ion-md-arrow-round-down"></span>
                                         <span>Injectables</span>
                                         <span class="icon ion-ios-arrow-down"></span>
                                     </div>
-                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-KeycloakModule-a0d0b261ecd3600dc811a8c032442359d956739820f7766f5397429c579ccdb64777f122eca78bd8a77c553fd7155745ed45d49062df6adc911e37e5a06d03b7"' :
-                                        'id="xs-injectables-links-module-KeycloakModule-a0d0b261ecd3600dc811a8c032442359d956739820f7766f5397429c579ccdb64777f122eca78bd8a77c553fd7155745ed45d49062df6adc911e37e5a06d03b7"' }>
+                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-KeycloakModule-2c9428cc1bc44404732b9428bdd0e1ff2b3bbfd9646d4200473342320e1e212c124ae5b4f168b2dde2f624b517374ec184697171f704abbe3bcc5e7ee997a589"' :
+                                        'id="xs-injectables-links-module-KeycloakModule-2c9428cc1bc44404732b9428bdd0e1ff2b3bbfd9646d4200473342320e1e212c124ae5b4f168b2dde2f624b517374ec184697171f704abbe3bcc5e7ee997a589"' }>
                                         <li class="link">
                                             <a href="injectables/KeycloakAdministrationService.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >KeycloakAdministrationService</a>
                                         </li>
                                         <li class="link">
                                             <a href="injectables/KeycloakManagementUc.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >KeycloakManagementUc</a>
+                                        </li>
+                                        <li class="link">
+                                            <a href="injectables/SystemRepo.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >SystemRepo</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -2322,6 +2325,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="interfaces/IGridElement.html" data-type="entity-link" >IGridElement</a>
                             </li>
                             <li class="link">
+                                <a href="interfaces/IIdentityProviderConfig.html" data-type="entity-link" >IIdentityProviderConfig</a>
+                            </li>
+                            <li class="link">
                                 <a href="interfaces/IImportUserProperties.html" data-type="entity-link" >IImportUserProperties</a>
                             </li>
                             <li class="link">
@@ -2344,6 +2350,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="interfaces/IKeycloakSettings.html" data-type="entity-link" >IKeycloakSettings</a>
+                            </li>
+                            <li class="link">
+                                <a href="interfaces/ILdapIdentityProviderConfig.html" data-type="entity-link" >ILdapIdentityProviderConfig</a>
                             </li>
                             <li class="link">
                                 <a href="interfaces/ILearnroom.html" data-type="entity-link" >ILearnroom</a>
@@ -2371,6 +2380,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="interfaces/InlineAttachment.html" data-type="entity-link" >InlineAttachment</a>
+                            </li>
+                            <li class="link">
+                                <a href="interfaces/IOidcIdentityProviderConfig.html" data-type="entity-link" >IOidcIdentityProviderConfig</a>
                             </li>
                             <li class="link">
                                 <a href="interfaces/IPagination.html" data-type="entity-link" >IPagination</a>

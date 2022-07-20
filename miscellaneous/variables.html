@@ -1580,6 +1580,7 @@ toJSON: () =&gt; object;
 	AVAILABLE_LOG_LEVELS: (Configuration.get(&#x27;NEST_AVAILABLE_LOG_LEVELS&#x27;) as string).split(&#x27;,&#x27;) as AvailableLogLevel[],
 	AVAILABLE_LANGUAGES: (Configuration.get(&#x27;I18N__AVAILABLE_LANGUAGES&#x27;) as string).split(&#x27;,&#x27;),
 	FILE_STORAGE_BASE_URL: Configuration.get(&#x27;FILES_STORAGE__SERVICE_BASE_URL&#x27;) as string,
+	NODE_ENV: Configuration.get(&#x27;NODE_ENV&#x27;) as NodeEnvType,
 }</code>
                     </td>
                 </tr>

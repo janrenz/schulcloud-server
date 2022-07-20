@@ -121,6 +121,26 @@ transition from WildFly to Quarkus as application server there is currently no d
 <li><code>docker cp ./backup/keycloak keycloak:/tmp/realms</code></li>
 <li><code>docker exec keycloak /opt/keycloak/bin/kc.sh import --dir /tmp/realms</code></li>
 </ol>
+<h2 id="npm-commands">NPM Commands</h2>
+<p>A list of available NPM commands regarding Keycloak / IDM.</p>
+<table class="table table-bordered compodoc-table">
+<thead>
+<tr>
+<th align="left">Command</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">setup:idm:seed</td>
+<td align="left">Seeds users for development and testing purpose into the IDM</td>
+</tr>
+<tr>
+<td align="left">setup:idm:configure</td>
+<td align="left">Configures identity and authentication providers and other stuff in the IDM</td>
+</tr>
+</tbody>
+</table>
 
                    </div><div class="search-results">
     <div class="has-results">
