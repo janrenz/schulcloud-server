@@ -1338,6 +1338,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                     <a href="entities/LessonBoardElement.html" data-type="entity-link" >LessonBoardElement</a>
                                 </li>
                                 <li class="link">
+                                    <a href="entities/Material.html" data-type="entity-link" >Material</a>
+                                </li>
+                                <li class="link">
                                     <a href="entities/News.html" data-type="entity-link" >News</a>
                                 </li>
                                 <li class="link">
@@ -1703,6 +1706,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="classes/LessonScope.html" data-type="entity-link" >LessonScope</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/MaterialFactory.html" data-type="entity-link" >MaterialFactory</a>
                             </li>
                             <li class="link">
                                 <a href="classes/MongoPatterns.html" data-type="entity-link" >MongoPatterns</a>
@@ -2189,6 +2195,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                     <a href="injectables/MailService.html" data-type="entity-link" >MailService</a>
                                 </li>
                                 <li class="link">
+                                    <a href="injectables/MaterialsRepo.html" data-type="entity-link" >MaterialsRepo</a>
+                                </li>
+                                <li class="link">
                                     <a href="injectables/NewsRepo.html" data-type="entity-link" >NewsRepo</a>
                                 </li>
                                 <li class="link">
@@ -2559,6 +2568,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="interfaces/ILoggerConfig.html" data-type="entity-link" >ILoggerConfig</a>
                             </li>
                             <li class="link">
+                                <a href="interfaces/IMaterialProperties.html" data-type="entity-link" >IMaterialProperties</a>
+                            </li>
+                            <li class="link">
                                 <a href="interfaces/INameMatch.html" data-type="entity-link" >INameMatch</a>
                             </li>
                             <li class="link">
@@ -2587,6 +2599,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="interfaces/IReferenceId.html" data-type="entity-link" >IReferenceId</a>
+                            </li>
+                            <li class="link">
+                                <a href="interfaces/IRelatedResourceProperties.html" data-type="entity-link" >IRelatedResourceProperties</a>
                             </li>
                             <li class="link">
                                 <a href="interfaces/IRepoLoader.html" data-type="entity-link" >IRepoLoader</a>
@@ -2629,6 +2644,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="interfaces/ISystemProperties.html" data-type="entity-link" >ISystemProperties</a>
+                            </li>
+                            <li class="link">
+                                <a href="interfaces/ITargetGroupProperties.html" data-type="entity-link" >ITargetGroupProperties</a>
                             </li>
                             <li class="link">
                                 <a href="interfaces/ITaskProperties.html" data-type="entity-link" >ITaskProperties</a>

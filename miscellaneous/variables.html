@@ -289,6 +289,9 @@
                             <a href="#mapUserToCurrentUser" title="apps/server/src/shared/testing/map-user-to-current-user.ts" ><b>mapUserToCurrentUser</b>&nbsp;&nbsp;&nbsp;(apps/.../map-user-to-current-user.ts)</a>
                         </li>
                         <li>
+                            <a href="#materialFactory" title="apps/server/src/shared/testing/factory/material.factory.ts" ><b>materialFactory</b>&nbsp;&nbsp;&nbsp;(apps/.../material.factory.ts)</a>
+                        </li>
+                        <li>
                             <a href="#NEWS_SOURCES" title="apps/server/src/modules/news/controller/dto/news.response.ts" ><b>NEWS_SOURCES</b>&nbsp;&nbsp;&nbsp;(apps/.../news.response.ts)</a>
                         </li>
                         <li>
@@ -519,6 +522,7 @@
 	File,
 	StorageProvider,
 	Lesson,
+	Material,
 	Role,
 	School,
 	SchoolRoles,
@@ -4220,6 +4224,7 @@ You shall not explicitly declare the AMQPConnection in your modules since it wil
 		course,
 		contents,
 		hidden,
+		materials: [],
 	};
 })</code>
                     </td>
@@ -4253,6 +4258,42 @@ You shall not explicitly declare the AMQPConnection in your modules since it wil
 	};
 	return currentUser as ICurrentUser; // TODO is partial!
 }</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>apps/server/src/shared/testing/factory/material.factory.ts</h3>
+    <section>
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="materialFactory"></a>
+                    <span class="name">
+                        <span ><b>materialFactory</b></span>
+                        <a href="#materialFactory"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>MaterialFactory.define&lt;Material, IMaterialProperties&gt;(Material, ({ sequence }) &#x3D;&gt; {
+	return {
+		client: &#x27;test material client&#x27;,
+		description: &#x27;test material description&#x27;,
+		license: [],
+		merlinReference: &#x27;&#x27;,
+		relatedResources: [],
+		subjects: [],
+		tags: [],
+		targetGroups: [],
+		title: &#x60;material #${sequence}&#x60;,
+		url: &#x27;test material url&#x27;,
+	};
+})</code>
                     </td>
                 </tr>
 
