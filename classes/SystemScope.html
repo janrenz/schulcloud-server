@@ -297,7 +297,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>withOauthConfigOnly(only)</code>
+<code>withOauthConfigOnly()</code>
                 </td>
             </tr>
 
@@ -314,40 +314,8 @@
                 <td class="col-md-4">
 
                     <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Optional</td>
-                                    <td>Default value</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>only</td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-                                    <td>
-                                        <code>false</code>
-                                    </td>
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
                         <b>Returns : </b>        <code><a href="../classes/SystemScope.html" target="_self" >SystemScope</a></code>
 
-                    </div>
-                    <div class="io-description">
-                        
                     </div>
                 </td>
             </tr>
@@ -447,10 +415,8 @@ export class SystemScope extends Scope&lt;System&gt; {
 		return this;
 	}
 
-	withOauthConfigOnly(only &#x3D; false): SystemScope {
-		if (only) {
-			this.addQuery({ oauthConfig: { $ne: null } });
-		}
+	withOauthConfigOnly(): SystemScope {
+		this.addQuery({ oauthConfig: { $ne: null } });
 		return this;
 	}
 }

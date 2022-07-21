@@ -224,8 +224,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="9"
-                            class="link-to-prism">apps/server/src/shared/testing/factory/team.factory.ts:9</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="10"
+                            class="link-to-prism">apps/server/src/shared/testing/factory/team.factory.ts:10</a></div>
                 </td>
             </tr>
 
@@ -1200,23 +1200,16 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ITeamProperties, Role, Team } from &#x27;@shared/domain&#x27;;
 import { DeepPartial } from &#x27;fishery&#x27;;
-import { userFactory } from &#x27;./user.factory&#x27;;
-import { BaseFactory } from &#x27;./base.factory&#x27;;
-import { schoolFactory } from &#x27;./school.factory&#x27;;
-import { roleFactory } from &#x27;./role.factory&#x27;;
+import { teamUserFactory } from &#x27;@shared/testing/factory/teamuser.factory&#x27;;
+import { schoolFactory } from &#x27;@shared/testing/factory/school.factory&#x27;;
+import { userFactory } from &#x27;@shared/testing/factory/user.factory&#x27;;
+import { BaseFactory } from &#x27;@shared/testing/factory/base.factory&#x27;;
+import { roleFactory } from &#x27;@shared/testing/factory/role.factory&#x27;;
 
 class TeamFactory extends BaseFactory&lt;Team, ITeamProperties&gt; {
 	withRoleAndUserId(role: Role, userId: string): this {
-		const school &#x3D; schoolFactory.build();
 		const params: DeepPartial&lt;ITeamProperties&gt; &#x3D; {
-			userIds: [
-				{
-					// eslint-disable-next-line @typescript-eslint/no-unsafe-call
-					userId: userFactory.buildWithId({ school, roles: [roleFactory.build({ roles: [role] })] }, userId),
-					schoolId: school,
-					role,
-				},
-			],
+			userIds: [teamUserFactory.withRoleAndUserId(role, userId).buildWithId()],
 		};
 		return this.params(params);
 	}

@@ -202,7 +202,7 @@ export class TeamUser {
 		this.schoolId &#x3D; teamUser.schoolId;
 	}
 
-	@ManyToOne({ entity: () &#x3D;&gt; Role })
+	@ManyToOne({ entity: () &#x3D;&gt; User })
 	userId: User;
 
 	@ManyToOne({ entity: () &#x3D;&gt; Role })

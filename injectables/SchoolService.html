@@ -83,6 +83,10 @@
                                 <a href="#createOrUpdateSchool" >createOrUpdateSchool</a>
                             </li>
                             <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#hasFeature" >hasFeature</a>
+                            </li>
+                            <li>
                                     <span class="modifier">Private</span>
                                     <span class="modifier">Async</span>
                                 <a href="#patchSchool" >patchSchool</a>
@@ -228,6 +232,89 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="hasFeature"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>hasFeature</b></span>
+                        <a href="#hasFeature"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>hasFeature(schoolId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, feature: <a href="../classes/School.html" target="_self">SchoolFeatures</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="34"
+                            class="link-to-prism">apps/server/src/modules/school/service/school.service.ts:34</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>schoolId</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>feature</td>
+                                    <td>
+                                                <code><a href="../classes/School.html" target="_self" >SchoolFeatures</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;boolean&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="patchSchool"></a>
                     <span class="name">
                         <span class="modifier">Private</span>
@@ -305,7 +392,7 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { SchoolMapper } from &#x27;@src/modules/school/mapper/school.mapper&#x27;;
 import { SchoolRepo } from &#x27;@shared/repo&#x27;;
 import { SchoolDto } from &#x27;@src/modules/school/uc/dto/school.dto&#x27;;
-import { School } from &#x27;@shared/domain&#x27;;
+import { School, EntityId, SchoolFeatures } from &#x27;@shared/domain&#x27;;
 import { Injectable } from &#x27;@nestjs/common&#x27;;
 
 @Injectable()
@@ -333,6 +420,11 @@ export class SchoolService {
 		await this.schoolRepo.save(patchedEntity);
 
 		return patchedEntity;
+	}
+
+	async hasFeature(schoolId: EntityId, feature: SchoolFeatures): Promise&lt;boolean&gt; {
+		const entity: School &#x3D; await this.schoolRepo.findById(schoolId);
+		return entity.features ? entity.features.includes(feature) : false;
 	}
 }
 </code></pre>

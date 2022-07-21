@@ -70,6 +70,12 @@
                             <a href="#AllowedAuthorizationEntityType" title="apps/server/src/modules/authorization/interfaces/index.ts" ><b>AllowedAuthorizationEntityType</b>&nbsp;&nbsp;&nbsp;(apps/.../index.ts)</a>
                         </li>
                         <li>
+                            <a href="#BBBRole" title="apps/server/src/modules/video-conference/config/bbb-join.config.ts" ><b>BBBRole</b>&nbsp;&nbsp;&nbsp;(apps/.../bbb-join.config.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#BBBStatus" title="apps/server/src/modules/video-conference/interface/bbb-response.interface.ts" ><b>BBBStatus</b>&nbsp;&nbsp;&nbsp;(apps/.../bbb-response.interface.ts)</a>
+                        </li>
+                        <li>
                             <a href="#BoardElementType" title="apps/server/src/shared/domain/entity/boardelement.entity.ts" ><b>BoardElementType</b>&nbsp;&nbsp;&nbsp;(apps/.../boardelement.entity.ts)</a>
                         </li>
                         <li>
@@ -101,6 +107,9 @@
                         </li>
                         <li>
                             <a href="#FilterRoleType" title="apps/server/src/modules/user-import/controller/dto/filter-import-user.params.ts" ><b>FilterRoleType</b>&nbsp;&nbsp;&nbsp;(apps/.../filter-import-user.params.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#GuestPolicy" title="apps/server/src/modules/video-conference/config/bbb-create.config.ts" ><b>GuestPolicy</b>&nbsp;&nbsp;&nbsp;(apps/.../bbb-create.config.ts)</a>
                         </li>
                         <li>
                             <a href="#ImportUserSortOrder" title="apps/server/src/modules/user-import/controller/dto/sort-import-user.params.ts" ><b>ImportUserSortOrder</b>&nbsp;&nbsp;&nbsp;(apps/.../sort-import-user.params.ts)</a>
@@ -154,10 +163,19 @@
                             <a href="#SysType" title="apps/server/src/shared/infra/identity-management/sys.type.ts" ><b>SysType</b>&nbsp;&nbsp;&nbsp;(apps/.../sys.type.ts)</a>
                         </li>
                         <li>
+                            <a href="#TargetModels" title="apps/server/src/shared/domain/entity/video-conference.entity.ts" ><b>TargetModels</b>&nbsp;&nbsp;&nbsp;(apps/.../video-conference.entity.ts)</a>
+                        </li>
+                        <li>
                             <a href="#TaskParentPermission" title="apps/server/src/modules/learnroom/uc/rooms.authorisation.service.ts" ><b>TaskParentPermission</b>&nbsp;&nbsp;&nbsp;(apps/.../rooms.authorisation.service.ts)</a>
                         </li>
                         <li>
                             <a href="#UserRole" title="apps/server/src/modules/user-import/controller/dto/user-role.ts" ><b>UserRole</b>&nbsp;&nbsp;&nbsp;(apps/.../user-role.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#VideoConferenceScope" title="apps/server/src/shared/domain/interface/vc-scope.enum.ts" ><b>VideoConferenceScope</b>&nbsp;&nbsp;&nbsp;(apps/.../vc-scope.enum.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#VideoConferenceState" title="apps/server/src/modules/video-conference/controller/dto/vc-state.enum.ts" ><b>VideoConferenceState</b>&nbsp;&nbsp;&nbsp;(apps/.../vc-state.enum.ts)</a>
                         </li>
                     </ul>
                 </td>
@@ -280,6 +298,82 @@
                         <tr>
                             <td class="col-md-4">
                                 <i>Value : </i><code>lessons</code>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;Team
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Value : </i><code>teams</code>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+    <h3>apps/server/src/modules/video-conference/config/bbb-join.config.ts</h3>
+    <section>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="BBBRole"></a>
+                        <span class="name "><b>BBBRole</b><a href="#BBBRole"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;MODERATOR
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Value : </i><code>MODERATOR</code>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;VIEWER
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Value : </i><code>VIEWER</code>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+    <h3>apps/server/src/modules/video-conference/interface/bbb-response.interface.ts</h3>
+    <section>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="BBBStatus"></a>
+                        <span class="name "><b>BBBStatus</b><a href="#BBBStatus"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;SUCCESS
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Value : </i><code>SUCCESS</code>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;ERROR
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Value : </i><code>ERROR</code>
                             </td>
                         </tr>
             </tbody>
@@ -934,6 +1028,49 @@
                         <tr>
                             <td class="col-md-4">
                                 <i>Value : </i><code>admin</code>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+    <h3>apps/server/src/modules/video-conference/config/bbb-create.config.ts</h3>
+    <section>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="GuestPolicy"></a>
+                        <span class="name "><b>GuestPolicy</b><a href="#GuestPolicy"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;ALWAYS_ACCEPT
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Value : </i><code>ALWAYS_ACCEPT</code>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;ALWAYS_DENY
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Value : </i><code>ALWAYS_DENY</code>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;ASK_MODERATOR
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Value : </i><code>ASK_MODERATOR</code>
                             </td>
                         </tr>
             </tbody>
@@ -3127,6 +3264,39 @@
             </tbody>
         </table>
 </section>
+    <h3>apps/server/src/shared/domain/entity/video-conference.entity.ts</h3>
+    <section>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="TargetModels"></a>
+                        <span class="name "><b>TargetModels</b><a href="#TargetModels"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;COURSES
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Value : </i><code>courses</code>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;EVENTS
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Value : </i><code>events</code>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
     <h3>apps/server/src/modules/learnroom/uc/rooms.authorisation.service.ts</h3>
     <section>
         <table class="table table-sm table-bordered">
@@ -3188,6 +3358,82 @@
                         <tr>
                             <td class="col-md-4">
                                 <i>Value : </i><code>admin</code>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+    <h3>apps/server/src/shared/domain/interface/vc-scope.enum.ts</h3>
+    <section>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="VideoConferenceScope"></a>
+                        <span class="name "><b>VideoConferenceScope</b><a href="#VideoConferenceScope"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;COURSE
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Value : </i><code>course</code>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;EVENT
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Value : </i><code>event</code>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+    <h3>apps/server/src/modules/video-conference/controller/dto/vc-state.enum.ts</h3>
+    <section>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="VideoConferenceState"></a>
+                        <span class="name "><b>VideoConferenceState</b><a href="#VideoConferenceState"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;NOT_STARTED
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Value : </i><code>NOT_STARTED</code>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;RUNNING
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Value : </i><code>RUNNING</code>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;FINISHED
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Value : </i><code>FINISHED</code>
                             </td>
                         </tr>
             </tbody>

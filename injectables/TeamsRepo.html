@@ -103,6 +103,14 @@
                                 <a href="#findById" >findById</a>
                             </li>
                             <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#populateRoles" >populateRoles</a>
+                            </li>
+                            <li>
+                                <a href="#create" >create</a>
+                            </li>
+                            <li>
                                     <span class="modifier">Async</span>
                                 <a href="#delete" >delete</a>
                             </li>
@@ -240,6 +248,153 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="populateRoles"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span class="modifier">Async</span>
+                        <span ><b>populateRoles</b></span>
+                        <a href="#populateRoles"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>populateRoles(roles: <a href="../entitys/Role.html" target="_self">Role[]</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="28"
+                            class="link-to-prism">apps/server/src/shared/repo/teams/teams.repo.ts:28</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>roles</td>
+                                    <td>
+                                                <code><a href="../entitys/Role.html" target="_self" >Role[]</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;void[]&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="create"></a>
+                    <span class="name">
+                        <span ><b>create</b></span>
+                        <a href="#create"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>create(entity: T)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../injectables/BaseRepo.html" target="_self" >BaseRepo</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../injectables/BaseRepo.html#source" target="_self" >BaseRepo:15</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>entity</td>
+                                    <td>
+                                            <code>T</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>T</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="delete"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
@@ -264,7 +419,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/BaseRepo.html#source" target="_self" >BaseRepo:19</a></code>
+                        <div class="io-line">Defined in         <code><a href="../injectables/BaseRepo.html#source" target="_self" >BaseRepo:23</a></code>
 </div>
                 </td>
             </tr>
@@ -341,7 +496,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/BaseRepo.html#source" target="_self" >BaseRepo:15</a></code>
+                        <div class="io-line">Defined in         <code><a href="../injectables/BaseRepo.html#source" target="_self" >BaseRepo:19</a></code>
 </div>
                 </td>
             </tr>
@@ -461,7 +616,7 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
-import { EntityId, Team } from &#x27;@shared/domain&#x27;;
+import { EntityId, Role, Team, TeamUser } from &#x27;@shared/domain&#x27;;
 import { BaseRepo } from &#x27;../base.repo&#x27;;
 
 @Injectable()
@@ -476,10 +631,26 @@ export class TeamsRepo extends BaseRepo&lt;Team&gt; {
 		const team &#x3D; await this._em.findOneOrFail(Team, { id }, { cache: this.cacheExpiration });
 
 		if (populate) {
-			await this._em.populate(team, [&#x27;userIds.role&#x27;]);
+			await Promise.all&lt;void&gt;(
+				team.userIds.map(async (teamUser: TeamUser): Promise&lt;void&gt; &#x3D;&gt; {
+					await this._em.populate(teamUser, [&#x27;role&#x27;]);
+					await this.populateRoles([teamUser.role]);
+				})
+			);
 		}
 
 		return team;
+	}
+
+	private async populateRoles(roles: Role[]): Promise&lt;void[]&gt; {
+		return Promise.all&lt;void&gt;(
+			roles.map(async (role: Role): Promise&lt;void&gt; &#x3D;&gt; {
+				if (!role.roles.isInitialized(true)) {
+					await this._em.populate(role, [&#x27;roles&#x27;]);
+					await this.populateRoles(role.roles.getItems());
+				}
+			})
+		);
 	}
 }
 </code></pre>

@@ -156,6 +156,9 @@
                                     <span class="modifier">Private</span>
                                 <a href="#resolvePermissionsByRoles" >resolvePermissionsByRoles</a>
                             </li>
+                            <li>
+                                <a href="#resolveTeamPermissions" >resolveTeamPermissions</a>
+                            </li>
                         </ul>
                     </td>
                 </tr>
@@ -524,7 +527,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/AuthorisationUtils.html#source" target="_self" >AuthorisationUtils:57</a></code>
+                        <div class="io-line">Defined in         <code><a href="../injectables/AuthorisationUtils.html#source" target="_self" >AuthorisationUtils:62</a></code>
 </div>
                 </td>
             </tr>
@@ -611,7 +614,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/AuthorisationUtils.html#source" target="_self" >AuthorisationUtils:76</a></code>
+                        <div class="io-line">Defined in         <code><a href="../injectables/AuthorisationUtils.html#source" target="_self" >AuthorisationUtils:81</a></code>
 </div>
                 </td>
             </tr>
@@ -698,7 +701,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/AuthorisationUtils.html#source" target="_self" >AuthorisationUtils:119</a></code>
+                        <div class="io-line">Defined in         <code><a href="../injectables/AuthorisationUtils.html#source" target="_self" >AuthorisationUtils:124</a></code>
 </div>
                 </td>
             </tr>
@@ -785,7 +788,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/AuthorisationUtils.html#source" target="_self" >AuthorisationUtils:95</a></code>
+                        <div class="io-line">Defined in         <code><a href="../injectables/AuthorisationUtils.html#source" target="_self" >AuthorisationUtils:100</a></code>
 </div>
                 </td>
             </tr>
@@ -922,7 +925,7 @@ const userRefProps = [&amp;#39;creator&amp;#39;]
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/AuthorisationUtils.html#source" target="_self" >AuthorisationUtils:45</a></code>
+                        <div class="io-line">Defined in         <code><a href="../injectables/AuthorisationUtils.html#source" target="_self" >AuthorisationUtils:50</a></code>
 </div>
                 </td>
             </tr>
@@ -1009,7 +1012,7 @@ const userRefProps = [&amp;#39;creator&amp;#39;]
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/AuthorisationUtils.html#source" target="_self" >AuthorisationUtils:64</a></code>
+                        <div class="io-line">Defined in         <code><a href="../injectables/AuthorisationUtils.html#source" target="_self" >AuthorisationUtils:69</a></code>
 </div>
                 </td>
             </tr>
@@ -1096,7 +1099,7 @@ const userRefProps = [&amp;#39;creator&amp;#39;]
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/AuthorisationUtils.html#source" target="_self" >AuthorisationUtils:130</a></code>
+                        <div class="io-line">Defined in         <code><a href="../injectables/AuthorisationUtils.html#source" target="_self" >AuthorisationUtils:135</a></code>
 </div>
                 </td>
             </tr>
@@ -1186,7 +1189,7 @@ For each other operations please define, use the string based permissions inside
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/AuthorisationUtils.html#source" target="_self" >AuthorisationUtils:112</a></code>
+                        <div class="io-line">Defined in         <code><a href="../injectables/AuthorisationUtils.html#source" target="_self" >AuthorisationUtils:117</a></code>
 </div>
                 </td>
             </tr>
@@ -1273,7 +1276,7 @@ For each other operations please define, use the string based permissions inside
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/AuthorisationUtils.html#source" target="_self" >AuthorisationUtils:14</a></code>
+                        <div class="io-line">Defined in         <code><a href="../injectables/AuthorisationUtils.html#source" target="_self" >AuthorisationUtils:13</a></code>
 </div>
                 </td>
             </tr>
@@ -1354,7 +1357,7 @@ Please make sure you populate them before calling this method.</p>
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/AuthorisationUtils.html#source" target="_self" >AuthorisationUtils:23</a></code>
+                        <div class="io-line">Defined in         <code><a href="../injectables/AuthorisationUtils.html#source" target="_self" >AuthorisationUtils:28</a></code>
 </div>
                 </td>
             </tr>
@@ -1379,6 +1382,81 @@ Please make sure you populate them before calling this method.</p>
                                     <td>inputRoles</td>
                                     <td>
                                                 <code><a href="../entitys/Role.html" target="_self" >Role[]</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>string[]</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="resolveTeamPermissions"></a>
+                    <span class="name">
+                        <span ><b>resolveTeamPermissions</b></span>
+                        <a href="#resolveTeamPermissions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>resolveTeamPermissions(teamUser: <a href="../interfaces/User.html" target="_self">TeamUser</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../injectables/AuthorisationUtils.html" target="_self" >AuthorisationUtils</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../injectables/AuthorisationUtils.html#source" target="_self" >AuthorisationUtils:22</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>teamUser</td>
+                                    <td>
+                                                <code><a href="../interfaces/User.html" target="_self" >TeamUser</a></code>
                                     </td>
 
                                     <td>

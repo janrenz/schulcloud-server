@@ -229,6 +229,9 @@ export abstract class BaseEntityWithTimestamps {
 	@Property({ onUpdate: () &#x3D;&gt; new Date() })
 	updatedAt &#x3D; new Date();
 }
+
+// These fields are explicitly ignored when updating an entity. See base.do.repo.ts.
+export const baseEntityProperties &#x3D; [&#x27;id&#x27;, &#x27;_id&#x27;, &#x27;updatedAt&#x27;, &#x27;createdAt&#x27;];
 </code></pre>
     </div>
 </div>

@@ -153,7 +153,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/BasePermission.html#source" target="_self" >BasePermission:17</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/BasePermission.html#source" target="_self" >BasePermission:14</a></code>
 </div>
                 </td>
             </tr>
@@ -254,7 +254,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/BasePermission.html#source" target="_self" >BasePermission:13</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/BasePermission.html#source" target="_self" >BasePermission:10</a></code>
 </div>
                 </td>
             </tr>
@@ -372,13 +372,10 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
-import type { User } from &#x27;@shared/domain&#x27;;
-// currently impossible to resolve
-// eslint-disable-next-line import/no-cycle
-import { Team } from &#x27;../entity/team.entity&#x27;;
-import { IPermissionContext } from &#x27;../interface/permission&#x27;;
-import { BasePermission } from &#x27;./base-permission&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable, InternalServerErrorException } from &#x27;@nestjs/common&#x27;;
+import { BasePermission } from &#x27;@shared/domain/rules/base-permission&#x27;;
+import { TeamUser, Team, User } from &#x27;@shared/domain/entity&#x27;;
+import { IPermissionContext } from &#x27;@shared/domain/interface&#x27;;
 
 @Injectable()
 export class TeamRule extends BasePermission&lt;Team&gt; {
@@ -389,14 +386,15 @@ export class TeamRule extends BasePermission&lt;Team&gt; {
 	}
 
 	public hasPermission(user: User, entity: Team, context: IPermissionContext): boolean {
-		const validTeamUsers &#x3D; entity.userIds.filter((teamUser) &#x3D;&gt; {
-			return context.requiredPermissions.some((p) &#x3D;&gt; teamUser.role.permissions.includes(p));
-		});
-		return (
-			validTeamUsers.length &gt; 0 &amp;&amp;
-			validTeamUsers[0].userId &#x3D;&#x3D;&#x3D; user &amp;&amp;
-			this.utils.hasAllPermissions(user, context.requiredPermissions)
-		);
+		const resultTeamUser: TeamUser | undefined &#x3D; entity.userIds.find((teamUser) &#x3D;&gt; teamUser.userId.id &#x3D;&#x3D;&#x3D; user.id);
+
+		if (!resultTeamUser) {
+			throw new InternalServerErrorException(&#x27;Cannot find user in team&#x27;);
+		}
+
+		const permissions: string[] &#x3D; this.utils.resolveTeamPermissions(resultTeamUser);
+
+		return context.requiredPermissions.every((permission) &#x3D;&gt; permissions.includes(permission));
 	}
 }
 </code></pre>

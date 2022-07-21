@@ -144,15 +144,21 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>create(entity: <a href="../classes/School.html" target="_self">School</a>)</code>
+<code>create(entity: T)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="11"
-                            class="link-to-prism">apps/server/src/shared/repo/school/school.repo.ts:11</a></div>
+                    <div class="io-line">Inherited from         <code><a href="../injectables/BaseRepo.html" target="_self" >BaseRepo</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../injectables/BaseRepo.html#source" target="_self" >BaseRepo:15</a></code>
+</div>
                 </td>
             </tr>
 
@@ -175,7 +181,7 @@
                                 <tr>
                                     <td>entity</td>
                                     <td>
-                                                <code><a href="../classes/School.html" target="_self" >School</a></code>
+                                            <code>T</code>
                                     </td>
 
                                     <td>
@@ -190,7 +196,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/School.html" target="_self" >School</a></code>
+                        <b>Returns : </b>    <code>T</code>
 
                     </div>
                     <div class="io-description">
@@ -228,7 +234,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/BaseRepo.html#source" target="_self" >BaseRepo:19</a></code>
+                        <div class="io-line">Defined in         <code><a href="../injectables/BaseRepo.html#source" target="_self" >BaseRepo:23</a></code>
 </div>
                 </td>
             </tr>
@@ -305,7 +311,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/BaseRepo.html#source" target="_self" >BaseRepo:23</a></code>
+                        <div class="io-line">Defined in         <code><a href="../injectables/BaseRepo.html#source" target="_self" >BaseRepo:27</a></code>
 </div>
                 </td>
             </tr>
@@ -382,7 +388,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/BaseRepo.html#source" target="_self" >BaseRepo:15</a></code>
+                        <div class="io-line">Defined in         <code><a href="../injectables/BaseRepo.html#source" target="_self" >BaseRepo:19</a></code>
 </div>
                 </td>
             </tr>
@@ -472,11 +478,6 @@ import { School } from &#x27;@shared/domain&#x27;;
 export class SchoolRepo extends BaseRepo&lt;School&gt; {
 	get entityName() {
 		return School;
-	}
-
-	create(entity: School): School {
-		const result &#x3D; this._em.create(School, entity);
-		return result;
 	}
 }
 </code></pre>

@@ -103,6 +103,9 @@
                             <a href="#EntityId" title="apps/server/src/shared/domain/types/entity-id.ts" ><b>EntityId</b>&nbsp;&nbsp;&nbsp;(apps/.../entity-id.ts)</a>
                         </li>
                         <li>
+                            <a href="#EntityProperties" title="apps/server/src/shared/repo/base.do.repo.ts" ><b>EntityProperties</b>&nbsp;&nbsp;&nbsp;(apps/.../base.do.repo.ts)</a>
+                        </li>
+                        <li>
                             <a href="#FeathersServiceParams" title="apps/server/src/shared/infra/feathers/feathers-service.provider.ts" ><b>FeathersServiceParams</b>&nbsp;&nbsp;&nbsp;(apps/.../feathers-service.provider.ts)</a>
                         </li>
                         <li>
@@ -154,6 +157,9 @@
                             <a href="#IUserRoleName" title="apps/server/src/shared/domain/interface/rolename.enum.ts" ><b>IUserRoleName</b>&nbsp;&nbsp;&nbsp;(apps/.../rolename.enum.ts)</a>
                         </li>
                         <li>
+                            <a href="#IVideoConferenceProperties" title="apps/server/src/shared/domain/entity/video-conference.entity.ts" ><b>IVideoConferenceProperties</b>&nbsp;&nbsp;&nbsp;(apps/.../video-conference.entity.ts)</a>
+                        </li>
+                        <li>
                             <a href="#LearnroomMetadata" title="apps/server/src/shared/domain/types/learnroom.types.ts" ><b>LearnroomMetadata</b>&nbsp;&nbsp;&nbsp;(apps/.../learnroom.types.ts)</a>
                         </li>
                         <li>
@@ -182,6 +188,12 @@
                         </li>
                         <li>
                             <a href="#PermissionTypes" title="apps/server/src/shared/domain/interface/permission.ts" ><b>PermissionTypes</b>&nbsp;&nbsp;&nbsp;(apps/.../permission.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#ReferenceEntityType" title="apps/server/src/modules/authorization/reference.loader.ts" ><b>ReferenceEntityType</b>&nbsp;&nbsp;&nbsp;(apps/.../reference.loader.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#RepoType" title="apps/server/src/modules/authorization/reference.loader.ts" ><b>RepoType</b>&nbsp;&nbsp;&nbsp;(apps/.../reference.loader.ts)</a>
                         </li>
                         <li>
                             <a href="#RequestLoggingBody" title="apps/server/src/core/logger/interfaces/logger.interface.ts" ><b>RequestLoggingBody</b>&nbsp;&nbsp;&nbsp;(apps/.../logger.interface.ts)</a>
@@ -259,7 +271,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                    <code>        <code><a href="../interfaces/User.html" target="_self" >Task | Course | User | School | Lesson</a></code>
+                    <code>        <code><a href="../interfaces/User.html" target="_self" >Task | Course | User | School | Lesson | Team</a></code>
 </code>
                 </td>
             </tr>
@@ -633,6 +645,24 @@
             </tr>
         </tbody>
     </table>
+</section>    <h3>apps/server/src/shared/repo/base.do.repo.ts</h3>
+    <section>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="EntityProperties"></a>
+                    <span class="name "><b>EntityProperties</b><a href="#EntityProperties"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code></code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </section>    <h3>apps/server/src/shared/infra/feathers/feathers-service.provider.ts</h3>
     <section>
     <table class="table table-sm table-bordered">
@@ -901,6 +931,24 @@
             </tr>
         </tbody>
     </table>
+</section>    <h3>apps/server/src/shared/domain/entity/video-conference.entity.ts</h3>
+    <section>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="IVideoConferenceProperties"></a>
+                    <span class="name "><b>IVideoConferenceProperties</b><a href="#IVideoConferenceProperties"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>        <code><a href="../entitys/VideoConference.html" target="_self" >Readonly&lt;Omit&lt;VideoConference, BaseEntityWithTimestamps&gt;&gt;</a></code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </section>    <h3>apps/server/src/shared/domain/types/learnroom.types.ts</h3>
     <section>
     <table class="table table-sm table-bordered">
@@ -1072,6 +1120,40 @@
             <tr>
                 <td class="col-md-4">
                     <code>    <code>BaseDomainObject | BaseEntity</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>apps/server/src/modules/authorization/reference.loader.ts</h3>
+    <section>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ReferenceEntityType"></a>
+                    <span class="name "><b>ReferenceEntityType</b><a href="#ReferenceEntityType"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>        <code><a href="../interfaces/User.html" target="_self" >Task | Course | User | School | Lesson | Team</a></code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="RepoType"></a>
+                    <span class="name "><b>RepoType</b><a href="#RepoType"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>        <code><a href="../interfaces/User.html" target="_self" >TaskRepo | CourseRepo | UserRepo | SchoolRepo | LessonRepo | TeamsRepo</a></code>
 </code>
                 </td>
             </tr>

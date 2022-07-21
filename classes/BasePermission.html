@@ -367,9 +367,9 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { User } from &#x27;../entity/user.entity&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { User } from &#x27;@shared/domain/entity&#x27;;
+import { AuthorisationUtils } from &#x27;@shared/domain/rules/authorisation.utils&#x27;;
 import { IPermission, IPermissionContext, PermissionTypes } from &#x27;../interface&#x27;;
-import { AuthorisationUtils } from &#x27;./authorisation.utils&#x27;;
 
 export abstract class BasePermission&lt;T &#x3D; PermissionTypes&gt; implements IPermission&lt;T&gt; {
 	public utils &#x3D; new AuthorisationUtils();

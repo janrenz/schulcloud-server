@@ -250,7 +250,7 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @ManyToOne({entity: () &#x3D;&gt; Role})<br />
+                            @ManyToOne({entity: () &#x3D;&gt; User})<br />
                         </code>
                     </td>
                 </tr>
@@ -294,7 +294,7 @@ export class TeamUser {
 		this.schoolId &#x3D; teamUser.schoolId;
 	}
 
-	@ManyToOne({ entity: () &#x3D;&gt; Role })
+	@ManyToOne({ entity: () &#x3D;&gt; User })
 	userId: User;
 
 	@ManyToOne({ entity: () &#x3D;&gt; Role })
