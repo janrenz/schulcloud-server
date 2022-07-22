@@ -2062,7 +2062,16 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/VideoConferenceDO.html" data-type="entity-link" >VideoConferenceDO</a>
                             </li>
                             <li class="link">
+                                <a href="classes/VideoConferenceDTO.html" data-type="entity-link" >VideoConferenceDTO</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/VideoConferenceInfoDTO.html" data-type="entity-link" >VideoConferenceInfoDTO</a>
+                            </li>
+                            <li class="link">
                                 <a href="classes/VideoConferenceInfoResponse.html" data-type="entity-link" >VideoConferenceInfoResponse</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/VideoConferenceJoinDTO.html" data-type="entity-link" >VideoConferenceJoinDTO</a>
                             </li>
                             <li class="link">
                                 <a href="classes/VideoConferenceJoinResponse.html" data-type="entity-link" >VideoConferenceJoinResponse</a>
@@ -2719,15 +2728,6 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="interfaces/User.html" data-type="entity-link" >User</a>
-                            </li>
-                            <li class="link">
-                                <a href="interfaces/VideoConferenceDTO.html" data-type="entity-link" >VideoConferenceDTO</a>
-                            </li>
-                            <li class="link">
-                                <a href="interfaces/VideoConferenceInfoDTO.html" data-type="entity-link" >VideoConferenceInfoDTO</a>
-                            </li>
-                            <li class="link">
-                                <a href="interfaces/VideoConferenceJoinDTO.html" data-type="entity-link" >VideoConferenceJoinDTO</a>
                             </li>
                             <li class="link">
                                 <a href="interfaces/VideoConferenceOptions.html" data-type="entity-link" >VideoConferenceOptions</a>
