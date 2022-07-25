@@ -406,6 +406,7 @@ export class KeycloakManagementUc {
 	}
 
 	async configure(loadFromJson &#x3D; false): Promise&lt;number&gt; {
+		await this.kcAdmin.setPasswordPolicy();
 		return this.keycloakConfigService.configureIdentityProviders(loadFromJson);
 	}
 }

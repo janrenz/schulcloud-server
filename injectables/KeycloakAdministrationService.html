@@ -115,6 +115,11 @@
                             <li>
                                     <span class="modifier">Public</span>
                                     <span class="modifier">Async</span>
+                                <a href="#setPasswordPolicy" >setPasswordPolicy</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                    <span class="modifier">Async</span>
                                 <a href="#testKcConnection" >testKcConnection</a>
                             </li>
                         </ul>
@@ -219,8 +224,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="39"
-                            class="link-to-prism">apps/server/src/shared/infra/identity-management/keycloak/service/keycloak-administration.service.ts:39</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="44"
+                            class="link-to-prism">apps/server/src/shared/infra/identity-management/keycloak/service/keycloak-administration.service.ts:44</a></div>
                 </td>
             </tr>
 
@@ -300,6 +305,46 @@
                 <td class="col-md-4">
                     <div class="io-line">Defined in <a href="" data-line="35"
                             class="link-to-prism">apps/server/src/shared/infra/identity-management/keycloak/service/keycloak-administration.service.ts:35</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setPasswordPolicy"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span class="modifier">Async</span>
+                        <span ><b>setPasswordPolicy</b></span>
+                        <a href="#setPasswordPolicy"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>setPasswordPolicy()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="39"
+                            class="link-to-prism">apps/server/src/shared/infra/identity-management/keycloak/service/keycloak-administration.service.ts:39</a></div>
                 </td>
             </tr>
 
@@ -462,6 +507,11 @@ export class KeycloakAdministrationService {
 
 	public getAdminUser() {
 		return this.kcSettings.credentials.username;
+	}
+
+	public async setPasswordPolicy() {
+		const kc &#x3D; await this.callKcAdminClient();
+		await kc.realms.update({ realm: this.kcSettings.realmName }, { passwordPolicy: &#x27;hashIterations(310000)&#x27; });
 	}
 
 	private async authorizeAccess() {
