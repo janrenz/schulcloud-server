@@ -65,7 +65,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/shared/infra/identity-management/keycloak/console/keycloak-management.console.ts</code>
+            <code>apps/server/src/shared/infra/identity-management/keycloak/controller/console/keycloak-management.console.ts</code>
         </p>
 
 
@@ -179,7 +179,7 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Command, CommandOption, Console } from &#x27;nestjs-console&#x27;;
 import { ConsoleWriterService } from &#x27;@shared/infra/console&#x27;;
-import { KeycloakManagementUc } from &#x27;../uc/Keycloak-management.uc&#x27;;
+import { KeycloakManagementUc } from &#x27;../../uc/Keycloak-management.uc&#x27;;
 
 const defaultError &#x3D; new Error(&#x27;IDM is not reachable or authentication failed.&#x27;);
 
@@ -187,7 +187,9 @@ interface IRetryOptions {
 	retryCount: number;
 	retryDelay: number;
 }
-
+interface IConfigureOptions {
+	fromJson: boolean;
+}
 @Console({ command: &#x27;idm&#x27;, description: &#x27;Prefixes all Identity Management (IDM) related console commands.&#x27; })
 export class KeycloakConsole {
 	constructor(
@@ -210,6 +212,9 @@ export class KeycloakConsole {
 		},
 	];
 
+	/**
+	 * For local development. Checks if connection to IDM is working.
+	 */
 	@Command({ command: &#x27;check&#x27;, description: &#x27;Test the connection to the IDM.&#x27; })
 	async check(): Promise&lt;void&gt; {
 		if (await this.keycloakManagementUc.check()) {
@@ -219,6 +224,11 @@ export class KeycloakConsole {
 		}
 	}
 
+	/**
+	 * For local development. Cleans user from IDM
+	 *
+	 * @param options
+	 */
 	@Command({
 		command: &#x27;clean&#x27;,
 		description: &#x27;Remove all users from the IDM.&#x27;,
@@ -237,6 +247,10 @@ export class KeycloakConsole {
 		);
 	}
 
+	/**
+	 * For local development. Seeds user into IDM
+	 * @param options
+	 */
 	@Command({
 		command: &#x27;seed&#x27;,
 		description: &#x27;Add all seed users to the IDM.&#x27;,
@@ -255,16 +269,33 @@ export class KeycloakConsole {
 		);
 	}
 
+	/**
+	 * Used in production and for local development to transfer configuration to keycloak.
+	 *
+	 * Per default the configuration is loaded from the DB.
+	 * Locally the &quot;fromJson&quot; option should be set to true.
+	 *
+	 * @param options
+	 */
 	@Command({
 		command: &#x27;configure&#x27;,
 		description: &#x27;Configures Keycloak identity providers.&#x27;,
-		options: KeycloakConsole.retryFlags,
+		options: [
+			{
+				flags: &#x27;-fj, --from-json &lt;value&gt;&#x27;,
+				description: &#x27;Determines if the identiy providers should be loaded from json instead of DB&#x27;,
+				required: false,
+				defaultValue: false,
+			},
+
+			...KeycloakConsole.retryFlags,
+		],
 	})
-	async configureIdentityProviders(options: IRetryOptions): Promise&lt;void&gt; {
+	async configureIdentityProviders(options: IConfigureOptions &amp; IRetryOptions): Promise&lt;void&gt; {
 		await this.repeatCommand(
 			&#x27;configure&#x27;,
 			async () &#x3D;&gt; {
-				const count &#x3D; await this.keycloakManagementUc.configureIdentityProviders();
+				const count &#x3D; await this.keycloakManagementUc.configure(options.fromJson);
 				this.console.info(&#x60;Configured ${count} identity provider(s).&#x60;);
 			},
 			options.retryCount,

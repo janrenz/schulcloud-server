@@ -85,10 +85,6 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Async</span>
-                                <a href="#configure" >configure</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Async</span>
                                 <a href="#importSeedData" >importSeedData</a>
                             </li>
                         </ul>
@@ -108,52 +104,6 @@
     <h3 id="methods">
         Methods
     </h3>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="configure"></a>
-                    <span class="name">
-                        <span class="modifier">Async</span>
-                        <span ><b>configure</b></span>
-                        <a href="#configure"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>configure()</code>
-                </td>
-            </tr>
-
-            <tr>
-                <td class="col-md-4">
-                    <b>Decorators : </b>
-                    <br />
-                    <code>@Post(&#x27;configure&#x27;)<br /></code>
-                </td>
-            </tr>
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="37"
-                            class="link-to-prism">apps/server/src/shared/infra/identity-management/keycloak/controller/keycloak-management.controller.ts:37</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Returns : </b>    <code>Promise&lt;number&gt;</code>
-
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
     <table class="table table-sm table-bordered">
         <tbody>
             <tr>
@@ -183,15 +133,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="24"
-                            class="link-to-prism">apps/server/src/shared/infra/identity-management/keycloak/controller/keycloak-management.controller.ts:24</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="19"
+                            class="link-to-prism">apps/server/src/shared/infra/identity-management/keycloak/controller/keycloak-management.controller.ts:19</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>This connects to IDM and seeds the test users.</p>
+                    <div class="io-description"><p>This connects to IDM, seeds the test users and seeds the identity providers.
+Used by Autodeployment for develop environment (job_init_idm.yml.j2) via cURL</p>
 </div>
 
                     <div>
@@ -214,22 +165,17 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Controller, Post, ServiceUnavailableException } from &#x27;@nestjs/common&#x27;;
 import { Logger } from &#x27;@src/core/logger&#x27;;
-import { ConfigService } from &#x27;@nestjs/config&#x27;;
-import { IServerConfig, NodeEnvType } from &#x27;@src/server.config&#x27;;
 import { KeycloakManagementUc } from &#x27;../uc/Keycloak-management.uc&#x27;;
 
 @Controller(&#x27;management/idm&#x27;)
 export class KeycloakManagementController {
-	constructor(
-		private readonly keycloakManagementUc: KeycloakManagementUc,
-		private readonly configService: ConfigService&lt;IServerConfig, true&gt;,
-		private readonly logger: Logger
-	) {
+	constructor(private readonly keycloakManagementUc: KeycloakManagementUc, private readonly logger: Logger) {
 		this.logger.setContext(KeycloakManagementController.name);
 	}
 
 	/**
-	 * This connects to IDM and seeds the test users.
+	 * This connects to IDM, seeds the test users and seeds the identity providers.
+	 * Used by Autodeployment for develop environment (job_init_idm.yml.j2) via cURL
 	 *
 	 * @returns The number of seeded users
 	 * @throws ServiceUnavailableException if IDM is not ready.
@@ -238,25 +184,8 @@ export class KeycloakManagementController {
 	async importSeedData(): Promise&lt;number&gt; {
 		if (await this.keycloakManagementUc.check()) {
 			try {
+				await this.keycloakManagementUc.configure(true);
 				return await this.keycloakManagementUc.seed();
-			} catch (err) {
-				this.logger.error(err);
-				return -1;
-			}
-		}
-		throw new ServiceUnavailableException();
-	}
-
-	@Post(&#x27;configure&#x27;)
-	async configure(): Promise&lt;number&gt; {
-		if (await this.keycloakManagementUc.check()) {
-			try {
-				let count &#x3D; 0;
-				if (this.configService.get&lt;NodeEnvType&gt;(&#x27;NODE_ENV&#x27;) &#x3D;&#x3D;&#x3D; NodeEnvType.DEVELOPMENT) {
-					count +&#x3D; await this.keycloakManagementUc.seed();
-				}
-				count +&#x3D; await this.keycloakManagementUc.configureIdentityProviders();
-				return count;
 			} catch (err) {
 				this.logger.error(err);
 				return -1;

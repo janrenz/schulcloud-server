@@ -85,55 +85,15 @@
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
-                                    <span class="modifier">Async</span>
                                 <a href="#clean" >clean</a>
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
-                                <a href="#configureIdentityProviders" >configureIdentityProviders</a>
+                                <a href="#configure" >configure</a>
                             </li>
                             <li>
-                                    <span class="modifier">Private</span>
-                                    <span class="modifier">Async</span>
-                                <a href="#createIdentityProvider" >createIdentityProvider</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Private</span>
-                                    <span class="modifier">Async</span>
-                                <a href="#createOrUpdateIdmAccount" >createOrUpdateIdmAccount</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Private</span>
-                                    <span class="modifier">Async</span>
-                                <a href="#deleteIdentityProvider" >deleteIdentityProvider</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Private</span>
-                                    <span class="modifier">Async</span>
-                                <a href="#loadAccounts" >loadAccounts</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Private</span>
-                                    <span class="modifier">Async</span>
-                                <a href="#loadConfigs" >loadConfigs</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Private</span>
-                                    <span class="modifier">Async</span>
-                                <a href="#loadUsers" >loadUsers</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Async</span>
+                                    <span class="modifier">Public</span>
                                 <a href="#seed" >seed</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Private</span>
-                                <a href="#selectConfigureAction" >selectConfigureAction</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Private</span>
-                                    <span class="modifier">Async</span>
-                                <a href="#updateIdentityProvider" >updateIdentityProvider</a>
                             </li>
                         </ul>
                     </td>
@@ -153,12 +113,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(kcAdmin: <a href="../injectables/KeycloakAdministrationService.html" target="_self">KeycloakAdministrationService</a>, systemRepo: <a href="../injectables/SystemRepo.html" target="_self">SystemRepo</a>, configService: ConfigService< | >, kcSettings: <a href="../interfaces/IKeycloakSettings.html" target="_self">IKeycloakSettings</a>, inputFiles: <a href="../interfaces/IKeycloakManagementInputFiles.html" target="_self">IKeycloakManagementInputFiles</a>)</code>
+<code>constructor(kcAdmin: <a href="../injectables/KeycloakAdministrationService.html" target="_self">KeycloakAdministrationService</a>, keycloakConfigService: <a href="../classes/KeycloakConfigurationService.html" target="_self">KeycloakConfigurationService</a>, keycloakSeedService: <a href="../classes/KeycloakSeedService.html" target="_self">KeycloakSeedService</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">apps/server/src/shared/infra/identity-management/keycloak/uc/Keycloak-management.uc.ts:27</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">apps/server/src/shared/infra/identity-management/keycloak/uc/Keycloak-management.uc.ts:7</a></div>
                             </td>
                         </tr>
 
@@ -188,10 +148,10 @@
                                                     
                                                 </tr>
                                                 <tr>
-                                                        <td>systemRepo</td>
+                                                        <td>keycloakConfigService</td>
                                                   
                                                         <td>
-                                                                        <code><a href="../injectables/SystemRepo.html" target="_self" >SystemRepo</a></code>
+                                                                        <code><a href="../classes/KeycloakConfigurationService.html" target="_self" >KeycloakConfigurationService</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -200,34 +160,10 @@
                                                     
                                                 </tr>
                                                 <tr>
-                                                        <td>configService</td>
+                                                        <td>keycloakSeedService</td>
                                                   
                                                         <td>
-                                                                    <code>ConfigService&lt; | &gt;</code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                                <tr>
-                                                        <td>kcSettings</td>
-                                                  
-                                                        <td>
-                                                                        <code><a href="../interfaces/IKeycloakSettings.html" target="_self" >IKeycloakSettings</a></code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                                <tr>
-                                                        <td>inputFiles</td>
-                                                  
-                                                        <td>
-                                                                        <code><a href="../interfaces/IKeycloakManagementInputFiles.html" target="_self" >IKeycloakManagementInputFiles</a></code>
+                                                                        <code><a href="../classes/KeycloakSeedService.html" target="_self" >KeycloakSeedService</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -272,8 +208,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="36"
-                            class="link-to-prism">apps/server/src/shared/infra/identity-management/keycloak/uc/Keycloak-management.uc.ts:36</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="14"
+                            class="link-to-prism">apps/server/src/shared/infra/identity-management/keycloak/uc/Keycloak-management.uc.ts:14</a></div>
                 </td>
             </tr>
 
@@ -296,7 +232,6 @@
                     <a name="clean"></a>
                     <span class="name">
                         <span class="modifier">Public</span>
-                        <span class="modifier">Async</span>
                         <span ><b>clean</b></span>
                         <a href="#clean"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -312,8 +247,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="40"
-                            class="link-to-prism">apps/server/src/shared/infra/identity-management/keycloak/uc/Keycloak-management.uc.ts:40</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="18"
+                            class="link-to-prism">apps/server/src/shared/infra/identity-management/keycloak/uc/Keycloak-management.uc.ts:18</a></div>
                 </td>
             </tr>
 
@@ -333,26 +268,26 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="configureIdentityProviders"></a>
+                    <a name="configure"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
-                        <span ><b>configureIdentityProviders</b></span>
-                        <a href="#configureIdentityProviders"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>configure</b></span>
+                        <a href="#configure"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>configureIdentityProviders()</code>
+                    <code>configure(loadFromJson)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="73"
-                            class="link-to-prism">apps/server/src/shared/infra/identity-management/keycloak/uc/Keycloak-management.uc.ts:73</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="26"
+                            class="link-to-prism">apps/server/src/shared/infra/identity-management/keycloak/uc/Keycloak-management.uc.ts:26</a></div>
                 </td>
             </tr>
 
@@ -360,401 +295,41 @@
             <tr>
                 <td class="col-md-4">
 
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                    <td>Default value</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>loadFromJson</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+                                    <td>
+                                        <code>false</code>
+                                    </td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
                     <div class="io-description">
                         <b>Returns : </b>    <code>Promise&lt;number&gt;</code>
 
                     </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="createIdentityProvider"></a>
-                    <span class="name">
-                        <span class="modifier">Private</span>
-                        <span class="modifier">Async</span>
-                        <span ><b>createIdentityProvider</b></span>
-                        <a href="#createIdentityProvider"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>createIdentityProvider(system: <a href="../undefineds/IdentityProviderConfig.html" target="_self">IdentityProviderConfig</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="153"
-                            class="link-to-prism">apps/server/src/shared/infra/identity-management/keycloak/uc/Keycloak-management.uc.ts:153</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>system</td>
-                                    <td>
-                                                <code><a href="../miscellaneous/typealiases.html#IdentityProviderConfig" target="_self" >IdentityProviderConfig</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
-
-                    </div>
                     <div class="io-description">
                         
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="createOrUpdateIdmAccount"></a>
-                    <span class="name">
-                        <span class="modifier">Private</span>
-                        <span class="modifier">Async</span>
-                        <span ><b>createOrUpdateIdmAccount</b></span>
-                        <a href="#createOrUpdateIdmAccount"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>createOrUpdateIdmAccount(account: <a href="../interfaces/IJsonAccount.html" target="_self">IJsonAccount</a>, user: <a href="../interfaces/IJsonUser.html" target="_self">IJsonUser</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="124"
-                            class="link-to-prism">apps/server/src/shared/infra/identity-management/keycloak/uc/Keycloak-management.uc.ts:124</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>account</td>
-                                    <td>
-                                                <code><a href="../interfaces/IJsonAccount.html" target="_self" >IJsonAccount</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>user</td>
-                                    <td>
-                                                <code><a href="../interfaces/IJsonUser.html" target="_self" >IJsonUser</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>    <code>unknown</code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="deleteIdentityProvider"></a>
-                    <span class="name">
-                        <span class="modifier">Private</span>
-                        <span class="modifier">Async</span>
-                        <span ><b>deleteIdentityProvider</b></span>
-                        <a href="#deleteIdentityProvider"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>deleteIdentityProvider(alias: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="192"
-                            class="link-to-prism">apps/server/src/shared/infra/identity-management/keycloak/uc/Keycloak-management.uc.ts:192</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>alias</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="loadAccounts"></a>
-                    <span class="name">
-                        <span class="modifier">Private</span>
-                        <span class="modifier">Async</span>
-                        <span ><b>loadAccounts</b></span>
-                        <a href="#loadAccounts"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>loadAccounts()</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="211"
-                            class="link-to-prism">apps/server/src/shared/infra/identity-management/keycloak/uc/Keycloak-management.uc.ts:211</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../interfaces/IJsonAccount.html" target="_self" >Promise&lt;IJsonAccount[]&gt;</a></code>
-
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="loadConfigs"></a>
-                    <span class="name">
-                        <span class="modifier">Private</span>
-                        <span class="modifier">Async</span>
-                        <span ><b>loadConfigs</b></span>
-                        <a href="#loadConfigs"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>loadConfigs(envType: <a href="../undefineds/NodeEnvType.html" target="_self">NodeEnvType</a>, sysTypes: <a href="../undefineds/SysType.html" target="_self">SysType[]</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="197"
-                            class="link-to-prism">apps/server/src/shared/infra/identity-management/keycloak/uc/Keycloak-management.uc.ts:197</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>envType</td>
-                                    <td>
-                                                <code><a href="../miscellaneous/enumerations.html#NodeEnvType" target="_self" >NodeEnvType</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>sysTypes</td>
-                                    <td>
-                                                <code><a href="../miscellaneous/enumerations.html#SysType" target="_self" >SysType[]</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#IdentityProviderConfig" target="_self" >Promise&lt;IdentityProviderConfig[]&gt;</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="loadUsers"></a>
-                    <span class="name">
-                        <span class="modifier">Private</span>
-                        <span class="modifier">Async</span>
-                        <span ><b>loadUsers</b></span>
-                        <a href="#loadUsers"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>loadUsers()</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="216"
-                            class="link-to-prism">apps/server/src/shared/infra/identity-management/keycloak/uc/Keycloak-management.uc.ts:216</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/User.html" target="_self" >Promise&lt;IJsonUser[]&gt;</a></code>
-
                     </div>
                 </td>
             </tr>
@@ -766,7 +341,7 @@
                 <td class="col-md-4">
                     <a name="seed"></a>
                     <span class="name">
-                        <span class="modifier">Async</span>
+                        <span class="modifier">Public</span>
                         <span ><b>seed</b></span>
                         <a href="#seed"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -782,8 +357,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="58"
-                            class="link-to-prism">apps/server/src/shared/infra/identity-management/keycloak/uc/Keycloak-management.uc.ts:58</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="22"
+                            class="link-to-prism">apps/server/src/shared/infra/identity-management/keycloak/uc/Keycloak-management.uc.ts:22</a></div>
                 </td>
             </tr>
 
@@ -799,385 +374,39 @@
             </tr>
         </tbody>
     </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="selectConfigureAction"></a>
-                    <span class="name">
-                        <span class="modifier">Private</span>
-                        <span ><b>selectConfigureAction</b></span>
-                        <a href="#selectConfigureAction"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>selectConfigureAction(newConfigs: <a href="../entitys/System.html" target="_self">System[]</a>, oldConfigs: IdentityProviderRepresentation[])</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="101"
-                            class="link-to-prism">apps/server/src/shared/infra/identity-management/keycloak/uc/Keycloak-management.uc.ts:101</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>newConfigs</td>
-                                    <td>
-                                                <code><a href="../entitys/System.html" target="_self" >System[]</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>oldConfigs</td>
-                                    <td>
-                                            <code>IdentityProviderRepresentation[]</code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>    <code>{}</code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="updateIdentityProvider"></a>
-                    <span class="name">
-                        <span class="modifier">Private</span>
-                        <span class="modifier">Async</span>
-                        <span ><b>updateIdentityProvider</b></span>
-                        <a href="#updateIdentityProvider"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>updateIdentityProvider(system: <a href="../undefineds/IdentityProviderConfig.html" target="_self">IdentityProviderConfig</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="171"
-                            class="link-to-prism">apps/server/src/shared/infra/identity-management/keycloak/uc/Keycloak-management.uc.ts:171</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>system</td>
-                                    <td>
-                                                <code><a href="../miscellaneous/typealiases.html#IdentityProviderConfig" target="_self" >IdentityProviderConfig</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
 </section>
 
     </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import fs from &#x27;node:fs/promises&#x27;;
-import { Inject, Injectable } from &#x27;@nestjs/common&#x27;;
-import { SystemRepo } from &#x27;@shared/repo&#x27;;
-import { System } from &#x27;@shared/domain&#x27;;
-import IdentityProviderRepresentation from &#x27;@keycloak/keycloak-admin-client/lib/defs/identityProviderRepresentation&#x27;;
-import { ConfigService } from &#x27;@nestjs/config&#x27;;
-import { NodeEnvType } from &#x27;@src/server.config&#x27;;
-import { IdentityProviderConfig } from &#x27;../interface/identity-provider-config.type&#x27;;
-import { SysType } from &#x27;../../sys.type&#x27;;
-import {
-	IJsonAccount,
-	IJsonUser,
-	IKeycloakManagementInputFiles,
-	IKeycloakSettings,
-	KeycloakManagementInputFiles,
-	KeycloakSettings,
-} from &#x27;../interface&#x27;;
-import { KeycloakAdministrationService } from &#x27;../keycloak-administration.service&#x27;;
-
-enum ConfigureAction {
-	CREATE &#x3D; &#x27;create&#x27;,
-	UPDATE &#x3D; &#x27;update&#x27;,
-	DELETE &#x3D; &#x27;delete&#x27;,
-}
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
+import { KeycloakAdministrationService } from &#x27;../service/keycloak-administration.service&#x27;;
+import { KeycloakConfigurationService } from &#x27;../service/keycloak-configuration.service&#x27;;
+import { KeycloakSeedService } from &#x27;../service/keycloak-seed.service&#x27;;
 
 @Injectable()
 export class KeycloakManagementUc {
 	constructor(
 		private readonly kcAdmin: KeycloakAdministrationService,
-		private readonly systemRepo: SystemRepo,
-		private readonly configService: ConfigService&lt;unknown, true&gt;,
-		@Inject(KeycloakSettings) private readonly kcSettings: IKeycloakSettings,
-		@Inject(KeycloakManagementInputFiles) private readonly inputFiles: IKeycloakManagementInputFiles
+		private readonly keycloakConfigService: KeycloakConfigurationService,
+		private readonly keycloakSeedService: KeycloakSeedService
 	) {}
 
 	public async check(): Promise&lt;boolean&gt; {
 		return this.kcAdmin.testKcConnection();
 	}
 
-	public async clean(): Promise&lt;number&gt; {
-		let kc &#x3D; await this.kcAdmin.callKcAdminClient();
-		const adminUser &#x3D; this.kcAdmin.getAdminUser();
-		const users &#x3D; (await kc.users.find()).filter((user) &#x3D;&gt; user.username !&#x3D;&#x3D; adminUser);
-
-		// eslint-disable-next-line no-restricted-syntax
-		for (const user of users) {
-			// eslint-disable-next-line no-await-in-loop
-			kc &#x3D; await this.kcAdmin.callKcAdminClient();
-			// eslint-disable-next-line no-await-in-loop
-			await kc.users.del({
-				// can not be undefined, see filter above
-				id: user.id ?? &#x27;&#x27;,
-			});
-		}
-		return users.length;
+	public clean(): Promise&lt;number&gt; {
+		return this.keycloakSeedService.clean();
 	}
 
-	async seed(): Promise&lt;number&gt; {
-		let userCount &#x3D; 0;
-		const users &#x3D; await this.loadUsers();
-		const accounts &#x3D; await this.loadAccounts();
-		// eslint-disable-next-line no-restricted-syntax
-		for (const user of users) {
-			const account &#x3D; accounts.find((a) &#x3D;&gt; a.userId.$oid &#x3D;&#x3D;&#x3D; user._id.$oid);
-			if (account) {
-				// eslint-disable-next-line no-await-in-loop
-				userCount +&#x3D; (await this.createOrUpdateIdmAccount(account, user)) ? 1 : 0;
-			}
-		}
-		return userCount;
+	public seed(): Promise&lt;number&gt; {
+		return this.keycloakSeedService.seed();
 	}
 
-	async configureIdentityProviders(): Promise&lt;number&gt; {
-		let count &#x3D; 0;
-		const kc &#x3D; await this.kcAdmin.callKcAdminClient();
-		const envType &#x3D; this.configService.get&lt;NodeEnvType&gt;(&#x27;NODE_ENV&#x27;);
-		const oldConfigs &#x3D; await kc.identityProviders.find();
-		const newConfigs &#x3D; await this.loadConfigs(envType, [SysType.OIDC]);
-		const configureActions &#x3D; this.selectConfigureAction(newConfigs, oldConfigs);
-		// eslint-disable-next-line no-restricted-syntax
-		for (const configureAction of configureActions) {
-			if (configureAction.action &#x3D;&#x3D;&#x3D; ConfigureAction.CREATE) {
-				// eslint-disable-next-line no-await-in-loop
-				await this.createIdentityProvider(configureAction.config);
-				count +&#x3D; 1;
-			}
-			if (configureAction.action &#x3D;&#x3D;&#x3D; ConfigureAction.UPDATE) {
-				// eslint-disable-next-line no-await-in-loop
-				await this.updateIdentityProvider(configureAction.config);
-				count +&#x3D; 1;
-			}
-			if (configureAction.action &#x3D;&#x3D;&#x3D; ConfigureAction.DELETE) {
-				// eslint-disable-next-line no-await-in-loop
-				await this.deleteIdentityProvider(configureAction.alias);
-				count +&#x3D; 1;
-			}
-		}
-		return count;
-	}
-
-	private selectConfigureAction(newConfigs: System[], oldConfigs: IdentityProviderRepresentation[]) {
-		const result &#x3D; [] as (
-			| { action: ConfigureAction.CREATE; config: IdentityProviderConfig }
-			| { action: ConfigureAction.UPDATE; config: IdentityProviderConfig }
-			| { action: ConfigureAction.DELETE; alias: string }
-		)[];
-		// updating or creating configs
-		newConfigs.forEach((newConfig) &#x3D;&gt; {
-			if (oldConfigs.some((oldConfig) &#x3D;&gt; oldConfig.alias &#x3D;&#x3D;&#x3D; newConfig.alias)) {
-				result.push({ action: ConfigureAction.UPDATE, config: newConfig as IdentityProviderConfig });
-			} else {
-				result.push({ action: ConfigureAction.CREATE, config: newConfig as IdentityProviderConfig });
-			}
-		});
-		// deleting configs
-		oldConfigs.forEach((oldConfig) &#x3D;&gt; {
-			if (!newConfigs.some((newConfig) &#x3D;&gt; newConfig.alias &#x3D;&#x3D;&#x3D; oldConfig.alias)) {
-				result.push({ action: ConfigureAction.DELETE, alias: oldConfig.alias as string });
-			}
-		});
-		return result;
-	}
-
-	private async createOrUpdateIdmAccount(account: IJsonAccount, user: IJsonUser) {
-		const idmUserRepresentation &#x3D; {
-			username: account.username,
-			firstName: user.firstName,
-			lastName: user.lastName,
-			email: user.email,
-			enabled: true,
-			credentials: [
-				{
-					type: &#x27;password&#x27;,
-					secretData: &#x60;{&quot;value&quot;: &quot;${account.password}&quot;, &quot;salt&quot;: &quot;&quot;, &quot;additionalParameters&quot;: {}}&#x60;,
-					credentialData: &#x27;{ &quot;hashIterations&quot;: 10, &quot;algorithm&quot;: &quot;bcrypt&quot;, &quot;additionalParameters&quot;: {}}&#x27;,
-				},
-			],
-		};
-		const kc &#x3D; await this.kcAdmin.callKcAdminClient();
-		const existingAccounts &#x3D; await kc.users.find({ username: account.username, exact: true });
-		if (existingAccounts.length &#x3D;&#x3D;&#x3D; 1 &amp;&amp; existingAccounts[0].id) {
-			await kc.users.update({ id: existingAccounts[0].id }, idmUserRepresentation);
-			return true;
-		}
-		if (existingAccounts.length &#x3D;&#x3D;&#x3D; 0) {
-			await kc.users.create(idmUserRepresentation);
-			return true;
-		}
-		// else, unreachable, multiple accounts for same username (unique)
-		return false;
-	}
-
-	private async createIdentityProvider(system: IdentityProviderConfig): Promise&lt;void&gt; {
-		const kc &#x3D; await this.kcAdmin.callKcAdminClient();
-		if (system.type &#x3D;&#x3D;&#x3D; SysType.OIDC) {
-			await kc.identityProviders.create({
-				providerId: system.type,
-				alias: system.alias,
-				enabled: true,
-				config: {
-					clientId: this.configService.get&lt;string&gt;(system.config.clientId),
-					clientSecret: this.configService.get&lt;string&gt;(system.config.clientSecret),
-					authorizationUrl: system.config.authorizationUrl,
-					tokenUrl: system.config.tokenUrl,
-					logoutUrl: system.config.logoutUrl,
-				},
-			});
-		}
-	}
-
-	private async updateIdentityProvider(system: IdentityProviderConfig): Promise&lt;void&gt; {
-		const kc &#x3D; await this.kcAdmin.callKcAdminClient();
-		if (system.type &#x3D;&#x3D;&#x3D; SysType.OIDC) {
-			await kc.identityProviders.update(
-				{ alias: system.alias },
-				{
-					providerId: system.type,
-					alias: system.alias,
-					enabled: true,
-					config: {
-						clientId: this.configService.get&lt;string&gt;(system.config.clientId),
-						clientSecret: this.configService.get&lt;string&gt;(system.config.clientSecret),
-						authorizationUrl: system.config.authorizationUrl,
-						tokenUrl: system.config.tokenUrl,
-						logoutUrl: system.config.logoutUrl,
-					},
-				}
-			);
-		}
-	}
-
-	private async deleteIdentityProvider(alias: string): Promise&lt;void&gt; {
-		const kc &#x3D; await this.kcAdmin.callKcAdminClient();
-		await kc.identityProviders.del({ alias });
-	}
-
-	private async loadConfigs(envType: NodeEnvType, sysTypes: SysType[]): Promise&lt;IdentityProviderConfig[]&gt; {
-		if (envType &#x3D;&#x3D;&#x3D; NodeEnvType.TEST || envType &#x3D;&#x3D;&#x3D; NodeEnvType.DEVELOPMENT) {
-			const data &#x3D; await fs.readFile(this.inputFiles.systemsFile, { encoding: &#x27;utf-8&#x27; });
-			const systems &#x3D; JSON.parse(data) as IdentityProviderConfig[];
-			return systems.filter((system) &#x3D;&gt; sysTypes.includes(system.type as SysType));
-		}
-		if (envType &#x3D;&#x3D;&#x3D; NodeEnvType.PRODUCTION) {
-			return (await this.systemRepo.findAll()).filter((system) &#x3D;&gt;
-				sysTypes.includes(system.type as SysType)
-			) as IdentityProviderConfig[];
-		}
-		return [];
-	}
-
-	private async loadAccounts(): Promise&lt;IJsonAccount[]&gt; {
-		const data &#x3D; await fs.readFile(this.inputFiles.accountsFile, { encoding: &#x27;utf-8&#x27; });
-		return JSON.parse(data) as IJsonAccount[];
-	}
-
-	private async loadUsers(): Promise&lt;IJsonUser[]&gt; {
-		const data &#x3D; await fs.readFile(this.inputFiles.usersFile, { encoding: &#x27;utf-8&#x27; });
-		return JSON.parse(data) as IJsonUser[];
+	async configure(loadFromJson &#x3D; false): Promise&lt;number&gt; {
+		return this.keycloakConfigService.configureIdentityProviders(loadFromJson);
 	}
 }
 </code></pre>
