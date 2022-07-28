@@ -85,6 +85,10 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Async</span>
+                                <a href="#syncFilesForLessons" >syncFilesForLessons</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
                                 <a href="#syncFilesForTasks" >syncFilesForTasks</a>
                             </li>
                         </ul>
@@ -105,12 +109,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(syncFilesUc: <a href="../injectables/SyncFilesUc.html" target="_self">SyncFilesUc</a>)</code>
+<code>constructor(syncFilesUc: <a href="../injectables/SyncFilesUc.html" target="_self">SyncFilesUc</a>, syncEmbeddedFilesUc: <a href="../injectables/SyncEmbeddedFilesUc.html" target="_self">SyncEmbeddedFilesUc</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">apps/server/src/modules/files/job/sync-files.console.ts:10</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">apps/server/src/modules/files/job/sync-files.console.ts:11</a></div>
                             </td>
                         </tr>
 
@@ -139,6 +143,18 @@
                                                     </td>
                                                     
                                                 </tr>
+                                                <tr>
+                                                        <td>syncEmbeddedFilesUc</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/SyncEmbeddedFilesUc.html" target="_self" >SyncEmbeddedFilesUc</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
                                         </tbody>
                                     </table>
                             </div>
@@ -154,6 +170,52 @@
     <h3 id="methods">
         Methods
     </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="syncFilesForLessons"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>syncFilesForLessons</b></span>
+                        <a href="#syncFilesForLessons"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>syncFilesForLessons()</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Command({command: &#x27;lessons&#x27;})<br /></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="20"
+                            class="link-to-prism">apps/server/src/modules/files/job/sync-files.console.ts:20</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
     <table class="table table-sm table-bordered">
         <tbody>
             <tr>
@@ -183,8 +245,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="14"
-                            class="link-to-prism">apps/server/src/modules/files/job/sync-files.console.ts:14</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="15"
+                            class="link-to-prism">apps/server/src/modules/files/job/sync-files.console.ts:15</a></div>
                 </td>
             </tr>
 
@@ -264,16 +326,22 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { FileRecordParentType } from &#x27;@shared/domain&#x27;;
 import { Command, Console } from &#x27;nestjs-console&#x27;;
 import { SyncFilesUc } from &#x27;../uc/sync-files.uc&#x27;;
+import { SyncEmbeddedFilesUc } from &#x27;../uc/sync-embedded-files.uc&#x27;;
 
 // Temporary functionality for migration to new fileservice
 // TODO: Remove when BC-1496 is done!
 @Console({ command: &#x27;sync-files&#x27; })
 export class SyncFilesConsole {
-	constructor(private syncFilesUc: SyncFilesUc) {}
+	constructor(private readonly syncFilesUc: SyncFilesUc, private readonly syncEmbeddedFilesUc: SyncEmbeddedFilesUc) {}
 
 	@Command({ command: &#x27;tasks [aggregationSize] [numParallelPromises]&#x27; })
 	async syncFilesForTasks(aggregationSize &#x3D; 5000, numParallelPromises &#x3D; 50) {
 		await this.syncFilesUc.syncFilesForParentType(FileRecordParentType.Task, aggregationSize, numParallelPromises);
+	}
+
+	@Command({ command: &#x27;lessons&#x27; })
+	async syncFilesForLessons() {
+		await this.syncEmbeddedFilesUc.syncEmbeddedFilesForLesson();
 	}
 }
 </code></pre>

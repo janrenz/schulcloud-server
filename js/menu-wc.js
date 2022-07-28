@@ -409,18 +409,21 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/FilesModule.html" data-type="entity-link" >FilesModule</a>
                                 <li class="chapter inner">
                                     <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                        'data-target="#injectables-links-module-FilesModule-1a87210605de283258d36d3cca1fd97f3136c49801156cb4fe87b7b2ba9ccdd05f00c1569a1b28828b8bbf3717afc54bfee405c9e8aecc88c8c517b94f280f34"' : 'data-target="#xs-injectables-links-module-FilesModule-1a87210605de283258d36d3cca1fd97f3136c49801156cb4fe87b7b2ba9ccdd05f00c1569a1b28828b8bbf3717afc54bfee405c9e8aecc88c8c517b94f280f34"' }>
+                                        'data-target="#injectables-links-module-FilesModule-d4d5ac7dae518b3870784371b6630b451b8b5c1e6768f92400f607c11059c30c96286502944e2b16b49563f90354580d51635473141ca2c6758b7e68a4a28f72"' : 'data-target="#xs-injectables-links-module-FilesModule-d4d5ac7dae518b3870784371b6630b451b8b5c1e6768f92400f607c11059c30c96286502944e2b16b49563f90354580d51635473141ca2c6758b7e68a4a28f72"' }>
                                         <span class="icon ion-md-arrow-round-down"></span>
                                         <span>Injectables</span>
                                         <span class="icon ion-ios-arrow-down"></span>
                                     </div>
-                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-FilesModule-1a87210605de283258d36d3cca1fd97f3136c49801156cb4fe87b7b2ba9ccdd05f00c1569a1b28828b8bbf3717afc54bfee405c9e8aecc88c8c517b94f280f34"' :
-                                        'id="xs-injectables-links-module-FilesModule-1a87210605de283258d36d3cca1fd97f3136c49801156cb4fe87b7b2ba9ccdd05f00c1569a1b28828b8bbf3717afc54bfee405c9e8aecc88c8c517b94f280f34"' }>
+                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-FilesModule-d4d5ac7dae518b3870784371b6630b451b8b5c1e6768f92400f607c11059c30c96286502944e2b16b49563f90354580d51635473141ca2c6758b7e68a4a28f72"' :
+                                        'id="xs-injectables-links-module-FilesModule-d4d5ac7dae518b3870784371b6630b451b8b5c1e6768f92400f607c11059c30c96286502944e2b16b49563f90354580d51635473141ca2c6758b7e68a4a28f72"' }>
                                         <li class="link">
                                             <a href="injectables/DeleteFilesUc.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >DeleteFilesUc</a>
                                         </li>
                                         <li class="link">
                                             <a href="injectables/DeleteOrphanedFilesUc.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >DeleteOrphanedFilesUc</a>
+                                        </li>
+                                        <li class="link">
+                                            <a href="injectables/EmbeddedFilesRepo.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >EmbeddedFilesRepo</a>
                                         </li>
                                         <li class="link">
                                             <a href="injectables/FileRecordRepo.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >FileRecordRepo</a>
@@ -436,6 +439,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                         </li>
                                         <li class="link">
                                             <a href="injectables/StorageProviderRepo.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >StorageProviderRepo</a>
+                                        </li>
+                                        <li class="link">
+                                            <a href="injectables/SyncEmbeddedFilesUc.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >SyncEmbeddedFilesUc</a>
                                         </li>
                                         <li class="link">
                                             <a href="injectables/SyncFilesMetadataService.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >SyncFilesMetadataService</a>
@@ -1712,6 +1718,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="classes/LessonFactory.html" data-type="entity-link" >LessonFactory</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/LessonMapper.html" data-type="entity-link" >LessonMapper</a>
                             </li>
                             <li class="link">
                                 <a href="classes/LessonScope.html" data-type="entity-link" >LessonScope</a>
