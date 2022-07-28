@@ -110,7 +110,7 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(taskRepo: <a href="../injectables/TaskRepo.html" target="_self">TaskRepo</a>, courseRepo: <a href="../injectables/CourseRepo.html" target="_self">CourseRepo</a>, lessonRepo: <a href="../injectables/LessonRepo.html" target="_self">LessonRepo</a>, authorisation: <a href="../injectables/AuthorizationService.html" target="_self">AuthorizationService</a>, taskCopyService: <a href="../injectables/TaskCopyService.html" target="_self">TaskCopyService</a>, copyHelperService: <a href="../injectables/CopyHelperService.html" target="_self">CopyHelperService</a>, filesStorageClient: <a href="../injectables/FilesStorageClientAdapterService.html" target="_self">FilesStorageClientAdapterService</a>)</code>
+<code>constructor(taskRepo: <a href="../injectables/TaskRepo.html" target="_self">TaskRepo</a>, courseRepo: <a href="../injectables/CourseRepo.html" target="_self">CourseRepo</a>, lessonRepo: <a href="../injectables/LessonRepo.html" target="_self">LessonRepo</a>, authorisation: <a href="../injectables/AuthorizationService.html" target="_self">AuthorizationService</a>, taskCopyService: <a href="../injectables/TaskCopyService.html" target="_self">TaskCopyService</a>, copyHelperService: <a href="../injectables/CopyHelperService.html" target="_self">CopyHelperService</a>, fileCopyAppendService: <a href="../injectables/FileCopyAppendService.html" target="_self">FileCopyAppendService</a>)</code>
                     </td>
                 </tr>
                         <tr>
@@ -205,10 +205,10 @@
                                                     
                                                 </tr>
                                                 <tr>
-                                                        <td>filesStorageClient</td>
+                                                        <td>fileCopyAppendService</td>
                                                   
                                                         <td>
-                                                                        <code><a href="../injectables/FilesStorageClientAdapterService.html" target="_self" >FilesStorageClientAdapterService</a></code>
+                                                                        <code><a href="../injectables/FileCopyAppendService.html" target="_self" >FileCopyAppendService</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -348,8 +348,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="76"
-                            class="link-to-prism">apps/server/src/modules/task/uc/task-copy.uc.ts:76</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="77"
+                            class="link-to-prism">apps/server/src/modules/task/uc/task-copy.uc.ts:77</a></div>
                 </td>
             </tr>
 
@@ -432,8 +432,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="84"
-                            class="link-to-prism">apps/server/src/modules/task/uc/task-copy.uc.ts:84</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="85"
+                            class="link-to-prism">apps/server/src/modules/task/uc/task-copy.uc.ts:85</a></div>
                 </td>
             </tr>
 
@@ -511,15 +511,15 @@ import {
 	TaskCopyService,
 	User,
 } from &#x27;@shared/domain&#x27;;
+import { FileCopyAppendService } from &#x27;@shared/domain/service/file-copy-append.service&#x27;;
 import { CourseRepo, LessonRepo, TaskRepo } from &#x27;@shared/repo&#x27;;
 import { AuthorizationService } from &#x27;@src/modules/authorization&#x27;;
-import { FilesStorageClientAdapterService } from &#x27;@src/modules/files-storage-client&#x27;;
 
 // todo: it look like it is required not optional
 export type TaskCopyParentParams &#x3D; {
 	courseId?: EntityId;
 	lessonId?: EntityId;
-	jwt?: string;
+	jwt: string;
 };
 
 @Injectable()
@@ -531,7 +531,7 @@ export class TaskCopyUC {
 		private readonly authorisation: AuthorizationService,
 		private readonly taskCopyService: TaskCopyService,
 		private readonly copyHelperService: CopyHelperService,
-		private readonly filesStorageClient: FilesStorageClientAdapterService
+		private readonly fileCopyAppendService: FileCopyAppendService
 	) {}
 
 	async copyTask(userId: EntityId, taskId: EntityId, parentParams: TaskCopyParentParams): Promise&lt;CopyStatus&gt; {
@@ -558,7 +558,7 @@ export class TaskCopyUC {
 			destinationLesson &#x3D; await this.getDestinationLesson(parentParams.lessonId, user);
 		}
 
-		const status &#x3D; this.taskCopyService.copyTaskMetadata({
+		let status &#x3D; this.taskCopyService.copyTaskMetadata({
 			originalTask,
 			destinationCourse,
 			destinationLesson,
@@ -569,6 +569,7 @@ export class TaskCopyUC {
 		if (status.copyEntity) {
 			const taskCopy &#x3D; status.copyEntity as Task;
 			await this.taskRepo.save(taskCopy);
+			status &#x3D; await this.fileCopyAppendService.appendFiles(status, parentParams.jwt);
 		}
 
 		return status;

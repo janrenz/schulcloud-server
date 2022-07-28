@@ -177,8 +177,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="58"
-                            class="link-to-prism">apps/server/src/shared/domain/service/task-copy.service.ts:58</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="59"
+                            class="link-to-prism">apps/server/src/shared/domain/service/task-copy.service.ts:59</a></div>
                 </td>
             </tr>
 
@@ -317,8 +317,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="41"
-                            class="link-to-prism">apps/server/src/shared/domain/service/task-copy.service.ts:41</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="42"
+                            class="link-to-prism">apps/server/src/shared/domain/service/task-copy.service.ts:42</a></div>
                 </td>
             </tr>
 
@@ -374,6 +374,7 @@ export class TaskCopyService {
 			type: CopyElementType.TASK,
 			status: this.copyHelperService.deriveStatusFromElements(elements),
 			copyEntity: copy,
+			originalEntity: params.originalTask,
 			elements,
 		};
 
@@ -406,7 +407,6 @@ export class TaskCopyService {
 				status: CopyStatusEnum.NOT_IMPLEMENTED,
 			}));
 			const fileStatus &#x3D; {
-				title: &#x27;files&#x27;,
 				type: CopyElementType.FILE_GROUP,
 				status: CopyStatusEnum.NOT_IMPLEMENTED,
 				elements,

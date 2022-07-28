@@ -129,7 +129,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>mapLessonCopyToDomain(params: <a href="../classes/LessonCopyApiParams.html" target="_self">LessonCopyApiParams</a>)</code>
+                    <code>mapLessonCopyToDomain(params: <a href="../classes/LessonCopyApiParams.html" target="_self">LessonCopyApiParams</a>, jwt: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
@@ -161,6 +161,18 @@
                                     <td>params</td>
                                     <td>
                                                 <code><a href="../classes/LessonCopyApiParams.html" target="_self" >LessonCopyApiParams</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>jwt</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
                                     </td>
 
                                     <td>
@@ -207,8 +219,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="33"
-                            class="link-to-prism">apps/server/src/modules/learnroom/mapper/copy.mapper.ts:33</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="34"
+                            class="link-to-prism">apps/server/src/modules/learnroom/mapper/copy.mapper.ts:34</a></div>
                 </td>
             </tr>
 
@@ -373,9 +385,10 @@ export class CopyMapper {
 		return dto;
 	}
 
-	static mapLessonCopyToDomain(params: LessonCopyApiParams): LessonCopyParentParams {
+	static mapLessonCopyToDomain(params: LessonCopyApiParams, jwt: string): LessonCopyParentParams {
 		const dto &#x3D; {
 			courseId: params.courseId,
+			jwt,
 		};
 
 		return dto;
