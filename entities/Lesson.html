@@ -141,7 +141,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="88" class="link-to-prism">apps/server/src/shared/domain/entity/lesson.entity.ts:88</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="94" class="link-to-prism">apps/server/src/shared/domain/entity/lesson.entity.ts:94</a></div>
                         </td>
                     </tr>
 
@@ -176,7 +176,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="82" class="link-to-prism">apps/server/src/shared/domain/entity/lesson.entity.ts:82</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="88" class="link-to-prism">apps/server/src/shared/domain/entity/lesson.entity.ts:88</a></div>
                         </td>
                     </tr>
 
@@ -210,7 +210,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="78" class="link-to-prism">apps/server/src/shared/domain/entity/lesson.entity.ts:78</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="84" class="link-to-prism">apps/server/src/shared/domain/entity/lesson.entity.ts:84</a></div>
                         </td>
                     </tr>
 
@@ -244,7 +244,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="91" class="link-to-prism">apps/server/src/shared/domain/entity/lesson.entity.ts:91</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="97" class="link-to-prism">apps/server/src/shared/domain/entity/lesson.entity.ts:97</a></div>
                         </td>
                     </tr>
 
@@ -279,7 +279,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="74" class="link-to-prism">apps/server/src/shared/domain/entity/lesson.entity.ts:74</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="80" class="link-to-prism">apps/server/src/shared/domain/entity/lesson.entity.ts:80</a></div>
                         </td>
                     </tr>
 
@@ -314,7 +314,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="85" class="link-to-prism">apps/server/src/shared/domain/entity/lesson.entity.ts:85</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="91" class="link-to-prism">apps/server/src/shared/domain/entity/lesson.entity.ts:91</a></div>
                         </td>
                     </tr>
 
@@ -348,7 +348,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="94" class="link-to-prism">apps/server/src/shared/domain/entity/lesson.entity.ts:94</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="100" class="link-to-prism">apps/server/src/shared/domain/entity/lesson.entity.ts:100</a></div>
                         </td>
                     </tr>
 
@@ -380,6 +380,7 @@ export interface ILessonProperties {
 export enum ComponentType {
 	ETHERPAD &#x3D; &#x27;Etherpad&#x27;,
 	GEOGEBRA &#x3D; &#x27;geoGebra&#x27;,
+	INTERNAL &#x3D; &#x27;internal&#x27;,
 	LERNSTORE &#x3D; &#x27;resources&#x27;,
 	TEXT &#x3D; &#x27;text&#x27;,
 	NEXBOARD &#x3D; &#x27;neXboard&#x27;,
@@ -418,6 +419,10 @@ export interface IComponentNexboardProperties {
 	url: string;
 }
 
+export interface IComponentInternalProperties {
+	url: string;
+}
+
 export interface IComponentProperties {
 	title: string;
 	hidden: boolean;
@@ -427,6 +432,7 @@ export interface IComponentProperties {
 		| IComponentGeogebraProperties
 		| IComponentLernstoreProperties
 		| IComponentEtherpadProperties
+		| IComponentInternalProperties
 		| IComponentNexboardProperties;
 }
 

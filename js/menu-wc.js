@@ -2481,6 +2481,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="interfaces/IComponentGeogebraProperties.html" data-type="entity-link" >IComponentGeogebraProperties</a>
                             </li>
                             <li class="link">
+                                <a href="interfaces/IComponentInternalProperties.html" data-type="entity-link" >IComponentInternalProperties</a>
+                            </li>
+                            <li class="link">
                                 <a href="interfaces/IComponentLernstoreProperties.html" data-type="entity-link" >IComponentLernstoreProperties</a>
                             </li>
                             <li class="link">

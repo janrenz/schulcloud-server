@@ -79,6 +79,9 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                <a href="#buildCopyEntityDict" >buildCopyEntityDict</a>
+                            </li>
+                            <li>
                                 <a href="#deriveCopyName" >deriveCopyName</a>
                             </li>
                             <li>
@@ -106,6 +109,75 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="buildCopyEntityDict"></a>
+                    <span class="name">
+                        <span ><b>buildCopyEntityDict</b></span>
+                        <a href="#buildCopyEntityDict"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>buildCopyEntityDict(status: <a href="../undefineds/CopyStatus.html" target="_self">CopyStatus</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="39"
+                            class="link-to-prism">apps/server/src/shared/domain/service/copy-helper.service.ts:39</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>status</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#CopyStatus" target="_self" >CopyStatus</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/BaseEntity.html" target="_self" >Map&lt;EntityId, BaseEntity&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="deriveCopyName"></a>
                     <span class="name">
                         <span ><b>deriveCopyName</b></span>
@@ -122,8 +194,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="24"
-                            class="link-to-prism">apps/server/src/shared/domain/service/copy-helper.service.ts:24</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="25"
+                            class="link-to-prism">apps/server/src/shared/domain/service/copy-helper.service.ts:25</a></div>
                 </td>
             </tr>
 
@@ -203,8 +275,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="8"
-                            class="link-to-prism">apps/server/src/shared/domain/service/copy-helper.service.ts:8</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="9"
+                            class="link-to-prism">apps/server/src/shared/domain/service/copy-helper.service.ts:9</a></div>
                 </td>
             </tr>
 
@@ -259,7 +331,8 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
-import { CopyStatus, CopyStatusEnum } from &#x27;../types&#x27;;
+import { BaseEntity } from &#x27;../entity&#x27;;
+import { CopyStatus, CopyStatusEnum, EntityId } from &#x27;../types&#x27;;
 
 const isAtLeastPartialSuccessfull &#x3D; (status) &#x3D;&gt; status &#x3D;&#x3D;&#x3D; CopyStatusEnum.PARTIAL || status &#x3D;&#x3D;&#x3D; CopyStatusEnum.SUCCESS;
 
@@ -293,6 +366,17 @@ export class CopyHelperService {
 			return this.deriveCopyName(composedName, existingNames);
 		}
 		return composedName;
+	}
+
+	buildCopyEntityDict(status: CopyStatus): Map&lt;EntityId, BaseEntity&gt; {
+		const map &#x3D; new Map&lt;EntityId, BaseEntity&gt;();
+		status.elements?.forEach((elementStatus: CopyStatus) &#x3D;&gt; {
+			this.buildCopyEntityDict(elementStatus).forEach((el, key) &#x3D;&gt; map.set(key, el));
+		});
+		if (status.originalEntity &amp;&amp; status.copyEntity) {
+			map.set(status.originalEntity.id, status.copyEntity);
+		}
+		return map;
 	}
 }
 </code></pre>
