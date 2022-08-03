@@ -138,7 +138,7 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @Property({nullable: true, unique: true})<br />
+                            @Property({nullable: true})<br />
                         </code>
                     </td>
                 </tr>
@@ -416,7 +416,7 @@ export class System extends BaseEntityWithTimestamps {
 	@Property({ nullable: true })
 	url?: string;
 
-	@Property({ nullable: true, unique: true })
+	@Property({ nullable: true })
 	alias?: string;
 
 	@Property({ nullable: true })

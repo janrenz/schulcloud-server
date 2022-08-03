@@ -283,8 +283,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="108"
-                            class="link-to-prism">apps/server/src/shared/infra/identity-management/keycloak/service/keycloak-configuration.service.ts:108</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="102"
+                            class="link-to-prism">apps/server/src/shared/infra/identity-management/keycloak/service/keycloak-configuration.service.ts:102</a></div>
                 </td>
             </tr>
 
@@ -355,8 +355,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="165"
-                            class="link-to-prism">apps/server/src/shared/infra/identity-management/keycloak/service/keycloak-configuration.service.ts:165</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="159"
+                            class="link-to-prism">apps/server/src/shared/infra/identity-management/keycloak/service/keycloak-configuration.service.ts:159</a></div>
                 </td>
             </tr>
 
@@ -427,8 +427,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="215"
-                            class="link-to-prism">apps/server/src/shared/infra/identity-management/keycloak/service/keycloak-configuration.service.ts:215</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="209"
+                            class="link-to-prism">apps/server/src/shared/infra/identity-management/keycloak/service/keycloak-configuration.service.ts:209</a></div>
                 </td>
             </tr>
 
@@ -499,8 +499,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="204"
-                            class="link-to-prism">apps/server/src/shared/infra/identity-management/keycloak/service/keycloak-configuration.service.ts:204</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="198"
+                            class="link-to-prism">apps/server/src/shared/infra/identity-management/keycloak/service/keycloak-configuration.service.ts:198</a></div>
                 </td>
             </tr>
 
@@ -587,8 +587,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="142"
-                            class="link-to-prism">apps/server/src/shared/infra/identity-management/keycloak/service/keycloak-configuration.service.ts:142</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="136"
+                            class="link-to-prism">apps/server/src/shared/infra/identity-management/keycloak/service/keycloak-configuration.service.ts:136</a></div>
                 </td>
             </tr>
 
@@ -673,8 +673,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="183"
-                            class="link-to-prism">apps/server/src/shared/infra/identity-management/keycloak/service/keycloak-configuration.service.ts:183</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="177"
+                            class="link-to-prism">apps/server/src/shared/infra/identity-management/keycloak/service/keycloak-configuration.service.ts:177</a></div>
                 </td>
             </tr>
 
@@ -762,13 +762,18 @@ export class KeycloakConfigurationService {
 		const kc &#x3D; await this.kcAdmin.callKcAdminClient();
 		const flowAlias &#x3D; &#x27;Direct Broker Flow&#x27;;
 		const executionProviders &#x3D; [&#x27;idp-create-user-if-unique&#x27;, &#x27;idp-auto-link&#x27;];
-		const createFlowRequest &#x3D; kc.realms.makeRequest&lt;AuthenticationFlowRepresentation &amp; { realmName: string }, void&gt;({
-			method: &#x27;POST&#x27;,
+		const getFlowsRequest &#x3D; kc.realms.makeRequest&lt;{ realmName: string }, AuthenticationFlowRepresentation[]&gt;({
+			method: &#x27;GET&#x27;,
 			path: &#x27;/{realmName}/authentication/flows&#x27;,
 			urlParamKeys: [&#x27;realmName&#x27;],
 		});
-		const getFlowsRequest &#x3D; kc.realms.makeRequest&lt;{ realmName: string }, AuthenticationFlowRepresentation[]&gt;({
-			method: &#x27;GET&#x27;,
+		const flows &#x3D; await getFlowsRequest({ realmName: kc.realmName });
+		const flow &#x3D; flows.find((tempFlow) &#x3D;&gt; tempFlow.alias &#x3D;&#x3D;&#x3D; flowAlias);
+		if (flow &amp;&amp; flow.id) {
+			return;
+		}
+		const createFlowRequest &#x3D; kc.realms.makeRequest&lt;AuthenticationFlowRepresentation &amp; { realmName: string }, void&gt;({
+			method: &#x27;POST&#x27;,
 			path: &#x27;/{realmName}/authentication/flows&#x27;,
 			urlParamKeys: [&#x27;realmName&#x27;],
 		});
@@ -795,17 +800,6 @@ export class KeycloakConfigurationService {
 			path: &#x27;/{realmName}/authentication/flows/{flowAlias}/executions&#x27;,
 			urlParamKeys: [&#x27;realmName&#x27;, &#x27;flowAlias&#x27;],
 		});
-
-		const flows &#x3D; await getFlowsRequest({ realmName: kc.realmName });
-		const flow &#x3D; flows.find((tempFlow) &#x3D;&gt; tempFlow.alias &#x3D;&#x3D;&#x3D; flowAlias);
-		if (flow &amp;&amp; flow.id) {
-			const deleteFlowRequest &#x3D; kc.realms.makeRequest&lt;{ realmName: string; id: string }, void&gt;({
-				method: &#x27;DELETE&#x27;,
-				path: &#x27;/{realmName}/authentication/flows/{id}&#x27;,
-				urlParamKeys: [&#x27;realmName&#x27;, &#x27;id&#x27;],
-			});
-			await deleteFlowRequest({ realmName: kc.realmName, id: flow.id });
-		}
 		await createFlowRequest({
 			realmName: kc.realmName,
 			alias: flowAlias,
