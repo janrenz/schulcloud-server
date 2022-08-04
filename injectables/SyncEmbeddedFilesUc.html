@@ -83,6 +83,11 @@
                                 <a href="#extractFileIds" >extractFileIds</a>
                             </li>
                             <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#sync" >sync</a>
+                            </li>
+                            <li>
                                     <span class="modifier">Async</span>
                                 <a href="#syncEmbeddedFilesForLesson" >syncEmbeddedFilesForLesson</a>
                             </li>
@@ -273,6 +278,78 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="sync"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span class="modifier">Async</span>
+                        <span ><b>sync</b></span>
+                        <a href="#sync"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>sync(file: <a href="../classes/SyncFileItem.html" target="_self">SyncFileItem</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="65"
+                            class="link-to-prism">apps/server/src/modules/files/uc/sync-embedded-files.uc.ts:65</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>file</td>
+                                    <td>
+                                                <code><a href="../classes/SyncFileItem.html" target="_self" >SyncFileItem</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="syncEmbeddedFilesForLesson"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
@@ -403,8 +480,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="75"
-                            class="link-to-prism">apps/server/src/modules/files/uc/sync-embedded-files.uc.ts:75</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="80"
+                            class="link-to-prism">apps/server/src/modules/files/uc/sync-embedded-files.uc.ts:80</a></div>
                 </td>
             </tr>
 
@@ -458,10 +535,10 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
-import { Logger } from &#x27;@src/core/logger/logger.service&#x27;;
-import { ObjectId } from &#x27;@mikro-orm/mongodb&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ObjectId } from &#x27;@mikro-orm/mongodb&#x27;;
+import { Injectable } from &#x27;@nestjs/common&#x27;;
 import { FileRecordParentType, IComponentProperties, Lesson } from &#x27;@shared/domain&#x27;;
+import { Logger } from &#x27;@src/core/logger/logger.service&#x27;;
 import _ from &#x27;lodash&#x27;;
 import { EmbeddedFilesRepo, fileUrlRegex } from &#x27;../repo/embedded-files.repo&#x27;;
 import { SyncFileItem } from &#x27;../types&#x27;;
@@ -513,20 +590,25 @@ export class SyncEmbeddedFilesUc {
 	}
 
 	private async syncFiles(files: SyncFileItem[]) {
-		let promises;
+		// eslint-disable-next-line no-await-in-loop
+		const promises &#x3D; files.map((file) &#x3D;&gt; {
+			return this.sync(file);
+		});
+		await Promise.all(promises);
+	}
 
+	private async sync(file: SyncFileItem) {
 		try {
-			// eslint-disable-next-line no-await-in-loop
-			promises &#x3D; files.map(async (file) &#x3D;&gt; {
-				await this.syncFilesMetaDataService.prepareMetaData(file);
-				await this.syncFilesStorageService.syncS3File(file);
-				await this.syncFilesMetaDataService.persistMetaData(file);
-				await this.updateLessonsLinks(file);
-				this.logger.log(&#x60;Synced file ${file.source.id}&#x60;);
-			});
-			await Promise.all(promises);
-		} catch (err) {
-			this.logger.error(err);
+			await this.syncFilesMetaDataService.prepareMetaData(file);
+			await this.syncFilesStorageService.syncS3File(file);
+			await this.syncFilesMetaDataService.persistMetaData(file);
+			await this.updateLessonsLinks(file);
+			this.logger.log(&#x60;Synced file ${file.source.id}&#x60;);
+		} catch (error) {
+			// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+			const stack: string &#x3D; &#x27;stack&#x27; in error ? (error as Error).stack : error;
+			this.logger.error(file, stack);
+			await this.syncFilesMetaDataService.persistError(file, stack);
 		}
 	}
 
@@ -536,7 +618,7 @@ export class SyncEmbeddedFilesUc {
 		if (lesson) {
 			lesson.contents &#x3D; lesson.contents.map((item: IComponentProperties) &#x3D;&gt; {
 				const regex &#x3D; new RegExp(&#x60;${fileUrlRegex}${file.source.id}.+?&quot;&#x60;, &#x27;g&#x27;);
-				const newUrl &#x3D; &#x60;/api/v3/file/download/${file.fileRecord.id}/${file.fileRecord.name}&#x60;;
+				const newUrl &#x3D; &#x60;&quot;/api/v3/file/download/${file.fileRecord.id}/${file.fileRecord.name}&quot;&#x60;;
 
 				if (&#x27;text&#x27; in item.content) {
 					item.content.text &#x3D; item.content.text.replace(regex, newUrl);

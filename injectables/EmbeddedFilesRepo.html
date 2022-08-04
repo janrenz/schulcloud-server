@@ -487,7 +487,7 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { EntityManager, ObjectId } from &#x27;@mikro-orm/mongodb&#x27;;
 import { Injectable } from &#x27;@nestjs/common&#x27;;
-import { Lesson, FileRecordParentType, File } from &#x27;@shared/domain&#x27;;
+import { File, FileRecordParentType, Lesson } from &#x27;@shared/domain&#x27;;
 import { SyncFileItemMapper } from &#x27;../mapper&#x27;;
 import { LessonMapper } from &#x27;../mapper/lesson-mapper&#x27;;
 import { SyncFileItem } from &#x27;../types&#x27;;
@@ -623,9 +623,9 @@ export class EmbeddedFilesRepo {
 	}
 
 	async createLessonBackUpCollection() {
-		const date &#x3D; new Date().toISOString().slice(0, 10).replace(/-/g, &#x27;&#x27;);
+		const date &#x3D; new Date();
 
-		await this._em.aggregate(Lesson, [{ $match: {} }, { $out: &#x60;lessons_backup_${date}&#x60; }]);
+		await this._em.aggregate(Lesson, [{ $match: {} }, { $out: &#x60;lessons_backup_${date.getTime()}&#x60; }]);
 	}
 }
 </code></pre>
