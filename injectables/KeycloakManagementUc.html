@@ -407,8 +407,8 @@ export class KeycloakManagementUc {
 
 	async configure(loadFromJson &#x3D; false): Promise&lt;number&gt; {
 		await this.kcAdmin.setPasswordPolicy();
-		const result &#x3D; this.keycloakConfigService.configureIdentityProviders(loadFromJson);
 		await this.keycloakConfigService.configureBrokerFlows();
+		const result &#x3D; this.keycloakConfigService.configureIdentityProviders(loadFromJson);
 		return result;
 	}
 }

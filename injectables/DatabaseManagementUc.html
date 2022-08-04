@@ -99,11 +99,19 @@
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
+                                <a href="#getEncryptedSecret" >getEncryptedSecret</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
                                 <a href="#getSeedFolder" >getSeedFolder</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
                                 <a href="#getTargetFolder" >getTargetFolder</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#injectSecretsToSystems" >injectSecretsToSystems</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
@@ -119,6 +127,10 @@
                                     <span class="modifier">Private</span>
                                     <span class="modifier">Async</span>
                                 <a href="#loadCollectionsAvailableFromSourceAndFilterByCollectionNames" >loadCollectionsAvailableFromSourceAndFilterByCollectionNames</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#removeSecretsFromSystems" >removeSecretsFromSystems</a>
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
@@ -160,12 +172,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(fileSystemAdapter: <a href="../injectables/FileSystemAdapter.html" target="_self">FileSystemAdapter</a>, databaseManagementService: <a href="../injectables/DatabaseManagementService.html" target="_self">DatabaseManagementService</a>, bsonConverter: <a href="../injectables/BsonConverter.html" target="_self">BsonConverter</a>)</code>
+<code>constructor(fileSystemAdapter: <a href="../injectables/FileSystemAdapter.html" target="_self">FileSystemAdapter</a>, databaseManagementService: <a href="../injectables/DatabaseManagementService.html" target="_self">DatabaseManagementService</a>, bsonConverter: <a href="../injectables/BsonConverter.html" target="_self">BsonConverter</a>, configService: ConfigService, encryptionService: <a href="../injectables/SymetricKeyEncryptionService.html" target="_self">SymetricKeyEncryptionService</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">apps/server/src/modules/management/uc/database-management.uc.ts:19</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">apps/server/src/modules/management/uc/database-management.uc.ts:25</a></div>
                             </td>
                         </tr>
 
@@ -218,6 +230,30 @@
                                                     </td>
                                                     
                                                 </tr>
+                                                <tr>
+                                                        <td>configService</td>
+                                                  
+                                                        <td>
+                                                                    <code>ConfigService</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>encryptionService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/SymetricKeyEncryptionService.html" target="_self" >SymetricKeyEncryptionService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
                                         </tbody>
                                     </table>
                             </div>
@@ -254,8 +290,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="183"
-                            class="link-to-prism">apps/server/src/modules/management/uc/database-management.uc.ts:183</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="195"
+                            class="link-to-prism">apps/server/src/modules/management/uc/database-management.uc.ts:195</a></div>
                 </td>
             </tr>
 
@@ -332,6 +368,77 @@ The behaviour should match $ mongoexport</p>
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="getEncryptedSecret"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span ><b>getEncryptedSecret</b></span>
+                        <a href="#getEncryptedSecret"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getEncryptedSecret(secretVarName: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="273"
+                            class="link-to-prism">apps/server/src/modules/management/uc/database-management.uc.ts:273</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>secretVarName</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="getSeedFolder"></a>
                     <span class="name">
                         <span class="modifier">Private</span>
@@ -350,8 +457,8 @@ The behaviour should match $ mongoexport</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="38"
-                            class="link-to-prism">apps/server/src/modules/management/uc/database-management.uc.ts:38</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="46"
+                            class="link-to-prism">apps/server/src/modules/management/uc/database-management.uc.ts:46</a></div>
                 </td>
             </tr>
 
@@ -391,8 +498,8 @@ The behaviour should match $ mongoexport</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="46"
-                            class="link-to-prism">apps/server/src/modules/management/uc/database-management.uc.ts:46</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="54"
+                            class="link-to-prism">apps/server/src/modules/management/uc/database-management.uc.ts:54</a></div>
                 </td>
             </tr>
 
@@ -446,6 +553,77 @@ The behaviour should match $ mongoexport</p>
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="injectSecretsToSystems"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span ><b>injectSecretsToSystems</b></span>
+                        <a href="#injectSecretsToSystems"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>injectSecretsToSystems(systems: <a href="../entitys/System.html" target="_self">System[]</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="236"
+                            class="link-to-prism">apps/server/src/modules/management/uc/database-management.uc.ts:236</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>systems</td>
+                                    <td>
+                                                <code><a href="../entitys/System.html" target="_self" >System[]</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>{}</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="loadAllCollectionsFromDatabase"></a>
                     <span class="name">
                         <span class="modifier">Private</span>
@@ -465,8 +643,8 @@ The behaviour should match $ mongoexport</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="63"
-                            class="link-to-prism">apps/server/src/modules/management/uc/database-management.uc.ts:63</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="71"
+                            class="link-to-prism">apps/server/src/modules/management/uc/database-management.uc.ts:71</a></div>
                 </td>
             </tr>
 
@@ -539,8 +717,8 @@ The behaviour should match $ mongoexport</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="76"
-                            class="link-to-prism">apps/server/src/modules/management/uc/database-management.uc.ts:76</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="84"
+                            class="link-to-prism">apps/server/src/modules/management/uc/database-management.uc.ts:84</a></div>
                 </td>
             </tr>
 
@@ -613,8 +791,8 @@ The behaviour should match $ mongoexport</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="91"
-                            class="link-to-prism">apps/server/src/modules/management/uc/database-management.uc.ts:91</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="99"
+                            class="link-to-prism">apps/server/src/modules/management/uc/database-management.uc.ts:99</a></div>
                 </td>
             </tr>
 
@@ -693,6 +871,77 @@ The behaviour should match $ mongoexport</p>
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="removeSecretsFromSystems"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span ><b>removeSecretsFromSystems</b></span>
+                        <a href="#removeSecretsFromSystems"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>removeSecretsFromSystems(systems: <a href="../entitys/System.html" target="_self">System[]</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="254"
+                            class="link-to-prism">apps/server/src/modules/management/uc/database-management.uc.ts:254</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>systems</td>
+                                    <td>
+                                                <code><a href="../entitys/System.html" target="_self" >System[]</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>{}</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="seedDatabaseCollectionsFromFileSystem"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
@@ -711,8 +960,8 @@ The behaviour should match $ mongoexport</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="134"
-                            class="link-to-prism">apps/server/src/modules/management/uc/database-management.uc.ts:134</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="142"
+                            class="link-to-prism">apps/server/src/modules/management/uc/database-management.uc.ts:142</a></div>
                 </td>
             </tr>
 
@@ -791,8 +1040,8 @@ The behaviour should match $ mongoimport</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="217"
-                            class="link-to-prism">apps/server/src/modules/management/uc/database-management.uc.ts:217</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="232"
+                            class="link-to-prism">apps/server/src/modules/management/uc/database-management.uc.ts:232</a></div>
                 </td>
             </tr>
 
@@ -841,7 +1090,7 @@ The behaviour should match $ mongoimport</p>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">apps/server/src/modules/management/uc/database-management.uc.ts:19</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">apps/server/src/modules/management/uc/database-management.uc.ts:25</a></div>
                         </td>
                     </tr>
 
@@ -876,7 +1125,7 @@ The behaviour should match $ mongoimport</p>
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">apps/server/src/modules/management/uc/database-management.uc.ts:30</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">apps/server/src/modules/management/uc/database-management.uc.ts:38</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -902,12 +1151,18 @@ The behaviour should match $ mongoimport</p>
 import { orderBy } from &#x27;lodash&#x27;;
 import { FileSystemAdapter } from &#x27;@shared/infra/file-system&#x27;;
 import { DatabaseManagementService } from &#x27;@shared/infra/database&#x27;;
+import { ConfigService } from &#x27;@nestjs/config&#x27;;
+import { SymetricKeyEncryptionService } from &#x27;@shared/infra/encryption&#x27;;
+import { System } from &#x27;@shared/domain&#x27;;
+import { SysType } from &#x27;@shared/infra/identity-management&#x27;;
 import { BsonConverter } from &#x27;../converter/bson.converter&#x27;;
 
 export interface ICollectionFilePath {
 	filePath: string;
 	collectionName: string;
 }
+
+const systemsCollectionName &#x3D; &#x27;systems&#x27;;
 
 @Injectable()
 export class DatabaseManagementUc {
@@ -919,7 +1174,9 @@ export class DatabaseManagementUc {
 	constructor(
 		private fileSystemAdapter: FileSystemAdapter,
 		private databaseManagementService: DatabaseManagementService,
-		private bsonConverter: BsonConverter
+		private bsonConverter: BsonConverter,
+		private readonly configService: ConfigService,
+		private readonly encryptionService: SymetricKeyEncryptionService
 	) {}
 
 	/**
@@ -1059,6 +1316,10 @@ export class DatabaseManagementUc {
 					await this.databaseManagementService.createCollection(collectionName);
 				}
 
+				if (collectionName &#x3D;&#x3D;&#x3D; systemsCollectionName) {
+					this.injectSecretsToSystems(jsonDocuments as System[]);
+				}
+
 				// import backuop data into database collection
 				const importedDocumentsAmount &#x3D; await this.databaseManagementService.importCollection(
 					collectionName,
@@ -1093,6 +1354,9 @@ export class DatabaseManagementUc {
 			collectionsToExport.map(async ({ filePath, collectionName }) &#x3D;&gt; {
 				// load json documents from collection
 				const jsonDocuments &#x3D; await this.databaseManagementService.findDocumentsOfCollection(collectionName);
+				if (collectionName &#x3D;&#x3D;&#x3D; systemsCollectionName) {
+					this.removeSecretsFromSystems(jsonDocuments as System[]);
+				}
 				// serialize to bson (format of mongoexport)
 				const bsonDocuments &#x3D; this.bsonConverter.serialize(jsonDocuments);
 				// sort results to have &#x27;new&#x27; data added at documents end
@@ -1114,6 +1378,51 @@ export class DatabaseManagementUc {
 	 */
 	async syncIndexes(): Promise&lt;void&gt; {
 		return this.databaseManagementService.syncIndexes();
+	}
+
+	private injectSecretsToSystems(systems: System[]) {
+		if (!this.configService.get&lt;string&gt;(&#x27;AES_KEY&#x27;)) {
+			return systems;
+		}
+		// this.configService.get&lt;string&gt;();
+		systems.forEach((system) &#x3D;&gt; {
+			if (system.oauthConfig) {
+				system.oauthConfig.clientSecret &#x3D; this.getEncryptedSecret(system.oauthConfig.clientSecret);
+				system.oauthConfig.clientId &#x3D; this.getEncryptedSecret(system.oauthConfig.clientId);
+			}
+			if (system.type &#x3D;&#x3D;&#x3D; SysType.OIDC &amp;&amp; system.config) {
+				system.config.clientSecret &#x3D; this.getEncryptedSecret(system.config.clientSecret as string);
+				system.config.clientId &#x3D; this.getEncryptedSecret(system.config.clientId as string);
+			}
+		});
+		return systems;
+	}
+
+	private removeSecretsFromSystems(systems: System[]) {
+		systems.forEach((system) &#x3D;&gt; {
+			// The system&#x27;s alias needs to be set otherwise the export will fail here, but that is acceptable.
+			if (system.oauthConfig) {
+				// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+				system.oauthConfig.clientSecret &#x3D; &#x60;${system.alias!.toLocaleUpperCase()}_CLIENT_SECRET&#x60;;
+				// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+				system.oauthConfig.clientId &#x3D; &#x60;${system.alias!.toLocaleUpperCase()}_CLIENT_ID&#x60;;
+			}
+			if (system.type &#x3D;&#x3D;&#x3D; SysType.OIDC &amp;&amp; system.config) {
+				// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+				system.config.clientSecret &#x3D; &#x60;${system.alias!.toLocaleUpperCase()}_CLIENT_SECRET&#x60;;
+				// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+				system.config.clientId &#x3D; &#x60;${system.alias!.toLocaleUpperCase()}_CLIENT_ID&#x60;;
+			}
+		});
+		return systems;
+	}
+
+	private getEncryptedSecret(secretVarName: string) {
+		const secret &#x3D; this.configService.get&lt;string&gt;(secretVarName);
+		if (secret) {
+			return this.encryptionService.encrypt(secret);
+		}
+		return secretVarName;
 	}
 }
 </code></pre>

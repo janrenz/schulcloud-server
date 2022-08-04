@@ -181,12 +181,18 @@
 import { orderBy } from &#x27;lodash&#x27;;
 import { FileSystemAdapter } from &#x27;@shared/infra/file-system&#x27;;
 import { DatabaseManagementService } from &#x27;@shared/infra/database&#x27;;
+import { ConfigService } from &#x27;@nestjs/config&#x27;;
+import { SymetricKeyEncryptionService } from &#x27;@shared/infra/encryption&#x27;;
+import { System } from &#x27;@shared/domain&#x27;;
+import { SysType } from &#x27;@shared/infra/identity-management&#x27;;
 import { BsonConverter } from &#x27;../converter/bson.converter&#x27;;
 
 export interface ICollectionFilePath {
 	filePath: string;
 	collectionName: string;
 }
+
+const systemsCollectionName &#x3D; &#x27;systems&#x27;;
 
 @Injectable()
 export class DatabaseManagementUc {
@@ -198,7 +204,9 @@ export class DatabaseManagementUc {
 	constructor(
 		private fileSystemAdapter: FileSystemAdapter,
 		private databaseManagementService: DatabaseManagementService,
-		private bsonConverter: BsonConverter
+		private bsonConverter: BsonConverter,
+		private readonly configService: ConfigService,
+		private readonly encryptionService: SymetricKeyEncryptionService
 	) {}
 
 	/**
@@ -338,6 +346,10 @@ export class DatabaseManagementUc {
 					await this.databaseManagementService.createCollection(collectionName);
 				}
 
+				if (collectionName &#x3D;&#x3D;&#x3D; systemsCollectionName) {
+					this.injectSecretsToSystems(jsonDocuments as System[]);
+				}
+
 				// import backuop data into database collection
 				const importedDocumentsAmount &#x3D; await this.databaseManagementService.importCollection(
 					collectionName,
@@ -372,6 +384,9 @@ export class DatabaseManagementUc {
 			collectionsToExport.map(async ({ filePath, collectionName }) &#x3D;&gt; {
 				// load json documents from collection
 				const jsonDocuments &#x3D; await this.databaseManagementService.findDocumentsOfCollection(collectionName);
+				if (collectionName &#x3D;&#x3D;&#x3D; systemsCollectionName) {
+					this.removeSecretsFromSystems(jsonDocuments as System[]);
+				}
 				// serialize to bson (format of mongoexport)
 				const bsonDocuments &#x3D; this.bsonConverter.serialize(jsonDocuments);
 				// sort results to have &#x27;new&#x27; data added at documents end
@@ -393,6 +408,51 @@ export class DatabaseManagementUc {
 	 */
 	async syncIndexes(): Promise&lt;void&gt; {
 		return this.databaseManagementService.syncIndexes();
+	}
+
+	private injectSecretsToSystems(systems: System[]) {
+		if (!this.configService.get&lt;string&gt;(&#x27;AES_KEY&#x27;)) {
+			return systems;
+		}
+		// this.configService.get&lt;string&gt;();
+		systems.forEach((system) &#x3D;&gt; {
+			if (system.oauthConfig) {
+				system.oauthConfig.clientSecret &#x3D; this.getEncryptedSecret(system.oauthConfig.clientSecret);
+				system.oauthConfig.clientId &#x3D; this.getEncryptedSecret(system.oauthConfig.clientId);
+			}
+			if (system.type &#x3D;&#x3D;&#x3D; SysType.OIDC &amp;&amp; system.config) {
+				system.config.clientSecret &#x3D; this.getEncryptedSecret(system.config.clientSecret as string);
+				system.config.clientId &#x3D; this.getEncryptedSecret(system.config.clientId as string);
+			}
+		});
+		return systems;
+	}
+
+	private removeSecretsFromSystems(systems: System[]) {
+		systems.forEach((system) &#x3D;&gt; {
+			// The system&#x27;s alias needs to be set otherwise the export will fail here, but that is acceptable.
+			if (system.oauthConfig) {
+				// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+				system.oauthConfig.clientSecret &#x3D; &#x60;${system.alias!.toLocaleUpperCase()}_CLIENT_SECRET&#x60;;
+				// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+				system.oauthConfig.clientId &#x3D; &#x60;${system.alias!.toLocaleUpperCase()}_CLIENT_ID&#x60;;
+			}
+			if (system.type &#x3D;&#x3D;&#x3D; SysType.OIDC &amp;&amp; system.config) {
+				// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+				system.config.clientSecret &#x3D; &#x60;${system.alias!.toLocaleUpperCase()}_CLIENT_SECRET&#x60;;
+				// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+				system.config.clientId &#x3D; &#x60;${system.alias!.toLocaleUpperCase()}_CLIENT_ID&#x60;;
+			}
+		});
+		return systems;
+	}
+
+	private getEncryptedSecret(secretVarName: string) {
+		const secret &#x3D; this.configService.get&lt;string&gt;(secretVarName);
+		if (secret) {
+			return this.encryptionService.encrypt(secret);
+		}
+		return secretVarName;
 	}
 }
 </code></pre>
