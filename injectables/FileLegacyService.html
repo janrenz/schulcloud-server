@@ -40,7 +40,7 @@
 
 <ol class="breadcrumb">
   <li>Injectables</li>
-  <li >CourseCopyService</li>
+  <li >FileLegacyService</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -58,7 +58,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/shared/domain/service/course-copy.service.ts</code>
+            <code>apps/server/src/shared/domain/service/file-legacy.service.ts</code>
         </p>
 
 
@@ -79,7 +79,8 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#copyCourse" >copyCourse</a>
+                                    <span class="modifier">Async</span>
+                                <a href="#copyFile" >copyFile</a>
                             </li>
                         </ul>
                     </td>
@@ -99,12 +100,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(copyHelperService: <a href="../injectables/CopyHelperService.html" target="_self">CopyHelperService</a>)</code>
+<code>constructor(feathersServiceProvider: <a href="../injectables/FeathersServiceProvider.html" target="_self">FeathersServiceProvider</a>, logger: <a href="../injectables/Logger.html" target="_self">Logger</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">apps/server/src/shared/domain/service/course-copy.service.ts:13</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">apps/server/src/shared/domain/service/file-legacy.service.ts:19</a></div>
                             </td>
                         </tr>
 
@@ -122,10 +123,22 @@
                                         </thead>
                                         <tbody>
                                                 <tr>
-                                                        <td>copyHelperService</td>
+                                                        <td>feathersServiceProvider</td>
                                                   
                                                         <td>
-                                                                        <code><a href="../injectables/CopyHelperService.html" target="_self" >CopyHelperService</a></code>
+                                                                        <code><a href="../injectables/FeathersServiceProvider.html" target="_self" >FeathersServiceProvider</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>logger</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/Logger.html" target="_self" >Logger</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -151,24 +164,26 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="copyCourse"></a>
+                    <a name="copyFile"></a>
                     <span class="name">
-                        <span ><b>copyCourse</b></span>
-                        <a href="#copyCourse"><span class="icon ion-ios-link"></span></a>
+                        <span class="modifier">Async</span>
+                        <span ><b>copyFile</b></span>
+                        <a href="#copyFile"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>copyCourse(params: <a href="../entitys/Course.html" target="_self">CourseCopyParams</a>)</code>
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>copyFile(data: <a href="../classes/File.html" target="_self">FileLegacyParams</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="16"
-                            class="link-to-prism">apps/server/src/shared/domain/service/course-copy.service.ts:16</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="22"
+                            class="link-to-prism">apps/server/src/shared/domain/service/file-legacy.service.ts:22</a></div>
                 </td>
             </tr>
 
@@ -189,9 +204,9 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>params</td>
+                                    <td>data</td>
                                     <td>
-                                                <code><a href="../entitys/Course.html" target="_self" >CourseCopyParams</a></code>
+                                                <code><a href="../classes/File.html" target="_self" >FileLegacyParams</a></code>
                                     </td>
 
                                     <td>
@@ -206,7 +221,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#CopyStatus" target="_self" >CopyStatus</a></code>
+                        <b>Returns : </b>        <code><a href="../classes/File.html" target="_self" >Promise&lt;FileLegacyResponse&gt;</a></code>
 
                     </div>
                     <div class="io-description">
@@ -223,63 +238,35 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
-import { Course, User } from &#x27;@shared/domain/entity&#x27;;
-import { CopyElementType, CopyStatus, CopyStatusEnum } from &#x27;@shared/domain/types&#x27;;
-import { CopyHelperService } from &#x27;./copy-helper.service&#x27;;
+import { EntityId } from &#x27;@shared/domain/types&#x27;;
+import { FeathersServiceProvider } from &#x27;@shared/infra/feathers/feathers-service.provider&#x27;;
+import { Logger } from &#x27;@src/core/logger&#x27;;
 
-export type CourseCopyParams &#x3D; {
-	originalCourse: Course;
-	user: User;
-	copyName?: string;
+type FileLegacyParams &#x3D; {
+	fileId: EntityId;
+	targetCourseId: EntityId;
+	userId: EntityId;
+};
+
+export type FileLegacyResponse &#x3D; {
+	oldFileId: EntityId;
+	fileId?: EntityId;
+	filename?: string;
 };
 
 @Injectable()
-export class CourseCopyService {
-	constructor(private readonly copyHelperService: CopyHelperService) {}
+export class FileLegacyService {
+	constructor(private readonly feathersServiceProvider: FeathersServiceProvider, private logger: Logger) {}
 
-	copyCourse(params: CourseCopyParams): CopyStatus {
-		const copy &#x3D; new Course({
-			school: params.user.school,
-			name: params.copyName ?? params.originalCourse.name,
-			color: params.originalCourse.color,
-			teachers: [params.user],
-			startDate: params.user.school.schoolYear?.startDate,
-			untilDate: params.user.school.schoolYear?.endDate,
-		});
-
-		const elements &#x3D; [
-			{
-				type: CopyElementType.METADATA,
-				status: CopyStatusEnum.SUCCESS,
-			},
-			{
-				type: CopyElementType.USER_GROUP, // teachers, substitutionTeachers, students,...
-				status: CopyStatusEnum.NOT_DOING,
-			},
-			{
-				type: CopyElementType.LTITOOL_GROUP,
-				status: CopyStatusEnum.NOT_DOING,
-			},
-			{
-				type: CopyElementType.TIME_GROUP,
-				status: CopyStatusEnum.NOT_DOING,
-			},
-			{
-				type: CopyElementType.COURSEGROUP_GROUP,
-				status: CopyStatusEnum.NOT_IMPLEMENTED,
-			},
-		];
-
-		const status &#x3D; {
-			title: copy.name,
-			type: CopyElementType.COURSE,
-			status: this.copyHelperService.deriveStatusFromElements(elements),
-			copyEntity: copy,
-			originalEntity: params.originalCourse,
-			elements,
-		};
-
-		return status;
+	async copyFile(data: FileLegacyParams): Promise&lt;FileLegacyResponse&gt; {
+		try {
+			const service &#x3D; this.feathersServiceProvider.getService(&#x27;/fileStorage/coursefilecopy&#x27;);
+			const result &#x3D; await service.create(data, { userId: data.userId });
+			return result as FileLegacyResponse;
+		} catch (error) {
+			this.logger.error(&#x27;Could not copy file&#x27;, error);
+			return { oldFileId: data.fileId };
+		}
 	}
 }
 </code></pre>
@@ -325,7 +312,7 @@ export class CourseCopyService {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
-            var COMPODOC_CURRENT_PAGE_URL = 'CourseCopyService.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'FileLegacyService.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

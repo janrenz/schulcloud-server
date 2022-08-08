@@ -403,7 +403,7 @@ export class CourseCopyUC {
 			const boardCopy &#x3D; statusBoard.copyEntity as Board;
 			await this.boardRepo.save(boardCopy);
 			statusBoard &#x3D; this.lessonCopyService.updateCopiedEmbeddedTasks(statusBoard);
-			statusBoard &#x3D; await this.fileCopyAppendService.appendFiles(statusBoard, jwt);
+			statusBoard &#x3D; await this.fileCopyAppendService.copyFiles(statusBoard, courseCopy.id, userId, jwt);
 			const updatedBoardCopy &#x3D; statusBoard.copyEntity as Board;
 			await this.boardRepo.save(updatedBoardCopy);
 		}

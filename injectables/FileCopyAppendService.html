@@ -88,6 +88,18 @@
                                 <a href="#appendFilesToTask" >appendFilesToTask</a>
                             </li>
                             <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#copyEmbeddedFilesOfLessons" >copyEmbeddedFilesOfLessons</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#copyEmbeddedFilesOfTasks" >copyEmbeddedFilesOfTasks</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#copyFiles" >copyFiles</a>
+                            </li>
+                            <li>
                                     <span class="modifier">Private</span>
                                 <a href="#createFailedCopyStatus" >createFailedCopyStatus</a>
                             </li>
@@ -97,15 +109,29 @@
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
+                                <a href="#createFileStatusesByCopyResult" >createFileStatusesByCopyResult</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
                                 <a href="#createSuccessCopyStatus" >createSuccessCopyStatus</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#deriveFileGroupStatus" >deriveFileGroupStatus</a>
+                            </li>
+                            <li>
+                                <a href="#extractOldFileIds" >extractOldFileIds</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
                                 <a href="#getFileGroupStatus" >getFileGroupStatus</a>
                             </li>
                             <li>
+                                <a href="#replaceOldFileUrls" >replaceOldFileUrls</a>
+                            </li>
+                            <li>
                                     <span class="modifier">Private</span>
-                                <a href="#replaceFileGroup" >replaceFileGroup</a>
+                                <a href="#setFileGroupStatus" >setFileGroupStatus</a>
                             </li>
                         </ul>
                     </td>
@@ -125,12 +151,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(copyHelperService: <a href="../injectables/CopyHelperService.html" target="_self">CopyHelperService</a>, fileCopyAdapterService: <a href="../injectables/FilesStorageClientAdapterService.html" target="_self">FilesStorageClientAdapterService</a>)</code>
+<code>constructor(copyHelperService: <a href="../injectables/CopyHelperService.html" target="_self">CopyHelperService</a>, fileCopyAdapterService: <a href="../injectables/FilesStorageClientAdapterService.html" target="_self">FilesStorageClientAdapterService</a>, fileLegacyService: <a href="../injectables/FileLegacyService.html" target="_self">FileLegacyService</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">apps/server/src/shared/domain/service/file-copy-append.service.ts:8</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">apps/server/src/shared/domain/service/file-copy-append.service.ts:12</a></div>
                             </td>
                         </tr>
 
@@ -164,6 +190,18 @@
                                                   
                                                         <td>
                                                                         <code><a href="../injectables/FilesStorageClientAdapterService.html" target="_self" >FilesStorageClientAdapterService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>fileLegacyService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/FileLegacyService.html" target="_self" >FileLegacyService</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -207,8 +245,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="15"
-                            class="link-to-prism">apps/server/src/shared/domain/service/file-copy-append.service.ts:15</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="19"
+                            class="link-to-prism">apps/server/src/shared/domain/service/file-copy-append.service.ts:19</a></div>
                 </td>
             </tr>
 
@@ -291,8 +329,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="26"
-                            class="link-to-prism">apps/server/src/shared/domain/service/file-copy-append.service.ts:26</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="30"
+                            class="link-to-prism">apps/server/src/shared/domain/service/file-copy-append.service.ts:30</a></div>
                 </td>
             </tr>
 
@@ -356,6 +394,303 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="copyEmbeddedFilesOfLessons"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>copyEmbeddedFilesOfLessons</b></span>
+                        <a href="#copyEmbeddedFilesOfLessons"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>copyEmbeddedFilesOfLessons(lessonCopyStatus: <a href="../undefineds/CopyStatus.html" target="_self">CopyStatus</a>, courseId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="128"
+                            class="link-to-prism">apps/server/src/shared/domain/service/file-copy-append.service.ts:128</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>lessonCopyStatus</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#CopyStatus" target="_self" >CopyStatus</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>courseId</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>userId</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#CopyStatus" target="_self" >Promise&lt;CopyStatus&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="copyEmbeddedFilesOfTasks"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>copyEmbeddedFilesOfTasks</b></span>
+                        <a href="#copyEmbeddedFilesOfTasks"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>copyEmbeddedFilesOfTasks(taskCopyStatus: <a href="../undefineds/CopyStatus.html" target="_self">CopyStatus</a>, courseId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="175"
+                            class="link-to-prism">apps/server/src/shared/domain/service/file-copy-append.service.ts:175</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>taskCopyStatus</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#CopyStatus" target="_self" >CopyStatus</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>courseId</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>userId</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#CopyStatus" target="_self" >Promise&lt;CopyStatus&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="copyFiles"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>copyFiles</b></span>
+                        <a href="#copyFiles"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>copyFiles(copyStatus: <a href="../undefineds/CopyStatus.html" target="_self">CopyStatus</a>, courseId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, jwt: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="111"
+                            class="link-to-prism">apps/server/src/shared/domain/service/file-copy-append.service.ts:111</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>copyStatus</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#CopyStatus" target="_self" >CopyStatus</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>courseId</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>userId</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>jwt</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#CopyStatus" target="_self" >Promise&lt;CopyStatus&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="createFailedCopyStatus"></a>
                     <span class="name">
                         <span class="modifier">Private</span>
@@ -374,8 +709,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="54"
-                            class="link-to-prism">apps/server/src/shared/domain/service/file-copy-append.service.ts:54</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="58"
+                            class="link-to-prism">apps/server/src/shared/domain/service/file-copy-append.service.ts:58</a></div>
                 </td>
             </tr>
 
@@ -445,8 +780,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="87"
-                            class="link-to-prism">apps/server/src/shared/domain/service/file-copy-append.service.ts:87</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="95"
+                            class="link-to-prism">apps/server/src/shared/domain/service/file-copy-append.service.ts:95</a></div>
                 </td>
             </tr>
 
@@ -498,6 +833,77 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="createFileStatusesByCopyResult"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span ><b>createFileStatusesByCopyResult</b></span>
+                        <a href="#createFileStatusesByCopyResult"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>createFileStatusesByCopyResult(files: <a href="../classes/File.html" target="_self">FileLegacyResponse[]</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="103"
+                            class="link-to-prism">apps/server/src/shared/domain/service/file-copy-append.service.ts:103</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>files</td>
+                                    <td>
+                                                <code><a href="../classes/File.html" target="_self" >FileLegacyResponse[]</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#CopyStatus" target="_self" >CopyStatus[]</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="createSuccessCopyStatus"></a>
                     <span class="name">
                         <span class="modifier">Private</span>
@@ -516,8 +922,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="43"
-                            class="link-to-prism">apps/server/src/shared/domain/service/file-copy-append.service.ts:43</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="47"
+                            class="link-to-prism">apps/server/src/shared/domain/service/file-copy-append.service.ts:47</a></div>
                 </td>
             </tr>
 
@@ -581,26 +987,26 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="getFileGroupStatus"></a>
+                    <a name="deriveFileGroupStatus"></a>
                     <span class="name">
                         <span class="modifier">Private</span>
-                        <span ><b>getFileGroupStatus</b></span>
-                        <a href="#getFileGroupStatus"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>deriveFileGroupStatus</b></span>
+                        <a href="#deriveFileGroupStatus"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>getFileGroupStatus(elements: <a href="../undefineds/CopyStatus.html" target="_self">CopyStatus[]</a>)</code>
+                    <code>deriveFileGroupStatus(fileCopyResults: <a href="../classes/File.html" target="_self">FileLegacyResponse[]</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="79"
-                            class="link-to-prism">apps/server/src/shared/domain/service/file-copy-append.service.ts:79</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="205"
+                            class="link-to-prism">apps/server/src/shared/domain/service/file-copy-append.service.ts:205</a></div>
                 </td>
             </tr>
 
@@ -617,23 +1023,19 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
-                                    <td>Default value</td>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>elements</td>
+                                    <td>fileCopyResults</td>
                                     <td>
-                                                <code><a href="../miscellaneous/typealiases.html#CopyStatus" target="_self" >CopyStatus[]</a></code>
+                                                <code><a href="../classes/File.html" target="_self" >FileLegacyResponse[]</a></code>
                                     </td>
 
                                     <td>
                                         No
                                     </td>
 
-                                    <td>
-                                        <code>[]</code>
-                                    </td>
 
                                 </tr>
                             </tbody>
@@ -642,7 +1044,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#CopyStatus" target="_self" >CopyStatus</a></code>
+                        <b>Returns : </b>    <code>{ type: any; status: any; elements: {}; }</code>
 
                     </div>
                     <div class="io-description">
@@ -656,18 +1058,87 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="replaceFileGroup"></a>
+                    <a name="extractOldFileIds"></a>
+                    <span class="name">
+                        <span ><b>extractOldFileIds</b></span>
+                        <a href="#extractOldFileIds"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>extractOldFileIds(text: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="215"
+                            class="link-to-prism">apps/server/src/shared/domain/service/file-copy-append.service.ts:215</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>text</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>string[]</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getFileGroupStatus"></a>
                     <span class="name">
                         <span class="modifier">Private</span>
-                        <span ><b>replaceFileGroup</b></span>
-                        <a href="#replaceFileGroup"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>getFileGroupStatus</b></span>
+                        <a href="#getFileGroupStatus"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>replaceFileGroup(elements: <a href="../undefineds/CopyStatus.html" target="_self">CopyStatus[]</a>, fileGroupStatus: <a href="../undefineds/CopyStatus.html" target="_self">CopyStatus</a>)</code>
+                    <code>getFileGroupStatus(elements: <a href="../undefineds/CopyStatus.html" target="_self">CopyStatus[]</a>)</code>
                 </td>
             </tr>
 
@@ -711,8 +1182,188 @@
                                     </td>
 
                                 </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#CopyStatus" target="_self" >CopyStatus | undefined</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="replaceOldFileUrls"></a>
+                    <span class="name">
+                        <span ><b>replaceOldFileUrls</b></span>
+                        <a href="#replaceOldFileUrls"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>replaceOldFileUrls(text: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, oldFileId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, fileId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, filename: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="221"
+                            class="link-to-prism">apps/server/src/shared/domain/service/file-copy-append.service.ts:221</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
                                 <tr>
-                                    <td>fileGroupStatus</td>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>text</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>oldFileId</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>fileId</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>filename</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setFileGroupStatus"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span ><b>setFileGroupStatus</b></span>
+                        <a href="#setFileGroupStatus"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>setFileGroupStatus(elements: <a href="../undefineds/CopyStatus.html" target="_self">CopyStatus[]</a>, updatedFileGroupStatus: <a href="../undefineds/CopyStatus.html" target="_self">CopyStatus</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="87"
+                            class="link-to-prism">apps/server/src/shared/domain/service/file-copy-append.service.ts:87</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Default value</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>elements</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#CopyStatus" target="_self" >CopyStatus[]</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+                                    <td>
+                                        <code>[]</code>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>updatedFileGroupStatus</td>
                                     <td>
                                                 <code><a href="../miscellaneous/typealiases.html#CopyStatus" target="_self" >CopyStatus</a></code>
                                     </td>
@@ -749,18 +1400,22 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
 import { FileDto, FileParamBuilder, FilesStorageClientAdapterService } from &#x27;@src/modules/files-storage-client&#x27;;
-import { Task } from &#x27;../entity&#x27;;
-import { CopyElementType, CopyStatus, CopyStatusEnum } from &#x27;../types&#x27;;
+import { uniq } from &#x27;lodash&#x27;;
+import { IComponentProperties, Lesson, Task } from &#x27;../entity&#x27;;
+import { CopyElementType, CopyStatus, CopyStatusEnum, EntityId } from &#x27;../types&#x27;;
 import { CopyHelperService } from &#x27;./copy-helper.service&#x27;;
+import { FileLegacyResponse, FileLegacyService } from &#x27;./file-legacy.service&#x27;;
+
+export const fileUrlRegex &#x3D; &#x27;&quot;(https?://[^&quot;]*)?/files/file\\?file&#x3D;&#x27;;
 
 @Injectable()
 export class FileCopyAppendService {
 	constructor(
 		private readonly copyHelperService: CopyHelperService,
-		private readonly fileCopyAdapterService: FilesStorageClientAdapterService
+		private readonly fileCopyAdapterService: FilesStorageClientAdapterService,
+		private readonly fileLegacyService: FileLegacyService
 	) {}
 
-	// TODO create interfaces for params
 	async appendFiles(copyStatus: CopyStatus, jwt: string): Promise&lt;CopyStatus&gt; {
 		if (copyStatus.type &#x3D;&#x3D;&#x3D; CopyElementType.TASK) {
 			return this.appendFilesToTask(copyStatus, jwt);
@@ -795,13 +1450,13 @@ export class FileCopyAppendService {
 			status: CopyStatusEnum.SUCCESS,
 			elements: this.createFileStatuses(files),
 		};
-		taskCopyStatus.status &#x3D; this.copyHelperService.deriveStatusFromElements(taskCopyStatus.elements as CopyStatus[]);
-		taskCopyStatus.elements &#x3D; this.replaceFileGroup(taskCopyStatus.elements, fileGroupStatus);
+		taskCopyStatus.status &#x3D; this.copyHelperService.deriveStatusFromElements(fileGroupStatus.elements);
+		taskCopyStatus.elements &#x3D; this.setFileGroupStatus(taskCopyStatus.elements, fileGroupStatus);
 		return taskCopyStatus;
 	}
 
 	private createFailedCopyStatus(taskCopyStatus: CopyStatus) {
-		let fileGroupStatus &#x3D; this.getFileGroupStatus(taskCopyStatus?.elements);
+		let fileGroupStatus &#x3D; this.getFileGroupStatus(taskCopyStatus.elements);
 		if (fileGroupStatus &#x3D;&#x3D;&#x3D; undefined) {
 			fileGroupStatus &#x3D; {
 				type: CopyElementType.FILE_GROUP,
@@ -809,8 +1464,8 @@ export class FileCopyAppendService {
 			};
 		}
 		const elements &#x3D;
-			fileGroupStatus?.elements &amp;&amp; fileGroupStatus.elements.length &gt; 0
-				? fileGroupStatus?.elements?.map((el) &#x3D;&gt; {
+			fileGroupStatus.elements &amp;&amp; fileGroupStatus.elements.length &gt; 0
+				? fileGroupStatus.elements.map((el) &#x3D;&gt; {
 						el.status &#x3D; CopyStatusEnum.FAIL;
 						return el;
 				  })
@@ -821,24 +1476,153 @@ export class FileCopyAppendService {
 			elements,
 		};
 		taskCopyStatus.status &#x3D; this.copyHelperService.deriveStatusFromElements(taskCopyStatus.elements as CopyStatus[]);
-		taskCopyStatus.elements &#x3D; this.replaceFileGroup(taskCopyStatus.elements, updatedFileGroupStatus);
+		taskCopyStatus.elements &#x3D; this.setFileGroupStatus(taskCopyStatus.elements, updatedFileGroupStatus);
 		return taskCopyStatus;
 	}
 
-	private getFileGroupStatus(elements: CopyStatus[] &#x3D; []): CopyStatus {
-		return elements?.find((el) &#x3D;&gt; el.type &#x3D;&#x3D;&#x3D; CopyElementType.FILE_GROUP) as CopyStatus;
+	private getFileGroupStatus(elements: CopyStatus[] &#x3D; []): CopyStatus | undefined {
+		return elements.find((el) &#x3D;&gt; el.type &#x3D;&#x3D;&#x3D; CopyElementType.FILE_GROUP) as CopyStatus;
 	}
 
-	private replaceFileGroup(elements: CopyStatus[] &#x3D; [], fileGroupStatus: CopyStatus): CopyStatus[] {
-		return elements.map((el) &#x3D;&gt; (el.type &#x3D;&#x3D;&#x3D; CopyElementType.FILE_GROUP ? fileGroupStatus : el));
+	private setFileGroupStatus(elements: CopyStatus[] &#x3D; [], updatedFileGroupStatus: CopyStatus): CopyStatus[] {
+		const fileGroupStatus &#x3D; this.getFileGroupStatus(elements);
+		if (fileGroupStatus) {
+			return elements.map((el) &#x3D;&gt; (el.type &#x3D;&#x3D;&#x3D; CopyElementType.FILE_GROUP ? updatedFileGroupStatus : el));
+		}
+		return [...elements, updatedFileGroupStatus];
 	}
 
 	private createFileStatuses(files: FileDto[]): CopyStatus[] {
 		return files.map((file) &#x3D;&gt; ({
 			type: CopyElementType.FILE,
-			name: file.name,
+			title: file.name,
 			status: CopyStatusEnum.SUCCESS,
 		}));
+	}
+
+	private createFileStatusesByCopyResult(files: FileLegacyResponse[]): CopyStatus[] {
+		return files.map(({ oldFileId, fileId, filename }) &#x3D;&gt; ({
+			type: CopyElementType.FILE,
+			status: fileId ? CopyStatusEnum.SUCCESS : CopyStatusEnum.FAIL,
+			title: filename ?? &#x60;(old fileid: ${oldFileId})&#x60;,
+		}));
+	}
+
+	async copyFiles(copyStatus: CopyStatus, courseId: EntityId, userId: EntityId, jwt: string): Promise&lt;CopyStatus&gt; {
+		if (copyStatus.type &#x3D;&#x3D;&#x3D; CopyElementType.LESSON) {
+			return this.copyEmbeddedFilesOfLessons(copyStatus, courseId, userId);
+		}
+		if (copyStatus.type &#x3D;&#x3D;&#x3D; CopyElementType.TASK) {
+			const updatedStatus &#x3D; await this.appendFilesToTask(copyStatus, jwt);
+			return this.copyEmbeddedFilesOfTasks(updatedStatus, courseId, userId);
+		}
+		if (copyStatus.elements &amp;&amp; copyStatus.elements.length &gt; 0) {
+			copyStatus.elements &#x3D; await Promise.all(
+				copyStatus.elements.map((el) &#x3D;&gt; this.copyFiles(el, courseId, userId, jwt))
+			);
+			copyStatus.status &#x3D; this.copyHelperService.deriveStatusFromElements(copyStatus.elements);
+		}
+		return copyStatus;
+	}
+
+	async copyEmbeddedFilesOfLessons(
+		lessonCopyStatus: CopyStatus,
+		courseId: EntityId,
+		userId: EntityId
+	): Promise&lt;CopyStatus&gt; {
+		const lesson &#x3D; lessonCopyStatus.copyEntity as Lesson;
+		const legacyFileIds: string[] &#x3D; [];
+
+		lesson.contents.forEach((item: IComponentProperties) &#x3D;&gt; {
+			if (item.content &#x3D;&#x3D;&#x3D; undefined || !(&#x27;text&#x27; in item.content)) {
+				return;
+			}
+
+			const contentFileIds &#x3D; this.extractOldFileIds(item.content.text);
+
+			legacyFileIds.push(...contentFileIds);
+		});
+
+		if (legacyFileIds.length &gt; 0) {
+			const fileCopyResults: FileLegacyResponse[] &#x3D; await Promise.all(
+				legacyFileIds.map((fileId) &#x3D;&gt; this.fileLegacyService.copyFile({ fileId, targetCourseId: courseId, userId }))
+			);
+
+			fileCopyResults.forEach(({ oldFileId, fileId, filename }) &#x3D;&gt; {
+				lesson.contents &#x3D; lesson.contents.map((item: IComponentProperties) &#x3D;&gt; {
+					if (&#x27;text&#x27; in item.content &amp;&amp; fileId &amp;&amp; filename) {
+						const text &#x3D; this.replaceOldFileUrls(item.content.text, oldFileId, fileId, filename);
+						const itemWithUpdatedText &#x3D; { ...item, content: { ...item.content, text } };
+						return itemWithUpdatedText;
+					}
+
+					return item;
+				});
+			});
+
+			if (fileCopyResults.length &gt; 0) {
+				const fileGroupStatus &#x3D; this.deriveFileGroupStatus(fileCopyResults);
+				lessonCopyStatus.elements &#x3D; this.setFileGroupStatus(lessonCopyStatus.elements, fileGroupStatus);
+				lessonCopyStatus.status &#x3D; this.copyHelperService.deriveStatusFromElements(lessonCopyStatus.elements);
+			}
+		}
+
+		lessonCopyStatus.copyEntity &#x3D; lesson;
+
+		return lessonCopyStatus;
+	}
+
+	async copyEmbeddedFilesOfTasks(
+		taskCopyStatus: CopyStatus,
+		courseId: EntityId,
+		userId: EntityId
+	): Promise&lt;CopyStatus&gt; {
+		const task &#x3D; taskCopyStatus.copyEntity as Task;
+		const legacyFileIds &#x3D; this.extractOldFileIds(task.description);
+
+		if (legacyFileIds.length &gt; 0) {
+			const fileCopyResults &#x3D; await Promise.all(
+				legacyFileIds.map((fileId) &#x3D;&gt; this.fileLegacyService.copyFile({ fileId, targetCourseId: courseId, userId }))
+			);
+
+			fileCopyResults.forEach(({ oldFileId, fileId, filename }) &#x3D;&gt; {
+				if (fileId &amp;&amp; filename) {
+					task.description &#x3D; this.replaceOldFileUrls(task.description, oldFileId, fileId, filename);
+				}
+			});
+
+			if (fileCopyResults.length &gt; 0) {
+				const fileGroupStatus &#x3D; this.deriveFileGroupStatus(fileCopyResults);
+				taskCopyStatus.elements &#x3D; this.setFileGroupStatus(taskCopyStatus.elements, fileGroupStatus);
+				taskCopyStatus.status &#x3D; this.copyHelperService.deriveStatusFromElements(taskCopyStatus.elements);
+			}
+			taskCopyStatus.copyEntity &#x3D; task;
+		}
+
+		return taskCopyStatus;
+	}
+
+	private deriveFileGroupStatus(fileCopyResults: FileLegacyResponse[]) {
+		const fileStatuses &#x3D; this.createFileStatusesByCopyResult(fileCopyResults);
+		const fileGroupStatus &#x3D; {
+			type: CopyElementType.FILE_GROUP,
+			status: this.copyHelperService.deriveStatusFromElements(fileStatuses),
+			elements: fileStatuses,
+		};
+		return fileGroupStatus;
+	}
+
+	extractOldFileIds(text: string): string[] {
+		const regEx &#x3D; new RegExp(&#x60;(?&lt;&#x3D;src&#x3D;${fileUrlRegex}).+?(?&#x3D;&amp;amp;)&#x60;, &#x27;g&#x27;);
+		const fileIds &#x3D; text.match(regEx);
+		return fileIds ? uniq(fileIds) : [];
+	}
+
+	replaceOldFileUrls(text: string, oldFileId: EntityId, fileId: EntityId, filename: string): string {
+		const regEx &#x3D; new RegExp(&#x60;${fileUrlRegex}${oldFileId}.+?&quot;&#x60;, &#x27;g&#x27;);
+		const newUrl &#x3D; &#x60;&quot;/files/file?file&#x3D;${fileId}&amp;amp;name&#x3D;${filename}&quot;&#x60;;
+
+		return text.replace(regEx, newUrl);
 	}
 }
 </code></pre>
