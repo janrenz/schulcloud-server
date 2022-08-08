@@ -83,7 +83,7 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#role" >role</a>
+                                <a href="#roleId" >roleId</a>
                             </li>
                             <li>
                                 <a href="#schoolId" >schoolId</a>
@@ -115,7 +115,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">apps/server/src/modules/collaborative-storage/services/dto/team.dto.ts:25</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">apps/server/src/modules/collaborative-storage/services/dto/team.dto.ts:27</a></div>
                             </td>
                         </tr>
 
@@ -162,10 +162,10 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="role"></a>
+                    <a name="roleId"></a>
                     <span class="name">
-                        <span ><b>role</b></span>
-                        <a href="#role"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>roleId</b></span>
+                        <a href="#roleId"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
@@ -177,7 +177,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">apps/server/src/modules/collaborative-storage/services/dto/team.dto.ts:23</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">apps/server/src/modules/collaborative-storage/services/dto/team.dto.ts:25</a></div>
                         </td>
                     </tr>
 
@@ -203,7 +203,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">apps/server/src/modules/collaborative-storage/services/dto/team.dto.ts:25</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">apps/server/src/modules/collaborative-storage/services/dto/team.dto.ts:27</a></div>
                         </td>
                     </tr>
 
@@ -229,7 +229,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">apps/server/src/modules/collaborative-storage/services/dto/team.dto.ts:21</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">apps/server/src/modules/collaborative-storage/services/dto/team.dto.ts:23</a></div>
                         </td>
                     </tr>
 
@@ -248,30 +248,37 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export class TeamDto {
-	id?: string;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { EntityId } from &#x27;@shared/domain&#x27;;
 
-	name?: string;
+/**
+ * TODO
+ * This DTO and all associated functionality should be moved to a general teams module once it has been created
+ */
 
-	userIds!: TeamUserDto[];
+export class TeamDto {
+	id: EntityId;
+
+	name: string;
+
+	teamUsers: TeamUserDto[];
 
 	constructor(props: TeamDto) {
 		this.id &#x3D; props.id;
 		this.name &#x3D; props.name;
-		this.userIds &#x3D; props.userIds;
+		this.teamUsers &#x3D; props.teamUsers;
 	}
 }
 
 export class TeamUserDto {
 	userId: string;
 
-	role: string;
+	roleId: string;
 
 	schoolId: string;
 
 	constructor(props: TeamUserDto) {
 		this.userId &#x3D; props.userId;
-		this.role &#x3D; props.role;
+		this.roleId &#x3D; props.roleId;
 		this.schoolId &#x3D; props.schoolId;
 	}
 }

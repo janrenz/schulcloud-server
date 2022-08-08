@@ -67,7 +67,7 @@
             </p>
             <p class="comment">
                 <p>Provides an Adapter to an external collaborative storage.
-It loads an appropritate strategy and applies that to the given data.</p>
+It loads an appropriate strategy and applies that to the given data.</p>
 
             </p>
 
@@ -101,12 +101,16 @@ It loads an appropritate strategy and applies that to the given data.</p>
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                    <span class="modifier">Public</span>
+                                <a href="#createTeam" >createTeam</a>
+                            </li>
+                            <li>
                                 <a href="#deleteTeam" >deleteTeam</a>
                             </li>
                             <li>
-                                    <span class="modifier">Public</span>
                                 <a href="#setStrategy" >setStrategy</a>
+                            </li>
+                            <li>
+                                <a href="#updateTeam" >updateTeam</a>
                             </li>
                             <li>
                                 <a href="#updateTeamPermissionsForRole" >updateTeamPermissionsForRole</a>
@@ -205,32 +209,32 @@ It loads an appropritate strategy and applies that to the given data.</p>
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="deleteTeam"></a>
+                    <a name="createTeam"></a>
                     <span class="name">
-                        <span class="modifier">Public</span>
-                        <span ><b>deleteTeam</b></span>
-                        <a href="#deleteTeam"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>createTeam</b></span>
+                        <a href="#createTeam"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>deleteTeam(teamId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+<code>createTeam(team: <a href="../classes/TeamDto.html" target="_self">TeamDto</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="44"
-                            class="link-to-prism">apps/server/src/shared/infra/collaborative-storage/collaborative-storage.adapter.ts:44</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="58"
+                            class="link-to-prism">apps/server/src/shared/infra/collaborative-storage/collaborative-storage.adapter.ts:58</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Creates a team in the collaborative storage</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -241,6 +245,83 @@ It loads an appropritate strategy and applies that to the given data.</p>
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>team</td>
+                                    <td>
+                                                <code><a href="../classes/TeamDto.html" target="_self" >TeamDto</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>The team DTO</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteTeam"></a>
+                    <span class="name">
+                        <span ><b>deleteTeam</b></span>
+                        <a href="#deleteTeam"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>deleteTeam(teamId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="49"
+                            class="link-to-prism">apps/server/src/shared/infra/collaborative-storage/collaborative-storage.adapter.ts:49</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Deletes a team in the collaborative storage</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -255,6 +336,10 @@ It loads an appropritate strategy and applies that to the given data.</p>
                                     </td>
 
 
+                                    <td>
+                                        <p>The team id</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -262,7 +347,7 @@ It loads an appropritate strategy and applies that to the given data.</p>
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
 
                     </div>
                     <div class="io-description">
@@ -278,7 +363,6 @@ It loads an appropritate strategy and applies that to the given data.</p>
                 <td class="col-md-4">
                     <a name="setStrategy"></a>
                     <span class="name">
-                        <span class="modifier">Public</span>
                         <span ><b>setStrategy</b></span>
                         <a href="#setStrategy"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -286,8 +370,7 @@ It loads an appropritate strategy and applies that to the given data.</p>
             </tr>
             <tr>
                 <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>setStrategy(strategy: <a href="../interfaces/ICollaborativeStorageStrategy.html" target="_self">ICollaborativeStorageStrategy</a>)</code>
+<code>setStrategy(strategy: <a href="../interfaces/ICollaborativeStorageStrategy.html" target="_self">ICollaborativeStorageStrategy</a>)</code>
                 </td>
             </tr>
 
@@ -341,6 +424,82 @@ It loads an appropritate strategy and applies that to the given data.</p>
                     </div>
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateTeam"></a>
+                    <span class="name">
+                        <span ><b>updateTeam</b></span>
+                        <a href="#updateTeam"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>updateTeam(team: <a href="../classes/TeamDto.html" target="_self">TeamDto</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="67"
+                            class="link-to-prism">apps/server/src/shared/infra/collaborative-storage/collaborative-storage.adapter.ts:67</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Updates a team in the collaborative storage</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>team</td>
+                                    <td>
+                                                <code><a href="../classes/TeamDto.html" target="_self" >TeamDto</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>The team DTO</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
 
                     </div>
                     <div class="io-description">
@@ -448,7 +607,7 @@ It loads an appropritate strategy and applies that to the given data.</p>
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
 
                     </div>
                     <div class="io-description">
@@ -496,17 +655,17 @@ It loads an appropritate strategy and applies that to the given data.</p>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { RoleDto } from &#x27;@src/modules/collaborative-storage/services/dto/role.dto&#x27;;
-import { TeamPermissionsDto } from &#x27;@src/modules/collaborative-storage/services/dto/team-permissions.dto&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { TeamPermissionsDto } from &#x27;@src/modules/collaborative-storage/services/dto/team-permissions.dto&#x27;;
 import { TeamDto } from &#x27;@src/modules/collaborative-storage/services/dto/team.dto&#x27;;
 import { ICollaborativeStorageStrategy } from &#x27;@shared/infra/collaborative-storage/strategy/base.interface.strategy&#x27;;
 import { Inject, Injectable } from &#x27;@nestjs/common&#x27;;
 import { CollaborativeStorageAdapterMapper } from &#x27;@shared/infra/collaborative-storage/mapper/collaborative-storage-adapter.mapper&#x27;;
 import { Logger } from &#x27;@src/core/logger&#x27;;
+import { RoleDto } from &#x27;@src/modules/role/service/dto/role.dto&#x27;;
 
 /**
  * Provides an Adapter to an external collaborative storage.
- * It loads an appropritate strategy and applies that to the given data.
+ * It loads an appropriate strategy and applies that to the given data.
  */
 @Injectable()
 export class CollaborativeStorageAdapter {
@@ -525,7 +684,7 @@ export class CollaborativeStorageAdapter {
 	 * Set the strategy that should be used by the adapter
 	 * @param strategy The strategy
 	 */
-	public setStrategy(@Inject(&#x27;ICollaborativeStorageStrategy&#x27;) strategy: ICollaborativeStorageStrategy) {
+	setStrategy(strategy: ICollaborativeStorageStrategy) {
 		this.strategy &#x3D; strategy;
 	}
 
@@ -535,12 +694,35 @@ export class CollaborativeStorageAdapter {
 	 * @param role The Role DTO
 	 * @param permissions The permissions to set
 	 */
-	updateTeamPermissionsForRole(team: TeamDto, role: RoleDto, permissions: TeamPermissionsDto) {
-		this.strategy.updateTeamPermissionsForRole(this.mapper.mapDomainToAdapter(team, role, permissions));
+	updateTeamPermissionsForRole(team: TeamDto, role: RoleDto, permissions: TeamPermissionsDto): Promise&lt;void&gt; {
+		return this.strategy.updateTeamPermissionsForRole(this.mapper.mapDomainToAdapter(team, role, permissions));
 	}
 
-	public deleteTeam(teamId: string) {
-		this.strategy.deleteGroupfolderAndRemoveGroup(teamId);
+	/**
+	 * Deletes a team in the collaborative storage
+	 *
+	 * @param teamId The team id
+	 */
+	deleteTeam(teamId: string): Promise&lt;void&gt; {
+		return this.strategy.deleteTeam(teamId);
+	}
+
+	/**
+	 * Creates a team in the collaborative storage
+	 *
+	 * @param team The team DTO
+	 */
+	createTeam(team: TeamDto): Promise&lt;void&gt; {
+		return this.strategy.createTeam(team);
+	}
+
+	/**
+	 * Updates a team in the collaborative storage
+	 *
+	 * @param team The team DTO
+	 */
+	updateTeam(team: TeamDto): Promise&lt;void&gt; {
+		return this.strategy.updateTeam(team);
 	}
 }
 </code></pre>

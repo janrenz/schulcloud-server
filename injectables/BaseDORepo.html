@@ -483,7 +483,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>mapDOToEntity(T)</code>
+                    <code>mapDOToEntity(entityDO: T)</code>
                 </td>
             </tr>
 
@@ -506,12 +506,16 @@
                             <thead>
                                 <tr>
                                     <td>Name</td>
+                                    <td>Type</td>
                                     <td>Optional</td>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>T</td>
+                                    <td>entityDO</td>
+                                    <td>
+                                            <code>T</code>
+                                    </td>
 
                                     <td>
                                         No
@@ -622,7 +626,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>mapEntityToDO(E)</code>
+                    <code>mapEntityToDO(entity: E)</code>
                 </td>
             </tr>
 
@@ -645,12 +649,16 @@
                             <thead>
                                 <tr>
                                     <td>Name</td>
+                                    <td>Type</td>
                                     <td>Optional</td>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>E</td>
+                                    <td>entity</td>
+                                    <td>
+                                            <code>E</code>
+                                    </td>
 
                                     <td>
                                         No
@@ -784,7 +792,7 @@ import { Injectable } from &#x27;@nestjs/common&#x27;;
 import { BaseDO, BaseEntity, baseEntityProperties, EntityId, IBaseEntityProps } from &#x27;@shared/domain&#x27;;
 import { Logger } from &#x27;@src/core/logger&#x27;;
 
-type EntityProperties&lt;P&gt; &#x3D; P &amp; IBaseEntityProps;
+export type EntityProperties&lt;P&gt; &#x3D; P &amp; IBaseEntityProps;
 
 @Injectable()
 export abstract class BaseDORepo&lt;T extends BaseDO, E extends BaseEntity, P&gt; {
@@ -794,8 +802,8 @@ export abstract class BaseDORepo&lt;T extends BaseDO, E extends BaseEntity, P&gt
 
 	abstract getConstructor(): new (I) &#x3D;&gt; E;
 
-	protected abstract mapDOToEntity(T): EntityProperties&lt;P&gt;;
-	protected abstract mapEntityToDO(E): T;
+	protected abstract mapDOToEntity(entityDO: T): EntityProperties&lt;P&gt;;
+	protected abstract mapEntityToDO(entity: E): T;
 
 	protected mapDOToEntityWithId(edo: T): EntityProperties&lt;P&gt; {
 		const entity: EntityProperties&lt;P&gt; &#x3D; this.mapDOToEntity(edo);

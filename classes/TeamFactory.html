@@ -1209,22 +1209,22 @@ import { roleFactory } from &#x27;@shared/testing/factory/role.factory&#x27;;
 class TeamFactory extends BaseFactory&lt;Team, ITeamProperties&gt; {
 	withRoleAndUserId(role: Role, userId: string): this {
 		const params: DeepPartial&lt;ITeamProperties&gt; &#x3D; {
-			userIds: [teamUserFactory.withRoleAndUserId(role, userId).buildWithId()],
+			teamUsers: [teamUserFactory.withRoleAndUserId(role, userId).buildWithId()],
 		};
 		return this.params(params);
 	}
 }
 
 export const teamFactory &#x3D; TeamFactory.define(Team, ({ sequence }) &#x3D;&gt; {
-	const role &#x3D; roleFactory.build();
-	const schoolId &#x3D; schoolFactory.build();
-	const userId &#x3D; userFactory.build({ roles: [role] });
+	const role &#x3D; roleFactory.buildWithId();
+	const schoolId &#x3D; schoolFactory.buildWithId();
+	const userId &#x3D; userFactory.buildWithId({ roles: [role] });
 	return {
 		name: &#x60;team #${sequence}&#x60;,
-		userIds: [
+		teamUsers: [
 			{
-				userId,
-				schoolId,
+				user: userId,
+				school: schoolId,
 				role,
 			},
 		],

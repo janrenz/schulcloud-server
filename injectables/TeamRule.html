@@ -374,7 +374,7 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable, InternalServerErrorException } from &#x27;@nestjs/common&#x27;;
 import { BasePermission } from &#x27;@shared/domain/rules/base-permission&#x27;;
-import { TeamUser, Team, User } from &#x27;@shared/domain/entity&#x27;;
+import { Team, TeamUser, User } from &#x27;@shared/domain/entity&#x27;;
 import { IPermissionContext } from &#x27;@shared/domain/interface&#x27;;
 
 @Injectable()
@@ -386,7 +386,7 @@ export class TeamRule extends BasePermission&lt;Team&gt; {
 	}
 
 	public hasPermission(user: User, entity: Team, context: IPermissionContext): boolean {
-		const resultTeamUser: TeamUser | undefined &#x3D; entity.userIds.find((teamUser) &#x3D;&gt; teamUser.userId.id &#x3D;&#x3D;&#x3D; user.id);
+		const resultTeamUser: TeamUser | undefined &#x3D; entity.teamUsers.find((teamUser) &#x3D;&gt; teamUser.user.id &#x3D;&#x3D;&#x3D; user.id);
 
 		if (!resultTeamUser) {
 			throw new InternalServerErrorException(&#x27;Cannot find user in team&#x27;);

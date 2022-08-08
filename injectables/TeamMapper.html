@@ -197,15 +197,15 @@ export class TeamMapper {
 	 * @return The Dto
 	 */
 	public mapEntityToDto(teamEntity: Team): TeamDto {
-		const userIdDto: TeamUserDto[] &#x3D; teamEntity.userIds.map(
+		const teamUsers: TeamUserDto[] &#x3D; teamEntity.teamUsers.map(
 			(teamUser) &#x3D;&gt;
 				new TeamUserDto({
-					userId: teamUser.userId.id,
-					role: teamUser.role.id,
-					schoolId: teamUser.schoolId.id,
+					userId: teamUser.user.id,
+					roleId: teamUser.role.id,
+					schoolId: teamUser.school.id,
 				})
 		);
-		return new TeamDto({ id: teamEntity.id, name: teamEntity.name, userIds: userIdDto });
+		return new TeamDto({ id: teamEntity.id, name: teamEntity.name, teamUsers });
 	}
 }
 </code></pre>

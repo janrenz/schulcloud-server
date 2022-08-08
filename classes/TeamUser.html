@@ -86,10 +86,10 @@
                                 <a href="#role" >role</a>
                             </li>
                             <li>
-                                <a href="#schoolId" >schoolId</a>
+                                <a href="#school" >school</a>
                             </li>
                             <li>
-                                <a href="#userId" >userId</a>
+                                <a href="#user" >user</a>
                             </li>
                         </ul>
                     </td>
@@ -180,7 +180,7 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @ManyToOne({entity: () &#x3D;&gt; Role})<br />
+                            @ManyToOne(undefined)<br />
                         </code>
                     </td>
                 </tr>
@@ -197,10 +197,10 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="schoolId"></a>
+                    <a name="school"></a>
                     <span class="name">
-                        <span ><b>schoolId</b></span>
-                        <a href="#schoolId"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>school</b></span>
+                        <a href="#school"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
@@ -215,7 +215,7 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @ManyToOne({entity: () &#x3D;&gt; School})<br />
+                            @ManyToOne(undefined, {fieldName: &#x27;schoolId&#x27;})<br />
                         </code>
                     </td>
                 </tr>
@@ -232,10 +232,10 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="userId"></a>
+                    <a name="user"></a>
                     <span class="name">
-                        <span ><b>userId</b></span>
-                        <a href="#userId"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>user</b></span>
+                        <a href="#user"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
@@ -250,7 +250,7 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @ManyToOne({entity: () &#x3D;&gt; User})<br />
+                            @ManyToOne(undefined, {fieldName: &#x27;userId&#x27;})<br />
                         </code>
                     </td>
                 </tr>
@@ -283,25 +283,25 @@ import { User } from &#x27;./user.entity&#x27;;
 
 export interface ITeamProperties {
 	name: string;
-	userIds?: TeamUser[];
+	teamUsers?: TeamUser[];
 }
 
 @Embeddable()
 export class TeamUser {
 	constructor(teamUser: TeamUser) {
-		this.userId &#x3D; teamUser.userId;
+		this.user &#x3D; teamUser.user;
 		this.role &#x3D; teamUser.role;
-		this.schoolId &#x3D; teamUser.schoolId;
+		this.school &#x3D; teamUser.school;
 	}
 
-	@ManyToOne({ entity: () &#x3D;&gt; User })
-	userId: User;
+	@ManyToOne(() &#x3D;&gt; User, { fieldName: &#x27;userId&#x27; })
+	user: User;
 
-	@ManyToOne({ entity: () &#x3D;&gt; Role })
+	@ManyToOne(() &#x3D;&gt; Role)
 	role: Role;
 
-	@ManyToOne({ entity: () &#x3D;&gt; School })
-	schoolId: School;
+	@ManyToOne(() &#x3D;&gt; School, { fieldName: &#x27;schoolId&#x27; })
+	school: School;
 }
 
 @Entity({ tableName: &#x27;teams&#x27; })
@@ -310,12 +310,20 @@ export class Team extends BaseEntityWithTimestamps {
 	name: string;
 
 	@Embedded(() &#x3D;&gt; TeamUser, { array: true })
-	userIds: TeamUser[];
+	private userIds: TeamUser[];
+
+	get teamUsers(): TeamUser[] {
+		return this.userIds;
+	}
+
+	set teamUsers(value: TeamUser[]) {
+		this.userIds &#x3D; value;
+	}
 
 	constructor(props: ITeamProperties) {
 		super();
 		this.name &#x3D; props.name;
-		this.userIds &#x3D; props.userIds ? props.userIds.map((teamUser) &#x3D;&gt; new TeamUser(teamUser)) : [];
+		this.userIds &#x3D; props.teamUsers ? props.teamUsers.map((teamUser) &#x3D;&gt; new TeamUser(teamUser)) : [];
 	}
 }
 </code></pre>

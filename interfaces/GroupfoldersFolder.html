@@ -65,7 +65,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/shared/infra/collaborative-storage/strategy/nextcloud.strategy.ts</code>
+            <code>apps/server/src/shared/infra/collaborative-storage/strategy/nextcloud/nextcloud.interface.ts</code>
         </p>
 
 
@@ -114,7 +114,7 @@
                                 </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <code>folder_id:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                        <code>folder_id:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
 </code>
                                     </td>
                                 </tr>
@@ -122,7 +122,7 @@
 
                                     <tr>
                                         <td class="col-md-4">
-                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
 
                                         </td>
                                     </tr>
@@ -138,167 +138,41 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { HttpService } from &#x27;@nestjs/axios&#x27;;
-import { Injectable, Logger, NotFoundException } from &#x27;@nestjs/common&#x27;;
-import { Configuration } from &#x27;@hpi-schul-cloud/commons/lib&#x27;;
-import { AxiosRequestConfig, AxiosResponse } from &#x27;axios&#x27;;
-import { firstValueFrom, Observable } from &#x27;rxjs&#x27;;
-import { parseInt } from &#x27;lodash&#x27;;
-import { ICollaborativeStorageStrategy } from &#x27;./base.interface.strategy&#x27;;
-import { TeamRolePermissionsDto } from &#x27;../dto/team-role-permissions.dto&#x27;;
-
-export interface NextcloudGroups {
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export interface NextcloudGroups {
 	groups: string[];
 }
 
-export interface GroupfoldersFolder {
-	folder_id: string;
-}
-
-export interface OcsResponse&lt;T&gt; {
+export interface OcsResponse&lt;T &#x3D; unknown&gt; {
 	ocs: {
 		data: T;
-		meta?: Meta;
+		meta: Meta;
 	};
 }
 
 export interface Meta {
+	status: string;
 	statuscode: number;
+	message: string;
+	totalitems: string;
+	itemsperpage: string;
 }
 
 export interface SuccessfulRes {
 	success: boolean;
 }
 
-/**
- * Nextcloud Strategy Implementation for Collaborative Storage
- *
- * @implements ICollaborativeStorageStrategy
- *
- */
-@Injectable()
-export class NextcloudStrategy implements ICollaborativeStorageStrategy {
-	readonly baseURL: string;
+export interface GroupUsers {
+	users: string[];
+}
 
-	readonly httpService: HttpService;
+// Groupfolders Responses
 
-	config: AxiosRequestConfig;
+export interface GroupfoldersFolder {
+	folder_id: number;
+}
 
-	private logger: Logger;
-
-	constructor() {
-		this.httpService &#x3D; new HttpService();
-		this.logger &#x3D; new Logger(NextcloudStrategy.name);
-		this.baseURL &#x3D; Configuration.get(&#x27;NEXTCLOUD_BASE_URL&#x27;) as string;
-		this.config &#x3D; {
-			auth: {
-				username: Configuration.get(&#x27;NEXTCLOUD_ADMIN_USER&#x27;) as string,
-				password: Configuration.get(&#x27;NEXTCLOUD_ADMIN_PASS&#x27;) as string,
-			},
-			headers: { &#x27;OCS-APIRequest&#x27;: true, Accept: &#x27;Application/json&#x27; },
-		};
-	}
-
-	public async updateTeamPermissionsForRole(dto: TeamRolePermissionsDto) {
-		const groupId &#x3D; await this.findGroupId(NextcloudStrategy.generateGroupId(dto));
-		const folderId &#x3D; await this.findFolderIdForGroupId(groupId);
-		this.setGroupPermissions(groupId, folderId, dto.permissions);
-	}
-
-	private static generateGroupId(dto: TeamRolePermissionsDto): string {
-		return &#x60;${dto.teamName as string}-${dto.teamId as string}-${dto.roleName as string}&#x60;;
-	}
-
-	private async findGroupId(groupName: string): Promise&lt;string&gt; {
-		return firstValueFrom(this.get(&#x60;/ocs/v1.php/cloud/groups?search&#x3D;${groupName}&#x60;))
-			.then((resp: AxiosResponse&lt;OcsResponse&lt;NextcloudGroups&gt;&gt;) &#x3D;&gt; resp.data.ocs.data.groups[0])
-			.catch((error) &#x3D;&gt; {
-				throw new NotFoundException(error, &#x60;Group ${groupName} not found in Nextcloud!&#x60;);
-			});
-	}
-
-	private async findGroupIdByTeamId(teamId: string): Promise&lt;string&gt; {
-		return firstValueFrom(this.get(&#x60;/ocs/v1.php/cloud/groups?search&#x3D;${teamId}&#x60;))
-			.then((resp: AxiosResponse&lt;OcsResponse&lt;NextcloudGroups&gt;&gt;) &#x3D;&gt; {
-				if (resp.data.ocs.data.groups.length &gt; 0) {
-					return resp.data.ocs.data.groups[0];
-				}
-				throw Error();
-			})
-			.catch((error) &#x3D;&gt; {
-				throw new NotFoundException(error, &#x60;Group with TeamId of ${teamId} not found in Nextcloud!&#x60;);
-			});
-	}
-
-	private async removeGroup(groupId: string) {
-		return firstValueFrom(this.delete(&#x60;/ocs/v1.php/cloud/groups/${groupId}&#x60;))
-			.then((resp: AxiosResponse&lt;OcsResponse&lt;Meta&gt;&gt;) &#x3D;&gt; {
-				this.logger.log(&#x60; Successfully removed group with group id: ${groupId} in Nextcloud&#x60;);
-				const { meta } &#x3D; resp.data.ocs;
-				if (meta &amp;&amp; meta.statuscode &amp;&amp; meta.statuscode &#x3D;&#x3D;&#x3D; 100) {
-					return meta.statuscode;
-				}
-				throw Error();
-			})
-			.catch((error) &#x3D;&gt; {
-				throw new NotFoundException(error, &#x60;Group could not be deleted in Nextcloud!&#x60;);
-			});
-	}
-
-	private async findFolderIdForGroupId(groupId: string): Promise&lt;string&gt; {
-		return firstValueFrom(this.get(&#x60;/apps/schulcloud/groupfolders/folders/group/${groupId}&#x60;))
-			.then((resp: AxiosResponse&lt;OcsResponse&lt;GroupfoldersFolder[]&gt;&gt;) &#x3D;&gt; resp.data.ocs.data[0].folder_id)
-			.catch((error) &#x3D;&gt; {
-				throw new NotFoundException(error, &#x60;Folder for ${groupId} not found in Nextcloud!&#x60;);
-			});
-	}
-
-	private deleteFolder(folderId: string) {
-		return firstValueFrom(this.delete(&#x60;/apps/groupfolders/folders/${folderId}&#x60;)).then(
-			(resp: AxiosResponse&lt;OcsResponse&lt;SuccessfulRes&gt;&gt;) &#x3D;&gt; {
-				this.logger.log(&#x60; Successfully deleted folder with folder id: ${folderId} in Nextcloud&#x60;);
-				return resp.data.ocs.data.success;
-				// 	if (resp.data.ocs.data.success &#x3D;&#x3D;&#x3D; true) {
-				// 		return resp.data.ocs.data.success;
-				// 	}
-				// 	throw Error();
-				// })
-				// .catch((error) &#x3D;&gt; {
-				// 	throw new NotFoundException(error, &#x60;Folder could not be deleted in Nextcloud!&#x60;);
-			}
-		);
-	}
-
-	async deleteGroupfolderAndRemoveGroup(teamId: string) {
-		const groupId &#x3D; await this.findGroupIdByTeamId(teamId);
-		if (groupId) {
-			const folderId &#x3D; await this.findFolderIdForGroupId(groupId);
-			await this.removeGroup(groupId);
-			await this.deleteFolder(folderId);
-		}
-	}
-
-	private setGroupPermissions(groupId: string, folderId: string, permissions: boolean[]) {
-		this.post(&#x60;/apps/groupfolders/folders/${folderId}/groups/${groupId}&#x60;, {
-			permissions: this.boolArrToNumber(permissions),
-		});
-	}
-
-	private get(apiPath: string): Observable&lt;AxiosResponse&gt; {
-		return this.httpService.get(&#x60;${this.baseURL}${apiPath}&#x60;, this.config);
-	}
-
-	private post(apiPath: string, data: unknown): Observable&lt;AxiosResponse&gt; {
-		return this.httpService.post(&#x60;${this.baseURL}${apiPath}&#x60;, data, this.config);
-	}
-
-	private delete(apiPath: string): Observable&lt;AxiosResponse&gt; {
-		return this.httpService.delete(&#x60;${this.baseURL}${apiPath}&#x60;, this.config);
-	}
-
-	private boolArrToNumber(arr: Array&lt;boolean&gt;): number {
-		return parseInt(arr.map((r) &#x3D;&gt; (r ? &#x27;1&#x27; : &#x27;0&#x27;)).join(&#x27;&#x27;), 2);
-	}
+export interface GroupfoldersCreated {
+	id: number;
 }
 </code></pre>
     </div>

@@ -79,15 +79,17 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                <a href="#createTeam" >createTeam</a>
+                            </li>
+                            <li>
                                 <a href="#deleteTeam" >deleteTeam</a>
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
-                                <a href="#findRoleById" >findRoleById</a>
+                                <a href="#findTeamById" >findTeamById</a>
                             </li>
                             <li>
-                                    <span class="modifier">Async</span>
-                                <a href="#findTeamById" >findTeamById</a>
+                                <a href="#updateTeam" >updateTeam</a>
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
@@ -111,12 +113,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(adapter: <a href="../injectables/CollaborativeStorageAdapter.html" target="_self">CollaborativeStorageAdapter</a>, roleRepo: <a href="../injectables/RoleRepo.html" target="_self">RoleRepo</a>, teamsMapper: <a href="../injectables/TeamMapper.html" target="_self">TeamMapper</a>, roleMapper: <a href="../injectables/RoleMapper.html" target="_self">RoleMapper</a>, teamsRepo: <a href="../injectables/TeamsRepo.html" target="_self">TeamsRepo</a>, authService: <a href="../injectables/AuthorizationService.html" target="_self">AuthorizationService</a>, logger: <a href="../injectables/Logger.html" target="_self">Logger</a>)</code>
+<code>constructor(adapter: <a href="../injectables/CollaborativeStorageAdapter.html" target="_self">CollaborativeStorageAdapter</a>, roleService: <a href="../injectables/RoleService.html" target="_self">RoleService</a>, teamsMapper: <a href="../injectables/TeamMapper.html" target="_self">TeamMapper</a>, teamsRepo: <a href="../injectables/TeamsRepo.html" target="_self">TeamsRepo</a>, authService: <a href="../injectables/AuthorizationService.html" target="_self">AuthorizationService</a>, logger: <a href="../injectables/Logger.html" target="_self">Logger</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">apps/server/src/modules/collaborative-storage/services/collaborative-storage.service.ts:15</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">apps/server/src/modules/collaborative-storage/services/collaborative-storage.service.ts:13</a></div>
                             </td>
                         </tr>
 
@@ -146,10 +148,10 @@
                                                     
                                                 </tr>
                                                 <tr>
-                                                        <td>roleRepo</td>
+                                                        <td>roleService</td>
                                                   
                                                         <td>
-                                                                        <code><a href="../injectables/RoleRepo.html" target="_self" >RoleRepo</a></code>
+                                                                        <code><a href="../injectables/RoleService.html" target="_self" >RoleService</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -162,18 +164,6 @@
                                                   
                                                         <td>
                                                                         <code><a href="../injectables/TeamMapper.html" target="_self" >TeamMapper</a></code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                                <tr>
-                                                        <td>roleMapper</td>
-                                                  
-                                                        <td>
-                                                                        <code><a href="../injectables/RoleMapper.html" target="_self" >RoleMapper</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -235,6 +225,75 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="createTeam"></a>
+                    <span class="name">
+                        <span ><b>createTeam</b></span>
+                        <a href="#createTeam"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>createTeam(team: <a href="../classes/TeamDto.html" target="_self">TeamDto</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="64"
+                            class="link-to-prism">apps/server/src/modules/collaborative-storage/services/collaborative-storage.service.ts:64</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>team</td>
+                                    <td>
+                                                <code><a href="../classes/TeamDto.html" target="_self" >TeamDto</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="deleteTeam"></a>
                     <span class="name">
                         <span ><b>deleteTeam</b></span>
@@ -251,8 +310,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="73"
-                            class="link-to-prism">apps/server/src/modules/collaborative-storage/services/collaborative-storage.service.ts:73</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="60"
+                            class="link-to-prism">apps/server/src/modules/collaborative-storage/services/collaborative-storage.service.ts:60</a></div>
                 </td>
             </tr>
 
@@ -290,90 +349,11 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
 
                     </div>
                     <div class="io-description">
                         
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="findRoleById"></a>
-                    <span class="name">
-                        <span class="modifier">Async</span>
-                        <span ><b>findRoleById</b></span>
-                        <a href="#findRoleById"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>findRoleById(roleId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="44"
-                            class="link-to-prism">apps/server/src/modules/collaborative-storage/services/collaborative-storage.service.ts:44</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-description"><p>Find a Team by its Id and return the DTO</p>
-</div>
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                    <td>Description</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>roleId</td>
-                                    <td>
-                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                    <td>
-                                        <p>The RoleId</p>
-
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../entitys/Role.html" target="_self" >Promise&lt;RoleDto&gt;</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        <p>The mapped DTO</p>
-
                     </div>
                 </td>
             </tr>
@@ -401,8 +381,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="35"
-                            class="link-to-prism">apps/server/src/modules/collaborative-storage/services/collaborative-storage.service.ts:35</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="31"
+                            class="link-to-prism">apps/server/src/modules/collaborative-storage/services/collaborative-storage.service.ts:31</a></div>
                 </td>
             </tr>
 
@@ -483,6 +463,75 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="updateTeam"></a>
+                    <span class="name">
+                        <span ><b>updateTeam</b></span>
+                        <a href="#updateTeam"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>updateTeam(team: <a href="../classes/TeamDto.html" target="_self">TeamDto</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="68"
+                            class="link-to-prism">apps/server/src/modules/collaborative-storage/services/collaborative-storage.service.ts:68</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>team</td>
+                                    <td>
+                                                <code><a href="../classes/TeamDto.html" target="_self" >TeamDto</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="updateTeamPermissionsForRole"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
@@ -501,8 +550,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="55"
-                            class="link-to-prism">apps/server/src/modules/collaborative-storage/services/collaborative-storage.service.ts:55</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="42"
+                            class="link-to-prism">apps/server/src/modules/collaborative-storage/services/collaborative-storage.service.ts:42</a></div>
                 </td>
             </tr>
 
@@ -613,14 +662,12 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
 import { EntityId, Permission, PermissionContextBuilder } from &#x27;@shared/domain&#x27;;
-import { RoleRepo, TeamsRepo } from &#x27;@shared/repo&#x27;;
+import { TeamsRepo } from &#x27;@shared/repo&#x27;;
 import { CollaborativeStorageAdapter } from &#x27;@shared/infra/collaborative-storage&#x27;;
-import { NextcloudStrategy } from &#x27;@shared/infra/collaborative-storage/strategy/nextcloud.strategy&#x27;;
 import { AuthorizationService } from &#x27;@src/modules/authorization&#x27;;
 import { Logger } from &#x27;@src/core/logger&#x27;;
-import { RoleMapper } from &#x27;../mapper/role.mapper&#x27;;
+import { RoleService } from &#x27;@src/modules/role/service/role.service&#x27;;
 import { TeamMapper } from &#x27;../mapper/team.mapper&#x27;;
-import { RoleDto } from &#x27;./dto/role.dto&#x27;;
 import { TeamPermissionsDto } from &#x27;./dto/team-permissions.dto&#x27;;
 import { TeamDto } from &#x27;./dto/team.dto&#x27;;
 
@@ -628,15 +675,13 @@ import { TeamDto } from &#x27;./dto/team.dto&#x27;;
 export class CollaborativeStorageService {
 	constructor(
 		private adapter: CollaborativeStorageAdapter,
-		private roleRepo: RoleRepo,
+		private roleService: RoleService,
 		private teamsMapper: TeamMapper,
-		private roleMapper: RoleMapper,
 		private teamsRepo: TeamsRepo,
 		private authService: AuthorizationService,
 		private logger: Logger
 	) {
 		this.logger.setContext(CollaborativeStorageService.name);
-		this.adapter.setStrategy(new NextcloudStrategy());
 	}
 
 	/**
@@ -647,15 +692,6 @@ export class CollaborativeStorageService {
 	 */
 	async findTeamById(teamId: EntityId, populate &#x3D; false): Promise&lt;TeamDto&gt; {
 		return this.teamsMapper.mapEntityToDto(await this.teamsRepo.findById(teamId, populate));
-	}
-
-	/**
-	 * Find a Team by its Id and return the DTO
-	 * @param roleId The RoleId
-	 * @return The mapped DTO
-	 */
-	async findRoleById(roleId: EntityId): Promise&lt;RoleDto&gt; {
-		return this.roleMapper.mapEntityToDto(await this.roleRepo.findById(roleId));
 	}
 
 	/**
@@ -676,15 +712,23 @@ export class CollaborativeStorageService {
 			await this.teamsRepo.findById(teamId, true),
 			PermissionContextBuilder.permissionOnly([Permission.CHANGE_TEAM_ROLES])
 		);
-		this.adapter.updateTeamPermissionsForRole(
+		return this.adapter.updateTeamPermissionsForRole(
 			await this.findTeamById(teamId, true),
-			await this.findRoleById(roleId),
+			await this.roleService.findById(roleId),
 			teamPermissions
 		);
 	}
 
-	deleteTeam(teamId: string) {
-		this.adapter.deleteTeam(teamId);
+	deleteTeam(teamId: string): Promise&lt;void&gt; {
+		return this.adapter.deleteTeam(teamId);
+	}
+
+	createTeam(team: TeamDto): Promise&lt;void&gt; {
+		return this.adapter.createTeam(team);
+	}
+
+	updateTeam(team: TeamDto): Promise&lt;void&gt; {
+		return this.adapter.updateTeam(team);
 	}
 }
 </code></pre>

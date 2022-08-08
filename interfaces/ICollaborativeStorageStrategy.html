@@ -73,7 +73,7 @@
                 <h3>Description</h3>
             </p>
             <p class="comment">
-                <p>baseinterface for all CollaborativeStorage Strategies</p>
+                <p>base interface for all CollaborativeStorage Strategies</p>
 
             </p>
 
@@ -84,23 +84,6 @@
                 <tbody>
                     <tr>
                         <td class="col-md-4">
-                            <h6><b>Properties</b></h6>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <ul class="index-list">
-                                <li>
-                                        <a href="#baseURL" 
->
-                                            baseURL
-                                        </a>
-                                </li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
                             <h6><b>Methods</b></h6>
                         </td>
                     </tr>
@@ -108,9 +91,21 @@
                         <td class="col-md-4">
                             <ul class="index-list">
                                 <li>
-                                    <a href="#deleteGroupfolderAndRemoveGroup" 
+                                    <a href="#createTeam" 
 >
-                                        deleteGroupfolderAndRemoveGroup
+                                        createTeam
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#deleteTeam" 
+>
+                                        deleteTeam
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#updateTeam" 
+>
+                                        updateTeam
                                     </a>
                                 </li>
                                 <li>
@@ -135,16 +130,85 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="deleteGroupfolderAndRemoveGroup"></a>
+                    <a name="createTeam"></a>
                     <span class="name">
-                        <span ><b>deleteGroupfolderAndRemoveGroup</b></span>
-                        <a href="#deleteGroupfolderAndRemoveGroup"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>createTeam</b></span>
+                        <a href="#createTeam"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>deleteGroupfolderAndRemoveGroup(teamId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+<code>createTeam(team: <a href="../classes/TeamDto.html" target="_self">TeamDto</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="16"
+                            class="link-to-prism">apps/server/src/shared/infra/collaborative-storage/strategy/base.interface.strategy.ts:16</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>team</td>
+                                    <td>
+                                                <code><a href="../classes/TeamDto.html" target="_self" >TeamDto</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteTeam"></a>
+                    <span class="name">
+                        <span ><b>deleteTeam</b></span>
+                        <a href="#deleteTeam"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>deleteTeam(teamId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
@@ -190,7 +254,76 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateTeam"></a>
+                    <span class="name">
+                        <span ><b>updateTeam</b></span>
+                        <a href="#updateTeam"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>updateTeam(team: <a href="../classes/TeamDto.html" target="_self">TeamDto</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="18"
+                            class="link-to-prism">apps/server/src/shared/infra/collaborative-storage/strategy/base.interface.strategy.ts:18</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>team</td>
+                                    <td>
+                                                <code><a href="../classes/TeamDto.html" target="_self" >TeamDto</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
 
                     </div>
                     <div class="io-description">
@@ -220,8 +353,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="13"
-                            class="link-to-prism">apps/server/src/shared/infra/collaborative-storage/strategy/base.interface.strategy.ts:13</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="12"
+                            class="link-to-prism">apps/server/src/shared/infra/collaborative-storage/strategy/base.interface.strategy.ts:12</a></div>
                 </td>
             </tr>
 
@@ -266,7 +399,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
 
                     </div>
                     <div class="io-description">
@@ -278,60 +411,28 @@
     </table>
 </section>
 
-            <section>
-                <h3 id="inputs">Properties</h3>
-                    <table class="table table-sm table-bordered">
-                        <tbody>
-                                <tr>
-                                    <td class="col-md-4">
-                                        <a name="baseURL"></a>
-                                        <span class="name "><b>baseURL</b>
-                                            <a href="#baseURL">
-                                                <span class="icon ion-ios-link"></span>
-                                            </a>
-                                        </span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="col-md-4">
-                                        <code>baseURL:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-</code>
-                                    </td>
-                                </tr>
-
-
-                                    <tr>
-                                        <td class="col-md-4">
-                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
-                                        </td>
-                                    </tr>
-
-
-
-
-
-                        </tbody>
-                    </table>
-            </section>
     </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { TeamRolePermissionsDto } from &#x27;../dto/team-role-permissions.dto&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { TeamDto } from &#x27;@src/modules/collaborative-storage/services/dto/team.dto&#x27;;
+import { TeamRolePermissionsDto } from &#x27;../dto/team-role-permissions.dto&#x27;;
 
 /**
- * baseinterface for all CollaborativeStorage Strategies
+ * base interface for all CollaborativeStorage Strategies
  */
 export interface ICollaborativeStorageStrategy {
-	baseURL: string;
-
 	/**
 	 * Updates The Permissions for the given Role in the given Team
 	 * @param dto The DTO to be processed
 	 */
-	updateTeamPermissionsForRole(dto: TeamRolePermissionsDto): void;
-	deleteGroupfolderAndRemoveGroup(teamId: string): void;
+	updateTeamPermissionsForRole(dto: TeamRolePermissionsDto): Promise&lt;void&gt;;
+
+	deleteTeam(teamId: string): Promise&lt;void&gt;;
+
+	createTeam(team: TeamDto): Promise&lt;void&gt;;
+
+	updateTeam(team: TeamDto): Promise&lt;void&gt;;
 }
 </code></pre>
     </div>

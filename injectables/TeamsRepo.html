@@ -632,7 +632,7 @@ export class TeamsRepo extends BaseRepo&lt;Team&gt; {
 
 		if (populate) {
 			await Promise.all&lt;void&gt;(
-				team.userIds.map(async (teamUser: TeamUser): Promise&lt;void&gt; &#x3D;&gt; {
+				team.teamUsers.map(async (teamUser: TeamUser): Promise&lt;void&gt; &#x3D;&gt; {
 					await this._em.populate(teamUser, [&#x27;role&#x27;]);
 					await this.populateRoles([teamUser.role]);
 				})

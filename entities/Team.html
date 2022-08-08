@@ -78,6 +78,7 @@
                                 <a href="#name" >name</a>
                             </li>
                             <li>
+                                    <span class="modifier">Private</span>
                                 <a href="#userIds" >userIds</a>
                             </li>
                         </ul>
@@ -139,6 +140,7 @@
                 <td class="col-md-4">
                     <a name="userIds"></a>
                     <span class="name">
+                            <span class="modifier">Private</span>
                         <span ><b>userIds</b></span>
                         <a href="#userIds"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -181,25 +183,25 @@ import { User } from &#x27;./user.entity&#x27;;
 
 export interface ITeamProperties {
 	name: string;
-	userIds?: TeamUser[];
+	teamUsers?: TeamUser[];
 }
 
 @Embeddable()
 export class TeamUser {
 	constructor(teamUser: TeamUser) {
-		this.userId &#x3D; teamUser.userId;
+		this.user &#x3D; teamUser.user;
 		this.role &#x3D; teamUser.role;
-		this.schoolId &#x3D; teamUser.schoolId;
+		this.school &#x3D; teamUser.school;
 	}
 
-	@ManyToOne({ entity: () &#x3D;&gt; User })
-	userId: User;
+	@ManyToOne(() &#x3D;&gt; User, { fieldName: &#x27;userId&#x27; })
+	user: User;
 
-	@ManyToOne({ entity: () &#x3D;&gt; Role })
+	@ManyToOne(() &#x3D;&gt; Role)
 	role: Role;
 
-	@ManyToOne({ entity: () &#x3D;&gt; School })
-	schoolId: School;
+	@ManyToOne(() &#x3D;&gt; School, { fieldName: &#x27;schoolId&#x27; })
+	school: School;
 }
 
 @Entity({ tableName: &#x27;teams&#x27; })
@@ -208,12 +210,20 @@ export class Team extends BaseEntityWithTimestamps {
 	name: string;
 
 	@Embedded(() &#x3D;&gt; TeamUser, { array: true })
-	userIds: TeamUser[];
+	private userIds: TeamUser[];
+
+	get teamUsers(): TeamUser[] {
+		return this.userIds;
+	}
+
+	set teamUsers(value: TeamUser[]) {
+		this.userIds &#x3D; value;
+	}
 
 	constructor(props: ITeamProperties) {
 		super();
 		this.name &#x3D; props.name;
-		this.userIds &#x3D; props.userIds ? props.userIds.map((teamUser) &#x3D;&gt; new TeamUser(teamUser)) : [];
+		this.userIds &#x3D; props.teamUsers ? props.teamUsers.map((teamUser) &#x3D;&gt; new TeamUser(teamUser)) : [];
 	}
 }
 </code></pre>

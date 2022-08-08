@@ -1209,8 +1209,8 @@ class TeamUserFactory extends BaseFactory&lt;TeamUser, TeamUser&gt; {
 	withRoleAndUserId(role: Role, userId: string): this {
 		const school &#x3D; schoolFactory.build();
 		const params: DeepPartial&lt;TeamUser&gt; &#x3D; {
-			userId: userFactory.buildWithId({ school, roles: [roleFactory.build({ roles: [role] })] }, userId),
-			schoolId: school,
+			user: userFactory.buildWithId({ school, roles: [roleFactory.build({ roles: [role] })] }, userId),
+			school,
 			role,
 		};
 		return this.params(params);
@@ -1219,8 +1219,8 @@ class TeamUserFactory extends BaseFactory&lt;TeamUser, TeamUser&gt; {
 
 export const teamUserFactory &#x3D; TeamUserFactory.define(TeamUser, () &#x3D;&gt; {
 	return {
-		userId: userFactory.buildWithId(),
-		schoolId: schoolFactory.buildWithId(),
+		user: userFactory.buildWithId(),
+		school: schoolFactory.buildWithId(),
 		role: roleFactory.buildWithId(),
 	};
 });

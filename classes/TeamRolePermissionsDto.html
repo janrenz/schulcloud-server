@@ -86,15 +86,12 @@
                                 <a href="#permissions" >permissions</a>
                             </li>
                             <li>
-                                    <span class="modifier">Optional</span>
                                 <a href="#roleName" >roleName</a>
                             </li>
                             <li>
-                                    <span class="modifier">Optional</span>
                                 <a href="#teamId" >teamId</a>
                             </li>
                             <li>
-                                    <span class="modifier">Optional</span>
                                 <a href="#teamName" >teamName</a>
                             </li>
                         </ul>
@@ -196,7 +193,6 @@
                 <td class="col-md-4">
                     <a name="roleName"></a>
                     <span class="name">
-                            <span class="modifier">Optional</span>
                         <span ><b>roleName</b></span>
                         <a href="#roleName"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -223,7 +219,6 @@
                 <td class="col-md-4">
                     <a name="teamId"></a>
                     <span class="name">
-                            <span class="modifier">Optional</span>
                         <span ><b>teamId</b></span>
                         <a href="#teamId"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -250,7 +245,6 @@
                 <td class="col-md-4">
                     <a name="teamName"></a>
                     <span class="name">
-                            <span class="modifier">Optional</span>
                         <span ><b>teamName</b></span>
                         <a href="#teamName"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -284,13 +278,13 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export class TeamRolePermissionsDto {
-	teamId?: string;
+	teamId: string;
 
-	teamName?: string;
+	teamName: string;
 
-	roleName?: string;
+	roleName: string;
 
-	permissions!: boolean[];
+	permissions: boolean[];
 
 	constructor(props: TeamRolePermissionsDto) {
 		this.teamId &#x3D; props.teamId;

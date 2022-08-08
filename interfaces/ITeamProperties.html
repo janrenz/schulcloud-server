@@ -91,9 +91,9 @@
                                 </li>
                                 <li>
                                             <span class="modifier">Optional</span>
-                                        <a href="#userIds" 
+                                        <a href="#teamUsers" 
 >
-                                            userIds
+                                            teamUsers
                                         </a>
                                 </li>
                             </ul>
@@ -144,9 +144,9 @@
                         <tbody>
                                 <tr>
                                     <td class="col-md-4">
-                                        <a name="userIds"></a>
-                                        <span class="name "><b>userIds</b>
-                                            <a href="#userIds">
+                                        <a name="teamUsers"></a>
+                                        <span class="name "><b>teamUsers</b>
+                                            <a href="#teamUsers">
                                                 <span class="icon ion-ios-link"></span>
                                             </a>
                                         </span>
@@ -154,7 +154,7 @@
                                 </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <code>userIds:         <code><a href="../interfaces/User.html" target="_self" >TeamUser[]</a></code>
+                                        <code>teamUsers:         <code><a href="../interfaces/User.html" target="_self" >TeamUser[]</a></code>
 </code>
                                     </td>
                                 </tr>
@@ -191,25 +191,25 @@ import { User } from &#x27;./user.entity&#x27;;
 
 export interface ITeamProperties {
 	name: string;
-	userIds?: TeamUser[];
+	teamUsers?: TeamUser[];
 }
 
 @Embeddable()
 export class TeamUser {
 	constructor(teamUser: TeamUser) {
-		this.userId &#x3D; teamUser.userId;
+		this.user &#x3D; teamUser.user;
 		this.role &#x3D; teamUser.role;
-		this.schoolId &#x3D; teamUser.schoolId;
+		this.school &#x3D; teamUser.school;
 	}
 
-	@ManyToOne({ entity: () &#x3D;&gt; User })
-	userId: User;
+	@ManyToOne(() &#x3D;&gt; User, { fieldName: &#x27;userId&#x27; })
+	user: User;
 
-	@ManyToOne({ entity: () &#x3D;&gt; Role })
+	@ManyToOne(() &#x3D;&gt; Role)
 	role: Role;
 
-	@ManyToOne({ entity: () &#x3D;&gt; School })
-	schoolId: School;
+	@ManyToOne(() &#x3D;&gt; School, { fieldName: &#x27;schoolId&#x27; })
+	school: School;
 }
 
 @Entity({ tableName: &#x27;teams&#x27; })
@@ -218,12 +218,20 @@ export class Team extends BaseEntityWithTimestamps {
 	name: string;
 
 	@Embedded(() &#x3D;&gt; TeamUser, { array: true })
-	userIds: TeamUser[];
+	private userIds: TeamUser[];
+
+	get teamUsers(): TeamUser[] {
+		return this.userIds;
+	}
+
+	set teamUsers(value: TeamUser[]) {
+		this.userIds &#x3D; value;
+	}
 
 	constructor(props: ITeamProperties) {
 		super();
 		this.name &#x3D; props.name;
-		this.userIds &#x3D; props.userIds ? props.userIds.map((teamUser) &#x3D;&gt; new TeamUser(teamUser)) : [];
+		this.userIds &#x3D; props.teamUsers ? props.teamUsers.map((teamUser) &#x3D;&gt; new TeamUser(teamUser)) : [];
 	}
 }
 </code></pre>

@@ -58,7 +58,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/shared/infra/collaborative-storage/strategy/nextcloud.strategy.ts</code>
+            <code>apps/server/src/shared/infra/collaborative-storage/strategy/nextcloud/nextcloud.strategy.ts</code>
         </p>
 
 
@@ -76,32 +76,6 @@
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
         <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <h6><b>Properties</b></h6>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <ul class="index-list">
-                            <li>
-                                    <span class="modifier">Readonly</span>
-                                <a href="#baseURL" >baseURL</a>
-                            </li>
-                            <li>
-                                <a href="#config" >config</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Readonly</span>
-                                <a href="#httpService" >httpService</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Private</span>
-                                <a href="#logger" >logger</a>
-                            </li>
-                        </ul>
-                    </td>
-                </tr>
 
                 <tr>
                     <td class="col-md-4">
@@ -112,62 +86,35 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                    <span class="modifier">Private</span>
-                                <a href="#boolArrToNumber" >boolArrToNumber</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Private</span>
-                                <a href="#delete" >delete</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Private</span>
-                                <a href="#deleteFolder" >deleteFolder</a>
+                                    <span class="modifier">Async</span>
+                                <a href="#createTeam" >createTeam</a>
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
-                                <a href="#deleteGroupfolderAndRemoveGroup" >deleteGroupfolderAndRemoveGroup</a>
+                                <a href="#deleteTeam" >deleteTeam</a>
                             </li>
                             <li>
-                                    <span class="modifier">Private</span>
-                                    <span class="modifier">Async</span>
-                                <a href="#findFolderIdForGroupId" >findFolderIdForGroupId</a>
+                                    <span class="modifier">Protected</span>
+                                    <span class="modifier">Static</span>
+                                <a href="#generateGroupFolderName" >generateGroupFolderName</a>
                             </li>
                             <li>
-                                    <span class="modifier">Private</span>
-                                    <span class="modifier">Async</span>
-                                <a href="#findGroupId" >findGroupId</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Private</span>
-                                    <span class="modifier">Async</span>
-                                <a href="#findGroupIdByTeamId" >findGroupIdByTeamId</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Protected</span>
                                     <span class="modifier">Static</span>
                                 <a href="#generateGroupId" >generateGroupId</a>
                             </li>
                             <li>
-                                    <span class="modifier">Private</span>
-                                <a href="#get" >get</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Private</span>
-                                <a href="#post" >post</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Private</span>
                                     <span class="modifier">Async</span>
-                                <a href="#removeGroup" >removeGroup</a>
+                                <a href="#updateTeam" >updateTeam</a>
                             </li>
                             <li>
-                                    <span class="modifier">Private</span>
-                                <a href="#setGroupPermissions" >setGroupPermissions</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Public</span>
                                     <span class="modifier">Async</span>
                                 <a href="#updateTeamPermissionsForRole" >updateTeamPermissionsForRole</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#updateTeamUsersInGroup" >updateTeamUsersInGroup</a>
                             </li>
                         </ul>
                     </td>
@@ -187,15 +134,81 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor()</code>
+<code>constructor(logger: <a href="../injectables/Logger.html" target="_self">Logger</a>, client: <a href="../injectables/NextcloudClient.html" target="_self">NextcloudClient</a>, pseudonymsRepo: <a href="../injectables/PseudonymsRepo.html" target="_self">PseudonymsRepo</a>, ltiToolRepo: <a href="../injectables/LtiToolRepo.html" target="_self">LtiToolRepo</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">apps/server/src/shared/infra/collaborative-storage/strategy/nextcloud.strategy.ts:47</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">apps/server/src/shared/infra/collaborative-storage/strategy/nextcloud/nextcloud.strategy.ts:18</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>logger</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/Logger.html" target="_self" >Logger</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>client</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/NextcloudClient.html" target="_self" >NextcloudClient</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>pseudonymsRepo</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/PseudonymsRepo.html" target="_self" >PseudonymsRepo</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>ltiToolRepo</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/LtiToolRepo.html" target="_self" >LtiToolRepo</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
             </tbody>
         </table>
 </section>
@@ -209,245 +222,35 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="boolArrToNumber"></a>
-                    <span class="name">
-                        <span class="modifier">Private</span>
-                        <span ><b>boolArrToNumber</b></span>
-                        <a href="#boolArrToNumber"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>boolArrToNumber(arr: Array<boolean>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="159"
-                            class="link-to-prism">apps/server/src/shared/infra/collaborative-storage/strategy/nextcloud.strategy.ts:159</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>arr</td>
-                                    <td>
-                                            <code>Array&lt;boolean&gt;</code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="delete"></a>
-                    <span class="name">
-                        <span class="modifier">Private</span>
-                        <span ><b>delete</b></span>
-                        <a href="#delete"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>delete(apiPath: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="155"
-                            class="link-to-prism">apps/server/src/shared/infra/collaborative-storage/strategy/nextcloud.strategy.ts:155</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>apiPath</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>    <code>Observable&lt;AxiosResponse&gt;</code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="deleteFolder"></a>
-                    <span class="name">
-                        <span class="modifier">Private</span>
-                        <span ><b>deleteFolder</b></span>
-                        <a href="#deleteFolder"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>deleteFolder(folderId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="116"
-                            class="link-to-prism">apps/server/src/shared/infra/collaborative-storage/strategy/nextcloud.strategy.ts:116</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>folderId</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="deleteGroupfolderAndRemoveGroup"></a>
+                    <a name="createTeam"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
-                        <span ><b>deleteGroupfolderAndRemoveGroup</b></span>
-                        <a href="#deleteGroupfolderAndRemoveGroup"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>createTeam</b></span>
+                        <a href="#createTeam"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>deleteGroupfolderAndRemoveGroup(teamId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    <code>createTeam(team: <a href="../classes/TeamDto.html" target="_self">TeamDto</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="132"
-                            class="link-to-prism">apps/server/src/shared/infra/collaborative-storage/strategy/nextcloud.strategy.ts:132</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="70"
+                            class="link-to-prism">apps/server/src/shared/infra/collaborative-storage/strategy/nextcloud/nextcloud.strategy.ts:70</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Creates a team in nextcloud.</p>
+<p>This includes the creation of the related group, its groupfolder and the adding of the <a href="../classes/TeamUserDto.html">teamUsers</a> (the creator).</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -458,6 +261,86 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>team</td>
+                                    <td>
+                                                <code><a href="../classes/TeamDto.html" target="_self" >TeamDto</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>schulcloud team</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteTeam"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>deleteTeam</b></span>
+                        <a href="#deleteTeam"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>deleteTeam(teamId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="54"
+                            class="link-to-prism">apps/server/src/shared/infra/collaborative-storage/strategy/nextcloud/nextcloud.strategy.ts:54</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Deletes a whole team in nextcloud.</p>
+<p>This includes the related group in nextcloud and the groupfolder of the group.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -472,6 +355,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>id of the schulcloud team</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -479,7 +366,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
 
                     </div>
                     <div class="io-description">
@@ -493,33 +380,35 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="findFolderIdForGroupId"></a>
+                    <a name="generateGroupFolderName"></a>
                     <span class="name">
-                        <span class="modifier">Private</span>
-                        <span class="modifier">Async</span>
-                        <span ><b>findFolderIdForGroupId</b></span>
-                        <a href="#findFolderIdForGroupId"><span class="icon ion-ios-link"></span></a>
+                        <span class="modifier">Protected</span>
+                        <span class="modifier">Static</span>
+                        <span ><b>generateGroupFolderName</b></span>
+                        <a href="#generateGroupFolderName"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>findFolderIdForGroupId(groupId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    <code>generateGroupFolderName(teamId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, teamName: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="108"
-                            class="link-to-prism">apps/server/src/shared/infra/collaborative-storage/strategy/nextcloud.strategy.ts:108</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="157"
+                            class="link-to-prism">apps/server/src/shared/infra/collaborative-storage/strategy/nextcloud/nextcloud.strategy.ts:157</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Generates the groupfolder name by concatenating the teamId and teamName.</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -530,150 +419,7 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>groupId</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>    <code>Promise&lt;string&gt;</code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="findGroupId"></a>
-                    <span class="name">
-                        <span class="modifier">Private</span>
-                        <span class="modifier">Async</span>
-                        <span ><b>findGroupId</b></span>
-                        <a href="#findGroupId"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>findGroupId(groupName: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="72"
-                            class="link-to-prism">apps/server/src/shared/infra/collaborative-storage/strategy/nextcloud.strategy.ts:72</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>groupName</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>    <code>Promise&lt;string&gt;</code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="findGroupIdByTeamId"></a>
-                    <span class="name">
-                        <span class="modifier">Private</span>
-                        <span class="modifier">Async</span>
-                        <span ><b>findGroupIdByTeamId</b></span>
-                        <a href="#findGroupIdByTeamId"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>findGroupIdByTeamId(teamId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="80"
-                            class="link-to-prism">apps/server/src/shared/infra/collaborative-storage/strategy/nextcloud.strategy.ts:80</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -688,6 +434,26 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>id of the team</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>teamName</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>name of the team</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -695,7 +461,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>    <code>Promise&lt;string&gt;</code>
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
 
                     </div>
                     <div class="io-description">
@@ -711,7 +477,7 @@
                 <td class="col-md-4">
                     <a name="generateGroupId"></a>
                     <span class="name">
-                        <span class="modifier">Private</span>
+                        <span class="modifier">Protected</span>
                         <span class="modifier">Static</span>
                         <span ><b>generateGroupId</b></span>
                         <a href="#generateGroupId"><span class="icon ion-ios-link"></span></a>
@@ -728,14 +494,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="68"
-                            class="link-to-prism">apps/server/src/shared/infra/collaborative-storage/strategy/nextcloud.strategy.ts:68</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="167"
+                            class="link-to-prism">apps/server/src/shared/infra/collaborative-storage/strategy/nextcloud/nextcloud.strategy.ts:167</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Generates groupId of the nextcloud group by concatenating some <a href="../classes/TeamRolePermissionsDto.html">TeamRolePermissionsDto</a> properties.</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -781,172 +549,18 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="get"></a>
+                    <a name="updateTeam"></a>
                     <span class="name">
-                        <span class="modifier">Private</span>
-                        <span ><b>get</b></span>
-                        <a href="#get"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>get(apiPath: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="147"
-                            class="link-to-prism">apps/server/src/shared/infra/collaborative-storage/strategy/nextcloud.strategy.ts:147</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>apiPath</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>    <code>Observable&lt;AxiosResponse&gt;</code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="post"></a>
-                    <span class="name">
-                        <span class="modifier">Private</span>
-                        <span ><b>post</b></span>
-                        <a href="#post"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>post(apiPath: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, data)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="151"
-                            class="link-to-prism">apps/server/src/shared/infra/collaborative-storage/strategy/nextcloud.strategy.ts:151</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>apiPath</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>data</td>
-                                    <td>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>    <code>Observable&lt;AxiosResponse&gt;</code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="removeGroup"></a>
-                    <span class="name">
-                        <span class="modifier">Private</span>
                         <span class="modifier">Async</span>
-                        <span ><b>removeGroup</b></span>
-                        <a href="#removeGroup"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>updateTeam</b></span>
+                        <a href="#updateTeam"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>removeGroup(groupId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    <code>updateTeam(team: <a href="../classes/TeamDto.html" target="_self">TeamDto</a>)</code>
                 </td>
             </tr>
 
@@ -954,13 +568,16 @@
             <tr>
                 <td class="col-md-4">
                     <div class="io-line">Defined in <a href="" data-line="93"
-                            class="link-to-prism">apps/server/src/shared/infra/collaborative-storage/strategy/nextcloud.strategy.ts:93</a></div>
+                            class="link-to-prism">apps/server/src/shared/infra/collaborative-storage/strategy/nextcloud/nextcloud.strategy.ts:93</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Updates a team in nextcloud.</p>
+<p>This includes the <a href="../classes/TeamUserDto.html">teamuser</a> and the displayname of the team.</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -971,13 +588,14 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>groupId</td>
+                                    <td>team</td>
                                     <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                <code><a href="../classes/TeamDto.html" target="_self" >TeamDto</a></code>
                                     </td>
 
                                     <td>
@@ -985,6 +603,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>schulcloud team</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -992,102 +614,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>    <code>unknown</code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="setGroupPermissions"></a>
-                    <span class="name">
-                        <span class="modifier">Private</span>
-                        <span ><b>setGroupPermissions</b></span>
-                        <a href="#setGroupPermissions"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>setGroupPermissions(groupId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, folderId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, permissions: boolean[])</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="141"
-                            class="link-to-prism">apps/server/src/shared/infra/collaborative-storage/strategy/nextcloud.strategy.ts:141</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>groupId</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>folderId</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>permissions</td>
-                                    <td>
-                                            <code>boolean[]</code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
 
                     </div>
                     <div class="io-description">
@@ -1103,7 +630,6 @@
                 <td class="col-md-4">
                     <a name="updateTeamPermissionsForRole"></a>
                     <span class="name">
-                        <span class="modifier">Public</span>
                         <span class="modifier">Async</span>
                         <span ><b>updateTeamPermissionsForRole</b></span>
                         <a href="#updateTeamPermissionsForRole"><span class="icon ion-ios-link"></span></a>
@@ -1120,14 +646,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="62"
-                            class="link-to-prism">apps/server/src/shared/infra/collaborative-storage/strategy/nextcloud.strategy.ts:62</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="33"
+                            class="link-to-prism">apps/server/src/shared/infra/collaborative-storage/strategy/nextcloud/nextcloud.strategy.ts:33</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>At the moment unused.</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -1159,7 +687,104 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateTeamUsersInGroup"></a>
+                    <span class="name">
+                        <span class="modifier">Protected</span>
+                        <span class="modifier">Async</span>
+                        <span ><b>updateTeamUsersInGroup</b></span>
+                        <a href="#updateTeamUsersInGroup"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>updateTeamUsersInGroup(groupId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, teamUsers: <a href="../interfaces/User.html" target="_self">TeamUserDto[]</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="124"
+                            class="link-to-prism">apps/server/src/shared/infra/collaborative-storage/strategy/nextcloud/nextcloud.strategy.ts:124</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Updating nextcloud group to be in sync with schulcloud team members.</p>
+<p>To do this, we have to get the link between the school cloud user ID and the Nextcloud user ID from the
+pseudonym table and distinguish between added and deleted users.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>groupId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>nextclouds groupId</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>teamUsers</td>
+                                    <td>
+                                                <code><a href="../interfaces/User.html" target="_self" >TeamUserDto[]</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>all users of a <a href="../classes/TeamDto.html">TeamDto</a></p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;[][]&gt;</code>
 
                     </div>
                     <div class="io-description">
@@ -1170,284 +795,179 @@
         </tbody>
     </table>
 </section>
-            <section>
-    
-    <h3 id="inputs">
-        Properties
-    </h3>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="baseURL"></a>
-                    <span class="name">
-                            <span class="modifier">Readonly</span>
-                        <span ><b>baseURL</b></span>
-                        <a href="#baseURL"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">apps/server/src/shared/infra/collaborative-storage/strategy/nextcloud.strategy.ts:41</a></div>
-                        </td>
-                    </tr>
-
-
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="config"></a>
-                    <span class="name">
-                        <span ><b>config</b></span>
-                        <a href="#config"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Type : </i>    <code>AxiosRequestConfig</code>
-
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">apps/server/src/shared/infra/collaborative-storage/strategy/nextcloud.strategy.ts:45</a></div>
-                        </td>
-                    </tr>
-
-
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="httpService"></a>
-                    <span class="name">
-                            <span class="modifier">Readonly</span>
-                        <span ><b>httpService</b></span>
-                        <a href="#httpService"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Type : </i>    <code>HttpService</code>
-
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">apps/server/src/shared/infra/collaborative-storage/strategy/nextcloud.strategy.ts:43</a></div>
-                        </td>
-                    </tr>
-
-
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="logger"></a>
-                    <span class="name">
-                            <span class="modifier">Private</span>
-                        <span ><b>logger</b></span>
-                        <a href="#logger"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="../injectables/Logger.html" target="_self" >Logger</a></code>
-
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">apps/server/src/shared/infra/collaborative-storage/strategy/nextcloud.strategy.ts:47</a></div>
-                        </td>
-                    </tr>
-
-
-        </tbody>
-    </table>
-</section>
 
     </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { HttpService } from &#x27;@nestjs/axios&#x27;;
-import { Injectable, Logger, NotFoundException } from &#x27;@nestjs/common&#x27;;
-import { Configuration } from &#x27;@hpi-schul-cloud/commons/lib&#x27;;
-import { AxiosRequestConfig, AxiosResponse } from &#x27;axios&#x27;;
-import { firstValueFrom, Observable } from &#x27;rxjs&#x27;;
-import { parseInt } from &#x27;lodash&#x27;;
-import { ICollaborativeStorageStrategy } from &#x27;./base.interface.strategy&#x27;;
-import { TeamRolePermissionsDto } from &#x27;../dto/team-role-permissions.dto&#x27;;
-
-export interface NextcloudGroups {
-	groups: string[];
-}
-
-export interface GroupfoldersFolder {
-	folder_id: string;
-}
-
-export interface OcsResponse&lt;T&gt; {
-	ocs: {
-		data: T;
-		meta?: Meta;
-	};
-}
-
-export interface Meta {
-	statuscode: number;
-}
-
-export interface SuccessfulRes {
-	success: boolean;
-}
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable, UnprocessableEntityException } from &#x27;@nestjs/common&#x27;;
+import { Logger } from &#x27;@src/core/logger&#x27;;
+import { PseudonymsRepo } from &#x27;@shared/repo/index&#x27;;
+import { TeamDto, TeamUserDto } from &#x27;@src/modules/collaborative-storage/services/dto/team.dto&#x27;;
+import { PseudonymDO } from &#x27;@shared/domain/index&#x27;;
+import { LtiToolRepo } from &#x27;@shared/repo/ltitool/index&#x27;;
+import { LtiToolDO } from &#x27;@shared/domain/domainobject/ltitool.do&#x27;;
+import { ICollaborativeStorageStrategy } from &#x27;../base.interface.strategy&#x27;;
+import { TeamRolePermissionsDto } from &#x27;../../dto/team-role-permissions.dto&#x27;;
+import { NextcloudClient } from &#x27;./nextcloud.client&#x27;;
 
 /**
  * Nextcloud Strategy Implementation for Collaborative Storage
  *
- * @implements ICollaborativeStorageStrategy
- *
+ * @implements {ICollaborativeStorageStrategy}
  */
 @Injectable()
 export class NextcloudStrategy implements ICollaborativeStorageStrategy {
-	readonly baseURL: string;
-
-	readonly httpService: HttpService;
-
-	config: AxiosRequestConfig;
-
-	private logger: Logger;
-
-	constructor() {
-		this.httpService &#x3D; new HttpService();
-		this.logger &#x3D; new Logger(NextcloudStrategy.name);
-		this.baseURL &#x3D; Configuration.get(&#x27;NEXTCLOUD_BASE_URL&#x27;) as string;
-		this.config &#x3D; {
-			auth: {
-				username: Configuration.get(&#x27;NEXTCLOUD_ADMIN_USER&#x27;) as string,
-				password: Configuration.get(&#x27;NEXTCLOUD_ADMIN_PASS&#x27;) as string,
-			},
-			headers: { &#x27;OCS-APIRequest&#x27;: true, Accept: &#x27;Application/json&#x27; },
-		};
+	constructor(
+		private readonly logger: Logger,
+		private readonly client: NextcloudClient,
+		private readonly pseudonymsRepo: PseudonymsRepo,
+		private readonly ltiToolRepo: LtiToolRepo
+	) {
+		this.logger.setContext(NextcloudStrategy.name);
 	}
 
-	public async updateTeamPermissionsForRole(dto: TeamRolePermissionsDto) {
-		const groupId &#x3D; await this.findGroupId(NextcloudStrategy.generateGroupId(dto));
-		const folderId &#x3D; await this.findFolderIdForGroupId(groupId);
-		this.setGroupPermissions(groupId, folderId, dto.permissions);
-	}
+	/**
+	 * At the moment unused.
+	 *
+	 * @param dto
+	 */
+	async updateTeamPermissionsForRole(dto: TeamRolePermissionsDto): Promise&lt;void&gt; {
+		const groupId: string &#x3D; await this.client.findGroupId(NextcloudStrategy.generateGroupId(dto));
+		let folderId: number;
 
-	private static generateGroupId(dto: TeamRolePermissionsDto): string {
-		return &#x60;${dto.teamName as string}-${dto.teamId as string}-${dto.roleName as string}&#x60;;
-	}
-
-	private async findGroupId(groupName: string): Promise&lt;string&gt; {
-		return firstValueFrom(this.get(&#x60;/ocs/v1.php/cloud/groups?search&#x3D;${groupName}&#x60;))
-			.then((resp: AxiosResponse&lt;OcsResponse&lt;NextcloudGroups&gt;&gt;) &#x3D;&gt; resp.data.ocs.data.groups[0])
-			.catch((error) &#x3D;&gt; {
-				throw new NotFoundException(error, &#x60;Group ${groupName} not found in Nextcloud!&#x60;);
-			});
-	}
-
-	private async findGroupIdByTeamId(teamId: string): Promise&lt;string&gt; {
-		return firstValueFrom(this.get(&#x60;/ocs/v1.php/cloud/groups?search&#x3D;${teamId}&#x60;))
-			.then((resp: AxiosResponse&lt;OcsResponse&lt;NextcloudGroups&gt;&gt;) &#x3D;&gt; {
-				if (resp.data.ocs.data.groups.length &gt; 0) {
-					return resp.data.ocs.data.groups[0];
-				}
-				throw Error();
-			})
-			.catch((error) &#x3D;&gt; {
-				throw new NotFoundException(error, &#x60;Group with TeamId of ${teamId} not found in Nextcloud!&#x60;);
-			});
-	}
-
-	private async removeGroup(groupId: string) {
-		return firstValueFrom(this.delete(&#x60;/ocs/v1.php/cloud/groups/${groupId}&#x60;))
-			.then((resp: AxiosResponse&lt;OcsResponse&lt;Meta&gt;&gt;) &#x3D;&gt; {
-				this.logger.log(&#x60; Successfully removed group with group id: ${groupId} in Nextcloud&#x60;);
-				const { meta } &#x3D; resp.data.ocs;
-				if (meta &amp;&amp; meta.statuscode &amp;&amp; meta.statuscode &#x3D;&#x3D;&#x3D; 100) {
-					return meta.statuscode;
-				}
-				throw Error();
-			})
-			.catch((error) &#x3D;&gt; {
-				throw new NotFoundException(error, &#x60;Group could not be deleted in Nextcloud!&#x60;);
-			});
-	}
-
-	private async findFolderIdForGroupId(groupId: string): Promise&lt;string&gt; {
-		return firstValueFrom(this.get(&#x60;/apps/schulcloud/groupfolders/folders/group/${groupId}&#x60;))
-			.then((resp: AxiosResponse&lt;OcsResponse&lt;GroupfoldersFolder[]&gt;&gt;) &#x3D;&gt; resp.data.ocs.data[0].folder_id)
-			.catch((error) &#x3D;&gt; {
-				throw new NotFoundException(error, &#x60;Folder for ${groupId} not found in Nextcloud!&#x60;);
-			});
-	}
-
-	private deleteFolder(folderId: string) {
-		return firstValueFrom(this.delete(&#x60;/apps/groupfolders/folders/${folderId}&#x60;)).then(
-			(resp: AxiosResponse&lt;OcsResponse&lt;SuccessfulRes&gt;&gt;) &#x3D;&gt; {
-				this.logger.log(&#x60; Successfully deleted folder with folder id: ${folderId} in Nextcloud&#x60;);
-				return resp.data.ocs.data.success;
-				// 	if (resp.data.ocs.data.success &#x3D;&#x3D;&#x3D; true) {
-				// 		return resp.data.ocs.data.success;
-				// 	}
-				// 	throw Error();
-				// })
-				// .catch((error) &#x3D;&gt; {
-				// 	throw new NotFoundException(error, &#x60;Folder could not be deleted in Nextcloud!&#x60;);
-			}
-		);
-	}
-
-	async deleteGroupfolderAndRemoveGroup(teamId: string) {
-		const groupId &#x3D; await this.findGroupIdByTeamId(teamId);
-		if (groupId) {
-			const folderId &#x3D; await this.findFolderIdForGroupId(groupId);
-			await this.removeGroup(groupId);
-			await this.deleteFolder(folderId);
+		try {
+			folderId &#x3D; await this.client.findGroupFolderIdForGroupId(groupId);
+			await this.client.setGroupPermissions(groupId, folderId, dto.permissions);
+		} catch (e) {
+			this.logger.log(
+				&#x60;Permissions in nextcloud were not set because of missing groupId or folderId for teamId ${dto.teamId}&#x60;
+			);
 		}
 	}
 
-	private setGroupPermissions(groupId: string, folderId: string, permissions: boolean[]) {
-		this.post(&#x60;/apps/groupfolders/folders/${folderId}/groups/${groupId}&#x60;, {
-			permissions: this.boolArrToNumber(permissions),
-		});
+	/**
+	 * Deletes a whole team in nextcloud.
+	 *
+	 * This includes the related group in nextcloud and the groupfolder of the group.
+	 *
+	 * @param teamId id of the schulcloud team
+	 */
+	async deleteTeam(teamId: string): Promise&lt;void&gt; {
+		const groupId: string &#x3D; this.client.getNameWithPrefix(teamId);
+		if (groupId) {
+			const folderId: number &#x3D; await this.client.findGroupFolderIdForGroupId(groupId);
+			await this.client.deleteGroup(groupId);
+			await this.client.deleteGroupFolder(folderId);
+		}
 	}
 
-	private get(apiPath: string): Observable&lt;AxiosResponse&gt; {
-		return this.httpService.get(&#x60;${this.baseURL}${apiPath}&#x60;, this.config);
+	/**
+	 * Creates a team in nextcloud.
+	 *
+	 * This includes the creation of the related group, its groupfolder and the adding of the {@link TeamUserDto teamUsers} (the creator).
+	 *
+	 * @param team schulcloud team
+	 */
+	async createTeam(team: TeamDto): Promise&lt;void&gt; {
+		const groupId: string &#x3D; this.client.getNameWithPrefix(team.id);
+
+		await this.client.createGroup(groupId, team.name);
+
+		await this.updateTeamUsersInGroup(groupId, team.teamUsers);
+
+		const folderName: string &#x3D; NextcloudStrategy.generateGroupFolderName(team.id, team.name);
+		// TODO N21-124: move the creation of group folders from the schulcloud-nextcloud-app to here, when all existing teams are migrated to the nextcloud
+		// Due to the schulcloud-nextcloud-app creating the group folder, when the group is created, it only needs to be renamed here
+		const folderId: number &#x3D; await this.client.findGroupFolderIdForGroupId(groupId);
+		await this.client.changeGroupFolderName(folderId, folderName);
+		// const folderId: number &#x3D; await this.client.createGroupFolder(folderName);
+		// await this.client.addAccessToGroupFolder(folderId, groupId);
 	}
 
-	private post(apiPath: string, data: unknown): Observable&lt;AxiosResponse&gt; {
-		return this.httpService.post(&#x60;${this.baseURL}${apiPath}&#x60;, data, this.config);
+	/**
+	 * Updates a team in nextcloud.
+	 *
+	 * This includes the {@link TeamUserDto teamuser} and the displayname of the team.
+	 *
+	 * @param team schulcloud team
+	 */
+	async updateTeam(team: TeamDto): Promise&lt;void&gt; {
+		if (!team.id) {
+			throw new UnprocessableEntityException(&#x27;Cannot update team without id&#x27;);
+		}
+
+		const groupId: string &#x3D; this.client.getNameWithPrefix(team.id);
+
+		if (team.teamUsers &amp;&amp; team.teamUsers.length &gt; 0) {
+			await this.updateTeamUsersInGroup(groupId, team.teamUsers);
+		}
+
+		if (team.name) {
+			const folderName: string &#x3D; NextcloudStrategy.generateGroupFolderName(team.id, team.name);
+
+			await this.client.renameGroup(groupId, team.name);
+
+			const folderId: number &#x3D; await this.client.findGroupFolderIdForGroupId(groupId);
+			await this.client.changeGroupFolderName(folderId, folderName);
+		}
 	}
 
-	private delete(apiPath: string): Observable&lt;AxiosResponse&gt; {
-		return this.httpService.delete(&#x60;${this.baseURL}${apiPath}&#x60;, this.config);
+	/**
+	 * Updating nextcloud group to be in sync with schulcloud team members.
+	 *
+	 * To do this, we have to get the link between the school cloud user ID and the Nextcloud user ID from the
+	 * pseudonym table and distinguish between added and deleted users.
+	 *
+	 * @param groupId nextclouds groupId
+	 * @param teamUsers all users of a {@link TeamDto}
+	 * @protected
+	 */
+	protected async updateTeamUsersInGroup(groupId: string, teamUsers: TeamUserDto[]): Promise&lt;void[][]&gt; {
+		const groupUserIds: string[] &#x3D; await this.client.getGroupUsers(groupId);
+		const nextcloudLtiTool: LtiToolDO &#x3D; await this.ltiToolRepo.findByName(this.client.oidcInternalName);
+
+		let convertedTeamUserIds: string[] &#x3D; await Promise.all&lt;Promise&lt;string&gt;[]&gt;(
+			teamUsers.map(async (teamUser: TeamUserDto): Promise&lt;string&gt; &#x3D;&gt; {
+				// The Oauth authentication generates a pseudonym which will be used from external systems as identifier
+				return this.pseudonymsRepo
+					.findByUserIdAndToolId(teamUser.userId, nextcloudLtiTool.id as string)
+					.then((pseudonymDO: PseudonymDO) &#x3D;&gt; this.client.getNameWithPrefix(pseudonymDO.pseudonym))
+					.catch(() &#x3D;&gt; &#x27;&#x27;);
+			})
+		);
+		convertedTeamUserIds &#x3D; convertedTeamUserIds.filter(Boolean);
+
+		const removeUserIds: string[] &#x3D; groupUserIds.filter((userId) &#x3D;&gt; !convertedTeamUserIds.includes(userId));
+		this.logger.debug(&#x60;Removing nextcloud userIds [${removeUserIds.toString()}]&#x60;);
+		const addUserIds: string[] &#x3D; convertedTeamUserIds.filter((userId) &#x3D;&gt; !groupUserIds.includes(userId));
+		this.logger.debug(&#x60;Adding nextcloud userIds [${addUserIds.toString()}]&#x60;);
+
+		return Promise.all([
+			Promise.all(removeUserIds.map((nextcloudUserId) &#x3D;&gt; this.client.removeUserFromGroup(nextcloudUserId, groupId))),
+			Promise.all(addUserIds.map((nextcloudUserId) &#x3D;&gt; this.client.addUserToGroup(nextcloudUserId, groupId))),
+		]);
 	}
 
-	private boolArrToNumber(arr: Array&lt;boolean&gt;): number {
-		return parseInt(arr.map((r) &#x3D;&gt; (r ? &#x27;1&#x27; : &#x27;0&#x27;)).join(&#x27;&#x27;), 2);
+	/**
+	 * Generates the groupfolder name by concatenating the teamId and teamName.
+	 *
+	 * @param teamId id of the team
+	 * @param teamName name of the team
+	 * @protected
+	 */
+	protected static generateGroupFolderName(teamId: string, teamName: string): string {
+		return &#x60;${teamName} (${teamId})&#x60;;
+	}
+
+	/**
+	 * Generates groupId of the nextcloud group by concatenating some {@link TeamRolePermissionsDto} properties.
+	 *
+	 * @param dto
+	 * @protected
+	 */
+	protected static generateGroupId(dto: TeamRolePermissionsDto): string {
+		return &#x60;${dto.teamName}-${dto.teamId}-${dto.roleName}&#x60;;
 	}
 }
 </code></pre>
