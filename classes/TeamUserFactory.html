@@ -1218,11 +1218,15 @@ class TeamUserFactory extends BaseFactory&lt;TeamUser, TeamUser&gt; {
 }
 
 export const teamUserFactory &#x3D; TeamUserFactory.define(TeamUser, () &#x3D;&gt; {
-	return {
-		user: userFactory.buildWithId(),
-		school: schoolFactory.buildWithId(),
-		role: roleFactory.buildWithId(),
-	};
+	const role &#x3D; roleFactory.buildWithId();
+	const school &#x3D; schoolFactory.buildWithId();
+	const user &#x3D; userFactory.buildWithId({ roles: [role] });
+
+	return new TeamUser({
+		user,
+		school,
+		role,
+	});
 });
 </code></pre>
     </div>

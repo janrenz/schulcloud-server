@@ -185,7 +185,7 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Team } from &#x27;@shared/domain&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Team, TeamUser } from &#x27;@shared/domain&#x27;;
 import { Injectable } from &#x27;@nestjs/common&#x27;;
 import { TeamDto, TeamUserDto } from &#x27;../services/dto/team.dto&#x27;;
 
@@ -198,7 +198,7 @@ export class TeamMapper {
 	 */
 	public mapEntityToDto(teamEntity: Team): TeamDto {
 		const teamUsers: TeamUserDto[] &#x3D; teamEntity.teamUsers.map(
-			(teamUser) &#x3D;&gt;
+			(teamUser: TeamUser) &#x3D;&gt;
 				new TeamUserDto({
 					userId: teamUser.user.id,
 					roleId: teamUser.role.id,

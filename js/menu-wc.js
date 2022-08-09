@@ -2756,6 +2756,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="interfaces/ITeamProperties.html" data-type="entity-link" >ITeamProperties</a>
                             </li>
                             <li class="link">
+                                <a href="interfaces/ITeamUserProperties.html" data-type="entity-link" >ITeamUserProperties</a>
+                            </li>
+                            <li class="link">
                                 <a href="interfaces/IUserConfig.html" data-type="entity-link" >IUserConfig</a>
                             </li>
                             <li class="link">

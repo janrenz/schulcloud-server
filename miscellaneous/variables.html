@@ -5427,18 +5427,9 @@ Teardown: &#39;await orm.close()&#39; in after-hook!</p>
                 <tr>
                     <td class="col-md-4">
                         <i>Default value : </i><code>TeamFactory.define(Team, ({ sequence }) &#x3D;&gt; {
-	const role &#x3D; roleFactory.buildWithId();
-	const schoolId &#x3D; schoolFactory.buildWithId();
-	const userId &#x3D; userFactory.buildWithId({ roles: [role] });
 	return {
 		name: &#x60;team #${sequence}&#x60;,
-		teamUsers: [
-			{
-				user: userId,
-				school: schoolId,
-				role,
-			},
-		],
+		teamUsers: [teamUserFactory.buildWithId()],
 	};
 })</code>
                     </td>
@@ -5464,11 +5455,15 @@ Teardown: &#39;await orm.close()&#39; in after-hook!</p>
                 <tr>
                     <td class="col-md-4">
                         <i>Default value : </i><code>TeamUserFactory.define(TeamUser, () &#x3D;&gt; {
-	return {
-		user: userFactory.buildWithId(),
-		school: schoolFactory.buildWithId(),
-		role: roleFactory.buildWithId(),
-	};
+	const role &#x3D; roleFactory.buildWithId();
+	const school &#x3D; schoolFactory.buildWithId();
+	const user &#x3D; userFactory.buildWithId({ roles: [role] });
+
+	return new TeamUser({
+		user,
+		school,
+		role,
+	});
 })</code>
                     </td>
                 </tr>

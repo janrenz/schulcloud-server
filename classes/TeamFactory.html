@@ -224,8 +224,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="10"
-                            class="link-to-prism">apps/server/src/shared/testing/factory/team.factory.ts:10</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="7"
+                            class="link-to-prism">apps/server/src/shared/testing/factory/team.factory.ts:7</a></div>
                 </td>
             </tr>
 
@@ -1201,10 +1201,7 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ITeamProperties, Role, Team } from &#x27;@shared/domain&#x27;;
 import { DeepPartial } from &#x27;fishery&#x27;;
 import { teamUserFactory } from &#x27;@shared/testing/factory/teamuser.factory&#x27;;
-import { schoolFactory } from &#x27;@shared/testing/factory/school.factory&#x27;;
-import { userFactory } from &#x27;@shared/testing/factory/user.factory&#x27;;
 import { BaseFactory } from &#x27;@shared/testing/factory/base.factory&#x27;;
-import { roleFactory } from &#x27;@shared/testing/factory/role.factory&#x27;;
 
 class TeamFactory extends BaseFactory&lt;Team, ITeamProperties&gt; {
 	withRoleAndUserId(role: Role, userId: string): this {
@@ -1216,18 +1213,9 @@ class TeamFactory extends BaseFactory&lt;Team, ITeamProperties&gt; {
 }
 
 export const teamFactory &#x3D; TeamFactory.define(Team, ({ sequence }) &#x3D;&gt; {
-	const role &#x3D; roleFactory.buildWithId();
-	const schoolId &#x3D; schoolFactory.buildWithId();
-	const userId &#x3D; userFactory.buildWithId({ roles: [role] });
 	return {
 		name: &#x60;team #${sequence}&#x60;,
-		teamUsers: [
-			{
-				user: userId,
-				school: schoolId,
-				role,
-			},
-		],
+		teamUsers: [teamUserFactory.buildWithId()],
 	};
 });
 </code></pre>

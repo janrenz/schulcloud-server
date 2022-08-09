@@ -86,10 +86,12 @@
                                 <a href="#role" >role</a>
                             </li>
                             <li>
-                                <a href="#school" >school</a>
+                                    <span class="modifier">Private</span>
+                                <a href="#schoolId" >schoolId</a>
                             </li>
                             <li>
-                                <a href="#user" >user</a>
+                                    <span class="modifier">Private</span>
+                                <a href="#userId" >userId</a>
                             </li>
                         </ul>
                     </td>
@@ -100,6 +102,23 @@
 
 
 
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accessors</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#user" >user</a>
+                                </li>
+                                <li>
+                                    <a href="#school" >school</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
         </tbody>
     </table>
 </section>
@@ -110,12 +129,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(teamUser: <a href="../interfaces/User.html" target="_self">TeamUser</a>)</code>
+<code>constructor(props: <a href="../interfaces/ITeamUserProperties.html" target="_self">ITeamUserProperties</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">apps/server/src/shared/domain/entity/team.entity.ts:13</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">apps/server/src/shared/domain/entity/team.entity.ts:19</a></div>
                             </td>
                         </tr>
 
@@ -133,10 +152,10 @@
                                         </thead>
                                         <tbody>
                                                 <tr>
-                                                        <td>teamUser</td>
+                                                        <td>props</td>
                                                   
                                                         <td>
-                                                                        <code><a href="../interfaces/User.html" target="_self" >TeamUser</a></code>
+                                                                        <code><a href="../interfaces/ITeamUserProperties.html" target="_self" >ITeamUserProperties</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -186,7 +205,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">apps/server/src/shared/domain/entity/team.entity.ts:24</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">apps/server/src/shared/domain/entity/team.entity.ts:30</a></div>
                         </td>
                     </tr>
 
@@ -197,10 +216,11 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="school"></a>
+                    <a name="schoolId"></a>
                     <span class="name">
-                        <span ><b>school</b></span>
-                        <a href="#school"><span class="icon ion-ios-link"></span></a>
+                            <span class="modifier">Private</span>
+                        <span ><b>schoolId</b></span>
+                        <a href="#schoolId"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
@@ -215,13 +235,13 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @ManyToOne(undefined, {fieldName: &#x27;schoolId&#x27;})<br />
+                            @ManyToOne(undefined)<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">apps/server/src/shared/domain/entity/team.entity.ts:27</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">apps/server/src/shared/domain/entity/team.entity.ts:33</a></div>
                         </td>
                     </tr>
 
@@ -232,10 +252,11 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="user"></a>
+                    <a name="userId"></a>
                     <span class="name">
-                        <span ><b>user</b></span>
-                        <a href="#user"><span class="icon ion-ios-link"></span></a>
+                            <span class="modifier">Private</span>
+                        <span ><b>userId</b></span>
+                        <a href="#userId"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
@@ -250,13 +271,13 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @ManyToOne(undefined, {fieldName: &#x27;userId&#x27;})<br />
+                            @ManyToOne(undefined)<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">apps/server/src/shared/domain/entity/team.entity.ts:21</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">apps/server/src/shared/domain/entity/team.entity.ts:27</a></div>
                         </td>
                     </tr>
 
@@ -271,6 +292,149 @@
 
 
 
+            <section>
+    <h3 id="accessors">
+        Accessors
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="user"></a>
+                        <span class="name"><b>user</b><a href="#user"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>user()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">apps/server/src/shared/domain/entity/team.entity.ts:36</a></div>
+                                </td>
+                            </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>set</b><code>user(value: <a href="../interfaces/User.html" target="_self">User</a>)</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">apps/server/src/shared/domain/entity/team.entity.ts:40</a></div>
+                                </td>
+                            </tr>
+                    <tr>
+                        <td class="col-md-4">
+
+                                <div class="io-description">
+                                        <b>Parameters :</b>
+                                        <table class="params">
+                                            <thead>
+                                                <tr>
+                                                    <td>Name</td>
+                                                        <td>Type</td>
+                                                    <td>Optional</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                    <tr>
+                                                            <td>value</td>
+                                                    
+                                                            <td>
+                                                                            <code><a href="../interfaces/User.html" target="_self" >User</a></code>
+                                                            </td>
+                                                    
+                                                        <td>
+                                                                No
+                                                        </td>
+                                                        
+                                                    </tr>
+                                            </tbody>
+                                        </table>
+                                </div>
+                                <div>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                                </div>
+                        </td>
+                    </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="school"></a>
+                        <span class="name"><b>school</b><a href="#school"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>school()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">apps/server/src/shared/domain/entity/team.entity.ts:44</a></div>
+                                </td>
+                            </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>set</b><code>school(value: <a href="../classes/School.html" target="_self">School</a>)</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">apps/server/src/shared/domain/entity/team.entity.ts:48</a></div>
+                                </td>
+                            </tr>
+                    <tr>
+                        <td class="col-md-4">
+
+                                <div class="io-description">
+                                        <b>Parameters :</b>
+                                        <table class="params">
+                                            <thead>
+                                                <tr>
+                                                    <td>Name</td>
+                                                        <td>Type</td>
+                                                    <td>Optional</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                    <tr>
+                                                            <td>value</td>
+                                                    
+                                                            <td>
+                                                                            <code><a href="../classes/School.html" target="_self" >School</a></code>
+                                                            </td>
+                                                    
+                                                        <td>
+                                                                No
+                                                        </td>
+                                                        
+                                                    </tr>
+                                            </tbody>
+                                        </table>
+                                </div>
+                                <div>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                                </div>
+                        </td>
+                    </tr>
+            </tbody>
+        </table>
+</section>
     </div>
 
 
@@ -286,22 +450,45 @@ export interface ITeamProperties {
 	teamUsers?: TeamUser[];
 }
 
+export interface ITeamUserProperties {
+	user: User;
+	role: Role;
+	school: School;
+}
+
 @Embeddable()
 export class TeamUser {
-	constructor(teamUser: TeamUser) {
-		this.user &#x3D; teamUser.user;
-		this.role &#x3D; teamUser.role;
-		this.school &#x3D; teamUser.school;
+	constructor(props: ITeamUserProperties) {
+		this.userId &#x3D; props.user;
+		this.role &#x3D; props.role;
+		this.schoolId &#x3D; props.school;
 	}
 
-	@ManyToOne(() &#x3D;&gt; User, { fieldName: &#x27;userId&#x27; })
-	user: User;
+	@ManyToOne(() &#x3D;&gt; User)
+	private userId: User;
 
 	@ManyToOne(() &#x3D;&gt; Role)
 	role: Role;
 
-	@ManyToOne(() &#x3D;&gt; School, { fieldName: &#x27;schoolId&#x27; })
-	school: School;
+	@ManyToOne(() &#x3D;&gt; School)
+	private schoolId: School;
+
+	// fieldName cannot be used in ManyToOne on Embeddable due to a mikro-orm bug (https://github.com/mikro-orm/mikro-orm/issues/2165)
+	get user(): User {
+		return this.userId;
+	}
+
+	set user(value: User) {
+		this.userId &#x3D; value;
+	}
+
+	get school(): School {
+		return this.schoolId;
+	}
+
+	set school(value: School) {
+		this.schoolId &#x3D; value;
+	}
 }
 
 @Entity({ tableName: &#x27;teams&#x27; })
