@@ -136,8 +136,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="25"
-                            class="link-to-prism">apps/server/src/modules/learnroom/mapper/copy.mapper.ts:25</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="27"
+                            class="link-to-prism">apps/server/src/modules/learnroom/mapper/copy.mapper.ts:27</a></div>
                 </td>
             </tr>
 
@@ -219,8 +219,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="34"
-                            class="link-to-prism">apps/server/src/modules/learnroom/mapper/copy.mapper.ts:34</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="36"
+                            class="link-to-prism">apps/server/src/modules/learnroom/mapper/copy.mapper.ts:36</a></div>
                 </td>
             </tr>
 
@@ -361,7 +361,7 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { CopyStatus } from &#x27;@shared/domain&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { CopyStatus, CopyStatusEnum } from &#x27;@shared/domain&#x27;;
 import { LessonCopyApiParams } from &#x27;@src/modules/learnroom/controller/dto/lesson/lesson-copy.params&#x27;;
 import { LessonCopyParentParams } from &#x27;@src/modules/learnroom/uc/lesson-copy.uc&#x27;;
 import { TaskCopyApiParams } from &#x27;@src/modules/task/controller/dto/task-copy.params&#x27;;
@@ -379,8 +379,10 @@ export class CopyMapper {
 		if (copyStatus.copyEntity) {
 			dto.id &#x3D; copyStatus.copyEntity.id;
 		}
-		if (copyStatus.elements) {
-			dto.elements &#x3D; copyStatus.elements.map((status) &#x3D;&gt; CopyMapper.mapToResponse(status));
+		if (copyStatus.status !&#x3D;&#x3D; CopyStatusEnum.SUCCESS &amp;&amp; copyStatus.elements) {
+			dto.elements &#x3D; copyStatus.elements
+				.map((element) &#x3D;&gt; CopyMapper.mapToResponse(element))
+				.filter((element) &#x3D;&gt; element.status !&#x3D;&#x3D; CopyStatusEnum.SUCCESS);
 		}
 		return dto;
 	}

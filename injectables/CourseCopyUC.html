@@ -410,7 +410,7 @@ export class CourseCopyUC {
 
 		statusCourse.elements ||&#x3D; [];
 		statusCourse.elements.push(statusBoard);
-
+		statusCourse.status &#x3D; this.copyHelperService.deriveStatusFromElements(statusCourse.elements);
 		return statusCourse;
 	}
 }
