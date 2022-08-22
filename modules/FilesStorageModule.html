@@ -280,6 +280,7 @@
 import { Configuration } from &#x27;@hpi-schul-cloud/commons&#x27;;
 import { Dictionary, IPrimaryKey } from &#x27;@mikro-orm/core&#x27;;
 import { MikroOrmModule, MikroOrmModuleSyncOptions } from &#x27;@mikro-orm/nestjs&#x27;;
+import { HttpModule } from &#x27;@nestjs/axios&#x27;;
 import { DynamicModule, Module, NotFoundException } from &#x27;@nestjs/common&#x27;;
 import { ConfigModule } from &#x27;@nestjs/config&#x27;;
 import { ALL_ENTITIES } from &#x27;@shared/domain&#x27;;
@@ -317,6 +318,7 @@ const imports &#x3D; [
 		isGlobal: true,
 		load: [fileStorageConfig],
 	}),
+	HttpModule,
 	AuthorizationModule,
 	AuthModule,
 	CoreModule,

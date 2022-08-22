@@ -246,6 +246,22 @@ export class FileRecordParams {
 	parentType!: FileRecordParentType;
 }
 
+export class FileUrlParams {
+	@ApiProperty({ type: &#x27;string&#x27; })
+	@IsString()
+	@IsNotEmpty()
+	url!: string;
+
+	@ApiProperty({ type: &#x27;string&#x27; })
+	@IsString()
+	@IsNotEmpty()
+	fileName!: string;
+
+	@ApiProperty({ type: &#x27;string&#x27; })
+	@Allow()
+	headers?: Record&lt;string, string&gt;;
+}
+
 export class FileParams {
 	@ApiProperty({ type: &#x27;string&#x27;, format: &#x27;binary&#x27; })
 	@Allow()
