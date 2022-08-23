@@ -279,7 +279,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>configure(loadFromJson)</code>
+                    <code>configure()</code>
                 </td>
             </tr>
 
@@ -296,40 +296,8 @@
                 <td class="col-md-4">
 
                     <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Optional</td>
-                                    <td>Default value</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>loadFromJson</td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-                                    <td>
-                                        <code>false</code>
-                                    </td>
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
                         <b>Returns : </b>    <code>Promise&lt;number&gt;</code>
 
-                    </div>
-                    <div class="io-description">
-                        
                     </div>
                 </td>
             </tr>
@@ -405,10 +373,10 @@ export class KeycloakManagementUc {
 		return this.keycloakSeedService.seed();
 	}
 
-	async configure(loadFromJson &#x3D; false): Promise&lt;number&gt; {
+	async configure(): Promise&lt;number&gt; {
 		await this.kcAdmin.setPasswordPolicy();
 		await this.keycloakConfigService.configureBrokerFlows();
-		const result &#x3D; this.keycloakConfigService.configureIdentityProviders(loadFromJson);
+		const result &#x3D; this.keycloakConfigService.configureIdentityProviders();
 		return result;
 	}
 }

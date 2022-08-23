@@ -60,13 +60,13 @@
 <title>cluster_KeycloakModule_providers</title>
 <polygon fill="none" stroke="black" points="280,-40.8 280,-92.8 942,-92.8 942,-40.8 280,-40.8"/>
 </g>
-<g id="clust4" class="cluster">
-<title>cluster_KeycloakModule_exports</title>
-<polygon fill="none" stroke="black" points="160,-170.8 160,-222.8 556,-222.8 556,-170.8 160,-170.8"/>
-</g>
 <g id="clust3" class="cluster">
 <title>cluster_KeycloakModule_imports</title>
 <polygon fill="none" stroke="black" points="16,-40.8 16,-92.8 272,-92.8 272,-40.8 16,-40.8"/>
+</g>
+<g id="clust4" class="cluster">
+<title>cluster_KeycloakModule_exports</title>
+<polygon fill="none" stroke="black" points="160,-170.8 160,-222.8 556,-222.8 556,-170.8 160,-170.8"/>
 </g>
 <!-- EncryptionModule -->
 <g id="node1" class="node">
@@ -256,6 +256,7 @@ import KeycloakConfiguration from &#x27;./keycloak-config&#x27;;
 import { KeycloakAdministrationService } from &#x27;./service/keycloak-administration.service&#x27;;
 import { KeycloakConfigurationService } from &#x27;./service/keycloak-configuration.service&#x27;;
 import { KeycloakSeedService } from &#x27;./service/keycloak-seed.service&#x27;;
+import { OidcIdentityProviderMapper } from &#x27;./mapper/identity-provider.mapper&#x27;;
 
 @Module({
 	imports: [LoggerModule, EncryptionModule],
@@ -273,6 +274,7 @@ import { KeycloakSeedService } from &#x27;./service/keycloak-seed.service&#x27;;
 			useValue: KeycloakConfiguration.keycloakInputFiles,
 		},
 		KeycloakManagementUc,
+		OidcIdentityProviderMapper,
 		KeycloakConfigurationService,
 		KeycloakSeedService,
 	],

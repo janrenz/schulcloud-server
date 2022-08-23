@@ -81,16 +81,17 @@
   --name erwinidm \
   -p 8080:8080 \
   -p 8443:8443 \
-  -v &quot;$PWD/backup/keycloak:/tmp/realms&quot; \
+  -v &quot;$PWD/backup/idm/keycloak:/tmp/realms&quot; \
   ghcr.io/hpi-schul-cloud/erwin-idm/dev:latest \
-  &quot;&amp;&amp; /opt/keycloak/bin/kc.sh import --dir /tmp/realms&quot;</code></pre></div><p>To add seed data into ErWIn-IDM, use <code>npm run setup:idm</code> to reset and apply seed data.<br><br></p>
+  &quot;&amp;&amp; /opt/keycloak/bin/kc.sh import --dir /tmp/realms&quot;</code></pre></div><p>To add seed data into ErWIn-IDM, use <code>npm run setup:idm</code> to reset and apply seed data.</p>
+<p>See <a href="./nestjs-application/keycloak.html">ErWIn-IDM specific documentation</a> to learn how to add the ErWIn-IDM identity broker feature.</p>
 <ol start="6">
 <li>Add secrets to systems (optional)</li>
 </ol>
-<p>The systems of the seed data do not contain any secrets, so connecting to those systems will fail.<br>
-You can add these secrets by putting them into your env vars. E.g. if you add <code>SANIS_CLIENT_ID=&lt;actual secret&gt;</code> into your .env file, the secret will be written into the db, when you run the database setup. You need to add the env var <code>AES_KEY</code> as well to encrypt those secrets in the DB.<br>
-The real secrets can be found in the password store.<br></p>
-<p>While exporting the systems to JSON the secrets will be replaced by placeholders follwing the pattern <code>&lt;capitalized alias&gt;_&lt;capitalized property name&gt;</code>. So the system with alias &quot;sanis&quot; and the secret property &quot;clientId&quot; will be replaced by &quot;SANIS_CLIENT_ID&quot;</p>
+<p>The systems of the seed data do not contain any secrets, so connecting to those systems will fail.
+You can add these secrets by putting them into your env vars. E.g. if you add <code>SANIS_CLIENT_ID=&lt;actual secret&gt;</code> into your .env file, the secret will be written into the db, when you run the database setup. You need to add the env var <code>AES_KEY</code> as well to encrypt those secrets in the DB.
+The real secrets can be found in the password store.</p>
+<p>While exporting the systems to JSON the secrets will be replaced by placeholders following the pattern <code>&lt;capitalized alias&gt;_&lt;capitalized property name&gt;</code>. So the system with alias &quot;sanis&quot; and the secret property &quot;clientId&quot; will be replaced by &quot;SANIS_CLIENT_ID&quot;</p>
 <h2 id="how-to-start-the-application">How to start the application</h2>
 <p>Beside existing <a href="/">scripts</a>, for the nestJS application the following scripts have been added. Try not changing the scripts as they should match what NestJS defines by default. Execute <code>npm run ...</code></p>
 <ul>

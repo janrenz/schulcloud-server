@@ -187,9 +187,6 @@ interface IRetryOptions {
 	retryCount: number;
 	retryDelay: number;
 }
-interface IConfigureOptions {
-	fromJson: boolean;
-}
 @Console({ command: &#x27;idm&#x27;, description: &#x27;Prefixes all Identity Management (IDM) related console commands.&#x27; })
 export class KeycloakConsole {
 	constructor(
@@ -272,29 +269,17 @@ export class KeycloakConsole {
 	/**
 	 * Used in production and for local development to transfer configuration to keycloak.
 	 *
-	 * Per default the configuration is loaded from the DB.
-	 * Locally the &quot;fromJson&quot; option should be set to true.
-	 *
-	 * @param options
 	 */
 	@Command({
 		command: &#x27;configure&#x27;,
 		description: &#x27;Configures Keycloak identity providers.&#x27;,
-		options: [
-			{
-				flags: &#x27;-fj, --from-json &lt;value&gt;&#x27;,
-				description: &#x27;Determines if the identiy providers should be loaded from json instead of DB&#x27;,
-				required: false,
-				defaultValue: false,
-			},
-			...KeycloakConsole.retryFlags,
-		],
+		options: [...KeycloakConsole.retryFlags],
 	})
-	async configure(options: IConfigureOptions &amp; IRetryOptions): Promise&lt;void&gt; {
+	async configure(options: IRetryOptions): Promise&lt;void&gt; {
 		await this.repeatCommand(
 			&#x27;configure&#x27;,
 			async () &#x3D;&gt; {
-				const count &#x3D; await this.keycloakManagementUc.configure(options.fromJson);
+				const count &#x3D; await this.keycloakManagementUc.configure();
 				this.console.info(&#x60;Configured ${count} identity provider(s).&#x60;);
 			},
 			options.retryCount,
@@ -314,7 +299,8 @@ export class KeycloakConsole {
 			try {
 				// eslint-disable-next-line no-await-in-loop
 				return await command();
-			} catch {
+			} catch (err) {
+				this.console.info(JSON.stringify(err));
 				if (repetitions &lt; count) {
 					this.console.info(
 						&#x60;Command &#x27;${commandName}&#x27; failed, retry in ${delay} seconds. Execution ${repetitions} / ${count}&#x60;

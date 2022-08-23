@@ -28,7 +28,7 @@
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
-               <div class="content injectable">
+               <div class="content interface">
                    <div class="content-data">
 
 
@@ -38,9 +38,16 @@
 
 
 
+
+
+
+
+
 <ol class="breadcrumb">
-  <li>Injectables</li>
-  <li >SymetricKeyEncryptionService</li>
+  <li>Interfaces</li>
+  <li
+  >
+  IEncryptionService</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -58,106 +65,42 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/shared/infra/encryption/encryption.service.ts</code>
+            <code>apps/server/src/shared/infra/encryption/encryption.interface.ts</code>
         </p>
 
 
 
 
-
-            <section>
-    <h3 id="index">Index</h3>
-    <table class="table table-sm table-bordered index-table">
-        <tbody>
-
-                <tr>
-                    <td class="col-md-4">
-                        <h6><b>Methods</b></h6>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <ul class="index-list">
-                            <li>
-                                    <span class="modifier">Public</span>
-                                <a href="#decrypt" >decrypt</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Public</span>
-                                <a href="#encrypt" >encrypt</a>
-                            </li>
-                        </ul>
-                    </td>
-                </tr>
-
-
-
-
-
-        </tbody>
-    </table>
-</section>
-
-            <section>
-    <h3 id="constructor">Constructor</h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-<code>constructor(logger: <a href="../injectables/Logger.html" target="_self">Logger</a>, key?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
-                    </td>
-                </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">apps/server/src/shared/infra/encryption/encryption.service.ts:8</a></div>
-                            </td>
-                        </tr>
-
-                <tr>
-                    <td class="col-md-4">
-                            <div>
-                                    <b>Parameters :</b>
-                                    <table class="params">
-                                        <thead>
-                                            <tr>
-                                                <td>Name</td>
-                                                    <td>Type</td>
-                                                <td>Optional</td>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                                <tr>
-                                                        <td>logger</td>
-                                                  
-                                                        <td>
-                                                                        <code><a href="../injectables/Logger.html" target="_self" >Logger</a></code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                                <tr>
-                                                        <td>key</td>
-                                                  
-                                                        <td>
-                                                                        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            Yes
-                                                    </td>
-                                                    
-                                                </tr>
-                                        </tbody>
-                                    </table>
-                            </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-</section>
+        <section>
+            <h3 id="index">Index</h3>
+            <table class="table table-sm table-bordered index-table">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Methods</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#decrypt" 
+>
+                                        decrypt
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#encrypt" 
+>
+                                        encrypt
+                                    </a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
 
             <section>
     
@@ -170,7 +113,6 @@
                 <td class="col-md-4">
                     <a name="decrypt"></a>
                     <span class="name">
-                        <span class="modifier">Public</span>
                         <span ><b>decrypt</b></span>
                         <a href="#decrypt"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -178,16 +120,15 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>decrypt(data: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+<code>decrypt(data: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="23"
-                            class="link-to-prism">apps/server/src/shared/infra/encryption/encryption.service.ts:23</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="6"
+                            class="link-to-prism">apps/server/src/shared/infra/encryption/encryption.interface.ts:6</a></div>
                 </td>
             </tr>
 
@@ -241,7 +182,6 @@
                 <td class="col-md-4">
                     <a name="encrypt"></a>
                     <span class="name">
-                        <span class="modifier">Public</span>
                         <span ><b>encrypt</b></span>
                         <a href="#encrypt"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -249,16 +189,15 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>encrypt(data: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+<code>encrypt(data: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="15"
-                            class="link-to-prism">apps/server/src/shared/infra/encryption/encryption.service.ts:15</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="5"
+                            class="link-to-prism">apps/server/src/shared/infra/encryption/encryption.interface.ts:5</a></div>
                 </td>
             </tr>
 
@@ -312,45 +251,16 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import CryptoJs from &#x27;crypto-js&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export const DefaultEncryptionService &#x3D; Symbol(&#x27;DefaultEncryptionService&#x27;);
+export const LdapEncryptionService &#x3D; Symbol(&#x27;LdapEncryptionService&#x27;);
 
-import { Injectable } from &#x27;@nestjs/common&#x27;;
-import { Logger } from &#x27;@src/core/logger&#x27;;
-import { IEncryptionService } from &#x27;./encryption.interface&#x27;;
-
-@Injectable()
-export class SymetricKeyEncryptionService implements IEncryptionService {
-	constructor(private logger: Logger, private key?: string) {
-		if (!this.key) {
-			this.logger.warn(&#x27;No AES key defined. Encryption will no work&#x27;);
-		}
-	}
-
-	public encrypt(data: string): string {
-		if (!this.key) {
-			this.logger.warn(&#x27;No AES key defined. Will return plain text&#x27;);
-			return data;
-		}
-		return CryptoJs.AES.encrypt(data, this.key).toString();
-	}
-
-	public decrypt(data: string): string {
-		if (!this.key) {
-			this.logger.warn(&#x27;No AES key defined. Will return plain text&#x27;);
-			return data;
-		}
-		return CryptoJs.AES.decrypt(data, this.key).toString(CryptoJs.enc.Utf8);
-	}
+export interface IEncryptionService {
+	encrypt(data: string): string;
+	decrypt(data: string): string;
 }
 </code></pre>
     </div>
-
 </div>
-
-
-
-
-
 
 
 
@@ -384,8 +294,8 @@ export class SymetricKeyEncryptionService implements IEncryptionService {
 
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
-            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
-            var COMPODOC_CURRENT_PAGE_URL = 'SymetricKeyEncryptionService.html';
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
+            var COMPODOC_CURRENT_PAGE_URL = 'IEncryptionService.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

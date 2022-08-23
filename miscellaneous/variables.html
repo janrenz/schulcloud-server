@@ -160,6 +160,9 @@
                             <a href="#defaultColumns" title="apps/server/src/shared/domain/entity/dashboard.entity.ts" ><b>defaultColumns</b>&nbsp;&nbsp;&nbsp;(apps/.../dashboard.entity.ts)</a>
                         </li>
                         <li>
+                            <a href="#DefaultEncryptionService" title="apps/server/src/shared/infra/encryption/encryption.interface.ts" ><b>DefaultEncryptionService</b>&nbsp;&nbsp;&nbsp;(apps/.../encryption.interface.ts)</a>
+                        </li>
+                        <li>
                             <a href="#defaultError" title="apps/server/src/shared/infra/identity-management/keycloak/controller/console/keycloak-management.console.ts" ><b>defaultError</b>&nbsp;&nbsp;&nbsp;(apps/.../keycloak-management.console.ts)</a>
                         </li>
                         <li>
@@ -170,6 +173,9 @@
                         </li>
                         <li>
                             <a href="#defaultMikroOrmOptions" title="apps/server/src/modules/management/management-server.module.ts" ><b>defaultMikroOrmOptions</b>&nbsp;&nbsp;&nbsp;(apps/.../management-server.module.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#defaultSecretReplacementHintText" title="apps/server/src/modules/management/uc/database-management.uc.ts" ><b>defaultSecretReplacementHintText</b>&nbsp;&nbsp;&nbsp;(apps/.../database-management.uc.ts)</a>
                         </li>
                         <li>
                             <a href="#defaultVideoConferenceOptions" title="apps/server/src/modules/video-conference/interface/vc-options.interface.ts" ><b>defaultVideoConferenceOptions</b>&nbsp;&nbsp;&nbsp;(apps/.../vc-options.interface.ts)</a>
@@ -280,13 +286,13 @@
                             <a href="#jwtConstants" title="apps/server/src/modules/authentication/constants.ts" ><b>jwtConstants</b>&nbsp;&nbsp;&nbsp;(apps/.../constants.ts)</a>
                         </li>
                         <li>
-                            <a href="#key" title="apps/server/src/modules/oauth/oauth.module.ts" ><b>key</b>&nbsp;&nbsp;&nbsp;(apps/.../oauth.module.ts)</a>
-                        </li>
-                        <li>
                             <a href="#KeycloakManagementInputFiles" title="apps/server/src/shared/infra/identity-management/keycloak/interface/keycloak-management-input-files.interface.ts" ><b>KeycloakManagementInputFiles</b>&nbsp;&nbsp;&nbsp;(apps/.../keycloak-management-input-files.interface.ts)</a>
                         </li>
                         <li>
                             <a href="#KeycloakSettings" title="apps/server/src/shared/infra/identity-management/keycloak/interface/keycloak-settings.interface.ts" ><b>KeycloakSettings</b>&nbsp;&nbsp;&nbsp;(apps/.../keycloak-settings.interface.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#LdapEncryptionService" title="apps/server/src/shared/infra/encryption/encryption.interface.ts" ><b>LdapEncryptionService</b>&nbsp;&nbsp;&nbsp;(apps/.../encryption.interface.ts)</a>
                         </li>
                         <li>
                             <a href="#lessonBoardElementFactory" title="apps/server/src/shared/testing/factory/boardelement.factory.ts" ><b>lessonBoardElementFactory</b>&nbsp;&nbsp;&nbsp;(apps/.../boardelement.factory.ts)</a>
@@ -392,6 +398,9 @@
                         </li>
                         <li>
                             <a href="#storageProviderFactory" title="apps/server/src/shared/testing/factory/storageprovider.factory.ts" ><b>storageProviderFactory</b>&nbsp;&nbsp;&nbsp;(apps/.../storageprovider.factory.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#storageprovidersCollectionName" title="apps/server/src/modules/management/uc/database-management.uc.ts" ><b>storageprovidersCollectionName</b>&nbsp;&nbsp;&nbsp;(apps/.../database-management.uc.ts)</a>
                         </li>
                         <li>
                             <a href="#storageStrategy" title="apps/server/src/shared/infra/collaborative-storage/collaborative-storage-adapter.module.ts" ><b>storageStrategy</b>&nbsp;&nbsp;&nbsp;(apps/.../collaborative-storage-adapter.module.ts)</a>
@@ -1172,6 +1181,7 @@
                         <i>Default value : </i><code>[
 	FileSystemModule,
 	DatabaseManagementModule,
+	LoggerModule,
 	ConfigModule.forRoot({
 		isGlobal: true,
 		validationOptions: { infer: true },
@@ -2547,6 +2557,49 @@ must use @ApiProperty</p>
         </tbody>
     </table>
 </section>
+    <h3>apps/server/src/shared/infra/encryption/encryption.interface.ts</h3>
+    <section>
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="DefaultEncryptionService"></a>
+                    <span class="name">
+                        <span ><b>DefaultEncryptionService</b></span>
+                        <a href="#DefaultEncryptionService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>Symbol(&#x27;DefaultEncryptionService&#x27;)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="LdapEncryptionService"></a>
+                    <span class="name">
+                        <span ><b>LdapEncryptionService</b></span>
+                        <a href="#LdapEncryptionService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>Symbol(&#x27;LdapEncryptionService&#x27;)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
     <h3>apps/server/src/shared/infra/identity-management/keycloak/controller/console/keycloak-management.console.ts</h3>
     <section>
     <h3></h3>    <table class="table table-sm table-bordered">
@@ -2689,6 +2742,87 @@ must use @ApiProperty</p>
 		return new NotFoundException(&#x60;The requested ${entityName}: ${where} has not been found.&#x60;);
 	},
 }</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>apps/server/src/modules/management/uc/database-management.uc.ts</h3>
+    <section>
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="defaultSecretReplacementHintText"></a>
+                    <span class="name">
+                        <span ><b>defaultSecretReplacementHintText</b></span>
+                        <a href="#defaultSecretReplacementHintText"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;replace with secret placeholder&#x27;</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="storageprovidersCollectionName"></a>
+                    <span class="name">
+                        <span ><b>storageprovidersCollectionName</b></span>
+                        <a href="#storageprovidersCollectionName"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;storageproviders&#x27;</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="systemsCollectionName"></a>
+                    <span class="name">
+                        <span ><b>systemsCollectionName</b></span>
+                        <a href="#systemsCollectionName"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;systems&#x27;</code>
                     </td>
                 </tr>
 
@@ -4324,29 +4458,6 @@ You shall not explicitly declare the AMQPConnection in your modules since it wil
         </tbody>
     </table>
 </section>
-    <h3>apps/server/src/modules/oauth/oauth.module.ts</h3>
-    <section>
-    <h3></h3>    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="key"></a>
-                    <span class="name">
-                        <span ><b>key</b></span>
-                        <a href="#key"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Default value : </i><code>Configuration.get(&#x27;AES_KEY&#x27;) as string</code>
-                    </td>
-                </tr>
-
-
-        </tbody>
-    </table>
-</section>
     <h3>apps/server/src/shared/infra/identity-management/keycloak/interface/keycloak-management-input-files.interface.ts</h3>
     <section>
     <h3></h3>    <table class="table table-sm table-bordered">
@@ -5191,35 +5302,6 @@ Teardown: &#39;await orm.close()&#39; in after-hook!</p>
 		provisioningStrategy: SystemProvisioningStrategy.PLACEHOLDER,
 	};
 })</code>
-                    </td>
-                </tr>
-
-
-        </tbody>
-    </table>
-</section>
-    <h3>apps/server/src/modules/management/uc/database-management.uc.ts</h3>
-    <section>
-    <h3></h3>    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="systemsCollectionName"></a>
-                    <span class="name">
-                        <span ><b>systemsCollectionName</b></span>
-                        <a href="#systemsCollectionName"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Default value : </i><code>&#x27;systems&#x27;</code>
                     </td>
                 </tr>
 

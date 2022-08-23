@@ -28,7 +28,7 @@
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
-               <div class="content injectable">
+               <div class="content class">
                    <div class="content-data">
 
 
@@ -38,9 +38,13 @@
 
 
 
+
+
+
+
 <ol class="breadcrumb">
-  <li>Injectables</li>
-  <li >SymetricKeyEncryptionService</li>
+  <li>Classes</li>
+  <li >OidcIdentityProviderMapper</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -58,8 +62,9 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/shared/infra/encryption/encryption.service.ts</code>
+            <code>apps/server/src/shared/infra/identity-management/keycloak/mapper/identity-provider.mapper.ts</code>
         </p>
+
 
 
 
@@ -80,11 +85,7 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#decrypt" >decrypt</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Public</span>
-                                <a href="#encrypt" >encrypt</a>
+                                <a href="#mapToKeycloakIdentityProvider" >mapToKeycloakIdentityProvider</a>
                             </li>
                         </ul>
                     </td>
@@ -104,12 +105,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(logger: <a href="../injectables/Logger.html" target="_self">Logger</a>, key?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+<code>constructor(defaultEncryptionService: <a href="../interfaces/IEncryptionService.html" target="_self">IEncryptionService</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">apps/server/src/shared/infra/encryption/encryption.service.ts:8</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="6" class="link-to-prism">apps/server/src/shared/infra/identity-management/keycloak/mapper/identity-provider.mapper.ts:6</a></div>
                             </td>
                         </tr>
 
@@ -127,26 +128,14 @@
                                         </thead>
                                         <tbody>
                                                 <tr>
-                                                        <td>logger</td>
+                                                        <td>defaultEncryptionService</td>
                                                   
                                                         <td>
-                                                                        <code><a href="../injectables/Logger.html" target="_self" >Logger</a></code>
+                                                                        <code><a href="../interfaces/IEncryptionService.html" target="_self" >IEncryptionService</a></code>
                                                         </td>
                                                   
                                                     <td>
                                                             No
-                                                    </td>
-                                                    
-                                                </tr>
-                                                <tr>
-                                                        <td>key</td>
-                                                  
-                                                        <td>
-                                                                        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            Yes
                                                     </td>
                                                     
                                                 </tr>
@@ -159,6 +148,7 @@
         </table>
 </section>
 
+
             <section>
     
     <h3 id="methods">
@@ -168,26 +158,26 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="decrypt"></a>
+                    <a name="mapToKeycloakIdentityProvider"></a>
                     <span class="name">
                         <span class="modifier">Public</span>
-                        <span ><b>decrypt</b></span>
-                        <a href="#decrypt"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>mapToKeycloakIdentityProvider</b></span>
+                        <a href="#mapToKeycloakIdentityProvider"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>decrypt(data: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    <code>mapToKeycloakIdentityProvider(system: <a href="../interfaces/IOidcIdentityProviderConfig.html" target="_self">IOidcIdentityProviderConfig</a>, flowAlias: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="23"
-                            class="link-to-prism">apps/server/src/shared/infra/encryption/encryption.service.ts:23</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="9"
+                            class="link-to-prism">apps/server/src/shared/infra/identity-management/keycloak/mapper/identity-provider.mapper.ts:9</a></div>
                 </td>
             </tr>
 
@@ -208,7 +198,19 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>data</td>
+                                    <td>system</td>
+                                    <td>
+                                                <code><a href="../interfaces/IOidcIdentityProviderConfig.html" target="_self" >IOidcIdentityProviderConfig</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>flowAlias</td>
                                     <td>
                                                 <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
                                     </td>
@@ -225,78 +227,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="encrypt"></a>
-                    <span class="name">
-                        <span class="modifier">Public</span>
-                        <span ><b>encrypt</b></span>
-                        <a href="#encrypt"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>encrypt(data: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="15"
-                            class="link-to-prism">apps/server/src/shared/infra/encryption/encryption.service.ts:15</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>data</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                        <b>Returns : </b>    <code>IdentityProviderRepresentation</code>
 
                     </div>
                     <div class="io-description">
@@ -308,48 +239,51 @@
     </table>
 </section>
 
+
+
+
+
     </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import CryptoJs from &#x27;crypto-js&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import IdentityProviderRepresentation from &#x27;@keycloak/keycloak-admin-client/lib/defs/identityProviderRepresentation&#x27;;
+import { Inject } from &#x27;@nestjs/common&#x27;;
+import { DefaultEncryptionService, IEncryptionService } from &#x27;@shared/infra/encryption&#x27;;
+import { IOidcIdentityProviderConfig } from &#x27;../interface&#x27;;
 
-import { Injectable } from &#x27;@nestjs/common&#x27;;
-import { Logger } from &#x27;@src/core/logger&#x27;;
-import { IEncryptionService } from &#x27;./encryption.interface&#x27;;
+export class OidcIdentityProviderMapper {
+	constructor(@Inject(DefaultEncryptionService) private readonly defaultEncryptionService: IEncryptionService) {}
 
-@Injectable()
-export class SymetricKeyEncryptionService implements IEncryptionService {
-	constructor(private logger: Logger, private key?: string) {
-		if (!this.key) {
-			this.logger.warn(&#x27;No AES key defined. Encryption will no work&#x27;);
-		}
-	}
-
-	public encrypt(data: string): string {
-		if (!this.key) {
-			this.logger.warn(&#x27;No AES key defined. Will return plain text&#x27;);
-			return data;
-		}
-		return CryptoJs.AES.encrypt(data, this.key).toString();
-	}
-
-	public decrypt(data: string): string {
-		if (!this.key) {
-			this.logger.warn(&#x27;No AES key defined. Will return plain text&#x27;);
-			return data;
-		}
-		return CryptoJs.AES.decrypt(data, this.key).toString(CryptoJs.enc.Utf8);
+	public mapToKeycloakIdentityProvider(
+		system: IOidcIdentityProviderConfig,
+		flowAlias: string
+	): IdentityProviderRepresentation {
+		return {
+			providerId: system.type,
+			alias: system.alias,
+			enabled: true,
+			firstBrokerLoginFlowAlias: flowAlias,
+			config: {
+				clientId: this.defaultEncryptionService.decrypt(system.config.clientId),
+				clientSecret: this.defaultEncryptionService.decrypt(system.config.clientSecret),
+				authorizationUrl: system.config.authorizationUrl,
+				tokenUrl: system.config.tokenUrl,
+				logoutUrl: system.config.logoutUrl,
+				userInfoUrl: system.config.userinfoUrl,
+				defaultScope: system.config.defaultScopes,
+				syncMode: &#x27;IMPORT&#x27;,
+				sync_mode: &#x27;import&#x27;,
+				clientAuthMethod: &#x27;client_secret_post&#x27;,
+				backchannelSupported: &#x27;true&#x27;,
+				prompt: &#x27;login&#x27;,
+			},
+		};
 	}
 }
 </code></pre>
     </div>
-
 </div>
-
-
-
-
 
 
 
@@ -384,8 +318,8 @@ export class SymetricKeyEncryptionService implements IEncryptionService {
 
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
-            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
-            var COMPODOC_CURRENT_PAGE_URL = 'SymetricKeyEncryptionService.html';
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
+            var COMPODOC_CURRENT_PAGE_URL = 'OidcIdentityProviderMapper.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 
