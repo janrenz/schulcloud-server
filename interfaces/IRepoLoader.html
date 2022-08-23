@@ -184,12 +184,12 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable, NotImplementedException } from &#x27;@nestjs/common&#x27;;
-import { Course, EntityId, Lesson, School, Task, Team, User } from &#x27;@shared/domain&#x27;;
-import { CourseRepo, LessonRepo, SchoolRepo, TaskRepo, TeamsRepo, UserRepo } from &#x27;@shared/repo&#x27;;
+import { Course, CourseGroup, EntityId, Lesson, School, Task, Team, User } from &#x27;@shared/domain&#x27;;
+import { CourseGroupRepo, CourseRepo, LessonRepo, SchoolRepo, TaskRepo, TeamsRepo, UserRepo } from &#x27;@shared/repo&#x27;;
 import { AllowedAuthorizationEntityType } from &#x27;./interfaces&#x27;;
 
-type RepoType &#x3D; TaskRepo | CourseRepo | UserRepo | SchoolRepo | LessonRepo | TeamsRepo;
-export type ReferenceEntityType &#x3D; Task | Course | User | School | Lesson | Team;
+type RepoType &#x3D; TaskRepo | CourseRepo | UserRepo | SchoolRepo | LessonRepo | TeamsRepo | CourseGroupRepo;
+export type ReferenceEntityType &#x3D; Task | Course | User | School | Lesson | Team | CourseGroup;
 
 interface IRepoLoader {
 	repo: RepoType;
@@ -203,6 +203,7 @@ export class ReferenceLoader {
 	constructor(
 		private readonly userRepo: UserRepo,
 		private readonly courseRepo: CourseRepo,
+		private readonly courseGroupRepo: CourseGroupRepo,
 		private readonly taskRepo: TaskRepo,
 		private readonly schoolRepo: SchoolRepo,
 		private readonly lessonRepo: LessonRepo,
@@ -210,6 +211,7 @@ export class ReferenceLoader {
 	) {
 		this.repos.set(AllowedAuthorizationEntityType.Task, { repo: this.taskRepo });
 		this.repos.set(AllowedAuthorizationEntityType.Course, { repo: this.courseRepo });
+		this.repos.set(AllowedAuthorizationEntityType.CourseGroup, { repo: this.courseGroupRepo });
 		this.repos.set(AllowedAuthorizationEntityType.User, { repo: this.userRepo, populate: true });
 		this.repos.set(AllowedAuthorizationEntityType.School, { repo: this.schoolRepo });
 		this.repos.set(AllowedAuthorizationEntityType.Lesson, { repo: this.lessonRepo });

@@ -153,7 +153,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/BasePermission.html#source" target="_self" >BasePermission:14</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/BasePermission.html#source" target="_self" >BasePermission:12</a></code>
 </div>
                 </td>
             </tr>
@@ -241,7 +241,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>isApplicable(user: <a href="../interfaces/User.html" target="_self">User</a>, entity: <a href="../entitys/Team.html" target="_self">Team</a>, context?: <a href="../interfaces/IPermissionContext.html" target="_self">IPermissionContext</a>)</code>
+                    <code>isApplicable(user: <a href="../interfaces/User.html" target="_self">User</a>, entity: <a href="../entitys/Team.html" target="_self">Team</a>)</code>
                 </td>
             </tr>
 
@@ -254,7 +254,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/BasePermission.html#source" target="_self" >BasePermission:10</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/BasePermission.html#source" target="_self" >BasePermission:8</a></code>
 </div>
                 </td>
             </tr>
@@ -295,18 +295,6 @@
 
                                     <td>
                                         No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>context</td>
-                                    <td>
-                                                <code><a href="../interfaces/IPermissionContext.html" target="_self" >IPermissionContext</a></code>
-                                    </td>
-
-                                    <td>
-                                        Yes
                                     </td>
 
 
@@ -372,31 +360,29 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable, InternalServerErrorException } from &#x27;@nestjs/common&#x27;;
-import { BasePermission } from &#x27;@shared/domain/rules/base-permission&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
 import { Team, TeamUser, User } from &#x27;@shared/domain/entity&#x27;;
 import { IPermissionContext } from &#x27;@shared/domain/interface&#x27;;
+import { BasePermission } from &#x27;@shared/domain/rules/base-permission&#x27;;
 
 @Injectable()
 export class TeamRule extends BasePermission&lt;Team&gt; {
-	// defined by Basetype
-	// eslint-disable-next-line @typescript-eslint/no-unused-vars
-	public isApplicable(user: User, entity: Team, context?: IPermissionContext): boolean {
+	public isApplicable(user: User, entity: Team): boolean {
 		return entity instanceof Team;
 	}
 
 	public hasPermission(user: User, entity: Team, context: IPermissionContext): boolean {
-		const resultTeamUser: TeamUser | undefined &#x3D; entity.teamUsers.find(
-			(teamUser: TeamUser) &#x3D;&gt; teamUser.user.id &#x3D;&#x3D;&#x3D; user.id
-		);
+		let hasPermission &#x3D; false;
+		entity.teamUsers.forEach((teamUser: TeamUser) &#x3D;&gt; {
+			if (
+				this.utils.hasAccessToEntity(user, teamUser, [&#x27;user&#x27;]) &amp;&amp;
+				this.utils.hasAllPermissions(user, context.requiredPermissions)
+			) {
+				hasPermission &#x3D; true;
+			}
+		});
 
-		if (!resultTeamUser) {
-			throw new InternalServerErrorException(&#x27;Cannot find user in team&#x27;);
-		}
-
-		const permissions: string[] &#x3D; this.utils.resolveTeamPermissions(resultTeamUser);
-
-		return context.requiredPermissions.every((permission) &#x3D;&gt; permissions.includes(permission));
+		return hasPermission;
 	}
 }
 </code></pre>

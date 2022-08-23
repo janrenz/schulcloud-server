@@ -192,15 +192,21 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/AuthorizationModule.html" data-type="entity-link" >AuthorizationModule</a>
                                 <li class="chapter inner">
                                     <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                        'data-target="#injectables-links-module-AuthorizationModule-df667bf945ad74997e22d7a5c0b007e6de3df22d3c3894d8893a1dca0654a44b7588d4997117b7d7c7bd182c8bc3b5d4f4349c6bb3a46def03340c3f6bf43e2a"' : 'data-target="#xs-injectables-links-module-AuthorizationModule-df667bf945ad74997e22d7a5c0b007e6de3df22d3c3894d8893a1dca0654a44b7588d4997117b7d7c7bd182c8bc3b5d4f4349c6bb3a46def03340c3f6bf43e2a"' }>
+                                        'data-target="#injectables-links-module-AuthorizationModule-10c53f51d782c5a36933088373ba8d178a66c8974587a8372d714978f5c2c6d45a2145410a83c296b6b0d85efefe9e2677aaa3c745a142ccbefe4c87effadc2b"' : 'data-target="#xs-injectables-links-module-AuthorizationModule-10c53f51d782c5a36933088373ba8d178a66c8974587a8372d714978f5c2c6d45a2145410a83c296b6b0d85efefe9e2677aaa3c745a142ccbefe4c87effadc2b"' }>
                                         <span class="icon ion-md-arrow-round-down"></span>
                                         <span>Injectables</span>
                                         <span class="icon ion-ios-arrow-down"></span>
                                     </div>
-                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-AuthorizationModule-df667bf945ad74997e22d7a5c0b007e6de3df22d3c3894d8893a1dca0654a44b7588d4997117b7d7c7bd182c8bc3b5d4f4349c6bb3a46def03340c3f6bf43e2a"' :
-                                        'id="xs-injectables-links-module-AuthorizationModule-df667bf945ad74997e22d7a5c0b007e6de3df22d3c3894d8893a1dca0654a44b7588d4997117b7d7c7bd182c8bc3b5d4f4349c6bb3a46def03340c3f6bf43e2a"' }>
+                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-AuthorizationModule-10c53f51d782c5a36933088373ba8d178a66c8974587a8372d714978f5c2c6d45a2145410a83c296b6b0d85efefe9e2677aaa3c745a142ccbefe4c87effadc2b"' :
+                                        'id="xs-injectables-links-module-AuthorizationModule-10c53f51d782c5a36933088373ba8d178a66c8974587a8372d714978f5c2c6d45a2145410a83c296b6b0d85efefe9e2677aaa3c745a142ccbefe4c87effadc2b"' }>
                                         <li class="link">
                                             <a href="injectables/AuthorizationService.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >AuthorizationService</a>
+                                        </li>
+                                        <li class="link">
+                                            <a href="injectables/CourseGroupRepo.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >CourseGroupRepo</a>
+                                        </li>
+                                        <li class="link">
+                                            <a href="injectables/CourseGroupRule.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >CourseGroupRule</a>
                                         </li>
                                         <li class="link">
                                             <a href="injectables/CourseRepo.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >CourseRepo</a>
@@ -1540,9 +1546,6 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/Builder.html" data-type="entity-link" >Builder</a>
                             </li>
                             <li class="link">
-                                <a href="classes/Builder-1.html" data-type="entity-link" >Builder</a>
-                            </li>
-                            <li class="link">
                                 <a href="classes/BusinessError.html" data-type="entity-link" >BusinessError</a>
                             </li>
                             <li class="link">
@@ -1826,6 +1829,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="classes/PatchVisibilityParams.html" data-type="entity-link" >PatchVisibilityParams</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/PermissionContextBuilder.html" data-type="entity-link" >PermissionContextBuilder</a>
                             </li>
                             <li class="link">
                                 <a href="classes/PlaceholderResponse.html" data-type="entity-link" >PlaceholderResponse</a>
@@ -2199,6 +2205,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 </li>
                                 <li class="link">
                                     <a href="injectables/CourseGroupRepo.html" data-type="entity-link" >CourseGroupRepo</a>
+                                </li>
+                                <li class="link">
+                                    <a href="injectables/CourseGroupRule.html" data-type="entity-link" >CourseGroupRule</a>
                                 </li>
                                 <li class="link">
                                     <a href="injectables/CourseRepo.html" data-type="entity-link" >CourseRepo</a>

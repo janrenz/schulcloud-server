@@ -143,6 +143,7 @@ import { InternalServerErrorException } from &#x27;@nestjs/common&#x27;;
 import { ILearnroomElement } from &#x27;@shared/domain/interface&#x27;;
 import { BaseEntityWithTimestamps } from &#x27;./base.entity&#x27;;
 import type { Course } from &#x27;./course.entity&#x27;;
+import { CourseGroup } from &#x27;./coursegroup.entity&#x27;;
 import { Material } from &#x27;./materials.entity&#x27;;
 import { Task } from &#x27;./task.entity&#x27;;
 
@@ -150,6 +151,7 @@ export interface ILessonProperties {
 	name: string;
 	hidden: boolean;
 	course: Course;
+	courseGroup?: CourseGroup;
 	position?: number;
 	contents: IComponentProperties[] | [];
 	materials?: Material[];
@@ -227,6 +229,9 @@ export class Lesson extends BaseEntityWithTimestamps implements ILearnroomElemen
 	@ManyToOne(&#x27;Course&#x27;, { fieldName: &#x27;courseId&#x27; })
 	course: Course;
 
+	@ManyToOne(&#x27;CourseGroup&#x27;, { fieldName: &#x27;courseGroupId&#x27;, nullable: true })
+	courseGroup?: CourseGroup;
+
 	@Property()
 	position: number;
 
@@ -244,6 +249,7 @@ export class Lesson extends BaseEntityWithTimestamps implements ILearnroomElemen
 		this.name &#x3D; props.name;
 		if (props.hidden !&#x3D;&#x3D; undefined) this.hidden &#x3D; props.hidden;
 		this.course &#x3D; props.course;
+		this.courseGroup &#x3D; props.courseGroup;
 		this.position &#x3D; props.position || 0;
 		this.contents &#x3D; props.contents;
 		if (props.materials) this.materials.set(props.materials);

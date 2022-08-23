@@ -84,7 +84,6 @@
                         <td class="col-md-4">
                             <ul class="index-list">
                                 <li>
-                                            <span class="modifier">Optional</span>
                                         <a href="#action" 
 >
                                             action
@@ -134,11 +133,6 @@
                                         </td>
                                     </tr>
 
-                                    <tr>
-                                        <td class="col-md-4">
-                                            <i>Optional</i>
-                                        </td>
-                                    </tr>
 
 
 
@@ -184,12 +178,12 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Actions } from &#x27;@shared/domain/rules/actions.enum&#x27;;
-import { Permission } from &#x27;./permission.enum&#x27;;
 import type { BaseEntity, User } from &#x27;../entity&#x27;;
 import { BaseDomainObject } from &#x27;./base-domain-object&#x27;;
+import { Permission } from &#x27;./permission.enum&#x27;;
 
 export interface IPermissionContext {
-	action?: Actions;
+	action: Actions;
 	requiredPermissions: Permission[];
 }
 

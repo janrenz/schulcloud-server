@@ -119,7 +119,7 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(userRepo: <a href="../injectables/UserRepo.html" target="_self">UserRepo</a>, courseRepo: <a href="../injectables/CourseRepo.html" target="_self">CourseRepo</a>, taskRepo: <a href="../injectables/TaskRepo.html" target="_self">TaskRepo</a>, schoolRepo: <a href="../injectables/SchoolRepo.html" target="_self">SchoolRepo</a>, lessonRepo: <a href="../injectables/LessonRepo.html" target="_self">LessonRepo</a>, teamsRepo: <a href="../injectables/TeamsRepo.html" target="_self">TeamsRepo</a>)</code>
+<code>constructor(userRepo: <a href="../injectables/UserRepo.html" target="_self">UserRepo</a>, courseRepo: <a href="../injectables/CourseRepo.html" target="_self">CourseRepo</a>, courseGroupRepo: <a href="../injectables/CourseGroupRepo.html" target="_self">CourseGroupRepo</a>, taskRepo: <a href="../injectables/TaskRepo.html" target="_self">TaskRepo</a>, schoolRepo: <a href="../injectables/SchoolRepo.html" target="_self">SchoolRepo</a>, lessonRepo: <a href="../injectables/LessonRepo.html" target="_self">LessonRepo</a>, teamsRepo: <a href="../injectables/TeamsRepo.html" target="_self">TeamsRepo</a>)</code>
                     </td>
                 </tr>
                         <tr>
@@ -158,6 +158,18 @@
                                                   
                                                         <td>
                                                                         <code><a href="../injectables/CourseRepo.html" target="_self" >CourseRepo</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>courseGroupRepo</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/CourseGroupRepo.html" target="_self" >CourseGroupRepo</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -249,8 +261,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="42"
-                            class="link-to-prism">apps/server/src/modules/authorization/reference.loader.ts:42</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="44"
+                            class="link-to-prism">apps/server/src/modules/authorization/reference.loader.ts:44</a></div>
                 </td>
             </tr>
 
@@ -332,8 +344,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="34"
-                            class="link-to-prism">apps/server/src/modules/authorization/reference.loader.ts:34</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="36"
+                            class="link-to-prism">apps/server/src/modules/authorization/reference.loader.ts:36</a></div>
                 </td>
             </tr>
 
@@ -426,12 +438,12 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable, NotImplementedException } from &#x27;@nestjs/common&#x27;;
-import { Course, EntityId, Lesson, School, Task, Team, User } from &#x27;@shared/domain&#x27;;
-import { CourseRepo, LessonRepo, SchoolRepo, TaskRepo, TeamsRepo, UserRepo } from &#x27;@shared/repo&#x27;;
+import { Course, CourseGroup, EntityId, Lesson, School, Task, Team, User } from &#x27;@shared/domain&#x27;;
+import { CourseGroupRepo, CourseRepo, LessonRepo, SchoolRepo, TaskRepo, TeamsRepo, UserRepo } from &#x27;@shared/repo&#x27;;
 import { AllowedAuthorizationEntityType } from &#x27;./interfaces&#x27;;
 
-type RepoType &#x3D; TaskRepo | CourseRepo | UserRepo | SchoolRepo | LessonRepo | TeamsRepo;
-export type ReferenceEntityType &#x3D; Task | Course | User | School | Lesson | Team;
+type RepoType &#x3D; TaskRepo | CourseRepo | UserRepo | SchoolRepo | LessonRepo | TeamsRepo | CourseGroupRepo;
+export type ReferenceEntityType &#x3D; Task | Course | User | School | Lesson | Team | CourseGroup;
 
 interface IRepoLoader {
 	repo: RepoType;
@@ -445,6 +457,7 @@ export class ReferenceLoader {
 	constructor(
 		private readonly userRepo: UserRepo,
 		private readonly courseRepo: CourseRepo,
+		private readonly courseGroupRepo: CourseGroupRepo,
 		private readonly taskRepo: TaskRepo,
 		private readonly schoolRepo: SchoolRepo,
 		private readonly lessonRepo: LessonRepo,
@@ -452,6 +465,7 @@ export class ReferenceLoader {
 	) {
 		this.repos.set(AllowedAuthorizationEntityType.Task, { repo: this.taskRepo });
 		this.repos.set(AllowedAuthorizationEntityType.Course, { repo: this.courseRepo });
+		this.repos.set(AllowedAuthorizationEntityType.CourseGroup, { repo: this.courseGroupRepo });
 		this.repos.set(AllowedAuthorizationEntityType.User, { repo: this.userRepo, populate: true });
 		this.repos.set(AllowedAuthorizationEntityType.School, { repo: this.schoolRepo });
 		this.repos.set(AllowedAuthorizationEntityType.Lesson, { repo: this.lessonRepo });
