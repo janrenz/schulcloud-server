@@ -80,11 +80,11 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Async</span>
-                                <a href="#createLessonBackUpCollection" >createLessonBackUpCollection</a>
+                                <a href="#createBackUpCollection" >createBackUpCollection</a>
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
-                                <a href="#findEmbeddedFilesForLessons" >findEmbeddedFilesForLessons</a>
+                                <a href="#findElementsToSyncFiles" >findElementsToSyncFiles</a>
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
@@ -92,11 +92,7 @@
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
-                                <a href="#findLesson" >findLesson</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Async</span>
-                                <a href="#updateLesson" >updateLesson</a>
+                                <a href="#updateEntity" >updateEntity</a>
                             </li>
                         </ul>
                     </td>
@@ -121,7 +117,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="107" class="link-to-prism">apps/server/src/modules/files/repo/embedded-files.repo.ts:107</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="105" class="link-to-prism">apps/server/src/modules/files/repo/embedded-files.repo.ts:105</a></div>
                             </td>
                         </tr>
 
@@ -168,26 +164,26 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="createLessonBackUpCollection"></a>
+                    <a name="createBackUpCollection"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
-                        <span ><b>createLessonBackUpCollection</b></span>
-                        <a href="#createLessonBackUpCollection"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>createBackUpCollection</b></span>
+                        <a href="#createBackUpCollection"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>createLessonBackUpCollection()</code>
+                    <code>createBackUpCollection(type: <a href="../undefineds/AvailableSyncParentType.html" target="_self">AvailableSyncParentType</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="139"
-                            class="link-to-prism">apps/server/src/modules/files/repo/embedded-files.repo.ts:139</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="137"
+                            class="link-to-prism">apps/server/src/modules/files/repo/embedded-files.repo.ts:137</a></div>
                 </td>
             </tr>
 
@@ -196,8 +192,40 @@
                 <td class="col-md-4">
 
                     <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>type</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#AvailableSyncParentType" target="_self" >AvailableSyncParentType</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
 
+                    </div>
+                    <div class="io-description">
+                        
                     </div>
                 </td>
             </tr>
@@ -207,26 +235,26 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="findEmbeddedFilesForLessons"></a>
+                    <a name="findElementsToSyncFiles"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
-                        <span ><b>findEmbeddedFilesForLessons</b></span>
-                        <a href="#findEmbeddedFilesForLessons"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>findElementsToSyncFiles</b></span>
+                        <a href="#findElementsToSyncFiles"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>findEmbeddedFilesForLessons()</code>
+                    <code>findElementsToSyncFiles(type: <a href="../undefineds/AvailableSyncParentType.html" target="_self">AvailableSyncParentType</a>, limit: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, excludeIds: ObjectId[])</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="110"
-                            class="link-to-prism">apps/server/src/modules/files/repo/embedded-files.repo.ts:110</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="108"
+                            class="link-to-prism">apps/server/src/modules/files/repo/embedded-files.repo.ts:108</a></div>
                 </td>
             </tr>
 
@@ -235,8 +263,64 @@
                 <td class="col-md-4">
 
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../entitys/Lesson.html" target="_self" >Promise&lt;Lesson[]&gt;</a></code>
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>type</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#AvailableSyncParentType" target="_self" >AvailableSyncParentType</a></code>
+                                    </td>
 
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>limit</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>excludeIds</td>
+                                    <td>
+                                            <code>ObjectId[]</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#Counted" target="_self" >Promise&lt;Counted&lt;[] | []&gt;&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
                     </div>
                 </td>
             </tr>
@@ -264,8 +348,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="119"
-                            class="link-to-prism">apps/server/src/modules/files/repo/embedded-files.repo.ts:119</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="123"
+                            class="link-to-prism">apps/server/src/modules/files/repo/embedded-files.repo.ts:123</a></div>
                 </td>
             </tr>
 
@@ -341,26 +425,26 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="findLesson"></a>
+                    <a name="updateEntity"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
-                        <span ><b>findLesson</b></span>
-                        <a href="#findLesson"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>updateEntity</b></span>
+                        <a href="#updateEntity"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>findLesson(_id: ObjectId)</code>
+                    <code>updateEntity(entity: <a href="../undefineds/AvailableSyncEntityType.html" target="_self">AvailableSyncEntityType</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="129"
-                            class="link-to-prism">apps/server/src/modules/files/repo/embedded-files.repo.ts:129</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="133"
+                            class="link-to-prism">apps/server/src/modules/files/repo/embedded-files.repo.ts:133</a></div>
                 </td>
             </tr>
 
@@ -381,80 +465,9 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>_id</td>
+                                    <td>entity</td>
                                     <td>
-                                            <code>ObjectId</code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>    <code>unknown</code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="updateLesson"></a>
-                    <span class="name">
-                        <span class="modifier">Async</span>
-                        <span ><b>updateLesson</b></span>
-                        <a href="#updateLesson"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>updateLesson(lesson: <a href="../entitys/Lesson.html" target="_self">Lesson</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="135"
-                            class="link-to-prism">apps/server/src/modules/files/repo/embedded-files.repo.ts:135</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>lesson</td>
-                                    <td>
-                                                <code><a href="../entitys/Lesson.html" target="_self" >Lesson</a></code>
+                                                <code><a href="../miscellaneous/typealiases.html#AvailableSyncEntityType" target="_self" >AvailableSyncEntityType</a></code>
                                     </td>
 
                                     <td>
@@ -485,31 +498,29 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { EntityManager, ObjectId } from &#x27;@mikro-orm/mongodb&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { FilterQuery } from &#x27;@mikro-orm/core&#x27;;
+import { EntityManager, ObjectId } from &#x27;@mikro-orm/mongodb&#x27;;
 import { Injectable } from &#x27;@nestjs/common&#x27;;
-import { File, FileRecordParentType, Lesson } from &#x27;@shared/domain&#x27;;
+import { Counted, File, FileRecordParentType, Lesson, Task } from &#x27;@shared/domain&#x27;;
 import { SyncFileItemMapper } from &#x27;../mapper&#x27;;
-import { LessonMapper } from &#x27;../mapper/lesson-mapper&#x27;;
-import { SyncFileItem } from &#x27;../types&#x27;;
+import { AvailableSyncEntityType, AvailableSyncParentType, SyncFileItem } from &#x27;../types&#x27;;
 
 export const fileUrlRegex &#x3D; &#x27;&quot;(https?://[^&quot;]*)?/files/file\\?file&#x3D;&#x27;;
-const lessonsQuery &#x3D; [
-	{
-		$match: {
-			&#x27;contents.component&#x27;: {
-				$eq: &#x27;text&#x27;,
-			},
-		},
-	},
-	{
-		$match: {
-			&#x27;contents.content.text&#x27;: {
-				$regex: new RegExp(&#x60;src&#x3D;${fileUrlRegex}&#x60;),
-				$options: &#x27;i&#x27;,
-			},
-		},
-	},
-];
+const fileIdRegex &#x3D; &#x27;(0x|0h)?[0-9A-F]{24}&#x27;;
+const tasksQuery &#x3D; (excludeIds: ObjectId[]) &#x3D;&gt; {
+	return {
+		_id: { $nin: excludeIds },
+		description: new RegExp(&#x60;src&#x3D;${fileUrlRegex}${fileIdRegex}&#x60;, &#x27;i&#x27;),
+	};
+};
+
+const lessonsQuery &#x3D; (excludeIds: ObjectId[]) &#x3D;&gt; {
+	return {
+		_id: { $nin: excludeIds },
+		&#x27;contents.component&#x27;: { $eq: &#x27;text&#x27; },
+		&#x27;contents.content.text&#x27;: { $regex: new RegExp(&#x60;src&#x3D;${fileUrlRegex}${fileIdRegex}&#x60;, &#x27;i&#x27;) },
+	} as FilterQuery&lt;Lesson&gt;;
+};
 
 const filesQuery &#x3D; (fileIds: ObjectId[], parentId: ObjectId) &#x3D;&gt; [
 	{
@@ -593,13 +604,19 @@ const filesQuery &#x3D; (fileIds: ObjectId[], parentId: ObjectId) &#x3D;&gt; [
 export class EmbeddedFilesRepo {
 	constructor(protected readonly _em: EntityManager) {}
 
-	async findEmbeddedFilesForLessons(): Promise&lt;Lesson[]&gt; {
-		const results &#x3D; await this._em.aggregate(Lesson, lessonsQuery);
+	async findElementsToSyncFiles(
+		type: AvailableSyncParentType,
+		limit: number,
+		excludeIds: ObjectId[]
+	): Promise&lt;Counted&lt;Task[] | Lesson[]&gt;&gt; {
+		let results: Counted&lt;Task[] | Lesson[]&gt; &#x3D; [[], 0];
 
-		// eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-		const lessons &#x3D; results.map((result) &#x3D;&gt; LessonMapper.mapToLesson(result));
-
-		return lessons;
+		if (type &#x3D;&#x3D;&#x3D; FileRecordParentType.Task) {
+			results &#x3D; await this._em.findAndCount(Task, tasksQuery(excludeIds), { limit });
+		} else if (type &#x3D;&#x3D;&#x3D; FileRecordParentType.Lesson) {
+			results &#x3D; await this._em.findAndCount(Lesson, lessonsQuery(excludeIds), { limit });
+		}
+		return results;
 	}
 
 	async findFiles(fileIds: ObjectId[], parentId: ObjectId, parentType: FileRecordParentType): Promise&lt;SyncFileItem[]&gt; {
@@ -612,20 +629,18 @@ export class EmbeddedFilesRepo {
 		return items;
 	}
 
-	async findLesson(_id: ObjectId) {
-		const result &#x3D; await this._em.findOne(Lesson, { _id });
-
-		return result;
+	async updateEntity(entity: AvailableSyncEntityType) {
+		await this._em.persistAndFlush(entity);
 	}
 
-	async updateLesson(lesson: Lesson) {
-		await this._em.persistAndFlush(lesson);
-	}
-
-	async createLessonBackUpCollection() {
+	async createBackUpCollection(type: AvailableSyncParentType) {
 		const date &#x3D; new Date();
 
-		await this._em.aggregate(Lesson, [{ $match: {} }, { $out: &#x60;lessons_backup_${date.getTime()}&#x60; }]);
+		if (type &#x3D;&#x3D;&#x3D; FileRecordParentType.Task) {
+			await this._em.aggregate(Task, [{ $match: {} }, { $out: &#x60;homeworks_backup_${date.getTime()}&#x60; }]);
+		} else if (type &#x3D;&#x3D;&#x3D; FileRecordParentType.Lesson) {
+			await this._em.aggregate(Lesson, [{ $match: {} }, { $out: &#x60;lessons_backup_${date.getTime()}&#x60; }]);
+		}
 	}
 }
 </code></pre>

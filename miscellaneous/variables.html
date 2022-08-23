@@ -217,6 +217,9 @@
                             <a href="#fileFactory" title="apps/server/src/shared/testing/factory/file.factory.ts" ><b>fileFactory</b>&nbsp;&nbsp;&nbsp;(apps/.../file.factory.ts)</a>
                         </li>
                         <li>
+                            <a href="#fileIdRegex" title="apps/server/src/modules/files/repo/embedded-files.repo.ts" ><b>fileIdRegex</b>&nbsp;&nbsp;&nbsp;(apps/.../embedded-files.repo.ts)</a>
+                        </li>
+                        <li>
                             <a href="#fileRecordFactory" title="apps/server/src/shared/testing/factory/filerecord.factory.ts" ><b>fileRecordFactory</b>&nbsp;&nbsp;&nbsp;(apps/.../filerecord.factory.ts)</a>
                         </li>
                         <li>
@@ -428,6 +431,9 @@
                         </li>
                         <li>
                             <a href="#taskFactory" title="apps/server/src/shared/testing/factory/task.factory.ts" ><b>taskFactory</b>&nbsp;&nbsp;&nbsp;(apps/.../task.factory.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#tasksQuery" title="apps/server/src/modules/files/repo/embedded-files.repo.ts" ><b>tasksQuery</b>&nbsp;&nbsp;&nbsp;(apps/.../embedded-files.repo.ts)</a>
                         </li>
                         <li>
                             <a href="#tasksQuery" title="apps/server/src/modules/files/repo/orphaned-files.repo.ts" ><b>tasksQuery</b>&nbsp;&nbsp;&nbsp;(apps/.../orphaned-files.repo.ts)</a>
@@ -1578,6 +1584,8 @@ toJSON: () =&gt; object;
 		// The two paths below regarding the file-sync-job are added because istanbul-ignore-file is somehow not working on them. They can be removed when the job is done.
 		&#x27;apps/server/src/modules/files/mapper&#x27;,
 		&#x27;apps/server/src/modules/files/types&#x27;,
+		&#x27;apps/server/src/modules/files/repo&#x27;,
+		&#x27;apps/server/src/modules/files/uc&#x27;,
 		&#x27;apps/server/src/modules/files-storage-client/filesStorageApi&#x27;,
 		// TODO: Will be removed with ticket N21-138. Is also defined as acceptance criteria.
 		&#x27;apps/server/src/modules/provisioning/strategy/placeholder&#x27;,
@@ -3805,43 +3813,35 @@ it should ensure an empty result</p>
         </tbody>
     </table>
 </section>
-    <h3>apps/server/src/shared/testing/factory/filerecord.factory.ts</h3>
+    <h3>apps/server/src/modules/files/repo/embedded-files.repo.ts</h3>
     <section>
     <h3></h3>    <table class="table table-sm table-bordered">
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="fileRecordFactory"></a>
+                    <a name="fileIdRegex"></a>
                     <span class="name">
-                        <span ><b>fileRecordFactory</b></span>
-                        <a href="#fileRecordFactory"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>fileIdRegex</b></span>
+                        <a href="#fileIdRegex"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>BaseFactory.define&lt;FileRecord, IFileRecordProperties&gt;(FileRecord, ({ sequence }) &#x3D;&gt; {
-	return {
-		size: Math.round(Math.random() * 100000),
-		name: &#x60;file-record #${sequence}&#x60;,
-		mimeType: &#x27;application/octet-stream&#x27;,
-		securityCheck: new FileSecurityCheck({}),
-		parentType: FileRecordParentType.Course,
-		parentId: new ObjectId(),
-		creatorId: new ObjectId(),
-		schoolId: new ObjectId(),
-	};
-})</code>
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;(0x|0h)?[0-9A-F]{24}&#x27;</code>
                     </td>
                 </tr>
 
 
         </tbody>
     </table>
-</section>
-    <h3>apps/server/src/modules/files/repo/embedded-files.repo.ts</h3>
-    <section>
-    <h3></h3>    <table class="table table-sm table-bordered">
+    <table class="table table-sm table-bordered">
         <tbody>
             <tr>
                 <td class="col-md-4">
@@ -3976,29 +3976,72 @@ it should ensure an empty result</p>
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>    <code>[]</code>
-
+                        <i>Default value : </i><code>(excludeIds: ObjectId[]) &#x3D;&gt; {
+	return {
+		_id: { $nin: excludeIds },
+		&#x27;contents.component&#x27;: { $eq: &#x27;text&#x27; },
+		&#x27;contents.content.text&#x27;: { $regex: new RegExp(&#x60;src&#x3D;${fileUrlRegex}${fileIdRegex}&#x60;, &#x27;i&#x27;) },
+	} as FilterQuery&lt;Lesson&gt;;
+}</code>
                     </td>
                 </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="tasksQuery"></a>
+                    <span class="name">
+                        <span ><b>tasksQuery</b></span>
+                        <a href="#tasksQuery"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>[
-	{
-		$match: {
-			&#x27;contents.component&#x27;: {
-				$eq: &#x27;text&#x27;,
-			},
-		},
-	},
-	{
-		$match: {
-			&#x27;contents.content.text&#x27;: {
-				$regex: new RegExp(&#x60;src&#x3D;${fileUrlRegex}&#x60;),
-				$options: &#x27;i&#x27;,
-			},
-		},
-	},
-]</code>
+                        <i>Default value : </i><code>(excludeIds: ObjectId[]) &#x3D;&gt; {
+	return {
+		_id: { $nin: excludeIds },
+		description: new RegExp(&#x60;src&#x3D;${fileUrlRegex}${fileIdRegex}&#x60;, &#x27;i&#x27;),
+	};
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>apps/server/src/shared/testing/factory/filerecord.factory.ts</h3>
+    <section>
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="fileRecordFactory"></a>
+                    <span class="name">
+                        <span ><b>fileRecordFactory</b></span>
+                        <a href="#fileRecordFactory"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>BaseFactory.define&lt;FileRecord, IFileRecordProperties&gt;(FileRecord, ({ sequence }) &#x3D;&gt; {
+	return {
+		size: Math.round(Math.random() * 100000),
+		name: &#x60;file-record #${sequence}&#x60;,
+		mimeType: &#x27;application/octet-stream&#x27;,
+		securityCheck: new FileSecurityCheck({}),
+		parentType: FileRecordParentType.Course,
+		parentId: new ObjectId(),
+		creatorId: new ObjectId(),
+		schoolId: new ObjectId(),
+	};
+})</code>
                     </td>
                 </tr>
 

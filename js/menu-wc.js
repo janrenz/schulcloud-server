@@ -1750,9 +1750,6 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/LessonFactory.html" data-type="entity-link" >LessonFactory</a>
                             </li>
                             <li class="link">
-                                <a href="classes/LessonMapper.html" data-type="entity-link" >LessonMapper</a>
-                            </li>
-                            <li class="link">
                                 <a href="classes/LessonScope.html" data-type="entity-link" >LessonScope</a>
                             </li>
                             <li class="link">
