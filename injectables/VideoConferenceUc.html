@@ -311,8 +311,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="272"
-                            class="link-to-prism">apps/server/src/modules/video-conference/uc/video-conference.uc.ts:272</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="271"
+                            class="link-to-prism">apps/server/src/modules/video-conference/uc/video-conference.uc.ts:271</a></div>
                 </td>
             </tr>
 
@@ -426,8 +426,8 @@ They only can join a conference:</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="389"
-                            class="link-to-prism">apps/server/src/modules/video-conference/uc/video-conference.uc.ts:389</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="388"
+                            class="link-to-prism">apps/server/src/modules/video-conference/uc/video-conference.uc.ts:388</a></div>
                 </td>
             </tr>
 
@@ -643,8 +643,8 @@ They only can join a conference:</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="286"
-                            class="link-to-prism">apps/server/src/modules/video-conference/uc/video-conference.uc.ts:286</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="285"
+                            class="link-to-prism">apps/server/src/modules/video-conference/uc/video-conference.uc.ts:285</a></div>
                 </td>
             </tr>
 
@@ -749,8 +749,8 @@ They only can join a conference:</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="211"
-                            class="link-to-prism">apps/server/src/modules/video-conference/uc/video-conference.uc.ts:211</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="210"
+                            class="link-to-prism">apps/server/src/modules/video-conference/uc/video-conference.uc.ts:210</a></div>
                 </td>
             </tr>
 
@@ -856,8 +856,8 @@ They only can join a conference:</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="352"
-                            class="link-to-prism">apps/server/src/modules/video-conference/uc/video-conference.uc.ts:352</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="351"
+                            class="link-to-prism">apps/server/src/modules/video-conference/uc/video-conference.uc.ts:351</a></div>
                 </td>
             </tr>
 
@@ -963,8 +963,8 @@ They only can join a conference:</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="316"
-                            class="link-to-prism">apps/server/src/modules/video-conference/uc/video-conference.uc.ts:316</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="315"
+                            class="link-to-prism">apps/server/src/modules/video-conference/uc/video-conference.uc.ts:315</a></div>
                 </td>
             </tr>
 
@@ -1165,8 +1165,8 @@ They only can join a conference:</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="431"
-                            class="link-to-prism">apps/server/src/modules/video-conference/uc/video-conference.uc.ts:431</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="430"
+                            class="link-to-prism">apps/server/src/modules/video-conference/uc/video-conference.uc.ts:430</a></div>
                 </td>
             </tr>
 
@@ -1237,8 +1237,8 @@ They only can join a conference:</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="416"
-                            class="link-to-prism">apps/server/src/modules/video-conference/uc/video-conference.uc.ts:416</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="415"
+                            class="link-to-prism">apps/server/src/modules/video-conference/uc/video-conference.uc.ts:415</a></div>
                 </td>
             </tr>
 
@@ -1504,7 +1504,6 @@ export class VideoConferenceUc {
 
 		const isGuest: boolean &#x3D; await this.isExpert(currentUser, conferenceScope, scopeInfo.scopeId);
 		const vcDO: VideoConferenceDO &#x3D; await this.videoConferenceRepo.findByScopeId(refId, conferenceScope);
-
 		configBuilder.withUserId(currentUser.userId);
 
 		if (isGuest) {
