@@ -107,12 +107,12 @@ This will not stop the running services behind the controller.</p>
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(configService: <a href="../interfaces/IInterceptorConfig.html" target="_self">ConfigService&lt;IInterceptorConfig | &gt;</a>)</code>
+<code>constructor(requestTimeout: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">apps/server/src/shared/common/interceptor/timeout.interceptor.ts:12</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">apps/server/src/shared/common/interceptor/timeout.interceptor.ts:11</a></div>
                             </td>
                         </tr>
 
@@ -130,10 +130,10 @@ This will not stop the running services behind the controller.</p>
                                         </thead>
                                         <tbody>
                                                 <tr>
-                                                        <td>configService</td>
+                                                        <td>requestTimeout</td>
                                                   
                                                         <td>
-                                                                        <code><a href="../interfaces/IInterceptorConfig.html" target="_self" >ConfigService&lt;IInterceptorConfig | &gt;</a></code>
+                                                                        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -175,8 +175,8 @@ This will not stop the running services behind the controller.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="15"
-                            class="link-to-prism">apps/server/src/shared/common/interceptor/timeout.interceptor.ts:15</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="14"
+                            class="link-to-prism">apps/server/src/shared/common/interceptor/timeout.interceptor.ts:14</a></div>
                 </td>
             </tr>
 
@@ -243,10 +243,9 @@ This will not stop the running services behind the controller.</p>
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { CallHandler, ExecutionContext, Injectable, NestInterceptor, RequestTimeoutException } from &#x27;@nestjs/common&#x27;;
-import { ConfigService } from &#x27;@nestjs/config&#x27;;
+import { Reflector } from &#x27;@nestjs/core&#x27;;
 import { Observable, throwError, TimeoutError } from &#x27;rxjs&#x27;;
 import { catchError, timeout } from &#x27;rxjs/operators&#x27;;
-import { IInterceptorConfig } from &#x27;./interfaces&#x27;;
 
 /**
  * This interceptor leaves the request execution after a given timeout in ms.
@@ -254,12 +253,14 @@ import { IInterceptorConfig } from &#x27;./interfaces&#x27;;
  */
 @Injectable()
 export class TimeoutInterceptor implements NestInterceptor {
-	constructor(private readonly configService: ConfigService&lt;IInterceptorConfig, true&gt;) {}
+	constructor(private readonly requestTimeout: number) {}
 
 	intercept(context: ExecutionContext, next: CallHandler): Observable&lt;any&gt; {
-		const requestTimeout &#x3D; this.configService.get&lt;number&gt;(&#x27;INCOMING_REQUEST_TIMEOUT&#x27;);
+		const reflector &#x3D; new Reflector();
+		const timeoutValue &#x3D;
+			reflector.get&lt;number&gt;(&#x27;timeout&#x27;, context.getHandler()) || reflector.get&lt;number&gt;(&#x27;timeout&#x27;, context.getClass());
 		return next.handle().pipe(
-			timeout(requestTimeout),
+			timeout(timeoutValue || this.requestTimeout),
 			catchError((err: Error) &#x3D;&gt; {
 				if (err instanceof TimeoutError) {
 					return throwError(() &#x3D;&gt; new RequestTimeoutException());

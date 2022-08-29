@@ -148,9 +148,6 @@
                             <a href="#createRequestFunction" title="apps/server/src/modules/files-storage-client/filesStorageApi/v3/common.ts" ><b>createRequestFunction</b>&nbsp;&nbsp;&nbsp;(apps/.../common.ts)</a>
                         </li>
                         <li>
-                            <a href="#createTestModule" title="apps/server/src/shared/common/interceptor/test/create-test.module.ts" ><b>createTestModule</b>&nbsp;&nbsp;&nbsp;(apps/.../create-test.module.ts)</a>
-                        </li>
-                        <li>
                             <a href="#CurrentUser" title="apps/server/src/modules/authentication/decorator/auth.decorator.ts" ><b>CurrentUser</b>&nbsp;&nbsp;&nbsp;(apps/.../auth.decorator.ts)</a>
                         </li>
                         <li>
@@ -179,9 +176,6 @@
                         </li>
                         <li>
                             <a href="#defaultVideoConferenceOptions" title="apps/server/src/modules/video-conference/interface/vc-options.interface.ts" ><b>defaultVideoConferenceOptions</b>&nbsp;&nbsp;&nbsp;(apps/.../vc-options.interface.ts)</a>
-                        </li>
-                        <li>
-                            <a href="#delay" title="apps/server/src/shared/common/interceptor/test/create-test.module.ts" ><b>delay</b>&nbsp;&nbsp;&nbsp;(apps/.../create-test.module.ts)</a>
                         </li>
                         <li>
                             <a href="#directoryFactory" title="apps/server/src/shared/testing/factory/file.factory.ts" ><b>directoryFactory</b>&nbsp;&nbsp;&nbsp;(apps/.../file.factory.ts)</a>
@@ -1680,6 +1674,7 @@ toJSON: () =&gt; object;
                     <td class="col-md-4">
                         <i>Default value : </i><code>{
 	INCOMING_REQUEST_TIMEOUT: Configuration.get(&#x27;INCOMING_REQUEST_TIMEOUT_API&#x27;) as number,
+	INCOMING_REQUEST_TIMEOUT_COPY_API: Configuration.get(&#x27;INCOMING_REQUEST_TIMEOUT_COPY_API&#x27;) as number,
 	AVAILABLE_LOG_LEVELS: (Configuration.get(&#x27;NEST_AVAILABLE_LOG_LEVELS&#x27;) as string).split(&#x27;,&#x27;) as AvailableLogLevel[],
 	AVAILABLE_LANGUAGES: (Configuration.get(&#x27;I18N__AVAILABLE_LANGUAGES&#x27;) as string).split(&#x27;,&#x27;),
 	FILE_STORAGE_BASE_URL: Configuration.get(&#x27;FILES_STORAGE__SERVICE_BASE_URL&#x27;) as string,
@@ -1750,6 +1745,7 @@ toJSON: () =&gt; object;
                     <td class="col-md-4">
                         <i>Default value : </i><code>{
 	INCOMING_REQUEST_TIMEOUT: Configuration.get(&#x27;FILES_STORAGE__INCOMING_REQUEST_TIMEOUT&#x27;) as number,
+	INCOMING_REQUEST_TIMEOUT_COPY_API: Configuration.get(&#x27;INCOMING_REQUEST_TIMEOUT_COPY_API&#x27;) as number,
 	AVAILABLE_LOG_LEVELS: (Configuration.get(&#x27;NEST_AVAILABLE_LOG_LEVELS&#x27;) as string).split(&#x27;,&#x27;) as AvailableLogLevel[],
 }</code>
                     </td>
@@ -2440,59 +2436,6 @@ must use @ApiProperty</p>
 
 	return mikroOrmModule;
 }</code>
-                    </td>
-                </tr>
-
-
-        </tbody>
-    </table>
-</section>
-    <h3>apps/server/src/shared/common/interceptor/test/create-test.module.ts</h3>
-    <section>
-    <h3></h3>    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="createTestModule"></a>
-                    <span class="name">
-                        <span ><b>createTestModule</b></span>
-                        <a href="#createTestModule"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Default value : </i><code>(interceptor: NestInterceptor): Promise&lt;TestingModule&gt; &#x3D;&gt; {
-	return Test.createTestingModule({
-		providers: [
-			{
-				provide: APP_INTERCEPTOR,
-				useValue: interceptor,
-			},
-		],
-		controllers: [DelayController],
-	}).compile();
-}</code>
-                    </td>
-                </tr>
-
-
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="delay"></a>
-                    <span class="name">
-                        <span ><b>delay</b></span>
-                        <a href="#delay"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Default value : </i><code>(ms: number) &#x3D;&gt; new Promise((resolve) &#x3D;&gt; setTimeout(resolve, ms))</code>
                     </td>
                 </tr>
 

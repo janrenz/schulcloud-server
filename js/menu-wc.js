@@ -1310,9 +1310,6 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </div>
                             <ul class="links collapse " ${ isNormalMode ? 'id="controllers-links"' : 'id="xs-controllers-links"' }>
                                 <li class="link">
-                                    <a href="controllers/DelayController.html" data-type="entity-link" >DelayController</a>
-                                </li>
-                                <li class="link">
                                     <a href="controllers/SystemController.html" data-type="entity-link" >SystemController</a>
                                 </li>
                                 <li class="link">
