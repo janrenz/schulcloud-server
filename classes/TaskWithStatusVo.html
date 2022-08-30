@@ -112,7 +112,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">apps/server/src/shared/domain/entity/task.entity.ts:40</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">apps/server/src/shared/domain/entity/task.entity.ts:41</a></div>
                             </td>
                         </tr>
 
@@ -186,7 +186,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">apps/server/src/shared/domain/entity/task.entity.ts:40</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">apps/server/src/shared/domain/entity/task.entity.ts:41</a></div>
                         </td>
                     </tr>
 
@@ -212,7 +212,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">apps/server/src/shared/domain/entity/task.entity.ts:38</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">apps/server/src/shared/domain/entity/task.entity.ts:39</a></div>
                         </td>
                     </tr>
 
@@ -233,6 +233,7 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Collection, Entity, Index, ManyToMany, ManyToOne, OneToMany, Property } from &#x27;@mikro-orm/core&#x27;;
 import { School } from &#x27;@shared/domain/entity/school.entity&#x27;;
+import _ from &#x27;lodash&#x27;;
 import { IEntityWithSchool } from &#x27;../interface&#x27;;
 import { ILearnroomElement } from &#x27;../interface/learnroom&#x27;;
 import { EntityId } from &#x27;../types/entity-id&#x27;;
@@ -520,6 +521,18 @@ export class Task extends BaseEntityWithTimestamps implements ILearnroomElement,
 
 	restoreForUser(user: User) {
 		this.finished.remove(user);
+	}
+
+	getSchoolId(): EntityId {
+		if (this.lesson) {
+			return this.lesson.getSchoolId();
+		}
+
+		if (this.course) {
+			return this.course.school.id;
+		}
+
+		throw new Error(&#x60;Couldn&#x27;t find parent of task.&#x60;);
 	}
 
 	publish() {

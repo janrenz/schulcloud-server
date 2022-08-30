@@ -206,8 +206,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="39"
-                            class="link-to-prism">apps/server/src/modules/files-storage-client/uc/files-storage-client.service.ts:39</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="40"
+                            class="link-to-prism">apps/server/src/modules/files-storage-client/uc/files-storage-client.service.ts:40</a></div>
                 </td>
             </tr>
 
@@ -269,7 +269,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../interfaces/FileRecordListResponse.html" target="_self" >Promise&lt;AxiosResponse&lt;FileRecordListResponse&gt;&gt;</a></code>
+                        <b>Returns : </b>        <code><a href="../interfaces/CopyFileListResponse.html" target="_self" >Promise&lt;AxiosResponse&lt;CopyFileListResponse&gt;&gt;</a></code>
 
                     </div>
                     <div class="io-description">
@@ -352,7 +352,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../entitys/File.html" target="_self" >Promise&lt;FileDto[]&gt;</a></code>
+                        <b>Returns : </b>        <code><a href="../entitys/File.html" target="_self" >Promise&lt;CopyFileDto[]&gt;</a></code>
 
                     </div>
                     <div class="io-description">
@@ -385,8 +385,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="87"
-                            class="link-to-prism">apps/server/src/modules/files-storage-client/uc/files-storage-client.service.ts:87</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="88"
+                            class="link-to-prism">apps/server/src/modules/files-storage-client/uc/files-storage-client.service.ts:88</a></div>
                 </td>
             </tr>
 
@@ -468,8 +468,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="31"
-                            class="link-to-prism">apps/server/src/modules/files-storage-client/uc/files-storage-client.service.ts:31</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="32"
+                            class="link-to-prism">apps/server/src/modules/files-storage-client/uc/files-storage-client.service.ts:32</a></div>
                 </td>
             </tr>
 
@@ -540,8 +540,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="63"
-                            class="link-to-prism">apps/server/src/modules/files-storage-client/uc/files-storage-client.service.ts:63</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="64"
+                            class="link-to-prism">apps/server/src/modules/files-storage-client/uc/files-storage-client.service.ts:64</a></div>
                 </td>
             </tr>
 
@@ -623,8 +623,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="23"
-                            class="link-to-prism">apps/server/src/modules/files-storage-client/uc/files-storage-client.service.ts:23</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="24"
+                            class="link-to-prism">apps/server/src/modules/files-storage-client/uc/files-storage-client.service.ts:24</a></div>
                 </td>
             </tr>
 
@@ -681,9 +681,9 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Inject, Injectable } from &#x27;@nestjs/common&#x27;;
 import { Logger } from &#x27;@src/core/logger&#x27;;
 import { AxiosRequestConfig, AxiosResponse } from &#x27;axios&#x27;;
-import { FileDto } from &#x27;../dto&#x27;;
+import { CopyFileDto, FileDto } from &#x27;../dto&#x27;;
 import { AxiosJWTOptionBuilder, FilesStorageClientMapper, ErrorMapper } from &#x27;../mapper&#x27;;
-import { FileApi, FileRecordListResponse } from &#x27;../filesStorageApi/v3&#x27;;
+import { CopyFileListResponse, FileApi, FileRecordListResponse } from &#x27;../filesStorageApi/v3&#x27;;
 import { FileRequestInfo, FileRequestOptions } from &#x27;../interfaces&#x27;;
 
 @Injectable()
@@ -692,10 +692,11 @@ export class FilesStorageClientAdapterService {
 		this.logger.setContext(FilesStorageClientAdapterService.name);
 	}
 
-	async copyFilesOfParent(param: FileRequestInfo, target: FileRequestInfo): Promise&lt;FileDto[]&gt; {
+	async copyFilesOfParent(param: FileRequestInfo, target: FileRequestInfo): Promise&lt;CopyFileDto[]&gt; {
 		const options &#x3D; AxiosJWTOptionBuilder.build(param);
 		const response &#x3D; await this.copy(param, target, options);
-		const fileInfos &#x3D; FilesStorageClientMapper.mapAxiosToFilesDto(response, param.schoolId);
+
+		const fileInfos &#x3D; FilesStorageClientMapper.mapAxiosToCopyFilesDto(response);
 
 		return fileInfos;
 	}
@@ -720,7 +721,7 @@ export class FilesStorageClientAdapterService {
 		param: FileRequestInfo,
 		target: FileRequestInfo,
 		options: AxiosRequestConfig&lt;FileRequestOptions&gt;
-	): Promise&lt;AxiosResponse&lt;FileRecordListResponse&gt;&gt; {
+	): Promise&lt;AxiosResponse&lt;CopyFileListResponse&gt;&gt; {
 		try {
 			const response &#x3D; await this.fileStorageClient.filesStorageControllerCopy(
 				param.schoolId,

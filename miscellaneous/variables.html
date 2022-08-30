@@ -2954,12 +2954,12 @@ it should ensure an empty result</p>
          * @summary Copy all files of a parent entityId to a target entitId
          * @param {string} schoolId 
          * @param {string} parentId 
-         * @param {&#x27;users&#x27; | &#x27;schools&#x27; | &#x27;courses&#x27; | &#x27;tasks&#x27;} parentType 
+         * @param {&#x27;users&#x27; | &#x27;schools&#x27; | &#x27;courses&#x27; | &#x27;tasks&#x27; | &#x27;lessons&#x27;} parentType 
          * @param {CopyFilesOfParentParams} copyFilesOfParentParams 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        filesStorageControllerCopy: async (schoolId: string, parentId: string, parentType: &#x27;users&#x27; | &#x27;schools&#x27; | &#x27;courses&#x27; | &#x27;tasks&#x27;, copyFilesOfParentParams: CopyFilesOfParentParams, options: AxiosRequestConfig &#x3D; {}): Promise&lt;RequestArgs&gt; &#x3D;&gt; {
+        filesStorageControllerCopy: async (schoolId: string, parentId: string, parentType: &#x27;users&#x27; | &#x27;schools&#x27; | &#x27;courses&#x27; | &#x27;tasks&#x27; | &#x27;lessons&#x27;, copyFilesOfParentParams: CopyFilesOfParentParams, options: AxiosRequestConfig &#x3D; {}): Promise&lt;RequestArgs&gt; &#x3D;&gt; {
             // verify required parameter &#x27;schoolId&#x27; is not null or undefined
             assertParamExists(&#x27;filesStorageControllerCopy&#x27;, &#x27;schoolId&#x27;, schoolId)
             // verify required parameter &#x27;parentId&#x27; is not null or undefined
@@ -3050,11 +3050,11 @@ it should ensure an empty result</p>
          * @summary Mark all files of a parent entityId for deletion. The files are permanently deleted after a certain time.
          * @param {string} schoolId 
          * @param {string} parentId 
-         * @param {&#x27;users&#x27; | &#x27;schools&#x27; | &#x27;courses&#x27; | &#x27;tasks&#x27;} parentType 
+         * @param {&#x27;users&#x27; | &#x27;schools&#x27; | &#x27;courses&#x27; | &#x27;tasks&#x27; | &#x27;lessons&#x27;} parentType 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        filesStorageControllerDelete: async (schoolId: string, parentId: string, parentType: &#x27;users&#x27; | &#x27;schools&#x27; | &#x27;courses&#x27; | &#x27;tasks&#x27;, options: AxiosRequestConfig &#x3D; {}): Promise&lt;RequestArgs&gt; &#x3D;&gt; {
+        filesStorageControllerDelete: async (schoolId: string, parentId: string, parentType: &#x27;users&#x27; | &#x27;schools&#x27; | &#x27;courses&#x27; | &#x27;tasks&#x27; | &#x27;lessons&#x27;, options: AxiosRequestConfig &#x3D; {}): Promise&lt;RequestArgs&gt; &#x3D;&gt; {
             // verify required parameter &#x27;schoolId&#x27; is not null or undefined
             assertParamExists(&#x27;filesStorageControllerDelete&#x27;, &#x27;schoolId&#x27;, schoolId)
             // verify required parameter &#x27;parentId&#x27; is not null or undefined
@@ -3176,13 +3176,13 @@ it should ensure an empty result</p>
          * @summary Get a list of file meta data of a parent entityId.
          * @param {string} schoolId 
          * @param {string} parentId 
-         * @param {&#x27;users&#x27; | &#x27;schools&#x27; | &#x27;courses&#x27; | &#x27;tasks&#x27;} parentType 
+         * @param {&#x27;users&#x27; | &#x27;schools&#x27; | &#x27;courses&#x27; | &#x27;tasks&#x27; | &#x27;lessons&#x27;} parentType 
          * @param {number} [skip] Number of elements (not pages) to be skipped
          * @param {number} [limit] Page limit, defaults to 10.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        filesStorageControllerList: async (schoolId: string, parentId: string, parentType: &#x27;users&#x27; | &#x27;schools&#x27; | &#x27;courses&#x27; | &#x27;tasks&#x27;, skip?: number, limit?: number, options: AxiosRequestConfig &#x3D; {}): Promise&lt;RequestArgs&gt; &#x3D;&gt; {
+        filesStorageControllerList: async (schoolId: string, parentId: string, parentType: &#x27;users&#x27; | &#x27;schools&#x27; | &#x27;courses&#x27; | &#x27;tasks&#x27; | &#x27;lessons&#x27;, skip?: number, limit?: number, options: AxiosRequestConfig &#x3D; {}): Promise&lt;RequestArgs&gt; &#x3D;&gt; {
             // verify required parameter &#x27;schoolId&#x27; is not null or undefined
             assertParamExists(&#x27;filesStorageControllerList&#x27;, &#x27;schoolId&#x27;, schoolId)
             // verify required parameter &#x27;parentId&#x27; is not null or undefined
@@ -3276,11 +3276,11 @@ it should ensure an empty result</p>
          * @summary Restore all files of a parent entityId that are marked for deletion.
          * @param {string} schoolId 
          * @param {string} parentId 
-         * @param {&#x27;users&#x27; | &#x27;schools&#x27; | &#x27;courses&#x27; | &#x27;tasks&#x27;} parentType 
+         * @param {&#x27;users&#x27; | &#x27;schools&#x27; | &#x27;courses&#x27; | &#x27;tasks&#x27; | &#x27;lessons&#x27;} parentType 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        filesStorageControllerRestore: async (schoolId: string, parentId: string, parentType: &#x27;users&#x27; | &#x27;schools&#x27; | &#x27;courses&#x27; | &#x27;tasks&#x27;, options: AxiosRequestConfig &#x3D; {}): Promise&lt;RequestArgs&gt; &#x3D;&gt; {
+        filesStorageControllerRestore: async (schoolId: string, parentId: string, parentType: &#x27;users&#x27; | &#x27;schools&#x27; | &#x27;courses&#x27; | &#x27;tasks&#x27; | &#x27;lessons&#x27;, options: AxiosRequestConfig &#x3D; {}): Promise&lt;RequestArgs&gt; &#x3D;&gt; {
             // verify required parameter &#x27;schoolId&#x27; is not null or undefined
             assertParamExists(&#x27;filesStorageControllerRestore&#x27;, &#x27;schoolId&#x27;, schoolId)
             // verify required parameter &#x27;parentId&#x27; is not null or undefined
@@ -3360,12 +3360,12 @@ it should ensure an empty result</p>
          * @summary Streamable upload of a binary file.
          * @param {string} schoolId 
          * @param {string} parentId 
-         * @param {&#x27;users&#x27; | &#x27;schools&#x27; | &#x27;courses&#x27; | &#x27;tasks&#x27;} parentType 
+         * @param {&#x27;users&#x27; | &#x27;schools&#x27; | &#x27;courses&#x27; | &#x27;tasks&#x27; | &#x27;lessons&#x27;} parentType 
          * @param {any} file 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        filesStorageControllerUpload: async (schoolId: string, parentId: string, parentType: &#x27;users&#x27; | &#x27;schools&#x27; | &#x27;courses&#x27; | &#x27;tasks&#x27;, file: any, options: AxiosRequestConfig &#x3D; {}): Promise&lt;RequestArgs&gt; &#x3D;&gt; {
+        filesStorageControllerUpload: async (schoolId: string, parentId: string, parentType: &#x27;users&#x27; | &#x27;schools&#x27; | &#x27;courses&#x27; | &#x27;tasks&#x27; | &#x27;lessons&#x27;, file: any, options: AxiosRequestConfig &#x3D; {}): Promise&lt;RequestArgs&gt; &#x3D;&gt; {
             // verify required parameter &#x27;schoolId&#x27; is not null or undefined
             assertParamExists(&#x27;filesStorageControllerUpload&#x27;, &#x27;schoolId&#x27;, schoolId)
             // verify required parameter &#x27;parentId&#x27; is not null or undefined
@@ -3447,12 +3447,12 @@ it should ensure an empty result</p>
          * @summary Copy all files of a parent entityId to a target entitId
          * @param {string} schoolId 
          * @param {string} parentId 
-         * @param {&#x27;users&#x27; | &#x27;schools&#x27; | &#x27;courses&#x27; | &#x27;tasks&#x27;} parentType 
+         * @param {&#x27;users&#x27; | &#x27;schools&#x27; | &#x27;courses&#x27; | &#x27;tasks&#x27; | &#x27;lessons&#x27;} parentType 
          * @param {CopyFilesOfParentParams} copyFilesOfParentParams 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        filesStorageControllerCopy(schoolId: string, parentId: string, parentType: &#x27;users&#x27; | &#x27;schools&#x27; | &#x27;courses&#x27; | &#x27;tasks&#x27;, copyFilesOfParentParams: CopyFilesOfParentParams, options?: any): AxiosPromise&lt;FileRecordListResponse&gt; {
+        filesStorageControllerCopy(schoolId: string, parentId: string, parentType: &#x27;users&#x27; | &#x27;schools&#x27; | &#x27;courses&#x27; | &#x27;tasks&#x27; | &#x27;lessons&#x27;, copyFilesOfParentParams: CopyFilesOfParentParams, options?: any): AxiosPromise&lt;CopyFileListResponse&gt; {
             return localVarFp.filesStorageControllerCopy(schoolId, parentId, parentType, copyFilesOfParentParams, options).then((request) &#x3D;&gt; request(axios, basePath));
         },
         /**
@@ -3471,11 +3471,11 @@ it should ensure an empty result</p>
          * @summary Mark all files of a parent entityId for deletion. The files are permanently deleted after a certain time.
          * @param {string} schoolId 
          * @param {string} parentId 
-         * @param {&#x27;users&#x27; | &#x27;schools&#x27; | &#x27;courses&#x27; | &#x27;tasks&#x27;} parentType 
+         * @param {&#x27;users&#x27; | &#x27;schools&#x27; | &#x27;courses&#x27; | &#x27;tasks&#x27; | &#x27;lessons&#x27;} parentType 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        filesStorageControllerDelete(schoolId: string, parentId: string, parentType: &#x27;users&#x27; | &#x27;schools&#x27; | &#x27;courses&#x27; | &#x27;tasks&#x27;, options?: any): AxiosPromise&lt;FileRecordListResponse&gt; {
+        filesStorageControllerDelete(schoolId: string, parentId: string, parentType: &#x27;users&#x27; | &#x27;schools&#x27; | &#x27;courses&#x27; | &#x27;tasks&#x27; | &#x27;lessons&#x27;, options?: any): AxiosPromise&lt;FileRecordListResponse&gt; {
             return localVarFp.filesStorageControllerDelete(schoolId, parentId, parentType, options).then((request) &#x3D;&gt; request(axios, basePath));
         },
         /**
@@ -3504,13 +3504,13 @@ it should ensure an empty result</p>
          * @summary Get a list of file meta data of a parent entityId.
          * @param {string} schoolId 
          * @param {string} parentId 
-         * @param {&#x27;users&#x27; | &#x27;schools&#x27; | &#x27;courses&#x27; | &#x27;tasks&#x27;} parentType 
+         * @param {&#x27;users&#x27; | &#x27;schools&#x27; | &#x27;courses&#x27; | &#x27;tasks&#x27; | &#x27;lessons&#x27;} parentType 
          * @param {number} [skip] Number of elements (not pages) to be skipped
          * @param {number} [limit] Page limit, defaults to 10.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        filesStorageControllerList(schoolId: string, parentId: string, parentType: &#x27;users&#x27; | &#x27;schools&#x27; | &#x27;courses&#x27; | &#x27;tasks&#x27;, skip?: number, limit?: number, options?: any): AxiosPromise&lt;FileRecordListResponse&gt; {
+        filesStorageControllerList(schoolId: string, parentId: string, parentType: &#x27;users&#x27; | &#x27;schools&#x27; | &#x27;courses&#x27; | &#x27;tasks&#x27; | &#x27;lessons&#x27;, skip?: number, limit?: number, options?: any): AxiosPromise&lt;FileRecordListResponse&gt; {
             return localVarFp.filesStorageControllerList(schoolId, parentId, parentType, skip, limit, options).then((request) &#x3D;&gt; request(axios, basePath));
         },
         /**
@@ -3529,11 +3529,11 @@ it should ensure an empty result</p>
          * @summary Restore all files of a parent entityId that are marked for deletion.
          * @param {string} schoolId 
          * @param {string} parentId 
-         * @param {&#x27;users&#x27; | &#x27;schools&#x27; | &#x27;courses&#x27; | &#x27;tasks&#x27;} parentType 
+         * @param {&#x27;users&#x27; | &#x27;schools&#x27; | &#x27;courses&#x27; | &#x27;tasks&#x27; | &#x27;lessons&#x27;} parentType 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        filesStorageControllerRestore(schoolId: string, parentId: string, parentType: &#x27;users&#x27; | &#x27;schools&#x27; | &#x27;courses&#x27; | &#x27;tasks&#x27;, options?: any): AxiosPromise&lt;FileRecordListResponse&gt; {
+        filesStorageControllerRestore(schoolId: string, parentId: string, parentType: &#x27;users&#x27; | &#x27;schools&#x27; | &#x27;courses&#x27; | &#x27;tasks&#x27; | &#x27;lessons&#x27;, options?: any): AxiosPromise&lt;FileRecordListResponse&gt; {
             return localVarFp.filesStorageControllerRestore(schoolId, parentId, parentType, options).then((request) &#x3D;&gt; request(axios, basePath));
         },
         /**
@@ -3551,12 +3551,12 @@ it should ensure an empty result</p>
          * @summary Streamable upload of a binary file.
          * @param {string} schoolId 
          * @param {string} parentId 
-         * @param {&#x27;users&#x27; | &#x27;schools&#x27; | &#x27;courses&#x27; | &#x27;tasks&#x27;} parentType 
+         * @param {&#x27;users&#x27; | &#x27;schools&#x27; | &#x27;courses&#x27; | &#x27;tasks&#x27; | &#x27;lessons&#x27;} parentType 
          * @param {any} file 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        filesStorageControllerUpload(schoolId: string, parentId: string, parentType: &#x27;users&#x27; | &#x27;schools&#x27; | &#x27;courses&#x27; | &#x27;tasks&#x27;, file: any, options?: any): AxiosPromise&lt;FileRecordResponse&gt; {
+        filesStorageControllerUpload(schoolId: string, parentId: string, parentType: &#x27;users&#x27; | &#x27;schools&#x27; | &#x27;courses&#x27; | &#x27;tasks&#x27; | &#x27;lessons&#x27;, file: any, options?: any): AxiosPromise&lt;FileRecordResponse&gt; {
             return localVarFp.filesStorageControllerUpload(schoolId, parentId, parentType, file, options).then((request) &#x3D;&gt; request(axios, basePath));
         },
     };
@@ -3594,12 +3594,12 @@ it should ensure an empty result</p>
          * @summary Copy all files of a parent entityId to a target entitId
          * @param {string} schoolId 
          * @param {string} parentId 
-         * @param {&#x27;users&#x27; | &#x27;schools&#x27; | &#x27;courses&#x27; | &#x27;tasks&#x27;} parentType 
+         * @param {&#x27;users&#x27; | &#x27;schools&#x27; | &#x27;courses&#x27; | &#x27;tasks&#x27; | &#x27;lessons&#x27;} parentType 
          * @param {CopyFilesOfParentParams} copyFilesOfParentParams 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async filesStorageControllerCopy(schoolId: string, parentId: string, parentType: &#x27;users&#x27; | &#x27;schools&#x27; | &#x27;courses&#x27; | &#x27;tasks&#x27;, copyFilesOfParentParams: CopyFilesOfParentParams, options?: AxiosRequestConfig): Promise&lt;(axios?: AxiosInstance, basePath?: string) &#x3D;&gt; AxiosPromise&lt;FileRecordListResponse&gt;&gt; {
+        async filesStorageControllerCopy(schoolId: string, parentId: string, parentType: &#x27;users&#x27; | &#x27;schools&#x27; | &#x27;courses&#x27; | &#x27;tasks&#x27; | &#x27;lessons&#x27;, copyFilesOfParentParams: CopyFilesOfParentParams, options?: AxiosRequestConfig): Promise&lt;(axios?: AxiosInstance, basePath?: string) &#x3D;&gt; AxiosPromise&lt;CopyFileListResponse&gt;&gt; {
             const localVarAxiosArgs &#x3D; await localVarAxiosParamCreator.filesStorageControllerCopy(schoolId, parentId, parentType, copyFilesOfParentParams, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -3620,11 +3620,11 @@ it should ensure an empty result</p>
          * @summary Mark all files of a parent entityId for deletion. The files are permanently deleted after a certain time.
          * @param {string} schoolId 
          * @param {string} parentId 
-         * @param {&#x27;users&#x27; | &#x27;schools&#x27; | &#x27;courses&#x27; | &#x27;tasks&#x27;} parentType 
+         * @param {&#x27;users&#x27; | &#x27;schools&#x27; | &#x27;courses&#x27; | &#x27;tasks&#x27; | &#x27;lessons&#x27;} parentType 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async filesStorageControllerDelete(schoolId: string, parentId: string, parentType: &#x27;users&#x27; | &#x27;schools&#x27; | &#x27;courses&#x27; | &#x27;tasks&#x27;, options?: AxiosRequestConfig): Promise&lt;(axios?: AxiosInstance, basePath?: string) &#x3D;&gt; AxiosPromise&lt;FileRecordListResponse&gt;&gt; {
+        async filesStorageControllerDelete(schoolId: string, parentId: string, parentType: &#x27;users&#x27; | &#x27;schools&#x27; | &#x27;courses&#x27; | &#x27;tasks&#x27; | &#x27;lessons&#x27;, options?: AxiosRequestConfig): Promise&lt;(axios?: AxiosInstance, basePath?: string) &#x3D;&gt; AxiosPromise&lt;FileRecordListResponse&gt;&gt; {
             const localVarAxiosArgs &#x3D; await localVarAxiosParamCreator.filesStorageControllerDelete(schoolId, parentId, parentType, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -3656,13 +3656,13 @@ it should ensure an empty result</p>
          * @summary Get a list of file meta data of a parent entityId.
          * @param {string} schoolId 
          * @param {string} parentId 
-         * @param {&#x27;users&#x27; | &#x27;schools&#x27; | &#x27;courses&#x27; | &#x27;tasks&#x27;} parentType 
+         * @param {&#x27;users&#x27; | &#x27;schools&#x27; | &#x27;courses&#x27; | &#x27;tasks&#x27; | &#x27;lessons&#x27;} parentType 
          * @param {number} [skip] Number of elements (not pages) to be skipped
          * @param {number} [limit] Page limit, defaults to 10.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async filesStorageControllerList(schoolId: string, parentId: string, parentType: &#x27;users&#x27; | &#x27;schools&#x27; | &#x27;courses&#x27; | &#x27;tasks&#x27;, skip?: number, limit?: number, options?: AxiosRequestConfig): Promise&lt;(axios?: AxiosInstance, basePath?: string) &#x3D;&gt; AxiosPromise&lt;FileRecordListResponse&gt;&gt; {
+        async filesStorageControllerList(schoolId: string, parentId: string, parentType: &#x27;users&#x27; | &#x27;schools&#x27; | &#x27;courses&#x27; | &#x27;tasks&#x27; | &#x27;lessons&#x27;, skip?: number, limit?: number, options?: AxiosRequestConfig): Promise&lt;(axios?: AxiosInstance, basePath?: string) &#x3D;&gt; AxiosPromise&lt;FileRecordListResponse&gt;&gt; {
             const localVarAxiosArgs &#x3D; await localVarAxiosParamCreator.filesStorageControllerList(schoolId, parentId, parentType, skip, limit, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -3683,11 +3683,11 @@ it should ensure an empty result</p>
          * @summary Restore all files of a parent entityId that are marked for deletion.
          * @param {string} schoolId 
          * @param {string} parentId 
-         * @param {&#x27;users&#x27; | &#x27;schools&#x27; | &#x27;courses&#x27; | &#x27;tasks&#x27;} parentType 
+         * @param {&#x27;users&#x27; | &#x27;schools&#x27; | &#x27;courses&#x27; | &#x27;tasks&#x27; | &#x27;lessons&#x27;} parentType 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async filesStorageControllerRestore(schoolId: string, parentId: string, parentType: &#x27;users&#x27; | &#x27;schools&#x27; | &#x27;courses&#x27; | &#x27;tasks&#x27;, options?: AxiosRequestConfig): Promise&lt;(axios?: AxiosInstance, basePath?: string) &#x3D;&gt; AxiosPromise&lt;FileRecordListResponse&gt;&gt; {
+        async filesStorageControllerRestore(schoolId: string, parentId: string, parentType: &#x27;users&#x27; | &#x27;schools&#x27; | &#x27;courses&#x27; | &#x27;tasks&#x27; | &#x27;lessons&#x27;, options?: AxiosRequestConfig): Promise&lt;(axios?: AxiosInstance, basePath?: string) &#x3D;&gt; AxiosPromise&lt;FileRecordListResponse&gt;&gt; {
             const localVarAxiosArgs &#x3D; await localVarAxiosParamCreator.filesStorageControllerRestore(schoolId, parentId, parentType, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -3707,12 +3707,12 @@ it should ensure an empty result</p>
          * @summary Streamable upload of a binary file.
          * @param {string} schoolId 
          * @param {string} parentId 
-         * @param {&#x27;users&#x27; | &#x27;schools&#x27; | &#x27;courses&#x27; | &#x27;tasks&#x27;} parentType 
+         * @param {&#x27;users&#x27; | &#x27;schools&#x27; | &#x27;courses&#x27; | &#x27;tasks&#x27; | &#x27;lessons&#x27;} parentType 
          * @param {any} file 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async filesStorageControllerUpload(schoolId: string, parentId: string, parentType: &#x27;users&#x27; | &#x27;schools&#x27; | &#x27;courses&#x27; | &#x27;tasks&#x27;, file: any, options?: AxiosRequestConfig): Promise&lt;(axios?: AxiosInstance, basePath?: string) &#x3D;&gt; AxiosPromise&lt;FileRecordResponse&gt;&gt; {
+        async filesStorageControllerUpload(schoolId: string, parentId: string, parentType: &#x27;users&#x27; | &#x27;schools&#x27; | &#x27;courses&#x27; | &#x27;tasks&#x27; | &#x27;lessons&#x27;, file: any, options?: AxiosRequestConfig): Promise&lt;(axios?: AxiosInstance, basePath?: string) &#x3D;&gt; AxiosPromise&lt;FileRecordResponse&gt;&gt; {
             const localVarAxiosArgs &#x3D; await localVarAxiosParamCreator.filesStorageControllerUpload(schoolId, parentId, parentType, file, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -3747,7 +3747,8 @@ it should ensure an empty result</p>
     Users: &#x27;users&#x27;,
     Schools: &#x27;schools&#x27;,
     Courses: &#x27;courses&#x27;,
-    Tasks: &#x27;tasks&#x27;
+    Tasks: &#x27;tasks&#x27;,
+    Lessons: &#x27;lessons&#x27;
 } as const</code>
                     </td>
                 </tr>

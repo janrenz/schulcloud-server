@@ -334,8 +334,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="78"
-                            class="link-to-prism">apps/server/src/modules/learnroom/uc/lesson-copy.uc.ts:78</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="84"
+                            class="link-to-prism">apps/server/src/modules/learnroom/uc/lesson-copy.uc.ts:84</a></div>
                 </td>
             </tr>
 
@@ -374,8 +374,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="70"
-                            class="link-to-prism">apps/server/src/modules/learnroom/uc/lesson-copy.uc.ts:70</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="76"
+                            class="link-to-prism">apps/server/src/modules/learnroom/uc/lesson-copy.uc.ts:76</a></div>
                 </td>
             </tr>
 
@@ -503,6 +503,12 @@ export class LessonCopyUC {
 			await this.lessonRepo.save(lessonCopy);
 			status &#x3D; this.lessonCopyService.updateCopiedEmbeddedTasks(status);
 			status &#x3D; await this.fileCopyAppendService.appendFiles(status, parentParams.jwt);
+			status &#x3D; await this.fileCopyAppendService.copyEmbeddedFilesOfLessons(
+				status,
+				lessonCopy.course.id,
+				userId,
+				parentParams.jwt
+			);
 			const updatedLesson &#x3D; status.copyEntity as Lesson;
 			await this.lessonRepo.save(updatedLesson);
 		}

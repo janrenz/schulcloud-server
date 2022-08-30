@@ -87,10 +87,6 @@
                                     <span class="modifier">Static</span>
                                 <a href="#build" >build</a>
                             </li>
-                            <li>
-                                    <span class="modifier">Static</span>
-                                <a href="#buildForTask" >buildForTask</a>
-                            </li>
                         </ul>
                     </td>
                 </tr>
@@ -125,122 +121,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>build(jwt: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, schoolId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, parentTypeString: <a href="../interfaces/FileRecordParams.html" target="_self">FileRecordParamsParentTypeEnum</a>, parentId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>)</code>
+                    <code>build(jwt: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, schoolId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, parent: <a href="../classes/Task.html" target="_self">Task | Lesson</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="7"
-                            class="link-to-prism">apps/server/src/modules/files-storage-client/mapper/files-storage-param.builder.ts:7</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>jwt</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>schoolId</td>
-                                    <td>
-                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>parentTypeString</td>
-                                    <td>
-                                                <code><a href="../interfaces/FileRecordParams.html" target="_self" >FileRecordParamsParentTypeEnum</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>parentId</td>
-                                    <td>
-                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../interfaces/FileRequestInfo.html" target="_self" >FileRequestInfo</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="buildForTask"></a>
-                    <span class="name">
-                        <span class="modifier">Static</span>
-                        <span ><b>buildForTask</b></span>
-                        <a href="#buildForTask"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>buildForTask(jwt: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, schoolId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, parentId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="24"
-                            class="link-to-prism">apps/server/src/modules/files-storage-client/mapper/files-storage-param.builder.ts:24</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="6"
+                            class="link-to-prism">apps/server/src/modules/files-storage-client/mapper/files-storage-param.builder.ts:6</a></div>
                 </td>
             </tr>
 
@@ -285,9 +174,9 @@
 
                                 </tr>
                                 <tr>
-                                    <td>parentId</td>
+                                    <td>parent</td>
                                     <td>
-                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
+                                                <code><a href="../classes/Task.html" target="_self" >Task | Lesson</a></code>
                                     </td>
 
                                     <td>
@@ -322,31 +211,19 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { EntityId } from &#x27;@shared/domain&#x27;;
-import { FileRecordParamsParentTypeEnum } from &#x27;../filesStorageApi/v3&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { EntityId, Lesson, Task } from &#x27;@shared/domain&#x27;;
 import { FileRequestInfo } from &#x27;../interfaces&#x27;;
 import { FilesStorageClientMapper } from &#x27;./files-storage-client.mapper&#x27;;
 
 export class FileParamBuilder {
-	static build(
-		jwt: string,
-		schoolId: EntityId,
-		parentTypeString: FileRecordParamsParentTypeEnum,
-		parentId: EntityId
-	): FileRequestInfo {
-		const parentType &#x3D; FilesStorageClientMapper.mapStringToParentType(parentTypeString);
+	static build(jwt: string, schoolId: EntityId, parent: Task | Lesson): FileRequestInfo {
+		const parentType &#x3D; FilesStorageClientMapper.mapEntityToParentType(parent);
 		const fileRequestInfo &#x3D; {
 			jwt,
 			parentType,
 			schoolId,
-			parentId,
+			parentId: parent.id,
 		};
-
-		return fileRequestInfo;
-	}
-
-	static buildForTask(jwt: string, schoolId: EntityId, parentId: EntityId): FileRequestInfo {
-		const fileRequestInfo &#x3D; FileParamBuilder.build(jwt, schoolId, &#x27;tasks&#x27;, parentId);
 
 		return fileRequestInfo;
 	}

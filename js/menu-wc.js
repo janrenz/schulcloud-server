@@ -474,13 +474,16 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/FilesStorageClientModule.html" data-type="entity-link" >FilesStorageClientModule</a>
                                 <li class="chapter inner">
                                     <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                        'data-target="#injectables-links-module-FilesStorageClientModule-b0d21dc96068b6022d29e838f91d052d0e27b92a9c9bd924d050b32f0cedaad2c0284f892b3b20108b0d0f7e45b661cdae816a90e7d228c28473a0615ce43a3f"' : 'data-target="#xs-injectables-links-module-FilesStorageClientModule-b0d21dc96068b6022d29e838f91d052d0e27b92a9c9bd924d050b32f0cedaad2c0284f892b3b20108b0d0f7e45b661cdae816a90e7d228c28473a0615ce43a3f"' }>
+                                        'data-target="#injectables-links-module-FilesStorageClientModule-fc2996b8ba36ff911109f529a5c426b3ad8ecc22d6e3ba83b87e03450ba866d5a77a3ee468cbd241853c86ba798b1c7a5f23fc685b714d597eae4bd0e19289cc"' : 'data-target="#xs-injectables-links-module-FilesStorageClientModule-fc2996b8ba36ff911109f529a5c426b3ad8ecc22d6e3ba83b87e03450ba866d5a77a3ee468cbd241853c86ba798b1c7a5f23fc685b714d597eae4bd0e19289cc"' }>
                                         <span class="icon ion-md-arrow-round-down"></span>
                                         <span>Injectables</span>
                                         <span class="icon ion-ios-arrow-down"></span>
                                     </div>
-                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-FilesStorageClientModule-b0d21dc96068b6022d29e838f91d052d0e27b92a9c9bd924d050b32f0cedaad2c0284f892b3b20108b0d0f7e45b661cdae816a90e7d228c28473a0615ce43a3f"' :
-                                        'id="xs-injectables-links-module-FilesStorageClientModule-b0d21dc96068b6022d29e838f91d052d0e27b92a9c9bd924d050b32f0cedaad2c0284f892b3b20108b0d0f7e45b661cdae816a90e7d228c28473a0615ce43a3f"' }>
+                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-FilesStorageClientModule-fc2996b8ba36ff911109f529a5c426b3ad8ecc22d6e3ba83b87e03450ba866d5a77a3ee468cbd241853c86ba798b1c7a5f23fc685b714d597eae4bd0e19289cc"' :
+                                        'id="xs-injectables-links-module-FilesStorageClientModule-fc2996b8ba36ff911109f529a5c426b3ad8ecc22d6e3ba83b87e03450ba866d5a77a3ee468cbd241853c86ba798b1c7a5f23fc685b714d597eae4bd0e19289cc"' }>
+                                        <li class="link">
+                                            <a href="injectables/CopyFilesService.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >CopyFilesService</a>
+                                        </li>
                                         <li class="link">
                                             <a href="injectables/FilesStorageClientAdapterService.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >FilesStorageClientAdapterService</a>
                                         </li>
@@ -1558,7 +1561,16 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/CopyApiResponse.html" data-type="entity-link" >CopyApiResponse</a>
                             </li>
                             <li class="link">
+                                <a href="classes/CopyFileDto.html" data-type="entity-link" >CopyFileDto</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/CopyFileListResponse.html" data-type="entity-link" >CopyFileListResponse</a>
+                            </li>
+                            <li class="link">
                                 <a href="classes/CopyFileParams.html" data-type="entity-link" >CopyFileParams</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/CopyFileResponse.html" data-type="entity-link" >CopyFileResponse</a>
                             </li>
                             <li class="link">
                                 <a href="classes/CopyFilesOfParentParams.html" data-type="entity-link" >CopyFilesOfParentParams</a>
@@ -2243,9 +2255,6 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                     <a href="injectables/FilesRepo.html" data-type="entity-link" >FilesRepo</a>
                                 </li>
                                 <li class="link">
-                                    <a href="injectables/FilesStorageClientAdapterService.html" data-type="entity-link" >FilesStorageClientAdapterService</a>
-                                </li>
-                                <li class="link">
                                     <a href="injectables/FileStorageAdapter.html" data-type="entity-link" >FileStorageAdapter</a>
                                 </li>
                                 <li class="link">
@@ -2457,7 +2466,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="interfaces/ConfigurationParameters.html" data-type="entity-link" >ConfigurationParameters</a>
                             </li>
                             <li class="link">
+                                <a href="interfaces/CopyFileListResponse.html" data-type="entity-link" >CopyFileListResponse</a>
+                            </li>
+                            <li class="link">
                                 <a href="interfaces/CopyFileParams.html" data-type="entity-link" >CopyFileParams</a>
+                            </li>
+                            <li class="link">
+                                <a href="interfaces/CopyFileResponse.html" data-type="entity-link" >CopyFileResponse</a>
                             </li>
                             <li class="link">
                                 <a href="interfaces/CopyFilesOfParentParams.html" data-type="entity-link" >CopyFilesOfParentParams</a>
@@ -2545,6 +2560,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="interfaces/IComponentTextProperties.html" data-type="entity-link" >IComponentTextProperties</a>
+                            </li>
+                            <li class="link">
+                                <a href="interfaces/ICopyFileDomainObjectProps.html" data-type="entity-link" >ICopyFileDomainObjectProps</a>
                             </li>
                             <li class="link">
                                 <a href="interfaces/ICopyFiles.html" data-type="entity-link" >ICopyFiles</a>
