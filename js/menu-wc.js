@@ -1615,6 +1615,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/DashboardResponse.html" data-type="entity-link" >DashboardResponse</a>
                             </li>
                             <li class="link">
+                                <a href="classes/DashboardUrlParams.html" data-type="entity-link" >DashboardUrlParams</a>
+                            </li>
+                            <li class="link">
                                 <a href="classes/DatabaseManagementConsole.html" data-type="entity-link" >DatabaseManagementConsole</a>
                             </li>
                             <li class="link">
@@ -1738,6 +1741,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/ImportUserScope.html" data-type="entity-link" >ImportUserScope</a>
                             </li>
                             <li class="link">
+                                <a href="classes/ImportUserUrlParams.html" data-type="entity-link" >ImportUserUrlParams</a>
+                            </li>
+                            <li class="link">
                                 <a href="classes/JwtExtractor.html" data-type="entity-link" >JwtExtractor</a>
                             </li>
                             <li class="link">
@@ -1760,6 +1766,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="classes/LessonScope.html" data-type="entity-link" >LessonScope</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/LessonUrlParams.html" data-type="entity-link" >LessonUrlParams</a>
                             </li>
                             <li class="link">
                                 <a href="classes/LtiToolDO.html" data-type="entity-link" >LtiToolDO</a>
@@ -1793,6 +1802,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="classes/NewsScope.html" data-type="entity-link" >NewsScope</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/NewsUrlParams.html" data-type="entity-link" >NewsUrlParams</a>
                             </li>
                             <li class="link">
                                 <a href="classes/OauthConfig.html" data-type="entity-link" >OauthConfig</a>
@@ -1889,6 +1901,12 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="classes/RoleNameMapper.html" data-type="entity-link" >RoleNameMapper</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/RoomElementUrlParams.html" data-type="entity-link" >RoomElementUrlParams</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/RoomUrlParams.html" data-type="entity-link" >RoomUrlParams</a>
                             </li>
                             <li class="link">
                                 <a href="classes/ScanResultParams.html" data-type="entity-link" >ScanResultParams</a>
@@ -2002,6 +2020,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/SystemScope.html" data-type="entity-link" >SystemScope</a>
                             </li>
                             <li class="link">
+                                <a href="classes/SystemUrlParams.html" data-type="entity-link" >SystemUrlParams</a>
+                            </li>
+                            <li class="link">
                                 <a href="classes/TargetInfoMapper.html" data-type="entity-link" >TargetInfoMapper</a>
                             </li>
                             <li class="link">
@@ -2035,6 +2056,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/TaskStatusResponse.html" data-type="entity-link" >TaskStatusResponse</a>
                             </li>
                             <li class="link">
+                                <a href="classes/TaskUrlParams.html" data-type="entity-link" >TaskUrlParams</a>
+                            </li>
+                            <li class="link">
                                 <a href="classes/TaskWithStatusVo.html" data-type="entity-link" >TaskWithStatusVo</a>
                             </li>
                             <li class="link">
@@ -2054,6 +2078,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="classes/TeamRolePermissionsDto.html" data-type="entity-link" >TeamRolePermissionsDto</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/TeamUrlParams.html" data-type="entity-link" >TeamUrlParams</a>
                             </li>
                             <li class="link">
                                 <a href="classes/TeamUser.html" data-type="entity-link" >TeamUser</a>
@@ -2301,9 +2328,6 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 </li>
                                 <li class="link">
                                     <a href="injectables/OAuthService.html" data-type="entity-link" >OAuthService</a>
-                                </li>
-                                <li class="link">
-                                    <a href="injectables/ParseObjectIdPipe.html" data-type="entity-link" >ParseObjectIdPipe</a>
                                 </li>
                                 <li class="link">
                                     <a href="injectables/PermissionService.html" data-type="entity-link" >PermissionService</a>

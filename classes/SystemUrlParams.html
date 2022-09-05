@@ -28,7 +28,7 @@
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
-               <div class="content injectable">
+               <div class="content class">
                    <div class="content-data">
 
 
@@ -38,9 +38,13 @@
 
 
 
+
+
+
+
 <ol class="breadcrumb">
-  <li>Injectables</li>
-  <li >ParseObjectIdPipe</li>
+  <li>Classes</li>
+  <li >SystemUrlParams</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -58,8 +62,9 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/shared/controller/pipe/parse-object-id.pipe.ts</code>
+            <code>apps/server/src/modules/oauth/controller/dto/system.url.params.ts</code>
         </p>
+
 
 
 
@@ -69,21 +74,21 @@
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
         <tbody>
-
                 <tr>
                     <td class="col-md-4">
-                        <h6><b>Methods</b></h6>
+                        <h6><b>Properties</b></h6>
                     </td>
                 </tr>
                 <tr>
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#transform" >transform</a>
+                                <a href="#systemId" >systemId</a>
                             </li>
                         </ul>
                     </td>
                 </tr>
+
 
 
 
@@ -96,108 +101,71 @@
 
             <section>
     
-    <h3 id="methods">
-        Methods
+    <h3 id="inputs">
+        Properties
     </h3>
     <table class="table table-sm table-bordered">
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="transform"></a>
+                    <a name="systemId"></a>
                     <span class="name">
-                        <span ><b>transform</b></span>
-                        <a href="#transform"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>systemId</b></span>
+                        <a href="#systemId"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
-            <tr>
-                <td class="col-md-4">
-<code>transform(value: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
-                </td>
-            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @IsMongoId()<br />@ApiProperty({description: &#x27;The id of the system.&#x27;, required: true, nullable: false})<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">apps/server/src/modules/oauth/controller/dto/system.url.params.ts:11</a></div>
+                        </td>
+                    </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="7"
-                            class="link-to-prism">apps/server/src/shared/controller/pipe/parse-object-id.pipe.ts:7</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>value</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
         </tbody>
     </table>
 </section>
+
+
+
+
+
+
 
     </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { PipeTransform, Injectable, BadRequestException } from &#x27;@nestjs/common&#x27;;
-import { ObjectId } from &#x27;@mikro-orm/mongodb&#x27;;
-import { EntityId } from &#x27;@shared/domain&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ApiProperty } from &#x27;@nestjs/swagger&#x27;;
+import { IsMongoId } from &#x27;class-validator&#x27;;
 
-@Injectable()
-export class ParseObjectIdPipe implements PipeTransform&lt;string, EntityId&gt; {
-	transform(value: string): string {
-		const validObjectId &#x3D; ObjectId.isValid(value);
-
-		if (!validObjectId) {
-			throw new BadRequestException(&#x27;Invalid ObjectId&#x27;);
-		}
-
-		return value;
-	}
+export class SystemUrlParams {
+	@IsMongoId()
+	@ApiProperty({
+		description: &#x27;The id of the system.&#x27;,
+		required: true,
+		nullable: false,
+	})
+	systemId!: string;
 }
 </code></pre>
     </div>
-
 </div>
-
-
-
-
 
 
 
@@ -232,8 +200,8 @@ export class ParseObjectIdPipe implements PipeTransform&lt;string, EntityId&gt; 
 
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
-            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
-            var COMPODOC_CURRENT_PAGE_URL = 'ParseObjectIdPipe.html';
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
+            var COMPODOC_CURRENT_PAGE_URL = 'SystemUrlParams.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 
