@@ -177,8 +177,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="146"
-                            class="link-to-prism">apps/server/src/shared/repo/user/user.repo.ts:146</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="148"
+                            class="link-to-prism">apps/server/src/shared/repo/user/user.repo.ts:148</a></div>
                 </td>
             </tr>
 
@@ -522,8 +522,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="170"
-                            class="link-to-prism">apps/server/src/shared/repo/user/user.repo.ts:170</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="172"
+                            class="link-to-prism">apps/server/src/shared/repo/user/user.repo.ts:172</a></div>
                 </td>
             </tr>
 
@@ -562,8 +562,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="154"
-                            class="link-to-prism">apps/server/src/shared/repo/user/user.repo.ts:154</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="156"
+                            class="link-to-prism">apps/server/src/shared/repo/user/user.repo.ts:156</a></div>
                 </td>
             </tr>
 
@@ -631,8 +631,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="166"
-                            class="link-to-prism">apps/server/src/shared/repo/user/user.repo.ts:166</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="168"
+                            class="link-to-prism">apps/server/src/shared/repo/user/user.repo.ts:168</a></div>
                 </td>
             </tr>
 
@@ -987,6 +987,7 @@ export class UserRepo extends BaseRepo&lt;User&gt; {
 		const { _id: schoolId } &#x3D; school;
 		if (!ObjectId.isValid(schoolId)) throw new Error(&#x27;invalid school id&#x27;);
 
+		const existingMatch &#x3D; { deletedAt: null };
 		const permittedMatch &#x3D; { schoolId };
 
 		const queryFilterMatch: { $or?: unknown[] } &#x3D; {};
@@ -1016,6 +1017,7 @@ export class UserRepo extends BaseRepo&lt;User&gt; {
 		}
 
 		const pipeline: unknown[] &#x3D; [
+			{ $match: existingMatch },
 			{ $match: permittedMatch },
 			{
 				$lookup: {
