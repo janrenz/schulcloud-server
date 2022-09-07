@@ -133,8 +133,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="16"
-                            class="link-to-prism">apps/server/src/modules/oauth/controller/oauth-sso.controller.ts:16</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="17"
+                            class="link-to-prism">apps/server/src/modules/oauth/controller/oauth-sso.controller.ts:17</a></div>
                 </td>
             </tr>
 
@@ -196,7 +196,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>    <code>Promise&lt;&gt;</code>
+                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
 
                     </div>
                     <div class="io-description">
@@ -213,7 +213,8 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Controller, Get, Param, Query, Res } from &#x27;@nestjs/common&#x27;;
 import { ApiTags } from &#x27;@nestjs/swagger&#x27;;
 import { Logger } from &#x27;@src/core/logger&#x27;;
-import { Response } from &#x27;express&#x27;;
+import { CookieOptions, Response } from &#x27;express&#x27;;
+import { Configuration } from &#x27;@hpi-schul-cloud/commons/lib&#x27;;
 import { OauthUc } from &#x27;../uc/oauth.uc&#x27;;
 import { AuthorizationParams, SystemUrlParams } from &#x27;./dto&#x27;;
 
@@ -229,10 +230,16 @@ export class OauthSSOController {
 		@Query() query: AuthorizationParams,
 		@Res() res: Response,
 		@Param() urlParams: SystemUrlParams
-	): Promise&lt;unknown&gt; {
+	): Promise&lt;void&gt; {
 		const oauthResponse &#x3D; await this.oauthUc.startOauth(query, urlParams.systemId);
-		res.cookie(&#x27;jwt&#x27;, oauthResponse.jwt ? oauthResponse.jwt : &#x27;&#x27;);
-		return res.redirect(oauthResponse.redirect ? oauthResponse.redirect : &#x27;&#x27;);
+		const cookieDefaultOptions: CookieOptions &#x3D; {
+			httpOnly: Configuration.get(&#x27;COOKIE__HTTP_ONLY&#x27;) as boolean,
+			sameSite: Configuration.get(&#x27;COOKIE__SAME_SITE&#x27;) as &#x27;lax&#x27; | &#x27;strict&#x27; | &#x27;none&#x27;,
+			secure: Configuration.get(&#x27;COOKIE__SECURE&#x27;) as boolean,
+			expires: new Date(Date.now() + (Configuration.get(&#x27;COOKIE__EXPIRES_SECONDS&#x27;) as number)),
+		};
+		res.cookie(&#x27;jwt&#x27;, oauthResponse.jwt ? oauthResponse.jwt : &#x27;&#x27;, cookieDefaultOptions);
+		res.redirect(oauthResponse.redirect ? oauthResponse.redirect : &#x27;&#x27;);
 	}
 }
 </code></pre>
