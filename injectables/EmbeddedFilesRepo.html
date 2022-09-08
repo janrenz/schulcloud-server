@@ -506,7 +506,7 @@ import { SyncFileItemMapper } from &#x27;../mapper&#x27;;
 import { AvailableSyncEntityType, AvailableSyncParentType, SyncFileItem } from &#x27;../types&#x27;;
 
 export const fileUrlRegex &#x3D; &#x27;&quot;(https?://[^&quot;]*)?/files/file\\?file&#x3D;&#x27;;
-const fileIdRegex &#x3D; &#x27;(0x|0h)?[0-9A-F]{24}&#x27;;
+export const fileIdRegex &#x3D; &#x27;(0x|0h)?[0-9A-F]{24}&#x27;;
 const tasksQuery &#x3D; (excludeIds: ObjectId[]) &#x3D;&gt; {
 	return {
 		_id: { $nin: excludeIds },
