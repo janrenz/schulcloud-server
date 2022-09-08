@@ -170,13 +170,13 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @Property({nullable: true})<br />
+                            @Property({nullable: true})<br />@Index()<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="102" class="link-to-prism">apps/server/src/shared/domain/entity/user.entity.ts:102</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="103" class="link-to-prism">apps/server/src/shared/domain/entity/user.entity.ts:103</a></div>
                         </td>
                     </tr>
 
@@ -787,6 +787,7 @@ export class User extends BaseEntityWithTimestamps implements IEntityWithSchool 
 	preferences?: Record&lt;string, unknown&gt;;
 
 	@Property({ nullable: true })
+	@Index()
 	deletedAt?: Date;
 
 	constructor(props: IUserProperties) {
