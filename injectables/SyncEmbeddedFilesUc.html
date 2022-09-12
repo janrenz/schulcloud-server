@@ -252,8 +252,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="60"
-                            class="link-to-prism">apps/server/src/modules/files/uc/sync-embedded-files.uc.ts:60</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="59"
+                            class="link-to-prism">apps/server/src/modules/files/uc/sync-embedded-files.uc.ts:59</a></div>
                 </td>
             </tr>
 
@@ -323,8 +323,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="98"
-                            class="link-to-prism">apps/server/src/modules/files/uc/sync-embedded-files.uc.ts:98</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="95"
+                            class="link-to-prism">apps/server/src/modules/files/uc/sync-embedded-files.uc.ts:95</a></div>
                 </td>
             </tr>
 
@@ -394,8 +394,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="145"
-                            class="link-to-prism">apps/server/src/modules/files/uc/sync-embedded-files.uc.ts:145</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="142"
+                            class="link-to-prism">apps/server/src/modules/files/uc/sync-embedded-files.uc.ts:142</a></div>
                 </td>
             </tr>
 
@@ -490,8 +490,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="110"
-                            class="link-to-prism">apps/server/src/modules/files/uc/sync-embedded-files.uc.ts:110</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="107"
+                            class="link-to-prism">apps/server/src/modules/files/uc/sync-embedded-files.uc.ts:107</a></div>
                 </td>
             </tr>
 
@@ -658,8 +658,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="105"
-                            class="link-to-prism">apps/server/src/modules/files/uc/sync-embedded-files.uc.ts:105</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="102"
+                            class="link-to-prism">apps/server/src/modules/files/uc/sync-embedded-files.uc.ts:102</a></div>
                 </td>
             </tr>
 
@@ -831,8 +831,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="127"
-                            class="link-to-prism">apps/server/src/modules/files/uc/sync-embedded-files.uc.ts:127</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="124"
+                            class="link-to-prism">apps/server/src/modules/files/uc/sync-embedded-files.uc.ts:124</a></div>
                 </td>
             </tr>
 
@@ -986,8 +986,7 @@ export class SyncEmbeddedFilesUc {
 			const files &#x3D; await this.embeddedFilesRepo.findFiles(fileIds, entity._id, type);
 
 			fileIds.forEach((id) &#x3D;&gt; {
-				const idExists &#x3D; files.some((file) &#x3D;&gt; new ObjectId(file.source.id) &#x3D;&#x3D;&#x3D; id);
-
+				const idExists &#x3D; files.some((file) &#x3D;&gt; file.source.id &#x3D;&#x3D;&#x3D; id.toHexString());
 				if (!idExists) {
 					this.failedIds.push(entity._id);
 					this.logger.error(&#x60;legacy file with id: ${id.toHexString()} in entity ${entity._id.toHexString()} not found&#x60;);
@@ -1009,13 +1008,11 @@ export class SyncEmbeddedFilesUc {
 
 		if (entity instanceof Lesson) {
 			entity.contents.forEach((item: IComponentProperties) &#x3D;&gt; {
-				if (item.content &#x3D;&#x3D;&#x3D; undefined || !(&#x27;text&#x27; in item.content)) {
-					return;
-				}
-
-				const contentFileIds &#x3D; this.extractFileIdsFromContent(item.content.text);
-				if (contentFileIds !&#x3D;&#x3D; null) {
-					fileIds.push(...contentFileIds);
+				if (item.component &#x3D;&#x3D;&#x3D; &#x27;text&#x27; &amp;&amp; &#x27;text&#x27; in item.content) {
+					const contentFileIds &#x3D; this.extractFileIdsFromContent(item.content.text);
+					if (contentFileIds !&#x3D;&#x3D; null) {
+						fileIds.push(...contentFileIds);
+					}
 				}
 			});
 		}
@@ -1074,7 +1071,7 @@ export class SyncEmbeddedFilesUc {
 	private async updateEntityLinks(file: SyncFileItem, entity: Task | Lesson, errorUrl?: string) {
 		if (file.parentType &#x3D;&#x3D;&#x3D; FileRecordParentType.Lesson &amp;&amp; entity instanceof Lesson) {
 			entity.contents &#x3D; entity.contents.map((item: IComponentProperties) &#x3D;&gt; {
-				if (&#x27;text&#x27; in item.content) {
+				if (item.component &#x3D;&#x3D;&#x3D; &#x27;text&#x27; &amp;&amp; &#x27;text&#x27; in item.content) {
 					item.content.text &#x3D; this.replaceLink(item.content.text, file, errorUrl);
 				}
 
