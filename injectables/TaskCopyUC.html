@@ -351,8 +351,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="95"
-                            class="link-to-prism">apps/server/src/modules/task/uc/task-copy.uc.ts:95</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="103"
+                            class="link-to-prism">apps/server/src/modules/task/uc/task-copy.uc.ts:103</a></div>
                 </td>
             </tr>
 
@@ -391,8 +391,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="79"
-                            class="link-to-prism">apps/server/src/modules/task/uc/task-copy.uc.ts:79</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="87"
+                            class="link-to-prism">apps/server/src/modules/task/uc/task-copy.uc.ts:87</a></div>
                 </td>
             </tr>
 
@@ -475,8 +475,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="87"
-                            class="link-to-prism">apps/server/src/modules/task/uc/task-copy.uc.ts:87</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="95"
+                            class="link-to-prism">apps/server/src/modules/task/uc/task-copy.uc.ts:95</a></div>
                 </td>
             </tr>
 
@@ -611,10 +611,18 @@ export class TaskCopyUC {
 			copyName,
 		});
 
-		if (status.copyEntity) {
-			const taskCopy &#x3D; status.copyEntity as Task;
-			await this.taskRepo.save(taskCopy);
-			status &#x3D; await this.fileCopyAppendService.appendFiles(status, parentParams.jwt);
+		if (status.copyEntity instanceof Task &amp;&amp; status.originalEntity instanceof Task) {
+			await this.taskRepo.save(status.copyEntity);
+			status &#x3D; await this.fileCopyAppendService.copyFilesOfEntity(
+				status,
+				status.originalEntity,
+				status.copyEntity,
+				parentParams.jwt
+			);
+		}
+
+		if (status.copyEntity instanceof Task) {
+			await this.taskRepo.save(status.copyEntity);
 		}
 
 		return status;
