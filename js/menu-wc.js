@@ -1450,6 +1450,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/AccountEntityToDtoMapper.html" data-type="entity-link" >AccountEntityToDtoMapper</a>
                             </li>
                             <li class="link">
+                                <a href="classes/AccountFactory.html" data-type="entity-link" >AccountFactory</a>
+                            </li>
+                            <li class="link">
                                 <a href="classes/AccountResponse.html" data-type="entity-link" >AccountResponse</a>
                             </li>
                             <li class="link">
