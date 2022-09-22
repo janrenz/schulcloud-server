@@ -163,12 +163,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(accountService: <a href="../injectables/AccountService.html" target="_self">AccountService</a>, userRepo: <a href="../injectables/UserRepo.html" target="_self">UserRepo</a>, permissionService: <a href="../injectables/PermissionService.html" target="_self">PermissionService</a>, accountValidationService: <a href="../injectables/AccountValidationService.html" target="_self">AccountValidationService</a>)</code>
+<code>constructor(accountService: <a href="../injectables/AccountService.html" target="_self">AccountService</a>, userRepo: <a href="../injectables/UserRepo.html" target="_self">UserRepo</a>, permissionService: <a href="../injectables/PermissionService.html" target="_self">PermissionService</a>, accountValidationService: <a href="../injectables/AccountValidationService.html" target="_self">AccountValidationService</a>, configService: <a href="../classes/Account.html" target="_self">ConfigService&lt;IAccountConfig | &gt;</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">apps/server/src/modules/account/uc/account.uc.ts:48</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">apps/server/src/modules/account/uc/account.uc.ts:47</a></div>
                             </td>
                         </tr>
 
@@ -226,6 +226,18 @@
                                                   
                                                         <td>
                                                                         <code><a href="../injectables/AccountValidationService.html" target="_self" >AccountValidationService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>configService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../classes/Account.html" target="_self" >ConfigService&lt;IAccountConfig | &gt;</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -1694,7 +1706,8 @@ import {
 import { UserRepo } from &#x27;@shared/repo&#x27;;
 import { AccountService } from &#x27;@src/modules/account/services/account.service&#x27;;
 import { AccountDto } from &#x27;@src/modules/account/services/dto/account.dto&#x27;;
-import { Configuration } from &#x27;@hpi-schul-cloud/commons/lib&#x27;;
+import { ConfigService } from &#x27;@nestjs/config&#x27;;
+
 import { ObjectId } from &#x27;bson&#x27;;
 import {
 	AccountByIdBodyParams,
@@ -1708,22 +1721,21 @@ import {
 import { AccountResponseMapper } from &#x27;../mapper&#x27;;
 import { AccountSaveDto } from &#x27;../services/dto&#x27;;
 import { AccountValidationService } from &#x27;../services/account.validation.service&#x27;;
-
-import { BruteForcePrevention } from &#x27;../../../../../../src/errors/index.js&#x27;;
-import { LOGIN_BLOCK_TIME as allowedTimeDifference } from &#x27;../../../../../../config/globals.js&#x27;;
+import { BruteForcePrevention } from &#x27;../../../imports-from-feathers&#x27;;
+import { IAccountConfig } from &#x27;../account-config&#x27;;
 
 type UserPreferences &#x3D; {
 	// first login completed
 	firstLogin: boolean;
 };
-
 @Injectable()
 export class AccountUc {
 	constructor(
 		private readonly accountService: AccountService,
 		private readonly userRepo: UserRepo,
 		private readonly permissionService: PermissionService,
-		private readonly accountValidationService: AccountValidationService
+		private readonly accountValidationService: AccountValidationService,
+		private readonly configService: ConfigService&lt;IAccountConfig, true&gt;
 	) {}
 
 	/**
@@ -2021,9 +2033,9 @@ export class AccountUc {
 		if (account) {
 			if (account.lasttriedFailedLogin) {
 				const timeDifference &#x3D; (new Date().getTime() - account.lasttriedFailedLogin.getTime()) / 1000;
-				if (timeDifference &lt; allowedTimeDifference) {
+				if (timeDifference &lt; this.configService.get&lt;number&gt;(&#x27;LOGIN_BLOCK_TIME&#x27;)) {
 					throw new BruteForcePrevention(&#x27;Brute Force Prevention!&#x27;, {
-						timeToWait: allowedTimeDifference - Math.ceil(timeDifference),
+						timeToWait: this.configService.get&lt;number&gt;(&#x27;LOGIN_BLOCK_TIME&#x27;) - Math.ceil(timeDifference),
 					});
 				}
 			}
@@ -2084,7 +2096,7 @@ export class AccountUc {
 					break;
 				case &#x27;DELETE&#x27;:
 					permissionsToCheck.push(&#x27;STUDENT_DELETE&#x27;);
-					break; 
+					break;
 				*/
 			}
 		}
@@ -2123,7 +2135,7 @@ export class AccountUc {
 	}
 
 	private schoolPermissionExists(roles: string[], school: School, permissions: string[]): boolean {
-		if (Configuration.get(&#x27;TEACHER_STUDENT_VISIBILITY__IS_CONFIGURABLE&#x27;)) {
+		if (this.configService.get&lt;boolean&gt;(&#x27;TEACHER_STUDENT_VISIBILITY__IS_CONFIGURABLE&#x27;)) {
 			if (
 				roles.find((role) &#x3D;&gt; role &#x3D;&#x3D;&#x3D; RoleName.TEACHER) &amp;&amp;
 				permissions.find((permission) &#x3D;&gt; permission &#x3D;&#x3D;&#x3D; Permission.STUDENT_LIST)

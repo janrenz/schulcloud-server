@@ -117,13 +117,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/AccountModule.html" data-type="entity-link" >AccountModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#controllers-links-module-AccountModule-8302b6843256ca570f43699ae1c24cdc0eacc1faae64225d71013808f6e5f1ccf6b9b53473fdf42a4986c7e02a141f0fd2e7ca22b4403ad5d829a121ecc828cf"' : 'data-target="#xs-controllers-links-module-AccountModule-8302b6843256ca570f43699ae1c24cdc0eacc1faae64225d71013808f6e5f1ccf6b9b53473fdf42a4986c7e02a141f0fd2e7ca22b4403ad5d829a121ecc828cf"' }>
+                                            'data-target="#controllers-links-module-AccountModule-96657f1c20a12b08c4aa6f15cde5f15ebe1dff9a3cd4ba9edb15b188f05f6cd6fa16dfc2c92052379864f43e9e1aa1e2c9010c8836152c55506826a75e8205ff"' : 'data-target="#xs-controllers-links-module-AccountModule-96657f1c20a12b08c4aa6f15cde5f15ebe1dff9a3cd4ba9edb15b188f05f6cd6fa16dfc2c92052379864f43e9e1aa1e2c9010c8836152c55506826a75e8205ff"' }>
                                             <span class="icon ion-md-swap"></span>
                                             <span>Controllers</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="controllers-links-module-AccountModule-8302b6843256ca570f43699ae1c24cdc0eacc1faae64225d71013808f6e5f1ccf6b9b53473fdf42a4986c7e02a141f0fd2e7ca22b4403ad5d829a121ecc828cf"' :
-                                            'id="xs-controllers-links-module-AccountModule-8302b6843256ca570f43699ae1c24cdc0eacc1faae64225d71013808f6e5f1ccf6b9b53473fdf42a4986c7e02a141f0fd2e7ca22b4403ad5d829a121ecc828cf"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="controllers-links-module-AccountModule-96657f1c20a12b08c4aa6f15cde5f15ebe1dff9a3cd4ba9edb15b188f05f6cd6fa16dfc2c92052379864f43e9e1aa1e2c9010c8836152c55506826a75e8205ff"' :
+                                            'id="xs-controllers-links-module-AccountModule-96657f1c20a12b08c4aa6f15cde5f15ebe1dff9a3cd4ba9edb15b188f05f6cd6fa16dfc2c92052379864f43e9e1aa1e2c9010c8836152c55506826a75e8205ff"' }>
                                             <li class="link">
                                                 <a href="controllers/AccountController.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >AccountController</a>
                                             </li>
@@ -131,13 +131,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                     </li>
                                 <li class="chapter inner">
                                     <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                        'data-target="#injectables-links-module-AccountModule-8302b6843256ca570f43699ae1c24cdc0eacc1faae64225d71013808f6e5f1ccf6b9b53473fdf42a4986c7e02a141f0fd2e7ca22b4403ad5d829a121ecc828cf"' : 'data-target="#xs-injectables-links-module-AccountModule-8302b6843256ca570f43699ae1c24cdc0eacc1faae64225d71013808f6e5f1ccf6b9b53473fdf42a4986c7e02a141f0fd2e7ca22b4403ad5d829a121ecc828cf"' }>
+                                        'data-target="#injectables-links-module-AccountModule-96657f1c20a12b08c4aa6f15cde5f15ebe1dff9a3cd4ba9edb15b188f05f6cd6fa16dfc2c92052379864f43e9e1aa1e2c9010c8836152c55506826a75e8205ff"' : 'data-target="#xs-injectables-links-module-AccountModule-96657f1c20a12b08c4aa6f15cde5f15ebe1dff9a3cd4ba9edb15b188f05f6cd6fa16dfc2c92052379864f43e9e1aa1e2c9010c8836152c55506826a75e8205ff"' }>
                                         <span class="icon ion-md-arrow-round-down"></span>
                                         <span>Injectables</span>
                                         <span class="icon ion-ios-arrow-down"></span>
                                     </div>
-                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-AccountModule-8302b6843256ca570f43699ae1c24cdc0eacc1faae64225d71013808f6e5f1ccf6b9b53473fdf42a4986c7e02a141f0fd2e7ca22b4403ad5d829a121ecc828cf"' :
-                                        'id="xs-injectables-links-module-AccountModule-8302b6843256ca570f43699ae1c24cdc0eacc1faae64225d71013808f6e5f1ccf6b9b53473fdf42a4986c7e02a141f0fd2e7ca22b4403ad5d829a121ecc828cf"' }>
+                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-AccountModule-96657f1c20a12b08c4aa6f15cde5f15ebe1dff9a3cd4ba9edb15b188f05f6cd6fa16dfc2c92052379864f43e9e1aa1e2c9010c8836152c55506826a75e8205ff"' :
+                                        'id="xs-injectables-links-module-AccountModule-96657f1c20a12b08c4aa6f15cde5f15ebe1dff9a3cd4ba9edb15b188f05f6cd6fa16dfc2c92052379864f43e9e1aa1e2c9010c8836152c55506826a75e8205ff"' }>
                                         <li class="link">
                                             <a href="injectables/AccountRepo.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >AccountRepo</a>
                                         </li>
@@ -2651,6 +2651,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="interfaces/IAccount.html" data-type="entity-link" >IAccount</a>
+                            </li>
+                            <li class="link">
+                                <a href="interfaces/IAccountConfig.html" data-type="entity-link" >IAccountConfig</a>
                             </li>
                             <li class="link">
                                 <a href="interfaces/IAccountUpdate.html" data-type="entity-link" >IAccountUpdate</a>
