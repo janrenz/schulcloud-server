@@ -89,6 +89,10 @@
                                 <a href="#findByName" >findByName</a>
                             </li>
                             <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#findByOauthClientId" >findByOauthClientId</a>
+                            </li>
+                            <li>
                                 <a href="#getConstructor" >getConstructor</a>
                             </li>
                             <li>
@@ -226,6 +230,77 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="findByOauthClientId"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>findByOauthClientId</b></span>
+                        <a href="#findByOauthClientId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findByOauthClientId(oAuthClientId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="23"
+                            class="link-to-prism">apps/server/src/shared/repo/ltitool/ltitool.repo.ts:23</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>oAuthClientId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/LtiToolDO.html" target="_self" >Promise&lt;LtiToolDO&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="getConstructor"></a>
                     <span class="name">
                         <span ><b>getConstructor</b></span>
@@ -293,7 +368,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/BaseDORepo.html#source" target="_self" >BaseDORepo:32</a></code>
+                        <div class="io-line">Defined in         <code><a href="../injectables/BaseDORepo.html#source" target="_self" >BaseDORepo:40</a></code>
 </div>
                 </td>
             </tr>
@@ -370,7 +445,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/BaseDORepo.html#source" target="_self" >BaseDORepo:23</a></code>
+                        <div class="io-line">Defined in         <code><a href="../injectables/BaseDORepo.html#source" target="_self" >BaseDORepo:29</a></code>
 </div>
                 </td>
             </tr>
@@ -870,12 +945,20 @@ export class LtiToolRepo extends BaseDORepo&lt;LtiToolDO, LtiTool, ILtiToolPrope
 		return this.mapEntityToDO(entity);
 	}
 
+	async findByOauthClientId(oAuthClientId: string): Promise&lt;LtiToolDO&gt; {
+		const entity &#x3D; await this._em.findOneOrFail(LtiTool, { oAuthClientId });
+
+		return this.mapEntityToDO(entity);
+	}
+
 	protected mapEntityToDO(entity: LtiTool): LtiToolDO {
 		return new LtiToolDO({
 			id: entity.id,
 			createdAt: entity.createdAt,
 			updatedAt: entity.updatedAt,
 			name: entity.name,
+			oAuthClientId: entity.oAuthClientId,
+			secret: entity.secret,
 		});
 	}
 
@@ -883,6 +966,8 @@ export class LtiToolRepo extends BaseDORepo&lt;LtiToolDO, LtiTool, ILtiToolPrope
 		return {
 			id: entityDO.id,
 			name: entityDO.name,
+			oAuthClientId: entityDO.oAuthClientId,
+			secret: entityDO.secret,
 		};
 	}
 }

@@ -80,7 +80,7 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Async</span>
-                                <a href="#startOauth" >startOauth</a>
+                                <a href="#processOAuth" >processOAuth</a>
                             </li>
                         </ul>
                     </td>
@@ -105,7 +105,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">apps/server/src/modules/oauth/uc/oauth.uc.ts:8</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">apps/server/src/modules/oauth/uc/oauth.uc.ts:11</a></div>
                             </td>
                         </tr>
 
@@ -164,26 +164,26 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="startOauth"></a>
+                    <a name="processOAuth"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
-                        <span ><b>startOauth</b></span>
-                        <a href="#startOauth"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>processOAuth</b></span>
+                        <a href="#processOAuth"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>startOauth(query: <a href="../classes/AuthorizationParams.html" target="_self">AuthorizationParams</a>, systemId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    <code>processOAuth(query: <a href="../classes/AuthorizationParams.html" target="_self">AuthorizationParams</a>, systemId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="13"
-                            class="link-to-prism">apps/server/src/modules/oauth/uc/oauth.uc.ts:13</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="16"
+                            class="link-to-prism">apps/server/src/modules/oauth/uc/oauth.uc.ts:16</a></div>
                 </td>
             </tr>
 
@@ -251,9 +251,12 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
 import { Logger } from &#x27;@src/core/logger&#x27;;
-import { AuthorizationParams } from &#x27;../controller/dto/authorization.params&#x27;;
-import { OAuthResponse } from &#x27;../service/dto/oauth.response&#x27;;
+import { OauthConfig, User } from &#x27;@shared/domain&#x27;;
+import { OauthTokenResponse } from &#x27;@src/modules/oauth/controller/dto/oauth-token.response&#x27;;
+import { IJwt } from &#x27;@src/modules/oauth/interface/jwt.base.interface&#x27;;
 import { OAuthService } from &#x27;../service/oauth.service&#x27;;
+import { OAuthResponse } from &#x27;../service/dto/oauth.response&#x27;;
+import { AuthorizationParams } from &#x27;../controller/dto/authorization.params&#x27;;
 
 @Injectable()
 export class OauthUc {
@@ -261,9 +264,23 @@ export class OauthUc {
 		this.logger.setContext(OauthUc.name);
 	}
 
-	async startOauth(query: AuthorizationParams, systemId: string): Promise&lt;OAuthResponse&gt; {
-		const promise: Promise&lt;OAuthResponse&gt; &#x3D; this.oauthService.processOAuth(query, systemId);
-		return promise;
+	async processOAuth(query: AuthorizationParams, systemId: string): Promise&lt;OAuthResponse&gt; {
+		try {
+			const authCode: string &#x3D; this.oauthService.checkAuthorizationCode(query);
+			const oauthConfig: OauthConfig &#x3D; await this.oauthService.getOauthConfig(systemId);
+			const queryToken: OauthTokenResponse &#x3D; await this.oauthService.requestToken(authCode, oauthConfig);
+			const decodedToken: IJwt &#x3D; await this.oauthService.validateToken(queryToken.id_token, oauthConfig);
+			const user: User &#x3D; await this.oauthService.findUser(decodedToken, oauthConfig, systemId);
+			const jwtResponse: string &#x3D; await this.oauthService.getJwtForUser(user);
+			const response: OAuthResponse &#x3D; this.oauthService.buildResponse(oauthConfig, queryToken);
+			const oauthResponse: OAuthResponse &#x3D; this.oauthService.getRedirect(response);
+			oauthResponse.jwt &#x3D; jwtResponse;
+			return oauthResponse;
+		} catch (error) {
+			this.logger.log(error);
+			const config: OauthConfig &#x3D; await this.oauthService.getOauthConfig(systemId);
+			return this.oauthService.getOAuthError(error, config.provider);
+		}
 	}
 }
 </code></pre>

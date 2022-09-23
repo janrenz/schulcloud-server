@@ -77,6 +77,14 @@
                             <li>
                                 <a href="#name" >name</a>
                             </li>
+                            <li>
+                                    <span class="modifier">Optional</span>
+                                <a href="#oAuthClientId" >oAuthClientId</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Optional</span>
+                                <a href="#secret" >secret</a>
+                            </li>
                         </ul>
                     </td>
                 </tr>
@@ -123,7 +131,79 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">apps/server/src/shared/domain/entity/ltitool.entity.ts:9</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">apps/server/src/shared/domain/entity/ltitool.entity.ts:10</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="oAuthClientId"></a>
+                    <span class="name">
+                            <span class="modifier">Optional</span>
+                        <span ><b>oAuthClientId</b></span>
+                        <a href="#oAuthClientId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @Property()<br />@Optional()<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">apps/server/src/shared/domain/entity/ltitool.entity.ts:14</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="secret"></a>
+                    <span class="name">
+                            <span class="modifier">Optional</span>
+                        <span ><b>secret</b></span>
+                        <a href="#secret"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @Property()<br />@Optional()<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">apps/server/src/shared/domain/entity/ltitool.entity.ts:18</a></div>
                         </td>
                     </tr>
 
@@ -136,6 +216,7 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Entity, Property } from &#x27;@mikro-orm/core&#x27;;
+import { Optional } from &#x27;@nestjs/common&#x27;;
 import { BaseEntityWithTimestamps } from &#x27;./base.entity&#x27;;
 
 export type ILtiToolProperties &#x3D; Readonly&lt;Omit&lt;LtiTool, keyof BaseEntityWithTimestamps&gt;&gt;;
@@ -145,9 +226,19 @@ export class LtiTool extends BaseEntityWithTimestamps {
 	@Property()
 	name: string;
 
+	@Property()
+	@Optional()
+	oAuthClientId?: string;
+
+	@Property()
+	@Optional()
+	secret?: string;
+
 	constructor(props: ILtiToolProperties) {
 		super();
 		this.name &#x3D; props.name;
+		this.oAuthClientId &#x3D; props.oAuthClientId;
+		this.secret &#x3D; props.secret;
 	}
 }
 </code></pre>

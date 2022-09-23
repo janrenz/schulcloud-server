@@ -85,6 +85,14 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Async</span>
+                                <a href="#getHydraOauthToken" >getHydraOauthToken</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#requestAuthToken" >requestAuthToken</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
                                 <a href="#startOauthAuthorizationCodeFlow" >startOauthAuthorizationCodeFlow</a>
                             </li>
                         </ul>
@@ -104,6 +112,198 @@
     <h3 id="methods">
         Methods
     </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getHydraOauthToken"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>getHydraOauthToken</b></span>
+                        <a href="#getHydraOauthToken"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getHydraOauthToken(query: <a href="../classes/AuthorizationParams.html" target="_self">AuthorizationParams</a>, oauthClientId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Get(&#x27;hydra/:oauthClientId&#x27;)<br />@Authenticate(&#x27;jwt&#x27;)<br /></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="39"
+                            class="link-to-prism">apps/server/src/modules/oauth/controller/oauth-sso.controller.ts:39</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>query</td>
+                                    <td>
+                                                <code><a href="../classes/AuthorizationParams.html" target="_self" >AuthorizationParams</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>oauthClientId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/OauthTokenResponse.html" target="_self" >Promise&lt;OauthTokenResponse&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="requestAuthToken"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>requestAuthToken</b></span>
+                        <a href="#requestAuthToken"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>requestAuthToken(currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>, req: Request, oauthClientId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Get(&#x27;auth/:oauthClientId&#x27;)<br />@Authenticate(&#x27;jwt&#x27;)<br /></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="48"
+                            class="link-to-prism">apps/server/src/modules/oauth/controller/oauth-sso.controller.ts:48</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>currentUser</td>
+                                    <td>
+                                                <code><a href="../interfaces/ICurrentUser.html" target="_self" >ICurrentUser</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>req</td>
+                                    <td>
+                                            <code>Request</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>oauthClientId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/AuthorizationParams.html" target="_self" >Promise&lt;AuthorizationParams&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
     <table class="table table-sm table-bordered">
         <tbody>
             <tr>
@@ -133,8 +333,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="17"
-                            class="link-to-prism">apps/server/src/modules/oauth/controller/oauth-sso.controller.ts:17</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="21"
+                            class="link-to-prism">apps/server/src/modules/oauth/controller/oauth-sso.controller.ts:21</a></div>
                 </td>
             </tr>
 
@@ -210,18 +410,22 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Controller, Get, Param, Query, Res } from &#x27;@nestjs/common&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Controller, Get, Param, Query, Req, Res, UnauthorizedException } from &#x27;@nestjs/common&#x27;;
 import { ApiTags } from &#x27;@nestjs/swagger&#x27;;
 import { Logger } from &#x27;@src/core/logger&#x27;;
-import { CookieOptions, Response } from &#x27;express&#x27;;
+import { CookieOptions, Request, Response } from &#x27;express&#x27;;
 import { Configuration } from &#x27;@hpi-schul-cloud/commons/lib&#x27;;
+import { HydraOauthUc } from &#x27;@src/modules/oauth/uc/hydraOauth.uc&#x27;;
+import { OauthTokenResponse } from &#x27;@src/modules/oauth/controller/dto/oauth-token.response&#x27;;
+import { Authenticate, CurrentUser } from &#x27;@src/modules/authentication/decorator/auth.decorator&#x27;;
+import { ICurrentUser } from &#x27;@shared/domain&#x27;;
 import { OauthUc } from &#x27;../uc/oauth.uc&#x27;;
 import { AuthorizationParams, SystemUrlParams } from &#x27;./dto&#x27;;
 
 @ApiTags(&#x27;SSO&#x27;)
 @Controller(&#x27;sso&#x27;)
 export class OauthSSOController {
-	constructor(private readonly oauthUc: OauthUc, private logger: Logger) {
+	constructor(private readonly oauthUc: OauthUc, private readonly hydraUc: HydraOauthUc, private logger: Logger) {
 		this.logger.setContext(OauthSSOController.name);
 	}
 
@@ -231,7 +435,7 @@ export class OauthSSOController {
 		@Res() res: Response,
 		@Param() urlParams: SystemUrlParams
 	): Promise&lt;void&gt; {
-		const oauthResponse &#x3D; await this.oauthUc.startOauth(query, urlParams.systemId);
+		const oauthResponse &#x3D; await this.oauthUc.processOAuth(query, urlParams.systemId);
 		const cookieDefaultOptions: CookieOptions &#x3D; {
 			httpOnly: Configuration.get(&#x27;COOKIE__HTTP_ONLY&#x27;) as boolean,
 			sameSite: Configuration.get(&#x27;COOKIE__SAME_SITE&#x27;) as &#x27;lax&#x27; | &#x27;strict&#x27; | &#x27;none&#x27;,
@@ -240,6 +444,34 @@ export class OauthSSOController {
 		};
 		res.cookie(&#x27;jwt&#x27;, oauthResponse.jwt ? oauthResponse.jwt : &#x27;&#x27;, cookieDefaultOptions);
 		res.redirect(oauthResponse.redirect ? oauthResponse.redirect : &#x27;&#x27;);
+	}
+
+	@Get(&#x27;hydra/:oauthClientId&#x27;)
+	@Authenticate(&#x27;jwt&#x27;)
+	async getHydraOauthToken(
+		@Query() query: AuthorizationParams,
+		@Param(&#x27;oauthClientId&#x27;) oauthClientId: string
+	): Promise&lt;OauthTokenResponse&gt; {
+		return this.hydraUc.getOauthToken(query, oauthClientId);
+	}
+
+	@Get(&#x27;auth/:oauthClientId&#x27;)
+	@Authenticate(&#x27;jwt&#x27;)
+	async requestAuthToken(
+		@CurrentUser() currentUser: ICurrentUser,
+		@Req() req: Request,
+		@Param(&#x27;oauthClientId&#x27;) oauthClientId: string
+	): Promise&lt;AuthorizationParams&gt; {
+		let jwt: string;
+		const authHeader: string | undefined &#x3D; req.headers.authorization;
+		if (authHeader &amp;&amp; authHeader.toLowerCase().startsWith(&#x27;bearer &#x27;)) {
+			[, jwt] &#x3D; authHeader.split(&#x27; &#x27;);
+		} else {
+			throw new UnauthorizedException(
+				&#x60;No bearer token in header for authorization process of user ${currentUser.userId} on oauth system ${oauthClientId}&#x60;
+			);
+		}
+		return this.hydraUc.requestAuthCode(currentUser.userId, jwt, oauthClientId);
 	}
 }
 </code></pre>
