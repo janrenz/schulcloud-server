@@ -393,13 +393,13 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Collection, Entity, Index, ManyToMany, ManyToOne, OneToMany, Property } from &#x27;@mikro-orm/core&#x27;;
 import { InternalServerErrorException } from &#x27;@nestjs/common&#x27;;
 import { ILearnroomElement } from &#x27;@shared/domain/interface&#x27;;
-import _ from &#x27;lodash&#x27;;
 import { EntityId } from &#x27;../types&#x27;;
 import { BaseEntityWithTimestamps } from &#x27;./base.entity&#x27;;
 import type { Course } from &#x27;./course.entity&#x27;;
 import { CourseGroup } from &#x27;./coursegroup.entity&#x27;;
 import { Material } from &#x27;./materials.entity&#x27;;
 import { Task } from &#x27;./task.entity&#x27;;
+import { User } from &#x27;./user.entity&#x27;;
 
 export interface ILessonProperties {
 	name: string;
@@ -458,10 +458,11 @@ export interface IComponentInternalProperties {
 }
 
 export interface IComponentProperties {
-	title: string;
+	title?: string;
 	hidden: boolean;
 	component: ComponentType;
-	content:
+	user?: User;
+	content?:
 		| IComponentTextProperties
 		| IComponentGeogebraProperties
 		| IComponentLernstoreProperties

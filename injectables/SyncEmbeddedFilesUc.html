@@ -1008,7 +1008,7 @@ export class SyncEmbeddedFilesUc {
 
 		if (entity instanceof Lesson) {
 			entity.contents.forEach((item: IComponentProperties) &#x3D;&gt; {
-				if (item.component &#x3D;&#x3D;&#x3D; &#x27;text&#x27; &amp;&amp; &#x27;text&#x27; in item.content) {
+				if (item.component &#x3D;&#x3D;&#x3D; &#x27;text&#x27; &amp;&amp; item.content &amp;&amp; &#x27;text&#x27; in item.content &amp;&amp; item.content.text) {
 					const contentFileIds &#x3D; this.extractFileIdsFromContent(item.content.text);
 					if (contentFileIds !&#x3D;&#x3D; null) {
 						fileIds.push(...contentFileIds);
@@ -1071,7 +1071,7 @@ export class SyncEmbeddedFilesUc {
 	private async updateEntityLinks(file: SyncFileItem, entity: Task | Lesson, errorUrl?: string) {
 		if (file.parentType &#x3D;&#x3D;&#x3D; FileRecordParentType.Lesson &amp;&amp; entity instanceof Lesson) {
 			entity.contents &#x3D; entity.contents.map((item: IComponentProperties) &#x3D;&gt; {
-				if (item.component &#x3D;&#x3D;&#x3D; &#x27;text&#x27; &amp;&amp; &#x27;text&#x27; in item.content) {
+				if (item.component &#x3D;&#x3D;&#x3D; &#x27;text&#x27; &amp;&amp; item.content &amp;&amp; &#x27;text&#x27; in item.content &amp;&amp; item.content.text) {
 					item.content.text &#x3D; this.replaceLink(item.content.text, file, errorUrl);
 				}
 

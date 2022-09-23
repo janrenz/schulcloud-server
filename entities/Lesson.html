@@ -145,7 +145,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="101" class="link-to-prism">apps/server/src/shared/domain/entity/lesson.entity.ts:101</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="102" class="link-to-prism">apps/server/src/shared/domain/entity/lesson.entity.ts:102</a></div>
                         </td>
                     </tr>
 
@@ -180,7 +180,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="92" class="link-to-prism">apps/server/src/shared/domain/entity/lesson.entity.ts:92</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="93" class="link-to-prism">apps/server/src/shared/domain/entity/lesson.entity.ts:93</a></div>
                         </td>
                     </tr>
 
@@ -216,7 +216,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="95" class="link-to-prism">apps/server/src/shared/domain/entity/lesson.entity.ts:95</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="96" class="link-to-prism">apps/server/src/shared/domain/entity/lesson.entity.ts:96</a></div>
                         </td>
                     </tr>
 
@@ -250,7 +250,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="88" class="link-to-prism">apps/server/src/shared/domain/entity/lesson.entity.ts:88</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="89" class="link-to-prism">apps/server/src/shared/domain/entity/lesson.entity.ts:89</a></div>
                         </td>
                     </tr>
 
@@ -284,7 +284,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="104" class="link-to-prism">apps/server/src/shared/domain/entity/lesson.entity.ts:104</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="105" class="link-to-prism">apps/server/src/shared/domain/entity/lesson.entity.ts:105</a></div>
                         </td>
                     </tr>
 
@@ -319,7 +319,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="84" class="link-to-prism">apps/server/src/shared/domain/entity/lesson.entity.ts:84</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="85" class="link-to-prism">apps/server/src/shared/domain/entity/lesson.entity.ts:85</a></div>
                         </td>
                     </tr>
 
@@ -354,7 +354,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="98" class="link-to-prism">apps/server/src/shared/domain/entity/lesson.entity.ts:98</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="99" class="link-to-prism">apps/server/src/shared/domain/entity/lesson.entity.ts:99</a></div>
                         </td>
                     </tr>
 
@@ -388,7 +388,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="107" class="link-to-prism">apps/server/src/shared/domain/entity/lesson.entity.ts:107</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="108" class="link-to-prism">apps/server/src/shared/domain/entity/lesson.entity.ts:108</a></div>
                         </td>
                     </tr>
 
@@ -403,13 +403,13 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Collection, Entity, Index, ManyToMany, ManyToOne, OneToMany, Property } from &#x27;@mikro-orm/core&#x27;;
 import { InternalServerErrorException } from &#x27;@nestjs/common&#x27;;
 import { ILearnroomElement } from &#x27;@shared/domain/interface&#x27;;
-import _ from &#x27;lodash&#x27;;
 import { EntityId } from &#x27;../types&#x27;;
 import { BaseEntityWithTimestamps } from &#x27;./base.entity&#x27;;
 import type { Course } from &#x27;./course.entity&#x27;;
 import { CourseGroup } from &#x27;./coursegroup.entity&#x27;;
 import { Material } from &#x27;./materials.entity&#x27;;
 import { Task } from &#x27;./task.entity&#x27;;
+import { User } from &#x27;./user.entity&#x27;;
 
 export interface ILessonProperties {
 	name: string;
@@ -468,10 +468,11 @@ export interface IComponentInternalProperties {
 }
 
 export interface IComponentProperties {
-	title: string;
+	title?: string;
 	hidden: boolean;
 	component: ComponentType;
-	content:
+	user?: User;
+	content?:
 		| IComponentTextProperties
 		| IComponentGeogebraProperties
 		| IComponentLernstoreProperties

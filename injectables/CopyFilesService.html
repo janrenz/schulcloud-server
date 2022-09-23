@@ -598,7 +598,7 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
-import { Task, Lesson, IComponentProperties } from &#x27;@shared/domain&#x27;;
+import { IComponentProperties, Lesson, Task } from &#x27;@shared/domain&#x27;;
 import { CopyFileDto } from &#x27;../dto&#x27;;
 import { FileParamBuilder } from &#x27;../mapper/files-storage-param.builder&#x27;;
 import { FilesStorageClientAdapterService } from &#x27;./files-storage-client.service&#x27;;
@@ -642,7 +642,7 @@ export class CopyFilesService {
 
 	private replaceUrlsInLessons(lesson: Lesson, response: CopyFileDto): Lesson {
 		lesson.contents &#x3D; lesson.contents.map((item: IComponentProperties) &#x3D;&gt; {
-			if (&#x27;text&#x27; in item.content) {
+			if (item.component &#x3D;&#x3D;&#x3D; &#x27;text&#x27; &amp;&amp; item.content &amp;&amp; &#x27;text&#x27; in item.content &amp;&amp; item.content.text) {
 				const text &#x3D; this.replaceUrl(item.content.text, response);
 				const itemWithUpdatedText &#x3D; { ...item, content: { ...item.content, text } };
 				return itemWithUpdatedText;
