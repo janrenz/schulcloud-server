@@ -88,6 +88,7 @@
                                 <a href="#acceptLogoutRequest" >acceptLogoutRequest</a>
                             </li>
                             <li>
+                                    <span class="modifier">Async</span>
                                 <a href="#createOAuth2Client" >createOAuth2Client</a>
                             </li>
                             <li>
@@ -100,6 +101,7 @@
                                 <a href="#getLoginRequest" >getLoginRequest</a>
                             </li>
                             <li>
+                                    <span class="modifier">Async</span>
                                 <a href="#getOAuth2Client" >getOAuth2Client</a>
                             </li>
                             <li>
@@ -112,6 +114,7 @@
                                 <a href="#listConsentSessions" >listConsentSessions</a>
                             </li>
                             <li>
+                                    <span class="modifier">Async</span>
                                 <a href="#listOAuth2Clients" >listOAuth2Clients</a>
                             </li>
                             <li>
@@ -124,6 +127,7 @@
                                 <a href="#revokeConsentSession" >revokeConsentSession</a>
                             </li>
                             <li>
+                                    <span class="modifier">Async</span>
                                 <a href="#updateOAuth2Client" >updateOAuth2Client</a>
                             </li>
                         </ul>
@@ -172,8 +176,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="76"
-                            class="link-to-prism">apps/server/src/modules/oauth-provider/controller/oauth-provider.controller.ts:76</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="111"
+                            class="link-to-prism">apps/server/src/modules/oauth-provider/controller/oauth-provider.controller.ts:111</a></div>
                 </td>
             </tr>
 
@@ -239,6 +243,7 @@
                 <td class="col-md-4">
                     <a name="createOAuth2Client"></a>
                     <span class="name">
+                        <span class="modifier">Async</span>
                         <span ><b>createOAuth2Client</b></span>
                         <a href="#createOAuth2Client"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -246,7 +251,8 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>createOAuth2Client(body: <a href="../interfaces/OauthClient.html" target="_self">OauthClientBody</a>)</code>
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>createOAuth2Client(currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>, body: <a href="../interfaces/OauthClient.html" target="_self">OauthClientBody</a>)</code>
                 </td>
             </tr>
 
@@ -260,8 +266,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="42"
-                            class="link-to-prism">apps/server/src/modules/oauth-provider/controller/oauth-provider.controller.ts:42</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="65"
+                            class="link-to-prism">apps/server/src/modules/oauth-provider/controller/oauth-provider.controller.ts:65</a></div>
                 </td>
             </tr>
 
@@ -282,6 +288,18 @@
                             </thead>
                             <tbody>
                                 <tr>
+                                    <td>currentUser</td>
+                                    <td>
+                                                <code><a href="../interfaces/ICurrentUser.html" target="_self" >ICurrentUser</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
                                     <td>body</td>
                                     <td>
                                                 <code><a href="../interfaces/OauthClient.html" target="_self" >OauthClientBody</a></code>
@@ -299,7 +317,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                        <b>Returns : </b>        <code><a href="../interfaces/OauthClient.html" target="_self" >Promise&lt;OauthClientResponse&gt;</a></code>
 
                     </div>
                     <div class="io-description">
@@ -322,7 +340,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>deleteOAuth2Client(params: <a href="../classes/IdParams.html" target="_self">IdParams</a>)</code>
+<code>deleteOAuth2Client(currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>, params: <a href="../classes/IdParams.html" target="_self">IdParams</a>)</code>
                 </td>
             </tr>
 
@@ -336,8 +354,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="54"
-                            class="link-to-prism">apps/server/src/modules/oauth-provider/controller/oauth-provider.controller.ts:54</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="88"
+                            class="link-to-prism">apps/server/src/modules/oauth-provider/controller/oauth-provider.controller.ts:88</a></div>
                 </td>
             </tr>
 
@@ -358,6 +376,18 @@
                             </thead>
                             <tbody>
                                 <tr>
+                                    <td>currentUser</td>
+                                    <td>
+                                                <code><a href="../interfaces/ICurrentUser.html" target="_self" >ICurrentUser</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
                                     <td>params</td>
                                     <td>
                                                 <code><a href="../classes/IdParams.html" target="_self" >IdParams</a></code>
@@ -375,7 +405,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
 
                     </div>
                     <div class="io-description">
@@ -412,8 +442,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="83"
-                            class="link-to-prism">apps/server/src/modules/oauth-provider/controller/oauth-provider.controller.ts:83</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="118"
+                            class="link-to-prism">apps/server/src/modules/oauth-provider/controller/oauth-provider.controller.ts:118</a></div>
                 </td>
             </tr>
 
@@ -488,8 +518,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="64"
-                            class="link-to-prism">apps/server/src/modules/oauth-provider/controller/oauth-provider.controller.ts:64</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="99"
+                            class="link-to-prism">apps/server/src/modules/oauth-provider/controller/oauth-provider.controller.ts:99</a></div>
                 </td>
             </tr>
 
@@ -543,6 +573,7 @@
                 <td class="col-md-4">
                     <a name="getOAuth2Client"></a>
                     <span class="name">
+                        <span class="modifier">Async</span>
                         <span ><b>getOAuth2Client</b></span>
                         <a href="#getOAuth2Client"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -550,7 +581,8 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>getOAuth2Client(params: <a href="../classes/IdParams.html" target="_self">IdParams</a>)</code>
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getOAuth2Client(currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>, params: <a href="../classes/IdParams.html" target="_self">IdParams</a>)</code>
                 </td>
             </tr>
 
@@ -564,8 +596,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="30"
-                            class="link-to-prism">apps/server/src/modules/oauth-provider/controller/oauth-provider.controller.ts:30</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="34"
+                            class="link-to-prism">apps/server/src/modules/oauth-provider/controller/oauth-provider.controller.ts:34</a></div>
                 </td>
             </tr>
 
@@ -586,6 +618,18 @@
                             </thead>
                             <tbody>
                                 <tr>
+                                    <td>currentUser</td>
+                                    <td>
+                                                <code><a href="../interfaces/ICurrentUser.html" target="_self" >ICurrentUser</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
                                     <td>params</td>
                                     <td>
                                                 <code><a href="../classes/IdParams.html" target="_self" >IdParams</a></code>
@@ -603,7 +647,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                        <b>Returns : </b>        <code><a href="../interfaces/OauthClient.html" target="_self" >Promise&lt;OauthClientResponse&gt;</a></code>
 
                     </div>
                     <div class="io-description">
@@ -640,8 +684,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="106"
-                            class="link-to-prism">apps/server/src/modules/oauth-provider/controller/oauth-provider.controller.ts:106</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="141"
+                            class="link-to-prism">apps/server/src/modules/oauth-provider/controller/oauth-provider.controller.ts:141</a></div>
                 </td>
             </tr>
 
@@ -684,8 +728,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="59"
-                            class="link-to-prism">apps/server/src/modules/oauth-provider/controller/oauth-provider.controller.ts:59</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="94"
+                            class="link-to-prism">apps/server/src/modules/oauth-provider/controller/oauth-provider.controller.ts:94</a></div>
                 </td>
             </tr>
 
@@ -760,8 +804,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="95"
-                            class="link-to-prism">apps/server/src/modules/oauth-provider/controller/oauth-provider.controller.ts:95</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="130"
+                            class="link-to-prism">apps/server/src/modules/oauth-provider/controller/oauth-provider.controller.ts:130</a></div>
                 </td>
             </tr>
 
@@ -815,6 +859,7 @@
                 <td class="col-md-4">
                     <a name="listOAuth2Clients"></a>
                     <span class="name">
+                        <span class="modifier">Async</span>
                         <span ><b>listOAuth2Clients</b></span>
                         <a href="#listOAuth2Clients"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -822,7 +867,8 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>listOAuth2Clients(params: <a href="../interfaces/OauthClient.html" target="_self">ListOauthClientsParams</a>)</code>
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>listOAuth2Clients(currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>, params: <a href="../interfaces/OauthClient.html" target="_self">ListOauthClientsParams</a>)</code>
                 </td>
             </tr>
 
@@ -836,8 +882,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="36"
-                            class="link-to-prism">apps/server/src/modules/oauth-provider/controller/oauth-provider.controller.ts:36</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="45"
+                            class="link-to-prism">apps/server/src/modules/oauth-provider/controller/oauth-provider.controller.ts:45</a></div>
                 </td>
             </tr>
 
@@ -858,6 +904,18 @@
                             </thead>
                             <tbody>
                                 <tr>
+                                    <td>currentUser</td>
+                                    <td>
+                                                <code><a href="../interfaces/ICurrentUser.html" target="_self" >ICurrentUser</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
                                     <td>params</td>
                                     <td>
                                                 <code><a href="../interfaces/OauthClient.html" target="_self" >ListOauthClientsParams</a></code>
@@ -875,7 +933,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                        <b>Returns : </b>        <code><a href="../interfaces/OauthClient.html" target="_self" >Promise&lt;OauthClientResponse[]&gt;</a></code>
 
                     </div>
                     <div class="io-description">
@@ -912,8 +970,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="89"
-                            class="link-to-prism">apps/server/src/modules/oauth-provider/controller/oauth-provider.controller.ts:89</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="124"
+                            class="link-to-prism">apps/server/src/modules/oauth-provider/controller/oauth-provider.controller.ts:124</a></div>
                 </td>
             </tr>
 
@@ -1012,8 +1070,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="70"
-                            class="link-to-prism">apps/server/src/modules/oauth-provider/controller/oauth-provider.controller.ts:70</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="105"
+                            class="link-to-prism">apps/server/src/modules/oauth-provider/controller/oauth-provider.controller.ts:105</a></div>
                 </td>
             </tr>
 
@@ -1112,8 +1170,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="101"
-                            class="link-to-prism">apps/server/src/modules/oauth-provider/controller/oauth-provider.controller.ts:101</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="136"
+                            class="link-to-prism">apps/server/src/modules/oauth-provider/controller/oauth-provider.controller.ts:136</a></div>
                 </td>
             </tr>
 
@@ -1179,6 +1237,7 @@
                 <td class="col-md-4">
                     <a name="updateOAuth2Client"></a>
                     <span class="name">
+                        <span class="modifier">Async</span>
                         <span ><b>updateOAuth2Client</b></span>
                         <a href="#updateOAuth2Client"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -1186,7 +1245,8 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>updateOAuth2Client(params: <a href="../classes/IdParams.html" target="_self">IdParams</a>, body: <a href="../interfaces/OauthClient.html" target="_self">OauthClientBody</a>)</code>
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>updateOAuth2Client(currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>, params: <a href="../classes/IdParams.html" target="_self">IdParams</a>, body: <a href="../interfaces/OauthClient.html" target="_self">OauthClientBody</a>)</code>
                 </td>
             </tr>
 
@@ -1200,8 +1260,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="48"
-                            class="link-to-prism">apps/server/src/modules/oauth-provider/controller/oauth-provider.controller.ts:48</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="76"
+                            class="link-to-prism">apps/server/src/modules/oauth-provider/controller/oauth-provider.controller.ts:76</a></div>
                 </td>
             </tr>
 
@@ -1221,6 +1281,18 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                <tr>
+                                    <td>currentUser</td>
+                                    <td>
+                                                <code><a href="../interfaces/ICurrentUser.html" target="_self" >ICurrentUser</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
                                 <tr>
                                     <td>params</td>
                                     <td>
@@ -1251,7 +1323,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                        <b>Returns : </b>        <code><a href="../interfaces/OauthClient.html" target="_self" >Promise&lt;OauthClientResponse&gt;</a></code>
 
                     </div>
                     <div class="io-description">
@@ -1267,10 +1339,11 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Configuration } from &#x27;@hpi-schul-cloud/commons/lib&#x27;;
 import { Body, Controller, Delete, Get, NotImplementedException, Param, Patch, Post, Put, Query } from &#x27;@nestjs/common&#x27;;
-import { Authenticate } from &#x27;@src/modules/authentication/decorator/auth.decorator&#x27;;
+import { Authenticate, CurrentUser } from &#x27;@src/modules/authentication/decorator/auth.decorator&#x27;;
 import { OauthProviderLogoutFlowUc } from &#x27;@src/modules/oauth-provider/uc/oauth-provider.logout-flow.uc&#x27;;
 import { OauthProviderResponseMapper } from &#x27;@src/modules/oauth-provider/mapper/oauth-provider-response.mapper&#x27;;
-import { RedirectResponse } from &#x27;@shared/infra/oauth-provider/dto&#x27;;
+import { OauthClient, RedirectResponse } from &#x27;@shared/infra/oauth-provider/dto&#x27;;
+import { ICurrentUser } from &#x27;@shared/domain&#x27;;
 import {
 	AcceptQuery,
 	ChallengeParams,
@@ -1280,46 +1353,80 @@ import {
 	ListOauthClientsParams,
 	LoginRequestBody,
 	OauthClientBody,
+	OauthClientResponse,
 	RedirectBody,
 	RevokeConsentQuery,
 	UserParams,
 } from &#x27;./dto&#x27;;
+import { OauthProviderClientCrudUc } from &#x27;../uc/oauth-provider.client-crud.uc&#x27;;
 
 @Controller(&#x27;oauth2&#x27;)
 export class OauthProviderController {
 	constructor(
+		private readonly crudUc: OauthProviderClientCrudUc,
 		private readonly oauthProviderUc: OauthProviderLogoutFlowUc,
 		private readonly oauthProviderResponseMapper: OauthProviderResponseMapper
 	) {}
 
 	@Authenticate(&#x27;jwt&#x27;)
 	@Get(&#x27;clients/:id&#x27;)
-	getOAuth2Client(@Param() params: IdParams) {
-		throw new NotImplementedException();
+	async getOAuth2Client(
+		@CurrentUser() currentUser: ICurrentUser,
+		@Param() params: IdParams
+	): Promise&lt;OauthClientResponse&gt; {
+		const client: OauthClient &#x3D; await this.crudUc.getOAuth2Client(currentUser, params.id);
+		const mapped: OauthClientResponse &#x3D; this.oauthProviderResponseMapper.mapOauthClientToClientResponse(client);
+		return mapped;
 	}
 
 	@Authenticate(&#x27;jwt&#x27;)
 	@Get(&#x27;clients&#x27;)
-	listOAuth2Clients(@Param() params: ListOauthClientsParams) {
-		throw new NotImplementedException();
+	async listOAuth2Clients(
+		@CurrentUser() currentUser: ICurrentUser,
+		@Param() params: ListOauthClientsParams
+	): Promise&lt;OauthClientResponse[]&gt; {
+		const clients: OauthClient[] &#x3D; await this.crudUc.listOAuth2Clients(
+			currentUser,
+			params.limit,
+			params.offset,
+			params.client_name,
+			params.owner
+		);
+		const mapped: OauthClientResponse[] &#x3D; clients.map(
+			(client: OauthClient): OauthClientResponse &#x3D;&gt;
+				this.oauthProviderResponseMapper.mapOauthClientToClientResponse(client)
+		);
+		return mapped;
 	}
 
 	@Authenticate(&#x27;jwt&#x27;)
 	@Post(&#x27;clients&#x27;)
-	createOAuth2Client(@Body() body: OauthClientBody) {
-		throw new NotImplementedException();
+	async createOAuth2Client(
+		@CurrentUser() currentUser: ICurrentUser,
+		@Body() body: OauthClientBody
+	): Promise&lt;OauthClientResponse&gt; {
+		const client: OauthClient &#x3D; await this.crudUc.createOAuth2Client(currentUser, body);
+		const mapped: OauthClientResponse &#x3D; this.oauthProviderResponseMapper.mapOauthClientToClientResponse(client);
+		return mapped;
 	}
 
 	@Authenticate(&#x27;jwt&#x27;)
 	@Put(&#x27;clients/:id&#x27;)
-	updateOAuth2Client(@Param() params: IdParams, @Body() body: OauthClientBody) {
-		throw new NotImplementedException();
+	async updateOAuth2Client(
+		@CurrentUser() currentUser: ICurrentUser,
+		@Param() params: IdParams,
+		@Body() body: OauthClientBody
+	): Promise&lt;OauthClientResponse&gt; {
+		const client: OauthClient &#x3D; await this.crudUc.updateOAuth2Client(currentUser, params.id, body);
+		const mapped: OauthClientResponse &#x3D; this.oauthProviderResponseMapper.mapOauthClientToClientResponse(client);
+		return mapped;
 	}
 
 	@Authenticate(&#x27;jwt&#x27;)
 	@Delete(&#x27;clients/:id&#x27;)
-	deleteOAuth2Client(@Param() params: IdParams) {
-		throw new NotImplementedException();
+	deleteOAuth2Client(@CurrentUser() currentUser: ICurrentUser, @Param() params: IdParams): Promise&lt;void&gt; {
+		const promise: Promise&lt;void&gt; &#x3D; this.crudUc.deleteOAuth2Client(currentUser, params.id);
+		return promise;
 	}
 
 	@Post(&#x27;introspect&#x27;)
