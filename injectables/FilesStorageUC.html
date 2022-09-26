@@ -2486,7 +2486,7 @@ export class FilesStorageUC {
 		await this.checkPermission(userId, params.parentType, params.parentId, PermissionContexts.create);
 		try {
 			const response &#x3D; await firstValueFrom(
-				this.httpService.get&lt;internal.Readable&gt;(params.url, {
+				this.httpService.get&lt;internal.Readable&gt;(encodeURI(params.url), {
 					headers: params.headers,
 					responseType: &#x27;stream&#x27;,
 				})
