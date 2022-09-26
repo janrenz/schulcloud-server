@@ -197,7 +197,7 @@
                                 </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <code>client:         <code><a href="../interfaces/OauthClient.html" target="_self" >OauthClient</a></code>
+                                        <code>client:         <code><a href="../interfaces/ProviderOauthClient.html" target="_self" >ProviderOauthClient</a></code>
 </code>
                                     </td>
                                 </tr>
@@ -205,7 +205,7 @@
 
                                     <tr>
                                         <td class="col-md-4">
-                                            <i>Type : </i>        <code><a href="../interfaces/OauthClient.html" target="_self" >OauthClient</a></code>
+                                            <i>Type : </i>        <code><a href="../interfaces/ProviderOauthClient.html" target="_self" >ProviderOauthClient</a></code>
 
                                         </td>
                                     </tr>
@@ -230,7 +230,7 @@
                                 </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <code>oidc_context:         <code><a href="../interfaces/OidcContext.html" target="_self" >OidcContext</a></code>
+                                        <code>oidc_context:         <code><a href="../interfaces/ProviderOidcContext.html" target="_self" >ProviderOidcContext</a></code>
 </code>
                                     </td>
                                 </tr>
@@ -238,7 +238,7 @@
 
                                     <tr>
                                         <td class="col-md-4">
-                                            <i>Type : </i>        <code><a href="../interfaces/OidcContext.html" target="_self" >OidcContext</a></code>
+                                            <i>Type : </i>        <code><a href="../interfaces/ProviderOidcContext.html" target="_self" >ProviderOidcContext</a></code>
 
                                         </td>
                                     </tr>
@@ -462,15 +462,15 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { OauthClient } from &#x27;../interface/oauth-client.interface&#x27;;
-import { OidcContext } from &#x27;../interface/oidc-context.interface&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ProviderOauthClient } from &#x27;../interface/oauth-client.interface&#x27;;
+import { ProviderOidcContext } from &#x27;../interface/oidc-context.interface&#x27;;
 
 export interface LoginResponse {
 	challenge: string;
 
-	client: OauthClient;
+	client: ProviderOauthClient;
 
-	oidc_context?: OidcContext;
+	oidc_context?: ProviderOidcContext;
 
 	request_url: string;
 

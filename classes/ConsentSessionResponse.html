@@ -113,7 +113,7 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(response: <a href="../classes/ConsentSessionResponse.html" target="_self">ConsentSessionResponse</a>)</code>
+<code>constructor(clientId: string | undefined, clientName: string | undefined, challenge: string | undefined)</code>
                     </td>
                 </tr>
                         <tr>
@@ -136,10 +136,34 @@
                                         </thead>
                                         <tbody>
                                                 <tr>
-                                                        <td>response</td>
+                                                        <td>clientId</td>
                                                   
                                                         <td>
-                                                                        <code><a href="../classes/ConsentSessionResponse.html" target="_self" >ConsentSessionResponse</a></code>
+                                                                    <code>string | undefined</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>clientName</td>
+                                                  
+                                                        <td>
+                                                                    <code>string | undefined</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>challenge</td>
+                                                  
+                                                        <td>
+                                                                    <code>string | undefined</code>
                                                         </td>
                                                   
                                                     <td>
@@ -284,10 +308,10 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ApiProperty } from &#x27;@nestjs/swagger&#x27;;
 
 export class ConsentSessionResponse {
-	constructor(response: ConsentSessionResponse) {
-		this.client_id &#x3D; response.client_id;
-		this.client_name &#x3D; response.client_name;
-		this.challenge &#x3D; response.challenge;
+	constructor(clientId: string | undefined, clientName: string | undefined, challenge: string | undefined) {
+		this.client_id &#x3D; clientId;
+		this.client_name &#x3D; clientName;
+		this.challenge &#x3D; challenge;
 	}
 
 	@ApiProperty()

@@ -79,10 +79,16 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                <a href="#mapConsentResponse" >mapConsentResponse</a>
+                            </li>
+                            <li>
                                 <a href="#mapConsentSessionsToResponse" >mapConsentSessionsToResponse</a>
                             </li>
                             <li>
-                                <a href="#mapOauthClientToClientResponse" >mapOauthClientToClientResponse</a>
+                                <a href="#mapOauthClientResponse" >mapOauthClientResponse</a>
+                            </li>
+                            <li>
+                                <a href="#mapRedirectResponse" >mapRedirectResponse</a>
                             </li>
                         </ul>
                     </td>
@@ -106,6 +112,75 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="mapConsentResponse"></a>
+                    <span class="name">
+                        <span ><b>mapConsentResponse</b></span>
+                        <a href="#mapConsentResponse"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>mapConsentResponse(consent: <a href="../interfaces/ProviderConsentResponse.html" target="_self">ProviderConsentResponse</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="21"
+                            class="link-to-prism">apps/server/src/modules/oauth-provider/mapper/oauth-provider-response.mapper.ts:21</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>consent</td>
+                                    <td>
+                                                <code><a href="../interfaces/ProviderConsentResponse.html" target="_self" >ProviderConsentResponse</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/ConsentResponse.html" target="_self" >ConsentResponse</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="mapConsentSessionsToResponse"></a>
                     <span class="name">
                         <span ><b>mapConsentSessionsToResponse</b></span>
@@ -122,8 +197,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="9"
-                            class="link-to-prism">apps/server/src/modules/oauth-provider/mapper/oauth-provider-response.mapper.ts:9</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="31"
+                            class="link-to-prism">apps/server/src/modules/oauth-provider/mapper/oauth-provider-response.mapper.ts:31</a></div>
                 </td>
             </tr>
 
@@ -175,16 +250,85 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="mapOauthClientToClientResponse"></a>
+                    <a name="mapOauthClientResponse"></a>
                     <span class="name">
-                        <span ><b>mapOauthClientToClientResponse</b></span>
-                        <a href="#mapOauthClientToClientResponse"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>mapOauthClientResponse</b></span>
+                        <a href="#mapOauthClientResponse"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>mapOauthClientToClientResponse(client: <a href="../interfaces/OauthClient.html" target="_self">OauthClient</a>)</code>
+<code>mapOauthClientResponse(oauthClient: <a href="../interfaces/ProviderOauthClient.html" target="_self">ProviderOauthClient</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="25"
+                            class="link-to-prism">apps/server/src/modules/oauth-provider/mapper/oauth-provider-response.mapper.ts:25</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>oauthClient</td>
+                                    <td>
+                                                <code><a href="../interfaces/ProviderOauthClient.html" target="_self" >ProviderOauthClient</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/OauthClientResponse.html" target="_self" >OauthClientResponse</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="mapRedirectResponse"></a>
+                    <span class="name">
+                        <span ><b>mapRedirectResponse</b></span>
+                        <a href="#mapRedirectResponse"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>mapRedirectResponse(redirect: <a href="../interfaces/ProviderRedirectResponse.html" target="_self">ProviderRedirectResponse</a>)</code>
                 </td>
             </tr>
 
@@ -213,9 +357,9 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>client</td>
+                                    <td>redirect</td>
                                     <td>
-                                                <code><a href="../interfaces/OauthClient.html" target="_self" >OauthClient</a></code>
+                                                <code><a href="../interfaces/ProviderRedirectResponse.html" target="_self" >ProviderRedirectResponse</a></code>
                                     </td>
 
                                     <td>
@@ -230,7 +374,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../interfaces/OauthClient.html" target="_self" >OauthClientResponse</a></code>
+                        <b>Returns : </b>        <code><a href="../classes/RedirectResponse.html" target="_self" >RedirectResponse</a></code>
 
                     </div>
                     <div class="io-description">
@@ -247,33 +391,41 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
-import { ProviderConsentSessionResponse } from &#x27;@shared/infra/oauth-provider/dto/response/provider-consent-session.response&#x27;;
-import { ConsentSessionResponse } from &#x27;@src/modules/oauth-provider/controller/dto/response/consent-session.response&#x27;;
-import { OauthClientResponse } from &#x27;@src/modules/oauth-provider/controller/dto/response/oauth-client.response&#x27;;
-import { OauthClient } from &#x27;@shared/infra/oauth-provider/dto&#x27;;
+import {
+	ProviderConsentResponse,
+	ProviderConsentSessionResponse,
+	ProviderOauthClient,
+	ProviderRedirectResponse,
+} from &#x27;@shared/infra/oauth-provider/dto&#x27;;
+import {
+	ConsentResponse,
+	ConsentSessionResponse,
+	OauthClientResponse,
+	RedirectResponse,
+} from &#x27;@src/modules/oauth-provider/controller/dto&#x27;;
 
 @Injectable()
 export class OauthProviderResponseMapper {
-	mapConsentSessionsToResponse(session: ProviderConsentSessionResponse): ConsentSessionResponse {
-		return {
-			client_id: session.consent_request?.client?.client_id,
-			client_name: session.consent_request?.client?.client_name,
-			challenge: session.consent_request?.challenge,
-		};
+	mapRedirectResponse(redirect: ProviderRedirectResponse): RedirectResponse {
+		return new RedirectResponse({ ...redirect });
 	}
 
-	mapOauthClientToClientResponse(client: OauthClient): OauthClientResponse {
-		return new OauthClientResponse({
-			client_id: client.client_id,
-			client_name: client.client_name,
-			redirect_uris: client.redirect_uris,
-			token_endpoint_auth_method: client.token_endpoint_auth_method,
-			subject_type: client.subject_type,
-			scope: client.scope,
-			frontchannel_logout_uri: client.frontchannel_logout_uri,
-			grant_types: client.grant_types,
-			response_types: client.response_types,
-		});
+	mapConsentResponse(consent: ProviderConsentResponse): ConsentResponse {
+		return new ConsentResponse({ ...consent });
+	}
+
+	mapOauthClientResponse(oauthClient: ProviderOauthClient): OauthClientResponse {
+		type ClientWithoutSecret &#x3D; Omit&lt;ProviderOauthClient, &#x27;client_secret&#x27;&gt;;
+
+		return new OauthClientResponse({ ...oauthClient } as ClientWithoutSecret);
+	}
+
+	mapConsentSessionsToResponse(session: ProviderConsentSessionResponse): ConsentSessionResponse {
+		return new ConsentSessionResponse(
+			session.consent_request?.client?.client_id,
+			session.consent_request?.client?.client_name,
+			session.consent_request?.challenge
+		);
 	}
 }
 </code></pre>

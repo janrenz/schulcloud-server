@@ -106,6 +106,9 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                <a href="#withLocal" >withLocal</a>
+                            </li>
+                            <li>
                                 <a href="#withName" >withName</a>
                             </li>
                             <li>
@@ -207,6 +210,68 @@
     <h3 id="methods">
         Methods
     </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="withLocal"></a>
+                    <span class="name">
+                        <span ><b>withLocal</b></span>
+                        <a href="#withLocal"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>withLocal(isLocal: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="20"
+                            class="link-to-prism">apps/server/src/shared/testing/factory/ltitool.factory.ts:20</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>isLocal</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
     <table class="table table-sm table-bordered">
         <tbody>
             <tr>
@@ -1269,11 +1334,19 @@ class LtiToolFactory extends BaseFactory&lt;LtiTool, ILtiToolProperties&gt; {
 		};
 		return this.params(params);
 	}
+
+	withLocal(isLocal: boolean): this {
+		const params: DeepPartial&lt;ILtiToolProperties&gt; &#x3D; {
+			isLocal,
+		};
+		return this.params(params);
+	}
 }
 
 export const ltiToolFactory &#x3D; LtiToolFactory.define(LtiTool, ({ sequence }) &#x3D;&gt; {
 	return {
 		name: &#x60;ltiTool-${sequence}&#x60;,
+		isLocal: true,
 		oAuthClientId: &#x27;clientId&#x27;,
 		secret: &#x27;secret&#x27;,
 	};

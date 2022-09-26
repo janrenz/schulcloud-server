@@ -101,6 +101,9 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                <a href="#acceptConsentRequest" >acceptConsentRequest</a>
+                            </li>
+                            <li>
                                     <span class="modifier">Async</span>
                                 <a href="#acceptLogoutRequest" >acceptLogoutRequest</a>
                             </li>
@@ -109,6 +112,14 @@
                             </li>
                             <li>
                                 <a href="#deleteOAuth2Client" >deleteOAuth2Client</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#get" >get</a>
+                            </li>
+                            <li>
+                                <a href="#getConsentRequest" >getConsentRequest</a>
                             </li>
                             <li>
                                 <a href="#getOAuth2Client" >getOAuth2Client</a>
@@ -128,6 +139,14 @@
                             <li>
                                     <span class="modifier">Protected</span>
                                     <span class="modifier">Async</span>
+                                <a href="#put" >put</a>
+                            </li>
+                            <li>
+                                <a href="#rejectConsentRequest" >rejectConsentRequest</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                    <span class="modifier">Async</span>
                                 <a href="#request" >request</a>
                             </li>
                             <li>
@@ -137,19 +156,10 @@
                                 <a href="#updateOAuth2Client" >updateOAuth2Client</a>
                             </li>
                             <li>
-                                <a href="#acceptConsentRequest" >acceptConsentRequest</a>
-                            </li>
-                            <li>
                                 <a href="#acceptLoginRequest" >acceptLoginRequest</a>
                             </li>
                             <li>
-                                <a href="#getConsentRequest" >getConsentRequest</a>
-                            </li>
-                            <li>
                                 <a href="#getLoginRequest" >getLoginRequest</a>
-                            </li>
-                            <li>
-                                <a href="#rejectConsentRequest" >rejectConsentRequest</a>
                             </li>
                             <li>
                                 <a href="#rejectLoginRequest" >rejectLoginRequest</a>
@@ -177,7 +187,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">apps/server/src/shared/infra/oauth-provider/hydra/hydra.service.ts:14</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">apps/server/src/shared/infra/oauth-provider/hydra/hydra.service.ts:22</a></div>
                             </td>
                         </tr>
 
@@ -224,6 +234,93 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="acceptConsentRequest"></a>
+                    <span class="name">
+                        <span ><b>acceptConsentRequest</b></span>
+                        <a href="#acceptConsentRequest"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>acceptConsentRequest(challenge: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, body: <a href="../interfaces/AcceptConsentRequestBody.html" target="_self">AcceptConsentRequestBody</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../classes/OauthProviderService.html" target="_self" >OauthProviderService</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../classes/OauthProviderService.html#source" target="_self" >OauthProviderService:29</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>challenge</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>body</td>
+                                    <td>
+                                                <code><a href="../interfaces/AcceptConsentRequestBody.html" target="_self" >AcceptConsentRequestBody</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../interfaces/ProviderRedirectResponse.html" target="_self" >Promise&lt;ProviderRedirectResponse&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="acceptLogoutRequest"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
@@ -248,7 +345,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/OauthProviderService.html#source" target="_self" >OauthProviderService:21</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/OauthProviderService.html#source" target="_self" >OauthProviderService:33</a></code>
 </div>
                 </td>
             </tr>
@@ -287,7 +384,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../interfaces/RedirectResponse.html" target="_self" >Promise&lt;RedirectResponse&gt;</a></code>
+                        <b>Returns : </b>        <code><a href="../interfaces/ProviderRedirectResponse.html" target="_self" >Promise&lt;ProviderRedirectResponse&gt;</a></code>
 
                     </div>
                     <div class="io-description">
@@ -310,7 +407,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>createOAuth2Client(data: <a href="../interfaces/OauthClient.html" target="_self">OauthClient</a>)</code>
+<code>createOAuth2Client(data: <a href="../interfaces/ProviderOauthClient.html" target="_self">ProviderOauthClient</a>)</code>
                 </td>
             </tr>
 
@@ -323,7 +420,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/OauthProviderService.html#source" target="_self" >OauthProviderService:75</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/OauthProviderService.html#source" target="_self" >OauthProviderService:104</a></code>
 </div>
                 </td>
             </tr>
@@ -347,7 +444,7 @@
                                 <tr>
                                     <td>data</td>
                                     <td>
-                                                <code><a href="../interfaces/OauthClient.html" target="_self" >OauthClient</a></code>
+                                                <code><a href="../interfaces/ProviderOauthClient.html" target="_self" >ProviderOauthClient</a></code>
                                     </td>
 
                                     <td>
@@ -362,7 +459,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../interfaces/OauthClient.html" target="_self" >Promise&lt;OauthClient&gt;</a></code>
+                        <b>Returns : </b>        <code><a href="../interfaces/ProviderOauthClient.html" target="_self" >Promise&lt;ProviderOauthClient&gt;</a></code>
 
                     </div>
                     <div class="io-description">
@@ -398,7 +495,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/OauthProviderService.html#source" target="_self" >OauthProviderService:85</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/OauthProviderService.html#source" target="_self" >OauthProviderService:122</a></code>
 </div>
                 </td>
             </tr>
@@ -451,6 +548,173 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="get"></a>
+                    <span class="name">
+                        <span class="modifier">Protected</span>
+                        <span class="modifier">Async</span>
+                        <span ><b>get</b></span>
+                        <a href="#get"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>get(flow: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, challenge: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="140"
+                            class="link-to-prism">apps/server/src/shared/infra/oauth-provider/hydra/hydra.service.ts:140</a></div>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Type parameters :</b>
+                    <ul class="type-parameters">
+                        <li>T</li>
+                    </ul>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>flow</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>challenge</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;T&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getConsentRequest"></a>
+                    <span class="name">
+                        <span ><b>getConsentRequest</b></span>
+                        <a href="#getConsentRequest"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getConsentRequest(challenge: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../classes/OauthProviderService.html" target="_self" >OauthProviderService</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../classes/OauthProviderService.html#source" target="_self" >OauthProviderService:39</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>challenge</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../interfaces/ProviderConsentResponse.html" target="_self" >Promise&lt;ProviderConsentResponse&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="getOAuth2Client"></a>
                     <span class="name">
                         <span ><b>getOAuth2Client</b></span>
@@ -473,7 +737,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/OauthProviderService.html#source" target="_self" >OauthProviderService:70</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/OauthProviderService.html#source" target="_self" >OauthProviderService:96</a></code>
 </div>
                 </td>
             </tr>
@@ -512,7 +776,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../interfaces/OauthClient.html" target="_self" >Promise&lt;OauthClient&gt;</a></code>
+                        <b>Returns : </b>        <code><a href="../interfaces/ProviderOauthClient.html" target="_self" >Promise&lt;ProviderOauthClient&gt;</a></code>
 
                     </div>
                     <div class="io-description">
@@ -548,7 +812,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/OauthProviderService.html#source" target="_self" >OauthProviderService:27</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/OauthProviderService.html#source" target="_self" >OauthProviderService:44</a></code>
 </div>
                 </td>
             </tr>
@@ -635,7 +899,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/OauthProviderService.html#source" target="_self" >OauthProviderService:37</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/OauthProviderService.html#source" target="_self" >OauthProviderService:54</a></code>
 </div>
                 </td>
             </tr>
@@ -678,7 +942,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/OauthProviderService.html#source" target="_self" >OauthProviderService:42</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/OauthProviderService.html#source" target="_self" >OauthProviderService:59</a></code>
 </div>
                 </td>
             </tr>
@@ -753,7 +1017,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/OauthProviderService.html#source" target="_self" >OauthProviderService:58</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/OauthProviderService.html#source" target="_self" >OauthProviderService:79</a></code>
 </div>
                 </td>
             </tr>
@@ -828,7 +1092,210 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../interfaces/OauthClient.html" target="_self" >Promise&lt;OauthClient[]&gt;</a></code>
+                        <b>Returns : </b>        <code><a href="../interfaces/ProviderOauthClient.html" target="_self" >Promise&lt;ProviderOauthClient[]&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="put"></a>
+                    <span class="name">
+                        <span class="modifier">Protected</span>
+                        <span class="modifier">Async</span>
+                        <span ><b>put</b></span>
+                        <a href="#put"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>put(flow: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, action: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, challenge: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, body: AcceptConsentRequestBody | AcceptLoginRequestBody | RejectRequestBody)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="127"
+                            class="link-to-prism">apps/server/src/shared/infra/oauth-provider/hydra/hydra.service.ts:127</a></div>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Type parameters :</b>
+                    <ul class="type-parameters">
+                        <li>T</li>
+                    </ul>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>flow</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>action</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>challenge</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>body</td>
+                                    <td>
+                                            <code>AcceptConsentRequestBody | AcceptLoginRequestBody | RejectRequestBody</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;T&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="rejectConsentRequest"></a>
+                    <span class="name">
+                        <span ><b>rejectConsentRequest</b></span>
+                        <a href="#rejectConsentRequest"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>rejectConsentRequest(challenge: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, body: <a href="../interfaces/RejectRequestBody.html" target="_self">RejectRequestBody</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../classes/OauthProviderService.html" target="_self" >OauthProviderService</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../classes/OauthProviderService.html#source" target="_self" >OauthProviderService:67</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>challenge</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>body</td>
+                                    <td>
+                                                <code><a href="../interfaces/RejectRequestBody.html" target="_self" >RejectRequestBody</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../interfaces/ProviderRedirectResponse.html" target="_self" >Promise&lt;ProviderRedirectResponse&gt;</a></code>
 
                     </div>
                     <div class="io-description">
@@ -861,8 +1328,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="90"
-                            class="link-to-prism">apps/server/src/shared/infra/oauth-provider/hydra/hydra.service.ts:90</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="144"
+                            class="link-to-prism">apps/server/src/shared/infra/oauth-provider/hydra/hydra.service.ts:144</a></div>
                 </td>
             </tr>
 
@@ -989,7 +1456,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/OauthProviderService.html#source" target="_self" >OauthProviderService:50</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/OauthProviderService.html#source" target="_self" >OauthProviderService:71</a></code>
 </div>
                 </td>
             </tr>
@@ -1063,7 +1530,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>updateOAuth2Client(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, data: <a href="../interfaces/OauthClient.html" target="_self">OauthClient</a>)</code>
+<code>updateOAuth2Client(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, data: <a href="../interfaces/ProviderOauthClient.html" target="_self">ProviderOauthClient</a>)</code>
                 </td>
             </tr>
 
@@ -1076,7 +1543,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/OauthProviderService.html#source" target="_self" >OauthProviderService:80</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classes/OauthProviderService.html#source" target="_self" >OauthProviderService:113</a></code>
 </div>
                 </td>
             </tr>
@@ -1112,7 +1579,7 @@
                                 <tr>
                                     <td>data</td>
                                     <td>
-                                                <code><a href="../interfaces/OauthClient.html" target="_self" >OauthClient</a></code>
+                                                <code><a href="../interfaces/ProviderOauthClient.html" target="_self" >ProviderOauthClient</a></code>
                                     </td>
 
                                     <td>
@@ -1127,94 +1594,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../interfaces/OauthClient.html" target="_self" >Promise&lt;OauthClient&gt;</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="acceptConsentRequest"></a>
-                    <span class="name">
-                        <span ><b>acceptConsentRequest</b></span>
-                        <a href="#acceptConsentRequest"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>acceptConsentRequest(challenge: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, body: <a href="../interfaces/AcceptConsentRequestBody.html" target="_self">AcceptConsentRequestBody</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Inherited from         <code><a href="../classes/OauthProviderService.html" target="_self" >OauthProviderService</a></code>
-</div>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/OauthProviderService.html#source" target="_self" >OauthProviderService:31</a></code>
-</div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>challenge</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>body</td>
-                                    <td>
-                                                <code><a href="../interfaces/AcceptConsentRequestBody.html" target="_self" >AcceptConsentRequestBody</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../interfaces/RedirectResponse.html" target="_self" >Promise&lt;RedirectResponse&gt;</a></code>
+                        <b>Returns : </b>        <code><a href="../interfaces/ProviderOauthClient.html" target="_self" >Promise&lt;ProviderOauthClient&gt;</a></code>
 
                     </div>
                     <div class="io-description">
@@ -1301,82 +1681,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../interfaces/RedirectResponse.html" target="_self" >Promise&lt;RedirectResponse&gt;</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="getConsentRequest"></a>
-                    <span class="name">
-                        <span ><b>getConsentRequest</b></span>
-                        <a href="#getConsentRequest"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>getConsentRequest(challenge: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Inherited from         <code><a href="../classes/OauthProviderService.html" target="_self" >OauthProviderService</a></code>
-</div>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/OauthProviderService.html#source" target="_self" >OauthProviderService:27</a></code>
-</div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>challenge</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../interfaces/ConsentResponse.html" target="_self" >Promise&lt;ConsentResponse&gt;</a></code>
+                        <b>Returns : </b>        <code><a href="../interfaces/ProviderRedirectResponse.html" target="_self" >Promise&lt;ProviderRedirectResponse&gt;</a></code>
 
                     </div>
                     <div class="io-description">
@@ -1465,93 +1770,6 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="rejectConsentRequest"></a>
-                    <span class="name">
-                        <span ><b>rejectConsentRequest</b></span>
-                        <a href="#rejectConsentRequest"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>rejectConsentRequest(challenge: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, body: <a href="../interfaces/RejectRequestBody.html" target="_self">RejectRequestBody</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Inherited from         <code><a href="../classes/OauthProviderService.html" target="_self" >OauthProviderService</a></code>
-</div>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/OauthProviderService.html#source" target="_self" >OauthProviderService:35</a></code>
-</div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>challenge</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>body</td>
-                                    <td>
-                                                <code><a href="../interfaces/RejectRequestBody.html" target="_self" >RejectRequestBody</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../interfaces/RedirectResponse.html" target="_self" >Promise&lt;RedirectResponse&gt;</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
                     <a name="rejectLoginRequest"></a>
                     <span class="name">
                         <span ><b>rejectLoginRequest</b></span>
@@ -1625,7 +1843,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../interfaces/RedirectResponse.html" target="_self" >Promise&lt;RedirectResponse&gt;</a></code>
+                        <b>Returns : </b>        <code><a href="../interfaces/ProviderRedirectResponse.html" target="_self" >Promise&lt;ProviderRedirectResponse&gt;</a></code>
 
                     </div>
                     <div class="io-description">
@@ -1662,7 +1880,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">apps/server/src/shared/infra/oauth-provider/hydra/hydra.service.ts:14</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">apps/server/src/shared/infra/oauth-provider/hydra/hydra.service.ts:22</a></div>
                         </td>
                     </tr>
 
@@ -1676,15 +1894,23 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
-import { ProviderConsentSessionResponse } from &#x27;@shared/infra/oauth-provider/dto/response/provider-consent-session.response&#x27;;
 import { HttpService } from &#x27;@nestjs/axios&#x27;;
 import { Configuration } from &#x27;@hpi-schul-cloud/commons/lib&#x27;;
 import { AxiosRequestHeaders, AxiosResponse, Method } from &#x27;axios&#x27;;
 import { firstValueFrom, Observable } from &#x27;rxjs&#x27;;
 import QueryString from &#x27;qs&#x27;;
 import { URL } from &#x27;url&#x27;;
-import { IntrospectResponse, OauthClient, RedirectResponse } from &#x27;../dto&#x27;;
+import {
+	AcceptConsentRequestBody,
+	AcceptLoginRequestBody,
+	IntrospectResponse,
+	ProviderConsentResponse,
+	ProviderOauthClient,
+	ProviderRedirectResponse,
+	RejectRequestBody,
+} from &#x27;../dto&#x27;;
 import { OauthProviderService } from &#x27;../oauth-provider.service&#x27;;
+import { ProviderConsentSessionResponse } from &#x27;../dto/response/consent-session.response&#x27;;
 
 @Injectable()
 export class HydraService extends OauthProviderService {
@@ -1695,9 +1921,18 @@ export class HydraService extends OauthProviderService {
 		this.hydraUri &#x3D; Configuration.get(&#x27;HYDRA_URI&#x27;) as string;
 	}
 
-	async acceptLogoutRequest(challenge: string): Promise&lt;RedirectResponse&gt; {
+	acceptConsentRequest(challenge: string, body: AcceptConsentRequestBody): Promise&lt;ProviderRedirectResponse&gt; {
+		return this.put&lt;ProviderRedirectResponse&gt;(&#x27;consent&#x27;, &#x27;accept&#x27;, challenge, body);
+	}
+
+	async acceptLogoutRequest(challenge: string): Promise&lt;ProviderRedirectResponse&gt; {
 		const url &#x3D; &#x60;${this.hydraUri}/oauth2/auth/requests/logout/accept?logout_challenge&#x3D;${challenge}&#x60;;
-		const response: Promise&lt;RedirectResponse&gt; &#x3D; this.request&lt;RedirectResponse&gt;(&#x27;PUT&#x27;, url);
+		const response: Promise&lt;ProviderRedirectResponse&gt; &#x3D; this.request&lt;ProviderRedirectResponse&gt;(&#x27;PUT&#x27;, url);
+		return response;
+	}
+
+	getConsentRequest(challenge: string): Promise&lt;ProviderConsentResponse&gt; {
+		const response: Promise&lt;ProviderConsentResponse&gt; &#x3D; this.get&lt;ProviderConsentResponse&gt;(&#x27;consent&#x27;, challenge);
 		return response;
 	}
 
@@ -1724,6 +1959,10 @@ export class HydraService extends OauthProviderService {
 		return response;
 	}
 
+	rejectConsentRequest(challenge: string, body: RejectRequestBody): Promise&lt;ProviderRedirectResponse&gt; {
+		return this.put&lt;ProviderRedirectResponse&gt;(&#x27;consent&#x27;, &#x27;reject&#x27;, challenge, body);
+	}
+
 	revokeConsentSession(user: string, client: string): Promise&lt;void&gt; {
 		const response: Promise&lt;void&gt; &#x3D; this.request&lt;void&gt;(
 			&#x27;DELETE&#x27;,
@@ -1732,7 +1971,12 @@ export class HydraService extends OauthProviderService {
 		return response;
 	}
 
-	listOAuth2Clients(limit?: number, offset?: number, client_name?: string, owner?: string): Promise&lt;OauthClient[]&gt; {
+	listOAuth2Clients(
+		limit?: number,
+		offset?: number,
+		client_name?: string,
+		owner?: string
+	): Promise&lt;ProviderOauthClient[]&gt; {
 		const url: URL &#x3D; new URL(&#x60;${this.hydraUri}/clients&#x60;);
 		url.search &#x3D; QueryString.stringify({
 			limit,
@@ -1740,28 +1984,56 @@ export class HydraService extends OauthProviderService {
 			client_name,
 			owner,
 		});
-		const response: Promise&lt;OauthClient[]&gt; &#x3D; this.request&lt;OauthClient[]&gt;(&#x27;GET&#x27;, url.toString());
+		const response: Promise&lt;ProviderOauthClient[]&gt; &#x3D; this.request&lt;ProviderOauthClient[]&gt;(&#x27;GET&#x27;, url.toString());
 		return response;
 	}
 
-	getOAuth2Client(id: string): Promise&lt;OauthClient&gt; {
-		const response: Promise&lt;OauthClient&gt; &#x3D; this.request&lt;OauthClient&gt;(&#x27;GET&#x27;, &#x60;${this.hydraUri}/clients/${id}&#x60;);
+	getOAuth2Client(id: string): Promise&lt;ProviderOauthClient&gt; {
+		const response: Promise&lt;ProviderOauthClient&gt; &#x3D; this.request&lt;ProviderOauthClient&gt;(
+			&#x27;GET&#x27;,
+			&#x60;${this.hydraUri}/clients/${id}&#x60;
+		);
 		return response;
 	}
 
-	createOAuth2Client(data: OauthClient): Promise&lt;OauthClient&gt; {
-		const response: Promise&lt;OauthClient&gt; &#x3D; this.request&lt;OauthClient&gt;(&#x27;POST&#x27;, &#x60;${this.hydraUri}/clients&#x60;, data);
+	createOAuth2Client(data: ProviderOauthClient): Promise&lt;ProviderOauthClient&gt; {
+		const response: Promise&lt;ProviderOauthClient&gt; &#x3D; this.request&lt;ProviderOauthClient&gt;(
+			&#x27;POST&#x27;,
+			&#x60;${this.hydraUri}/clients&#x60;,
+			data
+		);
 		return response;
 	}
 
-	updateOAuth2Client(id: string, data: OauthClient): Promise&lt;OauthClient&gt; {
-		const response: Promise&lt;OauthClient&gt; &#x3D; this.request&lt;OauthClient&gt;(&#x27;PUT&#x27;, &#x60;${this.hydraUri}/clients/${id}&#x60;, data);
+	updateOAuth2Client(id: string, data: ProviderOauthClient): Promise&lt;ProviderOauthClient&gt; {
+		const response: Promise&lt;ProviderOauthClient&gt; &#x3D; this.request&lt;ProviderOauthClient&gt;(
+			&#x27;PUT&#x27;,
+			&#x60;${this.hydraUri}/clients/${id}&#x60;,
+			data
+		);
 		return response;
 	}
 
 	deleteOAuth2Client(id: string): Promise&lt;void&gt; {
 		const response: Promise&lt;void&gt; &#x3D; this.request&lt;void&gt;(&#x27;DELETE&#x27;, &#x60;${this.hydraUri}/clients/${id}&#x60;);
 		return response;
+	}
+
+	protected async put&lt;T&gt;(
+		flow: string,
+		action: string,
+		challenge: string,
+		body: AcceptConsentRequestBody | AcceptLoginRequestBody | RejectRequestBody
+	): Promise&lt;T&gt; {
+		return this.request&lt;T&gt;(
+			&#x27;PUT&#x27;,
+			&#x60;${this.hydraUri}/oauth2/auth/requests/${flow}/${action}?${flow}_challenge&#x3D;${challenge}&#x60;,
+			body
+		);
+	}
+
+	protected async get&lt;T&gt;(flow: string, challenge: string): Promise&lt;T&gt; {
+		return this.request&lt;T&gt;(&#x27;GET&#x27;, &#x60;${this.hydraUri}/oauth2/auth/requests/${flow}?${flow}_challenge&#x3D;${challenge}&#x60;);
 	}
 
 	protected async request&lt;T&gt;(

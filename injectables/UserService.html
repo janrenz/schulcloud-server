@@ -88,6 +88,14 @@
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
+                                <a href="#getDisplayName" >getDisplayName</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#getUser" >getUser</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
                                 <a href="#me" >me</a>
                             </li>
                             <li>
@@ -112,12 +120,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(userRepo: <a href="../injectables/UserRepo.html" target="_self">UserRepo</a>, roleRepo: <a href="../injectables/RoleRepo.html" target="_self">RoleRepo</a>, schoolRepo: <a href="../injectables/SchoolRepo.html" target="_self">SchoolRepo</a>, permissionService: <a href="../injectables/PermissionService.html" target="_self">PermissionService</a>, configService: <a href="../classes/User.html" target="_self">ConfigService&lt;IUserConfig | &gt;</a>)</code>
+<code>constructor(userRepo: <a href="../injectables/UserRepo.html" target="_self">UserRepo</a>, roleRepo: <a href="../injectables/RoleRepo.html" target="_self">RoleRepo</a>, schoolRepo: <a href="../injectables/SchoolRepo.html" target="_self">SchoolRepo</a>, permissionService: <a href="../injectables/PermissionService.html" target="_self">PermissionService</a>, configService: <a href="../classes/User.html" target="_self">ConfigService&lt;IUserConfig | &gt;</a>, roleService: <a href="../injectables/RoleService.html" target="_self">RoleService</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">apps/server/src/modules/user/service/user.service.ts:10</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">apps/server/src/modules/user/service/user.service.ts:12</a></div>
                             </td>
                         </tr>
 
@@ -194,6 +202,18 @@
                                                     </td>
                                                     
                                                 </tr>
+                                                <tr>
+                                                        <td>roleService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/RoleService.html" target="_self" >RoleService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
                                         </tbody>
                                     </table>
                             </div>
@@ -230,8 +250,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="26"
-                            class="link-to-prism">apps/server/src/modules/user/service/user.service.ts:26</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="60"
+                            class="link-to-prism">apps/server/src/modules/user/service/user.service.ts:60</a></div>
                 </td>
             </tr>
 
@@ -301,8 +321,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="41"
-                            class="link-to-prism">apps/server/src/modules/user/service/user.service.ts:41</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="75"
+                            class="link-to-prism">apps/server/src/modules/user/service/user.service.ts:75</a></div>
                 </td>
             </tr>
 
@@ -354,6 +374,154 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="getDisplayName"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>getDisplayName</b></span>
+                        <a href="#getDisplayName"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getDisplayName(userDto: <a href="../interfaces/User.html" target="_self">UserDto</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="49"
+                            class="link-to-prism">apps/server/src/modules/user/service/user.service.ts:49</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Gets the display name of an user.</p>
+<p>For this, it is checked which role he has.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>userDto</td>
+                                    <td>
+                                                <code><a href="../interfaces/User.html" target="_self" >UserDto</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;string&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>concatenated string</p>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getUser"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>getUser</b></span>
+                        <a href="#getUser"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getUser(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="35"
+                            class="link-to-prism">apps/server/src/modules/user/service/user.service.ts:35</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Gets a user based on their id.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../interfaces/User.html" target="_self" >Promise&lt;UserDto&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="me"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
@@ -372,8 +540,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="19"
-                            class="link-to-prism">apps/server/src/modules/user/service/user.service.ts:19</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="22"
+                            class="link-to-prism">apps/server/src/modules/user/service/user.service.ts:22</a></div>
                 </td>
             </tr>
 
@@ -443,8 +611,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="32"
-                            class="link-to-prism">apps/server/src/modules/user/service/user.service.ts:32</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="66"
+                            class="link-to-prism">apps/server/src/modules/user/service/user.service.ts:66</a></div>
                 </td>
             </tr>
 
@@ -517,6 +685,8 @@ import { UserMapper } from &#x27;@src/modules/user/mapper/user.mapper&#x27;;
 import { BadRequestException, Injectable } from &#x27;@nestjs/common&#x27;;
 import { ConfigService } from &#x27;@nestjs/config&#x27;;
 import { IUserConfig } from &#x27;@src/modules/user/interfaces&#x27;;
+import { RoleService } from &#x27;@src/modules/role/service/role.service&#x27;;
+import { RoleDto } from &#x27;@src/modules/role/service/dto/role.dto&#x27;;
 
 @Injectable()
 export class UserService {
@@ -525,7 +695,8 @@ export class UserService {
 		private readonly roleRepo: RoleRepo,
 		private readonly schoolRepo: SchoolRepo,
 		private readonly permissionService: PermissionService,
-		private readonly configService: ConfigService&lt;IUserConfig, true&gt;
+		private readonly configService: ConfigService&lt;IUserConfig, true&gt;,
+		private readonly roleService: RoleService
 	) {}
 
 	async me(userId: EntityId): Promise&lt;[User, string[]]&gt; {
@@ -533,6 +704,37 @@ export class UserService {
 		const permissions &#x3D; this.permissionService.resolvePermissions(user);
 
 		return [user, permissions];
+	}
+
+	/**
+	 * Gets a user based on their id.
+	 *
+	 * @param id
+	 * @return {@link UserDto}
+	 */
+	async getUser(id: string): Promise&lt;UserDto&gt; {
+		const userEntity &#x3D; await this.userRepo.findById(id, true);
+		const userDto &#x3D; UserMapper.mapFromEntityToDto(userEntity);
+		return userDto;
+	}
+
+	/**
+	 * Gets the display name of an user.
+	 *
+	 * For this, it is checked which role he has.
+	 *
+	 * @param userDto
+	 * @return concatenated string
+	 */
+	async getDisplayName(userDto: UserDto): Promise&lt;string&gt; {
+		const id: string &#x3D; userDto.id ? userDto.id : &#x27;&#x27;;
+
+		const protectedRoles: RoleDto[] &#x3D; await this.roleService.getProtectedRoles();
+		const isProtectedUser &#x3D; protectedRoles.find((role) &#x3D;&gt; (userDto.roleIds || []).includes(role.id || &#x27;&#x27;));
+		if (isProtectedUser) {
+			return userDto.lastName ? userDto.lastName : id;
+		}
+		return userDto.lastName ? &#x60;${userDto.firstName} ${userDto.lastName}&#x60; : id;
 	}
 
 	private checkAvailableLanguages(language: LanguageType): void | BadRequestException {

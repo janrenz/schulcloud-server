@@ -206,7 +206,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../interfaces/RedirectResponse.html" target="_self" >Promise&lt;RedirectResponse&gt;</a></code>
+                        <b>Returns : </b>        <code><a href="../interfaces/ProviderRedirectResponse.html" target="_self" >Promise&lt;ProviderRedirectResponse&gt;</a></code>
 
                     </div>
                     <div class="io-description">
@@ -224,14 +224,14 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
 import { OauthProviderService } from &#x27;@shared/infra/oauth-provider/index&#x27;;
-import { RedirectResponse } from &#x27;@shared/infra/oauth-provider/dto&#x27;;
+import { ProviderRedirectResponse } from &#x27;@shared/infra/oauth-provider/dto&#x27;;
 
 @Injectable()
 export class OauthProviderLogoutFlowUc {
 	constructor(private readonly oauthProviderService: OauthProviderService) {}
 
-	logoutFlow(challenge: string): Promise&lt;RedirectResponse&gt; {
-		const logoutResponse: Promise&lt;RedirectResponse&gt; &#x3D; this.oauthProviderService.acceptLogoutRequest(challenge);
+	logoutFlow(challenge: string): Promise&lt;ProviderRedirectResponse&gt; {
+		const logoutResponse: Promise&lt;ProviderRedirectResponse&gt; &#x3D; this.oauthProviderService.acceptLogoutRequest(challenge);
 		return logoutResponse;
 	}
 }
