@@ -281,8 +281,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="345"
-                            class="link-to-prism">apps/server/src/modules/account/uc/account.uc.ts:345</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="348"
+                            class="link-to-prism">apps/server/src/modules/account/uc/account.uc.ts:348</a></div>
                 </td>
             </tr>
 
@@ -365,8 +365,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="477"
-                            class="link-to-prism">apps/server/src/modules/account/uc/account.uc.ts:477</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="480"
+                            class="link-to-prism">apps/server/src/modules/account/uc/account.uc.ts:480</a></div>
                 </td>
             </tr>
 
@@ -449,8 +449,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="361"
-                            class="link-to-prism">apps/server/src/modules/account/uc/account.uc.ts:361</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="364"
+                            class="link-to-prism">apps/server/src/modules/account/uc/account.uc.ts:364</a></div>
                 </td>
             </tr>
 
@@ -638,8 +638,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="464"
-                            class="link-to-prism">apps/server/src/modules/account/uc/account.uc.ts:464</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="467"
+                            class="link-to-prism">apps/server/src/modules/account/uc/account.uc.ts:467</a></div>
                 </td>
             </tr>
 
@@ -803,8 +803,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="386"
-                            class="link-to-prism">apps/server/src/modules/account/uc/account.uc.ts:386</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="389"
+                            class="link-to-prism">apps/server/src/modules/account/uc/account.uc.ts:389</a></div>
                 </td>
             </tr>
 
@@ -898,8 +898,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="378"
-                            class="link-to-prism">apps/server/src/modules/account/uc/account.uc.ts:378</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="381"
+                            class="link-to-prism">apps/server/src/modules/account/uc/account.uc.ts:381</a></div>
                 </td>
             </tr>
 
@@ -969,8 +969,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="367"
-                            class="link-to-prism">apps/server/src/modules/account/uc/account.uc.ts:367</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="370"
+                            class="link-to-prism">apps/server/src/modules/account/uc/account.uc.ts:370</a></div>
                 </td>
             </tr>
 
@@ -1053,8 +1053,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="373"
-                            class="link-to-prism">apps/server/src/modules/account/uc/account.uc.ts:373</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="376"
+                            class="link-to-prism">apps/server/src/modules/account/uc/account.uc.ts:376</a></div>
                 </td>
             </tr>
 
@@ -1124,8 +1124,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="300"
-                            class="link-to-prism">apps/server/src/modules/account/uc/account.uc.ts:300</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="303"
+                            class="link-to-prism">apps/server/src/modules/account/uc/account.uc.ts:303</a></div>
                 </td>
             </tr>
 
@@ -1306,8 +1306,8 @@ Callable when the current user&#39;s password was force set or this is the first
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="452"
-                            class="link-to-prism">apps/server/src/modules/account/uc/account.uc.ts:452</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="455"
+                            class="link-to-prism">apps/server/src/modules/account/uc/account.uc.ts:455</a></div>
                 </td>
             </tr>
 
@@ -1933,7 +1933,10 @@ export class AccountUc {
 		if (params.passwordNew) {
 			account.password &#x3D; params.passwordNew;
 			updateAccount &#x3D; true;
+		} else {
+			account.password &#x3D; undefined;
 		}
+
 		if (params.email &amp;&amp; user.email !&#x3D;&#x3D; params.email) {
 			const newMail &#x3D; params.email.toLowerCase();
 			await this.checkUniqueEmail(account, user, newMail);
