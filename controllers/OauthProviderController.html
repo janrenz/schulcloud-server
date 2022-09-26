@@ -111,6 +111,7 @@
                                 <a href="#introspectOAuth2Token" >introspectOAuth2Token</a>
                             </li>
                             <li>
+                                    <span class="modifier">Async</span>
                                 <a href="#listConsentSessions" >listConsentSessions</a>
                             </li>
                             <li>
@@ -176,8 +177,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="111"
-                            class="link-to-prism">apps/server/src/modules/oauth-provider/controller/oauth-provider.controller.ts:111</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="108"
+                            class="link-to-prism">apps/server/src/modules/oauth-provider/controller/oauth-provider.controller.ts:108</a></div>
                 </td>
             </tr>
 
@@ -266,8 +267,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="65"
-                            class="link-to-prism">apps/server/src/modules/oauth-provider/controller/oauth-provider.controller.ts:65</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="67"
+                            class="link-to-prism">apps/server/src/modules/oauth-provider/controller/oauth-provider.controller.ts:67</a></div>
                 </td>
             </tr>
 
@@ -354,8 +355,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="88"
-                            class="link-to-prism">apps/server/src/modules/oauth-provider/controller/oauth-provider.controller.ts:88</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="90"
+                            class="link-to-prism">apps/server/src/modules/oauth-provider/controller/oauth-provider.controller.ts:90</a></div>
                 </td>
             </tr>
 
@@ -442,8 +443,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="118"
-                            class="link-to-prism">apps/server/src/modules/oauth-provider/controller/oauth-provider.controller.ts:118</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="115"
+                            class="link-to-prism">apps/server/src/modules/oauth-provider/controller/oauth-provider.controller.ts:115</a></div>
                 </td>
             </tr>
 
@@ -518,8 +519,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="99"
-                            class="link-to-prism">apps/server/src/modules/oauth-provider/controller/oauth-provider.controller.ts:99</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="96"
+                            class="link-to-prism">apps/server/src/modules/oauth-provider/controller/oauth-provider.controller.ts:96</a></div>
                 </td>
             </tr>
 
@@ -596,8 +597,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="34"
-                            class="link-to-prism">apps/server/src/modules/oauth-provider/controller/oauth-provider.controller.ts:34</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="36"
+                            class="link-to-prism">apps/server/src/modules/oauth-provider/controller/oauth-provider.controller.ts:36</a></div>
                 </td>
             </tr>
 
@@ -684,8 +685,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="141"
-                            class="link-to-prism">apps/server/src/modules/oauth-provider/controller/oauth-provider.controller.ts:141</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="151"
+                            class="link-to-prism">apps/server/src/modules/oauth-provider/controller/oauth-provider.controller.ts:151</a></div>
                 </td>
             </tr>
 
@@ -728,8 +729,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="94"
-                            class="link-to-prism">apps/server/src/modules/oauth-provider/controller/oauth-provider.controller.ts:94</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="146"
+                            class="link-to-prism">apps/server/src/modules/oauth-provider/controller/oauth-provider.controller.ts:146</a></div>
                 </td>
             </tr>
 
@@ -783,6 +784,7 @@
                 <td class="col-md-4">
                     <a name="listConsentSessions"></a>
                     <span class="name">
+                        <span class="modifier">Async</span>
                         <span ><b>listConsentSessions</b></span>
                         <a href="#listConsentSessions"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -790,7 +792,8 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>listConsentSessions(params: <a href="../interfaces/User.html" target="_self">UserParams</a>)</code>
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>listConsentSessions(currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>)</code>
                 </td>
             </tr>
 
@@ -798,14 +801,14 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@Authenticate(&#x27;jwt&#x27;)<br />@Get(&#x27;auth/sessions/consent/:userId&#x27;)<br /></code>
+                    <code>@Authenticate(&#x27;jwt&#x27;)<br />@Get(&#x27;auth/sessions/consent&#x27;)<br /></code>
                 </td>
             </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="130"
-                            class="link-to-prism">apps/server/src/modules/oauth-provider/controller/oauth-provider.controller.ts:130</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="127"
+                            class="link-to-prism">apps/server/src/modules/oauth-provider/controller/oauth-provider.controller.ts:127</a></div>
                 </td>
             </tr>
 
@@ -826,9 +829,9 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>params</td>
+                                    <td>currentUser</td>
                                     <td>
-                                                <code><a href="../interfaces/User.html" target="_self" >UserParams</a></code>
+                                                <code><a href="../interfaces/ICurrentUser.html" target="_self" >ICurrentUser</a></code>
                                     </td>
 
                                     <td>
@@ -843,7 +846,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                        <b>Returns : </b>        <code><a href="../classes/ConsentSessionResponse.html" target="_self" >Promise&lt;ConsentSessionResponse[]&gt;</a></code>
 
                     </div>
                     <div class="io-description">
@@ -882,8 +885,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="45"
-                            class="link-to-prism">apps/server/src/modules/oauth-provider/controller/oauth-provider.controller.ts:45</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="47"
+                            class="link-to-prism">apps/server/src/modules/oauth-provider/controller/oauth-provider.controller.ts:47</a></div>
                 </td>
             </tr>
 
@@ -970,8 +973,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="124"
-                            class="link-to-prism">apps/server/src/modules/oauth-provider/controller/oauth-provider.controller.ts:124</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="121"
+                            class="link-to-prism">apps/server/src/modules/oauth-provider/controller/oauth-provider.controller.ts:121</a></div>
                 </td>
             </tr>
 
@@ -1070,8 +1073,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="105"
-                            class="link-to-prism">apps/server/src/modules/oauth-provider/controller/oauth-provider.controller.ts:105</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="102"
+                            class="link-to-prism">apps/server/src/modules/oauth-provider/controller/oauth-provider.controller.ts:102</a></div>
                 </td>
             </tr>
 
@@ -1156,7 +1159,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>revokeConsentSession(params: <a href="../interfaces/User.html" target="_self">UserParams</a>, query: <a href="../classes/RevokeConsentQuery.html" target="_self">RevokeConsentQuery</a>)</code>
+<code>revokeConsentSession(currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>, params: <a href="../classes/RevokeConsentParams.html" target="_self">RevokeConsentParams</a>)</code>
                 </td>
             </tr>
 
@@ -1164,14 +1167,14 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@Authenticate(&#x27;jwt&#x27;)<br />@Delete(&#x27;auth/sessions/consent/:userId&#x27;)<br /></code>
+                    <code>@Authenticate(&#x27;jwt&#x27;)<br />@Delete(&#x27;auth/sessions/consent&#x27;)<br /></code>
                 </td>
             </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="136"
-                            class="link-to-prism">apps/server/src/modules/oauth-provider/controller/oauth-provider.controller.ts:136</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="140"
+                            class="link-to-prism">apps/server/src/modules/oauth-provider/controller/oauth-provider.controller.ts:140</a></div>
                 </td>
             </tr>
 
@@ -1192,9 +1195,9 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>params</td>
+                                    <td>currentUser</td>
                                     <td>
-                                                <code><a href="../interfaces/User.html" target="_self" >UserParams</a></code>
+                                                <code><a href="../interfaces/ICurrentUser.html" target="_self" >ICurrentUser</a></code>
                                     </td>
 
                                     <td>
@@ -1204,9 +1207,9 @@
 
                                 </tr>
                                 <tr>
-                                    <td>query</td>
+                                    <td>params</td>
                                     <td>
-                                                <code><a href="../classes/RevokeConsentQuery.html" target="_self" >RevokeConsentQuery</a></code>
+                                                <code><a href="../classes/RevokeConsentParams.html" target="_self" >RevokeConsentParams</a></code>
                                     </td>
 
                                     <td>
@@ -1221,7 +1224,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
 
                     </div>
                     <div class="io-description">
@@ -1260,8 +1263,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="76"
-                            class="link-to-prism">apps/server/src/modules/oauth-provider/controller/oauth-provider.controller.ts:76</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="78"
+                            class="link-to-prism">apps/server/src/modules/oauth-provider/controller/oauth-provider.controller.ts:78</a></div>
                 </td>
             </tr>
 
@@ -1342,29 +1345,31 @@ import { Body, Controller, Delete, Get, NotImplementedException, Param, Patch, P
 import { Authenticate, CurrentUser } from &#x27;@src/modules/authentication/decorator/auth.decorator&#x27;;
 import { OauthProviderLogoutFlowUc } from &#x27;@src/modules/oauth-provider/uc/oauth-provider.logout-flow.uc&#x27;;
 import { OauthProviderResponseMapper } from &#x27;@src/modules/oauth-provider/mapper/oauth-provider-response.mapper&#x27;;
-import { OauthClient, RedirectResponse } from &#x27;@shared/infra/oauth-provider/dto&#x27;;
+import { OauthClient, ProviderConsentSessionResponse, RedirectResponse } from &#x27;@shared/infra/oauth-provider/dto&#x27;;
 import { ICurrentUser } from &#x27;@shared/domain&#x27;;
+import { OauthProviderClientCrudUc } from &#x27;@src/modules/oauth-provider/uc/oauth-provider.client-crud.uc&#x27;;
+import { IntrospectBody } from &#x27;@src/modules/oauth-provider/controller/dto/request/introspect.body&#x27;;
 import {
 	AcceptQuery,
 	ChallengeParams,
 	ConsentRequestBody,
+	ConsentSessionResponse,
 	IdParams,
-	IntrospectBody,
 	ListOauthClientsParams,
 	LoginRequestBody,
 	OauthClientBody,
 	OauthClientResponse,
 	RedirectBody,
-	RevokeConsentQuery,
-	UserParams,
+	RevokeConsentParams,
 } from &#x27;./dto&#x27;;
-import { OauthProviderClientCrudUc } from &#x27;../uc/oauth-provider.client-crud.uc&#x27;;
+import { OauthProviderUc } from &#x27;../uc/oauth-provider.uc&#x27;;
 
 @Controller(&#x27;oauth2&#x27;)
 export class OauthProviderController {
 	constructor(
 		private readonly crudUc: OauthProviderClientCrudUc,
-		private readonly oauthProviderUc: OauthProviderLogoutFlowUc,
+		private readonly oauthProviderUc: OauthProviderUc,
+		private readonly logoutFlowUc: OauthProviderLogoutFlowUc,
 		private readonly oauthProviderResponseMapper: OauthProviderResponseMapper
 	) {}
 
@@ -1429,11 +1434,6 @@ export class OauthProviderController {
 		return promise;
 	}
 
-	@Post(&#x27;introspect&#x27;)
-	introspectOAuth2Token(@Body() body: IntrospectBody) {
-		throw new NotImplementedException();
-	}
-
 	@Get(&#x27;loginRequest/:challenge&#x27;)
 	getLoginRequest(@Param() params: ChallengeParams) {
 		throw new NotImplementedException();
@@ -1448,7 +1448,7 @@ export class OauthProviderController {
 	@Authenticate(&#x27;jwt&#x27;)
 	@Patch(&#x27;logoutRequest/:challenge&#x27;)
 	async acceptLogoutRequest(@Param() params: ChallengeParams, @Body() body: RedirectBody) {
-		const redirect: RedirectResponse &#x3D; await this.oauthProviderUc.logoutFlow(params.challenge);
+		const redirect: RedirectResponse &#x3D; await this.logoutFlowUc.logoutFlow(params.challenge);
 		return redirect.redirect_to;
 	}
 
@@ -1465,14 +1465,27 @@ export class OauthProviderController {
 	}
 
 	@Authenticate(&#x27;jwt&#x27;)
-	@Get(&#x27;auth/sessions/consent/:userId&#x27;)
-	listConsentSessions(@Param() params: UserParams) {
-		throw new NotImplementedException();
+	@Get(&#x27;auth/sessions/consent&#x27;)
+	async listConsentSessions(@CurrentUser() currentUser: ICurrentUser): Promise&lt;ConsentSessionResponse[]&gt; {
+		const sessions: ProviderConsentSessionResponse[] &#x3D; await this.oauthProviderUc.listConsentSessions(
+			currentUser.userId
+		);
+		const mapped: ConsentSessionResponse[] &#x3D; sessions.map(
+			(session: ProviderConsentSessionResponse): ConsentSessionResponse &#x3D;&gt;
+				this.oauthProviderResponseMapper.mapConsentSessionsToResponse(session)
+		);
+		return mapped;
 	}
 
 	@Authenticate(&#x27;jwt&#x27;)
-	@Delete(&#x27;auth/sessions/consent/:userId&#x27;)
-	revokeConsentSession(@Param() params: UserParams, @Query() query: RevokeConsentQuery) {
+	@Delete(&#x27;auth/sessions/consent&#x27;)
+	revokeConsentSession(@CurrentUser() currentUser: ICurrentUser, @Param() params: RevokeConsentParams): Promise&lt;void&gt; {
+		const promise: Promise&lt;void&gt; &#x3D; this.oauthProviderUc.revokeConsentSession(currentUser.userId, params.client);
+		return promise;
+	}
+
+	@Post(&#x27;introspect&#x27;)
+	introspectOAuth2Token(@Body() body: IntrospectBody) {
 		throw new NotImplementedException();
 	}
 
