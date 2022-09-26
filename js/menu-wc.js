@@ -1165,6 +1165,29 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                     </li>
                             </li>
                             <li class="link">
+                                <a href="modules/SharingModule.html" data-type="entity-link" >SharingModule</a>
+                                <li class="chapter inner">
+                                    <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
+                                        'data-target="#injectables-links-module-SharingModule-a07c7e940da57bd06fc91bc945be40578002b5a2aee7e363a48be61c31d2300a71910ca25fb920f0aaba634c308a34b3f087a4ecfafa78ef0baefb8e724c269c"' : 'data-target="#xs-injectables-links-module-SharingModule-a07c7e940da57bd06fc91bc945be40578002b5a2aee7e363a48be61c31d2300a71910ca25fb920f0aaba634c308a34b3f087a4ecfafa78ef0baefb8e724c269c"' }>
+                                        <span class="icon ion-md-arrow-round-down"></span>
+                                        <span>Injectables</span>
+                                        <span class="icon ion-ios-arrow-down"></span>
+                                    </div>
+                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-SharingModule-a07c7e940da57bd06fc91bc945be40578002b5a2aee7e363a48be61c31d2300a71910ca25fb920f0aaba634c308a34b3f087a4ecfafa78ef0baefb8e724c269c"' :
+                                        'id="xs-injectables-links-module-SharingModule-a07c7e940da57bd06fc91bc945be40578002b5a2aee7e363a48be61c31d2300a71910ca25fb920f0aaba634c308a34b3f087a4ecfafa78ef0baefb8e724c269c"' }>
+                                        <li class="link">
+                                            <a href="injectables/ShareTokenRepo.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >ShareTokenRepo</a>
+                                        </li>
+                                        <li class="link">
+                                            <a href="injectables/ShareTokenService.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >ShareTokenService</a>
+                                        </li>
+                                        <li class="link">
+                                            <a href="injectables/TokenGenerator.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >TokenGenerator</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </li>
+                            <li class="link">
                                 <a href="modules/SystemModule.html" data-type="entity-link" >SystemModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
@@ -1383,6 +1406,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                     <a href="controllers/OauthProviderController.html" data-type="entity-link" >OauthProviderController</a>
                                 </li>
                                 <li class="link">
+                                    <a href="controllers/ShareTokenController.html" data-type="entity-link" >ShareTokenController</a>
+                                </li>
+                                <li class="link">
                                     <a href="controllers/SystemController.html" data-type="entity-link" >SystemController</a>
                                 </li>
                                 <li class="link">
@@ -1466,6 +1492,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 </li>
                                 <li class="link">
                                     <a href="entities/SchoolYear.html" data-type="entity-link" >SchoolYear</a>
+                                </li>
+                                <li class="link">
+                                    <a href="entities/ShareToken.html" data-type="entity-link" >ShareToken</a>
                                 </li>
                                 <li class="link">
                                     <a href="entities/StorageProvider.html" data-type="entity-link" >StorageProvider</a>
@@ -2069,6 +2098,30 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/ServerConsole.html" data-type="entity-link" >ServerConsole</a>
                             </li>
                             <li class="link">
+                                <a href="classes/ShareTokenBodyParams.html" data-type="entity-link" >ShareTokenBodyParams</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/ShareTokenContextBodyParams.html" data-type="entity-link" >ShareTokenContextBodyParams</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/ShareTokenDO.html" data-type="entity-link" >ShareTokenDO</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/ShareTokenFactory.html" data-type="entity-link" >ShareTokenFactory</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/ShareTokenMapper.html" data-type="entity-link" >ShareTokenMapper</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/ShareTokenPayloadResponse.html" data-type="entity-link" >ShareTokenPayloadResponse</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/ShareTokenResponse.html" data-type="entity-link" >ShareTokenResponse</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/ShareTokenUrlParams.html" data-type="entity-link" >ShareTokenUrlParams</a>
+                            </li>
+                            <li class="link">
                                 <a href="classes/SingleFileParams.html" data-type="entity-link" >SingleFileParams</a>
                             </li>
                             <li class="link">
@@ -2529,6 +2582,12 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                     <a href="injectables/SchoolYearRepo.html" data-type="entity-link" >SchoolYearRepo</a>
                                 </li>
                                 <li class="link">
+                                    <a href="injectables/ShareTokenRepo.html" data-type="entity-link" >ShareTokenRepo</a>
+                                </li>
+                                <li class="link">
+                                    <a href="injectables/ShareTokenUC.html" data-type="entity-link" >ShareTokenUC</a>
+                                </li>
+                                <li class="link">
                                     <a href="injectables/StorageProviderRepo.html" data-type="entity-link" >StorageProviderRepo</a>
                                 </li>
                                 <li class="link">
@@ -2936,6 +2995,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="interfaces/IServerConfig.html" data-type="entity-link" >IServerConfig</a>
+                            </li>
+                            <li class="link">
+                                <a href="interfaces/IShareTokenProperties.html" data-type="entity-link" >IShareTokenProperties</a>
                             </li>
                             <li class="link">
                                 <a href="interfaces/IStorageClient.html" data-type="entity-link" >IStorageClient</a>
