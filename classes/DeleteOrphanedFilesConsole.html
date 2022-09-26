@@ -85,6 +85,10 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Async</span>
+                                <a href="#deleteOrphanedFilesForLessons" >deleteOrphanedFilesForLessons</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
                                 <a href="#deleteOrphanedFilesForTasks" >deleteOrphanedFilesForTasks</a>
                             </li>
                         </ul>
@@ -158,6 +162,52 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="deleteOrphanedFilesForLessons"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>deleteOrphanedFilesForLessons</b></span>
+                        <a href="#deleteOrphanedFilesForLessons"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>deleteOrphanedFilesForLessons()</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Command({command: &#x27;lessons&#x27;})<br /></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="19"
+                            class="link-to-prism">apps/server/src/modules/files/job/delete-orphaned-files.console.ts:19</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="deleteOrphanedFilesForTasks"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
@@ -223,6 +273,11 @@ export class DeleteOrphanedFilesConsole {
 	@Command({ command: &#x27;tasks&#x27; })
 	async deleteOrphanedFilesForTasks() {
 		await this.deleteOrphanedFilesUc.deleteOrphanedFilesForParentType(FileRecordParentType.Task);
+	}
+
+	@Command({ command: &#x27;lessons&#x27; })
+	async deleteOrphanedFilesForLessons() {
+		await this.deleteOrphanedFilesUc.deleteDuplicatedFilesForParentType(FileRecordParentType.Lesson);
 	}
 }
 </code></pre>

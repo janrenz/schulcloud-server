@@ -3930,13 +3930,10 @@ it should ensure an empty result</p>
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>(excludeIds: ObjectId[]) &#x3D;&gt; {
-	return {
-		_id: { $nin: excludeIds },
-		&#x27;contents.component&#x27;: { $eq: &#x27;text&#x27; },
-		&#x27;contents.content.text&#x27;: { $regex: new RegExp(&#x60;src&#x3D;${fileUrlRegex}${fileIdRegex}&#x60;, &#x27;i&#x27;) },
-	} as FilterQuery&lt;Lesson&gt;;
-}</code>
+                        <i>Default value : </i><code>{
+	&#x27;contents.component&#x27;: { $eq: &#x27;text&#x27; },
+	&#x27;contents.content.text&#x27;: { $regex: new RegExp(&#x60;src&#x3D;${fileUrlRegex}${fileIdRegex}&#x60;, &#x27;i&#x27;) },
+} as FilterQuery&lt;Lesson&gt;</code>
                     </td>
                 </tr>
 
@@ -3956,11 +3953,14 @@ it should ensure an empty result</p>
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>(excludeIds: ObjectId[]) &#x3D;&gt; {
-	return {
-		_id: { $nin: excludeIds },
-		description: new RegExp(&#x60;src&#x3D;${fileUrlRegex}${fileIdRegex}&#x60;, &#x27;i&#x27;),
-	};
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+	description: new RegExp(&#x60;src&#x3D;${fileUrlRegex}${fileIdRegex}&#x60;, &#x27;i&#x27;),
 }</code>
                     </td>
                 </tr>

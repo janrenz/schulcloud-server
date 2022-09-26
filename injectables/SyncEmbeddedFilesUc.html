@@ -69,20 +69,6 @@
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
         <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <h6><b>Properties</b></h6>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <ul class="index-list">
-                            <li>
-                                <a href="#failedIds" >failedIds</a>
-                            </li>
-                        </ul>
-                    </td>
-                </tr>
 
                 <tr>
                     <td class="col-md-4">
@@ -99,6 +85,10 @@
                             <li>
                                     <span class="modifier">Private</span>
                                 <a href="#extractFileIdsFromContent" >extractFileIdsFromContent</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#isTextComponent" >isTextComponent</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
@@ -125,8 +115,12 @@
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
-                                    <span class="modifier">Async</span>
                                 <a href="#updateEntityLinks" >updateEntityLinks</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#writeError" >writeError</a>
                             </li>
                         </ul>
                     </td>
@@ -151,7 +145,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">apps/server/src/modules/files/uc/sync-embedded-files.uc.ts:15</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">apps/server/src/modules/files/uc/sync-embedded-files.uc.ts:14</a></div>
                             </td>
                         </tr>
 
@@ -252,8 +246,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="59"
-                            class="link-to-prism">apps/server/src/modules/files/uc/sync-embedded-files.uc.ts:59</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="64"
+                            class="link-to-prism">apps/server/src/modules/files/uc/sync-embedded-files.uc.ts:64</a></div>
                 </td>
             </tr>
 
@@ -323,8 +317,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="95"
-                            class="link-to-prism">apps/server/src/modules/files/uc/sync-embedded-files.uc.ts:95</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="99"
+                            class="link-to-prism">apps/server/src/modules/files/uc/sync-embedded-files.uc.ts:99</a></div>
                 </td>
             </tr>
 
@@ -376,6 +370,77 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="isTextComponent"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span ><b>isTextComponent</b></span>
+                        <a href="#isTextComponent"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>isTextComponent(item: <a href="../interfaces/IComponentProperties.html" target="_self">IComponentProperties</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="180"
+                            class="link-to-prism">apps/server/src/modules/files/uc/sync-embedded-files.uc.ts:180</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>item</td>
+                                    <td>
+                                                <code><a href="../interfaces/IComponentProperties.html" target="_self" >IComponentProperties</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="replaceLink"></a>
                     <span class="name">
                         <span class="modifier">Private</span>
@@ -387,15 +452,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>replaceLink(text: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, file: <a href="../classes/SyncFileItem.html" target="_self">SyncFileItem</a>, errorUrl?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    <code>replaceLink(text: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, sourceFileId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, fileRecordId?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, fileRecordName?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="142"
-                            class="link-to-prism">apps/server/src/modules/files/uc/sync-embedded-files.uc.ts:142</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="167"
+                            class="link-to-prism">apps/server/src/modules/files/uc/sync-embedded-files.uc.ts:167</a></div>
                 </td>
             </tr>
 
@@ -428,9 +493,9 @@
 
                                 </tr>
                                 <tr>
-                                    <td>file</td>
+                                    <td>sourceFileId</td>
                                     <td>
-                                                <code><a href="../classes/SyncFileItem.html" target="_self" >SyncFileItem</a></code>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
                                     </td>
 
                                     <td>
@@ -440,7 +505,19 @@
 
                                 </tr>
                                 <tr>
-                                    <td>errorUrl</td>
+                                    <td>fileRecordId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>fileRecordName</td>
                                     <td>
                                                 <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
                                     </td>
@@ -490,8 +567,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="107"
-                            class="link-to-prism">apps/server/src/modules/files/uc/sync-embedded-files.uc.ts:107</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="116"
+                            class="link-to-prism">apps/server/src/modules/files/uc/sync-embedded-files.uc.ts:116</a></div>
                 </td>
             </tr>
 
@@ -574,8 +651,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="29"
-                            class="link-to-prism">apps/server/src/modules/files/uc/sync-embedded-files.uc.ts:29</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="27"
+                            class="link-to-prism">apps/server/src/modules/files/uc/sync-embedded-files.uc.ts:27</a></div>
                 </td>
             </tr>
 
@@ -658,8 +735,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="102"
-                            class="link-to-prism">apps/server/src/modules/files/uc/sync-embedded-files.uc.ts:102</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="106"
+                            class="link-to-prism">apps/server/src/modules/files/uc/sync-embedded-files.uc.ts:106</a></div>
                 </td>
             </tr>
 
@@ -741,8 +818,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="24"
-                            class="link-to-prism">apps/server/src/modules/files/uc/sync-embedded-files.uc.ts:24</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="22"
+                            class="link-to-prism">apps/server/src/modules/files/uc/sync-embedded-files.uc.ts:22</a></div>
                 </td>
             </tr>
 
@@ -815,7 +892,6 @@
                     <a name="updateEntityLinks"></a>
                     <span class="name">
                         <span class="modifier">Private</span>
-                        <span class="modifier">Async</span>
                         <span ><b>updateEntityLinks</b></span>
                         <a href="#updateEntityLinks"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -824,15 +900,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>updateEntityLinks(file: <a href="../classes/SyncFileItem.html" target="_self">SyncFileItem</a>, entity: <a href="../classes/Task.html" target="_self">Task | Lesson</a>, errorUrl?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    <code>updateEntityLinks(entity: <a href="../classes/Task.html" target="_self">Task | Lesson</a>, sourceFileId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, fileRecordId?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, fileRecordName?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="124"
-                            class="link-to-prism">apps/server/src/modules/files/uc/sync-embedded-files.uc.ts:124</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="142"
+                            class="link-to-prism">apps/server/src/modules/files/uc/sync-embedded-files.uc.ts:142</a></div>
                 </td>
             </tr>
 
@@ -853,18 +929,6 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>file</td>
-                                    <td>
-                                                <code><a href="../classes/SyncFileItem.html" target="_self" >SyncFileItem</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
                                     <td>entity</td>
                                     <td>
                                                 <code><a href="../classes/Task.html" target="_self" >Task | Lesson</a></code>
@@ -877,7 +941,31 @@
 
                                 </tr>
                                 <tr>
-                                    <td>errorUrl</td>
+                                    <td>sourceFileId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>fileRecordId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>fileRecordName</td>
                                     <td>
                                                 <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
                                     </td>
@@ -894,7 +982,103 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="writeError"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span class="modifier">Async</span>
+                        <span ><b>writeError</b></span>
+                        <a href="#writeError"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>writeError(error: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, sourceFileId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, entity: <a href="../undefineds/AvailableSyncEntityType.html" target="_self">AvailableSyncEntityType</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="133"
+                            class="link-to-prism">apps/server/src/modules/files/uc/sync-embedded-files.uc.ts:133</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>error</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>sourceFileId</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>entity</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#AvailableSyncEntityType" target="_self" >AvailableSyncEntityType</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>unknown</code>
 
                     </div>
                     <div class="io-description">
@@ -905,43 +1089,6 @@
         </tbody>
     </table>
 </section>
-            <section>
-    
-    <h3 id="inputs">
-        Properties
-    </h3>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="failedIds"></a>
-                    <span class="name">
-                        <span ><b>failedIds</b></span>
-                        <a href="#failedIds"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Type : </i>    <code>ObjectId[]</code>
-
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Default value : </i><code>[]</code>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">apps/server/src/modules/files/uc/sync-embedded-files.uc.ts:15</a></div>
-                        </td>
-                    </tr>
-
-
-        </tbody>
-    </table>
-</section>
 
     </div>
 
@@ -949,7 +1096,7 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ObjectId } from &#x27;@mikro-orm/mongodb&#x27;;
 import { Injectable } from &#x27;@nestjs/common&#x27;;
-import { FileRecordParentType, IComponentProperties, Lesson, Task } from &#x27;@shared/domain&#x27;;
+import { ComponentType, EntityId, IComponentProperties, IComponentTextProperties, Lesson, Task } from &#x27;@shared/domain&#x27;;
 import { Logger } from &#x27;@src/core/logger/logger.service&#x27;;
 import _ from &#x27;lodash&#x27;;
 import { EmbeddedFilesRepo, fileIdRegex, fileUrlRegex } from &#x27;../repo/embedded-files.repo&#x27;;
@@ -959,8 +1106,6 @@ import { SyncFilesStorageService } from &#x27;./sync-files-storage.service&#x27;
 
 @Injectable()
 export class SyncEmbeddedFilesUc {
-	failedIds: ObjectId[] &#x3D; [];
-
 	constructor(
 		private embeddedFilesRepo: EmbeddedFilesRepo,
 		private logger: Logger,
@@ -974,7 +1119,7 @@ export class SyncEmbeddedFilesUc {
 	}
 
 	private async syncEmbeddedFiles(type: AvailableSyncParentType, limit: number) {
-		const [entities, count] &#x3D; await this.embeddedFilesRepo.findElementsToSyncFiles(type, limit, this.failedIds);
+		const [entities, count] &#x3D; await this.embeddedFilesRepo.findElementsToSyncFiles(type, limit);
 
 		this.logger.log(&#x60;Found ${entities.length} ${type} descriptions with embedded files.&#x60;);
 
@@ -982,18 +1127,25 @@ export class SyncEmbeddedFilesUc {
 			this.logger.log(&#x60;migrating entity with id ${entity.id}&#x60;);
 			const fileIds &#x3D; this.extractFileIds(entity);
 			this.logger.log(&#x60;extracted file ids for entity with id ${entity.id} - fileIds: ${JSON.stringify(fileIds)}&#x60;);
+			if (fileIds.length &gt; 0) {
+				const files &#x3D; await this.embeddedFilesRepo.findFiles(fileIds, entity._id, type);
 
-			const files &#x3D; await this.embeddedFilesRepo.findFiles(fileIds, entity._id, type);
+				const unreachableFileIds: string[] &#x3D; [];
+				fileIds.forEach((id) &#x3D;&gt; {
+					const idExists &#x3D; files.some((file) &#x3D;&gt; file.source.id &#x3D;&#x3D;&#x3D; id.toHexString());
+					if (!idExists) {
+						unreachableFileIds.push(id.toHexString());
+						this.logger.warn(
+							&#x60;legacy file with id: ${id.toHexString()} in entity ${entity._id.toHexString()} not found&#x60;
+						);
+					}
+				});
+				unreachableFileIds.forEach((id) &#x3D;&gt; {
+					this.updateEntityLinks(entity, id);
+				});
 
-			fileIds.forEach((id) &#x3D;&gt; {
-				const idExists &#x3D; files.some((file) &#x3D;&gt; file.source.id &#x3D;&#x3D;&#x3D; id.toHexString());
-				if (!idExists) {
-					this.failedIds.push(entity._id);
-					this.logger.error(&#x60;legacy file with id: ${id.toHexString()} in entity ${entity._id.toHexString()} not found&#x60;);
-				}
-			});
-
-			return this.syncFiles(files, entity);
+				await this.syncFiles(files, entity);
+			}
 		});
 
 		await Promise.all(promises);
@@ -1008,8 +1160,8 @@ export class SyncEmbeddedFilesUc {
 
 		if (entity instanceof Lesson) {
 			entity.contents.forEach((item: IComponentProperties) &#x3D;&gt; {
-				if (item.component &#x3D;&#x3D;&#x3D; &#x27;text&#x27; &amp;&amp; item.content &amp;&amp; &#x27;text&#x27; in item.content &amp;&amp; item.content.text) {
-					const contentFileIds &#x3D; this.extractFileIdsFromContent(item.content.text);
+				if (this.isTextComponent(item)) {
+					const contentFileIds &#x3D; this.extractFileIdsFromContent((item.content as IComponentTextProperties).text);
 					if (contentFileIds !&#x3D;&#x3D; null) {
 						fileIds.push(...contentFileIds);
 					}
@@ -1030,7 +1182,6 @@ export class SyncEmbeddedFilesUc {
 				try {
 					return new ObjectId(id);
 				} catch (error) {
-					this.failedIds.push(entity._id);
 					this.logger.error(&#x60;The file id ${id} is not ObjectId in entity ${entity._id.toHexString()}&#x60;);
 				}
 			})
@@ -1040,7 +1191,7 @@ export class SyncEmbeddedFilesUc {
 	}
 
 	private extractFileIdsFromContent(text: string) {
-		const regEx &#x3D; new RegExp(&#x60;(?&lt;&#x3D;src&#x3D;${fileUrlRegex})${fileIdRegex}(?&#x3D;&amp;)&#x60;, &#x27;gi&#x27;);
+		const regEx &#x3D; new RegExp(&#x60;(?&lt;&#x3D;src&#x3D;${fileUrlRegex})${fileIdRegex}&#x60;, &#x27;gi&#x27;);
 		const contentFileIds &#x3D; text.match(regEx);
 
 		return contentFileIds;
@@ -1049,6 +1200,11 @@ export class SyncEmbeddedFilesUc {
 	private async syncFiles(files: SyncFileItem[], entity: AvailableSyncEntityType) {
 		const promises &#x3D; files.map((file) &#x3D;&gt; this.sync(file, entity));
 		await Promise.all(promises);
+		// eslint-disable-next-line no-restricted-syntax
+		for (const file of files) {
+			this.updateEntityLinks(entity, file.source.id, file.fileRecord.id, file.fileRecord.name);
+		}
+		await this.embeddedFilesRepo.updateEntity(entity);
 	}
 
 	private async sync(file: SyncFileItem, entity: AvailableSyncEntityType) {
@@ -1057,39 +1213,68 @@ export class SyncEmbeddedFilesUc {
 			await this.syncFilesMetaDataService.prepareMetaData(file);
 			await this.syncFilesStorageService.syncS3File(file);
 			await this.syncFilesMetaDataService.persistMetaData(file);
-			await this.updateEntityLinks(file, entity);
 			this.logger.log(&#x60;Synced file ${file.source.id}&#x60;);
 		} catch (error) {
-			// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-			const stack: string &#x3D; &#x27;stack&#x27; in error ? (error as Error).stack : error;
-			this.logger.error(file, stack);
-			this.failedIds.push(entity._id);
-			await this.syncFilesMetaDataService.persistError(file, stack);
+			if (error instanceof Error &amp;&amp; error.message.includes(&#x27;S3 file not found&#x27;)) {
+				file.fileRecord.name &#x3D; &#x27;&#x27;;
+				file.fileRecord.id &#x3D; &#x27;&#x27;;
+			}
+			await this.writeError(error, file.source.id, entity);
 		}
 	}
 
-	private async updateEntityLinks(file: SyncFileItem, entity: Task | Lesson, errorUrl?: string) {
-		if (file.parentType &#x3D;&#x3D;&#x3D; FileRecordParentType.Lesson &amp;&amp; entity instanceof Lesson) {
-			entity.contents &#x3D; entity.contents.map((item: IComponentProperties) &#x3D;&gt; {
-				if (item.component &#x3D;&#x3D;&#x3D; &#x27;text&#x27; &amp;&amp; item.content &amp;&amp; &#x27;text&#x27; in item.content &amp;&amp; item.content.text) {
-					item.content.text &#x3D; this.replaceLink(item.content.text, file, errorUrl);
-				}
+	// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-explicit-any
+	private async writeError(error: any, sourceFileId: EntityId, entity: AvailableSyncEntityType) {
+		const entityId &#x3D; entity._id.toHexString();
+		// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
+		const stack &#x3D; &#x27;stack&#x27; in error ? error.stack : error;
+		this.logger.error(&#x60;${entityId}&#x60;, stack);
+		// eslint-disable-next-line @typescript-eslint/no-unsafe-argument
+		return this.syncFilesMetaDataService.persistError(sourceFileId, stack);
+	}
 
+	private updateEntityLinks(
+		entity: Task | Lesson,
+		sourceFileId: string,
+		fileRecordId?: string,
+		fileRecordName?: string
+	) {
+		if (entity instanceof Lesson) {
+			entity.contents &#x3D; entity.contents.map((item: IComponentProperties) &#x3D;&gt; {
+				if (this.isTextComponent(item)) {
+					(item.content as IComponentTextProperties).text &#x3D; this.replaceLink(
+						(item.content as IComponentTextProperties).text,
+						sourceFileId,
+						fileRecordId,
+						fileRecordName
+					);
+				}
 				return item;
 			});
-			await this.embeddedFilesRepo.updateEntity(entity);
-		}
-
-		if (file.parentType &#x3D;&#x3D;&#x3D; FileRecordParentType.Task &amp;&amp; entity instanceof Task) {
-			entity.description &#x3D; this.replaceLink(entity.description, file, errorUrl);
-			await this.embeddedFilesRepo.updateEntity(entity);
+		} else if (entity instanceof Task &amp;&amp; entity?.description) {
+			entity.description &#x3D; this.replaceLink(entity.description, sourceFileId, fileRecordId, fileRecordName);
+		} else {
+			throw new Error(&#x60;no matching condition in updateEntityLinks() for entity ${entity._id.toHexString()}&#x60;);
 		}
 	}
 
-	private replaceLink(text: string, file: SyncFileItem, errorUrl?: string) {
-		const regex &#x3D; new RegExp(&#x60;${fileUrlRegex}${file.source.id}.+?&quot;&#x60;, &#x27;g&#x27;);
-		const newUrl &#x3D; errorUrl || &#x60;&quot;/api/v3/file/download/${file.fileRecord.id}/${file.fileRecord.name}&quot;&#x60;;
+	private replaceLink(text: string, sourceFileId: string, fileRecordId?: string, fileRecordName?: string) {
+		let newUrl &#x3D; &#x27;&#x27;;
+		const regex &#x3D; new RegExp(&#x60;${fileUrlRegex}${sourceFileId}.*?&quot;&#x60;, &#x27;g&#x27;);
+
+		if (fileRecordId &amp;&amp; fileRecordName) {
+			newUrl &#x3D; &#x60;&quot;/api/v3/file/download/${fileRecordId}/${fileRecordName}&quot;&#x60;;
+		} else {
+			newUrl &#x3D; &#x60;&quot;/files/file?file&#x3D;not-found-${sourceFileId}&quot;&#x60;;
+		}
+
 		return text.replace(regex, newUrl);
+	}
+
+	private isTextComponent(item: IComponentProperties) {
+		return Boolean(
+			item.component &#x3D;&#x3D;&#x3D; ComponentType.TEXT &amp;&amp; item.content &amp;&amp; &#x27;text&#x27; in item.content &amp;&amp; item.content.text
+		);
 	}
 }
 </code></pre>

@@ -117,7 +117,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="105" class="link-to-prism">apps/server/src/modules/files/repo/embedded-files.repo.ts:105</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="99" class="link-to-prism">apps/server/src/modules/files/repo/embedded-files.repo.ts:99</a></div>
                             </td>
                         </tr>
 
@@ -182,8 +182,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="137"
-                            class="link-to-prism">apps/server/src/modules/files/repo/embedded-files.repo.ts:137</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="127"
+                            class="link-to-prism">apps/server/src/modules/files/repo/embedded-files.repo.ts:127</a></div>
                 </td>
             </tr>
 
@@ -246,15 +246,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>findElementsToSyncFiles(type: <a href="../undefineds/AvailableSyncParentType.html" target="_self">AvailableSyncParentType</a>, limit: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, excludeIds: ObjectId[])</code>
+                    <code>findElementsToSyncFiles(type: <a href="../undefineds/AvailableSyncParentType.html" target="_self">AvailableSyncParentType</a>, limit: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="108"
-                            class="link-to-prism">apps/server/src/modules/files/repo/embedded-files.repo.ts:108</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="102"
+                            class="link-to-prism">apps/server/src/modules/files/repo/embedded-files.repo.ts:102</a></div>
                 </td>
             </tr>
 
@@ -290,18 +290,6 @@
                                     <td>limit</td>
                                     <td>
                                                 <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>excludeIds</td>
-                                    <td>
-                                            <code>ObjectId[]</code>
                                     </td>
 
                                     <td>
@@ -348,8 +336,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="123"
-                            class="link-to-prism">apps/server/src/modules/files/repo/embedded-files.repo.ts:123</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="113"
+                            class="link-to-prism">apps/server/src/modules/files/repo/embedded-files.repo.ts:113</a></div>
                 </td>
             </tr>
 
@@ -443,8 +431,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="133"
-                            class="link-to-prism">apps/server/src/modules/files/repo/embedded-files.repo.ts:133</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="123"
+                            class="link-to-prism">apps/server/src/modules/files/repo/embedded-files.repo.ts:123</a></div>
                 </td>
             </tr>
 
@@ -507,20 +495,14 @@ import { AvailableSyncEntityType, AvailableSyncParentType, SyncFileItem } from &
 
 export const fileUrlRegex &#x3D; &#x27;&quot;(https?://[^&quot;]*)?/files/file\\?file&#x3D;&#x27;;
 export const fileIdRegex &#x3D; &#x27;(0x|0h)?[0-9A-F]{24}&#x27;;
-const tasksQuery &#x3D; (excludeIds: ObjectId[]) &#x3D;&gt; {
-	return {
-		_id: { $nin: excludeIds },
-		description: new RegExp(&#x60;src&#x3D;${fileUrlRegex}${fileIdRegex}&#x60;, &#x27;i&#x27;),
-	};
+const tasksQuery &#x3D; {
+	description: new RegExp(&#x60;src&#x3D;${fileUrlRegex}${fileIdRegex}&#x60;, &#x27;i&#x27;),
 };
 
-const lessonsQuery &#x3D; (excludeIds: ObjectId[]) &#x3D;&gt; {
-	return {
-		_id: { $nin: excludeIds },
-		&#x27;contents.component&#x27;: { $eq: &#x27;text&#x27; },
-		&#x27;contents.content.text&#x27;: { $regex: new RegExp(&#x60;src&#x3D;${fileUrlRegex}${fileIdRegex}&#x60;, &#x27;i&#x27;) },
-	} as FilterQuery&lt;Lesson&gt;;
-};
+const lessonsQuery &#x3D; {
+	&#x27;contents.component&#x27;: { $eq: &#x27;text&#x27; },
+	&#x27;contents.content.text&#x27;: { $regex: new RegExp(&#x60;src&#x3D;${fileUrlRegex}${fileIdRegex}&#x60;, &#x27;i&#x27;) },
+} as FilterQuery&lt;Lesson&gt;;
 
 const filesQuery &#x3D; (fileIds: ObjectId[], parentId: ObjectId) &#x3D;&gt; [
 	{
@@ -604,17 +586,13 @@ const filesQuery &#x3D; (fileIds: ObjectId[], parentId: ObjectId) &#x3D;&gt; [
 export class EmbeddedFilesRepo {
 	constructor(protected readonly _em: EntityManager) {}
 
-	async findElementsToSyncFiles(
-		type: AvailableSyncParentType,
-		limit: number,
-		excludeIds: ObjectId[]
-	): Promise&lt;Counted&lt;Task[] | Lesson[]&gt;&gt; {
+	async findElementsToSyncFiles(type: AvailableSyncParentType, limit: number): Promise&lt;Counted&lt;Task[] | Lesson[]&gt;&gt; {
 		let results: Counted&lt;Task[] | Lesson[]&gt; &#x3D; [[], 0];
 
 		if (type &#x3D;&#x3D;&#x3D; FileRecordParentType.Task) {
-			results &#x3D; await this._em.findAndCount(Task, tasksQuery(excludeIds), { limit });
+			results &#x3D; await this._em.findAndCount(Task, tasksQuery, { limit });
 		} else if (type &#x3D;&#x3D;&#x3D; FileRecordParentType.Lesson) {
-			results &#x3D; await this._em.findAndCount(Lesson, lessonsQuery(excludeIds), { limit });
+			results &#x3D; await this._em.findAndCount(Lesson, lessonsQuery, { limit });
 		}
 		return results;
 	}

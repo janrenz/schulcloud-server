@@ -79,6 +79,10 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#deleteDuplicatedFilesForParentType" >deleteDuplicatedFilesForParentType</a>
+                            </li>
+                            <li>
                                     <span class="modifier">Private</span>
                                     <span class="modifier">Async</span>
                                 <a href="#deleteMetaData" >deleteMetaData</a>
@@ -191,6 +195,77 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="deleteDuplicatedFilesForParentType"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>deleteDuplicatedFilesForParentType</b></span>
+                        <a href="#deleteDuplicatedFilesForParentType"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>deleteDuplicatedFilesForParentType(parentType: <a href="../undefineds/FileRecordParentType.html" target="_self">FileRecordParentType</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="29"
+                            class="link-to-prism">apps/server/src/modules/files/uc/delete-orphaned-files.uc.ts:29</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>parentType</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/enumerations.html#FileRecordParentType" target="_self" >FileRecordParentType</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="deleteMetaData"></a>
                     <span class="name">
                         <span class="modifier">Private</span>
@@ -210,8 +285,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="53"
-                            class="link-to-prism">apps/server/src/modules/files/uc/delete-orphaned-files.uc.ts:53</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="77"
+                            class="link-to-prism">apps/server/src/modules/files/uc/delete-orphaned-files.uc.ts:77</a></div>
                 </td>
             </tr>
 
@@ -282,8 +357,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="37"
-                            class="link-to-prism">apps/server/src/modules/files/uc/delete-orphaned-files.uc.ts:37</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="61"
+                            class="link-to-prism">apps/server/src/modules/files/uc/delete-orphaned-files.uc.ts:61</a></div>
                 </td>
             </tr>
 
@@ -425,8 +500,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="29"
-                            class="link-to-prism">apps/server/src/modules/files/uc/delete-orphaned-files.uc.ts:29</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="53"
+                            class="link-to-prism">apps/server/src/modules/files/uc/delete-orphaned-files.uc.ts:53</a></div>
                 </td>
             </tr>
 
@@ -504,6 +579,30 @@ export class DeleteOrphanedFilesUc {
 
 		await this.deleteOrphans(orphanedFileRecords);
 		this.logger.log(&#x60;Finished removing orphaned fileRecords.&#x60;);
+	}
+
+	async deleteDuplicatedFilesForParentType(parentType: FileRecordParentType) {
+		this.logger.log(&#x27;Start deletion process.&#x27;);
+
+		const orphanedFileRecords &#x3D; await this.orphanedFilesRepo.findDuplicatedFileRecords(parentType);
+		const chunkSize &#x3D; 100;
+		const chunks: FileRecord[][] &#x3D; [];
+		for (let i &#x3D; 0; i &lt; orphanedFileRecords.length; i +&#x3D; chunkSize) {
+			const chunk &#x3D; orphanedFileRecords.slice(i, i + chunkSize);
+			chunks.push(chunk);
+		}
+
+		// eslint-disable-next-line no-restricted-syntax
+		for await (const chunk of chunks) {
+			const promises &#x3D; chunk.map(async (fileRecord) &#x3D;&gt; {
+				const found &#x3D; await this.orphanedFilesRepo.findLessonsByFileRecordId(fileRecord.id);
+				this.logger.log(&#x60;FileRecord with id ${fileRecord.id} and lesson found: ${JSON.stringify(found)}&#x60;);
+				if (!found) {
+					await this.deleteOrphan(fileRecord);
+				}
+			});
+			await Promise.all(promises);
+		}
 	}
 
 	private async deleteOrphans(fileRecords: FileRecord[]) {

@@ -264,7 +264,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>persistError(item: <a href="../classes/SyncFileItem.html" target="_self">SyncFileItem</a>, error: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    <code>persistError(sourceFileId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, error?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
@@ -293,9 +293,9 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>item</td>
+                                    <td>sourceFileId</td>
                                     <td>
-                                                <code><a href="../classes/SyncFileItem.html" target="_self" >SyncFileItem</a></code>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
                                     </td>
 
                                     <td>
@@ -311,7 +311,7 @@
                                     </td>
 
                                     <td>
-                                        No
+                                        Yes
                                     </td>
 
 
@@ -555,7 +555,7 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ObjectId } from &#x27;@mikro-orm/mongodb&#x27;;
 import { Injectable } from &#x27;@nestjs/common&#x27;;
-import { FileRecord } from &#x27;@shared/domain&#x27;;
+import { EntityId, FileRecord } from &#x27;@shared/domain&#x27;;
 import { FileRecordRepo } from &#x27;@shared/repo&#x27;;
 import { SyncFilesRepo } from &#x27;../repo/sync-files.repo&#x27;;
 import { SyncFileItem, SyncTargetFile } from &#x27;../types&#x27;;
@@ -645,8 +645,8 @@ export class SyncFilesMetadataService {
 		}
 	}
 
-	async persistError(item: SyncFileItem, error: string) {
-		await this.syncFilesRepo.saveAssociation(item.source.id, undefined, error);
+	async persistError(sourceFileId: EntityId, error?: string) {
+		await this.syncFilesRepo.saveAssociation(sourceFileId, undefined, error);
 	}
 }
 </code></pre>
