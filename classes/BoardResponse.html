@@ -118,7 +118,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="5" class="link-to-prism">apps/server/src/modules/learnroom/controller/dto/board/board.response.ts:5</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="6" class="link-to-prism">apps/server/src/modules/learnroom/controller/dto/board/board.response.ts:6</a></div>
                             </td>
                         </tr>
 
@@ -188,7 +188,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">apps/server/src/modules/learnroom/controller/dto/board/board.response.ts:27</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">apps/server/src/modules/learnroom/controller/dto/board/board.response.ts:29</a></div>
                         </td>
                     </tr>
 
@@ -223,7 +223,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">apps/server/src/modules/learnroom/controller/dto/board/board.response.ts:33</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">apps/server/src/modules/learnroom/controller/dto/board/board.response.ts:35</a></div>
                         </td>
                     </tr>
 
@@ -258,7 +258,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">apps/server/src/modules/learnroom/controller/dto/board/board.response.ts:17</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">apps/server/src/modules/learnroom/controller/dto/board/board.response.ts:18</a></div>
                         </td>
                     </tr>
 
@@ -287,13 +287,13 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @ApiProperty({description: &#x27;Title of the Board&#x27;})<br />
+                            @DecodeHtmlEntities()<br />@ApiProperty({description: &#x27;Title of the Board&#x27;})<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">apps/server/src/modules/learnroom/controller/dto/board/board.response.ts:22</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">apps/server/src/modules/learnroom/controller/dto/board/board.response.ts:24</a></div>
                         </td>
                     </tr>
 
@@ -313,6 +313,7 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ApiProperty } from &#x27;@nestjs/swagger&#x27;;
+import { DecodeHtmlEntities } from &#x27;@shared/controller&#x27;;
 import { BoardElementResponse } from &#x27;./board-element.response&#x27;;
 
 // TODO: this and DashboardResponse should be combined
@@ -330,6 +331,7 @@ export class BoardResponse {
 	})
 	roomId: string;
 
+	@DecodeHtmlEntities()
 	@ApiProperty({
 		description: &#x27;Title of the Board&#x27;,
 	})
