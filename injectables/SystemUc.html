@@ -263,8 +263,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="15"
-                            class="link-to-prism">apps/server/src/modules/system/uc/system.uc.ts:15</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="17"
+                            class="link-to-prism">apps/server/src/modules/system/uc/system.uc.ts:17</a></div>
                 </td>
             </tr>
 
@@ -328,8 +328,10 @@ export class SystemUc {
 	constructor(private readonly systemService: SystemService) {}
 
 	async findByFilter(type: string | undefined &#x3D; &#x27;&#x27;, onlyOauth &#x3D; false): Promise&lt;SystemDto[]&gt; {
-		const promise: Promise&lt;SystemDto[]&gt; &#x3D; this.systemService.find(type, onlyOauth);
-		return promise;
+		if (onlyOauth) {
+			return this.systemService.findOAuth();
+		}
+		return this.systemService.find(type);
 	}
 
 	async findById(id: EntityId): Promise&lt;SystemDto&gt; {

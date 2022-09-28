@@ -95,6 +95,10 @@
                                     <span class="modifier">Static</span>
                                 <a href="#mapFromOauthConfigEntityToDto" >mapFromOauthConfigEntityToDto</a>
                             </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#mapFromOidcConfigEntityToDto" >mapFromOidcConfigEntityToDto</a>
+                            </li>
                         </ul>
                     </td>
                 </tr>
@@ -136,8 +140,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="36"
-                            class="link-to-prism">apps/server/src/modules/system/mapper/system.mapper.ts:36</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="55"
+                            class="link-to-prism">apps/server/src/modules/system/mapper/system.mapper.ts:55</a></div>
                 </td>
             </tr>
 
@@ -207,8 +211,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="6"
-                            class="link-to-prism">apps/server/src/modules/system/mapper/system.mapper.ts:6</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="7"
+                            class="link-to-prism">apps/server/src/modules/system/mapper/system.mapper.ts:7</a></div>
                 </td>
             </tr>
 
@@ -278,8 +282,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="16"
-                            class="link-to-prism">apps/server/src/modules/system/mapper/system.mapper.ts:16</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="35"
+                            class="link-to-prism">apps/server/src/modules/system/mapper/system.mapper.ts:35</a></div>
                 </td>
             </tr>
 
@@ -327,6 +331,77 @@
             </tr>
         </tbody>
     </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="mapFromOidcConfigEntityToDto"></a>
+                    <span class="name">
+                        <span class="modifier">Static</span>
+                        <span ><b>mapFromOidcConfigEntityToDto</b></span>
+                        <a href="#mapFromOidcConfigEntityToDto"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>mapFromOidcConfigEntityToDto(config: Record<string | > | undefined)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="20"
+                            class="link-to-prism">apps/server/src/modules/system/mapper/system.mapper.ts:20</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>config</td>
+                                    <td>
+                                            <code>Record&lt;string | &gt; | undefined</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/OidcConfigDto.html" target="_self" >OidcConfigDto | undefined</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </section>
 
 
@@ -338,18 +413,37 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { OauthConfig, System } from &#x27;@shared/domain&#x27;;
-import { SystemDto } from &#x27;@src/modules/system/service/dto/system.dto&#x27;;
 import { OauthConfigDto } from &#x27;@src/modules/system/service/dto/oauth-config.dto&#x27;;
+import { OidcConfigDto } from &#x27;@src/modules/system/service/dto/oidc-config.dto&#x27;;
+import { SystemDto } from &#x27;@src/modules/system/service/dto/system.dto&#x27;;
 
 export class SystemMapper {
 	static mapFromEntityToDto(entity: System): SystemDto {
 		return new SystemDto({
+			id: entity.id,
 			type: entity.type,
 			url: entity.url,
 			alias: entity.alias,
+			displayName: entity.displayName ?? entity.alias,
 			provisioningStrategy: entity.provisioningStrategy,
 			oauthConfig: SystemMapper.mapFromOauthConfigEntityToDto(entity.oauthConfig),
+			oidcConfig: SystemMapper.mapFromOidcConfigEntityToDto(entity.config),
 		});
+	}
+
+	static mapFromOidcConfigEntityToDto(config: Record&lt;string, unknown&gt; | undefined): OidcConfigDto | undefined {
+		if (config !&#x3D; null &amp;&amp; config.authorizationUrl &amp;&amp; config.clientId &amp;&amp; config.clientSecret &amp;&amp; config.defaultScopes) {
+			return new OidcConfigDto({
+				authorizationUrl: config.authorizationUrl as string,
+				clientId: config.clientId as string,
+				clientSecret: config.clientSecret as string,
+				defaultScopes: config.defaultScopes as string,
+				logoutUrl: (config.logoutUrl as string) ?? &#x27;&#x27;,
+				tokenUrl: (config.tokenUrl as string) ?? &#x27;&#x27;,
+				userinfoUrl: (config.userinfoUrl as string) ?? &#x27;&#x27;,
+			});
+		}
+		return undefined;
 	}
 
 	static mapFromOauthConfigEntityToDto(oauthConfig: OauthConfig | undefined): OauthConfigDto | undefined {

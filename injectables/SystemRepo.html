@@ -193,7 +193,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>findByFilter(type: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, onlyOauth)</code>
+                    <code>findByFilter(type: <a href="../entitys/System.html" target="_self">string | SystemType</a>, onlyOauth)</code>
                 </td>
             </tr>
 
@@ -225,7 +225,7 @@
                                 <tr>
                                     <td>type</td>
                                     <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                <code><a href="../entitys/System.html" target="_self" >string | SystemType</a></code>
                                     </td>
 
                                     <td>
@@ -607,8 +607,8 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
+import { System, SystemType } from &#x27;@shared/domain&#x27;;
 import { BaseRepo } from &#x27;@shared/repo/base.repo&#x27;;
-import { System } from &#x27;@shared/domain&#x27;;
 import { SystemScope } from &#x27;@shared/repo/system/system-scope&#x27;;
 
 @Injectable()
@@ -617,7 +617,7 @@ export class SystemRepo extends BaseRepo&lt;System&gt; {
 		return System;
 	}
 
-	async findByFilter(type &#x3D; &#x27;&#x27;, onlyOauth &#x3D; false): Promise&lt;System[]&gt; {
+	async findByFilter(type: string | SystemType &#x3D; &#x27;&#x27;, onlyOauth &#x3D; false): Promise&lt;System[]&gt; {
 		const scope &#x3D; new SystemScope();
 		if (type) {
 			scope.byType(type);

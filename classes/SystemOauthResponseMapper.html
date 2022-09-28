@@ -203,8 +203,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="25"
-                            class="link-to-prism">apps/server/src/modules/system/controller/mapper/system-oauth-response.mapper.ts:25</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="26"
+                            class="link-to-prism">apps/server/src/modules/system/controller/mapper/system-oauth-response.mapper.ts:26</a></div>
                 </td>
             </tr>
 
@@ -262,11 +262,11 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { SystemOauthResponse } from &#x27;@src/modules/system/controller/dto/system-oauth.response&#x27;;
-import { OauthConfigResponse } from &#x27;@src/modules/system/controller/dto/oauth-config.response&#x27;;
-import { SystemDto } from &#x27;@src/modules/system/service/dto/system.dto&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { OauthConfigResponse } from &#x27;@src/modules/system/controller/dto/oauth-config.response&#x27;;
+import { SystemOauthResponse } from &#x27;@src/modules/system/controller/dto/system-oauth.response&#x27;;
 import { SystemResponse } from &#x27;@src/modules/system/controller/dto/system.response&#x27;;
 import { OauthConfigDto } from &#x27;@src/modules/system/service/dto/oauth-config.dto&#x27;;
+import { SystemDto } from &#x27;@src/modules/system/service/dto/system.dto&#x27;;
 
 export class SystemOauthResponseMapper {
 	static mapFromDtoToResponse(systems: SystemDto[]): SystemOauthResponse {
@@ -277,6 +277,7 @@ export class SystemOauthResponseMapper {
 					type: system.type,
 					url: system.url,
 					alias: system.alias,
+					displayName: system.displayName,
 					oauthConfig: system.oauthConfig
 						? SystemOauthResponseMapper.mapFromOauthConfigDtoToResponse(system.oauthConfig)
 						: undefined,
