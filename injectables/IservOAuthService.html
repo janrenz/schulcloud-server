@@ -341,10 +341,13 @@ export class IservOAuthService {
 	}
 
 	async findUserById(systemId: string, decodedJwt: IJwt): Promise&lt;User&gt; {
+		let ldapId &#x3D; &#x27;unknown&#x27;;
 		try {
-			return await this.userRepo.findByLdapIdOrFail(this.extractUUID(decodedJwt), systemId);
+			ldapId &#x3D; this.extractUUID(decodedJwt);
+			return await this.userRepo.findByLdapIdOrFail(ldapId, systemId);
 		} catch (error) {
-			throw new OAuthSSOError(&#x27;Failed to find user with this ldapId&#x27;, &#x27;sso_user_notfound&#x27;);
+			this.logger.warn(error);
+			throw new OAuthSSOError(&#x60;Failed to find user with ldapId: ${ldapId}&#x60;, &#x27;sso_user_notfound&#x27;);
 		}
 	}
 }
