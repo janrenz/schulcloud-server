@@ -85,6 +85,9 @@
                                 <a href="#mapConsentSessionsToResponse" >mapConsentSessionsToResponse</a>
                             </li>
                             <li>
+                                <a href="#mapLoginResponse" >mapLoginResponse</a>
+                            </li>
+                            <li>
                                 <a href="#mapOauthClientResponse" >mapOauthClientResponse</a>
                             </li>
                             <li>
@@ -128,8 +131,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="21"
-                            class="link-to-prism">apps/server/src/modules/oauth-provider/mapper/oauth-provider-response.mapper.ts:21</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="23"
+                            class="link-to-prism">apps/server/src/modules/oauth-provider/mapper/oauth-provider-response.mapper.ts:23</a></div>
                 </td>
             </tr>
 
@@ -197,8 +200,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="31"
-                            class="link-to-prism">apps/server/src/modules/oauth-provider/mapper/oauth-provider-response.mapper.ts:31</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="32"
+                            class="link-to-prism">apps/server/src/modules/oauth-provider/mapper/oauth-provider-response.mapper.ts:32</a></div>
                 </td>
             </tr>
 
@@ -250,6 +253,75 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="mapLoginResponse"></a>
+                    <span class="name">
+                        <span ><b>mapLoginResponse</b></span>
+                        <a href="#mapLoginResponse"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>mapLoginResponse(providerLoginResponse: <a href="../interfaces/ProviderLoginResponse.html" target="_self">ProviderLoginResponse</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="40"
+                            class="link-to-prism">apps/server/src/modules/oauth-provider/mapper/oauth-provider-response.mapper.ts:40</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>providerLoginResponse</td>
+                                    <td>
+                                                <code><a href="../interfaces/ProviderLoginResponse.html" target="_self" >ProviderLoginResponse</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/LoginResponse.html" target="_self" >LoginResponse</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="mapOauthClientResponse"></a>
                     <span class="name">
                         <span ><b>mapOauthClientResponse</b></span>
@@ -266,8 +338,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="25"
-                            class="link-to-prism">apps/server/src/modules/oauth-provider/mapper/oauth-provider-response.mapper.ts:25</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="27"
+                            class="link-to-prism">apps/server/src/modules/oauth-provider/mapper/oauth-provider-response.mapper.ts:27</a></div>
                 </td>
             </tr>
 
@@ -335,8 +407,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="17"
-                            class="link-to-prism">apps/server/src/modules/oauth-provider/mapper/oauth-provider-response.mapper.ts:17</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="19"
+                            class="link-to-prism">apps/server/src/modules/oauth-provider/mapper/oauth-provider-response.mapper.ts:19</a></div>
                 </td>
             </tr>
 
@@ -394,12 +466,14 @@
 import {
 	ProviderConsentResponse,
 	ProviderConsentSessionResponse,
+	ProviderLoginResponse,
 	ProviderOauthClient,
 	ProviderRedirectResponse,
 } from &#x27;@shared/infra/oauth-provider/dto&#x27;;
 import {
 	ConsentResponse,
 	ConsentSessionResponse,
+	LoginResponse,
 	OauthClientResponse,
 	RedirectResponse,
 } from &#x27;@src/modules/oauth-provider/controller/dto&#x27;;
@@ -415,17 +489,20 @@ export class OauthProviderResponseMapper {
 	}
 
 	mapOauthClientResponse(oauthClient: ProviderOauthClient): OauthClientResponse {
-		type ClientWithoutSecret &#x3D; Omit&lt;ProviderOauthClient, &#x27;client_secret&#x27;&gt;;
-
-		return new OauthClientResponse({ ...oauthClient } as ClientWithoutSecret);
+		delete oauthClient.client_secret;
+		return new OauthClientResponse({ ...oauthClient });
 	}
 
 	mapConsentSessionsToResponse(session: ProviderConsentSessionResponse): ConsentSessionResponse {
 		return new ConsentSessionResponse(
-			session.consent_request?.client?.client_id,
-			session.consent_request?.client?.client_name,
-			session.consent_request?.challenge
+			session.consent_request.client?.client_id,
+			session.consent_request.client?.client_name,
+			session.consent_request.challenge
 		);
+	}
+
+	mapLoginResponse(providerLoginResponse: ProviderLoginResponse): LoginResponse {
+		return new LoginResponse({ ...providerLoginResponse });
 	}
 }
 </code></pre>

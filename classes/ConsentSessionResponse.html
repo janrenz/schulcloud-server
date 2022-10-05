@@ -118,7 +118,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="3" class="link-to-prism">apps/server/src/modules/oauth-provider/controller/dto/response/consent-session.response.ts:3</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="4" class="link-to-prism">apps/server/src/modules/oauth-provider/controller/dto/response/consent-session.response.ts:4</a></div>
                             </td>
                         </tr>
 
@@ -208,13 +208,13 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @ApiProperty()<br />
+                            @ApiProperty({description: &#x27;The id/challenge of the consent authorization request.&#x27;})<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">apps/server/src/modules/oauth-provider/controller/dto/response/consent-session.response.ts:17</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">apps/server/src/modules/oauth-provider/controller/dto/response/consent-session.response.ts:19</a></div>
                         </td>
                     </tr>
 
@@ -244,13 +244,13 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @ApiProperty()<br />
+                            @IsOptional()<br />@ApiProperty({description: &#x27;The id of the client.&#x27;})<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">apps/server/src/modules/oauth-provider/controller/dto/response/consent-session.response.ts:11</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">apps/server/src/modules/oauth-provider/controller/dto/response/consent-session.response.ts:13</a></div>
                         </td>
                     </tr>
 
@@ -280,13 +280,13 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @ApiProperty()<br />
+                            @ApiProperty({description: &#x27;The name of the client.&#x27;})<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">apps/server/src/modules/oauth-provider/controller/dto/response/consent-session.response.ts:14</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">apps/server/src/modules/oauth-provider/controller/dto/response/consent-session.response.ts:16</a></div>
                         </td>
                     </tr>
 
@@ -306,6 +306,7 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ApiProperty } from &#x27;@nestjs/swagger&#x27;;
+import { IsOptional } from &#x27;class-validator&#x27;;
 
 export class ConsentSessionResponse {
 	constructor(clientId: string | undefined, clientName: string | undefined, challenge: string | undefined) {
@@ -314,13 +315,14 @@ export class ConsentSessionResponse {
 		this.challenge &#x3D; challenge;
 	}
 
-	@ApiProperty()
+	@IsOptional()
+	@ApiProperty({ description: &#x27;The id of the client.&#x27; })
 	client_id?: string;
 
-	@ApiProperty()
+	@ApiProperty({ description: &#x27;The name of the client.&#x27; })
 	client_name?: string;
 
-	@ApiProperty()
+	@ApiProperty({ description: &#x27;The id/challenge of the consent authorization request.&#x27; })
 	challenge?: string;
 }
 </code></pre>

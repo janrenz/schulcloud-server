@@ -88,10 +88,6 @@
                                 <a href="#getConsentRequest" >getConsentRequest</a>
                             </li>
                             <li>
-                                    <span class="modifier">Private</span>
-                                <a href="#isAcceptConsentRequest" >isAcceptConsentRequest</a>
-                            </li>
-                            <li>
                                     <span class="modifier">Async</span>
                                 <a href="#patchConsentRequest" >patchConsentRequest</a>
                             </li>
@@ -204,8 +200,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="56"
-                            class="link-to-prism">apps/server/src/modules/oauth-provider/uc/oauth-provider.consent-flow.uc.ts:56</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="58"
+                            class="link-to-prism">apps/server/src/modules/oauth-provider/uc/oauth-provider.consent-flow.uc.ts:58</a></div>
                 </td>
             </tr>
 
@@ -376,73 +372,6 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="isAcceptConsentRequest"></a>
-                    <span class="name">
-                        <span class="modifier">Private</span>
-                        <span ><b>isAcceptConsentRequest</b></span>
-                        <a href="#isAcceptConsentRequest"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>isAcceptConsentRequest(object)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="84"
-                            class="link-to-prism">apps/server/src/modules/oauth-provider/uc/oauth-provider.consent-flow.uc.ts:84</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>object</td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../interfaces/AcceptConsentRequestBody.html" target="_self" >AcceptConsentRequestBody</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
                     <a name="patchConsentRequest"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
@@ -454,7 +383,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>patchConsentRequest(challenge: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, query: <a href="../classes/AcceptQuery.html" target="_self">AcceptQuery</a>, body: <a href="../classes/ConsentRequestBody.html" target="_self">AcceptConsentRequestBody | RejectRequestBody</a>, currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>)</code>
+                    <code>patchConsentRequest(challenge: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, query: <a href="../classes/AcceptQuery.html" target="_self">AcceptQuery</a>, body: <a href="../classes/ConsentRequestBody.html" target="_self">ConsentRequestBody</a>, currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>)</code>
                 </td>
             </tr>
 
@@ -509,7 +438,7 @@
                                 <tr>
                                     <td>body</td>
                                     <td>
-                                                <code><a href="../classes/ConsentRequestBody.html" target="_self" >AcceptConsentRequestBody | RejectRequestBody</a></code>
+                                                <code><a href="../classes/ConsentRequestBody.html" target="_self" >ConsentRequestBody</a></code>
                                     </td>
 
                                     <td>
@@ -568,8 +497,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="48"
-                            class="link-to-prism">apps/server/src/modules/oauth-provider/uc/oauth-provider.consent-flow.uc.ts:48</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="50"
+                            class="link-to-prism">apps/server/src/modules/oauth-provider/uc/oauth-provider.consent-flow.uc.ts:50</a></div>
                 </td>
             </tr>
 
@@ -651,8 +580,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="78"
-                            class="link-to-prism">apps/server/src/modules/oauth-provider/uc/oauth-provider.consent-flow.uc.ts:78</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="80"
+                            class="link-to-prism">apps/server/src/modules/oauth-provider/uc/oauth-provider.consent-flow.uc.ts:80</a></div>
                 </td>
             </tr>
 
@@ -724,7 +653,7 @@
 	ProviderRedirectResponse,
 	RejectRequestBody,
 } from &#x27;@shared/infra/oauth-provider/dto&#x27;;
-import { AcceptQuery } from &#x27;@src/modules/oauth-provider/controller/dto&#x27;;
+import { AcceptQuery, ConsentRequestBody } from &#x27;@src/modules/oauth-provider/controller/dto&#x27;;
 import { ICurrentUser } from &#x27;@shared/domain&#x27;;
 import { ForbiddenException, Injectable } from &#x27;@nestjs/common&#x27;;
 import { IdTokenService } from &#x27;@src/modules/oauth-provider/service/id-token.service&#x27;;
@@ -746,22 +675,24 @@ export class OauthProviderConsentFlowUc {
 	async patchConsentRequest(
 		challenge: string,
 		query: AcceptQuery,
-		body: AcceptConsentRequestBody | RejectRequestBody,
+		body: ConsentRequestBody,
 		currentUser: ICurrentUser
 	): Promise&lt;ProviderRedirectResponse&gt; {
 		const consentResponse &#x3D; await this.oauthProviderService.getConsentRequest(challenge);
 		this.validateSubject(currentUser, consentResponse);
 
-		if (query.accept &amp;&amp; this.isAcceptConsentRequest(body)) {
-			return this.acceptConsentRequest(
+		let response: Promise&lt;ProviderRedirectResponse&gt;;
+		if (query.accept) {
+			response &#x3D; this.acceptConsentRequest(
 				challenge,
 				body,
 				currentUser.userId,
 				consentResponse.requested_scope,
 				consentResponse.client?.client_id
 			);
+		} else {
+			response &#x3D; this.rejectConsentRequest(challenge, body);
 		}
-		const response &#x3D; this.rejectConsentRequest(challenge, body as RejectRequestBody);
 		return response;
 	}
 
@@ -783,7 +714,7 @@ export class OauthProviderConsentFlowUc {
 		const idToken: IdToken &#x3D; await this.idTokenService.createIdToken(userId, requested_scope || [], client_id || &#x27;&#x27;);
 		if (idToken) {
 			body.session &#x3D; {
-				id_token: JSON.stringify(idToken),
+				id_token: idToken,
 			};
 		}
 
@@ -799,13 +730,6 @@ export class OauthProviderConsentFlowUc {
 		if (response.subject !&#x3D;&#x3D; currentUser.userId) {
 			throw new ForbiddenException(&quot;You want to patch another user&#x27;s consent&quot;);
 		}
-	}
-
-	private isAcceptConsentRequest(object: unknown): object is AcceptConsentRequestBody {
-		if ((object as AcceptConsentRequestBody).grant_scope) {
-			return true;
-		}
-		return false;
 	}
 }
 </code></pre>

@@ -181,8 +181,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="29"
-                            class="link-to-prism">apps/server/src/shared/repo/ltitool/ltitool.repo.ts:29</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="28"
+                            class="link-to-prism">apps/server/src/shared/repo/ltitool/ltitool.repo.ts:28</a></div>
                 </td>
             </tr>
 
@@ -455,7 +455,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/BaseDORepo.html#source" target="_self" >BaseDORepo:46</a></code>
+                        <div class="io-line">Defined in         <code><a href="../injectables/BaseDORepo.html#source" target="_self" >BaseDORepo:45</a></code>
 </div>
                 </td>
             </tr>
@@ -532,7 +532,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/BaseDORepo.html#source" target="_self" >BaseDORepo:34</a></code>
+                        <div class="io-line">Defined in         <code><a href="../injectables/BaseDORepo.html#source" target="_self" >BaseDORepo:33</a></code>
 </div>
                 </td>
             </tr>
@@ -1014,7 +1014,7 @@
 import { BaseDORepo, EntityProperties } from &#x27;@shared/repo/base.do.repo&#x27;;
 import { EntityName } from &#x27;@mikro-orm/core&#x27;;
 import { LtiToolDO } from &#x27;@shared/domain/domainobject/ltitool.do&#x27;;
-import { ILtiToolProperties, LtiTool } from &#x27;@shared/domain/index&#x27;;
+import { ILtiToolProperties, LtiTool } from &#x27;@shared/domain&#x27;;
 
 @Injectable()
 export class LtiToolRepo extends BaseDORepo&lt;LtiToolDO, LtiTool, ILtiToolProperties&gt; {
@@ -1034,7 +1034,6 @@ export class LtiToolRepo extends BaseDORepo&lt;LtiToolDO, LtiTool, ILtiToolPrope
 
 	async findByOauthClientId(oAuthClientId: string): Promise&lt;LtiToolDO&gt; {
 		const entity &#x3D; await this._em.findOneOrFail(LtiTool, { oAuthClientId });
-
 		return this.mapEntityToDO(entity);
 	}
 
