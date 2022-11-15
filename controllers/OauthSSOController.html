@@ -231,8 +231,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="49"
-                            class="link-to-prism">apps/server/src/modules/oauth/controller/oauth-sso.controller.ts:49</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="50"
+                            class="link-to-prism">apps/server/src/modules/oauth/controller/oauth-sso.controller.ts:50</a></div>
                 </td>
             </tr>
 
@@ -415,10 +415,10 @@ import { ApiTags } from &#x27;@nestjs/swagger&#x27;;
 import { Logger } from &#x27;@src/core/logger&#x27;;
 import { CookieOptions, Request, Response } from &#x27;express&#x27;;
 import { Configuration } from &#x27;@hpi-schul-cloud/commons/lib&#x27;;
-import { HydraOauthUc } from &#x27;@src/modules/oauth/uc/hydraOauth.uc&#x27;;
 import { OauthTokenResponse } from &#x27;@src/modules/oauth/controller/dto/oauth-token.response&#x27;;
 import { Authenticate, CurrentUser } from &#x27;@src/modules/authentication/decorator/auth.decorator&#x27;;
 import { ICurrentUser } from &#x27;@shared/domain&#x27;;
+import { HydraOauthUc } from &#x27;@src/modules/oauth/uc/hydra-oauth.uc&#x27;;
 import { OauthUc } from &#x27;../uc/oauth.uc&#x27;;
 import { AuthorizationParams, SystemUrlParams } from &#x27;./dto&#x27;;
 
@@ -453,7 +453,8 @@ export class OauthSSOController {
 		@Query() query: AuthorizationParams,
 		@Param(&#x27;oauthClientId&#x27;) oauthClientId: string
 	): Promise&lt;OauthTokenResponse&gt; {
-		return this.hydraUc.getOauthToken(query, oauthClientId);
+		const oauthToken &#x3D; this.hydraUc.getOauthToken(query, oauthClientId);
+		return oauthToken;
 	}
 
 	@Get(&#x27;auth/:oauthClientId&#x27;)

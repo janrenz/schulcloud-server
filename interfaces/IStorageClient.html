@@ -132,7 +132,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>create(path: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, file: <a href="../interfaces/IFile.html" target="_self">IFile</a>)</code>
+<code>create(path: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, file: <a href="../classes/FileDto.html" target="_self">FileDto</a>)</code>
                 </td>
             </tr>
 
@@ -175,7 +175,7 @@
                                 <tr>
                                     <td>file</td>
                                     <td>
-                                                <code><a href="../interfaces/IFile.html" target="_self" >IFile</a></code>
+                                                <code><a href="../classes/FileDto.html" target="_self" >FileDto</a></code>
                                     </td>
 
                                     <td>
@@ -386,7 +386,7 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import internal from &#x27;stream&#x27;;
-import type { IFile } from &#x27;./file&#x27;;
+import { FileDto } from &#x27;../dto&#x27;;
 
 export interface IGetFileResponse {
 	data: internal.Readable;
@@ -401,7 +401,7 @@ export interface ICopyFiles {
 }
 
 export interface IStorageClient {
-	create(path: string, file: IFile): unknown;
+	create(path: string, file: FileDto): unknown;
 
 	get(path: string): unknown;
 

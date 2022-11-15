@@ -175,7 +175,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>delete(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, lessonId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, jwt: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    <code>delete(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, lessonId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>)</code>
                 </td>
             </tr>
 
@@ -227,18 +227,6 @@
 
 
                                 </tr>
-                                <tr>
-                                    <td>jwt</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -273,7 +261,7 @@ export class LessonUC {
 		private readonly lessonService: LessonService
 	) {}
 
-	async delete(userId: EntityId, lessonId: EntityId, jwt: string) {
+	async delete(userId: EntityId, lessonId: EntityId) {
 		const [user, lesson] &#x3D; await Promise.all([
 			this.authorizationService.getUserWithPermissions(userId),
 			this.lessonService.findById(lessonId),
@@ -281,7 +269,7 @@ export class LessonUC {
 
 		this.authorizationService.checkPermission(user, lesson, PermissionContextBuilder.write([Permission.TOPIC_EDIT]));
 
-		await this.lessonService.deleteLesson(lesson, jwt);
+		await this.lessonService.deleteLesson(lesson);
 
 		return true;
 	}

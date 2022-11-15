@@ -58,7 +58,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/modules/files-storage-client/uc/copy-files.service.ts</code>
+            <code>apps/server/src/modules/files-storage-client/service/copy-files.service.ts</code>
         </p>
 
 
@@ -121,7 +121,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">apps/server/src/modules/files-storage-client/uc/copy-files.service.ts:10</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">apps/server/src/modules/files-storage-client/service/copy-files.service.ts:11</a></div>
                             </td>
                         </tr>
 
@@ -179,15 +179,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>copyFilesOfEntity(originalEntity: <a href="../classes/File.html" target="_self">EntityWithEmbeddedFiles</a>, copyEntity: <a href="../classes/File.html" target="_self">EntityWithEmbeddedFiles</a>, jwt: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    <code>copyFilesOfEntity(originalEntity: <a href="../classes/File.html" target="_self">EntityWithEmbeddedFiles</a>, copyEntity: <a href="../classes/File.html" target="_self">EntityWithEmbeddedFiles</a>, userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="13"
-                            class="link-to-prism">apps/server/src/modules/files-storage-client/uc/copy-files.service.ts:13</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="15"
+                            class="link-to-prism">apps/server/src/modules/files-storage-client/service/copy-files.service.ts:15</a></div>
                 </td>
             </tr>
 
@@ -232,9 +232,9 @@
 
                                 </tr>
                                 <tr>
-                                    <td>jwt</td>
+                                    <td>userId</td>
                                     <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
                                     </td>
 
                                     <td>
@@ -281,8 +281,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="64"
-                            class="link-to-prism">apps/server/src/modules/files-storage-client/uc/copy-files.service.ts:64</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="62"
+                            class="link-to-prism">apps/server/src/modules/files-storage-client/service/copy-files.service.ts:62</a></div>
                 </td>
             </tr>
 
@@ -364,8 +364,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="44"
-                            class="link-to-prism">apps/server/src/modules/files-storage-client/uc/copy-files.service.ts:44</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="42"
+                            class="link-to-prism">apps/server/src/modules/files-storage-client/service/copy-files.service.ts:42</a></div>
                 </td>
             </tr>
 
@@ -447,8 +447,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="58"
-                            class="link-to-prism">apps/server/src/modules/files-storage-client/uc/copy-files.service.ts:58</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="56"
+                            class="link-to-prism">apps/server/src/modules/files-storage-client/service/copy-files.service.ts:56</a></div>
                 </td>
             </tr>
 
@@ -530,8 +530,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="28"
-                            class="link-to-prism">apps/server/src/modules/files-storage-client/uc/copy-files.service.ts:28</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="30"
+                            class="link-to-prism">apps/server/src/modules/files-storage-client/service/copy-files.service.ts:30</a></div>
                 </td>
             </tr>
 
@@ -598,37 +598,35 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
-import { IComponentProperties, Lesson, Task } from &#x27;@shared/domain&#x27;;
+import { EntityId, IComponentProperties, Lesson, Task } from &#x27;@shared/domain&#x27;;
 import { CopyFileDto } from &#x27;../dto&#x27;;
-import { FileParamBuilder } from &#x27;../mapper/files-storage-param.builder&#x27;;
+import { EntityWithEmbeddedFiles } from &#x27;../interfaces&#x27;;
+import { FileParamBuilder, CopyFilesOfParentParamBuilder } from &#x27;../mapper&#x27;;
 import { FilesStorageClientAdapterService } from &#x27;./files-storage-client.service&#x27;;
 
-type EntityWithEmbeddedFiles &#x3D; Task | Lesson;
+// TODO  missing FileCopyParams  ...passing user instead of userId
 
 @Injectable()
 export class CopyFilesService {
 	constructor(private readonly filesStorageClientAdapterService: FilesStorageClientAdapterService) {}
 
+	// TODO missing Status generation like in the other services
 	async copyFilesOfEntity(
 		originalEntity: EntityWithEmbeddedFiles,
 		copyEntity: EntityWithEmbeddedFiles,
-		jwt: string
+		userId: EntityId
 	): Promise&lt;{ entity: EntityWithEmbeddedFiles; response: CopyFileDto[] }&gt; {
-		const sourceParams &#x3D; FileParamBuilder.build(jwt, originalEntity.getSchoolId(), originalEntity);
-		const targetParams &#x3D; FileParamBuilder.build(jwt, copyEntity.getSchoolId(), copyEntity);
+		const source &#x3D; FileParamBuilder.build(originalEntity.getSchoolId(), originalEntity);
+		const target &#x3D; FileParamBuilder.build(copyEntity.getSchoolId(), copyEntity);
+		const copyFilesOfParentParams &#x3D; CopyFilesOfParentParamBuilder.build(userId, source, target);
 
-		const response &#x3D; await this.filesStorageClientAdapterService.copyFilesOfParent(sourceParams, targetParams);
-
+		const response &#x3D; await this.filesStorageClientAdapterService.copyFilesOfParent(copyFilesOfParentParams);
 		const entity &#x3D; this.replaceUrlsOfEntity(response, copyEntity);
 
 		return { entity, response };
 	}
 
 	private replaceUrlsOfEntity(responses: CopyFileDto[], entity: EntityWithEmbeddedFiles): EntityWithEmbeddedFiles {
-		if (responses.length &#x3D;&#x3D;&#x3D; 0) {
-			return entity;
-		}
-
 		responses.forEach((response) &#x3D;&gt; {
 			if (entity instanceof Lesson) {
 				entity &#x3D; this.replaceUrlsInLessons(entity, response);

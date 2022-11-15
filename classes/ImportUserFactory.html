@@ -1219,7 +1219,7 @@ export const importUserFactory &#x3D; ImportUserFactory.define(ImportUser, ({ se
 		system: systemFactory.build(),
 		ldapDn: &#x60;uid&#x3D;john${sequence},cn&#x3D;schueler,cn&#x3D;users,ou&#x3D;1,dc&#x3D;training,dc&#x3D;ucs&#x60;,
 		// eslint-disable-next-line @typescript-eslint/no-unsafe-call
-		ldapId: uuidv4() as unknown as string,
+		externalId: uuidv4() as unknown as string,
 		firstName: &#x60;John${sequence}&#x60;,
 		lastName: &#x60;Doe${sequence}&#x60;,
 		email: &#x60;user-${sequence}@example.com&#x60;,

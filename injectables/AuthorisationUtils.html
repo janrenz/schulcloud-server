@@ -491,7 +491,7 @@ const userRefProps = [&amp;#39;creator&amp;#39;]
                         </div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
 
                     </div>
                     <div class="io-description">
@@ -1071,7 +1071,7 @@ export class AuthorisationUtils {
 	 * @param userRefProps Array of properties in the entity the user is associated with
 	 * @returns
 	 */
-	hasAccessToEntity&lt;T, K extends keyof T&gt;(user: User, entity: T, userRefProps: K[]) {
+	hasAccessToEntity&lt;T, K extends keyof T&gt;(user: User, entity: T, userRefProps: K[]): boolean {
 		const res &#x3D; userRefProps.some((prop) &#x3D;&gt; {
 			const reference &#x3D; entity[prop];
 			if (reference instanceof Collection) {

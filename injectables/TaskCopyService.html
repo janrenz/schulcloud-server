@@ -79,10 +79,6 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                    <span class="modifier">Private</span>
-                                <a href="#copyTaskFiles" >copyTaskFiles</a>
-                            </li>
-                            <li>
                                 <a href="#copyTaskMetadata" >copyTaskMetadata</a>
                             </li>
                             <li>
@@ -155,77 +151,6 @@
     <h3 id="methods">
         Methods
     </h3>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="copyTaskFiles"></a>
-                    <span class="name">
-                        <span class="modifier">Private</span>
-                        <span ><b>copyTaskFiles</b></span>
-                        <a href="#copyTaskFiles"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>copyTaskFiles(task: <a href="../classes/Task.html" target="_self">Task</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="59"
-                            class="link-to-prism">apps/server/src/shared/domain/service/task-copy.service.ts:59</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>task</td>
-                                    <td>
-                                                <code><a href="../classes/Task.html" target="_self" >Task</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#CopyStatus" target="_self" >CopyStatus[]</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
     <table class="table table-sm table-bordered">
         <tbody>
             <tr>
@@ -317,8 +242,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="42"
-                            class="link-to-prism">apps/server/src/shared/domain/service/task-copy.service.ts:42</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="43"
+                            class="link-to-prism">apps/server/src/shared/domain/service/task-copy.service.ts:43</a></div>
                 </td>
             </tr>
 
@@ -361,13 +286,14 @@ export class TaskCopyService {
 		const copy &#x3D; new Task({
 			name: params.copyName || params.originalTask.name,
 			description: params.originalTask.description,
+			descriptionInputFormat: params.originalTask.descriptionInputFormat,
 			school: params.user.school,
 			creator: params.user,
 			course: params.destinationCourse,
 			lesson: params.destinationLesson,
 		});
 
-		const elements &#x3D; [...this.defaultTaskStatusElements(), ...this.copyTaskFiles(params.originalTask)];
+		const elements &#x3D; [...this.defaultTaskStatusElements()];
 
 		const status: CopyStatus &#x3D; {
 			title: copy.name,
@@ -396,24 +322,6 @@ export class TaskCopyService {
 				status: CopyStatusEnum.NOT_DOING,
 			},
 		];
-	}
-
-	private copyTaskFiles(task: Task): CopyStatus[] {
-		const fileNames &#x3D; task.getFileNames();
-		if (fileNames.length &gt; 0) {
-			const elements &#x3D; fileNames.map((title) &#x3D;&gt; ({
-				title,
-				type: CopyElementType.FILE,
-				status: CopyStatusEnum.NOT_IMPLEMENTED,
-			}));
-			const fileStatus &#x3D; {
-				type: CopyElementType.FILE_GROUP,
-				status: CopyStatusEnum.NOT_IMPLEMENTED,
-				elements,
-			};
-			return [fileStatus];
-		}
-		return [];
 	}
 }
 </code></pre>

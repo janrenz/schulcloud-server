@@ -79,6 +79,20 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#extractOauthConfigFromSystem" >extractOauthConfigFromSystem</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#getOauthErrorResponse" >getOauthErrorResponse</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#process" >process</a>
+                            </li>
+                            <li>
                                     <span class="modifier">Async</span>
                                 <a href="#processOAuth" >processOAuth</a>
                             </li>
@@ -100,12 +114,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(oauthService: <a href="../injectables/OAuthService.html" target="_self">OAuthService</a>, logger: <a href="../injectables/Logger.html" target="_self">Logger</a>)</code>
+<code>constructor(oauthService: <a href="../injectables/OAuthService.html" target="_self">OAuthService</a>, systemService: <a href="../injectables/SystemService.html" target="_self">SystemService</a>, logger: <a href="../injectables/Logger.html" target="_self">Logger</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">apps/server/src/modules/oauth/uc/oauth.uc.ts:11</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">apps/server/src/modules/oauth/uc/oauth.uc.ts:13</a></div>
                             </td>
                         </tr>
 
@@ -127,6 +141,18 @@
                                                   
                                                         <td>
                                                                         <code><a href="../injectables/OAuthService.html" target="_self" >OAuthService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>systemService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/SystemService.html" target="_self" >SystemService</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -164,6 +190,244 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="extractOauthConfigFromSystem"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span ><b>extractOauthConfigFromSystem</b></span>
+                        <a href="#extractOauthConfigFromSystem"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>extractOauthConfigFromSystem(system: <a href="../classes/SystemDto.html" target="_self">SystemDto</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="57"
+                            class="link-to-prism">apps/server/src/modules/oauth/uc/oauth.uc.ts:57</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>system</td>
+                                    <td>
+                                                <code><a href="../classes/SystemDto.html" target="_self" >SystemDto</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/OauthConfig.html" target="_self" >OauthConfig</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getOauthErrorResponse"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span class="modifier">Async</span>
+                        <span ><b>getOauthErrorResponse</b></span>
+                        <a href="#getOauthErrorResponse"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getOauthErrorResponse(error, systemId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="68"
+                            class="link-to-prism">apps/server/src/modules/oauth/uc/oauth.uc.ts:68</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>error</td>
+                                    <td>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>systemId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/OAuthResponse.html" target="_self" >Promise&lt;OAuthResponse&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="process"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span class="modifier">Async</span>
+                        <span ><b>process</b></span>
+                        <a href="#process"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>process(query: <a href="../classes/AuthorizationParams.html" target="_self">AuthorizationParams</a>, systemId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="31"
+                            class="link-to-prism">apps/server/src/modules/oauth/uc/oauth.uc.ts:31</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>query</td>
+                                    <td>
+                                                <code><a href="../classes/AuthorizationParams.html" target="_self" >AuthorizationParams</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>systemId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/OAuthResponse.html" target="_self" >Promise&lt;OAuthResponse&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="processOAuth"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
@@ -182,8 +446,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="16"
-                            class="link-to-prism">apps/server/src/modules/oauth/uc/oauth.uc.ts:16</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="22"
+                            class="link-to-prism">apps/server/src/modules/oauth/uc/oauth.uc.ts:22</a></div>
                 </td>
             </tr>
 
@@ -249,38 +513,78 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable, NotFoundException } from &#x27;@nestjs/common&#x27;;
 import { Logger } from &#x27;@src/core/logger&#x27;;
 import { OauthConfig, User } from &#x27;@shared/domain&#x27;;
-import { OauthTokenResponse } from &#x27;@src/modules/oauth/controller/dto/oauth-token.response&#x27;;
-import { IJwt } from &#x27;@src/modules/oauth/interface/jwt.base.interface&#x27;;
+import { OAuthSSOError } from &#x27;@src/modules/oauth/error/oauth-sso.error&#x27;;
+import { OauthTokenResponse } from &#x27;@src/modules/oauth/controller/dto&#x27;;
+import { SystemService } from &#x27;@src/modules/system/service/system.service&#x27;;
+import { SystemDto } from &#x27;@src/modules/system/service/dto/system.dto&#x27;;
 import { OAuthService } from &#x27;../service/oauth.service&#x27;;
 import { OAuthResponse } from &#x27;../service/dto/oauth.response&#x27;;
 import { AuthorizationParams } from &#x27;../controller/dto/authorization.params&#x27;;
 
 @Injectable()
 export class OauthUc {
-	constructor(private readonly oauthService: OAuthService, private logger: Logger) {
+	constructor(
+		private readonly oauthService: OAuthService,
+		private readonly systemService: SystemService,
+		private logger: Logger
+	) {
 		this.logger.setContext(OauthUc.name);
 	}
 
 	async processOAuth(query: AuthorizationParams, systemId: string): Promise&lt;OAuthResponse&gt; {
 		try {
-			const authCode: string &#x3D; this.oauthService.checkAuthorizationCode(query);
-			const oauthConfig: OauthConfig &#x3D; await this.oauthService.getOauthConfig(systemId);
-			const queryToken: OauthTokenResponse &#x3D; await this.oauthService.requestToken(authCode, oauthConfig);
-			const decodedToken: IJwt &#x3D; await this.oauthService.validateToken(queryToken.id_token, oauthConfig);
-			const user: User &#x3D; await this.oauthService.findUser(decodedToken, oauthConfig, systemId);
-			const jwtResponse: string &#x3D; await this.oauthService.getJwtForUser(user);
-			const response: OAuthResponse &#x3D; this.oauthService.buildResponse(oauthConfig, queryToken);
-			const oauthResponse: OAuthResponse &#x3D; this.oauthService.getRedirect(response);
-			oauthResponse.jwt &#x3D; jwtResponse;
-			return oauthResponse;
+			const oAuthResponsePromise &#x3D; this.process(query, systemId);
+			return await oAuthResponsePromise;
 		} catch (error) {
-			this.logger.log(error);
-			const config: OauthConfig &#x3D; await this.oauthService.getOauthConfig(systemId);
-			return this.oauthService.getOAuthError(error, config.provider);
+			return await this.getOauthErrorResponse(error, systemId);
 		}
+	}
+
+	private async process(query: AuthorizationParams, systemId: string): Promise&lt;OAuthResponse&gt; {
+		this.logger.debug(&#x60;Oauth process started for systemId ${systemId}&#x60;);
+
+		const authCode: string &#x3D; this.oauthService.checkAuthorizationCode(query);
+
+		const system &#x3D; await this.systemService.findOAuthById(systemId);
+		if (!system.id) {
+			throw new NotFoundException(&#x60;System with id &quot;${systemId}&quot; does not exist.&#x60;);
+		}
+		const oauthConfig: OauthConfig &#x3D; this.extractOauthConfigFromSystem(system);
+
+		const queryToken: OauthTokenResponse &#x3D; await this.oauthService.requestToken(authCode, oauthConfig);
+
+		await this.oauthService.validateToken(queryToken.id_token, oauthConfig);
+
+		const user: User &#x3D; await this.oauthService.findUser(queryToken.access_token, queryToken.id_token, system.id);
+
+		const jwtResponse: string &#x3D; await this.oauthService.getJwtForUser(user);
+
+		// TODO: N21-305 Build response in oauth controller
+		const response: OAuthResponse &#x3D; this.oauthService.buildResponse(oauthConfig, queryToken);
+		response.redirect &#x3D; this.oauthService.getRedirectUrl(response.provider, response.idToken, response.logoutEndpoint);
+		response.jwt &#x3D; jwtResponse;
+		return response;
+	}
+
+	private extractOauthConfigFromSystem(system: SystemDto): OauthConfig {
+		const { oauthConfig } &#x3D; system;
+		if (oauthConfig &#x3D;&#x3D; null) {
+			this.logger.warn(
+				&#x60;SSO Oauth process couldn&#x27;t be started, because of missing oauthConfig of system: ${system.id ?? &#x27;undefined&#x27;}&#x60;
+			);
+			throw new OAuthSSOError(&#x27;Requested system has no oauth configured&#x27;, &#x27;sso_internal_error&#x27;);
+		}
+		return oauthConfig;
+	}
+
+	private async getOauthErrorResponse(error, systemId: string): Promise&lt;OAuthResponse&gt; {
+		const system &#x3D; await this.systemService.findOAuthById(systemId);
+		const provider &#x3D; system.oauthConfig ? system.oauthConfig.provider : &#x27;unknown-provider&#x27;;
+		const oAuthError &#x3D; this.oauthService.getOAuthErrorResponse(error, provider);
+		return oAuthError;
 	}
 }
 </code></pre>

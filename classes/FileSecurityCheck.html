@@ -62,7 +62,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/shared/domain/entity/filerecord.entity.ts</code>
+            <code>apps/server/src/modules/files-storage/entity/filerecord.entity.ts</code>
         </p>
 
 
@@ -122,7 +122,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">apps/server/src/shared/domain/entity/filerecord.entity.ts:40</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">apps/server/src/modules/files-storage/entity/filerecord.entity.ts:42</a></div>
                             </td>
                         </tr>
 
@@ -192,7 +192,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">apps/server/src/shared/domain/entity/filerecord.entity.ts:37</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">apps/server/src/modules/files-storage/entity/filerecord.entity.ts:39</a></div>
                         </td>
                     </tr>
 
@@ -232,7 +232,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">apps/server/src/shared/domain/entity/filerecord.entity.ts:31</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">apps/server/src/modules/files-storage/entity/filerecord.entity.ts:33</a></div>
                         </td>
                     </tr>
 
@@ -273,7 +273,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">apps/server/src/shared/domain/entity/filerecord.entity.ts:34</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">apps/server/src/modules/files-storage/entity/filerecord.entity.ts:36</a></div>
                         </td>
                     </tr>
 
@@ -313,7 +313,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">apps/server/src/shared/domain/entity/filerecord.entity.ts:28</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">apps/server/src/modules/files-storage/entity/filerecord.entity.ts:30</a></div>
                         </td>
                     </tr>
 
@@ -347,7 +347,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">apps/server/src/shared/domain/entity/filerecord.entity.ts:40</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">apps/server/src/modules/files-storage/entity/filerecord.entity.ts:42</a></div>
                         </td>
                     </tr>
 
@@ -368,9 +368,10 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Embeddable, Embedded, Entity, Enum, Index, Property } from &#x27;@mikro-orm/core&#x27;;
 import { ObjectId } from &#x27;@mikro-orm/mongodb&#x27;;
+import { BadRequestException } from &#x27;@nestjs/common&#x27;;
 import { v4 as uuid } from &#x27;uuid&#x27;;
-import type { EntityId } from &#x27;../types/entity-id&#x27;;
-import { BaseEntity } from &#x27;./base.entity&#x27;;
+import { type EntityId, BaseEntity } from &#x27;@shared/domain&#x27;;
+import { ErrorType } from &#x27;../error&#x27;;
 
 export enum ScanStatus {
 	PENDING &#x3D; &#x27;pending&#x27;,
@@ -384,6 +385,7 @@ export enum FileRecordParentType {
 	&#x27;Course&#x27; &#x3D; &#x27;courses&#x27;,
 	&#x27;Task&#x27; &#x3D; &#x27;tasks&#x27;,
 	&#x27;Lesson&#x27; &#x3D; &#x27;lessons&#x27;,
+	&#x27;Submission&#x27; &#x3D; &#x27;submissions&#x27;,
 }
 export interface IFileSecurityCheckProperties {
 	status?: ScanStatus;
@@ -536,6 +538,14 @@ export class FileRecord extends BaseEntity {
 
 	unmarkForDelete(): void {
 		this.deletedSince &#x3D; undefined;
+	}
+
+	setName(name: string): void {
+		if (name.length &#x3D;&#x3D;&#x3D; 0) {
+			throw new BadRequestException(ErrorType.FILE_NAME_EMPTY);
+		}
+
+		this.name &#x3D; name;
 	}
 }
 </code></pre>

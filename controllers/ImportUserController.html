@@ -161,8 +161,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="111"
-                            class="link-to-prism">apps/server/src/modules/user-import/controller/import-user.controller.ts:111</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="114"
+                            class="link-to-prism">apps/server/src/modules/user-import/controller/import-user.controller.ts:114</a></div>
                 </td>
             </tr>
 
@@ -711,7 +711,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>startSchoolInUserMigration(currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>)</code>
+                    <code>startSchoolInUserMigration(currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>, useCentralLdap?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
                 </td>
             </tr>
 
@@ -754,6 +754,18 @@
 
                                     <td>
                                         No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>useCentralLdap</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
                                     </td>
 
 
@@ -985,8 +997,11 @@ export class ImportUserController {
 	}
 
 	@Post(&#x27;startUserMigration&#x27;)
-	async startSchoolInUserMigration(@CurrentUser() currentUser: ICurrentUser): Promise&lt;void&gt; {
-		await this.userImportUc.startSchoolInUserMigration(currentUser.userId);
+	async startSchoolInUserMigration(
+		@CurrentUser() currentUser: ICurrentUser,
+		@Query(&#x27;useCentralLdap&#x27;) useCentralLdap?: boolean
+	): Promise&lt;void&gt; {
+		await this.userImportUc.startSchoolInUserMigration(currentUser.userId, useCentralLdap);
 	}
 
 	@Post(&#x27;startSync&#x27;)

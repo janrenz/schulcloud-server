@@ -136,8 +136,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="15"
-                            class="link-to-prism">apps/server/src/modules/school/mapper/school.mapper.ts:15</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="26"
+                            class="link-to-prism">apps/server/src/modules/school/mapper/school.mapper.ts:26</a></div>
                 </td>
             </tr>
 
@@ -219,8 +219,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="20"
-                            class="link-to-prism">apps/server/src/modules/school/mapper/school.mapper.ts:20</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="33"
+                            class="link-to-prism">apps/server/src/modules/school/mapper/school.mapper.ts:33</a></div>
                 </td>
             </tr>
 
@@ -290,8 +290,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="5"
-                            class="link-to-prism">apps/server/src/modules/school/mapper/school.mapper.ts:5</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="6"
+                            class="link-to-prism">apps/server/src/modules/school/mapper/school.mapper.ts:6</a></div>
                 </td>
             </tr>
 
@@ -350,21 +350,34 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { SchoolDto } from &#x27;@src/modules/school/uc/dto/school.dto&#x27;;
-import { School } from &#x27;@shared/domain&#x27;;
+import { EntityId, School, System } from &#x27;@shared/domain&#x27;;
+import { IdentifiedReference, Reference } from &#x27;@mikro-orm/core&#x27;;
 
 export class SchoolMapper {
 	static mapToEntity(schoolDto: SchoolDto): School {
 		const school &#x3D; new School({
 			name: schoolDto.name,
+			externalId: schoolDto.externalId,
 		});
+
 		if (schoolDto.id) {
 			school.id &#x3D; schoolDto.id;
 		}
+
+		const refs: IdentifiedReference&lt;System, EntityId&gt;[] &#x3D; schoolDto.systemIds.map(
+			(systemId: EntityId): IdentifiedReference&lt;System, EntityId&gt; &#x3D;&gt; {
+				return Reference.createFromPK(System, systemId);
+			}
+		);
+		school.systems.add(...refs);
+
 		return school;
 	}
 
 	static mapEntityToEntity(target: School, source: School): School {
 		target.name &#x3D; source.name;
+		target.externalId &#x3D; source.externalId;
+		target.systems &#x3D; source.systems;
 		return target;
 	}
 
@@ -372,6 +385,8 @@ export class SchoolMapper {
 		return new SchoolDto({
 			name: entity.name,
 			id: entity.id,
+			externalId: entity.externalId,
+			systemIds: entity.systems.getItems().map((system: System): EntityId &#x3D;&gt; system.id),
 		});
 	}
 }

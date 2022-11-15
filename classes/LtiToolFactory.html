@@ -230,8 +230,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="20"
-                            class="link-to-prism">apps/server/src/shared/testing/factory/ltitool.factory.ts:20</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="21"
+                            class="link-to-prism">apps/server/src/shared/testing/factory/ltitool.factory.ts:21</a></div>
                 </td>
             </tr>
 
@@ -292,8 +292,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="6"
-                            class="link-to-prism">apps/server/src/shared/testing/factory/ltitool.factory.ts:6</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="7"
+                            class="link-to-prism">apps/server/src/shared/testing/factory/ltitool.factory.ts:7</a></div>
                 </td>
             </tr>
 
@@ -354,8 +354,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="13"
-                            class="link-to-prism">apps/server/src/shared/testing/factory/ltitool.factory.ts:13</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="14"
+                            class="link-to-prism">apps/server/src/shared/testing/factory/ltitool.factory.ts:14</a></div>
                 </td>
             </tr>
 
@@ -1317,8 +1317,9 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { BaseFactory } from &#x27;@shared/testing/factory/base.factory&#x27;;
-import { ILtiToolProperties, LtiTool } from &#x27;@shared/domain/index&#x27;;
+import { ILtiToolProperties, LtiPrivacyPermission, LtiRoleType, LtiTool } from &#x27;@shared/domain/&#x27;;
 import { DeepPartial } from &#x27;fishery&#x27;;
+import { CustomLtiProperty } from &#x27;@shared/domain/domainobject/ltitool.do&#x27;;
 
 class LtiToolFactory extends BaseFactory&lt;LtiTool, ILtiToolProperties&gt; {
 	withName(name: string): this {
@@ -1349,6 +1350,22 @@ export const ltiToolFactory &#x3D; LtiToolFactory.define(LtiTool, ({ sequence })
 		isLocal: true,
 		oAuthClientId: &#x27;clientId&#x27;,
 		secret: &#x27;secret&#x27;,
+		customs: [new CustomLtiProperty(&#x27;key&#x27;, &#x27;value&#x27;)],
+		isHidden: false,
+		isTemplate: false,
+		key: &#x27;key&#x27;,
+		openNewTab: false,
+		originToolId: &#x27;originToolId&#x27;,
+		privacy_permission: LtiPrivacyPermission.NAME,
+		roles: [LtiRoleType.INSTRUCTOR, LtiRoleType.LEARNER],
+		url: &#x27;url&#x27;,
+		friendlyUrl: &#x27;friendlyUrl&#x27;,
+		frontchannel_logout_uri: &#x27;frontchannel_logout_uri&#x27;,
+		logo_url: &#x27;logo_url&#x27;,
+		lti_message_type: &#x27;lti_message_type&#x27;,
+		lti_version: &#x27;lti_version&#x27;,
+		resource_link_id: &#x27;resource_link_id&#x27;,
+		skipConsent: true,
 	};
 });
 </code></pre>

@@ -181,12 +181,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(courseRule: <a href="../injectables/CourseRule.html" target="_self">CourseRule</a>, courseGroupRule: <a href="../injectables/CourseGroupRule.html" target="_self">CourseGroupRule</a>, lessonRule: <a href="../injectables/LessonRule.html" target="_self">LessonRule</a>, schoolRule: <a href="../injectables/SchoolRule.html" target="_self">SchoolRule</a>, taskRule: <a href="../injectables/TaskRule.html" target="_self">TaskRule</a>, userRule: <a href="../injectables/UserRule.html" target="_self">UserRule</a>, teamRule: <a href="../injectables/TeamRule.html" target="_self">TeamRule</a>, loader: <a href="../injectables/ReferenceLoader.html" target="_self">ReferenceLoader</a>)</code>
+<code>constructor(courseRule: <a href="../injectables/CourseRule.html" target="_self">CourseRule</a>, courseGroupRule: <a href="../injectables/CourseGroupRule.html" target="_self">CourseGroupRule</a>, lessonRule: <a href="../injectables/LessonRule.html" target="_self">LessonRule</a>, schoolRule: <a href="../injectables/SchoolRule.html" target="_self">SchoolRule</a>, taskRule: <a href="../injectables/TaskRule.html" target="_self">TaskRule</a>, userRule: <a href="../injectables/UserRule.html" target="_self">UserRule</a>, teamRule: <a href="../injectables/TeamRule.html" target="_self">TeamRule</a>, submissionRule: <a href="../injectables/SubmissionRule.html" target="_self">SubmissionRule</a>, loader: <a href="../injectables/ReferenceLoader.html" target="_self">ReferenceLoader</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">apps/server/src/modules/authorization/authorization.service.ts:22</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">apps/server/src/modules/authorization/authorization.service.ts:23</a></div>
                             </td>
                         </tr>
 
@@ -288,6 +288,18 @@
                                                     
                                                 </tr>
                                                 <tr>
+                                                        <td>submissionRule</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/SubmissionRule.html" target="_self" >SubmissionRule</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
                                                         <td>loader</td>
                                                   
                                                         <td>
@@ -333,8 +345,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="45"
-                            class="link-to-prism">apps/server/src/modules/authorization/authorization.service.ts:45</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="48"
+                            class="link-to-prism">apps/server/src/modules/authorization/authorization.service.ts:48</a></div>
                 </td>
             </tr>
 
@@ -428,8 +440,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="87"
-                            class="link-to-prism">apps/server/src/modules/authorization/authorization.service.ts:87</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="90"
+                            class="link-to-prism">apps/server/src/modules/authorization/authorization.service.ts:90</a></div>
                 </td>
             </tr>
 
@@ -535,8 +547,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="98"
-                            class="link-to-prism">apps/server/src/modules/authorization/authorization.service.ts:98</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="101"
+                            class="link-to-prism">apps/server/src/modules/authorization/authorization.service.ts:101</a></div>
                 </td>
             </tr>
 
@@ -606,8 +618,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="51"
-                            class="link-to-prism">apps/server/src/modules/authorization/authorization.service.ts:51</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="54"
+                            class="link-to-prism">apps/server/src/modules/authorization/authorization.service.ts:54</a></div>
                 </td>
             </tr>
 
@@ -711,8 +723,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="70"
-                            class="link-to-prism">apps/server/src/modules/authorization/authorization.service.ts:70</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="73"
+                            class="link-to-prism">apps/server/src/modules/authorization/authorization.service.ts:73</a></div>
                 </td>
             </tr>
 
@@ -1473,7 +1485,7 @@ const userRefProps = [&amp;#39;creator&amp;#39;]
                         </div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
 
                     </div>
                     <div class="io-description">
@@ -2085,6 +2097,7 @@ import {
 	Permission,
 	PermissionContextBuilder,
 	SchoolRule,
+	SubmissionRule,
 	TaskRule,
 	User,
 	UserRule,
@@ -2104,6 +2117,7 @@ export class AuthorizationService extends BasePermissionManager {
 		private readonly taskRule: TaskRule,
 		private readonly userRule: UserRule,
 		private readonly teamRule: TeamRule,
+		private readonly submissionRule: SubmissionRule,
 		private readonly loader: ReferenceLoader
 	) {
 		super();
@@ -2115,6 +2129,7 @@ export class AuthorizationService extends BasePermissionManager {
 			this.teamRule,
 			this.userRule,
 			this.schoolRule,
+			this.submissionRule,
 		]);
 	}
 

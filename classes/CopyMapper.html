@@ -129,7 +129,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>mapLessonCopyToDomain(params: <a href="../classes/LessonCopyApiParams.html" target="_self">LessonCopyApiParams</a>, jwt: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    <code>mapLessonCopyToDomain(params: <a href="../classes/LessonCopyApiParams.html" target="_self">LessonCopyApiParams</a>, userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>)</code>
                 </td>
             </tr>
 
@@ -170,9 +170,9 @@
 
                                 </tr>
                                 <tr>
-                                    <td>jwt</td>
+                                    <td>userId</td>
                                     <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
                                     </td>
 
                                     <td>
@@ -212,7 +212,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>mapTaskCopyToDomain(params: <a href="../classes/TaskCopyApiParams.html" target="_self">TaskCopyApiParams</a>, jwt: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    <code>mapTaskCopyToDomain(params: <a href="../classes/TaskCopyApiParams.html" target="_self">TaskCopyApiParams</a>, userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>)</code>
                 </td>
             </tr>
 
@@ -253,9 +253,9 @@
 
                                 </tr>
                                 <tr>
-                                    <td>jwt</td>
+                                    <td>userId</td>
                                     <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
                                     </td>
 
                                     <td>
@@ -361,7 +361,7 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { CopyStatus, CopyStatusEnum, Lesson, Task } from &#x27;@shared/domain&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { CopyStatus, CopyStatusEnum, EntityId, Lesson, Task } from &#x27;@shared/domain&#x27;;
 import { LessonCopyApiParams } from &#x27;@src/modules/learnroom/controller/dto/lesson/lesson-copy.params&#x27;;
 import { LessonCopyParentParams } from &#x27;@src/modules/learnroom/uc/lesson-copy.uc&#x27;;
 import { TaskCopyApiParams } from &#x27;@src/modules/task/controller/dto/task-copy.params&#x27;;
@@ -389,20 +389,20 @@ export class CopyMapper {
 		return dto;
 	}
 
-	static mapLessonCopyToDomain(params: LessonCopyApiParams, jwt: string): LessonCopyParentParams {
+	static mapLessonCopyToDomain(params: LessonCopyApiParams, userId: EntityId): LessonCopyParentParams {
 		const dto &#x3D; {
 			courseId: params.courseId,
-			jwt,
+			userId,
 		};
 
 		return dto;
 	}
 
-	static mapTaskCopyToDomain(params: TaskCopyApiParams, jwt: string): TaskCopyParentParams {
+	static mapTaskCopyToDomain(params: TaskCopyApiParams, userId: EntityId): TaskCopyParentParams {
 		const dto &#x3D; {
 			courseId: params.courseId,
 			lessonId: params.lessonId,
-			jwt,
+			userId,
 		};
 
 		return dto;

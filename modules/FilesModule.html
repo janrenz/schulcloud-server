@@ -342,9 +342,10 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Configuration } from &#x27;@hpi-schul-cloud/commons/lib&#x27;;
 import { Module } from &#x27;@nestjs/common&#x27;;
 import { FileStorageAdapter } from &#x27;@shared/infra/filestorage&#x27;;
-import { FileRecordRepo, FilesRepo, StorageProviderRepo } from &#x27;@shared/repo&#x27;;
+import { FilesRepo, StorageProviderRepo } from &#x27;@shared/repo&#x27;;
 import { LoggerModule } from &#x27;@src/core/logger&#x27;;
-import { S3Config } from &#x27;../files-storage/interface&#x27;;
+import { S3Config } from &#x27;@src/modules/files-storage/interface/config&#x27;;
+import { FileRecordRepo } from &#x27;@src/modules/files-storage/repo/filerecord.repo&#x27;;
 import { DeleteFilesConsole } from &#x27;./job/delete-files.console&#x27;;
 import { DeleteOrphanedFilesConsole } from &#x27;./job/delete-orphaned-files.console&#x27;;
 import { SyncFilesConsole } from &#x27;./job/sync-files.console&#x27;;

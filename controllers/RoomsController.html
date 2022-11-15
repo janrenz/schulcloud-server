@@ -135,7 +135,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>copyCourse(currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>, urlParams: <a href="../classes/RoomUrlParams.html" target="_self">RoomUrlParams</a>, jwt: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    <code>copyCourse(currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>, urlParams: <a href="../classes/RoomUrlParams.html" target="_self">RoomUrlParams</a>)</code>
                 </td>
             </tr>
 
@@ -194,18 +194,6 @@
 
 
                                 </tr>
-                                <tr>
-                                    <td>jwt</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -237,7 +225,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>copyLesson(currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>, urlParams: <a href="../classes/LessonUrlParams.html" target="_self">LessonUrlParams</a>, params: <a href="../classes/LessonCopyApiParams.html" target="_self">LessonCopyApiParams</a>, jwt: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    <code>copyLesson(currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>, urlParams: <a href="../classes/LessonUrlParams.html" target="_self">LessonUrlParams</a>, params: <a href="../classes/LessonCopyApiParams.html" target="_self">LessonCopyApiParams</a>)</code>
                 </td>
             </tr>
 
@@ -251,8 +239,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="81"
-                            class="link-to-prism">apps/server/src/modules/learnroom/controller/rooms.controller.ts:81</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="80"
+                            class="link-to-prism">apps/server/src/modules/learnroom/controller/rooms.controller.ts:80</a></div>
                 </td>
             </tr>
 
@@ -300,18 +288,6 @@
                                     <td>params</td>
                                     <td>
                                                 <code><a href="../classes/LessonCopyApiParams.html" target="_self" >LessonCopyApiParams</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>jwt</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
                                     </td>
 
                                     <td>
@@ -638,9 +614,9 @@
 import { ApiTags } from &#x27;@nestjs/swagger&#x27;;
 import { RequestTimeout } from &#x27;@shared/common&#x27;;
 import { ICurrentUser } from &#x27;@shared/domain&#x27;;
-import { Authenticate, CurrentUser, JWT } from &#x27;@src/modules/authentication/decorator/auth.decorator&#x27;;
+import { Authenticate, CurrentUser } from &#x27;@src/modules/authentication/decorator/auth.decorator&#x27;;
 import { LessonCopyUC } from &#x27;@src/modules/learnroom/uc/lesson-copy.uc&#x27;;
-import serverConfig from &#x27;@src/server.config&#x27;;
+import { serverConfig } from &#x27;@src/modules/server/server.config&#x27;;
 import { CopyMapper } from &#x27;../mapper/copy.mapper&#x27;;
 import { RoomBoardResponseMapper } from &#x27;../mapper/room-board-response.mapper&#x27;;
 import { CourseCopyUC } from &#x27;../uc/course-copy.uc&#x27;;
@@ -704,10 +680,9 @@ export class RoomsController {
 	@RequestTimeout(serverConfig().INCOMING_REQUEST_TIMEOUT_COPY_API)
 	async copyCourse(
 		@CurrentUser() currentUser: ICurrentUser,
-		@Param() urlParams: RoomUrlParams,
-		@JWT() jwt: string
+		@Param() urlParams: RoomUrlParams
 	): Promise&lt;CopyApiResponse&gt; {
-		const copyStatus &#x3D; await this.courseCopyUc.copyCourse(currentUser.userId, urlParams.roomId, jwt);
+		const copyStatus &#x3D; await this.courseCopyUc.copyCourse(currentUser.userId, urlParams.roomId);
 		const dto &#x3D; CopyMapper.mapToResponse(copyStatus);
 		return dto;
 	}
@@ -717,13 +692,12 @@ export class RoomsController {
 	async copyLesson(
 		@CurrentUser() currentUser: ICurrentUser,
 		@Param() urlParams: LessonUrlParams,
-		@Body() params: LessonCopyApiParams,
-		@JWT() jwt: string
+		@Body() params: LessonCopyApiParams
 	): Promise&lt;CopyApiResponse&gt; {
 		const copyStatus &#x3D; await this.lessonCopyUc.copyLesson(
 			currentUser.userId,
 			urlParams.lessonId,
-			CopyMapper.mapLessonCopyToDomain(params, jwt)
+			CopyMapper.mapLessonCopyToDomain(params, currentUser.userId)
 		);
 		const dto &#x3D; CopyMapper.mapToResponse(copyStatus);
 		return dto;

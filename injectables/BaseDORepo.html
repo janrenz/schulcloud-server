@@ -79,11 +79,23 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                    <span class="modifier">Async</span>
-                                <a href="#delete" >delete</a>
+                                    <span class="modifier">Private</span>
+                                <a href="#createEntity" >createEntity</a>
                             </li>
                             <li>
-                                    <span class="modifier">Protected</span>
+                                    <span class="modifier">Private</span>
+                                <a href="#createNewEntityFromDO" >createNewEntityFromDO</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#deleteById" >deleteById</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#deleteEntityById" >deleteEntityById</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Abstract</span>
                                 <a href="#entityFactory" >entityFactory</a>
                             </li>
                             <li>
@@ -91,17 +103,9 @@
                                 <a href="#findById" >findById</a>
                             </li>
                             <li>
-                                    <span class="modifier">Abstract</span>
-                                <a href="#getConstructor" >getConstructor</a>
-                            </li>
-                            <li>
                                     <span class="modifier">Protected</span>
                                     <span class="modifier">Abstract</span>
-                                <a href="#mapDOToEntity" >mapDOToEntity</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Protected</span>
-                                <a href="#mapDOToEntityWithId" >mapDOToEntityWithId</a>
+                                <a href="#mapDOToEntityProperties" >mapDOToEntityProperties</a>
                             </li>
                             <li>
                                     <span class="modifier">Protected</span>
@@ -109,8 +113,21 @@
                                 <a href="#mapEntityToDO" >mapEntityToDO</a>
                             </li>
                             <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#removeProtectedEntityFields" >removeProtectedEntityFields</a>
+                            </li>
+                            <li>
                                     <span class="modifier">Async</span>
                                 <a href="#save" >save</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#saveAll" >saveAll</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#updateEntity" >updateEntity</a>
                             </li>
                         </ul>
                     </td>
@@ -208,26 +225,26 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="delete"></a>
+                    <a name="createEntity"></a>
                     <span class="name">
-                        <span class="modifier">Async</span>
-                        <span ><b>delete</b></span>
-                        <a href="#delete"><span class="icon ion-ios-link"></span></a>
+                        <span class="modifier">Private</span>
+                        <span ><b>createEntity</b></span>
+                        <a href="#createEntity"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>delete(entityDos: T | T[])</code>
+                    <code>createEntity(domainObject: DO)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="62"
-                            class="link-to-prism">apps/server/src/shared/repo/base.do.repo.ts:62</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="44"
+                            class="link-to-prism">apps/server/src/shared/repo/base.do.repo.ts:44</a></div>
                 </td>
             </tr>
 
@@ -248,9 +265,9 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>entityDos</td>
+                                    <td>domainObject</td>
                                     <td>
-                                            <code>T | T[]</code>
+                                            <code>DO</code>
                                     </td>
 
                                     <td>
@@ -265,7 +282,220 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
+                        <b>Returns : </b>    <code>E</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createNewEntityFromDO"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span ><b>createNewEntityFromDO</b></span>
+                        <a href="#createNewEntityFromDO"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>createNewEntityFromDO(domainObject: DO)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="65"
+                            class="link-to-prism">apps/server/src/shared/repo/base.do.repo.ts:65</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>domainObject</td>
+                                    <td>
+                                            <code>DO</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>E</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteById"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>deleteById</b></span>
+                        <a href="#deleteById"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>deleteById(id: string | string[])</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="82"
+                            class="link-to-prism">apps/server/src/shared/repo/base.do.repo.ts:82</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+                                    <td>
+                                            <code>string | string[]</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;number&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteEntityById"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span ><b>deleteEntityById</b></span>
+                        <a href="#deleteEntityById"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>deleteEntityById(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="95"
+                            class="link-to-prism">apps/server/src/shared/repo/base.do.repo.ts:95</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;number&gt;</code>
 
                     </div>
                     <div class="io-description">
@@ -281,7 +511,7 @@
                 <td class="col-md-4">
                     <a name="entityFactory"></a>
                     <span class="name">
-                        <span class="modifier">Protected</span>
+                        <span class="modifier">Abstract</span>
                         <span ><b>entityFactory</b></span>
                         <a href="#entityFactory"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -290,15 +520,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>entityFactory(Type, props: P)</code>
+                    <code>entityFactory(props: P)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="26"
-                            class="link-to-prism">apps/server/src/shared/repo/base.do.repo.ts:26</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="15"
+                            class="link-to-prism">apps/server/src/shared/repo/base.do.repo.ts:15</a></div>
                 </td>
             </tr>
 
@@ -318,17 +548,6 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>Type</td>
-                                    <td>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
                                 <tr>
                                     <td>props</td>
                                     <td>
@@ -379,8 +598,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="75"
-                            class="link-to-prism">apps/server/src/shared/repo/base.do.repo.ts:75</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="100"
+                            class="link-to-prism">apps/server/src/shared/repo/base.do.repo.ts:100</a></div>
                 </td>
             </tr>
 
@@ -418,7 +637,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>    <code>Promise&lt;T&gt;</code>
+                        <b>Returns : </b>    <code>Promise&lt;DO&gt;</code>
 
                     </div>
                     <div class="io-description">
@@ -432,66 +651,27 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="getConstructor"></a>
-                    <span class="name">
-                        <span class="modifier">Abstract</span>
-                        <span ><b>getConstructor</b></span>
-                        <a href="#getConstructor"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>getConstructor()</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="15"
-                            class="link-to-prism">apps/server/src/shared/repo/base.do.repo.ts:15</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Returns : </b>    <code>E</code>
-
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="mapDOToEntity"></a>
+                    <a name="mapDOToEntityProperties"></a>
                     <span class="name">
                         <span class="modifier">Protected</span>
                         <span class="modifier">Abstract</span>
-                        <span ><b>mapDOToEntity</b></span>
-                        <a href="#mapDOToEntity"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>mapDOToEntityProperties</b></span>
+                        <a href="#mapDOToEntityProperties"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>mapDOToEntity(entityDO: T)</code>
+                    <code>mapDOToEntityProperties(entityDO: DO)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="17"
-                            class="link-to-prism">apps/server/src/shared/repo/base.do.repo.ts:17</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="19"
+                            class="link-to-prism">apps/server/src/shared/repo/base.do.repo.ts:19</a></div>
                 </td>
             </tr>
 
@@ -514,78 +694,7 @@
                                 <tr>
                                     <td>entityDO</td>
                                     <td>
-                                            <code>T</code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#EntityProperties" target="_self" >EntityProperties&lt;P&gt;</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="mapDOToEntityWithId"></a>
-                    <span class="name">
-                        <span class="modifier">Protected</span>
-                        <span ><b>mapDOToEntityWithId</b></span>
-                        <a href="#mapDOToEntityWithId"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>mapDOToEntityWithId(edo: T)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="20"
-                            class="link-to-prism">apps/server/src/shared/repo/base.do.repo.ts:20</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>edo</td>
-                                    <td>
-                                            <code>T</code>
+                                            <code>DO</code>
                                     </td>
 
                                     <td>
@@ -633,8 +742,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="18"
-                            class="link-to-prism">apps/server/src/shared/repo/base.do.repo.ts:18</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="17"
+                            class="link-to-prism">apps/server/src/shared/repo/base.do.repo.ts:17</a></div>
                 </td>
             </tr>
 
@@ -672,7 +781,80 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>    <code>T</code>
+                        <b>Returns : </b>    <code>DO</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="removeProtectedEntityFields"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span ><b>removeProtectedEntityFields</b></span>
+                        <a href="#removeProtectedEntityFields"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>removeProtectedEntityFields(entity: E)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="74"
+                            class="link-to-prism">apps/server/src/shared/repo/base.do.repo.ts:74</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Ignore base entity properties when updating entity</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>entity</td>
+                                    <td>
+                                            <code>E</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
                     </div>
                     <div class="io-description">
@@ -697,15 +879,86 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>save(entityDos: T | T[])</code>
+                    <code>save(entityDo: DO)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="30"
-                            class="link-to-prism">apps/server/src/shared/repo/base.do.repo.ts:30</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="21"
+                            class="link-to-prism">apps/server/src/shared/repo/base.do.repo.ts:21</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>entityDo</td>
+                                    <td>
+                                            <code>DO</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;DO&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="saveAll"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>saveAll</b></span>
+                        <a href="#saveAll"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>saveAll(entityDos: DO[])</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="26"
+                            class="link-to-prism">apps/server/src/shared/repo/base.do.repo.ts:26</a></div>
                 </td>
             </tr>
 
@@ -728,7 +981,7 @@
                                 <tr>
                                     <td>entityDos</td>
                                     <td>
-                                            <code>T | T[]</code>
+                                            <code>DO[]</code>
                                     </td>
 
                                     <td>
@@ -743,7 +996,79 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>    <code>Promise&lt;T | []&gt;</code>
+                        <b>Returns : </b>    <code>Promise&lt;DO[]&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateEntity"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span class="modifier">Async</span>
+                        <span ><b>updateEntity</b></span>
+                        <a href="#updateEntity"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>updateEntity(domainObject: DO)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="52"
+                            class="link-to-prism">apps/server/src/shared/repo/base.do.repo.ts:52</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>domainObject</td>
+                                    <td>
+                                            <code>DO</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;E&gt;</code>
 
                     </div>
                     <div class="io-description">
@@ -786,7 +1111,7 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { EntityDTO, EntityName, FilterQuery, wrap } from &#x27;@mikro-orm/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { EntityName, FilterQuery } from &#x27;@mikro-orm/core&#x27;;
 import { EntityManager } from &#x27;@mikro-orm/mongodb&#x27;;
 import { Injectable } from &#x27;@nestjs/common&#x27;;
 import { BaseDO, BaseEntity, baseEntityProperties, EntityId, IBaseEntityProps } from &#x27;@shared/domain&#x27;;
@@ -795,73 +1120,98 @@ import { Logger } from &#x27;@src/core/logger&#x27;;
 export type EntityProperties&lt;P&gt; &#x3D; P &amp; IBaseEntityProps;
 
 @Injectable()
-export abstract class BaseDORepo&lt;T extends BaseDO, E extends BaseEntity, P&gt; {
+export abstract class BaseDORepo&lt;DO extends BaseDO, E extends BaseEntity, P&gt; {
 	constructor(protected readonly _em: EntityManager, protected readonly logger: Logger) {}
 
 	abstract get entityName(): EntityName&lt;E&gt;;
 
-	abstract getConstructor(): new (I) &#x3D;&gt; E;
+	abstract entityFactory(props: P): E;
 
-	protected abstract mapDOToEntity(entityDO: T): EntityProperties&lt;P&gt;;
-	protected abstract mapEntityToDO(entity: E): T;
+	protected abstract mapEntityToDO(entity: E): DO;
 
-	protected mapDOToEntityWithId(edo: T): EntityProperties&lt;P&gt; {
-		const entity: EntityProperties&lt;P&gt; &#x3D; this.mapDOToEntity(edo);
-		entity.id &#x3D; edo.id;
-		return entity;
+	protected abstract mapDOToEntityProperties(entityDO: DO): EntityProperties&lt;P&gt;;
+
+	async save(entityDo: DO): Promise&lt;DO&gt; {
+		const savedDos: DO[] &#x3D; await this.saveAll([entityDo]);
+		return savedDos[0];
 	}
 
-	protected entityFactory(Type: new (I) &#x3D;&gt; E, props: P): E {
-		return new Type(props);
-	}
+	async saveAll(entityDos: DO[]): Promise&lt;DO[]&gt; {
+		const promises: Promise&lt;E&gt;[] &#x3D; entityDos.map(async (domainObject: DO): Promise&lt;E&gt; &#x3D;&gt; {
+			let entity: E;
+			if (!domainObject.id) {
+				entity &#x3D; this.createEntity(domainObject);
+			} else {
+				entity &#x3D; await this.updateEntity(domainObject);
+			}
+			return entity;
+		});
 
-	async save(entityDos: T | T[]): Promise&lt;T | T[]&gt; {
-		const isArray &#x3D; Array.isArray(entityDos);
-		const dos: T[] &#x3D; isArray ? entityDos : [entityDos];
-
-		const entities: E[] &#x3D; await Promise.all(
-			dos.map(async (d) &#x3D;&gt; {
-				const entityProps: EntityProperties&lt;P&gt; &#x3D; this.mapDOToEntityWithId(d);
-				const newEntity: E &#x3D; this.entityFactory(this.getConstructor(), entityProps);
-
-				const entity: E &#x3D; await this._em
-					.findOneOrFail(this.entityName, d.id as FilterQuery&lt;E&gt;)
-					.then((fetchedEntity: E) &#x3D;&gt; {
-						// Ignore base entity properties when updating entity
-						const wrapped: EntityDTO&lt;E&gt; &#x3D; wrap(newEntity).toObject(baseEntityProperties);
-
-						this.logger.debug(&#x60;Update entity with id ${fetchedEntity.id}&#x60;);
-						return Object.assign(fetchedEntity, wrapped) as E;
-					})
-					.catch(() &#x3D;&gt; {
-						this.logger.debug(&#x60;Created new entity&#x60;);
-						return this._em.create(this.entityName, newEntity);
-					});
-
-				return entity;
-			})
-		);
-
+		const entities: E[] &#x3D; await Promise.all(promises);
 		await this._em.persistAndFlush(entities);
 
-		return isArray ? entities.map((entity) &#x3D;&gt; this.mapEntityToDO(entity)) : this.mapEntityToDO(entities[0]);
+		const savedDos: DO[] &#x3D; entities.map((entity) &#x3D;&gt; this.mapEntityToDO(entity));
+		return savedDos;
 	}
 
-	async delete(entityDos: T | T[]): Promise&lt;void&gt; {
-		const dos: T[] &#x3D; Array.isArray(entityDos) ? entityDos : [entityDos];
+	private createEntity(domainObject: DO): E {
+		const newEntity: E &#x3D; this.createNewEntityFromDO(domainObject);
 
-		const entities: E[] &#x3D; await Promise.all(
-			dos.map(async (d) &#x3D;&gt; {
-				const entityProps: EntityProperties&lt;P&gt; &#x3D; this.mapDOToEntityWithId(d);
-				return this._em.findOneOrFail(this.entityName, entityProps.id as FilterQuery&lt;E&gt;);
-			})
-		);
-
-		await this._em.removeAndFlush(entities);
+		const created: E &#x3D; this._em.create(this.entityName, newEntity);
+		this.logger.debug(&#x60;Created new entity with id ${created.id}&#x60;);
+		return created;
 	}
 
-	async findById(id: EntityId): Promise&lt;T&gt; {
-		const entity: E &#x3D; await this._em.findOneOrFail(this.entityName, id as FilterQuery&lt;E&gt;);
+	private async updateEntity(domainObject: DO): Promise&lt;E&gt; {
+		const newEntity: E &#x3D; this.createNewEntityFromDO(domainObject);
+
+		this.removeProtectedEntityFields(newEntity);
+
+		const fetchedEntity: E &#x3D; await this._em.findOneOrFail(this.entityName, {
+			id: domainObject.id,
+		} as FilterQuery&lt;E&gt;);
+		const updated: E &#x3D; this._em.assign(fetchedEntity, newEntity);
+		this.logger.debug(&#x60;Updated entity with id ${updated.id}&#x60;);
+		return updated;
+	}
+
+	private createNewEntityFromDO(domainObject: DO) {
+		const entityProps: EntityProperties&lt;P&gt; &#x3D; this.mapDOToEntityProperties(domainObject);
+		const newEntity: E &#x3D; this.entityFactory(entityProps);
+		return newEntity;
+	}
+
+	/**
+	 * Ignore base entity properties when updating entity
+	 */
+	private removeProtectedEntityFields(entity: E) {
+		Object.keys(entity).forEach((key) &#x3D;&gt; {
+			if (baseEntityProperties.includes(key)) {
+				delete entity[key];
+			}
+		});
+	}
+
+	async deleteById(id: string | string[]): Promise&lt;number&gt; {
+		const ids: string[] &#x3D; Array.isArray(id) ? id : [id];
+
+		let total &#x3D; 0;
+		const promises: Promise&lt;void&gt;[] &#x3D; ids.map(async (entityId: string): Promise&lt;void&gt; &#x3D;&gt; {
+			const deleted: number &#x3D; await this.deleteEntityById(entityId);
+			total +&#x3D; deleted;
+		});
+
+		await Promise.all(promises);
+		return total;
+	}
+
+	private deleteEntityById(id: string): Promise&lt;number&gt; {
+		const promise: Promise&lt;number&gt; &#x3D; this._em.nativeDelete(this.entityName, { id } as FilterQuery&lt;E&gt;);
+		return promise;
+	}
+
+	async findById(id: EntityId): Promise&lt;DO&gt; {
+		const entity: E &#x3D; await this._em.findOneOrFail(this.entityName, { id } as FilterQuery&lt;E&gt;);
 		return this.mapEntityToDO(entity);
 	}
 }

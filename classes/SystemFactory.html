@@ -1152,7 +1152,7 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ISystemProperties, System } from &#x27;@shared/domain&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ISystemProperties, OauthConfig, System } from &#x27;@shared/domain&#x27;;
 import { SystemProvisioningStrategy } from &#x27;@shared/domain/interface/system-provisioning.strategy&#x27;;
 import { DeepPartial } from &#x27;fishery&#x27;;
 import { BaseFactory } from &#x27;./base.factory&#x27;;
@@ -1160,7 +1160,7 @@ import { BaseFactory } from &#x27;./base.factory&#x27;;
 export class SystemFactory extends BaseFactory&lt;System, ISystemProperties&gt; {
 	withOauthConfig(): this {
 		const params: DeepPartial&lt;ISystemProperties&gt; &#x3D; {
-			oauthConfig: {
+			oauthConfig: new OauthConfig({
 				clientId: &#x27;12345&#x27;,
 				clientSecret: &#x27;mocksecret&#x27;,
 				tokenEndpoint: &#x27;http://mock.de/mock/auth/public/mockToken&#x27;,
@@ -1173,7 +1173,7 @@ export class SystemFactory extends BaseFactory&lt;System, ISystemProperties&gt; 
 				logoutEndpoint: &#x27;mock_logoutEndpoint&#x27;,
 				issuer: &#x27;mock_issuer&#x27;,
 				jwksEndpoint: &#x27;mock_jwksEndpoint&#x27;,
-			},
+			}),
 		};
 		return this.params(params);
 	}
@@ -1181,11 +1181,12 @@ export class SystemFactory extends BaseFactory&lt;System, ISystemProperties&gt; 
 
 export const systemFactory &#x3D; SystemFactory.define(System, ({ sequence }) &#x3D;&gt; {
 	return {
-		type: &#x27;iserv&#x27;,
+		type: &#x27;oauth&#x27;,
 		url: &#x27;http://mock.de&#x27;,
 		alias: &#x60;system #${sequence}&#x60;,
 		displayName: &#x60;system #${sequence}DisplayName&#x60;,
-		provisioningStrategy: SystemProvisioningStrategy.PLACEHOLDER,
+		provisioningStrategy: SystemProvisioningStrategy.UNDEFINED,
+		provisioningUrl: &#x27;provisioningUrl&#x27;,
 	};
 });
 </code></pre>

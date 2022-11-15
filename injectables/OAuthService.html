@@ -101,14 +101,10 @@
                                 <a href="#getJwtForUser" >getJwtForUser</a>
                             </li>
                             <li>
-                                    <span class="modifier">Async</span>
-                                <a href="#getOauthConfig" >getOauthConfig</a>
+                                <a href="#getOAuthErrorResponse" >getOAuthErrorResponse</a>
                             </li>
                             <li>
-                                <a href="#getOAuthError" >getOAuthError</a>
-                            </li>
-                            <li>
-                                <a href="#getRedirect" >getRedirect</a>
+                                <a href="#getRedirectUrl" >getRedirectUrl</a>
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
@@ -145,12 +141,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(userRepo: <a href="../injectables/UserRepo.html" target="_self">UserRepo</a>, systemService: <a href="../injectables/SystemService.html" target="_self">SystemService</a>, jwtService: <a href="../injectables/FeathersJwtProvider.html" target="_self">FeathersJwtProvider</a>, httpService: HttpService, oAuthEncryptionService: <a href="../interfaces/IEncryptionService.html" target="_self">IEncryptionService</a>, iservOauthService: <a href="../injectables/IservOAuthService.html" target="_self">IservOAuthService</a>, logger: <a href="../injectables/Logger.html" target="_self">Logger</a>)</code>
+<code>constructor(userRepo: <a href="../injectables/UserRepo.html" target="_self">UserRepo</a>, jwtService: <a href="../injectables/FeathersJwtProvider.html" target="_self">FeathersJwtProvider</a>, httpService: HttpService, oAuthEncryptionService: <a href="../interfaces/IEncryptionService.html" target="_self">IEncryptionService</a>, logger: <a href="../injectables/Logger.html" target="_self">Logger</a>, provisioningService: <a href="../injectables/ProvisioningService.html" target="_self">ProvisioningService</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">apps/server/src/modules/oauth/service/oauth.service.ts:28</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">apps/server/src/modules/oauth/service/oauth.service.ts:25</a></div>
                             </td>
                         </tr>
 
@@ -172,18 +168,6 @@
                                                   
                                                         <td>
                                                                         <code><a href="../injectables/UserRepo.html" target="_self" >UserRepo</a></code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                                <tr>
-                                                        <td>systemService</td>
-                                                  
-                                                        <td>
-                                                                        <code><a href="../injectables/SystemService.html" target="_self" >SystemService</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -228,10 +212,10 @@
                                                     
                                                 </tr>
                                                 <tr>
-                                                        <td>iservOauthService</td>
+                                                        <td>logger</td>
                                                   
                                                         <td>
-                                                                        <code><a href="../injectables/IservOAuthService.html" target="_self" >IservOAuthService</a></code>
+                                                                        <code><a href="../injectables/Logger.html" target="_self" >Logger</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -240,10 +224,10 @@
                                                     
                                                 </tr>
                                                 <tr>
-                                                        <td>logger</td>
+                                                        <td>provisioningService</td>
                                                   
                                                         <td>
-                                                                        <code><a href="../injectables/Logger.html" target="_self" >Logger</a></code>
+                                                                        <code><a href="../injectables/ProvisioningService.html" target="_self" >ProvisioningService</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -287,8 +271,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="99"
-                            class="link-to-prism">apps/server/src/modules/oauth/service/oauth.service.ts:99</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="93"
+                            class="link-to-prism">apps/server/src/modules/oauth/service/oauth.service.ts:93</a></div>
                 </td>
             </tr>
 
@@ -356,8 +340,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="144"
-                            class="link-to-prism">apps/server/src/modules/oauth/service/oauth.service.ts:144</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="151"
+                            class="link-to-prism">apps/server/src/modules/oauth/service/oauth.service.ts:151</a></div>
                 </td>
             </tr>
 
@@ -439,8 +423,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="66"
-                            class="link-to-prism">apps/server/src/modules/oauth/service/oauth.service.ts:66</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="59"
+                            class="link-to-prism">apps/server/src/modules/oauth/service/oauth.service.ts:59</a></div>
                 </td>
             </tr>
 
@@ -520,8 +504,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="45"
-                            class="link-to-prism">apps/server/src/modules/oauth/service/oauth.service.ts:45</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="41"
+                            class="link-to-prism">apps/server/src/modules/oauth/service/oauth.service.ts:41</a></div>
                 </td>
             </tr>
 
@@ -585,15 +569,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>findUser(decodedJwt: <a href="../interfaces/IJwt.html" target="_self">IJwt</a>, oauthConfig: <a href="../classes/OauthConfig.html" target="_self">OauthConfig</a>, systemId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    <code>findUser(accessToken: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, idToken: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, systemId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="120"
-                            class="link-to-prism">apps/server/src/modules/oauth/service/oauth.service.ts:120</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="117"
+                            class="link-to-prism">apps/server/src/modules/oauth/service/oauth.service.ts:117</a></div>
                 </td>
             </tr>
 
@@ -614,9 +598,9 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>decodedJwt</td>
+                                    <td>accessToken</td>
                                     <td>
-                                                <code><a href="../interfaces/IJwt.html" target="_self" >IJwt</a></code>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
                                     </td>
 
                                     <td>
@@ -626,9 +610,9 @@
 
                                 </tr>
                                 <tr>
-                                    <td>oauthConfig</td>
+                                    <td>idToken</td>
                                     <td>
-                                                <code><a href="../classes/OauthConfig.html" target="_self" >OauthConfig</a></code>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
                                     </td>
 
                                     <td>
@@ -687,8 +671,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="139"
-                            class="link-to-prism">apps/server/src/modules/oauth/service/oauth.service.ts:139</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="146"
+                            class="link-to-prism">apps/server/src/modules/oauth/service/oauth.service.ts:146</a></div>
                 </td>
             </tr>
 
@@ -740,95 +724,24 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="getOauthConfig"></a>
+                    <a name="getOAuthErrorResponse"></a>
                     <span class="name">
-                        <span class="modifier">Async</span>
-                        <span ><b>getOauthConfig</b></span>
-                        <a href="#getOauthConfig"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>getOAuthErrorResponse</b></span>
+                        <a href="#getOAuthErrorResponse"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>getOauthConfig(systemId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+<code>getOAuthErrorResponse(error, provider: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="168"
-                            class="link-to-prism">apps/server/src/modules/oauth/service/oauth.service.ts:168</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>systemId</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/OauthConfig.html" target="_self" >Promise&lt;OauthConfig&gt;</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="getOAuthError"></a>
-                    <span class="name">
-                        <span ><b>getOAuthError</b></span>
-                        <a href="#getOAuthError"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>getOAuthError(error, provider: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="176"
-                            class="link-to-prism">apps/server/src/modules/oauth/service/oauth.service.ts:176</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="182"
+                            class="link-to-prism">apps/server/src/modules/oauth/service/oauth.service.ts:182</a></div>
                 </td>
             </tr>
 
@@ -891,30 +804,32 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="getRedirect"></a>
+                    <a name="getRedirectUrl"></a>
                     <span class="name">
-                        <span ><b>getRedirect</b></span>
-                        <a href="#getRedirect"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>getRedirectUrl</b></span>
+                        <a href="#getRedirectUrl"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>getRedirect(response: <a href="../classes/OAuthResponse.html" target="_self">OAuthResponse</a>)</code>
+<code>getRedirectUrl(provider: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, idToken: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, logoutEndpoint: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="152"
-                            class="link-to-prism">apps/server/src/modules/oauth/service/oauth.service.ts:152</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="167"
+                            class="link-to-prism">apps/server/src/modules/oauth/service/oauth.service.ts:167</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Builds the URL from the given parameters.</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -925,19 +840,52 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Default value</td>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>response</td>
+                                    <td>provider</td>
                                     <td>
-                                                <code><a href="../classes/OAuthResponse.html" target="_self" >OAuthResponse</a></code>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
                                     </td>
 
                                     <td>
                                         No
                                     </td>
 
+                                    <td>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>idToken</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+                                    <td>
+                                        <code>&#x27;&#x27;</code>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>logoutEndpoint</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+                                    <td>
+                                        <code>&#x27;&#x27;</code>
+                                    </td>
 
                                 </tr>
                             </tbody>
@@ -946,11 +894,12 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/OAuthResponse.html" target="_self" >OAuthResponse</a></code>
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
 
                     </div>
                     <div class="io-description">
-                        
+                        <p>built redirectUrl</p>
+
                     </div>
                 </td>
             </tr>
@@ -978,8 +927,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="59"
-                            class="link-to-prism">apps/server/src/modules/oauth/service/oauth.service.ts:59</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="52"
+                            class="link-to-prism">apps/server/src/modules/oauth/service/oauth.service.ts:52</a></div>
                 </td>
             </tr>
 
@@ -1062,8 +1011,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="87"
-                            class="link-to-prism">apps/server/src/modules/oauth/service/oauth.service.ts:87</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="80"
+                            class="link-to-prism">apps/server/src/modules/oauth/service/oauth.service.ts:80</a></div>
                 </td>
             </tr>
 
@@ -1133,8 +1082,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="76"
-                            class="link-to-prism">apps/server/src/modules/oauth/service/oauth.service.ts:76</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="69"
+                            class="link-to-prism">apps/server/src/modules/oauth/service/oauth.service.ts:69</a></div>
                 </td>
             </tr>
 
@@ -1204,8 +1153,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="108"
-                            class="link-to-prism">apps/server/src/modules/oauth/service/oauth.service.ts:108</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="102"
+                            class="link-to-prism">apps/server/src/modules/oauth/service/oauth.service.ts:102</a></div>
                 </td>
             </tr>
 
@@ -1271,7 +1220,7 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import jwt from &#x27;jsonwebtoken&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import jwt, { JwtPayload } from &#x27;jsonwebtoken&#x27;;
 import { HttpService } from &#x27;@nestjs/axios&#x27;;
 import JwksRsa from &#x27;jwks-rsa&#x27;;
 import QueryString from &#x27;qs&#x27;;
@@ -1283,16 +1232,13 @@ import { DefaultEncryptionService, IEncryptionService } from &#x27;@shared/infra
 import { UserRepo } from &#x27;@shared/repo&#x27;;
 import { Configuration } from &#x27;@hpi-schul-cloud/commons&#x27;;
 import { AxiosResponse } from &#x27;axios&#x27;;
-import { Inject, NotFoundException } from &#x27;@nestjs/common&#x27;;
-
-import { SystemService } from &#x27;@src/modules/system/service/system.service&#x27;;
-import { SystemDto } from &#x27;@src/modules/system/service/dto/system.dto&#x27;;
+import { BadRequestException, Inject } from &#x27;@nestjs/common&#x27;;
+import { ProvisioningDto, ProvisioningService } from &#x27;@src/modules/provisioning&#x27;;
+import { FeathersJwtProvider } from &#x27;@src/modules/authorization&#x27;;
 import { TokenRequestMapper } from &#x27;../mapper/token-request.mapper&#x27;;
 import { TokenRequestPayload } from &#x27;../controller/dto/token-request.payload&#x27;;
 import { OAuthSSOError } from &#x27;../error/oauth-sso.error&#x27;;
 import { OauthTokenResponse } from &#x27;../controller/dto/oauth-token.response&#x27;;
-import { FeathersJwtProvider } from &#x27;../../authorization&#x27;;
-import { IservOAuthService } from &#x27;./iserv-oauth.service&#x27;;
 import { IJwt } from &#x27;../interface/jwt.base.interface&#x27;;
 import { OAuthResponse } from &#x27;./dto/oauth.response&#x27;;
 import { AuthorizationParams } from &#x27;../controller/dto/authorization.params&#x27;;
@@ -1301,12 +1247,11 @@ import { AuthorizationParams } from &#x27;../controller/dto/authorization.params
 export class OAuthService {
 	constructor(
 		private readonly userRepo: UserRepo,
-		private readonly systemService: SystemService,
 		private readonly jwtService: FeathersJwtProvider,
 		private readonly httpService: HttpService,
 		@Inject(DefaultEncryptionService) private readonly oAuthEncryptionService: IEncryptionService,
-		private readonly iservOauthService: IservOAuthService,
-		private readonly logger: Logger
+		private readonly logger: Logger,
+		private readonly provisioningService: ProvisioningService
 	) {
 		this.logger.setContext(OAuthService.name);
 	}
@@ -1320,13 +1265,10 @@ export class OAuthService {
 			return query.code;
 		}
 
-		let errorCode &#x3D; &#x27;sso_auth_code_step&#x27;;
-
-		if (query.error) {
-			errorCode &#x3D; &#x60;sso_oauth_${query.error}&#x60;;
-			this.logger.error(&#x60;SSO Oauth authorization code request return with an error: ${query.code as string}&#x60;);
-		}
-		throw new OAuthSSOError(&#x27;Authorization Query Object has no authorization code or error&#x27;, errorCode);
+		throw new OAuthSSOError(
+			&#x27;Authorization Query Object has no authorization code or error&#x27;,
+			query.error || &#x27;sso_auth_code_step&#x27;
+		);
 	}
 
 	async requestToken(code: string, oauthConfig: OauthConfig): Promise&lt;OauthTokenResponse&gt; {
@@ -1366,6 +1308,7 @@ export class OAuthService {
 		} catch (error) {
 			throw new OAuthSSOError(&#x27;Requesting token failed.&#x27;, &#x27;sso_auth_code_step&#x27;);
 		}
+
 		return responseToken.data;
 	}
 
@@ -1380,32 +1323,45 @@ export class OAuthService {
 
 	async validateToken(idToken: string, oauthConfig: OauthConfig): Promise&lt;IJwt&gt; {
 		const publicKey &#x3D; await this._getPublicKey(oauthConfig);
-		const verifiedJWT &#x3D; jwt.verify(idToken, publicKey, {
+		const verifiedJWT: string | jwt.JwtPayload &#x3D; jwt.verify(idToken, publicKey, {
 			algorithms: [&#x27;RS256&#x27;],
 			issuer: oauthConfig.issuer,
 			audience: oauthConfig.clientId,
 		});
-		if (typeof verifiedJWT &#x3D;&#x3D;&#x3D; &#x27;string&#x27; || verifiedJWT instanceof String)
+
+		if (typeof verifiedJWT &#x3D;&#x3D;&#x3D; &#x27;string&#x27;) {
 			throw new OAuthSSOError(&#x27;Failed to validate idToken&#x27;, &#x27;sso_token_verfication_error&#x27;);
+		}
+
 		return verifiedJWT as IJwt;
 	}
 
-	async findUser(decodedJwt: IJwt, oauthConfig: OauthConfig, systemId: string): Promise&lt;User&gt; {
-		// iserv strategy
-		if (oauthConfig &amp;&amp; oauthConfig.provider &#x3D;&#x3D;&#x3D; &#x27;iserv&#x27;) {
-			return this.iservOauthService.findUserById(systemId, decodedJwt);
+	async findUser(accessToken: string, idToken: string, systemId: string): Promise&lt;User&gt; {
+		const sub: string | undefined &#x3D; jwt.decode(idToken, { json: true })?.sub;
+
+		if (!sub) {
+			throw new BadRequestException(&#x60;Provided idToken: ${idToken} has no sub.&#x60;);
 		}
-		// TODO Temporary change - wait for N21-138 merge
-		// This user id resolution is trial and error at the moment. It is ought to be replaced by a proper strategy pattern (N21-138)
-		// See scope of EW-325
+
+		this.logger.debug(&#x60;provisioning is running for user with sub: ${sub} and system with id: ${systemId}&#x60;);
+		const provisioningDto: ProvisioningDto &#x3D; await this.provisioningService.process(accessToken, idToken, systemId);
+
 		try {
-			return await this.userRepo.findById(decodedJwt.sub);
+			const user: User &#x3D; await this.userRepo.findByExternalIdOrFail(provisioningDto.externalUserId, systemId);
+			return user;
 		} catch (error) {
-			try {
-				return await this.userRepo.findByLdapIdOrFail(decodedJwt.preferred_username ?? &#x27;&#x27;, systemId);
-			} catch {
-				throw new OAuthSSOError(&#x27;Failed to find user with this Id&#x27;, &#x27;sso_user_notfound&#x27;);
+			let additionalInfo &#x3D; &#x27;&#x27;;
+			const decodedToken: JwtPayload | null &#x3D; jwt.decode(idToken, { json: true });
+			const email &#x3D; decodedToken?.email as string | undefined;
+			if (email) {
+				const usersWithEmail: User[] &#x3D; await this.userRepo.findByEmail(email);
+				const user &#x3D; usersWithEmail &amp;&amp; usersWithEmail.length &gt; 0 ? usersWithEmail[0] : undefined;
+				additionalInfo &#x3D; &#x60; [schoolId: ${user?.school.id ?? &#x27;&#x27;}, currentLdapId: ${user?.externalId ?? &#x27;&#x27;}]&#x60;;
 			}
+			throw new OAuthSSOError(
+				&#x60;Failed to find user with Id ${provisioningDto.externalUserId} ${additionalInfo}&#x60;,
+				&#x27;sso_user_notfound&#x27;
+			);
 		}
 	}
 
@@ -1422,41 +1378,46 @@ export class OAuthService {
 		return response;
 	}
 
-	getRedirect(response: OAuthResponse): OAuthResponse {
+	/**
+	 * Builds the URL from the given parameters.
+	 *
+	 * @param provider
+	 * @param idToken
+	 * @param logoutEndpoint
+	 * @return built redirectUrl
+	 */
+	getRedirectUrl(provider: string, idToken &#x3D; &#x27;&#x27;, logoutEndpoint &#x3D; &#x27;&#x27;): string {
 		const HOST &#x3D; Configuration.get(&#x27;HOST&#x27;) as string;
-		let redirect: string;
-		const oauthResponse: OAuthResponse &#x3D; new OAuthResponse();
+
 		// iserv strategy
-		if (response.provider &#x3D;&#x3D;&#x3D; &#x27;iserv&#x27;) {
-			const idToken &#x3D; response.idToken as string;
-			const logoutEndpoint &#x3D; response.logoutEndpoint as string;
+		// TODO: move to client in https://ticketsystem.dbildungscloud.de/browse/N21-381
+		let redirect: string;
+		if (provider &#x3D;&#x3D;&#x3D; &#x27;iserv&#x27;) {
 			redirect &#x3D; &#x60;${logoutEndpoint}?id_token_hint&#x3D;${idToken}&amp;post_logout_redirect_uri&#x3D;${HOST}/dashboard&#x60;;
 		} else {
 			redirect &#x3D; &#x60;${HOST}/dashboard&#x60;;
 		}
-		oauthResponse.redirect &#x3D; redirect;
-		return oauthResponse;
+
+		return redirect;
 	}
 
-	async getOauthConfig(systemId: string): Promise&lt;OauthConfig&gt; {
-		const system: SystemDto &#x3D; await this.systemService.findOAuthById(systemId);
-		if (system.oauthConfig) {
-			return system.oauthConfig;
-		}
-		throw new NotFoundException(&#x60;No OAuthConfig Available in the given System ${system.id ?? &#x27;&#x27;}!&#x60;);
-	}
-
-	getOAuthError(error: unknown, provider: string): OAuthResponse {
+	getOAuthErrorResponse(error: unknown, provider: string): OAuthResponse {
 		this.logger.error(error);
+
 		const oauthResponse &#x3D; new OAuthResponse();
+
+		oauthResponse.provider &#x3D; provider;
+
 		if (error instanceof OAuthSSOError) {
 			oauthResponse.errorcode &#x3D; error.errorcode;
 		} else {
 			oauthResponse.errorcode &#x3D; &#x27;oauth_login_failed&#x27;;
 		}
+
 		oauthResponse.redirect &#x3D; &#x60;${Configuration.get(&#x27;HOST&#x27;) as string}/login?error&#x3D;${
 			oauthResponse.errorcode
 		}&amp;provider&#x3D;${provider}&#x60;;
+
 		return oauthResponse;
 	}
 }

@@ -125,8 +125,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="41"
-                            class="link-to-prism">apps/server/src/shared/domain/service/copy-helper.service.ts:41</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="44"
+                            class="link-to-prism">apps/server/src/shared/domain/service/copy-helper.service.ts:44</a></div>
                 </td>
             </tr>
 
@@ -357,6 +357,9 @@ export class CopyHelperService {
 	}
 
 	deriveCopyName(name: string, existingNames?: string[]): string {
+		if (!existingNames?.includes(name)) {
+			return name;
+		}
 		let num &#x3D; 1;
 		const matches &#x3D; name.match(/^(?&lt;name&gt;.*) \((?&lt;number&gt;\d+)\)$/);
 		if (matches &amp;&amp; matches.groups) {

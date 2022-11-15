@@ -1684,14 +1684,13 @@ Callable when the current user&#39;s password was force set or this is the first
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
-import { isEmail, validateOrReject } from &#x27;class-validator&#x27;;
+import { ConfigService } from &#x27;@nestjs/config&#x27;;
 import {
 	AuthorizationError,
 	EntityNotFoundError,
 	ForbiddenOperationError,
 	ValidationError,
 } from &#x27;@shared/common/error&#x27;;
-import bcrypt from &#x27;bcryptjs&#x27;;
 import {
 	Account,
 	EntityId,
@@ -1706,9 +1705,12 @@ import {
 import { UserRepo } from &#x27;@shared/repo&#x27;;
 import { AccountService } from &#x27;@src/modules/account/services/account.service&#x27;;
 import { AccountDto } from &#x27;@src/modules/account/services/dto/account.dto&#x27;;
-import { ConfigService } from &#x27;@nestjs/config&#x27;;
+import bcrypt from &#x27;bcryptjs&#x27;;
+import { isEmail, validateOrReject } from &#x27;class-validator&#x27;;
 
+import { BruteForcePrevention } from &#x27;@src/imports-from-feathers&#x27;;
 import { ObjectId } from &#x27;bson&#x27;;
+import { IAccountConfig } from &#x27;../account-config&#x27;;
 import {
 	AccountByIdBodyParams,
 	AccountByIdParams,
@@ -1719,10 +1721,8 @@ import {
 	PatchMyAccountParams,
 } from &#x27;../controller/dto&#x27;;
 import { AccountResponseMapper } from &#x27;../mapper&#x27;;
-import { AccountSaveDto } from &#x27;../services/dto&#x27;;
 import { AccountValidationService } from &#x27;../services/account.validation.service&#x27;;
-import { BruteForcePrevention } from &#x27;../../../imports-from-feathers&#x27;;
-import { IAccountConfig } from &#x27;../account-config&#x27;;
+import { AccountSaveDto } from &#x27;../services/dto&#x27;;
 
 type UserPreferences &#x3D; {
 	// first login completed
