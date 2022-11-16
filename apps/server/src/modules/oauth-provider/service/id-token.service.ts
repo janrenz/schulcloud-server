@@ -1,4 +1,4 @@
-import { PseudonymDO, Team } from '@shared/domain';
+import { PseudonymDO, Team, TeamUser } from '@shared/domain';
 import { Injectable } from '@nestjs/common';
 import { GroupNameIdTuple, IdToken } from '@src/modules/oauth-provider/interface/id-token';
 import { LtiToolRepo, PseudonymsRepo, TeamsRepo } from '@shared/repo';
@@ -29,13 +29,13 @@ export class IdTokenService {
 	async createIdToken(userId: string, scopes: string[], clientId: string): Promise<IdToken> {
 		let teams: Team[] = [];
 		if (scopes.includes(OauthScope.GROUPS)) {
-			teams = await this.teamsRepo.findByUserId(userId);
+			teams = await this.teamsRepo.findByUserId(userId, true);
 		}
 
 		const userDto: UserDto = await this.userService.getUser(userId);
 		const name: string = await this.userService.getDisplayName(userDto);
 		const iframe: string | undefined = await this.createIframeSubject(userId, clientId);
-		const groups: GroupNameIdTuple[] = this.buildGroupsClaim(teams);
+		const groups: GroupNameIdTuple[] = this.buildGroupsClaim(teams, userId);
 
 		return {
 			iframe,
@@ -47,13 +47,22 @@ export class IdTokenService {
 		};
 	}
 
-	protected buildGroupsClaim(teams: Team[]): GroupNameIdTuple[] {
-		return teams.map(
-			(team: Team): GroupNameIdTuple => ({
-				gid: team.id,
-				displayName: team.name,
-			})
-		);
+	protected buildGroupsClaim(teams: Team[], userId: string): GroupNameIdTuple[] {
+		const tuples: GroupNameIdTuple[] = [];
+		teams
+			.filter((team: Team) => team.teamUsers !== undefined)
+			.forEach((team: Team) => {
+				const foundTeamUser: TeamUser | undefined = team.teamUsers.find(
+					(teamUser: TeamUser) => teamUser.user.id === userId
+				);
+				if (foundTeamUser) {
+					tuples.push({
+						gid: `${team.id}_${foundTeamUser.role.name}`,
+						displayName: `${team.name}`,
+					});
+				}
+			});
+		return tuples;
 	}
 
 	// TODO N21-335 How we can refactor the iframe in the id token?

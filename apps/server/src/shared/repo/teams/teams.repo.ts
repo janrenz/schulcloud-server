@@ -26,14 +26,18 @@ export class TeamsRepo extends BaseRepo<Team> {
 		return team;
 	}
 
-	/**
-	 * Finds teams which the user is a member.
-	 *
-	 * @param userId
-	 * @return Array of teams
-	 */
-	async findByUserId(userId: EntityId): Promise<Team[]> {
+	async findByUserId(userId: EntityId, populate = false): Promise<Team[]> {
 		const teams: Team[] = await this._em.find<Team>(Team, { userIds: { userId: new ObjectId(userId) } });
+		if (populate) {
+			teams.map(async (team: Team) => {
+				await Promise.all<void>(
+					team.teamUsers.map(async (teamUser: TeamUser): Promise<void> => {
+						await this._em.populate(teamUser, ['role']);
+						await this.populateRoles([teamUser.role]);
+					})
+				);
+			});
+		}
 		return teams;
 	}
 
