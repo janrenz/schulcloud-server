@@ -488,7 +488,7 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { EntityManager, ObjectId } from &#x27;@mikro-orm/mongodb&#x27;;
 import { Injectable } from &#x27;@nestjs/common&#x27;;
-import { EntityId, Task } from &#x27;@shared/domain&#x27;;
+import { EntityId, Submission } from &#x27;@shared/domain&#x27;;
 import { FileRecord, FileRecordParentType } from &#x27;@src/modules/files-storage/entity/filerecord.entity&#x27;;
 import { SyncFileItemMapper } from &#x27;../mapper&#x27;;
 import { SyncFileItem, SyncFileItemData } from &#x27;../types&#x27;;
@@ -589,9 +589,9 @@ export class SyncFilesRepo {
 	async findFilesToSync(parentType: FileRecordParentType, aggregationSize: number): Promise&lt;SyncFileItem[]&gt; {
 		let itemDataList: SyncFileItemData[] &#x3D; [];
 
-		if (parentType &#x3D;&#x3D;&#x3D; FileRecordParentType.Task) {
+		if (parentType &#x3D;&#x3D;&#x3D; FileRecordParentType.Submission) {
 			// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-			itemDataList &#x3D; await this._em.aggregate(Task, query(aggregationSize));
+			itemDataList &#x3D; await this._em.aggregate(Submission, query(aggregationSize));
 		}
 
 		const items &#x3D; SyncFileItemMapper.mapResults(itemDataList, parentType);
