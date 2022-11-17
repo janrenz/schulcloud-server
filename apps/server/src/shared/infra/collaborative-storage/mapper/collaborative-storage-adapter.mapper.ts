@@ -19,11 +19,11 @@ export class CollaborativeStorageAdapterMapper {
 			teamName: team.name,
 			roleName: role.name,
 			permissions: [
-				!!permissions.read,
-				!!permissions.write,
-				!!permissions.create,
-				!!permissions.delete,
 				!!permissions.share,
+				!!permissions.delete,
+				!!permissions.create,
+				!!permissions.write,
+				!!permissions.read,
 			],
 		});
 	}

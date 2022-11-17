@@ -176,6 +176,6 @@ export class NextcloudStrategy implements ICollaborativeStorageStrategy {
 	 * @protected
 	 */
 	protected static generateGroupId(dto: TeamRolePermissionsDto): string {
-		return `${dto.teamName}-${dto.teamId}-${dto.roleName}`;
+		return `SchulcloudNextcloud-${dto.teamId}_${dto.roleName}`;
 	}
 }

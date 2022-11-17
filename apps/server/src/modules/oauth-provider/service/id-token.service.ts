@@ -1,4 +1,4 @@
-import { PseudonymDO, Team, TeamUser } from '@shared/domain';
+import { PseudonymDO, RoleName, Team, TeamUser } from '@shared/domain';
 import { Injectable } from '@nestjs/common';
 import { GroupNameIdTuple, IdToken } from '@src/modules/oauth-provider/interface/id-token';
 import { LtiToolRepo, PseudonymsRepo, TeamsRepo } from '@shared/repo';
@@ -58,7 +58,7 @@ export class IdTokenService {
 				if (foundTeamUser) {
 					tuples.push({
 						gid: `${team.id}_${foundTeamUser.role.name}`,
-						displayName: `${team.name}`,
+						displayName: `${team.name} (${foundTeamUser.role.name})`,
 					});
 				}
 			});
