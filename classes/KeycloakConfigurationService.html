@@ -123,6 +123,7 @@
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
+                                    <span class="modifier">Async</span>
                                 <a href="#setKeycloakSystemInformation" >setKeycloakSystemInformation</a>
                             </li>
                             <li>
@@ -153,12 +154,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(kcAdmin: <a href="../injectables/KeycloakAdministrationService.html" target="_self">KeycloakAdministrationService</a>, systemService: <a href="../injectables/SystemService.html" target="_self">SystemService</a>, oidcIdentityProviderMapper: <a href="../classes/OidcIdentityProviderMapper.html" target="_self">OidcIdentityProviderMapper</a>, defaultEncryptionService: <a href="../interfaces/IEncryptionService.html" target="_self">IEncryptionService</a>)</code>
+<code>constructor(kcAdmin: <a href="../injectables/KeycloakAdministrationService.html" target="_self">KeycloakAdministrationService</a>, httpService: HttpService, systemService: <a href="../injectables/SystemService.html" target="_self">SystemService</a>, configService: <a href="../interfaces/IServerConfig.html" target="_self">ConfigService&lt;IServerConfig | &gt;</a>, oidcIdentityProviderMapper: <a href="../classes/OidcIdentityProviderMapper.html" target="_self">OidcIdentityProviderMapper</a>, kcSettings: <a href="../interfaces/IKeycloakSettings.html" target="_self">IKeycloakSettings</a>, defaultEncryptionService: <a href="../interfaces/IEncryptionService.html" target="_self">IEncryptionService</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">apps/server/src/shared/infra/identity-management/keycloak/service/keycloak-configuration.service.ts:25</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">apps/server/src/shared/infra/identity-management/keycloak/service/keycloak-configuration.service.ts:28</a></div>
                             </td>
                         </tr>
 
@@ -188,6 +189,18 @@
                                                     
                                                 </tr>
                                                 <tr>
+                                                        <td>httpService</td>
+                                                  
+                                                        <td>
+                                                                    <code>HttpService</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
                                                         <td>systemService</td>
                                                   
                                                         <td>
@@ -200,10 +213,34 @@
                                                     
                                                 </tr>
                                                 <tr>
+                                                        <td>configService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../interfaces/IServerConfig.html" target="_self" >ConfigService&lt;IServerConfig | &gt;</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
                                                         <td>oidcIdentityProviderMapper</td>
                                                   
                                                         <td>
                                                                         <code><a href="../classes/OidcIdentityProviderMapper.html" target="_self" >OidcIdentityProviderMapper</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>kcSettings</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../interfaces/IKeycloakSettings.html" target="_self" >IKeycloakSettings</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -261,8 +298,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="33"
-                            class="link-to-prism">apps/server/src/shared/infra/identity-management/keycloak/service/keycloak-configuration.service.ts:33</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="39"
+                            class="link-to-prism">apps/server/src/shared/infra/identity-management/keycloak/service/keycloak-configuration.service.ts:39</a></div>
                 </td>
             </tr>
 
@@ -301,8 +338,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="107"
-                            class="link-to-prism">apps/server/src/shared/infra/identity-management/keycloak/service/keycloak-configuration.service.ts:107</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="113"
+                            class="link-to-prism">apps/server/src/shared/infra/identity-management/keycloak/service/keycloak-configuration.service.ts:113</a></div>
                 </td>
             </tr>
 
@@ -341,8 +378,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="142"
-                            class="link-to-prism">apps/server/src/shared/infra/identity-management/keycloak/service/keycloak-configuration.service.ts:142</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="150"
+                            class="link-to-prism">apps/server/src/shared/infra/identity-management/keycloak/service/keycloak-configuration.service.ts:150</a></div>
                 </td>
             </tr>
 
@@ -381,8 +418,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="225"
-                            class="link-to-prism">apps/server/src/shared/infra/identity-management/keycloak/service/keycloak-configuration.service.ts:225</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="235"
+                            class="link-to-prism">apps/server/src/shared/infra/identity-management/keycloak/service/keycloak-configuration.service.ts:235</a></div>
                 </td>
             </tr>
 
@@ -453,8 +490,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="260"
-                            class="link-to-prism">apps/server/src/shared/infra/identity-management/keycloak/service/keycloak-configuration.service.ts:260</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="270"
+                            class="link-to-prism">apps/server/src/shared/infra/identity-management/keycloak/service/keycloak-configuration.service.ts:270</a></div>
                 </td>
             </tr>
 
@@ -525,8 +562,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="279"
-                            class="link-to-prism">apps/server/src/shared/infra/identity-management/keycloak/service/keycloak-configuration.service.ts:279</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="289"
+                            class="link-to-prism">apps/server/src/shared/infra/identity-management/keycloak/service/keycloak-configuration.service.ts:289</a></div>
                 </td>
             </tr>
 
@@ -596,8 +633,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="268"
-                            class="link-to-prism">apps/server/src/shared/infra/identity-management/keycloak/service/keycloak-configuration.service.ts:268</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="278"
+                            class="link-to-prism">apps/server/src/shared/infra/identity-management/keycloak/service/keycloak-configuration.service.ts:278</a></div>
                 </td>
             </tr>
 
@@ -679,8 +716,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="202"
-                            class="link-to-prism">apps/server/src/shared/infra/identity-management/keycloak/service/keycloak-configuration.service.ts:202</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="212"
+                            class="link-to-prism">apps/server/src/shared/infra/identity-management/keycloak/service/keycloak-configuration.service.ts:212</a></div>
                 </td>
             </tr>
 
@@ -749,6 +786,7 @@
                     <a name="setKeycloakSystemInformation"></a>
                     <span class="name">
                         <span class="modifier">Private</span>
+                        <span class="modifier">Async</span>
                         <span ><b>setKeycloakSystemInformation</b></span>
                         <a href="#setKeycloakSystemInformation"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -757,15 +795,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>setKeycloakSystemInformation(keycloakSystem: <a href="../classes/SystemDto.html" target="_self">SystemDto</a>, kcBaseUrl: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, redirectUri: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, generatedClientSecret: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    <code>setKeycloakSystemInformation(keycloakSystem: <a href="../classes/SystemDto.html" target="_self">SystemDto</a>, kcRealmBaseUrl: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, redirectUri: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, generatedClientSecret: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="169"
-                            class="link-to-prism">apps/server/src/shared/infra/identity-management/keycloak/service/keycloak-configuration.service.ts:169</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="177"
+                            class="link-to-prism">apps/server/src/shared/infra/identity-management/keycloak/service/keycloak-configuration.service.ts:177</a></div>
                 </td>
             </tr>
 
@@ -798,7 +836,7 @@
 
                                 </tr>
                                 <tr>
-                                    <td>kcBaseUrl</td>
+                                    <td>kcRealmBaseUrl</td>
                                     <td>
                                                 <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
                                     </td>
@@ -839,7 +877,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/SystemDto.html" target="_self" >SystemDto</a></code>
+                        <b>Returns : </b>    <code>unknown</code>
 
                     </div>
                     <div class="io-description">
@@ -872,8 +910,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="235"
-                            class="link-to-prism">apps/server/src/shared/infra/identity-management/keycloak/service/keycloak-configuration.service.ts:235</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="245"
+                            class="link-to-prism">apps/server/src/shared/infra/identity-management/keycloak/service/keycloak-configuration.service.ts:245</a></div>
                 </td>
             </tr>
 
@@ -944,8 +982,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="246"
-                            class="link-to-prism">apps/server/src/shared/infra/identity-management/keycloak/service/keycloak-configuration.service.ts:246</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="256"
+                            class="link-to-prism">apps/server/src/shared/infra/identity-management/keycloak/service/keycloak-configuration.service.ts:256</a></div>
                 </td>
             </tr>
 
@@ -1013,8 +1051,11 @@ import { SystemTypeEnum } from &#x27;@shared/domain&#x27;;
 import { DefaultEncryptionService, IEncryptionService } from &#x27;@shared/infra/encryption&#x27;;
 import { SystemService } from &#x27;@src/modules/system/service/system.service&#x27;;
 import { SystemDto } from &#x27;@src/modules/system/service/dto/system.dto&#x27;;
-import { Configuration } from &#x27;@hpi-schul-cloud/commons&#x27;;
-import { IdentityProviderConfig } from &#x27;../interface&#x27;;
+import { ConfigService } from &#x27;@nestjs/config&#x27;;
+import { IServerConfig } from &#x27;@src/modules/server&#x27;;
+import { HttpService } from &#x27;@nestjs/axios&#x27;;
+import { lastValueFrom } from &#x27;rxjs&#x27;;
+import { IdentityProviderConfig, IKeycloakSettings, KeycloakSettings } from &#x27;../interface&#x27;;
 import { OidcIdentityProviderMapper } from &#x27;../mapper/identity-provider.mapper&#x27;;
 import { KeycloakAdministrationService } from &#x27;./keycloak-administration.service&#x27;;
 
@@ -1030,8 +1071,11 @@ const defaultIdpMapperName &#x3D; &#x27;oidc-username-idp-mapper&#x27;;
 export class KeycloakConfigurationService {
 	constructor(
 		private readonly kcAdmin: KeycloakAdministrationService,
+		private readonly httpService: HttpService,
 		private readonly systemService: SystemService,
+		private readonly configService: ConfigService&lt;IServerConfig, true&gt;,
 		private readonly oidcIdentityProviderMapper: OidcIdentityProviderMapper,
+		@Inject(KeycloakSettings) private readonly kcSettings: IKeycloakSettings,
 		@Inject(DefaultEncryptionService) private readonly defaultEncryptionService: IEncryptionService
 	) {}
 
@@ -1111,20 +1155,17 @@ export class KeycloakConfigurationService {
 
 	public async configureClient(): Promise&lt;void&gt; {
 		const kc &#x3D; await this.kcAdmin.callKcAdminClient();
-		const SC_DOMAIN &#x3D; Configuration.get(&#x27;SC_DOMAIN&#x27;) as string;
-		let redirectUri &#x3D; &#x60;https://${SC_DOMAIN}/api/v3/sso/oauth/&#x60;;
-		// TODO grab from well-known endpoint or move to separat environmental variable, see EW-326
-		let kcBaseUrl &#x3D; &#x60;https://idm-${SC_DOMAIN}/realms/${kc.realmName}&#x60;;
-		if (SC_DOMAIN &#x3D;&#x3D;&#x3D; &#x27;localhost&#x27;) {
-			redirectUri &#x3D; &#x60;http://localhost:3030/api/v3/sso/oauth/&#x60;;
-			kcBaseUrl &#x3D; &#x60;http://localhost:8080/realms/${kc.realmName}&#x60;;
-		}
-		const cr: ClientRepresentation &#x3D; {};
-		cr.clientId &#x3D; clientId;
-		cr.enabled &#x3D; true;
-		cr.protocol &#x3D; &#x27;openid-connect&#x27;;
-		cr.publicClient &#x3D; false;
-		cr.redirectUris &#x3D; [&#x60;${redirectUri}*&#x60;];
+		const scDomain &#x3D; this.configService.get&lt;string&gt;(&#x27;SC_DOMAIN&#x27;);
+		const redirectUri &#x3D;
+			scDomain &#x3D;&#x3D;&#x3D; &#x27;localhost&#x27; ? &#x27;http://localhost:3030/api/v3/sso/oauth/&#x27; : &#x60;https://${scDomain}/api/v3/sso/oauth/&#x60;;
+		const kcRealmBaseUrl &#x3D; &#x60;${this.kcSettings.baseUrl}/realms/${kc.realmName}&#x60;;
+		const cr: ClientRepresentation &#x3D; {
+			clientId,
+			enabled: true,
+			protocol: &#x27;openid-connect&#x27;,
+			publicClient: false,
+			redirectUris: [&#x60;${redirectUri}*&#x60;],
+		};
 		let defaultClientInternalId &#x3D; (await kc.clients.find({ clientId }))[0]?.id;
 		if (!defaultClientInternalId) {
 			({ id: defaultClientInternalId } &#x3D; await kc.clients.create(cr));
@@ -1140,7 +1181,12 @@ export class KeycloakConfigurationService {
 		} else {
 			[keycloakSystem] &#x3D; systems;
 		}
-		this.setKeycloakSystemInformation(keycloakSystem, kcBaseUrl, redirectUri, generatedClientSecret.value ?? &#x27;&#x27;);
+		await this.setKeycloakSystemInformation(
+			keycloakSystem,
+			kcRealmBaseUrl,
+			redirectUri,
+			generatedClientSecret.value ?? &#x27;&#x27;
+		);
 		await this.systemService.save(keycloakSystem);
 	}
 
@@ -1171,12 +1217,15 @@ export class KeycloakConfigurationService {
 		return count;
 	}
 
-	private setKeycloakSystemInformation(
+	private async setKeycloakSystemInformation(
 		keycloakSystem: SystemDto,
-		kcBaseUrl: string,
+		kcRealmBaseUrl: string,
 		redirectUri: string,
 		generatedClientSecret: string
 	) {
+		const wellKnownUrl &#x3D; &#x60;${kcRealmBaseUrl}/.well-known/openid-configuration&#x60;;
+		const response &#x3D; (await lastValueFrom(this.httpService.get&lt;Record&lt;string, unknown&gt;&gt;(wellKnownUrl))).data;
+
 		keycloakSystem.type &#x3D; SystemTypeEnum.KEYCLOAK;
 		keycloakSystem.alias &#x3D; &#x27;Keycloak&#x27;;
 		keycloakSystem.oauthConfig &#x3D; {
@@ -1186,13 +1235,12 @@ export class KeycloakConfigurationService {
 			scope: &#x27;openid profile email&#x27;,
 			responseType: &#x27;code&#x27;,
 			provider: &#x27;oauth&#x27;,
-			// TODO grab from well-known endpoint instead of storing here, see EW-326
-			tokenEndpoint: &#x60;${kcBaseUrl}/protocol/openid-connect/token&#x60;,
-			redirectUri: &#x60;${redirectUri}&#x60;,
-			authEndpoint: &#x60;${kcBaseUrl}/protocol/openid-connect/auth&#x60;,
-			logoutEndpoint: &#x60;${kcBaseUrl}/protocol/openid-connect/logout&#x60;,
-			jwksEndpoint: &#x60;${kcBaseUrl}/protocol/openid-connect/certs&#x60;,
-			issuer: &#x60;${kcBaseUrl}&#x60;,
+			redirectUri,
+			tokenEndpoint: response.token_endpoint as string,
+			authEndpoint: response.authorization_endpoint as string,
+			logoutEndpoint: response.end_session_endpoint as string,
+			jwksEndpoint: response.jwks_uri as string,
+			issuer: kcRealmBaseUrl,
 		};
 		return keycloakSystem;
 	}

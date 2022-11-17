@@ -160,9 +160,11 @@ export interface IServerConfig
 		IFilesStorageClientConfig,
 		IAccountConfig {
 	NODE_ENV: string;
+	SC_DOMAIN: string;
 }
 
 const config: IServerConfig &#x3D; {
+	SC_DOMAIN: Configuration.get(&#x27;SC_DOMAIN&#x27;) as string,
 	INCOMING_REQUEST_TIMEOUT: Configuration.get(&#x27;INCOMING_REQUEST_TIMEOUT_API&#x27;) as number,
 	INCOMING_REQUEST_TIMEOUT_COPY_API: Configuration.get(&#x27;INCOMING_REQUEST_TIMEOUT_COPY_API&#x27;) as number,
 	NEST_LOG_LEVEL: Configuration.get(&#x27;NEST_LOG_LEVEL&#x27;) as string,

@@ -249,6 +249,7 @@ import { LoggerModule } from &#x27;@src/core/logger&#x27;;
 import KeycloakAdminClient from &#x27;@keycloak/keycloak-admin-client&#x27;;
 import { EncryptionModule } from &#x27;@shared/infra/encryption&#x27;;
 import { SystemModule } from &#x27;@src/modules&#x27;;
+import { HttpModule } from &#x27;@nestjs/axios&#x27;;
 import { KeycloakSettings } from &#x27;./interface/keycloak-settings.interface&#x27;;
 import { KeycloakManagementUc } from &#x27;./uc/Keycloak-management.uc&#x27;;
 import { KeycloakManagementInputFiles } from &#x27;./interface&#x27;;
@@ -259,7 +260,7 @@ import { KeycloakSeedService } from &#x27;./service/keycloak-seed.service&#x27;;
 import { OidcIdentityProviderMapper } from &#x27;./mapper/identity-provider.mapper&#x27;;
 
 @Module({
-	imports: [LoggerModule, EncryptionModule, SystemModule],
+	imports: [LoggerModule, EncryptionModule, SystemModule, HttpModule],
 	controllers: [],
 	providers: [
 		KeycloakAdminClient,
