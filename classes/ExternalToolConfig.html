@@ -62,7 +62,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/shared/domain/entity/external-tool/config/external-tool-config.ts</code>
+            <code>apps/server/src/shared/domain/entity/external-tools/external-tool/config/external-tool-config.ts</code>
         </p>
 
 
@@ -112,7 +112,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="5" class="link-to-prism">apps/server/src/shared/domain/entity/external-tool/config/external-tool-config.ts:5</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">apps/server/src/shared/domain/entity/external-tools/external-tool/config/external-tool-config.ts:10</a></div>
                             </td>
                         </tr>
 
@@ -183,7 +183,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">apps/server/src/shared/domain/entity/external-tool/config/external-tool-config.ts:15</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">apps/server/src/shared/domain/entity/external-tools/external-tool/config/external-tool-config.ts:10</a></div>
                         </td>
                     </tr>
 
@@ -218,7 +218,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">apps/server/src/shared/domain/entity/external-tool/config/external-tool-config.ts:12</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">apps/server/src/shared/domain/entity/external-tools/external-tool/config/external-tool-config.ts:7</a></div>
                         </td>
                     </tr>
 
@@ -237,21 +237,21 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ToolConfigType } from &#x27;@shared/domain/entity/external-tool/config/tool-config-type.enum&#x27;;
-import { Embeddable, Enum, Property } from &#x27;@mikro-orm/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Embeddable, Enum, Property } from &#x27;@mikro-orm/core&#x27;;
+import { ToolConfigType } from &#x27;./tool-config-type.enum&#x27;;
 
 @Embeddable({ abstract: true, discriminatorColumn: &#x27;type&#x27; })
 export abstract class ExternalToolConfig {
-	constructor(props: ExternalToolConfig) {
-		this.type &#x3D; props.type;
-		this.baseUrl &#x3D; props.baseUrl;
-	}
-
 	@Enum()
 	type: ToolConfigType;
 
 	@Property()
 	baseUrl: string;
+
+	constructor(props: ExternalToolConfig) {
+		this.type &#x3D; props.type;
+		this.baseUrl &#x3D; props.baseUrl;
+	}
 }
 </code></pre>
     </div>

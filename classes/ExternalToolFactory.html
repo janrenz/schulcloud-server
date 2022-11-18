@@ -230,8 +230,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="17"
-                            class="link-to-prism">apps/server/src/shared/testing/factory/external-tool.factory.ts:17</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="20"
+                            class="link-to-prism">apps/server/src/shared/testing/factory/external-tool.factory.ts:20</a></div>
                 </td>
             </tr>
 
@@ -258,8 +258,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="41"
-                            class="link-to-prism">apps/server/src/shared/testing/factory/external-tool.factory.ts:41</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="43"
+                            class="link-to-prism">apps/server/src/shared/testing/factory/external-tool.factory.ts:43</a></div>
                 </td>
             </tr>
 
@@ -286,8 +286,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="27"
-                            class="link-to-prism">apps/server/src/shared/testing/factory/external-tool.factory.ts:27</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="30"
+                            class="link-to-prism">apps/server/src/shared/testing/factory/external-tool.factory.ts:30</a></div>
                 </td>
             </tr>
 
@@ -1215,8 +1215,9 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { DeepPartial } from &#x27;fishery&#x27;;
-import { ExternalTool, IExternalToolProperties } from &#x27;@shared/domain/entity/external-tool/external-tool.entity&#x27;;
 import {
+	ExternalTool,
+	IExternalToolProperties,
 	BasicToolConfig,
 	CustomParameter,
 	CustomParameterLocation,
@@ -1224,9 +1225,11 @@ import {
 	CustomParameterType,
 	Lti11ToolConfig,
 	LtiMessageType,
+	LtiPrivacyPermission,
 	Oauth2ToolConfig,
 	ToolConfigType,
 } from &#x27;@shared/domain&#x27;;
+
 import { BaseFactory } from &#x27;./base.factory&#x27;;
 
 export class ExternalToolFactory extends BaseFactory&lt;ExternalTool, IExternalToolProperties&gt; {
@@ -1247,7 +1250,6 @@ export class ExternalToolFactory extends BaseFactory&lt;ExternalTool, IExternalT
 				baseUrl: &#x27;&#x27;,
 				clientSecret: &#x27;&#x27;,
 				clientId: &#x27;&#x27;,
-				frontchannelLogoutUrl: &#x27;&#x27;,
 				skipConsent: false,
 			}),
 		};
@@ -1260,12 +1262,10 @@ export class ExternalToolFactory extends BaseFactory&lt;ExternalTool, IExternalT
 				type: ToolConfigType.BASIC,
 				baseUrl: &#x27;mockBaseUrl&#x27;,
 				key: &#x27;&#x27;,
-				launch_presentation_document_target: &#x27;&#x27;,
-				launch_presentation_locale: &#x27;&#x27;,
 				lti_message_type: LtiMessageType.BASIC_LTI_LAUNCH_REQUEST,
-				resource_link: &#x27;&#x27;,
+				resource_link_id: &#x27;&#x27;,
 				secret: &#x27;&#x27;,
-				roles: [],
+				privacy_permission: LtiPrivacyPermission.ANONYMOUS,
 			}),
 		};
 		return this.params(params);

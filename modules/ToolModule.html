@@ -257,6 +257,15 @@
                     </ul>
                 </div>
                 <div class="col-sm-3">
+                    <h3>Controllers<a href="https://docs.nestjs.com/controllers" target="_blank" title="Official documentation about module controllers"><span
+                                class="icon ion-ios-information-circle-outline"></a></h3>
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <a href="../controllers/ToolController.html">ToolController</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-sm-3">
                     <h3>Imports<a href="https://angular.io/api/core/NgModule#imports" target="_blank" title="Official documentation about module imports"><span
                                 class="icon ion-ios-information-circle-outline"></a></h3>
                     <ul class="list-group">
@@ -285,6 +294,7 @@ import { Lti11ResponseMapper } from &#x27;@src/modules/tool/mapper/lti11-respons
 import { LoggerModule } from &#x27;@src/core/logger&#x27;;
 import { LtiToolService } from &#x27;@src/modules/tool/service/lti-tool.service&#x27;;
 import { SchoolModule } from &#x27;@src/modules/school&#x27;;
+import { ToolController } from &#x27;@src/modules/tool/controller/tool.controller&#x27;;
 import { Lti11Uc } from &#x27;./uc/lti11.uc&#x27;;
 import { LtiRoleMapper } from &#x27;./mapper/lti-role.mapper&#x27;;
 import { Lti11Service } from &#x27;./service/lti11.service&#x27;;
@@ -292,6 +302,7 @@ import { UserModule } from &#x27;../user&#x27;;
 
 @Module({
 	imports: [UserModule, LoggerModule, SchoolModule],
+	controllers: [ToolController],
 	providers: [Lti11Service, Lti11Uc, LtiRoleMapper, Lti11ResponseMapper, LtiToolRepo, PseudonymsRepo, LtiToolService],
 })
 export class ToolModule {}

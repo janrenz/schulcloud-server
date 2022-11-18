@@ -1390,15 +1390,29 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="modules/ToolModule.html" data-type="entity-link" >ToolModule</a>
+                                    <li class="chapter inner">
+                                        <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
+                                            'data-target="#controllers-links-module-ToolModule-1ab8c59c71fbd7ae824c6b003b0682a6e678497a9705a7a2047094072b23cbe06c023763b2ec2dab8b38bde78d48e919584ace4f3a9d0a5b16fa91adff0483c9"' : 'data-target="#xs-controllers-links-module-ToolModule-1ab8c59c71fbd7ae824c6b003b0682a6e678497a9705a7a2047094072b23cbe06c023763b2ec2dab8b38bde78d48e919584ace4f3a9d0a5b16fa91adff0483c9"' }>
+                                            <span class="icon ion-md-swap"></span>
+                                            <span>Controllers</span>
+                                            <span class="icon ion-ios-arrow-down"></span>
+                                        </div>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="controllers-links-module-ToolModule-1ab8c59c71fbd7ae824c6b003b0682a6e678497a9705a7a2047094072b23cbe06c023763b2ec2dab8b38bde78d48e919584ace4f3a9d0a5b16fa91adff0483c9"' :
+                                            'id="xs-controllers-links-module-ToolModule-1ab8c59c71fbd7ae824c6b003b0682a6e678497a9705a7a2047094072b23cbe06c023763b2ec2dab8b38bde78d48e919584ace4f3a9d0a5b16fa91adff0483c9"' }>
+                                            <li class="link">
+                                                <a href="controllers/ToolController.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >ToolController</a>
+                                            </li>
+                                        </ul>
+                                    </li>
                                 <li class="chapter inner">
                                     <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                        'data-target="#injectables-links-module-ToolModule-5ca734bb5ac44a3c683eb77aee88720f9113066be697ab9882b4e74d5986e006720b7ff69dfc1eb56648717e1574659bfe53d3db00545bf2d44b3f69415cbd4b"' : 'data-target="#xs-injectables-links-module-ToolModule-5ca734bb5ac44a3c683eb77aee88720f9113066be697ab9882b4e74d5986e006720b7ff69dfc1eb56648717e1574659bfe53d3db00545bf2d44b3f69415cbd4b"' }>
+                                        'data-target="#injectables-links-module-ToolModule-1ab8c59c71fbd7ae824c6b003b0682a6e678497a9705a7a2047094072b23cbe06c023763b2ec2dab8b38bde78d48e919584ace4f3a9d0a5b16fa91adff0483c9"' : 'data-target="#xs-injectables-links-module-ToolModule-1ab8c59c71fbd7ae824c6b003b0682a6e678497a9705a7a2047094072b23cbe06c023763b2ec2dab8b38bde78d48e919584ace4f3a9d0a5b16fa91adff0483c9"' }>
                                         <span class="icon ion-md-arrow-round-down"></span>
                                         <span>Injectables</span>
                                         <span class="icon ion-ios-arrow-down"></span>
                                     </div>
-                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-ToolModule-5ca734bb5ac44a3c683eb77aee88720f9113066be697ab9882b4e74d5986e006720b7ff69dfc1eb56648717e1574659bfe53d3db00545bf2d44b3f69415cbd4b"' :
-                                        'id="xs-injectables-links-module-ToolModule-5ca734bb5ac44a3c683eb77aee88720f9113066be697ab9882b4e74d5986e006720b7ff69dfc1eb56648717e1574659bfe53d3db00545bf2d44b3f69415cbd4b"' }>
+                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-ToolModule-1ab8c59c71fbd7ae824c6b003b0682a6e678497a9705a7a2047094072b23cbe06c023763b2ec2dab8b38bde78d48e919584ace4f3a9d0a5b16fa91adff0483c9"' :
+                                        'id="xs-injectables-links-module-ToolModule-1ab8c59c71fbd7ae824c6b003b0682a6e678497a9705a7a2047094072b23cbe06c023763b2ec2dab8b38bde78d48e919584ace4f3a9d0a5b16fa91adff0483c9"' }>
                                         <li class="link">
                                             <a href="injectables/Lti11ResponseMapper.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >Lti11ResponseMapper</a>
                                         </li>
@@ -1765,6 +1779,12 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/BasicToolConfig.html" data-type="entity-link" >BasicToolConfig</a>
                             </li>
                             <li class="link">
+                                <a href="classes/BasicToolConfigParams.html" data-type="entity-link" >BasicToolConfigParams</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/BasicToolConfigResponse.html" data-type="entity-link" >BasicToolConfigResponse</a>
+                            </li>
+                            <li class="link">
                                 <a href="classes/BBBBaseMeetingConfig.html" data-type="entity-link" >BBBBaseMeetingConfig</a>
                             </li>
                             <li class="link">
@@ -1906,7 +1926,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/CustomParameter.html" data-type="entity-link" >CustomParameter</a>
                             </li>
                             <li class="link">
+                                <a href="classes/CustomParameterCreateParams.html" data-type="entity-link" >CustomParameterCreateParams</a>
+                            </li>
+                            <li class="link">
                                 <a href="classes/CustomParameterEntry.html" data-type="entity-link" >CustomParameterEntry</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/CustomParameterResponse.html" data-type="entity-link" >CustomParameterResponse</a>
                             </li>
                             <li class="link">
                                 <a href="classes/DashboardEntity.html" data-type="entity-link" >DashboardEntity</a>
@@ -1954,7 +1980,19 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/ExternalToolConfig.html" data-type="entity-link" >ExternalToolConfig</a>
                             </li>
                             <li class="link">
+                                <a href="classes/ExternalToolConfigCreateParams.html" data-type="entity-link" >ExternalToolConfigCreateParams</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/ExternalToolConfigResponse.html" data-type="entity-link" >ExternalToolConfigResponse</a>
+                            </li>
+                            <li class="link">
                                 <a href="classes/ExternalToolFactory.html" data-type="entity-link" >ExternalToolFactory</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/ExternalToolParams.html" data-type="entity-link" >ExternalToolParams</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/ExternalToolResponse.html" data-type="entity-link" >ExternalToolResponse</a>
                             </li>
                             <li class="link">
                                 <a href="classes/File.html" data-type="entity-link" >File</a>
@@ -2128,6 +2166,12 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/Lti11ToolConfig.html" data-type="entity-link" >Lti11ToolConfig</a>
                             </li>
                             <li class="link">
+                                <a href="classes/Lti11ToolConfigParams.html" data-type="entity-link" >Lti11ToolConfigParams</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/Lti11ToolConfigResponse.html" data-type="entity-link" >Lti11ToolConfigResponse</a>
+                            </li>
+                            <li class="link">
                                 <a href="classes/LtiToolDO.html" data-type="entity-link" >LtiToolDO</a>
                             </li>
                             <li class="link">
@@ -2168,6 +2212,12 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="classes/Oauth2ToolConfig.html" data-type="entity-link" >Oauth2ToolConfig</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/Oauth2ToolConfigParams.html" data-type="entity-link" >Oauth2ToolConfigParams</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/Oauth2ToolConfigResponse.html" data-type="entity-link" >Oauth2ToolConfigResponse</a>
                             </li>
                             <li class="link">
                                 <a href="classes/OauthClientBody.html" data-type="entity-link" >OauthClientBody</a>
@@ -2687,9 +2737,6 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                     <a href="injectables/CourseGroupRule.html" data-type="entity-link" >CourseGroupRule</a>
                                 </li>
                                 <li class="link">
-                                    <a href="injectables/CourseLtiToolUc.html" data-type="entity-link" >CourseLtiToolUc</a>
-                                </li>
-                                <li class="link">
                                     <a href="injectables/CourseRepo.html" data-type="entity-link" >CourseRepo</a>
                                 </li>
                                 <li class="link">
@@ -2877,9 +2924,6 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 </li>
                                 <li class="link">
                                     <a href="injectables/SubmissionRule.html" data-type="entity-link" >SubmissionRule</a>
-                                </li>
-                                <li class="link">
-                                    <a href="injectables/SuperheroLtiToolUc.html" data-type="entity-link" >SuperheroLtiToolUc</a>
                                 </li>
                                 <li class="link">
                                     <a href="injectables/SymetricKeyEncryptionService.html" data-type="entity-link" >SymetricKeyEncryptionService</a>

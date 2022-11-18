@@ -125,7 +125,6 @@
                                 <a href="#openNewTab" >openNewTab</a>
                             </li>
                             <li>
-                                    <span class="modifier">Optional</span>
                                 <a href="#privacy_permission" >privacy_permission</a>
                             </li>
                             <li>
@@ -668,7 +667,6 @@
                 <td class="col-md-4">
                     <a name="privacy_permission"></a>
                     <span class="name">
-                            <span class="modifier">Optional</span>
                         <span ><b>privacy_permission</b></span>
                         <a href="#privacy_permission"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -945,7 +943,7 @@ export class LtiTool extends BaseEntityWithTimestamps {
 		default: LtiPrivacyPermission.ANONYMOUS,
 		nullable: false,
 	})
-	privacy_permission?: LtiPrivacyPermission;
+	privacy_permission: LtiPrivacyPermission;
 
 	@Property({ nullable: false })
 	customs: CustomLtiProperty[];
