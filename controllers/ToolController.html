@@ -84,6 +84,7 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                    <span class="modifier">Async</span>
                                 <a href="#createExternalTool" >createExternalTool</a>
                             </li>
                             <li>
@@ -113,6 +114,7 @@
                 <td class="col-md-4">
                     <a name="createExternalTool"></a>
                     <span class="name">
+                        <span class="modifier">Async</span>
                         <span ><b>createExternalTool</b></span>
                         <a href="#createExternalTool"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -120,7 +122,8 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>createExternalTool(externalToolParams: <a href="../classes/ExternalToolParams.html" target="_self">ExternalToolParams</a>, currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>)</code>
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>createExternalTool(externalToolParams: <a href="../classes/ExternalToolParams.html" target="_self">ExternalToolParams</a>, currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>)</code>
                 </td>
             </tr>
 
@@ -128,14 +131,14 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@Post(&#x27;tools&#x27;)<br />@ApiNotImplementedResponse()<br /></code>
+                    <code>@Post()<br />@ApiCreatedResponse({description: &#x27;The Tool has been successfully created.&#x27;, type: ExternalToolResponse})<br />@ApiForbiddenResponse()<br />@ApiUnprocessableEntityResponse()<br />@ApiUnauthorizedResponse()<br /></code>
                 </td>
             </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="37"
-                            class="link-to-prism">apps/server/src/modules/tool/controller/tool.controller.ts:37</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="56"
+                            class="link-to-prism">apps/server/src/modules/tool/controller/tool.controller.ts:56</a></div>
                 </td>
             </tr>
 
@@ -224,8 +227,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="21"
-                            class="link-to-prism">apps/server/src/modules/tool/controller/tool.controller.ts:21</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="37"
+                            class="link-to-prism">apps/server/src/modules/tool/controller/tool.controller.ts:37</a></div>
                 </td>
             </tr>
 
@@ -301,24 +304,40 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Body, Controller, Get, NotImplementedException, Param, Post, Query } from &#x27;@nestjs/common&#x27;;
-import { Authenticate, CurrentUser } from &#x27;@src/modules/authentication/decorator/auth.decorator&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Body, Controller, Get, Param, Post, Query } from &#x27;@nestjs/common&#x27;;
 import { ICurrentUser } from &#x27;@shared/domain&#x27;;
 import { Authorization } from &#x27;oauth-1.0a&#x27;;
-import { ExternalToolResponse } from &#x27;@src/modules/tool/controller/dto/response/external-tool.response&#x27;;
-import { ExternalToolParams } from &#x27;@src/modules/tool/controller/dto/request/external-tool-create.params&#x27;;
-import { ApiNotImplementedResponse, ApiTags } from &#x27;@nestjs/swagger&#x27;;
+import { ExternalToolDO } from &#x27;@shared/domain/domainobject/external-tool/external-tool.do&#x27;;
+import {
+	ApiCreatedResponse,
+	ApiForbiddenResponse,
+	ApiTags,
+	ApiUnauthorizedResponse,
+	ApiUnprocessableEntityResponse,
+} from &#x27;@nestjs/swagger&#x27;;
 import { Lti11LaunchQuery } from &#x27;./dto/lti11-launch.query&#x27;;
 import { Lti11LaunchResponse } from &#x27;./dto/lti11-launch.response&#x27;;
 import { Lti11ResponseMapper } from &#x27;../mapper/lti11-response.mapper&#x27;;
 import { Lti11LaunchParams } from &#x27;./dto/lti11-launch.params&#x27;;
 import { Lti11Uc } from &#x27;../uc/lti11.uc&#x27;;
+import { Authenticate, CurrentUser } from &#x27;../../authentication/decorator/auth.decorator&#x27;;
+import { ExternalToolRequestMapper } from &#x27;../mapper/external-tool-request.mapper&#x27;;
+import { ExternalToolResponseMapper } from &#x27;../mapper/external-tool-response.mapper&#x27;;
+import { ExternalToolResponse } from &#x27;./dto/response/external-tool.response&#x27;;
+import { ExternalToolParams } from &#x27;./dto/request/external-tool-create.params&#x27;;
+import { ExternalToolUc } from &#x27;../uc/external-tool.uc&#x27;;
 
 @ApiTags(&#x27;Tool&#x27;)
 @Authenticate(&#x27;jwt&#x27;)
 @Controller(&#x27;tools&#x27;)
 export class ToolController {
-	constructor(private readonly lti11Uc: Lti11Uc, private readonly lti11ResponseMapper: Lti11ResponseMapper) {}
+	constructor(
+		private readonly lti11Uc: Lti11Uc,
+		private readonly lti11ResponseMapper: Lti11ResponseMapper,
+		private externalToolUc: ExternalToolUc,
+		private readonly externalToolDOMapper: ExternalToolRequestMapper,
+		private readonly externalResponseMapper: ExternalToolResponseMapper
+	) {}
 
 	@Get(&#x27;lti11/:toolId/launch&#x27;)
 	async getLti11LaunchParameters(
@@ -335,13 +354,19 @@ export class ToolController {
 		return mapped;
 	}
 
-	@Post(&#x27;tools&#x27;)
-	@ApiNotImplementedResponse()
-	createExternalTool(
+	@Post()
+	@ApiCreatedResponse({ description: &#x27;The Tool has been successfully created.&#x27;, type: ExternalToolResponse })
+	@ApiForbiddenResponse()
+	@ApiUnprocessableEntityResponse()
+	@ApiUnauthorizedResponse()
+	async createExternalTool(
 		@Body() externalToolParams: ExternalToolParams,
 		@CurrentUser() currentUser: ICurrentUser
 	): Promise&lt;ExternalToolResponse&gt; {
-		throw new NotImplementedException();
+		const externalToolDO: ExternalToolDO &#x3D; this.externalToolDOMapper.mapRequestToExternalToolDO(externalToolParams);
+		const created: ExternalToolDO &#x3D; await this.externalToolUc.createExternalTool(externalToolDO, currentUser);
+		const mapped: ExternalToolResponse &#x3D; this.externalResponseMapper.mapToResponse(created);
+		return mapped;
 	}
 }
 </code></pre>

@@ -507,11 +507,11 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { CustomParameterResponse } from &#x27;@src/modules/tool/controller/dto/response/custom-parameter.response&#x27;;
-import { ApiProperty, ApiPropertyOptional } from &#x27;@nestjs/swagger&#x27;;
-import { BasicToolConfigResponse } from &#x27;@src/modules/tool/controller/dto/response/basic-tool-config.response&#x27;;
-import { Oauth2ToolConfigResponse } from &#x27;@src/modules/tool/controller/dto/response/oauth2-tool-config.response&#x27;;
-import { Lti11ToolConfigResponse } from &#x27;@src/modules/tool/controller/dto/response/lti11-tool-config.response&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ApiProperty, ApiPropertyOptional } from &#x27;@nestjs/swagger&#x27;;
+import { BasicToolConfigResponse } from &#x27;./basic-tool-config.response&#x27;;
+import { Oauth2ToolConfigResponse } from &#x27;./oauth2-tool-config.response&#x27;;
+import { Lti11ToolConfigResponse } from &#x27;./lti11-tool-config.response&#x27;;
+import { CustomParameterResponse } from &#x27;./custom-parameter.response&#x27;;
 
 export class ExternalToolResponse {
 	@ApiProperty()

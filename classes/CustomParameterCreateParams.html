@@ -170,7 +170,7 @@
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="../classes/CustomParameter.html" target="_self" >CustomParameterLocation</a></code>
+                        <i>Type : </i>        <code><a href="../classes/CustomParameter.html" target="_self" >CustomParameterLocationParams</a></code>
 
                     </td>
                 </tr>
@@ -179,7 +179,7 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @IsEnum(CustomParameterLocation)<br />@ApiProperty()<br />
+                            @IsEnum(CustomParameterLocationParams)<br />@ApiProperty()<br />
                         </code>
                     </td>
                 </tr>
@@ -276,7 +276,7 @@
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="../miscellaneous/enumerations.html#CustomParameterScope" target="_self" >CustomParameterScope</a></code>
+                        <i>Type : </i>        <code><a href="../miscellaneous/enumerations.html#CustomParameterScopeParams" target="_self" >CustomParameterScopeParams</a></code>
 
                     </td>
                 </tr>
@@ -285,7 +285,7 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @IsEnum(CustomParameterScope)<br />@ApiProperty()<br />
+                            @IsEnum(CustomParameterScopeParams)<br />@ApiProperty()<br />
                         </code>
                     </td>
                 </tr>
@@ -311,7 +311,7 @@
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="../classes/CustomParameter.html" target="_self" >CustomParameterType</a></code>
+                        <i>Type : </i>        <code><a href="../classes/CustomParameter.html" target="_self" >CustomParameterTypeParams</a></code>
 
                     </td>
                 </tr>
@@ -320,7 +320,7 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @IsEnum(CustomParameterType)<br />@ApiProperty()<br />
+                            @IsEnum(CustomParameterTypeParams)<br />@ApiProperty()<br />
                         </code>
                     </td>
                 </tr>
@@ -347,9 +347,9 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { IsEnum, IsOptional, IsString } from &#x27;class-validator&#x27;;
 import { ApiProperty, ApiPropertyOptional } from &#x27;@nestjs/swagger&#x27;;
-import { CustomParameterLocation } from &#x27;@src/modules/tool/interface/custom-parameter-location.enum&#x27;;
-import { CustomParameterScope } from &#x27;@src/modules/tool/interface/custom-parameter-scope.enum&#x27;;
-import { CustomParameterType } from &#x27;@src/modules/tool/interface/custom-parameter-type.enum&#x27;;
+import { CustomParameterScopeParams } from &#x27;../../../interface/custom-parameter-scope.enum&#x27;;
+import { CustomParameterLocationParams } from &#x27;../../../interface/custom-parameter-location.enum&#x27;;
+import { CustomParameterTypeParams } from &#x27;../../../interface/custom-parameter-type.enum&#x27;;
 
 export class CustomParameterCreateParams {
 	@IsString()
@@ -366,17 +366,17 @@ export class CustomParameterCreateParams {
 	@ApiPropertyOptional()
 	regex?: string;
 
-	@IsEnum(CustomParameterScope)
+	@IsEnum(CustomParameterScopeParams)
 	@ApiProperty()
-	scope!: CustomParameterScope;
+	scope!: CustomParameterScopeParams;
 
-	@IsEnum(CustomParameterLocation)
+	@IsEnum(CustomParameterLocationParams)
 	@ApiProperty()
-	location!: CustomParameterLocation;
+	location!: CustomParameterLocationParams;
 
-	@IsEnum(CustomParameterType)
+	@IsEnum(CustomParameterTypeParams)
 	@ApiProperty()
-	type!: CustomParameterType;
+	type!: CustomParameterTypeParams;
 }
 </code></pre>
     </div>

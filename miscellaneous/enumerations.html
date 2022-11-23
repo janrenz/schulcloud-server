@@ -91,22 +91,22 @@
                             <a href="#CopyStatusEnum" title="apps/server/src/shared/domain/types/copy.types.ts" ><b>CopyStatusEnum</b>&nbsp;&nbsp;&nbsp;(apps/.../copy.types.ts)</a>
                         </li>
                         <li>
-                            <a href="#CustomParameterLocation" title="apps/server/src/modules/tool/interface/custom-parameter-location.enum.ts" ><b>CustomParameterLocation</b>&nbsp;&nbsp;&nbsp;(apps/.../custom-parameter-location.enum.ts)</a>
-                        </li>
-                        <li>
                             <a href="#CustomParameterLocation" title="apps/server/src/shared/domain/entity/external-tools/external-tool/custom-parameter/custom-parameter-location.enum.ts" ><b>CustomParameterLocation</b>&nbsp;&nbsp;&nbsp;(apps/.../custom-parameter-location.enum.ts)</a>
                         </li>
                         <li>
-                            <a href="#CustomParameterScope" title="apps/server/src/modules/tool/interface/custom-parameter-scope.enum.ts" ><b>CustomParameterScope</b>&nbsp;&nbsp;&nbsp;(apps/.../custom-parameter-scope.enum.ts)</a>
+                            <a href="#CustomParameterLocationParams" title="apps/server/src/modules/tool/interface/custom-parameter-location.enum.ts" ><b>CustomParameterLocationParams</b>&nbsp;&nbsp;&nbsp;(apps/.../custom-parameter-location.enum.ts)</a>
                         </li>
                         <li>
                             <a href="#CustomParameterScope" title="apps/server/src/shared/domain/entity/external-tools/external-tool/custom-parameter/custom-parameter-scope.enum.ts" ><b>CustomParameterScope</b>&nbsp;&nbsp;&nbsp;(apps/.../custom-parameter-scope.enum.ts)</a>
                         </li>
                         <li>
-                            <a href="#CustomParameterType" title="apps/server/src/modules/tool/interface/custom-parameter-type.enum.ts" ><b>CustomParameterType</b>&nbsp;&nbsp;&nbsp;(apps/.../custom-parameter-type.enum.ts)</a>
+                            <a href="#CustomParameterScopeParams" title="apps/server/src/modules/tool/interface/custom-parameter-scope.enum.ts" ><b>CustomParameterScopeParams</b>&nbsp;&nbsp;&nbsp;(apps/.../custom-parameter-scope.enum.ts)</a>
                         </li>
                         <li>
                             <a href="#CustomParameterType" title="apps/server/src/shared/domain/entity/external-tools/external-tool/custom-parameter/custom-parameter-type.enum.ts" ><b>CustomParameterType</b>&nbsp;&nbsp;&nbsp;(apps/.../custom-parameter-type.enum.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#CustomParameterTypeParams" title="apps/server/src/modules/tool/interface/custom-parameter-type.enum.ts" ><b>CustomParameterTypeParams</b>&nbsp;&nbsp;&nbsp;(apps/.../custom-parameter-type.enum.ts)</a>
                         </li>
                         <li>
                             <a href="#ErrorMessage" title="apps/server/src/shared/domain/rules/select-strategies.ts" ><b>ErrorMessage</b>&nbsp;&nbsp;&nbsp;(apps/.../select-strategies.ts)</a>
@@ -236,6 +236,9 @@
                         </li>
                         <li>
                             <a href="#TokenAuthMethod" title="apps/server/src/modules/oauth-provider/interface/token-auth-method.enum.ts" ><b>TokenAuthMethod</b>&nbsp;&nbsp;&nbsp;(apps/.../token-auth-method.enum.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#TokenEndpointAuthMethod" title="apps/server/src/modules/tool/interface/token-endpoint-auth-method.enum.ts" ><b>TokenEndpointAuthMethod</b>&nbsp;&nbsp;&nbsp;(apps/.../token-endpoint-auth-method.enum.ts)</a>
                         </li>
                         <li>
                             <a href="#ToolConfigType" title="apps/server/src/modules/tool/interface/tool-config-type.enum.ts" ><b>ToolConfigType</b>&nbsp;&nbsp;&nbsp;(apps/.../tool-config-type.enum.ts)</a>
@@ -936,49 +939,6 @@
             </tbody>
         </table>
 </section>
-    <h3>apps/server/src/modules/tool/interface/custom-parameter-location.enum.ts</h3>
-    <section>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="CustomParameterLocation"></a>
-                        <span class="name "><b>CustomParameterLocation</b><a href="#CustomParameterLocation"><span class="icon ion-ios-link"></span></a></span>
-                    </td>
-                </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                &nbsp;PATH
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <i>Value : </i><code>path</code>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                &nbsp;TOKEN
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <i>Value : </i><code>token</code>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                &nbsp;QUERY
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <i>Value : </i><code>query</code>
-                            </td>
-                        </tr>
-            </tbody>
-        </table>
-</section>
     <h3>apps/server/src/shared/domain/entity/external-tools/external-tool/custom-parameter/custom-parameter-location.enum.ts</h3>
     <section>
         <table class="table table-sm table-bordered">
@@ -1022,34 +982,44 @@
             </tbody>
         </table>
 </section>
-    <h3>apps/server/src/modules/tool/interface/custom-parameter-scope.enum.ts</h3>
+    <h3>apps/server/src/modules/tool/interface/custom-parameter-location.enum.ts</h3>
     <section>
         <table class="table table-sm table-bordered">
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="CustomParameterScope"></a>
-                        <span class="name "><b>CustomParameterScope</b><a href="#CustomParameterScope"><span class="icon ion-ios-link"></span></a></span>
+                        <a name="CustomParameterLocationParams"></a>
+                        <span class="name "><b>CustomParameterLocationParams</b><a href="#CustomParameterLocationParams"><span class="icon ion-ios-link"></span></a></span>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                &nbsp;SCHOOL
+                                &nbsp;PATH
                             </td>
                         </tr>
                         <tr>
                             <td class="col-md-4">
-                                <i>Value : </i><code>school</code>
+                                <i>Value : </i><code>path</code>
                             </td>
                         </tr>
                         <tr>
                             <td class="col-md-4">
-                                &nbsp;COURSE
+                                &nbsp;TOKEN
                             </td>
                         </tr>
                         <tr>
                             <td class="col-md-4">
-                                <i>Value : </i><code>course</code>
+                                <i>Value : </i><code>token</code>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;QUERY
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Value : </i><code>query</code>
                             </td>
                         </tr>
             </tbody>
@@ -1088,7 +1058,40 @@
             </tbody>
         </table>
 </section>
-    <h3>apps/server/src/modules/tool/interface/custom-parameter-type.enum.ts</h3>
+    <h3>apps/server/src/modules/tool/interface/custom-parameter-scope.enum.ts</h3>
+    <section>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="CustomParameterScopeParams"></a>
+                        <span class="name "><b>CustomParameterScopeParams</b><a href="#CustomParameterScopeParams"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;SCHOOL
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Value : </i><code>school</code>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;COURSE
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Value : </i><code>course</code>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+    <h3>apps/server/src/shared/domain/entity/external-tools/external-tool/custom-parameter/custom-parameter-type.enum.ts</h3>
     <section>
         <table class="table table-sm table-bordered">
             <tbody>
@@ -1161,14 +1164,14 @@
             </tbody>
         </table>
 </section>
-    <h3>apps/server/src/shared/domain/entity/external-tools/external-tool/custom-parameter/custom-parameter-type.enum.ts</h3>
+    <h3>apps/server/src/modules/tool/interface/custom-parameter-type.enum.ts</h3>
     <section>
         <table class="table table-sm table-bordered">
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="CustomParameterType"></a>
-                        <span class="name "><b>CustomParameterType</b><a href="#CustomParameterType"><span class="icon ion-ios-link"></span></a></span>
+                        <a name="CustomParameterTypeParams"></a>
+                        <span class="name "><b>CustomParameterTypeParams</b><a href="#CustomParameterTypeParams"><span class="icon ion-ios-link"></span></a></span>
                     </td>
                 </tr>
                         <tr>
@@ -2000,6 +2003,26 @@
                                 <i>Value : </i><code>basic-lti-launch-request</code>
                             </td>
                         </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;LTI_RESOURCE_LINK_REQUEST
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Value : </i><code>LtiResourceLinkRequest</code>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;LTI_DEEP_LINKING_REQUEST
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Value : </i><code>LtiDeepLinkingRequest</code>
+                            </td>
+                        </tr>
             </tbody>
         </table>
 </section>
@@ -2021,6 +2044,26 @@
                         <tr>
                             <td class="col-md-4">
                                 <i>Value : </i><code>basic-lti-launch-request</code>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;LTI_RESOURCE_LINK_REQUEST
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Value : </i><code>LtiResourceLinkRequest</code>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;LTI_DEEP_LINKING_REQUEST
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Value : </i><code>LtiDeepLinkingRequest</code>
                             </td>
                         </tr>
             </tbody>
@@ -3811,6 +3854,16 @@
                         </tr>
                         <tr>
                             <td class="col-md-4">
+                                &nbsp;TOOL_ADMIN
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Value : </i><code>TOOL_ADMIN</code>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
                                 &nbsp;TOOL_CREATE
                             </td>
                         </tr>
@@ -4708,14 +4761,47 @@
                                 <i>Value : </i><code>private_key_jwt</code>
                             </td>
                         </tr>
+            </tbody>
+        </table>
+</section>
+    <h3>apps/server/src/modules/tool/interface/token-endpoint-auth-method.enum.ts</h3>
+    <section>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="TokenEndpointAuthMethod"></a>
+                        <span class="name "><b>TokenEndpointAuthMethod</b><a href="#TokenEndpointAuthMethod"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
                         <tr>
                             <td class="col-md-4">
-                                &nbsp;NONE
+                                &nbsp;CLIENT_SECRET_POST
                             </td>
                         </tr>
                         <tr>
                             <td class="col-md-4">
-                                <i>Value : </i><code>none</code>
+                                <i>Value : </i><code>client_secret_post</code>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;CLIENT_SECRET_BASIC
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Value : </i><code>client_secret_basic</code>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;PRIVATE_KEY_JWT
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Value : </i><code>private_key_jwt</code>
                             </td>
                         </tr>
             </tbody>
