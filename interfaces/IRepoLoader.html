@@ -184,7 +184,7 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable, NotImplementedException } from &#x27;@nestjs/common&#x27;;
-import { EntityId } from &#x27;@shared/domain&#x27;;
+import { EntityId, User } from &#x27;@shared/domain&#x27;;
 import {
 	CourseGroupRepo,
 	CourseRepo,
@@ -237,7 +237,7 @@ export class ReferenceLoader {
 	}
 
 	private resolveRepo(type: AllowedAuthorizationEntityType): IRepoLoader {
-		const repo: IRepoLoader | undefined &#x3D; this.repos.get(type);
+		const repo &#x3D; this.repos.get(type);
 		if (repo) {
 			return repo;
 		}
@@ -255,6 +255,12 @@ export class ReferenceLoader {
 		}
 
 		return entity;
+	}
+
+	async getUserWithPermissions(userId: EntityId): Promise&lt;User&gt; {
+		const user &#x3D; await this.userRepo.findById(userId, true);
+
+		return user;
 	}
 }
 </code></pre>
