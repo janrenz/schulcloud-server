@@ -1937,6 +1937,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/CourseGroup.html" data-type="entity-link" >CourseGroup</a>
                             </li>
                             <li class="link">
+                                <a href="classes/CourseGroupFactory.html" data-type="entity-link" >CourseGroupFactory</a>
+                            </li>
+                            <li class="link">
                                 <a href="classes/CourseMapper.html" data-type="entity-link" >CourseMapper</a>
                             </li>
                             <li class="link">
@@ -3295,6 +3298,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="interfaces/ILearnroomElement.html" data-type="entity-link" >ILearnroomElement</a>
                             </li>
                             <li class="link">
+                                <a href="interfaces/ILessonParent.html" data-type="entity-link" >ILessonParent</a>
+                            </li>
+                            <li class="link">
                                 <a href="interfaces/ILessonProperties.html" data-type="entity-link" >ILessonProperties</a>
                             </li>
                             <li class="link">
@@ -3395,6 +3401,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="interfaces/ITaskCreate.html" data-type="entity-link" >ITaskCreate</a>
+                            </li>
+                            <li class="link">
+                                <a href="interfaces/ITaskParent.html" data-type="entity-link" >ITaskParent</a>
                             </li>
                             <li class="link">
                                 <a href="interfaces/ITaskProperties.html" data-type="entity-link" >ITaskProperties</a>

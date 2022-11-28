@@ -225,6 +225,7 @@ import type { Course } from &#x27;./course.entity&#x27;;
 import { CourseGroup } from &#x27;./coursegroup.entity&#x27;;
 import { Material } from &#x27;./materials.entity&#x27;;
 import { Task } from &#x27;./task.entity&#x27;;
+import type { ITaskParent } from &#x27;./task.entity&#x27;;
 import { User } from &#x27;./user.entity&#x27;;
 
 export interface ILessonProperties {
@@ -297,8 +298,12 @@ export interface IComponentProperties {
 		| IComponentNexboardProperties;
 }
 
+export interface ILessonParent {
+	getStudentIds(): EntityId[];
+}
+
 @Entity({ tableName: &#x27;lessons&#x27; })
-export class Lesson extends BaseEntityWithTimestamps implements ILearnroomElement {
+export class Lesson extends BaseEntityWithTimestamps implements ILearnroomElement, ITaskParent {
 	@Property()
 	name: string;
 
@@ -334,6 +339,12 @@ export class Lesson extends BaseEntityWithTimestamps implements ILearnroomElemen
 		this.position &#x3D; props.position || 0;
 		this.contents &#x3D; props.contents;
 		if (props.materials) this.materials.set(props.materials);
+	}
+
+	private getParent(): ILessonParent {
+		const parent &#x3D; this.courseGroup || this.course;
+
+		return parent;
 	}
 
 	private getTasksItems(): Task[] {
@@ -399,6 +410,13 @@ export class Lesson extends BaseEntityWithTimestamps implements ILearnroomElemen
 
 	unpublish() {
 		this.hidden &#x3D; true;
+	}
+
+	public getStudentIds(): EntityId[] {
+		const parent &#x3D; this.getParent();
+		const studentIds &#x3D; parent.getStudentIds();
+
+		return studentIds;
 	}
 }
 </code></pre>

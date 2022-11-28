@@ -1661,15 +1661,12 @@ must use @ApiProperty</p>
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>BaseFactory.define&lt;CourseGroup, ICourseGroupProperties&gt;(
-	CourseGroup,
-	({ sequence }) &#x3D;&gt; {
-		return {
-			name: &#x60;courseGroup #${sequence}&#x60;,
-			course: courseFactory.build(),
-		};
-	}
-)</code>
+                        <i>Default value : </i><code>CourseGroupFactory.define(CourseGroup, ({ sequence }) &#x3D;&gt; {
+	return {
+		name: &#x60;courseGroup #${sequence}&#x60;,
+		course: courseFactory.build(),
+	};
+})</code>
                     </td>
                 </tr>
 

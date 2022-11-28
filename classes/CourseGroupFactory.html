@@ -44,7 +44,7 @@
 
 <ol class="breadcrumb">
   <li>Classes</li>
-  <li >ImportUserFactory</li>
+  <li >CourseGroupFactory</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -62,7 +62,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/shared/testing/factory/import-user.factory.ts</code>
+            <code>apps/server/src/shared/testing/factory/coursegroup.factory.ts</code>
         </p>
 
 
@@ -106,7 +106,7 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#matched" >matched</a>
+                                <a href="#studentsWithId" >studentsWithId</a>
                             </li>
                             <li>
                                 <a href="#afterBuild" >afterBuild</a>
@@ -211,24 +211,24 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="matched"></a>
+                    <a name="studentsWithId"></a>
                     <span class="name">
-                        <span ><b>matched</b></span>
-                        <a href="#matched"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>studentsWithId</b></span>
+                        <a href="#studentsWithId"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>matched(matchedBy: <a href="../undefineds/MatchCreator.html" target="_self">MatchCreator</a>, user: <a href="../interfaces/User.html" target="_self">User</a>)</code>
+<code>studentsWithId(numberOfStudents: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="10"
-                            class="link-to-prism">apps/server/src/shared/testing/factory/import-user.factory.ts:10</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="8"
+                            class="link-to-prism">apps/server/src/shared/testing/factory/coursegroup.factory.ts:8</a></div>
                 </td>
             </tr>
 
@@ -249,21 +249,9 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>matchedBy</td>
+                                    <td>numberOfStudents</td>
                                     <td>
-                                                <code><a href="../miscellaneous/enumerations.html#MatchCreator" target="_self" >MatchCreator</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>user</td>
-                                    <td>
-                                                <code><a href="../interfaces/User.html" target="_self" >User</a></code>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
                                     </td>
 
                                     <td>
@@ -1328,34 +1316,25 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { v4 as uuidv4 } from &#x27;uuid&#x27;;
-
-import { IImportUserProperties, IImportUserRoleName, ImportUser, MatchCreator, RoleName, User } from &#x27;@shared/domain&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { CourseGroup, ICourseGroupProperties } from &#x27;@shared/domain&#x27;;
 import { DeepPartial } from &#x27;fishery&#x27;;
+import { courseFactory } from &#x27;./course.factory&#x27;;
 import { BaseFactory } from &#x27;./base.factory&#x27;;
-import { schoolFactory } from &#x27;./school.factory&#x27;;
-import { systemFactory } from &#x27;./system.factory&#x27;;
+import { userFactory } from &#x27;./user.factory&#x27;;
 
-class ImportUserFactory extends BaseFactory&lt;ImportUser, IImportUserProperties&gt; {
-	matched(matchedBy: MatchCreator, user: User): this {
-		const params: DeepPartial&lt;IImportUserProperties&gt; &#x3D; { matchedBy, user };
+class CourseGroupFactory extends BaseFactory&lt;CourseGroup, ICourseGroupProperties&gt; {
+	studentsWithId(numberOfStudents: number): this {
+		const students &#x3D; userFactory.buildListWithId(numberOfStudents);
+		const params: DeepPartial&lt;ICourseGroupProperties&gt; &#x3D; { students };
+
 		return this.params(params);
 	}
 }
 
-export const importUserFactory &#x3D; ImportUserFactory.define(ImportUser, ({ sequence }) &#x3D;&gt; {
+export const courseGroupFactory &#x3D; CourseGroupFactory.define(CourseGroup, ({ sequence }) &#x3D;&gt; {
 	return {
-		school: schoolFactory.build(),
-		system: systemFactory.build(),
-		ldapDn: &#x60;uid&#x3D;john${sequence},cn&#x3D;schueler,cn&#x3D;users,ou&#x3D;1,dc&#x3D;training,dc&#x3D;ucs&#x60;,
-		// eslint-disable-next-line @typescript-eslint/no-unsafe-call
-		externalId: uuidv4() as unknown as string,
-		firstName: &#x60;John${sequence}&#x60;,
-		lastName: &#x60;Doe${sequence}&#x60;,
-		email: &#x60;user-${sequence}@example.com&#x60;,
-		roleNames: [RoleName.STUDENT as IImportUserRoleName],
-		classNames: [&#x27;firstClass&#x27;],
-		flagged: false,
+		name: &#x60;courseGroup #${sequence}&#x60;,
+		course: courseFactory.build(),
 	};
 });
 </code></pre>
@@ -1396,7 +1375,7 @@ export const importUserFactory &#x3D; ImportUserFactory.define(ImportUser, ({ se
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
-            var COMPODOC_CURRENT_PAGE_URL = 'ImportUserFactory.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'CourseGroupFactory.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

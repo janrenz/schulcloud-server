@@ -488,12 +488,12 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Collection, Entity, Index, ManyToMany, ManyToOne, Property } from &#x27;@mikro-orm/core&#x27;;
 
-import { EntityId } from &#x27;../types&#x27;;
-
+import { InternalServerErrorException } from &#x27;@nestjs/common&#x27;;
 import { BaseEntityWithTimestamps } from &#x27;./base.entity&#x27;;
 import type { CourseGroup } from &#x27;./coursegroup.entity&#x27;;
 import type { File } from &#x27;./file.entity&#x27;;
 import type { Task } from &#x27;./task.entity&#x27;;
+import { EntityId } from &#x27;../types&#x27;;
 import type { User } from &#x27;./user.entity&#x27;;
 
 export interface ISubmissionProperties {
@@ -563,16 +563,102 @@ export class Submission extends BaseEntityWithTimestamps {
 		}
 	}
 
-	isGraded(): boolean {
-		const isGraded &#x3D;
-			(typeof this.grade &#x3D;&#x3D;&#x3D; &#x27;number&#x27; &amp;&amp; this.grade &gt;&#x3D; 0) ||
-			(typeof this.gradeComment &#x3D;&#x3D;&#x3D; &#x27;string&#x27; &amp;&amp; this.gradeComment.length &gt; 0) ||
-			(this.gradeFiles !&#x3D;&#x3D; undefined &amp;&amp; this.gradeFiles.length &gt; 0);
+	private getCourseGroupStudentIds(): EntityId[] {
+		let courseGroupMemberIds: EntityId[] &#x3D; [];
+
+		if (this.courseGroup) {
+			courseGroupMemberIds &#x3D; this.courseGroup.getStudentIds();
+		}
+
+		return courseGroupMemberIds;
+	}
+
+	private getTeamMemberIds(): EntityId[] {
+		if (!this.teamMembers) {
+			throw new InternalServerErrorException(
+				&#x27;Submission.teamMembers is undefined. The submission need to be populated.&#x27;
+			);
+		}
+
+		const teamMemberObjectIds &#x3D; this.teamMembers.getIdentifiers(&#x27;_id&#x27;);
+		const teamMemberIds &#x3D; teamMemberObjectIds.map((id): string &#x3D;&gt; id.toString());
+
+		return teamMemberIds;
+	}
+
+	private getGradeFileIds(): EntityId[] {
+		const gradeFilesObjectIds &#x3D; this.gradeFiles.getIdentifiers(&#x27;_id&#x27;);
+		const gradeFilesIds &#x3D; gradeFilesObjectIds.map((id): string &#x3D;&gt; id.toString());
+
+		return gradeFilesIds;
+	}
+
+	private hasGrade(): boolean {
+		const gradeExists &#x3D; typeof this.grade &#x3D;&#x3D;&#x3D; &#x27;number&#x27; &amp;&amp; this.grade &gt;&#x3D; 0;
+
+		return gradeExists;
+	}
+
+	private hasGradeComment(): boolean {
+		const gradeCommentExists &#x3D; typeof this.gradeComment &#x3D;&#x3D;&#x3D; &#x27;string&#x27; &amp;&amp; this.gradeComment.length &gt; 0;
+
+		return gradeCommentExists;
+	}
+
+	private hasGradeFiles(): boolean {
+		const gradedFileIds &#x3D; this.getGradeFileIds();
+		const gradeFilesExists &#x3D; gradedFileIds.length &gt; 0;
+
+		return gradeFilesExists;
+	}
+
+	public isSubmitted(): boolean {
+		// Always submitted for now, but can be changed in future.
+		const isSubmitted &#x3D; true;
+
+		return isSubmitted;
+	}
+
+	public isSubmittedForUser(user: User): boolean {
+		const isMember &#x3D; this.isUserSubmitter(user);
+		const isSubmitted &#x3D; this.isSubmitted();
+		const isSubmittedForUser &#x3D; isMember &amp;&amp; isSubmitted;
+
+		return isSubmittedForUser;
+	}
+
+	// Bad that the logic is needed to expose the userIds, but is used in task for now.
+	// Check later if it can be replaced and remove all related code.
+	public getSubmitterIds(): EntityId[] {
+		const creatorId &#x3D; this.student.id;
+		const teamMemberIds &#x3D; this.getTeamMemberIds();
+		const courseGroupMemberIds &#x3D; this.getCourseGroupStudentIds();
+		const memberIds &#x3D; [creatorId, ...teamMemberIds, ...courseGroupMemberIds];
+
+		const uniqueMemberIds &#x3D; [...new Set(memberIds)];
+
+		return uniqueMemberIds;
+	}
+
+	public isUserSubmitter(user: User): boolean {
+		const memberIds &#x3D; this.getSubmitterIds();
+		const isMember &#x3D; memberIds.some((id) &#x3D;&gt; id &#x3D;&#x3D;&#x3D; user.id);
+
+		return isMember;
+	}
+
+	public isGraded(): boolean {
+		const isGraded &#x3D; this.hasGrade() || this.hasGradeComment() || this.hasGradeFiles();
+
 		return isGraded;
 	}
 
-	getStudentId(): EntityId {
-		return this.student.id;
+	public isGradedForUser(user: User): boolean {
+		const isMember &#x3D; this.isUserSubmitter(user);
+		const isGraded &#x3D; this.isGraded();
+		const isGradedForUser &#x3D; isMember &amp;&amp; isGraded;
+
+		return isGradedForUser;
 	}
 }
 </code></pre>
