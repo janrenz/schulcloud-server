@@ -112,6 +112,9 @@
                                 <a href="#withLti11Config" >withLti11Config</a>
                             </li>
                             <li>
+                                <a href="#withName" >withName</a>
+                            </li>
+                            <li>
                                 <a href="#withOauth2Config" >withOauth2Config</a>
                             </li>
                             <li>
@@ -233,8 +236,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="19"
-                            class="link-to-prism">apps/server/src/shared/testing/factory/external-tool.factory.ts:19</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="26"
+                            class="link-to-prism">apps/server/src/shared/testing/factory/external-tool.factory.ts:26</a></div>
                 </td>
             </tr>
 
@@ -261,12 +264,74 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="41"
-                            class="link-to-prism">apps/server/src/shared/testing/factory/external-tool.factory.ts:41</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="48"
+                            class="link-to-prism">apps/server/src/shared/testing/factory/external-tool.factory.ts:48</a></div>
                 </td>
             </tr>
 
 
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="withName"></a>
+                    <span class="name">
+                        <span ><b>withName</b></span>
+                        <a href="#withName"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>withName(name: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="19"
+                            class="link-to-prism">apps/server/src/shared/testing/factory/external-tool.factory.ts:19</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>name</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                </td>
+            </tr>
         </tbody>
     </table>
     <table class="table table-sm table-bordered">
@@ -289,8 +354,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="29"
-                            class="link-to-prism">apps/server/src/shared/testing/factory/external-tool.factory.ts:29</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="36"
+                            class="link-to-prism">apps/server/src/shared/testing/factory/external-tool.factory.ts:36</a></div>
                 </td>
             </tr>
 
@@ -1396,6 +1461,13 @@ import {
 import { BaseFactory } from &#x27;./base.factory&#x27;;
 
 export class ExternalToolFactory extends BaseFactory&lt;ExternalTool, IExternalToolProperties&gt; {
+	withName(name: string): this {
+		const params: DeepPartial&lt;IExternalToolProperties&gt; &#x3D; {
+			name,
+		};
+		return this.params(params);
+	}
+
 	withBasicConfig(): this {
 		const params: DeepPartial&lt;IExternalToolProperties&gt; &#x3D; {
 			config: new BasicToolConfig({

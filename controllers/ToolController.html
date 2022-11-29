@@ -89,6 +89,10 @@
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
+                                <a href="#findExternalTool" >findExternalTool</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
                                 <a href="#getLti11LaunchParameters" >getLti11LaunchParameters</a>
                             </li>
                         </ul>
@@ -137,8 +141,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="56"
-                            class="link-to-prism">apps/server/src/modules/tool/controller/tool.controller.ts:56</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="62"
+                            class="link-to-prism">apps/server/src/modules/tool/controller/tool.controller.ts:62</a></div>
                 </td>
             </tr>
 
@@ -202,6 +206,120 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="findExternalTool"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>findExternalTool</b></span>
+                        <a href="#findExternalTool"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findExternalTool(currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>, filterQuery: <a href="../classes/ExternalToolSearchParams.html" target="_self">ExternalToolSearchParams</a>, pagination: <a href="../classes/PaginationParams.html" target="_self">PaginationParams</a>, sortingQuery: <a href="../classes/SortExternalToolParams.html" target="_self">SortExternalToolParams</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Get()<br />@ApiFoundResponse({description: &#x27;Tools has been found.&#x27;, type: ExternalToolSearchListResponse})<br />@ApiUnauthorizedResponse()<br />@ApiForbiddenResponse()<br /></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="76"
+                            class="link-to-prism">apps/server/src/modules/tool/controller/tool.controller.ts:76</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>currentUser</td>
+                                    <td>
+                                                <code><a href="../interfaces/ICurrentUser.html" target="_self" >ICurrentUser</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>filterQuery</td>
+                                    <td>
+                                                <code><a href="../classes/ExternalToolSearchParams.html" target="_self" >ExternalToolSearchParams</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>pagination</td>
+                                    <td>
+                                                <code><a href="../classes/PaginationParams.html" target="_self" >PaginationParams</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>sortingQuery</td>
+                                    <td>
+                                                <code><a href="../classes/SortExternalToolParams.html" target="_self" >SortExternalToolParams</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/ExternalToolSearchListResponse.html" target="_self" >Promise&lt;ExternalToolSearchListResponse&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="getLti11LaunchParameters"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
@@ -227,8 +345,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="37"
-                            class="link-to-prism">apps/server/src/modules/tool/controller/tool.controller.ts:37</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="43"
+                            class="link-to-prism">apps/server/src/modules/tool/controller/tool.controller.ts:43</a></div>
                 </td>
             </tr>
 
@@ -305,16 +423,19 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Body, Controller, Get, Param, Post, Query } from &#x27;@nestjs/common&#x27;;
-import { ICurrentUser } from &#x27;@shared/domain&#x27;;
+import { ICurrentUser, IFindOptions } from &#x27;@shared/domain&#x27;;
 import { Authorization } from &#x27;oauth-1.0a&#x27;;
-import { ExternalToolDO } from &#x27;@shared/domain/domainobject/external-tool/external-tool.do&#x27;;
 import {
 	ApiCreatedResponse,
 	ApiForbiddenResponse,
+	ApiFoundResponse,
 	ApiTags,
 	ApiUnauthorizedResponse,
 	ApiUnprocessableEntityResponse,
 } from &#x27;@nestjs/swagger&#x27;;
+import { PaginationParams } from &#x27;@shared/controller&#x27;;
+import { Page } from &#x27;@shared/domain/interface/page&#x27;;
+import { ExternalToolDO } from &#x27;@shared/domain/domainobject/external-tool&#x27;;
 import { Lti11LaunchQuery } from &#x27;./dto/lti11-launch.query&#x27;;
 import { Lti11LaunchResponse } from &#x27;./dto/lti11-launch.response&#x27;;
 import { Lti11ResponseMapper } from &#x27;../mapper/lti11-response.mapper&#x27;;
@@ -326,6 +447,9 @@ import { ExternalToolResponseMapper } from &#x27;../mapper/external-tool-respons
 import { ExternalToolResponse } from &#x27;./dto/response/external-tool.response&#x27;;
 import { ExternalToolParams } from &#x27;./dto/request/external-tool-create.params&#x27;;
 import { ExternalToolUc } from &#x27;../uc/external-tool.uc&#x27;;
+import { ExternalToolSearchListResponse } from &#x27;./dto/response/external-tool-search-list.response&#x27;;
+import { ExternalToolSearchParams } from &#x27;./dto/request/external-tool-search.params&#x27;;
+import { SortExternalToolParams } from &#x27;./dto/request/external-tool-sort.params&#x27;;
 
 @ApiTags(&#x27;Tool&#x27;)
 @Authenticate(&#x27;jwt&#x27;)
@@ -364,9 +488,37 @@ export class ToolController {
 		@CurrentUser() currentUser: ICurrentUser
 	): Promise&lt;ExternalToolResponse&gt; {
 		const externalToolDO: ExternalToolDO &#x3D; this.externalToolDOMapper.mapRequestToExternalToolDO(externalToolParams);
-		const created: ExternalToolDO &#x3D; await this.externalToolUc.createExternalTool(externalToolDO, currentUser);
+		const created: ExternalToolDO &#x3D; await this.externalToolUc.createExternalTool(externalToolDO, currentUser.userId);
 		const mapped: ExternalToolResponse &#x3D; this.externalResponseMapper.mapToResponse(created);
 		return mapped;
+	}
+
+	@Get()
+	@ApiFoundResponse({ description: &#x27;Tools has been found.&#x27;, type: ExternalToolSearchListResponse })
+	@ApiUnauthorizedResponse()
+	@ApiForbiddenResponse()
+	async findExternalTool(
+		@CurrentUser() currentUser: ICurrentUser,
+		@Query() filterQuery: ExternalToolSearchParams,
+		@Query() pagination: PaginationParams,
+		@Query() sortingQuery: SortExternalToolParams
+	): Promise&lt;ExternalToolSearchListResponse&gt; {
+		const options: IFindOptions&lt;ExternalToolDO&gt; &#x3D; { pagination };
+		options.order &#x3D; this.externalToolDOMapper.mapSortingQueryToDomain(sortingQuery);
+		const query: Partial&lt;ExternalToolDO&gt; &#x3D; this.externalToolDOMapper.mapExternalToolFilterQueryToDO(filterQuery);
+
+		const tools: Page&lt;ExternalToolDO&gt; &#x3D; await this.externalToolUc.findExternalTool(currentUser.userId, query, options);
+
+		const dtoList: ExternalToolResponse[] &#x3D; tools.data.map(
+			(tool: ExternalToolDO): ExternalToolResponse &#x3D;&gt; this.externalResponseMapper.mapToResponse(tool)
+		);
+		const response: ExternalToolSearchListResponse &#x3D; new ExternalToolSearchListResponse(
+			dtoList,
+			tools.total,
+			pagination.skip,
+			pagination.limit
+		);
+		return response;
 	}
 }
 </code></pre>

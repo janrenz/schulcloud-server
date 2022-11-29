@@ -89,6 +89,10 @@
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
+                                <a href="#find" >find</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
                                 <a href="#findAllByConfigType" >findAllByConfigType</a>
                             </li>
                             <li>
@@ -174,12 +178,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(externalToolRepoMapper: <a href="../injectables/ExternalToolRepoMapper.html" target="_self">ExternalToolRepoMapper</a>, _em: EntityManager, logger: <a href="../injectables/Logger.html" target="_self">Logger</a>)</code>
+<code>constructor(externalToolRepoMapper: <a href="../injectables/ExternalToolRepoMapper.html" target="_self">ExternalToolRepoMapper</a>, _em: EntityManager, logger: <a href="../injectables/Logger.html" target="_self">Logger</a>, sortingMapper: <a href="../injectables/ExternalToolSortingMapper.html" target="_self">ExternalToolSortingMapper</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">apps/server/src/shared/repo/externaltool/external-tool.repo.ts:11</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">apps/server/src/shared/repo/externaltool/external-tool.repo.ts:22</a></div>
                             </td>
                         </tr>
 
@@ -232,6 +236,18 @@
                                                     </td>
                                                     
                                                 </tr>
+                                                <tr>
+                                                        <td>sortingMapper</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ExternalToolSortingMapper.html" target="_self" >ExternalToolSortingMapper</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
                                         </tbody>
                                     </table>
                             </div>
@@ -272,7 +288,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/BaseDORepo.html#source" target="_self" >BaseDORepo:24</a></code>
+                        <div class="io-line">Defined in         <code><a href="../injectables/BaseDORepo.html#source" target="_self" >BaseDORepo:36</a></code>
 </div>
                 </td>
             </tr>
@@ -325,6 +341,89 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="find"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>find</b></span>
+                        <a href="#find"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>find(query: <a href="../entitys/ExternalTool.html" target="_self">Partial&lt;ExternalTool&gt;</a>, options?: <a href="../classes/ExternalToolDO.html" target="_self">IFindOptions&lt;ExternalToolDO&gt;</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="75"
+                            class="link-to-prism">apps/server/src/shared/repo/externaltool/external-tool.repo.ts:75</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>query</td>
+                                    <td>
+                                                <code><a href="../entitys/ExternalTool.html" target="_self" >Partial&lt;ExternalTool&gt;</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>options</td>
+                                    <td>
+                                                <code><a href="../classes/ExternalToolDO.html" target="_self" >IFindOptions&lt;ExternalToolDO&gt;</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../entitys/ExternalTool.html" target="_self" >Promise&lt;Page&lt;ExternalToolDO&gt;&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="findAllByConfigType"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
@@ -343,8 +442,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="37"
-                            class="link-to-prism">apps/server/src/shared/repo/externaltool/external-tool.repo.ts:37</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="49"
+                            class="link-to-prism">apps/server/src/shared/repo/externaltool/external-tool.repo.ts:49</a></div>
                 </td>
             </tr>
 
@@ -414,8 +513,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="28"
-                            class="link-to-prism">apps/server/src/shared/repo/externaltool/external-tool.repo.ts:28</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="40"
+                            class="link-to-prism">apps/server/src/shared/repo/externaltool/external-tool.repo.ts:40</a></div>
                 </td>
             </tr>
 
@@ -485,8 +584,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="46"
-                            class="link-to-prism">apps/server/src/shared/repo/externaltool/external-tool.repo.ts:46</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="58"
+                            class="link-to-prism">apps/server/src/shared/repo/externaltool/external-tool.repo.ts:58</a></div>
                 </td>
             </tr>
 
@@ -560,7 +659,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/BaseDORepo.html#source" target="_self" >BaseDORepo:59</a></code>
+                        <div class="io-line">Defined in         <code><a href="../injectables/BaseDORepo.html#source" target="_self" >BaseDORepo:71</a></code>
 </div>
                 </td>
             </tr>
@@ -635,7 +734,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/BaseDORepo.html#source" target="_self" >BaseDORepo:55</a></code>
+                        <div class="io-line">Defined in         <code><a href="../injectables/BaseDORepo.html#source" target="_self" >BaseDORepo:67</a></code>
 </div>
                 </td>
             </tr>
@@ -1402,7 +1501,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">apps/server/src/shared/repo/externaltool/external-tool.repo.ts:20</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">apps/server/src/shared/repo/externaltool/external-tool.repo.ts:32</a></div>
                                 </td>
                             </tr>
 
@@ -1413,21 +1512,33 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ExternalTool, ToolConfigType, IExternalToolProperties } from &#x27;@shared/domain&#x27;;
-import { BaseDORepo, EntityProperties } from &#x27;@shared/repo&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
+	ExternalTool,
+	IExternalToolProperties,
+	IFindOptions,
+	IPagination,
+	SortOrder,
+	ToolConfigType,
+} from &#x27;@shared/domain&#x27;;
+import { BaseDORepo, EntityProperties, Scope } from &#x27;@shared/repo&#x27;;
 import { Injectable } from &#x27;@nestjs/common/decorators/core/injectable.decorator&#x27;;
 import { EntityName } from &#x27;@mikro-orm/core&#x27;;
 import { ExternalToolDO } from &#x27;@shared/domain/domainobject/external-tool&#x27;;
-import { ExternalToolRepoMapper } from &#x27;@shared/repo/externaltool/external-tool.repo.mapper&#x27;;
 import { EntityManager } from &#x27;@mikro-orm/mongodb&#x27;;
 import { Logger } from &#x27;@src/core/logger&#x27;;
+import { QueryOrderMap } from &#x27;@mikro-orm/core/enums&#x27;;
+import { Page } from &#x27;@shared/domain/interface/page&#x27;;
+import { ExternalToolSortingMapper } from &#x27;./external-tool-sorting.mapper&#x27;;
+import { ExternalToolRepoMapper } from &#x27;./external-tool.repo.mapper&#x27;;
+import { ExternalToolScope } from &#x27;./external-tool.scope&#x27;;
 
 @Injectable()
 export class ExternalToolRepo extends BaseDORepo&lt;ExternalToolDO, ExternalTool, IExternalToolProperties&gt; {
 	constructor(
 		private readonly externalToolRepoMapper: ExternalToolRepoMapper,
 		protected readonly _em: EntityManager,
-		protected readonly logger: Logger
+		protected readonly logger: Logger,
+		protected readonly sortingMapper: ExternalToolSortingMapper
 	) {
 		super(_em, logger);
 	}
@@ -1473,6 +1584,29 @@ export class ExternalToolRepo extends BaseDORepo&lt;ExternalToolDO, ExternalTool
 
 	mapDOToEntityProperties(entityDO: ExternalToolDO): EntityProperties&lt;IExternalToolProperties&gt; {
 		return this.externalToolRepoMapper.mapDOToEntityProperties(entityDO);
+	}
+
+	async find(query: Partial&lt;ExternalTool&gt;, options?: IFindOptions&lt;ExternalToolDO&gt;): Promise&lt;Page&lt;ExternalToolDO&gt;&gt; {
+		const pagination: IPagination &#x3D; options?.pagination || {};
+		const order: QueryOrderMap&lt;ExternalTool&gt; &#x3D; this.sortingMapper.mapDOSortOrderToQueryOrder(options?.order || {});
+		const scope: Scope&lt;ExternalTool&gt; &#x3D; new ExternalToolScope()
+			.byName(query.name)
+			.byHidden(query.isHidden)
+			.allowEmptyQuery(true);
+
+		if (order._id &#x3D;&#x3D; null) {
+			order._id &#x3D; SortOrder.asc;
+		}
+
+		const [entities, total]: [ExternalTool[], number] &#x3D; await this._em.findAndCount(ExternalTool, scope.query, {
+			offset: pagination?.skip,
+			limit: pagination?.limit,
+			orderBy: order,
+		});
+
+		const entityDos: ExternalToolDO[] &#x3D; entities.map((entity) &#x3D;&gt; this.mapEntityToDO(entity));
+		const page: Page&lt;ExternalToolDO&gt; &#x3D; new Page&lt;ExternalToolDO&gt;(entityDos, total);
+		return page;
 	}
 }
 </code></pre>
