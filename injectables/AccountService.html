@@ -1271,9 +1271,9 @@ import { Injectable } from &#x27;@nestjs/common&#x27;;
 import { EntityNotFoundError } from &#x27;@shared/common&#x27;;
 import bcrypt from &#x27;bcryptjs&#x27;;
 import { Account, EntityId } from &#x27;@shared/domain&#x27;;
-import { AccountRepo } from &#x27;@shared/repo&#x27;;
 import { AccountEntityToDtoMapper } from &#x27;../mapper&#x27;;
 import { AccountDto, AccountSaveDto } from &#x27;./dto&#x27;;
+import { AccountRepo } from &#x27;../repo/account.repo&#x27;;
 
 @Injectable()
 export class AccountService {
