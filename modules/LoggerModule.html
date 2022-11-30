@@ -187,7 +187,7 @@ const availableLevels &#x3D; {
 						new winston.transports.Console({
 							level: configService.get&lt;string&gt;(&#x27;NEST_LOG_LEVEL&#x27;),
 							format: winston.format.combine(
-								winston.format.timestamp(),
+								winston.format.timestamp({ format: &#x27;YYYY-MM-DD HH:mm:ss.SSS&#x27; }),
 								winston.format.ms(),
 								utilities.format.nestLike()
 							),
