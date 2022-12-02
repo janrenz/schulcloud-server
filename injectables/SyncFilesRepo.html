@@ -117,7 +117,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="100" class="link-to-prism">apps/server/src/modules/files/repo/sync-files.repo.ts:100</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="99" class="link-to-prism">apps/server/src/modules/files/repo/sync-files.repo.ts:99</a></div>
                             </td>
                         </tr>
 
@@ -182,8 +182,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="103"
-                            class="link-to-prism">apps/server/src/modules/files/repo/sync-files.repo.ts:103</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="102"
+                            class="link-to-prism">apps/server/src/modules/files/repo/sync-files.repo.ts:102</a></div>
                 </td>
             </tr>
 
@@ -265,8 +265,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="123"
-                            class="link-to-prism">apps/server/src/modules/files/repo/sync-files.repo.ts:123</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="122"
+                            class="link-to-prism">apps/server/src/modules/files/repo/sync-files.repo.ts:122</a></div>
                 </td>
             </tr>
 
@@ -336,8 +336,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="116"
-                            class="link-to-prism">apps/server/src/modules/files/repo/sync-files.repo.ts:116</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="115"
+                            class="link-to-prism">apps/server/src/modules/files/repo/sync-files.repo.ts:115</a></div>
                 </td>
             </tr>
 
@@ -431,8 +431,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="127"
-                            class="link-to-prism">apps/server/src/modules/files/repo/sync-files.repo.ts:127</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="126"
+                            class="link-to-prism">apps/server/src/modules/files/repo/sync-files.repo.ts:126</a></div>
                 </td>
             </tr>
 
@@ -498,6 +498,11 @@ import { SyncFileItem, SyncFileItemData } from &#x27;../types&#x27;;
 const query &#x3D; (aggregationSize: number) &#x3D;&gt; [
 	{
 		$match: { fileIds: { $exists: true, $ne: [] } },
+	},
+	{
+		$sort: {
+			_id: 1,
+		},
 	},
 	{
 		$lookup: {
@@ -569,12 +574,6 @@ const query &#x3D; (aggregationSize: number) &#x3D;&gt; [
 			schoolId: &#x27;$schoolId&#x27;,
 			file: &#x27;$files&#x27;,
 			filerecord: &#x27;$filerecord&#x27;,
-		},
-	},
-	{
-		$sort: {
-			&#x27;file.updatedAt&#x27;: 1,
-			&#x27;file._id&#x27;: 1,
 		},
 	},
 	{

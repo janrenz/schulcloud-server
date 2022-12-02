@@ -4361,6 +4361,11 @@ You shall not explicitly declare the AMQPConnection in your modules since it wil
 		$match: { fileIds: { $exists: true, $ne: [] } },
 	},
 	{
+		$sort: {
+			_id: 1,
+		},
+	},
+	{
 		$lookup: {
 			from: &#x27;files&#x27;,
 			localField: &#x27;fileIds&#x27;,
@@ -4430,12 +4435,6 @@ You shall not explicitly declare the AMQPConnection in your modules since it wil
 			schoolId: &#x27;$schoolId&#x27;,
 			file: &#x27;$files&#x27;,
 			filerecord: &#x27;$filerecord&#x27;,
-		},
-	},
-	{
-		$sort: {
-			&#x27;file.updatedAt&#x27;: 1,
-			&#x27;file._id&#x27;: 1,
 		},
 	},
 	{
