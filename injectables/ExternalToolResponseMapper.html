@@ -58,7 +58,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/modules/tool/mapper/external-tool-response.mapper.ts</code>
+            <code>apps/server/src/modules/tool/controller/mapper/external-tool-response.mapper.ts</code>
         </p>
 
 
@@ -137,8 +137,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="68"
-                            class="link-to-prism">apps/server/src/modules/tool/mapper/external-tool-response.mapper.ts:68</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="69"
+                            class="link-to-prism">apps/server/src/modules/tool/controller/mapper/external-tool-response.mapper.ts:69</a></div>
                 </td>
             </tr>
 
@@ -208,8 +208,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="80"
-                            class="link-to-prism">apps/server/src/modules/tool/mapper/external-tool-response.mapper.ts:80</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="81"
+                            class="link-to-prism">apps/server/src/modules/tool/controller/mapper/external-tool-response.mapper.ts:81</a></div>
                 </td>
             </tr>
 
@@ -279,8 +279,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="72"
-                            class="link-to-prism">apps/server/src/modules/tool/mapper/external-tool-response.mapper.ts:72</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="73"
+                            class="link-to-prism">apps/server/src/modules/tool/controller/mapper/external-tool-response.mapper.ts:73</a></div>
                 </td>
             </tr>
 
@@ -350,8 +350,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="76"
-                            class="link-to-prism">apps/server/src/modules/tool/mapper/external-tool-response.mapper.ts:76</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="77"
+                            class="link-to-prism">apps/server/src/modules/tool/controller/mapper/external-tool-response.mapper.ts:77</a></div>
                 </td>
             </tr>
 
@@ -419,8 +419,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="41"
-                            class="link-to-prism">apps/server/src/modules/tool/mapper/external-tool-response.mapper.ts:41</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="42"
+                            class="link-to-prism">apps/server/src/modules/tool/controller/mapper/external-tool-response.mapper.ts:42</a></div>
                 </td>
             </tr>
 
@@ -483,16 +483,17 @@ import {
 	Oauth2ToolConfigDO,
 } from &#x27;@shared/domain/domainobject/external-tool&#x27;;
 import { CustomParameterLocation, CustomParameterScope, CustomParameterType } from &#x27;@shared/domain&#x27;;
-import { Lti11ToolConfigResponse } from &#x27;../controller/dto/response/lti11-tool-config.response&#x27;;
-import { ExternalToolResponse } from &#x27;../controller/dto/response/external-tool.response&#x27;;
-import { BasicToolConfigResponse } from &#x27;../controller/dto/response/basic-tool-config.response&#x27;;
-import { CustomParameterResponse } from &#x27;../controller/dto/response/custom-parameter.response&#x27;;
-import { Oauth2ToolConfigResponse } from &#x27;../controller/dto/response/oauth2-tool-config.response&#x27;;
-import { CustomParameterScopeParams } from &#x27;../interface/custom-parameter-scope.enum&#x27;;
-import { CustomParameterLocationParams } from &#x27;../interface/custom-parameter-location.enum&#x27;;
-import { CustomParameterTypeParams } from &#x27;../interface/custom-parameter-type.enum&#x27;;
+import { Lti11ToolConfigResponse } from &#x27;../dto/response/lti11-tool-config.response&#x27;;
+import { ExternalToolResponse } from &#x27;../dto/response/external-tool.response&#x27;;
+import { BasicToolConfigResponse } from &#x27;../dto/response/basic-tool-config.response&#x27;;
+import { CustomParameterResponse } from &#x27;../dto/response/custom-parameter.response&#x27;;
+import { Oauth2ToolConfigResponse } from &#x27;../dto/response/oauth2-tool-config.response&#x27;;
+import { CustomParameterScopeParams } from &#x27;../../interface/custom-parameter-scope.enum&#x27;;
+import { CustomParameterLocationParams } from &#x27;../../interface/custom-parameter-location.enum&#x27;;
+import { CustomParameterTypeParams } from &#x27;../../interface/custom-parameter-type.enum&#x27;;
 
 const scopeMapping: Record&lt;CustomParameterScope, CustomParameterScopeParams&gt; &#x3D; {
+	[CustomParameterScope.GLOBAL]: CustomParameterScopeParams.GLOBAL,
 	[CustomParameterScope.COURSE]: CustomParameterScopeParams.COURSE,
 	[CustomParameterScope.SCHOOL]: CustomParameterScopeParams.SCHOOL,
 };

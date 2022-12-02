@@ -93,6 +93,10 @@
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
+                                <a href="#getExternalTool" >getExternalTool</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
                                 <a href="#getLti11LaunchParameters" >getLti11LaunchParameters</a>
                             </li>
                         </ul>
@@ -127,7 +131,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>createExternalTool(externalToolParams: <a href="../classes/ExternalToolParams.html" target="_self">ExternalToolParams</a>, currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>)</code>
+                    <code>createExternalTool(currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>, externalToolParams: <a href="../classes/ExternalToolParams.html" target="_self">ExternalToolParams</a>)</code>
                 </td>
             </tr>
 
@@ -163,9 +167,9 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>externalToolParams</td>
+                                    <td>currentUser</td>
                                     <td>
-                                                <code><a href="../classes/ExternalToolParams.html" target="_self" >ExternalToolParams</a></code>
+                                                <code><a href="../interfaces/ICurrentUser.html" target="_self" >ICurrentUser</a></code>
                                     </td>
 
                                     <td>
@@ -175,9 +179,9 @@
 
                                 </tr>
                                 <tr>
-                                    <td>currentUser</td>
+                                    <td>externalToolParams</td>
                                     <td>
-                                                <code><a href="../interfaces/ICurrentUser.html" target="_self" >ICurrentUser</a></code>
+                                                <code><a href="../classes/ExternalToolParams.html" target="_self" >ExternalToolParams</a></code>
                                     </td>
 
                                     <td>
@@ -320,6 +324,96 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="getExternalTool"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>getExternalTool</b></span>
+                        <a href="#getExternalTool"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getExternalTool(currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>, params: <a href="../classes/ToolIdParams.html" target="_self">ToolIdParams</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Get(&#x27;:toolId&#x27;)<br /></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="101"
+                            class="link-to-prism">apps/server/src/modules/tool/controller/tool.controller.ts:101</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>currentUser</td>
+                                    <td>
+                                                <code><a href="../interfaces/ICurrentUser.html" target="_self" >ICurrentUser</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>params</td>
+                                    <td>
+                                                <code><a href="../classes/ToolIdParams.html" target="_self" >ToolIdParams</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/ExternalToolResponse.html" target="_self" >Promise&lt;ExternalToolResponse&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="getLti11LaunchParameters"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
@@ -331,7 +425,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>getLti11LaunchParameters(currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>, params: <a href="../classes/Lti11LaunchParams.html" target="_self">Lti11LaunchParams</a>, query: <a href="../classes/Lti11LaunchQuery.html" target="_self">Lti11LaunchQuery</a>)</code>
+                    <code>getLti11LaunchParameters(currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>, params: <a href="../classes/ToolIdParams.html" target="_self">ToolIdParams</a>, query: <a href="../classes/Lti11LaunchQuery.html" target="_self">Lti11LaunchQuery</a>)</code>
                 </td>
             </tr>
 
@@ -381,7 +475,7 @@
                                 <tr>
                                     <td>params</td>
                                     <td>
-                                                <code><a href="../classes/Lti11LaunchParams.html" target="_self" >Lti11LaunchParams</a></code>
+                                                <code><a href="../classes/ToolIdParams.html" target="_self" >ToolIdParams</a></code>
                                     </td>
 
                                     <td>
@@ -436,17 +530,17 @@ import {
 import { PaginationParams } from &#x27;@shared/controller&#x27;;
 import { Page } from &#x27;@shared/domain/interface/page&#x27;;
 import { ExternalToolDO } from &#x27;@shared/domain/domainobject/external-tool&#x27;;
-import { Lti11LaunchQuery } from &#x27;./dto/lti11-launch.query&#x27;;
-import { Lti11LaunchResponse } from &#x27;./dto/lti11-launch.response&#x27;;
-import { Lti11ResponseMapper } from &#x27;../mapper/lti11-response.mapper&#x27;;
-import { Lti11LaunchParams } from &#x27;./dto/lti11-launch.params&#x27;;
+import { Lti11LaunchQuery } from &#x27;./dto/request/lti11-launch.query&#x27;;
+import { Lti11LaunchResponse } from &#x27;./dto/response/lti11-launch.response&#x27;;
+import { Lti11ResponseMapper } from &#x27;./mapper/lti11-response.mapper&#x27;;
 import { Lti11Uc } from &#x27;../uc/lti11.uc&#x27;;
 import { Authenticate, CurrentUser } from &#x27;../../authentication/decorator/auth.decorator&#x27;;
-import { ExternalToolRequestMapper } from &#x27;../mapper/external-tool-request.mapper&#x27;;
-import { ExternalToolResponseMapper } from &#x27;../mapper/external-tool-response.mapper&#x27;;
+import { ExternalToolRequestMapper } from &#x27;./mapper/external-tool-request.mapper&#x27;;
+import { ExternalToolResponseMapper } from &#x27;./mapper/external-tool-response.mapper&#x27;;
 import { ExternalToolResponse } from &#x27;./dto/response/external-tool.response&#x27;;
 import { ExternalToolParams } from &#x27;./dto/request/external-tool-create.params&#x27;;
 import { ExternalToolUc } from &#x27;../uc/external-tool.uc&#x27;;
+import { ToolIdParams } from &#x27;./dto/request/tool-id.params&#x27;;
 import { ExternalToolSearchListResponse } from &#x27;./dto/response/external-tool-search-list.response&#x27;;
 import { ExternalToolSearchParams } from &#x27;./dto/request/external-tool-search.params&#x27;;
 import { SortExternalToolParams } from &#x27;./dto/request/external-tool-sort.params&#x27;;
@@ -458,7 +552,7 @@ export class ToolController {
 	constructor(
 		private readonly lti11Uc: Lti11Uc,
 		private readonly lti11ResponseMapper: Lti11ResponseMapper,
-		private externalToolUc: ExternalToolUc,
+		private readonly externalToolUc: ExternalToolUc,
 		private readonly externalToolDOMapper: ExternalToolRequestMapper,
 		private readonly externalResponseMapper: ExternalToolResponseMapper
 	) {}
@@ -466,7 +560,7 @@ export class ToolController {
 	@Get(&#x27;lti11/:toolId/launch&#x27;)
 	async getLti11LaunchParameters(
 		@CurrentUser() currentUser: ICurrentUser,
-		@Param() params: Lti11LaunchParams,
+		@Param() params: ToolIdParams,
 		@Query() query: Lti11LaunchQuery
 	): Promise&lt;Lti11LaunchResponse&gt; {
 		const authorization: Authorization &#x3D; await this.lti11Uc.getLaunchParameters(
@@ -484,11 +578,11 @@ export class ToolController {
 	@ApiUnprocessableEntityResponse()
 	@ApiUnauthorizedResponse()
 	async createExternalTool(
-		@Body() externalToolParams: ExternalToolParams,
-		@CurrentUser() currentUser: ICurrentUser
+		@CurrentUser() currentUser: ICurrentUser,
+		@Body() externalToolParams: ExternalToolParams
 	): Promise&lt;ExternalToolResponse&gt; {
 		const externalToolDO: ExternalToolDO &#x3D; this.externalToolDOMapper.mapRequestToExternalToolDO(externalToolParams);
-		const created: ExternalToolDO &#x3D; await this.externalToolUc.createExternalTool(externalToolDO, currentUser.userId);
+		const created: ExternalToolDO &#x3D; await this.externalToolUc.createExternalTool(currentUser.userId, externalToolDO);
 		const mapped: ExternalToolResponse &#x3D; this.externalResponseMapper.mapToResponse(created);
 		return mapped;
 	}
@@ -519,6 +613,16 @@ export class ToolController {
 			pagination.limit
 		);
 		return response;
+	}
+
+	@Get(&#x27;:toolId&#x27;)
+	async getExternalTool(
+		@CurrentUser() currentUser: ICurrentUser,
+		@Param() params: ToolIdParams
+	): Promise&lt;ExternalToolResponse&gt; {
+		const externalToolDO: ExternalToolDO &#x3D; await this.externalToolUc.getExternalTool(currentUser.userId, params.toolId);
+		const mapped: ExternalToolResponse &#x3D; this.externalResponseMapper.mapToResponse(externalToolDO);
+		return mapped;
 	}
 }
 </code></pre>

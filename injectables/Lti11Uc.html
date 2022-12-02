@@ -219,8 +219,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="59"
-                            class="link-to-prism">apps/server/src/modules/tool/uc/lti11.uc.ts:59</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="71"
+                            class="link-to-prism">apps/server/src/modules/tool/uc/lti11.uc.ts:71</a></div>
                 </td>
             </tr>
 
@@ -314,8 +314,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="51"
-                            class="link-to-prism">apps/server/src/modules/tool/uc/lti11.uc.ts:51</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="63"
+                            class="link-to-prism">apps/server/src/modules/tool/uc/lti11.uc.ts:63</a></div>
                 </td>
             </tr>
 
@@ -386,8 +386,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="22"
-                            class="link-to-prism">apps/server/src/modules/tool/uc/lti11.uc.ts:22</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="34"
+                            class="link-to-prism">apps/server/src/modules/tool/uc/lti11.uc.ts:34</a></div>
                 </td>
             </tr>
 
@@ -493,8 +493,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="72"
-                            class="link-to-prism">apps/server/src/modules/tool/uc/lti11.uc.ts:72</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="22"
+                            class="link-to-prism">apps/server/src/modules/tool/uc/lti11.uc.ts:22</a></div>
                 </td>
             </tr>
 
@@ -582,7 +582,7 @@ import OAuth, { Authorization, RequestOptions } from &#x27;oauth-1.0a&#x27;;
 import { Lti11Service } from &#x27;../service/lti11.service&#x27;;
 import { Lti11PayloadDto } from &#x27;./dto/lti11-payload.dto&#x27;;
 import { LtiRole } from &#x27;../interface/lti-role.enum&#x27;;
-import { LtiRoleMapper } from &#x27;../mapper/lti-role.mapper&#x27;;
+import { LtiRoleMapper } from &#x27;./mapper/lti-role.mapper&#x27;;
 
 @Injectable()
 export class Lti11Uc {
@@ -592,6 +592,18 @@ export class Lti11Uc {
 		private readonly ltiToolRepo: LtiToolRepo,
 		private readonly userService: UserService
 	) {}
+
+	async getLaunchParameters(currentUser: ICurrentUser, toolId: string, courseId: string): Promise&lt;Authorization&gt; {
+		const tool: LtiToolDO &#x3D; await this.ltiToolRepo.findById(toolId);
+
+		const payload &#x3D; await this.createPayload(currentUser, tool, courseId, toolId);
+		const customFields &#x3D; this.createCustomFields(tool);
+		const requestData &#x3D; this.buildRequestOptions(tool, payload, customFields);
+
+		const consumer: OAuth &#x3D; this.lti11Service.createConsumer(tool.key, tool.secret);
+		const authorization: Authorization &#x3D; consumer.authorize(requestData);
+		return authorization;
+	}
 
 	private async createPayload(
 		currentUser: ICurrentUser,
@@ -641,16 +653,6 @@ export class Lti11Uc {
 			data: { ...payload, ...customFields },
 		};
 		return requestData;
-	}
-
-	async getLaunchParameters(currentUser: ICurrentUser, toolId: string, courseId: string): Promise&lt;Authorization&gt; {
-		const tool: LtiToolDO &#x3D; await this.ltiToolRepo.findById(toolId);
-		const payload &#x3D; await this.createPayload(currentUser, tool, courseId, toolId);
-		const customFields &#x3D; this.createCustomFields(tool);
-		const requestData &#x3D; this.buildRequestOptions(tool, payload, customFields);
-		const consumer: OAuth &#x3D; this.lti11Service.createConsumer(tool.key, tool.secret);
-		const authorization: Authorization &#x3D; consumer.authorize(requestData);
-		return authorization;
 	}
 }
 </code></pre>

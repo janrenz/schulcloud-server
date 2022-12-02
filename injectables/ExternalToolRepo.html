@@ -359,8 +359,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="75"
-                            class="link-to-prism">apps/server/src/shared/repo/externaltool/external-tool.repo.ts:75</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="67"
+                            class="link-to-prism">apps/server/src/shared/repo/externaltool/external-tool.repo.ts:67</a></div>
                 </td>
             </tr>
 
@@ -659,7 +659,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/BaseDORepo.html#source" target="_self" >BaseDORepo:71</a></code>
+                        <div class="io-line">Defined in         <code><a href="../injectables/BaseDORepo.html#source" target="_self" >BaseDORepo:94</a></code>
 </div>
                 </td>
             </tr>
@@ -734,7 +734,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/BaseDORepo.html#source" target="_self" >BaseDORepo:67</a></code>
+                        <div class="io-line">Defined in         <code><a href="../injectables/BaseDORepo.html#source" target="_self" >BaseDORepo:90</a></code>
 </div>
                 </td>
             </tr>
@@ -952,7 +952,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>deleteById(id: string | string[])</code>
+                    <code>deleteById(id: <a href="../undefineds/EntityId.html" target="_self">EntityId | EntityId[]</a>)</code>
                 </td>
             </tr>
 
@@ -989,7 +989,7 @@
                                 <tr>
                                     <td>id</td>
                                     <td>
-                                            <code>string | string[]</code>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId | EntityId[]</a></code>
                                     </td>
 
                                     <td>
@@ -1029,7 +1029,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>deleteEntityById(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    <code>deleteEntityById(id: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>)</code>
                 </td>
             </tr>
 
@@ -1066,7 +1066,7 @@
                                 <tr>
                                     <td>id</td>
                                     <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
                                     </td>
 
                                     <td>
@@ -1578,14 +1578,6 @@ export class ExternalToolRepo extends BaseDORepo&lt;ExternalToolDO, ExternalTool
 		return null;
 	}
 
-	mapEntityToDO(entity: ExternalTool): ExternalToolDO {
-		return this.externalToolRepoMapper.mapEntityToDO(entity);
-	}
-
-	mapDOToEntityProperties(entityDO: ExternalToolDO): EntityProperties&lt;IExternalToolProperties&gt; {
-		return this.externalToolRepoMapper.mapDOToEntityProperties(entityDO);
-	}
-
 	async find(query: Partial&lt;ExternalTool&gt;, options?: IFindOptions&lt;ExternalToolDO&gt;): Promise&lt;Page&lt;ExternalToolDO&gt;&gt; {
 		const pagination: IPagination &#x3D; options?.pagination || {};
 		const order: QueryOrderMap&lt;ExternalTool&gt; &#x3D; this.sortingMapper.mapDOSortOrderToQueryOrder(options?.order || {});
@@ -1607,6 +1599,14 @@ export class ExternalToolRepo extends BaseDORepo&lt;ExternalToolDO, ExternalTool
 		const entityDos: ExternalToolDO[] &#x3D; entities.map((entity) &#x3D;&gt; this.mapEntityToDO(entity));
 		const page: Page&lt;ExternalToolDO&gt; &#x3D; new Page&lt;ExternalToolDO&gt;(entityDos, total);
 		return page;
+	}
+
+	mapEntityToDO(entity: ExternalTool): ExternalToolDO {
+		return this.externalToolRepoMapper.mapEntityToDO(entity);
+	}
+
+	mapDOToEntityProperties(entityDO: ExternalToolDO): EntityProperties&lt;IExternalToolProperties&gt; {
+		return this.externalToolRepoMapper.mapDOToEntityProperties(entityDO);
 	}
 }
 </code></pre>

@@ -91,6 +91,10 @@
                                     <span class="modifier">Async</span>
                                 <a href="#findExternalTool" >findExternalTool</a>
                             </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#getExternalTool" >getExternalTool</a>
+                            </li>
                         </ul>
                     </td>
                 </tr>
@@ -109,12 +113,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(externalToolService: <a href="../injectables/ExternalToolService.html" target="_self">ExternalToolService</a>, externalToolMapper: <a href="../injectables/ExternalToolRequestMapper.html" target="_self">ExternalToolRequestMapper</a>, authorizationService: <a href="../injectables/AuthorizationService.html" target="_self">AuthorizationService</a>, oauthProviderService: <a href="../classes/OauthProviderService.html" target="_self">OauthProviderService</a>, oAuthEncryptionService: <a href="../interfaces/IEncryptionService.html" target="_self">IEncryptionService</a>)</code>
+<code>constructor(externalToolService: <a href="../injectables/ExternalToolService.html" target="_self">ExternalToolService</a>, authorizationService: <a href="../injectables/AuthorizationService.html" target="_self">AuthorizationService</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">apps/server/src/modules/tool/uc/external-tool.uc.ts:13</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">apps/server/src/modules/tool/uc/external-tool.uc.ts:9</a></div>
                             </td>
                         </tr>
 
@@ -144,46 +148,10 @@
                                                     
                                                 </tr>
                                                 <tr>
-                                                        <td>externalToolMapper</td>
-                                                  
-                                                        <td>
-                                                                        <code><a href="../injectables/ExternalToolRequestMapper.html" target="_self" >ExternalToolRequestMapper</a></code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                                <tr>
                                                         <td>authorizationService</td>
                                                   
                                                         <td>
                                                                         <code><a href="../injectables/AuthorizationService.html" target="_self" >AuthorizationService</a></code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                                <tr>
-                                                        <td>oauthProviderService</td>
-                                                  
-                                                        <td>
-                                                                        <code><a href="../classes/OauthProviderService.html" target="_self" >OauthProviderService</a></code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                                <tr>
-                                                        <td>oAuthEncryptionService</td>
-                                                  
-                                                        <td>
-                                                                        <code><a href="../interfaces/IEncryptionService.html" target="_self" >IEncryptionService</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -228,8 +196,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="77"
-                            class="link-to-prism">apps/server/src/modules/tool/uc/external-tool.uc.ts:77</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="25"
+                            class="link-to-prism">apps/server/src/modules/tool/uc/external-tool.uc.ts:25</a></div>
                 </td>
             </tr>
 
@@ -292,15 +260,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>createExternalTool(externalToolDO: <a href="../classes/ExternalToolDO.html" target="_self">ExternalToolDO</a>, userId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    <code>createExternalTool(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, externalToolDO: <a href="../classes/ExternalToolDO.html" target="_self">ExternalToolDO</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="22"
-                            class="link-to-prism">apps/server/src/modules/tool/uc/external-tool.uc.ts:22</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="15"
+                            class="link-to-prism">apps/server/src/modules/tool/uc/external-tool.uc.ts:15</a></div>
                 </td>
             </tr>
 
@@ -321,9 +289,9 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>externalToolDO</td>
+                                    <td>userId</td>
                                     <td>
-                                                <code><a href="../classes/ExternalToolDO.html" target="_self" >ExternalToolDO</a></code>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
                                     </td>
 
                                     <td>
@@ -333,9 +301,9 @@
 
                                 </tr>
                                 <tr>
-                                    <td>userId</td>
+                                    <td>externalToolDO</td>
                                     <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                <code><a href="../classes/ExternalToolDO.html" target="_self" >ExternalToolDO</a></code>
                                     </td>
 
                                     <td>
@@ -375,15 +343,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>findExternalTool(userId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, query: <a href="../classes/ExternalToolDO.html" target="_self">Partial&lt;ExternalToolDO&gt;</a>, options: <a href="../classes/ExternalToolDO.html" target="_self">IFindOptions&lt;ExternalToolDO&gt;</a>)</code>
+                    <code>findExternalTool(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, query: <a href="../classes/ExternalToolDO.html" target="_self">Partial&lt;ExternalToolDO&gt;</a>, options: <a href="../classes/ExternalToolDO.html" target="_self">IFindOptions&lt;ExternalToolDO&gt;</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="53"
-                            class="link-to-prism">apps/server/src/modules/tool/uc/external-tool.uc.ts:53</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="48"
+                            class="link-to-prism">apps/server/src/modules/tool/uc/external-tool.uc.ts:48</a></div>
                 </td>
             </tr>
 
@@ -406,7 +374,7 @@
                                 <tr>
                                     <td>userId</td>
                                     <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
                                     </td>
 
                                     <td>
@@ -455,86 +423,117 @@
             </tr>
         </tbody>
     </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getExternalTool"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>getExternalTool</b></span>
+                        <a href="#getExternalTool"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getExternalTool(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, toolId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="60"
+                            class="link-to-prism">apps/server/src/modules/tool/uc/external-tool.uc.ts:60</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>userId</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>toolId</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/ExternalToolDO.html" target="_self" >Promise&lt;ExternalToolDO&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </section>
 
     </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Inject, Injectable, UnprocessableEntityException } from &#x27;@nestjs/common&#x27;;
-import { IFindOptions, Permission, User } from &#x27;@shared/domain&#x27;;
-import { ExternalToolDO, Lti11ToolConfigDO, Oauth2ToolConfigDO } from &#x27;@shared/domain/domainobject/external-tool&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable, UnprocessableEntityException } from &#x27;@nestjs/common&#x27;;
+import { EntityId, IFindOptions, Permission, User } from &#x27;@shared/domain&#x27;;
+import { ExternalToolDO, Oauth2ToolConfigDO } from &#x27;@shared/domain/domainobject/external-tool&#x27;;
 import { AuthorizationService } from &#x27;@src/modules/authorization&#x27;;
-import { OauthProviderService } from &#x27;@shared/infra/oauth-provider&#x27;;
-import { ProviderOauthClient } from &#x27;@shared/infra/oauth-provider/dto&#x27;;
-import { DefaultEncryptionService, IEncryptionService } from &#x27;@shared/infra/encryption&#x27;;
 import { Page } from &#x27;@shared/domain/interface/page&#x27;;
 import { ExternalToolService } from &#x27;../service/external-tool.service&#x27;;
-import { ExternalToolRequestMapper } from &#x27;../mapper/external-tool-request.mapper&#x27;;
 
 @Injectable()
 export class ExternalToolUc {
 	constructor(
 		private readonly externalToolService: ExternalToolService,
-		private readonly externalToolMapper: ExternalToolRequestMapper,
-		private readonly authorizationService: AuthorizationService,
-		private readonly oauthProviderService: OauthProviderService,
-		@Inject(DefaultEncryptionService) private readonly oAuthEncryptionService: IEncryptionService
+		private readonly authorizationService: AuthorizationService
 	) {}
 
-	async createExternalTool(externalToolDO: ExternalToolDO, userId: string): Promise&lt;ExternalToolDO&gt; {
+	async createExternalTool(userId: EntityId, externalToolDO: ExternalToolDO): Promise&lt;ExternalToolDO&gt; {
 		const user: User &#x3D; await this.authorizationService.getUserWithPermissions(userId);
 		this.authorizationService.checkAllPermissions(user, [Permission.TOOL_ADMIN]);
 
 		await this.checkValidation(externalToolDO);
 
-		if (externalToolDO.config instanceof Lti11ToolConfigDO) {
-			externalToolDO.config.secret &#x3D; this.oAuthEncryptionService.encrypt(externalToolDO.config.secret);
-		}
-
-		let created: ExternalToolDO;
-		if (externalToolDO.config instanceof Oauth2ToolConfigDO) {
-			const oauthClient: ProviderOauthClient &#x3D; this.externalToolMapper.mapDoToProviderOauthClient(
-				externalToolDO.name,
-				externalToolDO.config
-			);
-			const createdOauthClient &#x3D; await this.oauthProviderService.createOAuth2Client(oauthClient);
-
-			created &#x3D; await this.externalToolService.createExternalTool(externalToolDO);
-
-			created.config &#x3D; this.externalToolMapper.applyProviderOauthClientToDO(
-				created.config as Oauth2ToolConfigDO,
-				createdOauthClient
-			);
-		} else {
-			created &#x3D; await this.externalToolService.createExternalTool(externalToolDO);
-		}
-
-		return created;
-	}
-
-	async findExternalTool(
-		userId: string,
-		query: Partial&lt;ExternalToolDO&gt;,
-		options: IFindOptions&lt;ExternalToolDO&gt;
-	): Promise&lt;Page&lt;ExternalToolDO&gt;&gt; {
-		const user: User &#x3D; await this.authorizationService.getUserWithPermissions(userId);
-		this.authorizationService.checkAllPermissions(user, [Permission.TOOL_ADMIN]);
-
-		const tools: Page&lt;ExternalToolDO&gt; &#x3D; await this.externalToolService.findExternalTools(query, options);
-		tools.data &#x3D; await Promise.all(
-			tools.data.map(async (tool: ExternalToolDO): Promise&lt;ExternalToolDO&gt; &#x3D;&gt; {
-				if (tool.config instanceof Oauth2ToolConfigDO) {
-					const oauthClient: ProviderOauthClient &#x3D; await this.oauthProviderService.getOAuth2Client(
-						tool.config.clientId
-					);
-					tool.config &#x3D; this.externalToolMapper.applyProviderOauthClientToDO(tool.config, oauthClient);
-				}
-				return tool;
-			})
-		);
-
-		return tools;
+		const tool: Promise&lt;ExternalToolDO&gt; &#x3D; this.externalToolService.createExternalTool(externalToolDO);
+		return tool;
 	}
 
 	private async checkValidation(externalToolDO: ExternalToolDO) {
@@ -558,6 +557,26 @@ export class ExternalToolUc {
 		) {
 			throw new UnprocessableEntityException(&#x60;The Client Id of the tool: ${externalToolDO.name} is already used&#x60;);
 		}
+	}
+
+	async findExternalTool(
+		userId: EntityId,
+		query: Partial&lt;ExternalToolDO&gt;,
+		options: IFindOptions&lt;ExternalToolDO&gt;
+	): Promise&lt;Page&lt;ExternalToolDO&gt;&gt; {
+		const user: User &#x3D; await this.authorizationService.getUserWithPermissions(userId);
+		this.authorizationService.checkAllPermissions(user, [Permission.TOOL_ADMIN]);
+
+		const tools: Page&lt;ExternalToolDO&gt; &#x3D; await this.externalToolService.findExternalTools(query, options);
+		return tools;
+	}
+
+	async getExternalTool(userId: EntityId, toolId: EntityId): Promise&lt;ExternalToolDO&gt; {
+		const user: User &#x3D; await this.authorizationService.getUserWithPermissions(userId);
+		this.authorizationService.checkAllPermissions(user, [Permission.TOOL_ADMIN]);
+
+		const tool: ExternalToolDO &#x3D; await this.externalToolService.findExternalToolById(toolId);
+		return tool;
 	}
 }
 </code></pre>

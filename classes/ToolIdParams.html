@@ -44,7 +44,7 @@
 
 <ol class="breadcrumb">
   <li>Classes</li>
-  <li >Lti11LaunchParams</li>
+  <li >ToolIdParams</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -62,7 +62,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/modules/tool/controller/dto/lti11-launch.params.ts</code>
+            <code>apps/server/src/modules/tool/controller/dto/request/tool-id.params.ts</code>
         </p>
 
 
@@ -132,7 +132,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">apps/server/src/modules/tool/controller/dto/lti11-launch.params.ts:7</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">apps/server/src/modules/tool/controller/dto/request/tool-id.params.ts:7</a></div>
                         </td>
                     </tr>
 
@@ -151,10 +151,10 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ApiProperty } from &#x27;@nestjs/swagger&#x27;;
-import { IsMongoId } from &#x27;class-validator&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { IsMongoId } from &#x27;class-validator&#x27;;
+import { ApiProperty } from &#x27;@nestjs/swagger&#x27;;
 
-export class Lti11LaunchParams {
+export class ToolIdParams {
 	@IsMongoId()
 	@ApiProperty({ nullable: false, required: true })
 	toolId!: string;
@@ -197,7 +197,7 @@ export class Lti11LaunchParams {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
-            var COMPODOC_CURRENT_PAGE_URL = 'Lti11LaunchParams.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'ToolIdParams.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 
