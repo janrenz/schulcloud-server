@@ -150,7 +150,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">apps/server/src/modules/tool/controller/dto/request/custom-parameter.params.ts:15</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">apps/server/src/modules/tool/controller/dto/request/custom-parameter.params.ts:17</a></div>
                         </td>
                     </tr>
 
@@ -185,7 +185,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">apps/server/src/modules/tool/controller/dto/request/custom-parameter.params.ts:28</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">apps/server/src/modules/tool/controller/dto/request/custom-parameter.params.ts:30</a></div>
                         </td>
                     </tr>
 
@@ -220,7 +220,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">apps/server/src/modules/tool/controller/dto/request/custom-parameter.params.ts:10</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">apps/server/src/modules/tool/controller/dto/request/custom-parameter.params.ts:12</a></div>
                         </td>
                     </tr>
 
@@ -256,7 +256,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">apps/server/src/modules/tool/controller/dto/request/custom-parameter.params.ts:20</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">apps/server/src/modules/tool/controller/dto/request/custom-parameter.params.ts:22</a></div>
                         </td>
                     </tr>
 
@@ -291,7 +291,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">apps/server/src/modules/tool/controller/dto/request/custom-parameter.params.ts:24</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">apps/server/src/modules/tool/controller/dto/request/custom-parameter.params.ts:26</a></div>
                         </td>
                     </tr>
 
@@ -326,7 +326,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">apps/server/src/modules/tool/controller/dto/request/custom-parameter.params.ts:32</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">apps/server/src/modules/tool/controller/dto/request/custom-parameter.params.ts:34</a></div>
                         </td>
                     </tr>
 
@@ -347,9 +347,11 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { IsEnum, IsOptional, IsString } from &#x27;class-validator&#x27;;
 import { ApiProperty, ApiPropertyOptional } from &#x27;@nestjs/swagger&#x27;;
-import { CustomParameterScopeParams } from &#x27;../../../interface/custom-parameter-scope.enum&#x27;;
-import { CustomParameterLocationParams } from &#x27;../../../interface/custom-parameter-location.enum&#x27;;
-import { CustomParameterTypeParams } from &#x27;../../../interface/custom-parameter-type.enum&#x27;;
+import {
+	CustomParameterLocationParams,
+	CustomParameterScopeParams,
+	CustomParameterTypeParams,
+} from &#x27;../../../interface&#x27;;
 
 export class CustomParameterCreateParams {
 	@IsString()

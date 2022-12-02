@@ -79,11 +79,17 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#applyProviderOauthClientToDO" >applyProviderOauthClientToDO</a>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#addExternalOauth2DataToConfig" >addExternalOauth2DataToConfig</a>
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
                                 <a href="#createExternalTool" >createExternalTool</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#deleteExternalTool" >deleteExternalTool</a>
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
@@ -125,12 +131,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(externalToolRepo: <a href="../injectables/ExternalToolRepo.html" target="_self">ExternalToolRepo</a>, oauthProviderService: <a href="../classes/OauthProviderService.html" target="_self">OauthProviderService</a>, mapper: <a href="../injectables/ExternalToolServiceMapper.html" target="_self">ExternalToolServiceMapper</a>, encryptionService: <a href="../interfaces/IEncryptionService.html" target="_self">IEncryptionService</a>)</code>
+<code>constructor(externalToolRepo: <a href="../injectables/ExternalToolRepo.html" target="_self">ExternalToolRepo</a>, oauthProviderService: <a href="../classes/OauthProviderService.html" target="_self">OauthProviderService</a>, mapper: <a href="../injectables/ExternalToolServiceMapper.html" target="_self">ExternalToolServiceMapper</a>, schoolExternalToolRepo: <a href="../injectables/SchoolExternalToolRepo.html" target="_self">SchoolExternalToolRepo</a>, courseExternalToolRepo: <a href="../injectables/CourseExternalToolRepo.html" target="_self">CourseExternalToolRepo</a>, encryptionService: <a href="../interfaces/IEncryptionService.html" target="_self">IEncryptionService</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">apps/server/src/modules/tool/service/external-tool.service.ts:18</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">apps/server/src/modules/tool/service/external-tool.service.ts:21</a></div>
                             </td>
                         </tr>
 
@@ -184,6 +190,30 @@
                                                     
                                                 </tr>
                                                 <tr>
+                                                        <td>schoolExternalToolRepo</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/SchoolExternalToolRepo.html" target="_self" >SchoolExternalToolRepo</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>courseExternalToolRepo</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/CourseExternalToolRepo.html" target="_self" >CourseExternalToolRepo</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
                                                         <td>encryptionService</td>
                                                   
                                                         <td>
@@ -213,24 +243,27 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="applyProviderOauthClientToDO"></a>
+                    <a name="addExternalOauth2DataToConfig"></a>
                     <span class="name">
-                        <span ><b>applyProviderOauthClientToDO</b></span>
-                        <a href="#applyProviderOauthClientToDO"><span class="icon ion-ios-link"></span></a>
+                        <span class="modifier">Private</span>
+                        <span class="modifier">Async</span>
+                        <span ><b>addExternalOauth2DataToConfig</b></span>
+                        <a href="#addExternalOauth2DataToConfig"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>applyProviderOauthClientToDO(oauth2Config: <a href="../classes/Oauth2ToolConfigDO.html" target="_self">Oauth2ToolConfigDO</a>, oauthClient: <a href="../interfaces/ProviderOauthClient.html" target="_self">ProviderOauthClient</a>)</code>
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>addExternalOauth2DataToConfig(config: <a href="../classes/Oauth2ToolConfigDO.html" target="_self">Oauth2ToolConfigDO</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="106"
-                            class="link-to-prism">apps/server/src/modules/tool/service/external-tool.service.ts:106</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="74"
+                            class="link-to-prism">apps/server/src/modules/tool/service/external-tool.service.ts:74</a></div>
                 </td>
             </tr>
 
@@ -251,21 +284,9 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>oauth2Config</td>
+                                    <td>config</td>
                                     <td>
                                                 <code><a href="../classes/Oauth2ToolConfigDO.html" target="_self" >Oauth2ToolConfigDO</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>oauthClient</td>
-                                    <td>
-                                                <code><a href="../interfaces/ProviderOauthClient.html" target="_self" >ProviderOauthClient</a></code>
                                     </td>
 
                                     <td>
@@ -280,7 +301,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
 
                     </div>
                     <div class="io-description">
@@ -312,8 +333,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="26"
-                            class="link-to-prism">apps/server/src/modules/tool/service/external-tool.service.ts:26</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="31"
+                            class="link-to-prism">apps/server/src/modules/tool/service/external-tool.service.ts:31</a></div>
                 </td>
             </tr>
 
@@ -365,6 +386,77 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="deleteExternalTool"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>deleteExternalTool</b></span>
+                        <a href="#deleteExternalTool"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>deleteExternalTool(toolId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="83"
+                            class="link-to-prism">apps/server/src/modules/tool/service/external-tool.service.ts:83</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>toolId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="findExternalToolById"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
@@ -383,8 +475,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="62"
-                            class="link-to-prism">apps/server/src/modules/tool/service/external-tool.service.ts:62</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="64"
+                            class="link-to-prism">apps/server/src/modules/tool/service/external-tool.service.ts:64</a></div>
                 </td>
             </tr>
 
@@ -454,8 +546,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="42"
-                            class="link-to-prism">apps/server/src/modules/tool/service/external-tool.service.ts:42</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="47"
+                            class="link-to-prism">apps/server/src/modules/tool/service/external-tool.service.ts:47</a></div>
                 </td>
             </tr>
 
@@ -535,8 +627,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="86"
-                            class="link-to-prism">apps/server/src/modules/tool/service/external-tool.service.ts:86</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="112"
+                            class="link-to-prism">apps/server/src/modules/tool/service/external-tool.service.ts:112</a></div>
                 </td>
             </tr>
 
@@ -606,8 +698,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="78"
-                            class="link-to-prism">apps/server/src/modules/tool/service/external-tool.service.ts:78</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="104"
+                            class="link-to-prism">apps/server/src/modules/tool/service/external-tool.service.ts:104</a></div>
                 </td>
             </tr>
 
@@ -677,8 +769,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="73"
-                            class="link-to-prism">apps/server/src/modules/tool/service/external-tool.service.ts:73</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="99"
+                            class="link-to-prism">apps/server/src/modules/tool/service/external-tool.service.ts:99</a></div>
                 </td>
             </tr>
 
@@ -746,8 +838,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="92"
-                            class="link-to-prism">apps/server/src/modules/tool/service/external-tool.service.ts:92</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="118"
+                            class="link-to-prism">apps/server/src/modules/tool/service/external-tool.service.ts:118</a></div>
                 </td>
             </tr>
 
@@ -810,12 +902,15 @@ import {
 } from &#x27;@shared/domain/domainobject/external-tool&#x27;;
 import { ExternalToolRepo } from &#x27;@shared/repo/externaltool/external-tool.repo&#x27;;
 import { EntityId, IFindOptions } from &#x27;@shared/domain&#x27;;
+import { SchoolExternalToolRepo } from &#x27;@shared/repo/schoolexternaltool/school-external-tool.repo&#x27;;
+import { CourseExternalToolRepo } from &#x27;@shared/repo/courseexternaltool/course-external-tool.repo&#x27;;
+import { SchoolExternalToolDO } from &#x27;@shared/domain/domainobject/external-tool/school-external-tool.do&#x27;;
 import { Page } from &#x27;@shared/domain/interface/page&#x27;;
 import { ProviderOauthClient } from &#x27;@shared/infra/oauth-provider/dto&#x27;;
 import { DefaultEncryptionService, IEncryptionService } from &#x27;@shared/infra/encryption&#x27;;
 import { OauthProviderService } from &#x27;@shared/infra/oauth-provider&#x27;;
-import { TokenEndpointAuthMethod } from &#x27;../interface/token-endpoint-auth-method.enum&#x27;;
-import { ExternalToolServiceMapper } from &#x27;./mapper/external-tool-service.mapper&#x27;;
+import { TokenEndpointAuthMethod } from &#x27;../interface&#x27;;
+import { ExternalToolServiceMapper } from &#x27;./mapper&#x27;;
 
 @Injectable()
 export class ExternalToolService {
@@ -823,6 +918,8 @@ export class ExternalToolService {
 		private readonly externalToolRepo: ExternalToolRepo,
 		private readonly oauthProviderService: OauthProviderService,
 		private readonly mapper: ExternalToolServiceMapper,
+		private readonly schoolExternalToolRepo: SchoolExternalToolRepo,
+		private readonly courseExternalToolRepo: CourseExternalToolRepo,
 		@Inject(DefaultEncryptionService) private readonly encryptionService: IEncryptionService
 	) {}
 
@@ -850,10 +947,7 @@ export class ExternalToolService {
 		tools.data &#x3D; await Promise.all(
 			tools.data.map(async (tool: ExternalToolDO): Promise&lt;ExternalToolDO&gt; &#x3D;&gt; {
 				if (tool.config instanceof Oauth2ToolConfigDO) {
-					const oauthClient: ProviderOauthClient &#x3D; await this.oauthProviderService.getOAuth2Client(
-						tool.config.clientId
-					);
-					this.applyProviderOauthClientToDO(tool.config, oauthClient);
+					await this.addExternalOauth2DataToConfig(tool.config);
 				}
 				return tool;
 			})
@@ -866,11 +960,35 @@ export class ExternalToolService {
 		const tool: ExternalToolDO &#x3D; await this.externalToolRepo.findById(id);
 
 		if (tool.config instanceof Oauth2ToolConfigDO) {
-			const oauthClient: ProviderOauthClient &#x3D; await this.oauthProviderService.getOAuth2Client(tool.config.clientId);
-			this.applyProviderOauthClientToDO(tool.config, oauthClient);
+			await this.addExternalOauth2DataToConfig(tool.config);
 		}
 
 		return tool;
+	}
+
+	private async addExternalOauth2DataToConfig(config: Oauth2ToolConfigDO) {
+		const oauthClient: ProviderOauthClient &#x3D; await this.oauthProviderService.getOAuth2Client(config.clientId);
+
+		config.scope &#x3D; oauthClient.scope;
+		config.tokenEndpointAuthMethod &#x3D; oauthClient.token_endpoint_auth_method as TokenEndpointAuthMethod;
+		config.redirectUris &#x3D; oauthClient.redirect_uris;
+		config.frontchannelLogoutUri &#x3D; oauthClient.frontchannel_logout_uri;
+	}
+
+	async deleteExternalTool(toolId: string): Promise&lt;void&gt; {
+		const schoolExternalTools: SchoolExternalToolDO[] &#x3D; await this.schoolExternalToolRepo.findByToolId(toolId);
+		const schoolExternalToolIds: string[] &#x3D; schoolExternalTools.map(
+			(schoolExternalTool: SchoolExternalToolDO): string &#x3D;&gt; {
+				// We can be sure that the repo returns the id
+				return schoolExternalTool.id as string;
+			}
+		);
+
+		await Promise.all([
+			this.courseExternalToolRepo.deleteBySchoolExternalToolIds(schoolExternalToolIds),
+			this.schoolExternalToolRepo.deleteByToolId(toolId),
+			this.externalToolRepo.deleteById(toolId),
+		]);
 	}
 
 	async isNameUnique(externalToolDO: ExternalToolDO): Promise&lt;boolean&gt; {
@@ -904,13 +1022,6 @@ export class ExternalToolService {
 			}
 			return true;
 		});
-	}
-
-	applyProviderOauthClientToDO(oauth2Config: Oauth2ToolConfigDO, oauthClient: ProviderOauthClient): void {
-		oauth2Config.scope &#x3D; oauthClient.scope;
-		oauth2Config.tokenEndpointAuthMethod &#x3D; oauthClient.token_endpoint_auth_method as TokenEndpointAuthMethod;
-		oauth2Config.redirectUris &#x3D; oauthClient.redirect_uris;
-		oauth2Config.frontchannelLogoutUri &#x3D; oauthClient.frontchannel_logout_uri;
 	}
 }
 </code></pre>

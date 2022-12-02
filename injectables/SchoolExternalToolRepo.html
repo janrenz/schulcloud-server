@@ -67,7 +67,7 @@
                 <h3>Extends</h3>
             </p>
             <p class="comment">
-                        <code><a href="../injectables/BaseRepo.html" target="_self" >BaseRepo</a></code>
+                        <code><a href="../injectables/BaseDORepo.html" target="_self" >BaseDORepo</a></code>
             </p>
 
 
@@ -86,30 +86,57 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Async</span>
-                                <a href="#findAllBySchoolId" >findAllBySchoolId</a>
+                                <a href="#deleteByToolId" >deleteByToolId</a>
+                            </li>
+                            <li>
+                                <a href="#entityFactory" >entityFactory</a>
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
-                                <a href="#findAllByToolId" >findAllByToolId</a>
+                                <a href="#findByToolId" >findByToolId</a>
+                            </li>
+                            <li>
+                                <a href="#mapDOToEntityProperties" >mapDOToEntityProperties</a>
+                            </li>
+                            <li>
+                                <a href="#mapEntityToDO" >mapEntityToDO</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#createEntity" >createEntity</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#createNewEntityFromDO" >createNewEntityFromDO</a>
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
-                                <a href="#findByToolIdAndSchoolId" >findByToolIdAndSchoolId</a>
+                                <a href="#deleteById" >deleteById</a>
                             </li>
                             <li>
-                                <a href="#create" >create</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Async</span>
-                                <a href="#delete" >delete</a>
+                                    <span class="modifier">Private</span>
+                                <a href="#deleteEntityById" >deleteEntityById</a>
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
                                 <a href="#findById" >findById</a>
                             </li>
                             <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#removeProtectedEntityFields" >removeProtectedEntityFields</a>
+                            </li>
+                            <li>
                                     <span class="modifier">Async</span>
                                 <a href="#save" >save</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#saveAll" >saveAll</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#updateEntity" >updateEntity</a>
                             </li>
                         </ul>
                     </td>
@@ -137,6 +164,78 @@
     </table>
 </section>
 
+            <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(externalToolRepoMapper: <a href="../injectables/ExternalToolRepoMapper.html" target="_self">ExternalToolRepoMapper</a>, _em: EntityManager, logger: <a href="../injectables/Logger.html" target="_self">Logger</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">apps/server/src/shared/repo/schoolexternaltool/school-external-tool.repo.ts:15</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>externalToolRepoMapper</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ExternalToolRepoMapper.html" target="_self" >ExternalToolRepoMapper</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>_em</td>
+                                                  
+                                                        <td>
+                                                                    <code>EntityManager</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>logger</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/Logger.html" target="_self" >Logger</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
 
             <section>
     
@@ -147,97 +246,26 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="findAllBySchoolId"></a>
+                    <a name="deleteByToolId"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
-                        <span ><b>findAllBySchoolId</b></span>
-                        <a href="#findAllBySchoolId"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>deleteByToolId</b></span>
+                        <a href="#deleteByToolId"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>findAllBySchoolId(schoolId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>)</code>
+                    <code>deleteByToolId(toolId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="22"
-                            class="link-to-prism">apps/server/src/shared/repo/schoolexternaltool/school-external-tool.repo.ts:22</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>schoolId</td>
-                                    <td>
-                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/School.html" target="_self" >Promise&lt;SchoolExternalTool[]&gt;</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="findAllByToolId"></a>
-                    <span class="name">
-                        <span class="modifier">Async</span>
-                        <span ><b>findAllByToolId</b></span>
-                        <a href="#findAllByToolId"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>findAllByToolId(toolId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="18"
-                            class="link-to-prism">apps/server/src/shared/repo/schoolexternaltool/school-external-tool.repo.ts:18</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="41"
+                            class="link-to-prism">apps/server/src/shared/repo/schoolexternaltool/school-external-tool.repo.ts:41</a></div>
                 </td>
             </tr>
 
@@ -260,7 +288,7 @@
                                 <tr>
                                     <td>toolId</td>
                                     <td>
-                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
                                     </td>
 
                                     <td>
@@ -275,7 +303,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/School.html" target="_self" >Promise&lt;SchoolExternalTool[]&gt;</a></code>
+                        <b>Returns : </b>    <code>Promise&lt;number&gt;</code>
 
                     </div>
                     <div class="io-description">
@@ -289,112 +317,250 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="findByToolIdAndSchoolId"></a>
+                    <a name="entityFactory"></a>
                     <span class="name">
-                        <span class="modifier">Async</span>
-                        <span ><b>findByToolIdAndSchoolId</b></span>
-                        <a href="#findByToolIdAndSchoolId"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>entityFactory</b></span>
+                        <a href="#entityFactory"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>findByToolIdAndSchoolId(toolId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, schoolId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>)</code>
+<code>entityFactory(props: <a href="../interfaces/ISchoolExternalToolProperties.html" target="_self">ISchoolExternalToolProperties</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="14"
-                            class="link-to-prism">apps/server/src/shared/repo/schoolexternaltool/school-external-tool.repo.ts:14</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>toolId</td>
-                                    <td>
-                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>schoolId</td>
-                                    <td>
-                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/School.html" target="_self" >Promise&lt;SchoolExternalTool | null&gt;</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="create"></a>
-                    <span class="name">
-                        <span ><b>create</b></span>
-                        <a href="#create"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>create(entity: T)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Inherited from         <code><a href="../injectables/BaseRepo.html" target="_self" >BaseRepo</a></code>
+                    <div class="io-line">Inherited from         <code><a href="../injectables/BaseDORepo.html" target="_self" >BaseDORepo</a></code>
 </div>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/BaseRepo.html#source" target="_self" >BaseRepo:17</a></code>
+                        <div class="io-line">Defined in         <code><a href="../injectables/BaseDORepo.html#source" target="_self" >BaseDORepo:28</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>props</td>
+                                    <td>
+                                                <code><a href="../interfaces/ISchoolExternalToolProperties.html" target="_self" >ISchoolExternalToolProperties</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/School.html" target="_self" >SchoolExternalTool</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findByToolId"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>findByToolId</b></span>
+                        <a href="#findByToolId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findByToolId(toolId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="32"
+                            class="link-to-prism">apps/server/src/shared/repo/schoolexternaltool/school-external-tool.repo.ts:32</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>toolId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;SchoolExternalToolDO[]&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="mapDOToEntityProperties"></a>
+                    <span class="name">
+                        <span ><b>mapDOToEntityProperties</b></span>
+                        <a href="#mapDOToEntityProperties"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>mapDOToEntityProperties(entityDO: <a href="../classes/SchoolExternalToolDO.html" target="_self">SchoolExternalToolDO</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../injectables/BaseDORepo.html" target="_self" >BaseDORepo</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../injectables/BaseDORepo.html#source" target="_self" >BaseDORepo:58</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>entityDO</td>
+                                    <td>
+                                                <code><a href="../classes/SchoolExternalToolDO.html" target="_self" >SchoolExternalToolDO</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../interfaces/ISchoolExternalToolProperties.html" target="_self" >EntityProperties&lt;ISchoolExternalToolProperties&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="mapEntityToDO"></a>
+                    <span class="name">
+                        <span ><b>mapEntityToDO</b></span>
+                        <a href="#mapEntityToDO"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>mapEntityToDO(entity: <a href="../classes/School.html" target="_self">SchoolExternalTool</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../injectables/BaseDORepo.html" target="_self" >BaseDORepo</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../injectables/BaseDORepo.html#source" target="_self" >BaseDORepo:46</a></code>
 </div>
                 </td>
             </tr>
@@ -418,7 +584,7 @@
                                 <tr>
                                     <td>entity</td>
                                     <td>
-                                            <code>T</code>
+                                                <code><a href="../classes/School.html" target="_self" >SchoolExternalTool</a></code>
                                     </td>
 
                                     <td>
@@ -433,7 +599,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>    <code>T</code>
+                        <b>Returns : </b>        <code><a href="../classes/SchoolExternalToolDO.html" target="_self" >SchoolExternalToolDO</a></code>
 
                     </div>
                     <div class="io-description">
@@ -447,31 +613,31 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="delete"></a>
+                    <a name="createEntity"></a>
                     <span class="name">
-                        <span class="modifier">Async</span>
-                        <span ><b>delete</b></span>
-                        <a href="#delete"><span class="icon ion-ios-link"></span></a>
+                        <span class="modifier">Private</span>
+                        <span ><b>createEntity</b></span>
+                        <a href="#createEntity"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>delete(entities: T | T[])</code>
+                    <code>createEntity(domainObject: DO)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Inherited from         <code><a href="../injectables/BaseRepo.html" target="_self" >BaseRepo</a></code>
+                    <div class="io-line">Inherited from         <code><a href="../injectables/BaseDORepo.html" target="_self" >BaseDORepo</a></code>
 </div>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/BaseRepo.html#source" target="_self" >BaseRepo:25</a></code>
+                        <div class="io-line">Defined in         <code><a href="../injectables/BaseDORepo.html#source" target="_self" >BaseDORepo:44</a></code>
 </div>
                 </td>
             </tr>
@@ -493,9 +659,9 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>entities</td>
+                                    <td>domainObject</td>
                                     <td>
-                                            <code>T | T[]</code>
+                                            <code>DO</code>
                                     </td>
 
                                     <td>
@@ -510,7 +676,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
+                        <b>Returns : </b>    <code>E</code>
 
                     </div>
                     <div class="io-description">
@@ -524,31 +690,185 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="findById"></a>
+                    <a name="createNewEntityFromDO"></a>
                     <span class="name">
-                        <span class="modifier">Async</span>
-                        <span ><b>findById</b></span>
-                        <a href="#findById"><span class="icon ion-ios-link"></span></a>
+                        <span class="modifier">Private</span>
+                        <span ><b>createNewEntityFromDO</b></span>
+                        <a href="#createNewEntityFromDO"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>findById(id: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>)</code>
+                    <code>createNewEntityFromDO(domainObject: DO)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Inherited from         <code><a href="../injectables/BaseRepo.html" target="_self" >BaseRepo</a></code>
+                    <div class="io-line">Inherited from         <code><a href="../injectables/BaseDORepo.html" target="_self" >BaseDORepo</a></code>
 </div>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/BaseRepo.html#source" target="_self" >BaseRepo:29</a></code>
+                        <div class="io-line">Defined in         <code><a href="../injectables/BaseDORepo.html#source" target="_self" >BaseDORepo:65</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>domainObject</td>
+                                    <td>
+                                            <code>DO</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>E</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteById"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>deleteById</b></span>
+                        <a href="#deleteById"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>deleteById(id: <a href="../undefineds/EntityId.html" target="_self">EntityId | EntityId[]</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../injectables/BaseDORepo.html" target="_self" >BaseDORepo</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../injectables/BaseDORepo.html#source" target="_self" >BaseDORepo:82</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId | EntityId[]</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;number&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteEntityById"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span ><b>deleteEntityById</b></span>
+                        <a href="#deleteEntityById"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>deleteEntityById(id: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../injectables/BaseDORepo.html" target="_self" >BaseDORepo</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../injectables/BaseDORepo.html#source" target="_self" >BaseDORepo:95</a></code>
 </div>
                 </td>
             </tr>
@@ -587,7 +907,163 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>    <code>Promise&lt;T&gt;</code>
+                        <b>Returns : </b>    <code>Promise&lt;number&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findById"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>findById</b></span>
+                        <a href="#findById"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findById(id: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../injectables/BaseDORepo.html" target="_self" >BaseDORepo</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../injectables/BaseDORepo.html#source" target="_self" >BaseDORepo:100</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;DO&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="removeProtectedEntityFields"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span ><b>removeProtectedEntityFields</b></span>
+                        <a href="#removeProtectedEntityFields"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>removeProtectedEntityFields(entity: E)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../injectables/BaseDORepo.html" target="_self" >BaseDORepo</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../injectables/BaseDORepo.html#source" target="_self" >BaseDORepo:74</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Ignore base entity properties when updating entity</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>entity</td>
+                                    <td>
+                                            <code>E</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
                     </div>
                     <div class="io-description">
@@ -612,20 +1088,20 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>save(entities: T | T[])</code>
+                    <code>save(entityDo: DO)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Inherited from         <code><a href="../injectables/BaseRepo.html" target="_self" >BaseRepo</a></code>
+                    <div class="io-line">Inherited from         <code><a href="../injectables/BaseDORepo.html" target="_self" >BaseDORepo</a></code>
 </div>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/BaseRepo.html#source" target="_self" >BaseRepo:21</a></code>
+                        <div class="io-line">Defined in         <code><a href="../injectables/BaseDORepo.html#source" target="_self" >BaseDORepo:21</a></code>
 </div>
                 </td>
             </tr>
@@ -647,9 +1123,9 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>entities</td>
+                                    <td>entityDo</td>
                                     <td>
-                                            <code>T | T[]</code>
+                                            <code>DO</code>
                                     </td>
 
                                     <td>
@@ -664,7 +1140,162 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
+                        <b>Returns : </b>    <code>Promise&lt;DO&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="saveAll"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>saveAll</b></span>
+                        <a href="#saveAll"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>saveAll(entityDos: DO[])</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../injectables/BaseDORepo.html" target="_self" >BaseDORepo</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../injectables/BaseDORepo.html#source" target="_self" >BaseDORepo:26</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>entityDos</td>
+                                    <td>
+                                            <code>DO[]</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;DO[]&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateEntity"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span class="modifier">Async</span>
+                        <span ><b>updateEntity</b></span>
+                        <a href="#updateEntity"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>updateEntity(domainObject: DO)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../injectables/BaseDORepo.html" target="_self" >BaseDORepo</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../injectables/BaseDORepo.html#source" target="_self" >BaseDORepo:52</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>domainObject</td>
+                                    <td>
+                                            <code>DO</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;E&gt;</code>
 
                     </div>
                     <div class="io-description">
@@ -696,7 +1327,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">apps/server/src/shared/repo/schoolexternaltool/school-external-tool.repo.ts:10</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">apps/server/src/shared/repo/schoolexternaltool/school-external-tool.repo.ts:24</a></div>
                                 </td>
                             </tr>
 
@@ -707,29 +1338,71 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { BaseRepo } from &#x27;@shared/repo&#x27;;
-import { EntityName } from &#x27;@mikro-orm/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { BaseDORepo, EntityProperties } from &#x27;@shared/repo&#x27;;
+import { EntityName, Reference } from &#x27;@mikro-orm/core&#x27;;
 import { Injectable } from &#x27;@nestjs/common/decorators/core/injectable.decorator&#x27;;
-import { ObjectId } from &#x27;@mikro-orm/mongodb&#x27;;
-import { EntityId } from &#x27;@shared/domain/types/entity-id&#x27;;
-import { SchoolExternalTool } from &#x27;@shared/domain&#x27;;
+import { ExternalTool, ISchoolExternalToolProperties, School, SchoolExternalTool } from &#x27;@shared/domain&#x27;;
+import { EntityManager } from &#x27;@mikro-orm/mongodb&#x27;;
+import { SchoolExternalToolDO } from &#x27;../../domain/domainobject/external-tool/school-external-tool.do&#x27;;
+import { ExternalToolRepoMapper } from &#x27;../externaltool/external-tool.repo.mapper&#x27;;
+import { Logger } from &#x27;../../../core/logger&#x27;;
 
 @Injectable()
-export class SchoolExternalToolRepo extends BaseRepo&lt;SchoolExternalTool&gt; {
+export class SchoolExternalToolRepo extends BaseDORepo&lt;
+	SchoolExternalToolDO,
+	SchoolExternalTool,
+	ISchoolExternalToolProperties
+&gt; {
+	constructor(
+		private readonly externalToolRepoMapper: ExternalToolRepoMapper,
+		protected readonly _em: EntityManager,
+		protected readonly logger: Logger
+	) {
+		super(_em, logger);
+	}
+
 	get entityName(): EntityName&lt;SchoolExternalTool&gt; {
 		return SchoolExternalTool;
 	}
 
-	async findByToolIdAndSchoolId(toolId: EntityId, schoolId: EntityId): Promise&lt;SchoolExternalTool | null&gt; {
-		return this._em.findOne(SchoolExternalTool, { tool: new ObjectId(toolId), school: new ObjectId(schoolId) });
+	entityFactory(props: ISchoolExternalToolProperties): SchoolExternalTool {
+		return new SchoolExternalTool(props);
 	}
 
-	async findAllByToolId(toolId: EntityId): Promise&lt;SchoolExternalTool[]&gt; {
-		return this._em.find(SchoolExternalTool, { tool: new ObjectId(toolId) });
+	async findByToolId(toolId: string): Promise&lt;SchoolExternalToolDO[]&gt; {
+		const entities: SchoolExternalTool[] &#x3D; await this._em.find(this.entityName, { tool: toolId });
+		const domainObjects: SchoolExternalToolDO[] &#x3D; entities.map((entity: SchoolExternalTool): SchoolExternalToolDO &#x3D;&gt; {
+			const domainObject: SchoolExternalToolDO &#x3D; this.mapEntityToDO(entity);
+			return domainObject;
+		});
+		return domainObjects;
 	}
 
-	async findAllBySchoolId(schoolId: EntityId): Promise&lt;SchoolExternalTool[]&gt; {
-		return this._em.find(SchoolExternalTool, { school: new ObjectId(schoolId) });
+	async deleteByToolId(toolId: string): Promise&lt;number&gt; {
+		const count: Promise&lt;number&gt; &#x3D; this._em.nativeDelete(this.entityName, { tool: toolId });
+		return count;
+	}
+
+	mapEntityToDO(entity: SchoolExternalTool): SchoolExternalToolDO {
+		return new SchoolExternalToolDO({
+			id: entity.id,
+			createdAt: entity.createdAt,
+			updatedAt: entity.updatedAt,
+			toolId: entity.tool.id,
+			schoolId: entity.school.id,
+			toolVersion: entity.toolVersion,
+			parameters: this.externalToolRepoMapper.mapCustomParameterEntryEntitiesToDOs(entity.schoolParameters),
+		});
+	}
+
+	mapDOToEntityProperties(entityDO: SchoolExternalToolDO): EntityProperties&lt;ISchoolExternalToolProperties&gt; {
+		return {
+			id: entityDO.id,
+			school: Reference.createFromPK(School, entityDO.schoolId),
+			tool: Reference.createFromPK(ExternalTool, entityDO.toolId),
+			toolVersion: entityDO.toolVersion,
+			schoolParameters: this.externalToolRepoMapper.mapCustomParameterEntryDOsToEntities(entityDO.parameters),
+		};
 	}
 }
 </code></pre>

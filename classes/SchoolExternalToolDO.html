@@ -44,7 +44,7 @@
 
 <ol class="breadcrumb">
   <li>Classes</li>
-  <li >ExternalToolSearchListResponse</li>
+  <li >SchoolExternalToolDO</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -62,7 +62,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/modules/tool/controller/dto/response/external-tool-search-list.response.ts</code>
+            <code>apps/server/src/shared/domain/domainobject/external-tool/school-external-tool.do.ts</code>
         </p>
 
 
@@ -71,7 +71,7 @@
                 <h3>Extends</h3>
             </p>
             <p class="comment">
-                        <code><a href="../classes/PaginationResponse.html" target="_self" >PaginationResponse</a></code>
+                        <code><a href="../classes/BaseWithTimestampsDO.html" target="_self" >BaseWithTimestampsDO</a></code>
             </p>
 
 
@@ -89,18 +89,28 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#data" >data</a>
+                                <a href="#parameters" >parameters</a>
+                            </li>
+                            <li>
+                                <a href="#schoolId" >schoolId</a>
+                            </li>
+                            <li>
+                                <a href="#toolId" >toolId</a>
+                            </li>
+                            <li>
+                                <a href="#toolVersion" >toolVersion</a>
                             </li>
                             <li>
                                     <span class="modifier">Optional</span>
-                                <a href="#limit" >limit</a>
+                                <a href="#createdAt" >createdAt</a>
                             </li>
                             <li>
                                     <span class="modifier">Optional</span>
-                                <a href="#skip" >skip</a>
+                                <a href="#id" >id</a>
                             </li>
                             <li>
-                                <a href="#total" >total</a>
+                                    <span class="modifier">Optional</span>
+                                <a href="#updatedAt" >updatedAt</a>
                             </li>
                         </ul>
                     </td>
@@ -121,12 +131,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(data: <a href="../classes/ExternalToolResponse.html" target="_self">ExternalToolResponse[]</a>, total: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, skip?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, limit?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+<code>constructor(props: <a href="../classes/SchoolExternalToolDO.html" target="_self">SchoolExternalToolDO</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">apps/server/src/modules/tool/controller/dto/response/external-tool-search-list.response.ts:7</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">apps/server/src/shared/domain/domainobject/external-tool/school-external-tool.do.ts:11</a></div>
                             </td>
                         </tr>
 
@@ -144,50 +154,14 @@
                                         </thead>
                                         <tbody>
                                                 <tr>
-                                                        <td>data</td>
+                                                        <td>props</td>
                                                   
                                                         <td>
-                                                                        <code><a href="../classes/ExternalToolResponse.html" target="_self" >ExternalToolResponse[]</a></code>
+                                                                        <code><a href="../classes/SchoolExternalToolDO.html" target="_self" >SchoolExternalToolDO</a></code>
                                                         </td>
                                                   
                                                     <td>
                                                             No
-                                                    </td>
-                                                    
-                                                </tr>
-                                                <tr>
-                                                        <td>total</td>
-                                                  
-                                                        <td>
-                                                                        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                                <tr>
-                                                        <td>skip</td>
-                                                  
-                                                        <td>
-                                                                        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            Yes
-                                                    </td>
-                                                    
-                                                </tr>
-                                                <tr>
-                                                        <td>limit</td>
-                                                  
-                                                        <td>
-                                                                        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            Yes
                                                     </td>
                                                     
                                                 </tr>
@@ -209,38 +183,22 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="data"></a>
+                    <a name="parameters"></a>
                     <span class="name">
-                        <span ><b>data</b></span>
-                        <a href="#data"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>parameters</b></span>
+                        <a href="#parameters"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="../classes/ExternalToolResponse.html" target="_self" >ExternalToolResponse[]</a></code>
+                        <i>Type : </i>    <code>CustomParameterEntryDO[]</code>
 
                     </td>
                 </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <b>Decorators : </b>
-                        <br />
-                        <code>
-                            @ApiProperty({type: undefined})<br />
-                        </code>
-                    </td>
-                </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <div class="io-line">Inherited from         <code><a href="../classes/PaginationResponse.html" target="_self" >PaginationResponse</a></code>
-</div>
-                            </td>
-                        </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/PaginationResponse.html#source" target="_self" >PaginationResponse:7</a></code>
-</div>
+                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">apps/server/src/shared/domain/domainobject/external-tool/school-external-tool.do.ts:9</a></div>
                         </td>
                     </tr>
 
@@ -251,38 +209,107 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="limit"></a>
+                    <a name="schoolId"></a>
+                    <span class="name">
+                        <span ><b>schoolId</b></span>
+                        <a href="#schoolId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">apps/server/src/shared/domain/domainobject/external-tool/school-external-tool.do.ts:7</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toolId"></a>
+                    <span class="name">
+                        <span ><b>toolId</b></span>
+                        <a href="#toolId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="5" class="link-to-prism">apps/server/src/shared/domain/domainobject/external-tool/school-external-tool.do.ts:5</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toolVersion"></a>
+                    <span class="name">
+                        <span ><b>toolVersion</b></span>
+                        <a href="#toolVersion"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">apps/server/src/shared/domain/domainobject/external-tool/school-external-tool.do.ts:11</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createdAt"></a>
                     <span class="name">
                             <span class="modifier">Optional</span>
-                        <span ><b>limit</b></span>
-                        <a href="#limit"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>createdAt</b></span>
+                        <a href="#createdAt"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" >Date</a></code>
 
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <b>Decorators : </b>
-                        <br />
-                        <code>
-                            @ApiProperty({description: &#x27;The page size of the response.&#x27;, type: &#x27;number&#x27;})<br />
-                        </code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Inherited from         <code><a href="../classes/PaginationResponse.html" target="_self" >PaginationResponse</a></code>
+                                <div class="io-line">Inherited from         <code><a href="../classes/BaseWithTimestampsDO.html" target="_self" >BaseWithTimestampsDO</a></code>
 </div>
                             </td>
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/PaginationResponse.html#source" target="_self" >PaginationResponse:20</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classes/BaseWithTimestampsDO.html#source" target="_self" >BaseWithTimestampsDO:8</a></code>
 </div>
                         </td>
                     </tr>
@@ -294,38 +321,29 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="skip"></a>
+                    <a name="id"></a>
                     <span class="name">
                             <span class="modifier">Optional</span>
-                        <span ><b>skip</b></span>
-                        <a href="#skip"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>id</b></span>
+                        <a href="#id"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
 
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <b>Decorators : </b>
-                        <br />
-                        <code>
-                            @ApiProperty({description: &#x27;The amount of items skipped from the start.&#x27;, type: &#x27;number&#x27;})<br />
-                        </code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Inherited from         <code><a href="../classes/PaginationResponse.html" target="_self" >PaginationResponse</a></code>
+                                <div class="io-line">Inherited from         <code><a href="../classes/BaseDO.html" target="_self" >BaseDO</a></code>
 </div>
                             </td>
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/PaginationResponse.html#source" target="_self" >PaginationResponse:17</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classes/BaseDO.html#source" target="_self" >BaseDO:6</a></code>
 </div>
                         </td>
                     </tr>
@@ -337,37 +355,29 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="total"></a>
+                    <a name="updatedAt"></a>
                     <span class="name">
-                        <span ><b>total</b></span>
-                        <a href="#total"><span class="icon ion-ios-link"></span></a>
+                            <span class="modifier">Optional</span>
+                        <span ><b>updatedAt</b></span>
+                        <a href="#updatedAt"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" >Date</a></code>
 
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <b>Decorators : </b>
-                        <br />
-                        <code>
-                            @ApiProperty({description: &#x27;The total amount of items.&#x27;, type: &#x27;number&#x27;})<br />
-                        </code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Inherited from         <code><a href="../classes/PaginationResponse.html" target="_self" >PaginationResponse</a></code>
+                                <div class="io-line">Inherited from         <code><a href="../classes/BaseWithTimestampsDO.html" target="_self" >BaseWithTimestampsDO</a></code>
 </div>
                             </td>
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/PaginationResponse.html#source" target="_self" >PaginationResponse:14</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classes/BaseWithTimestampsDO.html#source" target="_self" >BaseWithTimestampsDO:10</a></code>
 </div>
                         </td>
                     </tr>
@@ -387,17 +397,24 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { PaginationResponse } from &#x27;@shared/controller&#x27;;
-import { ApiProperty } from &#x27;@nestjs/swagger&#x27;;
-import { ExternalToolResponse } from &#x27;./external-tool.response&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { CustomParameterEntryDO } from &#x27;./custom-parameter-entry.do&#x27;;
+import { BaseWithTimestampsDO } from &#x27;../base.do&#x27;;
 
-export class ExternalToolSearchListResponse extends PaginationResponse&lt;ExternalToolResponse[]&gt; {
-	@ApiProperty({ type: [ExternalToolResponse] })
-	data: ExternalToolResponse[];
+export class SchoolExternalToolDO extends BaseWithTimestampsDO {
+	toolId: string;
 
-	constructor(data: ExternalToolResponse[], total: number, skip?: number, limit?: number) {
-		super(total, skip, limit);
-		this.data &#x3D; data;
+	schoolId: string;
+
+	parameters: CustomParameterEntryDO[];
+
+	toolVersion: number;
+
+	constructor(props: SchoolExternalToolDO) {
+		super(props);
+		this.toolId &#x3D; props.toolId;
+		this.schoolId &#x3D; props.schoolId;
+		this.parameters &#x3D; props.parameters;
+		this.toolVersion &#x3D; props.toolVersion;
 	}
 }
 </code></pre>
@@ -438,7 +455,7 @@ export class ExternalToolSearchListResponse extends PaginationResponse&lt;Extern
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
-            var COMPODOC_CURRENT_PAGE_URL = 'ExternalToolSearchListResponse.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'SchoolExternalToolDO.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

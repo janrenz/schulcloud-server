@@ -89,6 +89,10 @@
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
+                                <a href="#deleteExternalTool" >deleteExternalTool</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
                                 <a href="#findExternalTool" >findExternalTool</a>
                             </li>
                             <li>
@@ -145,8 +149,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="62"
-                            class="link-to-prism">apps/server/src/modules/tool/controller/tool.controller.ts:62</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="63"
+                            class="link-to-prism">apps/server/src/modules/tool/controller/tool.controller.ts:63</a></div>
                 </td>
             </tr>
 
@@ -210,6 +214,96 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="deleteExternalTool"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>deleteExternalTool</b></span>
+                        <a href="#deleteExternalTool"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>deleteExternalTool(currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>, params: <a href="../classes/ToolIdParams.html" target="_self">ToolIdParams</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Delete(&#x27;:toolId&#x27;)<br /></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="112"
+                            class="link-to-prism">apps/server/src/modules/tool/controller/tool.controller.ts:112</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>currentUser</td>
+                                    <td>
+                                                <code><a href="../interfaces/ICurrentUser.html" target="_self" >ICurrentUser</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>params</td>
+                                    <td>
+                                                <code><a href="../classes/ToolIdParams.html" target="_self" >ToolIdParams</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="findExternalTool"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
@@ -235,8 +329,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="76"
-                            class="link-to-prism">apps/server/src/modules/tool/controller/tool.controller.ts:76</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="77"
+                            class="link-to-prism">apps/server/src/modules/tool/controller/tool.controller.ts:77</a></div>
                 </td>
             </tr>
 
@@ -349,8 +443,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="101"
-                            class="link-to-prism">apps/server/src/modules/tool/controller/tool.controller.ts:101</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="102"
+                            class="link-to-prism">apps/server/src/modules/tool/controller/tool.controller.ts:102</a></div>
                 </td>
             </tr>
 
@@ -516,8 +610,8 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Body, Controller, Get, Param, Post, Query } from &#x27;@nestjs/common&#x27;;
-import { ICurrentUser, IFindOptions } from &#x27;@shared/domain&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Body, Controller, Delete, Get, Param, Post, Query } from &#x27;@nestjs/common&#x27;;
+import { ICurrentUser, IFindOptions, RoleName } from &#x27;@shared/domain&#x27;;
 import { Authorization } from &#x27;oauth-1.0a&#x27;;
 import {
 	ApiCreatedResponse,
@@ -530,20 +624,20 @@ import {
 import { PaginationParams } from &#x27;@shared/controller&#x27;;
 import { Page } from &#x27;@shared/domain/interface/page&#x27;;
 import { ExternalToolDO } from &#x27;@shared/domain/domainobject/external-tool&#x27;;
-import { Lti11LaunchQuery } from &#x27;./dto/request/lti11-launch.query&#x27;;
-import { Lti11LaunchResponse } from &#x27;./dto/response/lti11-launch.response&#x27;;
-import { Lti11ResponseMapper } from &#x27;./mapper/lti11-response.mapper&#x27;;
+import { Authenticate, CurrentUser } from &#x27;@src/modules/authentication/decorator/auth.decorator&#x27;;
 import { Lti11Uc } from &#x27;../uc/lti11.uc&#x27;;
-import { Authenticate, CurrentUser } from &#x27;../../authentication/decorator/auth.decorator&#x27;;
-import { ExternalToolRequestMapper } from &#x27;./mapper/external-tool-request.mapper&#x27;;
-import { ExternalToolResponseMapper } from &#x27;./mapper/external-tool-response.mapper&#x27;;
-import { ExternalToolResponse } from &#x27;./dto/response/external-tool.response&#x27;;
-import { ExternalToolParams } from &#x27;./dto/request/external-tool-create.params&#x27;;
+import { ExternalToolRequestMapper, ExternalToolResponseMapper, Lti11ResponseMapper } from &#x27;./mapper&#x27;;
 import { ExternalToolUc } from &#x27;../uc/external-tool.uc&#x27;;
-import { ToolIdParams } from &#x27;./dto/request/tool-id.params&#x27;;
-import { ExternalToolSearchListResponse } from &#x27;./dto/response/external-tool-search-list.response&#x27;;
-import { ExternalToolSearchParams } from &#x27;./dto/request/external-tool-search.params&#x27;;
-import { SortExternalToolParams } from &#x27;./dto/request/external-tool-sort.params&#x27;;
+import {
+	ExternalToolParams,
+	ExternalToolResponse,
+	ExternalToolSearchListResponse,
+	ExternalToolSearchParams,
+	Lti11LaunchQuery,
+	Lti11LaunchResponse,
+	SortExternalToolParams,
+	ToolIdParams,
+} from &#x27;./dto&#x27;;
 
 @ApiTags(&#x27;Tool&#x27;)
 @Authenticate(&#x27;jwt&#x27;)
@@ -564,7 +658,8 @@ export class ToolController {
 		@Query() query: Lti11LaunchQuery
 	): Promise&lt;Lti11LaunchResponse&gt; {
 		const authorization: Authorization &#x3D; await this.lti11Uc.getLaunchParameters(
-			currentUser,
+			currentUser.userId,
+			currentUser.roles[0] as RoleName,
 			params.toolId,
 			query.courseId
 		);
@@ -623,6 +718,12 @@ export class ToolController {
 		const externalToolDO: ExternalToolDO &#x3D; await this.externalToolUc.getExternalTool(currentUser.userId, params.toolId);
 		const mapped: ExternalToolResponse &#x3D; this.externalResponseMapper.mapToResponse(externalToolDO);
 		return mapped;
+	}
+
+	@Delete(&#x27;:toolId&#x27;)
+	async deleteExternalTool(@CurrentUser() currentUser: ICurrentUser, @Param() params: ToolIdParams): Promise&lt;void&gt; {
+		const promise: Promise&lt;void&gt; &#x3D; this.externalToolUc.deleteExternalTool(currentUser.userId, params.toolId);
+		return promise;
 	}
 }
 </code></pre>
