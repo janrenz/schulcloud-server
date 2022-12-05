@@ -187,7 +187,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>deriveCopyName(name: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, existingNames?: string[])</code>
+<code>deriveCopyName(name: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, existingNames: string[])</code>
                 </td>
             </tr>
 
@@ -212,6 +212,7 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Default value</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -225,6 +226,8 @@
                                         No
                                     </td>
 
+                                    <td>
+                                    </td>
 
                                 </tr>
                                 <tr>
@@ -234,9 +237,12 @@
                                     </td>
 
                                     <td>
-                                        Yes
+                                        No
                                     </td>
 
+                                    <td>
+                                        <code>[]</code>
+                                    </td>
 
                                 </tr>
                             </tbody>
@@ -356,8 +362,8 @@ export class CopyHelperService {
 		return CopyStatusEnum.SUCCESS;
 	}
 
-	deriveCopyName(name: string, existingNames?: string[]): string {
-		if (!existingNames?.includes(name)) {
+	deriveCopyName(name: string, existingNames: string[] &#x3D; []): string {
+		if (!existingNames.includes(name)) {
 			return name;
 		}
 		let num &#x3D; 1;
@@ -367,7 +373,7 @@ export class CopyHelperService {
 			num &#x3D; Number(matches.groups.number) + 1;
 		}
 		const composedName &#x3D; &#x60;${name} (${num})&#x60;;
-		if (existingNames?.includes(composedName)) {
+		if (existingNames.includes(composedName)) {
 			return this.deriveCopyName(composedName, existingNames);
 		}
 		return composedName;
