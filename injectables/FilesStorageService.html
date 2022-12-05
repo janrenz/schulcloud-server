@@ -2679,19 +2679,25 @@ export class FilesStorageService {
 	): Promise&lt;CopyFileResponse[]&gt; {
 		this.logger.debug({ action: &#x27;copy&#x27;, sourceFileRecords, targetParams });
 
-		const promises &#x3D; sourceFileRecords.map(async (sourceFile) &#x3D;&gt; {
-			this.checkScanStatus(sourceFile);
+		const promises: Promise&lt;CopyFileResponse&gt;[] &#x3D; sourceFileRecords.map(async (sourceFile) &#x3D;&gt; {
+			try {
+				this.checkScanStatus(sourceFile);
 
-			const targetFile &#x3D; await this.copyFileRecord(sourceFile, targetParams, userId);
-			const fileResponse &#x3D; await this.copyFilesWithRollbackOnError(sourceFile, targetFile);
+				const targetFile &#x3D; await this.copyFileRecord(sourceFile, targetParams, userId);
+				const fileResponse &#x3D; await this.copyFilesWithRollbackOnError(sourceFile, targetFile);
 
-			return fileResponse;
+				return fileResponse;
+			} catch (error) {
+				return {
+					sourceId: sourceFile._id.toString(),
+					name: sourceFile.name,
+				};
+			}
 		});
 
-		const settledPromises &#x3D; await Promise.allSettled(promises);
-		const resolvedResponses &#x3D; getResolvedValues(settledPromises);
+		const settledPromises &#x3D; await Promise.all(promises);
 
-		return resolvedResponses;
+		return settledPromises;
 	}
 }
 </code></pre>
