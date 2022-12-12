@@ -83,7 +83,7 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#ktid" >ktid</a>
+                                <a href="#id" >id</a>
                             </li>
                             <li>
                                 <a href="#organisation" >organisation</a>
@@ -165,10 +165,10 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="ktid"></a>
+                    <a name="id"></a>
                     <span class="name">
-                        <span ><b>ktid</b></span>
-                        <a href="#ktid"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>id</b></span>
+                        <a href="#id"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
@@ -299,13 +299,13 @@ export class SanisResponseName {
 
 export class SanisResponsePersonenkontext {
 	constructor(sanisResponsePersonenkontext: SanisResponsePersonenkontext) {
-		this.ktid &#x3D; sanisResponsePersonenkontext.ktid;
+		this.id &#x3D; sanisResponsePersonenkontext.id;
 		this.rolle &#x3D; sanisResponsePersonenkontext.rolle;
 		this.organisation &#x3D; sanisResponsePersonenkontext.organisation;
 		this.personenstatus &#x3D; sanisResponsePersonenkontext.personenstatus;
 	}
 
-	ktid: UUID;
+	id: UUID;
 
 	rolle: SanisRole;
 
@@ -316,12 +316,12 @@ export class SanisResponsePersonenkontext {
 
 export class SanisResponseOrganisation {
 	constructor(sanisResponseOrganisation: SanisResponseOrganisation) {
-		this.orgid &#x3D; sanisResponseOrganisation.orgid;
+		this.id &#x3D; sanisResponseOrganisation.id;
 		this.name &#x3D; sanisResponseOrganisation.name;
 		this.typ &#x3D; sanisResponseOrganisation.typ;
 	}
 
-	orgid: UUID;
+	id: UUID;
 
 	name: string;
 
