@@ -221,7 +221,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>withExternalData(oauth2Params?: DeepPartial<Oauth2ToolConfigDO>)</code>
+<code>withExternalData(oauth2Params?: <a href="../undefineds/Oauth2ToolConfig.html" target="_self">DeepPartial&lt;Oauth2ToolConfigDO&gt;</a>)</code>
                 </td>
             </tr>
 
@@ -252,7 +252,7 @@
                                 <tr>
                                     <td>oauth2Params</td>
                                     <td>
-                                            <code>DeepPartial&lt;Oauth2ToolConfigDO&gt;</code>
+                                                <code><a href="../miscellaneous/typealiases.html#Oauth2ToolConfig" target="_self" >DeepPartial&lt;Oauth2ToolConfigDO&gt;</a></code>
                                     </td>
 
                                     <td>
@@ -1388,6 +1388,14 @@ export const customParameterDOFactory &#x3D; DoBaseFactory.define&lt;CustomParam
 );
 
 class ExternalToolDOFactory extends DoBaseFactory&lt;ExternalToolDO, ExternalToolDO&gt; {
+	withOauth2Config(customParam?: DeepPartial&lt;Oauth2ToolConfigDO&gt;): this {
+		const params: DeepPartial&lt;ExternalToolDO&gt; &#x3D; {
+			config: oauth2ToolConfigDOFactory.build(customParam),
+		};
+
+		return this.params(params);
+	}
+
 	withCustomParameters(number: number, customParam?: DeepPartial&lt;CustomParameterDO&gt;): this {
 		const params: DeepPartial&lt;ExternalToolDO&gt; &#x3D; {
 			parameters: customParameterDOFactory.buildList(number, customParam),

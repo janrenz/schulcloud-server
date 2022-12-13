@@ -109,6 +109,9 @@
                                 <a href="#withCustomParameters" >withCustomParameters</a>
                             </li>
                             <li>
+                                <a href="#withOauth2Config" >withOauth2Config</a>
+                            </li>
+                            <li>
                                     <span class="modifier"></span>
                                 <a href="#buildWithId" >buildWithId</a>
                             </li>
@@ -221,15 +224,15 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>withCustomParameters(number: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, customParam?: DeepPartial<CustomParameterDO>)</code>
+<code>withCustomParameters(number: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, customParam?: <a href="../undefineds/CustomParameter.html" target="_self">DeepPartial&lt;CustomParameterDO&gt;</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="73"
-                            class="link-to-prism">apps/server/src/shared/testing/factory/domainobject/external-tool.factory.ts:73</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="81"
+                            class="link-to-prism">apps/server/src/shared/testing/factory/domainobject/external-tool.factory.ts:81</a></div>
                 </td>
             </tr>
 
@@ -264,7 +267,69 @@
                                 <tr>
                                     <td>customParam</td>
                                     <td>
-                                            <code>DeepPartial&lt;CustomParameterDO&gt;</code>
+                                                <code><a href="../miscellaneous/typealiases.html#CustomParameter" target="_self" >DeepPartial&lt;CustomParameterDO&gt;</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="withOauth2Config"></a>
+                    <span class="name">
+                        <span ><b>withOauth2Config</b></span>
+                        <a href="#withOauth2Config"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>withOauth2Config(customParam?: <a href="../undefineds/Oauth2ToolConfig.html" target="_self">DeepPartial&lt;Oauth2ToolConfigDO&gt;</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="73"
+                            class="link-to-prism">apps/server/src/shared/testing/factory/domainobject/external-tool.factory.ts:73</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>customParam</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#Oauth2ToolConfig" target="_self" >DeepPartial&lt;Oauth2ToolConfigDO&gt;</a></code>
                                     </td>
 
                                     <td>
@@ -1400,6 +1465,14 @@ export const customParameterDOFactory &#x3D; DoBaseFactory.define&lt;CustomParam
 );
 
 class ExternalToolDOFactory extends DoBaseFactory&lt;ExternalToolDO, ExternalToolDO&gt; {
+	withOauth2Config(customParam?: DeepPartial&lt;Oauth2ToolConfigDO&gt;): this {
+		const params: DeepPartial&lt;ExternalToolDO&gt; &#x3D; {
+			config: oauth2ToolConfigDOFactory.build(customParam),
+		};
+
+		return this.params(params);
+	}
+
 	withCustomParameters(number: number, customParam?: DeepPartial&lt;CustomParameterDO&gt;): this {
 		const params: DeepPartial&lt;ExternalToolDO&gt; &#x3D; {
 			parameters: customParameterDOFactory.buildList(number, customParam),
