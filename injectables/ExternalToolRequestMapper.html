@@ -234,8 +234,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="123"
-                            class="link-to-prism">apps/server/src/modules/tool/controller/mapper/external-tool-request.mapper.ts:123</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="125"
+                            class="link-to-prism">apps/server/src/modules/tool/controller/mapper/external-tool-request.mapper.ts:125</a></div>
                 </td>
             </tr>
 
@@ -674,8 +674,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="111"
-                            class="link-to-prism">apps/server/src/modules/tool/controller/mapper/external-tool-request.mapper.ts:111</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="113"
+                            class="link-to-prism">apps/server/src/modules/tool/controller/mapper/external-tool-request.mapper.ts:113</a></div>
                 </td>
             </tr>
 
@@ -887,8 +887,8 @@ export class ExternalToolRequestMapper {
 			logoUrl: externalToolPostParams.logoUrl,
 			config: mappedConfig,
 			parameters: mappedCustomParameter,
-			isHidden: externalToolPostParams.isHidden || true,
-			openNewTab: externalToolPostParams.openNewTab || true,
+			isHidden: externalToolPostParams.isHidden &#x3D;&#x3D;&#x3D; undefined ? true : externalToolPostParams.isHidden,
+			openNewTab: externalToolPostParams.openNewTab &#x3D;&#x3D;&#x3D; undefined ? true : externalToolPostParams.openNewTab,
 			version,
 		};
 	}
@@ -919,9 +919,11 @@ export class ExternalToolRequestMapper {
 				name: customParameterParam.name,
 				default: customParameterParam.default,
 				regex: customParameterParam.regex,
+				regexComment: customParameterParam.regexComment,
 				scope: scopeMapping[customParameterParam.scope],
 				location: locationMapping[customParameterParam.location],
 				type: typeMapping[customParameterParam.type],
+				isOptional: customParameterParam.isOptional,
 			};
 		});
 	}
