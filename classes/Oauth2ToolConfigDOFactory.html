@@ -1397,6 +1397,14 @@ class ExternalToolDOFactory extends DoBaseFactory&lt;ExternalToolDO, ExternalToo
 		return this.params(params);
 	}
 
+	withLti11Config(customParam?: DeepPartial&lt;Lti11ToolConfigDO&gt;): this {
+		const params: DeepPartial&lt;ExternalToolDO&gt; &#x3D; {
+			config: lti11ToolConfigDOFactory.build(customParam),
+		};
+
+		return this.params(params);
+	}
+
 	withCustomParameters(number: number, customParam?: DeepPartial&lt;CustomParameterDO&gt;): this {
 		const params: DeepPartial&lt;ExternalToolDO&gt; &#x3D; {
 			parameters: customParameterDOFactory.buildList(number, customParam),

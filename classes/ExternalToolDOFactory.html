@@ -109,6 +109,9 @@
                                 <a href="#withCustomParameters" >withCustomParameters</a>
                             </li>
                             <li>
+                                <a href="#withLti11Config" >withLti11Config</a>
+                            </li>
+                            <li>
                                 <a href="#withOauth2Config" >withOauth2Config</a>
                             </li>
                             <li>
@@ -231,8 +234,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="82"
-                            class="link-to-prism">apps/server/src/shared/testing/factory/domainobject/external-tool.factory.ts:82</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="90"
+                            class="link-to-prism">apps/server/src/shared/testing/factory/domainobject/external-tool.factory.ts:90</a></div>
                 </td>
             </tr>
 
@@ -268,6 +271,68 @@
                                     <td>customParam</td>
                                     <td>
                                                 <code><a href="../miscellaneous/typealiases.html#CustomParameter" target="_self" >DeepPartial&lt;CustomParameterDO&gt;</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="withLti11Config"></a>
+                    <span class="name">
+                        <span ><b>withLti11Config</b></span>
+                        <a href="#withLti11Config"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>withLti11Config(customParam?: <a href="../undefineds/Lti11ToolConfig.html" target="_self">DeepPartial&lt;Lti11ToolConfigDO&gt;</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="82"
+                            class="link-to-prism">apps/server/src/shared/testing/factory/domainobject/external-tool.factory.ts:82</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>customParam</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#Lti11ToolConfig" target="_self" >DeepPartial&lt;Lti11ToolConfigDO&gt;</a></code>
                                     </td>
 
                                     <td>
@@ -1469,6 +1534,14 @@ class ExternalToolDOFactory extends DoBaseFactory&lt;ExternalToolDO, ExternalToo
 	withOauth2Config(customParam?: DeepPartial&lt;Oauth2ToolConfigDO&gt;): this {
 		const params: DeepPartial&lt;ExternalToolDO&gt; &#x3D; {
 			config: oauth2ToolConfigDOFactory.build(customParam),
+		};
+
+		return this.params(params);
+	}
+
+	withLti11Config(customParam?: DeepPartial&lt;Lti11ToolConfigDO&gt;): this {
+		const params: DeepPartial&lt;ExternalToolDO&gt; &#x3D; {
+			config: lti11ToolConfigDOFactory.build(customParam),
 		};
 
 		return this.params(params);
