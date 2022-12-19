@@ -2575,6 +2575,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/SubmissionStatusResponse.html" data-type="entity-link" >SubmissionStatusResponse</a>
                             </li>
                             <li class="link">
+                                <a href="classes/SubmissionUrlParams.html" data-type="entity-link" >SubmissionUrlParams</a>
+                            </li>
+                            <li class="link">
                                 <a href="classes/SuccessfulResponse.html" data-type="entity-link" >SuccessfulResponse</a>
                             </li>
                             <li class="link">
