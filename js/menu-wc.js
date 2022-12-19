@@ -1461,13 +1461,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/ToolModule.html" data-type="entity-link" >ToolModule</a>
                                 <li class="chapter inner">
                                     <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                        'data-target="#injectables-links-module-ToolModule-84a9f2a0f558bdbe1b6921f38b6615fc07e4497d6d239fcd2ac2eb3b0dea4fe156afe379a6c85ba87a8ed7286bfdd3ebb9317bf58f84f059d6f9ed8ad4e5effd"' : 'data-target="#xs-injectables-links-module-ToolModule-84a9f2a0f558bdbe1b6921f38b6615fc07e4497d6d239fcd2ac2eb3b0dea4fe156afe379a6c85ba87a8ed7286bfdd3ebb9317bf58f84f059d6f9ed8ad4e5effd"' }>
+                                        'data-target="#injectables-links-module-ToolModule-eddd6e40eadc3433e1eef71248c4f1becdbc29d9929b6c8ef62610b9833ce944bb544185224fa04a17e86b753155951462330f21c5e8bb6c0f415c56535dbeb6"' : 'data-target="#xs-injectables-links-module-ToolModule-eddd6e40eadc3433e1eef71248c4f1becdbc29d9929b6c8ef62610b9833ce944bb544185224fa04a17e86b753155951462330f21c5e8bb6c0f415c56535dbeb6"' }>
                                         <span class="icon ion-md-arrow-round-down"></span>
                                         <span>Injectables</span>
                                         <span class="icon ion-ios-arrow-down"></span>
                                     </div>
-                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-ToolModule-84a9f2a0f558bdbe1b6921f38b6615fc07e4497d6d239fcd2ac2eb3b0dea4fe156afe379a6c85ba87a8ed7286bfdd3ebb9317bf58f84f059d6f9ed8ad4e5effd"' :
-                                        'id="xs-injectables-links-module-ToolModule-84a9f2a0f558bdbe1b6921f38b6615fc07e4497d6d239fcd2ac2eb3b0dea4fe156afe379a6c85ba87a8ed7286bfdd3ebb9317bf58f84f059d6f9ed8ad4e5effd"' }>
+                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-ToolModule-eddd6e40eadc3433e1eef71248c4f1becdbc29d9929b6c8ef62610b9833ce944bb544185224fa04a17e86b753155951462330f21c5e8bb6c0f415c56535dbeb6"' :
+                                        'id="xs-injectables-links-module-ToolModule-eddd6e40eadc3433e1eef71248c4f1becdbc29d9929b6c8ef62610b9833ce944bb544185224fa04a17e86b753155951462330f21c5e8bb6c0f415c56535dbeb6"' }>
                                         <li class="link">
                                             <a href="injectables/CourseExternalToolRepo.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >CourseExternalToolRepo</a>
                                         </li>
@@ -1485,6 +1485,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                         </li>
                                         <li class="link">
                                             <a href="injectables/ExternalToolSortingMapper.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >ExternalToolSortingMapper</a>
+                                        </li>
+                                        <li class="link">
+                                            <a href="injectables/ExternalToolVersionService.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >ExternalToolVersionService</a>
                                         </li>
                                         <li class="link">
                                             <a href="injectables/Lti11Service.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >Lti11Service</a>

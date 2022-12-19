@@ -751,7 +751,7 @@ export class ExternalToolUc {
 		const loaded: ExternalToolDO &#x3D; await this.externalToolService.findExternalToolById(toolId);
 		const toUpdate: ExternalToolDO &#x3D; new ExternalToolDO({ ...loaded, ...externalTool, version: loaded.version });
 
-		const saved &#x3D; await this.externalToolService.updateExternalTool(toUpdate);
+		const saved &#x3D; await this.externalToolService.updateExternalTool(toUpdate, loaded);
 		return saved;
 	}
 
