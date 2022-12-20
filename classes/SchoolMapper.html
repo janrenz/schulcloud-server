@@ -85,15 +85,11 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Static</span>
-                                <a href="#mapEntityToEntity" >mapEntityToEntity</a>
+                                <a href="#mapDOToEntityProperties" >mapDOToEntityProperties</a>
                             </li>
                             <li>
                                     <span class="modifier">Static</span>
-                                <a href="#mapToDto" >mapToDto</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Static</span>
-                                <a href="#mapToEntity" >mapToEntity</a>
+                                <a href="#mapEntityToDO" >mapEntityToDO</a>
                             </li>
                         </ul>
                     </td>
@@ -118,26 +114,26 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="mapEntityToEntity"></a>
+                    <a name="mapDOToEntityProperties"></a>
                     <span class="name">
                         <span class="modifier">Static</span>
-                        <span ><b>mapEntityToEntity</b></span>
-                        <a href="#mapEntityToEntity"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>mapDOToEntityProperties</b></span>
+                        <a href="#mapDOToEntityProperties"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>mapEntityToEntity(target: <a href="../classes/School.html" target="_self">School</a>, source: <a href="../classes/School.html" target="_self">School</a>)</code>
+                    <code>mapDOToEntityProperties(entityDO: <a href="../classes/SchoolDO.html" target="_self">SchoolDO</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="26"
-                            class="link-to-prism">apps/server/src/modules/school/mapper/school.mapper.ts:26</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="7"
+                            class="link-to-prism">apps/server/src/modules/school/mapper/school.mapper.ts:7</a></div>
                 </td>
             </tr>
 
@@ -158,21 +154,9 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>target</td>
+                                    <td>entityDO</td>
                                     <td>
-                                                <code><a href="../classes/School.html" target="_self" >School</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>source</td>
-                                    <td>
-                                                <code><a href="../classes/School.html" target="_self" >School</a></code>
+                                                <code><a href="../classes/SchoolDO.html" target="_self" >SchoolDO</a></code>
                                     </td>
 
                                     <td>
@@ -187,7 +171,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/School.html" target="_self" >School</a></code>
+                        <b>Returns : </b>        <code><a href="../interfaces/ISchoolProperties.html" target="_self" >EntityProperties&lt;ISchoolProperties&gt;</a></code>
 
                     </div>
                     <div class="io-description">
@@ -201,26 +185,26 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="mapToDto"></a>
+                    <a name="mapEntityToDO"></a>
                     <span class="name">
                         <span class="modifier">Static</span>
-                        <span ><b>mapToDto</b></span>
-                        <a href="#mapToDto"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>mapEntityToDO</b></span>
+                        <a href="#mapEntityToDO"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>mapToDto(entity: <a href="../classes/School.html" target="_self">School</a>)</code>
+                    <code>mapEntityToDO(entity: <a href="../classes/School.html" target="_self">School</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="33"
-                            class="link-to-prism">apps/server/src/modules/school/mapper/school.mapper.ts:33</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="26"
+                            class="link-to-prism">apps/server/src/modules/school/mapper/school.mapper.ts:26</a></div>
                 </td>
             </tr>
 
@@ -258,78 +242,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="mapToEntity"></a>
-                    <span class="name">
-                        <span class="modifier">Static</span>
-                        <span ><b>mapToEntity</b></span>
-                        <a href="#mapToEntity"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>mapToEntity(schoolDto: <a href="../classess/SchoolDto.html" target="_self">SchoolDto</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="6"
-                            class="link-to-prism">apps/server/src/modules/school/mapper/school.mapper.ts:6</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>schoolDto</td>
-                                    <td>
-                                                <code><a href="../classess/SchoolDto.html" target="_self" >SchoolDto</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/School.html" target="_self" >School</a></code>
+                        <b>Returns : </b>        <code><a href="../classes/SchoolDO.html" target="_self" >SchoolDO</a></code>
 
                     </div>
                     <div class="io-description">
@@ -349,44 +262,44 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { SchoolDto } from &#x27;@src/modules/school/uc/dto/school.dto&#x27;;
-import { EntityId, School, System } from &#x27;@shared/domain&#x27;;
-import { IdentifiedReference, Reference } from &#x27;@mikro-orm/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { SchoolDO } from &#x27;@shared/domain/domainobject/school.do&#x27;;
+import { EntityProperties } from &#x27;@shared/repo/base.do.repo&#x27;;
+import { ISchoolProperties, School, System } from &#x27;@shared/domain&#x27;;
+import { Reference } from &#x27;@mikro-orm/core&#x27;;
 
 export class SchoolMapper {
-	static mapToEntity(schoolDto: SchoolDto): School {
-		const school &#x3D; new School({
-			name: schoolDto.name,
-			externalId: schoolDto.externalId,
-		});
-
-		if (schoolDto.id) {
-			school.id &#x3D; schoolDto.id;
-		}
-
-		const refs: IdentifiedReference&lt;System, EntityId&gt;[] &#x3D; schoolDto.systemIds.map(
-			(systemId: EntityId): IdentifiedReference&lt;System, EntityId&gt; &#x3D;&gt; {
-				return Reference.createFromPK(System, systemId);
-			}
-		);
-		school.systems.add(...refs);
-
-		return school;
+	static mapDOToEntityProperties(entityDO: SchoolDO): EntityProperties&lt;ISchoolProperties&gt; {
+		return {
+			id: entityDO.id,
+			_id: entityDO.id,
+			externalId: entityDO.externalId,
+			features: entityDO.features,
+			inMaintenanceSince: entityDO.inMaintenanceSince,
+			inUserMigration: entityDO.inUserMigration,
+			name: entityDO.name,
+			oauthMigrationMandatory: entityDO.oauthMigrationMandatory,
+			oauthMigrationPossible: entityDO.oauthMigrationPossible,
+			officialSchoolNumber: entityDO.officialSchoolNumber,
+			schoolYear: entityDO.schoolYear,
+			systems: entityDO.systems
+				? entityDO.systems.map((systemId: string) &#x3D;&gt; Reference.createFromPK(System, systemId))
+				: [],
+		};
 	}
 
-	static mapEntityToEntity(target: School, source: School): School {
-		target.name &#x3D; source.name;
-		target.externalId &#x3D; source.externalId;
-		target.systems &#x3D; source.systems;
-		return target;
-	}
-
-	static mapToDto(entity: School) {
-		return new SchoolDto({
-			name: entity.name,
+	static mapEntityToDO(entity: School): SchoolDO {
+		return new SchoolDO({
 			id: entity.id,
 			externalId: entity.externalId,
-			systemIds: entity.systems.getItems().map((system: System): EntityId &#x3D;&gt; system.id),
+			features: entity.features,
+			inMaintenanceSince: entity.inMaintenanceSince,
+			inUserMigration: entity.inUserMigration,
+			name: entity.name,
+			oauthMigrationMandatory: entity.oauthMigrationMandatory,
+			oauthMigrationPossible: entity.oauthMigrationPossible,
+			officialSchoolNumber: entity.officialSchoolNumber,
+			schoolYear: entity.schoolYear,
+			systems: entity.systems.isInitialized() ? entity.systems.getItems().map((system: System) &#x3D;&gt; system.id) : [],
 		});
 	}
 }

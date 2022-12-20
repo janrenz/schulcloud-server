@@ -120,12 +120,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(userRepo: <a href="../injectables/UserRepo.html" target="_self">UserRepo</a>, roleRepo: <a href="../injectables/RoleRepo.html" target="_self">RoleRepo</a>, schoolRepo: <a href="../injectables/SchoolRepo.html" target="_self">SchoolRepo</a>, permissionService: <a href="../injectables/PermissionService.html" target="_self">PermissionService</a>, configService: <a href="../classes/User.html" target="_self">ConfigService&lt;IUserConfig | &gt;</a>, roleService: <a href="../injectables/RoleService.html" target="_self">RoleService</a>)</code>
+<code>constructor(userRepo: <a href="../injectables/UserRepo.html" target="_self">UserRepo</a>, roleRepo: <a href="../injectables/RoleRepo.html" target="_self">RoleRepo</a>, schoolService: <a href="../injectables/SchoolService.html" target="_self">SchoolService</a>, permissionService: <a href="../injectables/PermissionService.html" target="_self">PermissionService</a>, configService: <a href="../classes/User.html" target="_self">ConfigService&lt;IUserConfig | &gt;</a>, roleService: <a href="../injectables/RoleService.html" target="_self">RoleService</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">apps/server/src/modules/user/service/user.service.ts:12</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">apps/server/src/modules/user/service/user.service.ts:15</a></div>
                             </td>
                         </tr>
 
@@ -167,10 +167,10 @@
                                                     
                                                 </tr>
                                                 <tr>
-                                                        <td>schoolRepo</td>
+                                                        <td>schoolService</td>
                                                   
                                                         <td>
-                                                                        <code><a href="../injectables/SchoolRepo.html" target="_self" >SchoolRepo</a></code>
+                                                                        <code><a href="../injectables/SchoolService.html" target="_self" >SchoolService</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -250,8 +250,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="60"
-                            class="link-to-prism">apps/server/src/modules/user/service/user.service.ts:60</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="63"
+                            class="link-to-prism">apps/server/src/modules/user/service/user.service.ts:63</a></div>
                 </td>
             </tr>
 
@@ -321,8 +321,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="75"
-                            class="link-to-prism">apps/server/src/modules/user/service/user.service.ts:75</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="78"
+                            class="link-to-prism">apps/server/src/modules/user/service/user.service.ts:78</a></div>
                 </td>
             </tr>
 
@@ -392,8 +392,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="49"
-                            class="link-to-prism">apps/server/src/modules/user/service/user.service.ts:49</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="52"
+                            class="link-to-prism">apps/server/src/modules/user/service/user.service.ts:52</a></div>
                 </td>
             </tr>
 
@@ -467,8 +467,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="35"
-                            class="link-to-prism">apps/server/src/modules/user/service/user.service.ts:35</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="38"
+                            class="link-to-prism">apps/server/src/modules/user/service/user.service.ts:38</a></div>
                 </td>
             </tr>
 
@@ -540,8 +540,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="22"
-                            class="link-to-prism">apps/server/src/modules/user/service/user.service.ts:22</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="25"
+                            class="link-to-prism">apps/server/src/modules/user/service/user.service.ts:25</a></div>
                 </td>
             </tr>
 
@@ -611,8 +611,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="66"
-                            class="link-to-prism">apps/server/src/modules/user/service/user.service.ts:66</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="69"
+                            class="link-to-prism">apps/server/src/modules/user/service/user.service.ts:69</a></div>
                 </td>
             </tr>
 
@@ -678,7 +678,7 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { RoleRepo, SchoolRepo, UserRepo } from &#x27;@shared/repo&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { RoleRepo, UserRepo } from &#x27;@shared/repo&#x27;;
 import { EntityId, LanguageType, PermissionService, Role, School, User } from &#x27;@shared/domain&#x27;;
 import { UserDto } from &#x27;@src/modules/user/uc/dto/user.dto&#x27;;
 import { UserMapper } from &#x27;@src/modules/user/mapper/user.mapper&#x27;;
@@ -687,13 +687,16 @@ import { ConfigService } from &#x27;@nestjs/config&#x27;;
 import { IUserConfig } from &#x27;@src/modules/user/interfaces&#x27;;
 import { RoleService } from &#x27;@src/modules/role/service/role.service&#x27;;
 import { RoleDto } from &#x27;@src/modules/role/service/dto/role.dto&#x27;;
+import { SchoolDO } from &#x27;@shared/domain/domainobject/school.do&#x27;;
+import { SchoolService } from &#x27;../../school&#x27;;
+import { SchoolMapper } from &#x27;../../school/mapper/school.mapper&#x27;;
 
 @Injectable()
 export class UserService {
 	constructor(
 		private readonly userRepo: UserRepo,
 		private readonly roleRepo: RoleRepo,
-		private readonly schoolRepo: SchoolRepo,
+		private readonly schoolService: SchoolService,
 		private readonly permissionService: PermissionService,
 		private readonly configService: ConfigService&lt;IUserConfig, true&gt;,
 		private readonly roleService: RoleService
@@ -754,15 +757,16 @@ export class UserService {
 
 	async createOrUpdate(user: UserDto): Promise&lt;void&gt; {
 		const userRoles: Role[] &#x3D; await this.roleRepo.findByIds(user.roleIds);
-		const school: School &#x3D; await this.schoolRepo.findById(user.schoolId);
+		const schoolDO: SchoolDO &#x3D; await this.schoolService.getSchoolById(user.schoolId);
+		const schoolEntity: School &#x3D; new School(SchoolMapper.mapDOToEntityProperties(schoolDO));
 
 		let saveEntity: User;
 		if (user.id) {
 			const userEntity: User &#x3D; await this.userRepo.findById(user.id);
-			const fromDto: User &#x3D; UserMapper.mapFromDtoToEntity(user, userRoles, school);
+			const fromDto: User &#x3D; UserMapper.mapFromDtoToEntity(user, userRoles, schoolEntity);
 			saveEntity &#x3D; UserMapper.mapFromEntityToEntity(fromDto, userEntity);
 		} else {
-			saveEntity &#x3D; UserMapper.mapFromDtoToEntity(user, userRoles, school);
+			saveEntity &#x3D; UserMapper.mapFromDtoToEntity(user, userRoles, schoolEntity);
 		}
 
 		const promise: Promise&lt;void&gt; &#x3D; this.userRepo.save(saveEntity);

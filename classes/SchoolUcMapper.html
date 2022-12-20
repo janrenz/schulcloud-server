@@ -85,7 +85,7 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Static</span>
-                                <a href="#mapFromProvisioningSchoolOutputDtoToSchoolDto" >mapFromProvisioningSchoolOutputDtoToSchoolDto</a>
+                                <a href="#mapFromProvisioningSchoolOutputDtoToSchoolDO" >mapFromProvisioningSchoolOutputDtoToSchoolDO</a>
                             </li>
                         </ul>
                     </td>
@@ -110,18 +110,18 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="mapFromProvisioningSchoolOutputDtoToSchoolDto"></a>
+                    <a name="mapFromProvisioningSchoolOutputDtoToSchoolDO"></a>
                     <span class="name">
                         <span class="modifier">Static</span>
-                        <span ><b>mapFromProvisioningSchoolOutputDtoToSchoolDto</b></span>
-                        <a href="#mapFromProvisioningSchoolOutputDtoToSchoolDto"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>mapFromProvisioningSchoolOutputDtoToSchoolDO</b></span>
+                        <a href="#mapFromProvisioningSchoolOutputDtoToSchoolDO"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>mapFromProvisioningSchoolOutputDtoToSchoolDto(dto: <a href="../classes/ProvisioningSchoolOutputDto.html" target="_self">ProvisioningSchoolOutputDto</a>)</code>
+                    <code>mapFromProvisioningSchoolOutputDtoToSchoolDO(dto: <a href="../classes/ProvisioningSchoolOutputDto.html" target="_self">ProvisioningSchoolOutputDto</a>)</code>
                 </td>
             </tr>
 
@@ -188,15 +188,15 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ProvisioningSchoolOutputDto } from &#x27;@src/modules/provisioning/dto/provisioning-school-output.dto&#x27;;
-import { SchoolDto } from &#x27;@src/modules/school/uc/dto/school.dto&#x27;;
+import { SchoolDO } from &#x27;@shared/domain/domainobject/school.do&#x27;;
 
 export class SchoolUcMapper {
-	static mapFromProvisioningSchoolOutputDtoToSchoolDto(dto: ProvisioningSchoolOutputDto) {
-		return new SchoolDto({
+	static mapFromProvisioningSchoolOutputDtoToSchoolDO(dto: ProvisioningSchoolOutputDto) {
+		return new SchoolDO({
 			id: dto.id,
 			name: dto.name,
 			externalId: dto.externalId,
-			systemIds: dto.systemIds,
+			systems: dto.systemIds,
 		});
 	}
 }

@@ -161,7 +161,7 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(bbbService: <a href="../injectables/BBBService.html" target="_self">BBBService</a>, authorizationService: <a href="../injectables/AuthorizationService.html" target="_self">AuthorizationService</a>, videoConferenceRepo: <a href="../injectables/VideoConferenceRepo.html" target="_self">VideoConferenceRepo</a>, teamsRepo: <a href="../injectables/TeamsRepo.html" target="_self">TeamsRepo</a>, courseRepo: <a href="../injectables/CourseRepo.html" target="_self">CourseRepo</a>, userRepo: <a href="../injectables/UserRepo.html" target="_self">UserRepo</a>, calendarService: <a href="../injectables/CalendarService.html" target="_self">CalendarService</a>, schoolUc: <a href="../injectables/SchoolUc.html" target="_self">SchoolUc</a>)</code>
+<code>constructor(bbbService: <a href="../injectables/BBBService.html" target="_self">BBBService</a>, authorizationService: <a href="../injectables/AuthorizationService.html" target="_self">AuthorizationService</a>, videoConferenceRepo: <a href="../injectables/VideoConferenceRepo.html" target="_self">VideoConferenceRepo</a>, teamsRepo: <a href="../injectables/TeamsRepo.html" target="_self">TeamsRepo</a>, courseRepo: <a href="../injectables/CourseRepo.html" target="_self">CourseRepo</a>, userRepo: <a href="../injectables/UserRepo.html" target="_self">UserRepo</a>, calendarService: <a href="../injectables/CalendarService.html" target="_self">CalendarService</a>, schoolService: <a href="../injectables/SchoolService.html" target="_self">SchoolService</a>)</code>
                     </td>
                 </tr>
                         <tr>
@@ -268,10 +268,10 @@
                                                     
                                                 </tr>
                                                 <tr>
-                                                        <td>schoolUc</td>
+                                                        <td>schoolService</td>
                                                   
                                                         <td>
-                                                                        <code><a href="../injectables/SchoolUc.html" target="_self" >SchoolUc</a></code>
+                                                                        <code><a href="../injectables/SchoolService.html" target="_self" >SchoolService</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -1475,7 +1475,7 @@ import { CourseRepo, TeamsRepo, UserRepo } from &#x27;@shared/repo&#x27;;
 import { VideoConferenceRepo } from &#x27;@shared/repo/videoconference/video-conference.repo&#x27;;
 import { AuthorizationService } from &#x27;@src/modules/authorization&#x27;;
 import { AllowedAuthorizationEntityType } from &#x27;@src/modules/authorization/interfaces&#x27;;
-import { SchoolUc } from &#x27;@src/modules/school/uc/school.uc&#x27;;
+import { SchoolService } from &#x27;@src/modules/school/service/school.service&#x27;;
 import { BBBCreateConfigBuilder } from &#x27;@src/modules/video-conference/builder/bbb-create-config.builder&#x27;;
 import { BBBJoinConfigBuilder } from &#x27;@src/modules/video-conference/builder/bbb-join-config.builder&#x27;;
 import { BBBBaseMeetingConfig } from &#x27;@src/modules/video-conference/config/bbb-base-meeting.config&#x27;;
@@ -1529,7 +1529,7 @@ export class VideoConferenceUc {
 		private readonly courseRepo: CourseRepo,
 		private readonly userRepo: UserRepo,
 		private readonly calendarService: CalendarService,
-		private readonly schoolUc: SchoolUc
+		private readonly schoolService: SchoolService
 	) {
 		this.hostURL &#x3D; Configuration.get(&#x27;HOST&#x27;) as string;
 	}
@@ -1892,7 +1892,7 @@ export class VideoConferenceUc {
 			);
 		}
 		// throw, if the current users school does not have the feature enabled
-		const schoolFeatureEnabled &#x3D; await this.schoolUc.hasFeature(schoolId, SchoolFeatures.VIDEOCONFERENCE);
+		const schoolFeatureEnabled: boolean &#x3D; await this.schoolService.hasFeature(schoolId, SchoolFeatures.VIDEOCONFERENCE);
 		if (!schoolFeatureEnabled) {
 			throw new ForbiddenException(ErrorStatus.SCHOOL_FEATURE_DISABLED, &#x27;school feature VIDEOCONFERENCE is disabled&#x27;);
 		}
