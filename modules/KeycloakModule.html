@@ -60,13 +60,13 @@
 <title>cluster_KeycloakModule_imports</title>
 <polygon fill="none" stroke="black" points="548,-40.8 548,-92.8 922,-92.8 922,-40.8 548,-40.8"/>
 </g>
-<g id="clust6" class="cluster">
-<title>cluster_KeycloakModule_providers</title>
-<polygon fill="none" stroke="black" points="16,-40.8 16,-92.8 540,-92.8 540,-40.8 16,-40.8"/>
-</g>
 <g id="clust4" class="cluster">
 <title>cluster_KeycloakModule_exports</title>
 <polygon fill="none" stroke="black" points="418,-170.8 418,-222.8 814,-222.8 814,-170.8 418,-170.8"/>
+</g>
+<g id="clust6" class="cluster">
+<title>cluster_KeycloakModule_providers</title>
+<polygon fill="none" stroke="black" points="16,-40.8 16,-92.8 540,-92.8 540,-40.8 16,-40.8"/>
 </g>
 <!-- EncryptionModule -->
 <g id="node1" class="node">
@@ -248,8 +248,8 @@
 import { LoggerModule } from &#x27;@src/core/logger&#x27;;
 import KeycloakAdminClient from &#x27;@keycloak/keycloak-admin-client&#x27;;
 import { EncryptionModule } from &#x27;@shared/infra/encryption&#x27;;
-import { SystemModule } from &#x27;@src/modules&#x27;;
 import { HttpModule } from &#x27;@nestjs/axios&#x27;;
+import { SystemModule } from &#x27;../../../../modules/system/system.module&#x27;;
 import { KeycloakSettings } from &#x27;./interface/keycloak-settings.interface&#x27;;
 import { KeycloakManagementUc } from &#x27;./uc/Keycloak-management.uc&#x27;;
 import { KeycloakManagementInputFiles } from &#x27;./interface&#x27;;
