@@ -470,11 +470,13 @@ export class CopyFilesService {
 	}
 
 	private deriveCopyStatus(fileDtos: CopyFileDto[]): CopyStatus {
-		const fileStatuses: CopyStatus[] &#x3D; fileDtos.map(({ sourceId, id, name }) &#x3D;&gt; ({
-			type: CopyElementType.FILE,
-			status: id ? CopyStatusEnum.SUCCESS : CopyStatusEnum.FAIL,
-			title: name ?? &#x60;(old fileid: ${sourceId})&#x60;,
-		}));
+		const fileStatuses: CopyStatus[] &#x3D; fileDtos.map(({ sourceId, id, name }) &#x3D;&gt; {
+			return {
+				type: CopyElementType.FILE,
+				status: id ? CopyStatusEnum.SUCCESS : CopyStatusEnum.FAIL,
+				title: name ?? &#x60;(old fileid: ${sourceId})&#x60;,
+			};
+		});
 
 		const fileGroupStatus &#x3D; {
 			type: CopyElementType.FILE_GROUP,

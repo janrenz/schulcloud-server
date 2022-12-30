@@ -489,21 +489,23 @@ export class VideoConferenceUc {
 
 		const response: VideoConferenceInfoDTO &#x3D; await this.bbbService
 			.getMeetingInfo(config)
-			.then((bbbResponse: BBBResponse&lt;BBBMeetingInfoResponse&gt;) &#x3D;&gt; {
-				return new VideoConferenceInfoDTO({
-					state: VideoConferenceState.RUNNING,
-					permission: PermissionMapping[bbbRole],
-					bbbResponse,
-					options: bbbRole &#x3D;&#x3D;&#x3D; BBBRole.MODERATOR ? options : ({} as VideoConferenceOptions),
-				});
-			})
-			.catch(() &#x3D;&gt; {
-				return new VideoConferenceInfoDTO({
-					state: VideoConferenceState.NOT_STARTED,
-					permission: PermissionMapping[bbbRole],
-					options: bbbRole &#x3D;&#x3D;&#x3D; BBBRole.MODERATOR ? options : ({} as VideoConferenceOptions),
-				});
-			});
+			.then(
+				(bbbResponse: BBBResponse&lt;BBBMeetingInfoResponse&gt;) &#x3D;&gt;
+					new VideoConferenceInfoDTO({
+						state: VideoConferenceState.RUNNING,
+						permission: PermissionMapping[bbbRole],
+						bbbResponse,
+						options: bbbRole &#x3D;&#x3D;&#x3D; BBBRole.MODERATOR ? options : ({} as VideoConferenceOptions),
+					})
+			)
+			.catch(
+				() &#x3D;&gt;
+					new VideoConferenceInfoDTO({
+						state: VideoConferenceState.NOT_STARTED,
+						permission: PermissionMapping[bbbRole],
+						options: bbbRole &#x3D;&#x3D;&#x3D; BBBRole.MODERATOR ? options : ({} as VideoConferenceOptions),
+					})
+			);
 
 		const isGuest: boolean &#x3D; await this.isExpert(currentUser, conferenceScope, scopeInfo.scopeId);
 

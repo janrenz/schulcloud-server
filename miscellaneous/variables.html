@@ -1016,10 +1016,12 @@
                     <td class="col-md-4">
                         <i>Default value : </i><code>DoBaseFactory.define&lt;BasicToolConfigDO, BasicToolConfigDO&gt;(
 	BasicToolConfigDO,
-	() &#x3D;&gt; ({
-		type: ToolConfigType.BASIC,
-		baseUrl: &#x27;https://www.basic-baseUrl.com/&#x27;,
-	})
+	() &#x3D;&gt; {
+		return {
+			type: ToolConfigType.BASIC,
+			baseUrl: &#x27;https://www.basic-baseUrl.com/&#x27;,
+		};
+	}
 )</code>
                     </td>
                 </tr>
@@ -1042,13 +1044,15 @@
                     <td class="col-md-4">
                         <i>Default value : </i><code>DoBaseFactory.define&lt;CustomParameterDO, CustomParameterDO&gt;(
 	CustomParameterDO,
-	({ sequence }) &#x3D;&gt; ({
-		name: &#x60;custom-parameter-${sequence}&#x60;,
-		type: CustomParameterType.STRING,
-		scope: CustomParameterScope.GLOBAL,
-		location: CustomParameterLocation.TOKEN,
-		isOptional: false,
-	})
+	({ sequence }) &#x3D;&gt; {
+		return {
+			name: &#x60;custom-parameter-${sequence}&#x60;,
+			type: CustomParameterType.STRING,
+			scope: CustomParameterScope.GLOBAL,
+			location: CustomParameterLocation.TOKEN,
+			isOptional: false,
+		};
+	}
 )</code>
                     </td>
                 </tr>
@@ -1069,15 +1073,17 @@
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>ExternalToolDOFactory.define(ExternalToolDO, ({ sequence }) &#x3D;&gt; ({
-	name: &#x60;external-tool-${sequence}&#x60;,
-	url: &#x27;https://url.com/&#x27;,
-	config: basicToolConfigDOFactory.build(),
-	logoUrl: &#x27;https://logo.com/&#x27;,
-	isHidden: false,
-	openNewTab: false,
-	version: 1,
-}))</code>
+                        <i>Default value : </i><code>ExternalToolDOFactory.define(ExternalToolDO, ({ sequence }) &#x3D;&gt; {
+	return {
+		name: &#x60;external-tool-${sequence}&#x60;,
+		url: &#x27;https://url.com/&#x27;,
+		config: basicToolConfigDOFactory.build(),
+		logoUrl: &#x27;https://logo.com/&#x27;,
+		isHidden: false,
+		openNewTab: false,
+		version: 1,
+	};
+})</code>
                     </td>
                 </tr>
 
@@ -1099,15 +1105,17 @@
                     <td class="col-md-4">
                         <i>Default value : </i><code>DoBaseFactory.define&lt;Lti11ToolConfigDO, Lti11ToolConfigDO&gt;(
 	Lti11ToolConfigDO,
-	() &#x3D;&gt; ({
-		type: ToolConfigType.LTI11,
-		baseUrl: &#x27;https://www.oauth2-baseUrl.com/&#x27;,
-		key: &#x27;key&#x27;,
-		secret: &#x27;secret&#x27;,
-		privacy_permission: LtiPrivacyPermission.PSEUDONYMOUS,
-		lti_message_type: LtiMessageType.BASIC_LTI_LAUNCH_REQUEST,
-		resource_link_id: &#x27;linkId&#x27;,
-	})
+	() &#x3D;&gt; {
+		return {
+			type: ToolConfigType.LTI11,
+			baseUrl: &#x27;https://www.oauth2-baseUrl.com/&#x27;,
+			key: &#x27;key&#x27;,
+			secret: &#x27;secret&#x27;,
+			privacy_permission: LtiPrivacyPermission.PSEUDONYMOUS,
+			lti_message_type: LtiMessageType.BASIC_LTI_LAUNCH_REQUEST,
+			resource_link_id: &#x27;linkId&#x27;,
+		};
+	}
 )</code>
                     </td>
                 </tr>
@@ -1128,12 +1136,14 @@
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>Oauth2ToolConfigDOFactory.define(Oauth2ToolConfigDO, () &#x3D;&gt; ({
-	type: ToolConfigType.OAUTH2,
-	baseUrl: &#x27;https://www.oauth2-baseUrl.com/&#x27;,
-	clientId: &#x27;clientId&#x27;,
-	skipConsent: false,
-}))</code>
+                        <i>Default value : </i><code>Oauth2ToolConfigDOFactory.define(Oauth2ToolConfigDO, () &#x3D;&gt; {
+	return {
+		type: ToolConfigType.OAUTH2,
+		baseUrl: &#x27;https://www.oauth2-baseUrl.com/&#x27;,
+		clientId: &#x27;clientId&#x27;,
+		skipConsent: false,
+	};
+})</code>
                     </td>
                 </tr>
 
@@ -1157,7 +1167,10 @@
                 <tr>
                     <td class="col-md-4">
                         <i>Default value : </i><code>BaseFactory.define&lt;Board, BoardProps&gt;(Board, () &#x3D;&gt; {
-	return { references: [], course: courseFactory.build() };
+	return {
+		references: [],
+		course: courseFactory.build(),
+	};
 })</code>
                     </td>
                 </tr>
@@ -2001,9 +2014,7 @@ must use @ApiProperty</p>
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>(error: Error): error is BusinessError &#x3D;&gt; {
-	return error instanceof BusinessError;
-}</code>
+                        <i>Default value : </i><code>(error: Error): error is BusinessError &#x3D;&gt; error instanceof BusinessError</code>
                     </td>
                 </tr>
 
@@ -2046,9 +2057,7 @@ must use @ApiProperty</p>
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>(error: Error): error is HttpException &#x3D;&gt; {
-	return error instanceof HttpException;
-}</code>
+                        <i>Default value : </i><code>(error: Error): error is HttpException &#x3D;&gt; error instanceof HttpException</code>
                     </td>
                 </tr>
 
@@ -2144,7 +2153,7 @@ must use @ApiProperty</p>
                         <i>Default value : </i><code>(options: MikroOrmModuleAsyncOptions): DynamicModule &#x3D;&gt; {
 	const mikroOrmModule &#x3D; MikroOrmModule.forRootAsync({
 		useFactory: () &#x3D;&gt; {
-			// eslint-disable-next-line @typescript-eslint/restrict-template-expressions
+			// eslint-disable-next-line @typescript-eslint/restrict-template-expressions, no-process-env
 			const clientUrl &#x3D; &#x60;${process.env.MONGO_TEST_URI}/${dbName()}&#x60;;
 			return {
 				allowGlobalContext: true, // can be overridden by options
@@ -2334,10 +2343,9 @@ must use @ApiProperty</p>
                 <tr>
                     <td class="col-md-4">
                         <i>Default value : </i><code>{
-	findOneOrFailHandler: (entityName: string, where: Dictionary | IPrimaryKey) &#x3D;&gt; {
+	findOneOrFailHandler: (entityName: string, where: Dictionary | IPrimaryKey) &#x3D;&gt;
 		// eslint-disable-next-line @typescript-eslint/restrict-template-expressions
-		return new NotFoundException(&#x60;The requested ${entityName}: ${where} has not been found.&#x60;);
-	},
+		new NotFoundException(&#x60;The requested ${entityName}: ${where} has not been found.&#x60;),
 }</code>
                     </td>
                 </tr>
@@ -2406,8 +2414,8 @@ must use @ApiProperty</p>
 	FilesStorageService,
 	{
 		provide: &#x27;S3_Client&#x27;,
-		useFactory: (configProvider: S3Config) &#x3D;&gt; {
-			return new S3Client({
+		useFactory: (configProvider: S3Config) &#x3D;&gt;
+			new S3Client({
 				region: configProvider.region,
 				credentials: {
 					accessKeyId: configProvider.accessKeyId,
@@ -2416,8 +2424,7 @@ must use @ApiProperty</p>
 				endpoint: configProvider.endpoint,
 				forcePathStyle: true,
 				tls: true,
-			});
-		},
+			}),
 		inject: [&#x27;S3_Config&#x27;],
 	},
 	{
@@ -2456,10 +2463,9 @@ must use @ApiProperty</p>
                 <tr>
                     <td class="col-md-4">
                         <i>Default value : </i><code>{
-	findOneOrFailHandler: (entityName: string, where: Dictionary | IPrimaryKey) &#x3D;&gt; {
+	findOneOrFailHandler: (entityName: string, where: Dictionary | IPrimaryKey) &#x3D;&gt;
 		// eslint-disable-next-line @typescript-eslint/restrict-template-expressions
-		return new NotFoundException(&#x60;The requested ${entityName}: ${where} has not been found.&#x60;);
-	},
+		new NotFoundException(&#x60;The requested ${entityName}: ${where} has not been found.&#x60;),
 }</code>
                     </td>
                 </tr>
@@ -2490,10 +2496,9 @@ must use @ApiProperty</p>
                 <tr>
                     <td class="col-md-4">
                         <i>Default value : </i><code>{
-	findOneOrFailHandler: (entityName: string, where: Dictionary | IPrimaryKey) &#x3D;&gt; {
+	findOneOrFailHandler: (entityName: string, where: Dictionary | IPrimaryKey) &#x3D;&gt;
 		// eslint-disable-next-line @typescript-eslint/restrict-template-expressions
-		return new NotFoundException(&#x60;The requested ${entityName}: ${where} has not been found.&#x60;);
-	},
+		new NotFoundException(&#x60;The requested ${entityName}: ${where} has not been found.&#x60;),
 }</code>
                     </td>
                 </tr>
@@ -3678,7 +3683,9 @@ You shall not explicitly declare the AMQPConnection in your modules since it wil
                 <tr>
                     <td class="col-md-4">
                         <i>Default value : </i><code>BaseFactory.define&lt;TaskBoardElement, { target: Task }&gt;(TaskBoardElement, () &#x3D;&gt; {
-	return { target: taskFactory.build() };
+	return {
+		target: taskFactory.build(),
+	};
 })</code>
                     </td>
                 </tr>
@@ -4240,9 +4247,7 @@ You shall not explicitly declare the AMQPConnection in your modules since it wil
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>new RegExp(
-	/^(?&#x3D;.*[A-Z])(?&#x3D;.*[0-9])(?&#x3D;.*[a-z])(?&#x3D;.*[-_!&lt;&gt;§$%&amp;/()&#x3D;?\\;:,.#+*~&#x27;])\S.{6,253}\S$/
-)</code>
+                        <i>Default value : </i><code>/^(?&#x3D;.*[A-Z])(?&#x3D;.*[0-9])(?&#x3D;.*[a-z])(?&#x3D;.*[-_!&lt;&gt;§$%&amp;/()&#x3D;?\\;:,.#+*~&#x27;])\S.{6,253}\S$/</code>
                     </td>
                 </tr>
 
@@ -4688,13 +4693,15 @@ Teardown: &#39;await orm.close()&#39; in after-hook!</p>
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>ShareTokenFactory.define(({ sequence }) &#x3D;&gt; ({
-	token: &#x60;share-token-${sequence}&#x60;,
-	payload: {
-		parentType: ShareTokenParentType.Course,
-		parentId: new ObjectId().toHexString(),
-	},
-}))</code>
+                        <i>Default value : </i><code>ShareTokenFactory.define(({ sequence }) &#x3D;&gt; {
+	return {
+		token: &#x60;share-token-${sequence}&#x60;,
+		payload: {
+			parentType: ShareTokenParentType.Course,
+			parentId: new ObjectId().toHexString(),
+		},
+	};
+})</code>
                     </td>
                 </tr>
 

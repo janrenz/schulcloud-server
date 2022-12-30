@@ -290,8 +290,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="156"
-                            class="link-to-prism">apps/server/src/shared/repo/externaltool/external-tool.repo.mapper.ts:156</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="157"
+                            class="link-to-prism">apps/server/src/shared/repo/externaltool/external-tool.repo.mapper.ts:157</a></div>
                 </td>
             </tr>
 
@@ -359,8 +359,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="180"
-                            class="link-to-prism">apps/server/src/shared/repo/externaltool/external-tool.repo.mapper.ts:180</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="183"
+                            class="link-to-prism">apps/server/src/shared/repo/externaltool/external-tool.repo.mapper.ts:183</a></div>
                 </td>
             </tr>
 
@@ -428,8 +428,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="171"
-                            class="link-to-prism">apps/server/src/shared/repo/externaltool/external-tool.repo.mapper.ts:171</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="173"
+                            class="link-to-prism">apps/server/src/shared/repo/externaltool/external-tool.repo.mapper.ts:173</a></div>
                 </td>
             </tr>
 
@@ -1107,51 +1107,55 @@ export class ExternalToolRepoMapper {
 	}
 
 	mapCustomParametersToDOs(customParameters: CustomParameter[]): CustomParameterDO[] {
-		return customParameters.map((param: CustomParameter) &#x3D;&gt; {
-			return new CustomParameterDO({
-				name: param.name,
-				default: param.default,
-				regex: param.regex,
-				regexComment: param.regexComment,
-				scope: param.scope,
-				location: param.location,
-				type: param.type,
-				isOptional: param.isOptional,
-			});
-		});
+		return customParameters.map(
+			(param: CustomParameter) &#x3D;&gt;
+				new CustomParameterDO({
+					name: param.name,
+					default: param.default,
+					regex: param.regex,
+					regexComment: param.regexComment,
+					scope: param.scope,
+					location: param.location,
+					type: param.type,
+					isOptional: param.isOptional,
+				})
+		);
 	}
 
 	mapCustomParameterDOsToEntities(customParameters: CustomParameterDO[]): CustomParameter[] {
-		return customParameters.map((param: CustomParameterDO) &#x3D;&gt; {
-			return new CustomParameter({
-				name: param.name,
-				default: param.default,
-				regex: param.regex,
-				regexComment: param.regexComment,
-				scope: param.scope,
-				location: param.location,
-				type: param.type,
-				isOptional: param.isOptional,
-			});
-		});
+		return customParameters.map(
+			(param: CustomParameterDO) &#x3D;&gt;
+				new CustomParameter({
+					name: param.name,
+					default: param.default,
+					regex: param.regex,
+					regexComment: param.regexComment,
+					scope: param.scope,
+					location: param.location,
+					type: param.type,
+					isOptional: param.isOptional,
+				})
+		);
 	}
 
 	mapCustomParameterEntryEntitiesToDOs(entries: CustomParameterEntry[]): CustomParameterEntryDO[] {
-		return entries.map((entry: CustomParameterEntry): CustomParameterEntryDO &#x3D;&gt; {
-			return new CustomParameterEntryDO({
-				name: entry.name,
-				value: entry.value,
-			});
-		});
+		return entries.map(
+			(entry: CustomParameterEntry): CustomParameterEntryDO &#x3D;&gt;
+				new CustomParameterEntryDO({
+					name: entry.name,
+					value: entry.value,
+				})
+		);
 	}
 
 	mapCustomParameterEntryDOsToEntities(entries: CustomParameterEntryDO[]): CustomParameterEntry[] {
-		return entries.map((entry: CustomParameterEntry): CustomParameterEntryDO &#x3D;&gt; {
-			return new CustomParameterEntry({
-				name: entry.name,
-				value: entry.value,
-			});
-		});
+		return entries.map(
+			(entry: CustomParameterEntry): CustomParameterEntryDO &#x3D;&gt;
+				new CustomParameterEntry({
+					name: entry.name,
+					value: entry.value,
+				})
+		);
 	}
 }
 </code></pre>

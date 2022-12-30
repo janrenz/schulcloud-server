@@ -801,8 +801,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="160"
-                            class="link-to-prism">apps/server/src/modules/tool/service/external-tool.service.ts:160</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="159"
+                            class="link-to-prism">apps/server/src/modules/tool/service/external-tool.service.ts:159</a></div>
                 </td>
             </tr>
 
@@ -870,8 +870,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="164"
-                            class="link-to-prism">apps/server/src/modules/tool/service/external-tool.service.ts:164</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="163"
+                            class="link-to-prism">apps/server/src/modules/tool/service/external-tool.service.ts:163</a></div>
                 </td>
             </tr>
 
@@ -1322,10 +1322,9 @@ export class ExternalToolService {
 	async deleteExternalTool(toolId: EntityId): Promise&lt;void&gt; {
 		const schoolExternalTools: SchoolExternalToolDO[] &#x3D; await this.schoolExternalToolRepo.findByToolId(toolId);
 		const schoolExternalToolIds: string[] &#x3D; schoolExternalTools.map(
-			(schoolExternalTool: SchoolExternalToolDO): string &#x3D;&gt; {
+			(schoolExternalTool: SchoolExternalToolDO): string &#x3D;&gt;
 				// We can be sure that the repo returns the id
-				return schoolExternalTool.id as string;
-			}
+				schoolExternalTool.id as string
 		);
 
 		await Promise.all([

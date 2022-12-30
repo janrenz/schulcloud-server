@@ -244,8 +244,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="185"
-                            class="link-to-prism">apps/server/src/modules/files-storage/client/s3-client.adapter.ts:185</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="187"
+                            class="link-to-prism">apps/server/src/modules/files-storage/client/s3-client.adapter.ts:187</a></div>
                 </td>
             </tr>
 
@@ -1019,7 +1019,9 @@ export class S3ClientAdapter implements IStorageClient {
 	}
 
 	private async remove(paths: string[]) {
-		const pathObjects &#x3D; paths.map((p) &#x3D;&gt; ({ Key: p }));
+		const pathObjects &#x3D; paths.map((p) &#x3D;&gt; {
+			return { Key: p };
+		});
 		const req &#x3D; new DeleteObjectsCommand({
 			Bucket: this.config.bucket,
 			Delete: { Objects: pathObjects },

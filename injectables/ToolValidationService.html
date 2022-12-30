@@ -846,9 +846,9 @@ export class ToolValidationService {
 	}
 
 	private hasDuplicateAttributes(customParameter: CustomParameterDO[]): boolean {
-		return customParameter.some((item, itemIndex) &#x3D;&gt; {
-			return customParameter.some((other, otherIndex) &#x3D;&gt; itemIndex !&#x3D;&#x3D; otherIndex &amp;&amp; item.name &#x3D;&#x3D;&#x3D; other.name);
-		});
+		return customParameter.some((item, itemIndex) &#x3D;&gt;
+			customParameter.some((other, otherIndex) &#x3D;&gt; itemIndex !&#x3D;&#x3D; otherIndex &amp;&amp; item.name &#x3D;&#x3D;&#x3D; other.name)
+		);
 	}
 
 	private validateByRegex(customParameter: CustomParameterDO[]): boolean {

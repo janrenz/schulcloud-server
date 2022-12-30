@@ -137,8 +137,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="32"
-                            class="link-to-prism">apps/server/src/modules/task/controller/submission.controller.ts:32</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="30"
+                            class="link-to-prism">apps/server/src/modules/task/controller/submission.controller.ts:30</a></div>
                 </td>
             </tr>
 
@@ -313,9 +313,7 @@ export class SubmissionController {
 	): Promise&lt;SubmissionStatusListResponse&gt; {
 		const submissions &#x3D; await this.submissionUc.findAllByTask(currentUser.userId, params.taskId);
 
-		const submissionResponses &#x3D; submissions.map((submission) &#x3D;&gt; {
-			return SubmissionMapper.mapToStatusResponse(submission);
-		});
+		const submissionResponses &#x3D; submissions.map((submission) &#x3D;&gt; SubmissionMapper.mapToStatusResponse(submission));
 
 		const listResponse &#x3D; new SubmissionStatusListResponse(submissionResponses);
 

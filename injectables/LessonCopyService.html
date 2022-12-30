@@ -306,8 +306,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="402"
-                            class="link-to-prism">apps/server/src/modules/learnroom/service/lesson-copy.service.ts:402</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="404"
+                            class="link-to-prism">apps/server/src/modules/learnroom/service/lesson-copy.service.ts:404</a></div>
                 </td>
             </tr>
 
@@ -378,8 +378,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="308"
-                            class="link-to-prism">apps/server/src/modules/learnroom/service/lesson-copy.service.ts:308</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="310"
+                            class="link-to-prism">apps/server/src/modules/learnroom/service/lesson-copy.service.ts:310</a></div>
                 </td>
             </tr>
 
@@ -462,8 +462,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="301"
-                            class="link-to-prism">apps/server/src/modules/learnroom/service/lesson-copy.service.ts:301</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="303"
+                            class="link-to-prism">apps/server/src/modules/learnroom/service/lesson-copy.service.ts:303</a></div>
                 </td>
             </tr>
 
@@ -759,8 +759,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="372"
-                            class="link-to-prism">apps/server/src/modules/learnroom/service/lesson-copy.service.ts:372</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="374"
+                            class="link-to-prism">apps/server/src/modules/learnroom/service/lesson-copy.service.ts:374</a></div>
                 </td>
             </tr>
 
@@ -831,8 +831,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="349"
-                            class="link-to-prism">apps/server/src/modules/learnroom/service/lesson-copy.service.ts:349</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="351"
+                            class="link-to-prism">apps/server/src/modules/learnroom/service/lesson-copy.service.ts:351</a></div>
                 </td>
             </tr>
 
@@ -915,8 +915,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="331"
-                            class="link-to-prism">apps/server/src/modules/learnroom/service/lesson-copy.service.ts:331</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="333"
+                            class="link-to-prism">apps/server/src/modules/learnroom/service/lesson-copy.service.ts:333</a></div>
                 </td>
             </tr>
 
@@ -1188,8 +1188,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="417"
-                            class="link-to-prism">apps/server/src/modules/learnroom/service/lesson-copy.service.ts:417</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="419"
+                            class="link-to-prism">apps/server/src/modules/learnroom/service/lesson-copy.service.ts:419</a></div>
                 </td>
             </tr>
 
@@ -1260,8 +1260,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="408"
-                            class="link-to-prism">apps/server/src/modules/learnroom/service/lesson-copy.service.ts:408</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="410"
+                            class="link-to-prism">apps/server/src/modules/learnroom/service/lesson-copy.service.ts:410</a></div>
                 </td>
             </tr>
 
@@ -1758,13 +1758,15 @@ export class LessonCopyService {
 
 	private copyLernStore(element: IComponentProperties) {
 		const resources &#x3D; ((element.content as IComponentLernstoreProperties).resources ?? []).map(
-			({ client, description, merlinReference, title, url }) &#x3D;&gt; ({
-				client,
-				description,
-				merlinReference,
-				title,
-				url,
-			})
+			({ client, description, merlinReference, title, url }) &#x3D;&gt; {
+				return {
+					client,
+					description,
+					merlinReference,
+					title,
+					url,
+				};
+			}
 		);
 
 		const lernstore &#x3D; {
@@ -1831,14 +1833,14 @@ export class LessonCopyService {
 		const linkedTasks &#x3D; params.originalLesson.getLessonLinkedTasks();
 		if (linkedTasks.length &gt; 0) {
 			const copiedTasksStatus &#x3D; await Promise.all(
-				linkedTasks.map((element) &#x3D;&gt; {
-					return this.taskCopyService.copyTask({
+				linkedTasks.map((element) &#x3D;&gt;
+					this.taskCopyService.copyTask({
 						originalTask: element,
 						destinationCourse: params.destinationCourse,
 						destinationLesson,
 						user: params.user,
-					});
-				})
+					})
+				)
 			);
 			const taskGroupStatus &#x3D; {
 				type: CopyElementType.TASK_GROUP,

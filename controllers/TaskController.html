@@ -170,8 +170,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="77"
-                            class="link-to-prism">apps/server/src/modules/task/controller/task.controller.ts:77</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="75"
+                            class="link-to-prism">apps/server/src/modules/task/controller/task.controller.ts:75</a></div>
                 </td>
             </tr>
 
@@ -272,8 +272,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="100"
-                            class="link-to-prism">apps/server/src/modules/task/controller/task.controller.ts:100</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="98"
+                            class="link-to-prism">apps/server/src/modules/task/controller/task.controller.ts:98</a></div>
                 </td>
             </tr>
 
@@ -362,8 +362,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="125"
-                            class="link-to-prism">apps/server/src/modules/task/controller/task.controller.ts:125</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="123"
+                            class="link-to-prism">apps/server/src/modules/task/controller/task.controller.ts:123</a></div>
                 </td>
             </tr>
 
@@ -735,8 +735,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="92"
-                            class="link-to-prism">apps/server/src/modules/task/controller/task.controller.ts:92</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="90"
+                            class="link-to-prism">apps/server/src/modules/task/controller/task.controller.ts:90</a></div>
                 </td>
             </tr>
 
@@ -825,8 +825,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="58"
-                            class="link-to-prism">apps/server/src/modules/task/controller/task.controller.ts:58</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="56"
+                            class="link-to-prism">apps/server/src/modules/task/controller/task.controller.ts:56</a></div>
                 </td>
             </tr>
 
@@ -915,8 +915,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="67"
-                            class="link-to-prism">apps/server/src/modules/task/controller/task.controller.ts:67</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="65"
+                            class="link-to-prism">apps/server/src/modules/task/controller/task.controller.ts:65</a></div>
                 </td>
             </tr>
 
@@ -1005,8 +1005,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="108"
-                            class="link-to-prism">apps/server/src/modules/task/controller/task.controller.ts:108</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="106"
+                            class="link-to-prism">apps/server/src/modules/task/controller/task.controller.ts:106</a></div>
                 </td>
             </tr>
 
@@ -1129,9 +1129,7 @@ export class TaskController {
 			? await this.taskUc.findAllFinished(currentUser.userId, pagination)
 			: await this.taskUc.findAll(currentUser.userId, pagination);
 
-		const taskResponses &#x3D; tasksWithStatus.map((task) &#x3D;&gt; {
-			return TaskMapper.mapToResponse(task);
-		});
+		const taskResponses &#x3D; tasksWithStatus.map((task) &#x3D;&gt; TaskMapper.mapToResponse(task));
 
 		const { skip, limit } &#x3D; pagination;
 		const result &#x3D; new TaskListResponse(taskResponses, total, skip, limit);

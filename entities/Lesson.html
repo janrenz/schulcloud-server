@@ -540,25 +540,19 @@ export class Lesson extends BaseEntityWithTimestamps implements ILearnroomElemen
 
 	getNumberOfPublishedTasks(): number {
 		const tasks &#x3D; this.getTasksItems();
-		const filtered &#x3D; tasks.filter((task) &#x3D;&gt; {
-			return task.isPublished();
-		});
+		const filtered &#x3D; tasks.filter((task) &#x3D;&gt; task.isPublished());
 		return filtered.length;
 	}
 
 	getNumberOfDraftTasks(): number {
 		const tasks &#x3D; this.getTasksItems();
-		const filtered &#x3D; tasks.filter((task) &#x3D;&gt; {
-			return task.isDraft();
-		});
+		const filtered &#x3D; tasks.filter((task) &#x3D;&gt; task.isDraft());
 		return filtered.length;
 	}
 
 	getNumberOfPlannedTasks(): number {
 		const tasks &#x3D; this.getTasksItems();
-		const filtered &#x3D; tasks.filter((task) &#x3D;&gt; {
-			return task.isPlanned();
-		});
+		const filtered &#x3D; tasks.filter((task) &#x3D;&gt; task.isPlanned());
 		return filtered.length;
 	}
 

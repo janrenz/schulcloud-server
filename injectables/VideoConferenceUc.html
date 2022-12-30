@@ -315,8 +315,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="272"
-                            class="link-to-prism">apps/server/src/modules/video-conference/uc/video-conference.uc.ts:272</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="274"
+                            class="link-to-prism">apps/server/src/modules/video-conference/uc/video-conference.uc.ts:274</a></div>
                 </td>
             </tr>
 
@@ -430,8 +430,8 @@ They only can join a conference:</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="389"
-                            class="link-to-prism">apps/server/src/modules/video-conference/uc/video-conference.uc.ts:389</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="391"
+                            class="link-to-prism">apps/server/src/modules/video-conference/uc/video-conference.uc.ts:391</a></div>
                 </td>
             </tr>
 
@@ -647,8 +647,8 @@ They only can join a conference:</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="286"
-                            class="link-to-prism">apps/server/src/modules/video-conference/uc/video-conference.uc.ts:286</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="288"
+                            class="link-to-prism">apps/server/src/modules/video-conference/uc/video-conference.uc.ts:288</a></div>
                 </td>
             </tr>
 
@@ -860,8 +860,8 @@ They only can join a conference:</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="352"
-                            class="link-to-prism">apps/server/src/modules/video-conference/uc/video-conference.uc.ts:352</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="354"
+                            class="link-to-prism">apps/server/src/modules/video-conference/uc/video-conference.uc.ts:354</a></div>
                 </td>
             </tr>
 
@@ -966,8 +966,8 @@ They only can join a conference:</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="411"
-                            class="link-to-prism">apps/server/src/modules/video-conference/uc/video-conference.uc.ts:411</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="413"
+                            class="link-to-prism">apps/server/src/modules/video-conference/uc/video-conference.uc.ts:413</a></div>
                 </td>
             </tr>
 
@@ -1086,8 +1086,8 @@ They only can join a conference:</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="316"
-                            class="link-to-prism">apps/server/src/modules/video-conference/uc/video-conference.uc.ts:316</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="318"
+                            class="link-to-prism">apps/server/src/modules/video-conference/uc/video-conference.uc.ts:318</a></div>
                 </td>
             </tr>
 
@@ -1288,8 +1288,8 @@ They only can join a conference:</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="448"
-                            class="link-to-prism">apps/server/src/modules/video-conference/uc/video-conference.uc.ts:448</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="450"
+                            class="link-to-prism">apps/server/src/modules/video-conference/uc/video-conference.uc.ts:450</a></div>
                 </td>
             </tr>
 
@@ -1360,8 +1360,8 @@ They only can join a conference:</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="433"
-                            class="link-to-prism">apps/server/src/modules/video-conference/uc/video-conference.uc.ts:433</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="435"
+                            class="link-to-prism">apps/server/src/modules/video-conference/uc/video-conference.uc.ts:435</a></div>
                 </td>
             </tr>
 
@@ -1685,21 +1685,23 @@ export class VideoConferenceUc {
 
 		const response: VideoConferenceInfoDTO &#x3D; await this.bbbService
 			.getMeetingInfo(config)
-			.then((bbbResponse: BBBResponse&lt;BBBMeetingInfoResponse&gt;) &#x3D;&gt; {
-				return new VideoConferenceInfoDTO({
-					state: VideoConferenceState.RUNNING,
-					permission: PermissionMapping[bbbRole],
-					bbbResponse,
-					options: bbbRole &#x3D;&#x3D;&#x3D; BBBRole.MODERATOR ? options : ({} as VideoConferenceOptions),
-				});
-			})
-			.catch(() &#x3D;&gt; {
-				return new VideoConferenceInfoDTO({
-					state: VideoConferenceState.NOT_STARTED,
-					permission: PermissionMapping[bbbRole],
-					options: bbbRole &#x3D;&#x3D;&#x3D; BBBRole.MODERATOR ? options : ({} as VideoConferenceOptions),
-				});
-			});
+			.then(
+				(bbbResponse: BBBResponse&lt;BBBMeetingInfoResponse&gt;) &#x3D;&gt;
+					new VideoConferenceInfoDTO({
+						state: VideoConferenceState.RUNNING,
+						permission: PermissionMapping[bbbRole],
+						bbbResponse,
+						options: bbbRole &#x3D;&#x3D;&#x3D; BBBRole.MODERATOR ? options : ({} as VideoConferenceOptions),
+					})
+			)
+			.catch(
+				() &#x3D;&gt;
+					new VideoConferenceInfoDTO({
+						state: VideoConferenceState.NOT_STARTED,
+						permission: PermissionMapping[bbbRole],
+						options: bbbRole &#x3D;&#x3D;&#x3D; BBBRole.MODERATOR ? options : ({} as VideoConferenceOptions),
+					})
+			);
 
 		const isGuest: boolean &#x3D; await this.isExpert(currentUser, conferenceScope, scopeInfo.scopeId);
 

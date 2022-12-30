@@ -810,9 +810,9 @@ export class ExternalToolVersionService {
 	}
 
 	private compareParameters(oldParams: CustomParameterDO[], newParams: CustomParameterDO[]): boolean {
-		const matchingParams: CustomParameterDO[] &#x3D; oldParams.filter((oldParam) &#x3D;&gt; {
-			return newParams.some((newParam) &#x3D;&gt; oldParam.name &#x3D;&#x3D;&#x3D; newParam.name);
-		});
+		const matchingParams: CustomParameterDO[] &#x3D; oldParams.filter((oldParam) &#x3D;&gt;
+			newParams.some((newParam) &#x3D;&gt; oldParam.name &#x3D;&#x3D;&#x3D; newParam.name)
+		);
 
 		const shouldIncrementVersion &#x3D;
 			this.hasNewRequiredParameter(oldParams, newParams) ||

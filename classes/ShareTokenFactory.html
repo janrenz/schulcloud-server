@@ -202,13 +202,15 @@ class ShareTokenFactory extends Factory&lt;ShareTokenDO&gt; {
 	}
 }
 
-export const shareTokenFactory &#x3D; ShareTokenFactory.define(({ sequence }) &#x3D;&gt; ({
-	token: &#x60;share-token-${sequence}&#x60;,
-	payload: {
-		parentType: ShareTokenParentType.Course,
-		parentId: new ObjectId().toHexString(),
-	},
-}));
+export const shareTokenFactory &#x3D; ShareTokenFactory.define(({ sequence }) &#x3D;&gt; {
+	return {
+		token: &#x60;share-token-${sequence}&#x60;,
+		payload: {
+			parentType: ShareTokenParentType.Course,
+			parentId: new ObjectId().toHexString(),
+		},
+	};
+});
 </code></pre>
     </div>
 </div>
