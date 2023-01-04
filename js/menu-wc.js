@@ -1886,9 +1886,6 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/BaseSelectStrategie.html" data-type="entity-link" >BaseSelectStrategie</a>
                             </li>
                             <li class="link">
-                                <a href="classes/BaseWithTimestampsDO.html" data-type="entity-link" >BaseWithTimestampsDO</a>
-                            </li>
-                            <li class="link">
                                 <a href="classes/BasicToolConfig.html" data-type="entity-link" >BasicToolConfig</a>
                             </li>
                             <li class="link">

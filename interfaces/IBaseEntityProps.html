@@ -146,20 +146,9 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export abstract class BaseDO {
 	id?: string;
-}
 
-export abstract class BaseWithTimestampsDO extends BaseDO {
-	id?: string;
-
-	createdAt?: Date;
-
-	updatedAt?: Date;
-
-	protected constructor(props: BaseWithTimestampsDO) {
-		super();
-		this.id &#x3D; props.id;
-		this.createdAt &#x3D; props.createdAt;
-		this.updatedAt &#x3D; props.updatedAt;
+	protected constructor(id?: string) {
+		this.id &#x3D; id;
 	}
 }
 
