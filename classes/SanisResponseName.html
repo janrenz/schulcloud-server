@@ -245,6 +245,7 @@ export class SanisResponsePersonenkontext {
 		this.rolle &#x3D; sanisResponsePersonenkontext.rolle;
 		this.organisation &#x3D; sanisResponsePersonenkontext.organisation;
 		this.personenstatus &#x3D; sanisResponsePersonenkontext.personenstatus;
+		this.email &#x3D; sanisResponsePersonenkontext.email;
 	}
 
 	id: UUID;
@@ -254,6 +255,9 @@ export class SanisResponsePersonenkontext {
 	organisation: SanisResponseOrganisation;
 
 	personenstatus: string;
+
+	// TODO change if neccessary once we have the proper specification
+	email: string;
 }
 
 export class SanisResponseOrganisation {

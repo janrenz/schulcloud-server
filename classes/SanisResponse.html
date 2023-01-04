@@ -115,7 +115,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">apps/server/src/modules/provisioning/strategy/sanis/sanis.response.ts:52</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">apps/server/src/modules/provisioning/strategy/sanis/sanis.response.ts:56</a></div>
                             </td>
                         </tr>
 
@@ -177,7 +177,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="61" class="link-to-prism">apps/server/src/modules/provisioning/strategy/sanis/sanis.response.ts:61</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="65" class="link-to-prism">apps/server/src/modules/provisioning/strategy/sanis/sanis.response.ts:65</a></div>
                         </td>
                     </tr>
 
@@ -203,7 +203,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="68" class="link-to-prism">apps/server/src/modules/provisioning/strategy/sanis/sanis.response.ts:68</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="72" class="link-to-prism">apps/server/src/modules/provisioning/strategy/sanis/sanis.response.ts:72</a></div>
                         </td>
                     </tr>
 
@@ -229,7 +229,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="59" class="link-to-prism">apps/server/src/modules/provisioning/strategy/sanis/sanis.response.ts:59</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="63" class="link-to-prism">apps/server/src/modules/provisioning/strategy/sanis/sanis.response.ts:63</a></div>
                         </td>
                     </tr>
 
@@ -274,6 +274,7 @@ export class SanisResponsePersonenkontext {
 		this.rolle &#x3D; sanisResponsePersonenkontext.rolle;
 		this.organisation &#x3D; sanisResponsePersonenkontext.organisation;
 		this.personenstatus &#x3D; sanisResponsePersonenkontext.personenstatus;
+		this.email &#x3D; sanisResponsePersonenkontext.email;
 	}
 
 	id: UUID;
@@ -283,6 +284,9 @@ export class SanisResponsePersonenkontext {
 	organisation: SanisResponseOrganisation;
 
 	personenstatus: string;
+
+	// TODO change if neccessary once we have the proper specification
+	email: string;
 }
 
 export class SanisResponseOrganisation {
