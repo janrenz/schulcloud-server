@@ -358,6 +358,12 @@
                             <a href="#s3Config" title="apps/server/src/modules/files-storage/files-storage.config.ts" ><b>s3Config</b>&nbsp;&nbsp;&nbsp;(apps/.../files-storage.config.ts)</a>
                         </li>
                         <li>
+                            <a href="#schoolDOFactory" title="apps/server/src/shared/testing/factory/domainobject/school.factory.ts" ><b>schoolDOFactory</b>&nbsp;&nbsp;&nbsp;(apps/.../school.factory.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#schoolExternalToolDOFactory" title="apps/server/src/shared/testing/factory/domainobject/school-external-tool.factory.ts" ><b>schoolExternalToolDOFactory</b>&nbsp;&nbsp;&nbsp;(apps/.../school-external-tool.factory.ts)</a>
+                        </li>
+                        <li>
                             <a href="#schoolExternalToolFactory" title="apps/server/src/shared/testing/factory/school-external-tool.factory.ts" ><b>schoolExternalToolFactory</b>&nbsp;&nbsp;&nbsp;(apps/.../school-external-tool.factory.ts)</a>
                         </li>
                         <li>
@@ -389,6 +395,9 @@
                         </li>
                         <li>
                             <a href="#shareTokenFactory" title="apps/server/src/shared/testing/factory/share-token.do.factory.ts" ><b>shareTokenFactory</b>&nbsp;&nbsp;&nbsp;(apps/.../share-token.do.factory.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#statusMapping" title="apps/server/src/modules/tool/controller/mapper/school-external-tool-response.mapper.ts" ><b>statusMapping</b>&nbsp;&nbsp;&nbsp;(apps/.../school-external-tool-response.mapper.ts)</a>
                         </li>
                         <li>
                             <a href="#storageProviderFactory" title="apps/server/src/shared/testing/factory/storageprovider.factory.ts" ><b>storageProviderFactory</b>&nbsp;&nbsp;&nbsp;(apps/.../storageprovider.factory.ts)</a>
@@ -4548,6 +4557,66 @@ You shall not explicitly declare the AMQPConnection in your modules since it wil
         </tbody>
     </table>
 </section>
+    <h3>apps/server/src/shared/testing/factory/domainobject/school.factory.ts</h3>
+    <section>
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="schoolDOFactory"></a>
+                    <span class="name">
+                        <span ><b>schoolDOFactory</b></span>
+                        <a href="#schoolDOFactory"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>DoBaseFactory.define&lt;SchoolDO, SchoolDO&gt;(SchoolDO, ({ sequence }) &#x3D;&gt; {
+	return {
+		id: &#x60;schoolId-${sequence}&#x60;,
+		name: &#x60;schoolName-${sequence}&#x60;,
+	};
+})</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>apps/server/src/shared/testing/factory/domainobject/school-external-tool.factory.ts</h3>
+    <section>
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="schoolExternalToolDOFactory"></a>
+                    <span class="name">
+                        <span ><b>schoolExternalToolDOFactory</b></span>
+                        <a href="#schoolExternalToolDOFactory"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>SchoolExternalToolDOFactory.define(SchoolExternalToolDO, ({ sequence }) &#x3D;&gt; {
+	return {
+		name: &#x60;schoolExternal-${sequence}&#x60;,
+		schoolId: &#x60;schoolId-${sequence}&#x60;,
+		toolVersion: 1,
+		parameters: [{ name: &#x27;name&#x27;, value: &#x27;value&#x27; }],
+		toolId: &#x27;toolId&#x27;,
+		status: SchoolExternalToolStatus.LATEST,
+	};
+})</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
     <h3>apps/server/src/shared/testing/factory/school-external-tool.factory.ts</h3>
     <section>
     <h3></h3>    <table class="table table-sm table-bordered">
@@ -4702,6 +4771,38 @@ Teardown: &#39;await orm.close()&#39; in after-hook!</p>
 		},
 	};
 })</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>apps/server/src/modules/tool/controller/mapper/school-external-tool-response.mapper.ts</h3>
+    <section>
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="statusMapping"></a>
+                    <span class="name">
+                        <span ><b>statusMapping</b></span>
+                        <a href="#statusMapping"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/School.html" target="_self" >Record&lt;SchoolExternalToolStatus, SchoolExternalToolStatusResponse&gt;</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+	[SchoolExternalToolStatus.LATEST]: SchoolExternalToolStatusResponse.LATEST,
+	[SchoolExternalToolStatus.OUTDATED]: SchoolExternalToolStatusResponse.OUTDATED,
+}</code>
                     </td>
                 </tr>
 
