@@ -96,6 +96,10 @@
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
+                                <a href="#getSchoolBySchoolNumber" >getSchoolBySchoolNumber</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
                                 <a href="#hasFeature" >hasFeature</a>
                             </li>
                             <li>
@@ -481,6 +485,77 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="getSchoolBySchoolNumber"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>getSchoolBySchoolNumber</b></span>
+                        <a href="#getSchoolBySchoolNumber"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getSchoolBySchoolNumber(schoolNumber: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="81"
+                            class="link-to-prism">apps/server/src/modules/school/service/school.service.ts:81</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>schoolNumber</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../entitys/School.html" target="_self" >Promise&lt;SchoolDO | null&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="hasFeature"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
@@ -654,8 +729,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="81"
-                            class="link-to-prism">apps/server/src/modules/school/service/school.service.ts:81</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="86"
+                            class="link-to-prism">apps/server/src/modules/school/service/school.service.ts:86</a></div>
                 </td>
             </tr>
 
@@ -952,6 +1027,11 @@ export class SchoolService {
 
 	async getSchoolByExternalId(externalId: string, systemId: string): Promise&lt;SchoolDO | null&gt; {
 		const schoolDO: SchoolDO | null &#x3D; await this.schoolRepo.findByExternalId(externalId, systemId);
+		return schoolDO;
+	}
+
+	async getSchoolBySchoolNumber(schoolNumber: string): Promise&lt;SchoolDO | null&gt; {
+		const schoolDO: SchoolDO | null &#x3D; await this.schoolRepo.findBySchoolNumber(schoolNumber);
 		return schoolDO;
 	}
 
