@@ -358,9 +358,6 @@
                             <a href="#s3Config" title="apps/server/src/modules/files-storage/files-storage.config.ts" ><b>s3Config</b>&nbsp;&nbsp;&nbsp;(apps/.../files-storage.config.ts)</a>
                         </li>
                         <li>
-                            <a href="#schoolDOFactory" title="apps/server/src/shared/testing/factory/domainobject/school.factory.ts" ><b>schoolDOFactory</b>&nbsp;&nbsp;&nbsp;(apps/.../school.factory.ts)</a>
-                        </li>
-                        <li>
                             <a href="#schoolExternalToolDOFactory" title="apps/server/src/shared/testing/factory/domainobject/school-external-tool.factory.ts" ><b>schoolExternalToolDOFactory</b>&nbsp;&nbsp;&nbsp;(apps/.../school-external-tool.factory.ts)</a>
                         </li>
                         <li>
@@ -4557,34 +4554,6 @@ You shall not explicitly declare the AMQPConnection in your modules since it wil
         </tbody>
     </table>
 </section>
-    <h3>apps/server/src/shared/testing/factory/domainobject/school.factory.ts</h3>
-    <section>
-    <h3></h3>    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="schoolDOFactory"></a>
-                    <span class="name">
-                        <span ><b>schoolDOFactory</b></span>
-                        <a href="#schoolDOFactory"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Default value : </i><code>DoBaseFactory.define&lt;SchoolDO, SchoolDO&gt;(SchoolDO, ({ sequence }) &#x3D;&gt; {
-	return {
-		id: &#x60;schoolId-${sequence}&#x60;,
-		name: &#x60;schoolName-${sequence}&#x60;,
-	};
-})</code>
-                    </td>
-                </tr>
-
-
-        </tbody>
-    </table>
-</section>
     <h3>apps/server/src/shared/testing/factory/domainobject/school-external-tool.factory.ts</h3>
     <section>
     <h3></h3>    <table class="table table-sm table-bordered">
@@ -4605,7 +4574,12 @@ You shall not explicitly declare the AMQPConnection in your modules since it wil
 		name: &#x60;schoolExternal-${sequence}&#x60;,
 		schoolId: &#x60;schoolId-${sequence}&#x60;,
 		toolVersion: 1,
-		parameters: [{ name: &#x27;name&#x27;, value: &#x27;value&#x27; }],
+		parameters: [
+			new CustomParameterEntryDO({
+				name: &#x27;name&#x27;,
+				value: &#x27;value&#x27;,
+			}),
+		],
 		toolId: &#x27;toolId&#x27;,
 		status: SchoolExternalToolStatus.LATEST,
 	};

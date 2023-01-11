@@ -1449,13 +1449,16 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/ToolApiModule.html" data-type="entity-link" >ToolApiModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#controllers-links-module-ToolApiModule-d477a3db8b06b0ad04ec86b31ba5764ae2bbb91da27ee581595f12ef13b32154db2e87d6e85a550df6cad0f3130849dc9eaa54c634e5810352224dce95907e1f"' : 'data-target="#xs-controllers-links-module-ToolApiModule-d477a3db8b06b0ad04ec86b31ba5764ae2bbb91da27ee581595f12ef13b32154db2e87d6e85a550df6cad0f3130849dc9eaa54c634e5810352224dce95907e1f"' }>
+                                            'data-target="#controllers-links-module-ToolApiModule-7d963bf0be5910770b065758d795b7f9e81bc4965273e776cb2fa16696c15c5b82649e1d5c68a5526ba2ef7fcaabb127247690c41df453e20eeedf3e9e0fce04"' : 'data-target="#xs-controllers-links-module-ToolApiModule-7d963bf0be5910770b065758d795b7f9e81bc4965273e776cb2fa16696c15c5b82649e1d5c68a5526ba2ef7fcaabb127247690c41df453e20eeedf3e9e0fce04"' }>
                                             <span class="icon ion-md-swap"></span>
                                             <span>Controllers</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="controllers-links-module-ToolApiModule-d477a3db8b06b0ad04ec86b31ba5764ae2bbb91da27ee581595f12ef13b32154db2e87d6e85a550df6cad0f3130849dc9eaa54c634e5810352224dce95907e1f"' :
-                                            'id="xs-controllers-links-module-ToolApiModule-d477a3db8b06b0ad04ec86b31ba5764ae2bbb91da27ee581595f12ef13b32154db2e87d6e85a550df6cad0f3130849dc9eaa54c634e5810352224dce95907e1f"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="controllers-links-module-ToolApiModule-7d963bf0be5910770b065758d795b7f9e81bc4965273e776cb2fa16696c15c5b82649e1d5c68a5526ba2ef7fcaabb127247690c41df453e20eeedf3e9e0fce04"' :
+                                            'id="xs-controllers-links-module-ToolApiModule-7d963bf0be5910770b065758d795b7f9e81bc4965273e776cb2fa16696c15c5b82649e1d5c68a5526ba2ef7fcaabb127247690c41df453e20eeedf3e9e0fce04"' }>
+                                            <li class="link">
+                                                <a href="controllers/ToolConfigurationController.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >ToolConfigurationController</a>
+                                            </li>
                                             <li class="link">
                                                 <a href="controllers/ToolController.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >ToolController</a>
                                             </li>
@@ -1466,13 +1469,16 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                     </li>
                                 <li class="chapter inner">
                                     <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                        'data-target="#injectables-links-module-ToolApiModule-d477a3db8b06b0ad04ec86b31ba5764ae2bbb91da27ee581595f12ef13b32154db2e87d6e85a550df6cad0f3130849dc9eaa54c634e5810352224dce95907e1f"' : 'data-target="#xs-injectables-links-module-ToolApiModule-d477a3db8b06b0ad04ec86b31ba5764ae2bbb91da27ee581595f12ef13b32154db2e87d6e85a550df6cad0f3130849dc9eaa54c634e5810352224dce95907e1f"' }>
+                                        'data-target="#injectables-links-module-ToolApiModule-7d963bf0be5910770b065758d795b7f9e81bc4965273e776cb2fa16696c15c5b82649e1d5c68a5526ba2ef7fcaabb127247690c41df453e20eeedf3e9e0fce04"' : 'data-target="#xs-injectables-links-module-ToolApiModule-7d963bf0be5910770b065758d795b7f9e81bc4965273e776cb2fa16696c15c5b82649e1d5c68a5526ba2ef7fcaabb127247690c41df453e20eeedf3e9e0fce04"' }>
                                         <span class="icon ion-md-arrow-round-down"></span>
                                         <span>Injectables</span>
                                         <span class="icon ion-ios-arrow-down"></span>
                                     </div>
-                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-ToolApiModule-d477a3db8b06b0ad04ec86b31ba5764ae2bbb91da27ee581595f12ef13b32154db2e87d6e85a550df6cad0f3130849dc9eaa54c634e5810352224dce95907e1f"' :
-                                        'id="xs-injectables-links-module-ToolApiModule-d477a3db8b06b0ad04ec86b31ba5764ae2bbb91da27ee581595f12ef13b32154db2e87d6e85a550df6cad0f3130849dc9eaa54c634e5810352224dce95907e1f"' }>
+                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-ToolApiModule-7d963bf0be5910770b065758d795b7f9e81bc4965273e776cb2fa16696c15c5b82649e1d5c68a5526ba2ef7fcaabb127247690c41df453e20eeedf3e9e0fce04"' :
+                                        'id="xs-injectables-links-module-ToolApiModule-7d963bf0be5910770b065758d795b7f9e81bc4965273e776cb2fa16696c15c5b82649e1d5c68a5526ba2ef7fcaabb127247690c41df453e20eeedf3e9e0fce04"' }>
+                                        <li class="link">
+                                            <a href="injectables/ExternalToolConfigurationUc.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >ExternalToolConfigurationUc</a>
+                                        </li>
                                         <li class="link">
                                             <a href="injectables/ExternalToolRequestMapper.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >ExternalToolRequestMapper</a>
                                         </li>
@@ -2252,6 +2258,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/IdParams.html" data-type="entity-link" >IdParams</a>
                             </li>
                             <li class="link">
+                                <a href="classes/IdParams-1.html" data-type="entity-link" >IdParams</a>
+                            </li>
+                            <li class="link">
                                 <a href="classes/ImportUser.html" data-type="entity-link" >ImportUser</a>
                             </li>
                             <li class="link">
@@ -2588,6 +2597,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/Scope.html" data-type="entity-link" >Scope</a>
                             </li>
                             <li class="link">
+                                <a href="classes/ScopeParams.html" data-type="entity-link" >ScopeParams</a>
+                            </li>
+                            <li class="link">
                                 <a href="classes/ServerConsole.html" data-type="entity-link" >ServerConsole</a>
                             </li>
                             <li class="link">
@@ -2805,6 +2817,12 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="classes/TokenRequestPayload.html" data-type="entity-link" >TokenRequestPayload</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/ToolConfigurationEntryResponse.html" data-type="entity-link" >ToolConfigurationEntryResponse</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/ToolConfigurationListResponse.html" data-type="entity-link" >ToolConfigurationListResponse</a>
                             </li>
                             <li class="link">
                                 <a href="classes/ToolIdParams.html" data-type="entity-link" >ToolIdParams</a>

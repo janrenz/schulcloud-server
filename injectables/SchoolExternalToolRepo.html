@@ -101,6 +101,10 @@
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
+                                <a href="#findBySchoolId" >findBySchoolId</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
                                 <a href="#findByToolId" >findByToolId</a>
                             </li>
                             <li>
@@ -272,8 +276,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="57"
-                            class="link-to-prism">apps/server/src/shared/repo/schoolexternaltool/school-external-tool.repo.ts:57</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="66"
+                            class="link-to-prism">apps/server/src/shared/repo/schoolexternaltool/school-external-tool.repo.ts:66</a></div>
                 </td>
             </tr>
 
@@ -343,8 +347,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="43"
-                            class="link-to-prism">apps/server/src/shared/repo/schoolexternaltool/school-external-tool.repo.ts:43</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="52"
+                            class="link-to-prism">apps/server/src/shared/repo/schoolexternaltool/school-external-tool.repo.ts:52</a></div>
                 </td>
             </tr>
 
@@ -489,8 +493,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="48"
-                            class="link-to-prism">apps/server/src/shared/repo/schoolexternaltool/school-external-tool.repo.ts:48</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="57"
+                            class="link-to-prism">apps/server/src/shared/repo/schoolexternaltool/school-external-tool.repo.ts:57</a></div>
                 </td>
             </tr>
 
@@ -514,6 +518,77 @@
                                     <td>query</td>
                                     <td>
                                                 <code><a href="../classes/School.html" target="_self" >SchoolExternalToolQuery</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#ExternalTool" target="_self" >Promise&lt;SchoolExternalToolDO[]&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findBySchoolId"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>findBySchoolId</b></span>
+                        <a href="#findBySchoolId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findBySchoolId(schoolId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="43"
+                            class="link-to-prism">apps/server/src/shared/repo/schoolexternaltool/school-external-tool.repo.ts:43</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>schoolId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
                                     </td>
 
                                     <td>
@@ -635,7 +710,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/BaseDORepo.html#source" target="_self" >BaseDORepo:78</a></code>
+                        <div class="io-line">Defined in         <code><a href="../injectables/BaseDORepo.html#source" target="_self" >BaseDORepo:87</a></code>
 </div>
                 </td>
             </tr>
@@ -710,7 +785,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/BaseDORepo.html#source" target="_self" >BaseDORepo:66</a></code>
+                        <div class="io-line">Defined in         <code><a href="../injectables/BaseDORepo.html#source" target="_self" >BaseDORepo:75</a></code>
 </div>
                 </td>
             </tr>
@@ -1523,6 +1598,15 @@ export class SchoolExternalToolRepo extends BaseDORepo&lt;
 
 	async findByToolId(toolId: string): Promise&lt;SchoolExternalToolDO[]&gt; {
 		const entities: SchoolExternalTool[] &#x3D; await this._em.find(this.entityName, { tool: toolId });
+		const domainObjects: SchoolExternalToolDO[] &#x3D; entities.map((entity: SchoolExternalTool): SchoolExternalToolDO &#x3D;&gt; {
+			const domainObject: SchoolExternalToolDO &#x3D; this.mapEntityToDO(entity);
+			return domainObject;
+		});
+		return domainObjects;
+	}
+
+	async findBySchoolId(schoolId: string): Promise&lt;SchoolExternalToolDO[]&gt; {
+		const entities: SchoolExternalTool[] &#x3D; await this._em.find(this.entityName, { school: schoolId });
 		const domainObjects: SchoolExternalToolDO[] &#x3D; entities.map((entity: SchoolExternalTool): SchoolExternalToolDO &#x3D;&gt; {
 			const domainObject: SchoolExternalToolDO &#x3D; this.mapEntityToDO(entity);
 			return domainObject;
