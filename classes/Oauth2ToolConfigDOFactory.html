@@ -1324,7 +1324,6 @@
 	Oauth2ToolConfigDO,
 } from &#x27;@shared/domain/domainobject/external-tool&#x27;;
 import { DeepPartial } from &#x27;fishery&#x27;;
-import { DoBaseFactory } from &#x27;./do-base.factory&#x27;;
 import {
 	CustomParameterLocation,
 	CustomParameterScope,
@@ -1332,8 +1331,9 @@ import {
 	LtiMessageType,
 	LtiPrivacyPermission,
 	ToolConfigType,
-} from &#x27;../../../domain&#x27;;
-import { TokenEndpointAuthMethod } from &#x27;../../../../modules/tool/interface/token-endpoint-auth-method.enum&#x27;;
+} from &#x27;@shared/domain&#x27;;
+import { TokenEndpointAuthMethod } from &#x27;@src/modules/tool/interface&#x27;;
+import { DoBaseFactory } from &#x27;./do-base.factory&#x27;;
 
 export const basicToolConfigDOFactory &#x3D; DoBaseFactory.define&lt;BasicToolConfigDO, BasicToolConfigDO&gt;(
 	BasicToolConfigDO,
@@ -1373,7 +1373,7 @@ export const lti11ToolConfigDOFactory &#x3D; DoBaseFactory.define&lt;Lti11ToolCo
 	() &#x3D;&gt; {
 		return {
 			type: ToolConfigType.LTI11,
-			baseUrl: &#x27;https://www.oauth2-baseUrl.com/&#x27;,
+			baseUrl: &#x27;https://www.lti11-baseUrl.com/&#x27;,
 			key: &#x27;key&#x27;,
 			secret: &#x27;secret&#x27;,
 			privacy_permission: LtiPrivacyPermission.PSEUDONYMOUS,
@@ -1401,7 +1401,6 @@ class ExternalToolDOFactory extends DoBaseFactory&lt;ExternalToolDO, ExternalToo
 		const params: DeepPartial&lt;ExternalToolDO&gt; &#x3D; {
 			config: oauth2ToolConfigDOFactory.build(customParam),
 		};
-
 		return this.params(params);
 	}
 
@@ -1409,7 +1408,6 @@ class ExternalToolDOFactory extends DoBaseFactory&lt;ExternalToolDO, ExternalToo
 		const params: DeepPartial&lt;ExternalToolDO&gt; &#x3D; {
 			config: lti11ToolConfigDOFactory.build(customParam),
 		};
-
 		return this.params(params);
 	}
 
@@ -1417,7 +1415,6 @@ class ExternalToolDOFactory extends DoBaseFactory&lt;ExternalToolDO, ExternalToo
 		const params: DeepPartial&lt;ExternalToolDO&gt; &#x3D; {
 			parameters: customParameterDOFactory.buildList(number, customParam),
 		};
-
 		return this.params(params);
 	}
 }
