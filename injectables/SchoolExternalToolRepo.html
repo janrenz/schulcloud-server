@@ -90,7 +90,7 @@
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
-                                <a href="#deleteByToolId" >deleteByToolId</a>
+                                <a href="#deleteByExternalToolId" >deleteByExternalToolId</a>
                             </li>
                             <li>
                                 <a href="#entityFactory" >entityFactory</a>
@@ -118,12 +118,16 @@
                                 <a href="#createEntity" >createEntity</a>
                             </li>
                             <li>
-                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Protected</span>
                                 <a href="#createNewEntityFromDO" >createNewEntityFromDO</a>
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
-                                <a href="#deleteById" >deleteById</a>
+                                <a href="#delete" >delete</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#deleteById" class="deprecated-name">deleteById</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
@@ -329,18 +333,18 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="deleteByToolId"></a>
+                    <a name="deleteByExternalToolId"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
-                        <span ><b>deleteByToolId</b></span>
-                        <a href="#deleteByToolId"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>deleteByExternalToolId</b></span>
+                        <a href="#deleteByExternalToolId"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>deleteByToolId(toolId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    <code>deleteByExternalToolId(toolId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
@@ -749,7 +753,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../interfaces/ISchoolExternalToolProperties.html" target="_self" >EntityProperties&lt;ISchoolExternalToolProperties&gt;</a></code>
+                        <b>Returns : </b>        <code><a href="../interfaces/ISchoolExternalToolProperties.html" target="_self" >ISchoolExternalToolProperties</a></code>
 
                     </div>
                     <div class="io-description">
@@ -862,7 +866,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/BaseDORepo.html#source" target="_self" >BaseDORepo:44</a></code>
+                        <div class="io-line">Defined in         <code><a href="../injectables/BaseDORepo.html#source" target="_self" >BaseDORepo:42</a></code>
 </div>
                 </td>
             </tr>
@@ -917,7 +921,7 @@
                 <td class="col-md-4">
                     <a name="createNewEntityFromDO"></a>
                     <span class="name">
-                        <span class="modifier">Private</span>
+                        <span class="modifier">Protected</span>
                         <span ><b>createNewEntityFromDO</b></span>
                         <a href="#createNewEntityFromDO"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -939,7 +943,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/BaseDORepo.html#source" target="_self" >BaseDORepo:65</a></code>
+                        <div class="io-line">Defined in         <code><a href="../injectables/BaseDORepo.html#source" target="_self" >BaseDORepo:63</a></code>
 </div>
                 </td>
             </tr>
@@ -992,12 +996,94 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="delete"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>delete</b></span>
+                        <a href="#delete"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>delete(domainObjects: DO[] | DO)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../injectables/BaseDORepo.html" target="_self" >BaseDORepo</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../injectables/BaseDORepo.html#source" target="_self" >BaseDORepo:85</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>domainObjects</td>
+                                    <td>
+                                            <code>DO[] | DO</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="deleteById"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
-                        <span ><b>deleteById</b></span>
+                        <span class="deprecated-name"><b>deleteById</b></span>
                         <a href="#deleteById"><span class="icon ion-ios-link"></span></a>
                     </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4 deprecated">
+                    [object Object],[object Object],[object Object]
                 </td>
             </tr>
             <tr>
@@ -1016,7 +1102,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/BaseDORepo.html#source" target="_self" >BaseDORepo:82</a></code>
+                        <div class="io-line">Defined in         <code><a href="../injectables/BaseDORepo.html#source" target="_self" >BaseDORepo:98</a></code>
 </div>
                 </td>
             </tr>
@@ -1093,7 +1179,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/BaseDORepo.html#source" target="_self" >BaseDORepo:95</a></code>
+                        <div class="io-line">Defined in         <code><a href="../injectables/BaseDORepo.html#source" target="_self" >BaseDORepo:111</a></code>
 </div>
                 </td>
             </tr>
@@ -1170,7 +1256,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/BaseDORepo.html#source" target="_self" >BaseDORepo:100</a></code>
+                        <div class="io-line">Defined in         <code><a href="../injectables/BaseDORepo.html#source" target="_self" >BaseDORepo:116</a></code>
 </div>
                 </td>
             </tr>
@@ -1247,7 +1333,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/BaseDORepo.html#source" target="_self" >BaseDORepo:74</a></code>
+                        <div class="io-line">Defined in         <code><a href="../injectables/BaseDORepo.html#source" target="_self" >BaseDORepo:77</a></code>
 </div>
                 </td>
             </tr>
@@ -1326,7 +1412,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/BaseDORepo.html#source" target="_self" >BaseDORepo:21</a></code>
+                        <div class="io-line">Defined in         <code><a href="../injectables/BaseDORepo.html#source" target="_self" >BaseDORepo:19</a></code>
 </div>
                 </td>
             </tr>
@@ -1403,7 +1489,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/BaseDORepo.html#source" target="_self" >BaseDORepo:26</a></code>
+                        <div class="io-line">Defined in         <code><a href="../injectables/BaseDORepo.html#source" target="_self" >BaseDORepo:24</a></code>
 </div>
                 </td>
             </tr>
@@ -1481,7 +1567,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/BaseDORepo.html#source" target="_self" >BaseDORepo:52</a></code>
+                        <div class="io-line">Defined in         <code><a href="../injectables/BaseDORepo.html#source" target="_self" >BaseDORepo:50</a></code>
 </div>
                 </td>
             </tr>
@@ -1563,16 +1649,16 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { BaseDORepo, EntityProperties } from &#x27;@shared/repo&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { BaseDORepo } from &#x27;@shared/repo/base.do.repo&#x27;;
 import { EntityName, Reference } from &#x27;@mikro-orm/core&#x27;;
 import { Injectable } from &#x27;@nestjs/common/decorators/core/injectable.decorator&#x27;;
 import { ExternalTool, ISchoolExternalToolProperties, School, SchoolExternalTool } from &#x27;@shared/domain&#x27;;
 import { EntityManager } from &#x27;@mikro-orm/mongodb&#x27;;
-import { SchoolExternalToolDO } from &#x27;../../domain/domainobject/external-tool/school-external-tool.do&#x27;;
+import { Logger } from &#x27;@src/core/logger&#x27;;
+import { SchoolExternalToolQuery } from &#x27;@src/modules/tool/uc/dto/school-external-tool.types&#x27;;
+import { SchoolExternalToolDO } from &#x27;@shared/domain/domainobject/external-tool/school-external-tool.do&#x27;;
 import { ExternalToolRepoMapper } from &#x27;../externaltool/external-tool.repo.mapper&#x27;;
-import { Logger } from &#x27;../../../core/logger&#x27;;
 import { SchoolExternalToolScope } from &#x27;./school-external-tool.scope&#x27;;
-import { SchoolExternalToolQuery } from &#x27;../../../modules/tool/uc/dto/school-external-tool.types&#x27;;
 
 @Injectable()
 export class SchoolExternalToolRepo extends BaseDORepo&lt;
@@ -1614,7 +1700,7 @@ export class SchoolExternalToolRepo extends BaseDORepo&lt;
 		return domainObjects;
 	}
 
-	async deleteByToolId(toolId: string): Promise&lt;number&gt; {
+	async deleteByExternalToolId(toolId: string): Promise&lt;number&gt; {
 		const count: Promise&lt;number&gt; &#x3D; this._em.nativeDelete(this.entityName, { tool: toolId });
 		return count;
 	}
@@ -1649,9 +1735,8 @@ export class SchoolExternalToolRepo extends BaseDORepo&lt;
 		});
 	}
 
-	mapDOToEntityProperties(entityDO: SchoolExternalToolDO): EntityProperties&lt;ISchoolExternalToolProperties&gt; {
+	mapDOToEntityProperties(entityDO: SchoolExternalToolDO): ISchoolExternalToolProperties {
 		return {
-			id: entityDO.id,
 			school: Reference.createFromPK(School, entityDO.schoolId),
 			tool: Reference.createFromPK(ExternalTool, entityDO.toolId),
 			toolVersion: entityDO.toolVersion,

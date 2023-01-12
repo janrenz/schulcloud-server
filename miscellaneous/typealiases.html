@@ -100,6 +100,12 @@
                             <a href="#CourseCopyParams" title="apps/server/src/modules/learnroom/service/course-copy.service.ts" ><b>CourseCopyParams</b>&nbsp;&nbsp;&nbsp;(apps/.../course-copy.service.ts)</a>
                         </li>
                         <li>
+                            <a href="#CourseExternalToolQuery" title="apps/server/src/modules/tool/uc/dto/course-external-tool.types.ts" ><b>CourseExternalToolQuery</b>&nbsp;&nbsp;&nbsp;(apps/.../course-external-tool.types.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#CourseExternalToolQueryInput" title="apps/server/src/modules/tool/uc/dto/course-external-tool.types.ts" ><b>CourseExternalToolQueryInput</b>&nbsp;&nbsp;&nbsp;(apps/.../course-external-tool.types.ts)</a>
+                        </li>
+                        <li>
                             <a href="#CreateExternalTool" title="apps/server/src/modules/tool/uc/dto/external-tool.types.ts" ><b>CreateExternalTool</b>&nbsp;&nbsp;&nbsp;(apps/.../external-tool.types.ts)</a>
                         </li>
                         <li>
@@ -116,9 +122,6 @@
                         </li>
                         <li>
                             <a href="#EntityId" title="apps/server/src/shared/domain/types/entity-id.ts" ><b>EntityId</b>&nbsp;&nbsp;&nbsp;(apps/.../entity-id.ts)</a>
-                        </li>
-                        <li>
-                            <a href="#EntityProperties" title="apps/server/src/shared/repo/base.do.repo.ts" ><b>EntityProperties</b>&nbsp;&nbsp;&nbsp;(apps/.../base.do.repo.ts)</a>
                         </li>
                         <li>
                             <a href="#EntityWithEmbeddedFiles" title="apps/server/src/modules/files-storage-client/interfaces/types.ts" ><b>EntityWithEmbeddedFiles</b>&nbsp;&nbsp;&nbsp;(apps/.../types.ts)</a>
@@ -370,7 +373,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                    <code>        <code><a href="../interfaces/User.html" target="_self" >Task | Course | CourseGroup | User | SchoolDO | Lesson | Team | Submission</a></code>
+                    <code>        <code><a href="../interfaces/User.html" target="_self" >Task | Course | CourseGroup | User | SchoolDO | Lesson | Team | Submission | SchoolExternalToolDO</a></code>
 </code>
                 </td>
             </tr>
@@ -734,6 +737,40 @@
             </tr>
         </tbody>
     </table>
+</section>    <h3>apps/server/src/modules/tool/uc/dto/course-external-tool.types.ts</h3>
+    <section>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="CourseExternalToolQuery"></a>
+                    <span class="name "><b>CourseExternalToolQuery</b><a href="#CourseExternalToolQuery"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>        <code><a href="../miscellaneous/typealiases.html#ExternalTool" target="_self" >Partial&lt;Pick&lt;CourseExternalToolDO, schoolToolId&gt;&gt;</a></code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="CourseExternalToolQueryInput"></a>
+                    <span class="name "><b>CourseExternalToolQueryInput</b><a href="#CourseExternalToolQueryInput"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>        <code><a href="../miscellaneous/typealiases.html#ExternalTool" target="_self" >Partial&lt;Pick&lt;CourseExternalToolDO, schoolToolId&gt;&gt;</a></code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </section>    <h3>apps/server/src/shared/domain/entity/dashboard.entity.ts</h3>
     <section>
     <table class="table table-sm table-bordered">
@@ -903,24 +940,6 @@
             <tr>
                 <td class="col-md-4">
                     <code>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-</code>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</section>    <h3>apps/server/src/shared/repo/base.do.repo.ts</h3>
-    <section>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="EntityProperties"></a>
-                    <span class="name "><b>EntityProperties</b><a href="#EntityProperties"><span class="icon ion-ios-link"></span></a></span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <code>    <code></code>
 </code>
                 </td>
             </tr>
@@ -1702,7 +1721,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                    <code>        <code><a href="../interfaces/User.html" target="_self" >TaskRepo | CourseRepo | UserRepo | SchoolRepo | LessonRepo | TeamsRepo | CourseGroupRepo | SubmissionRepo</a></code>
+                    <code>        <code><a href="../interfaces/User.html" target="_self" >TaskRepo | CourseRepo | UserRepo | SchoolRepo | LessonRepo | TeamsRepo | CourseGroupRepo | SubmissionRepo | SchoolExternalToolRepo</a></code>
 </code>
                 </td>
             </tr>

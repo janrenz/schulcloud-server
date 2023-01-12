@@ -40,7 +40,7 @@
 
 <ol class="breadcrumb">
   <li>Injectables</li>
-  <li >SchoolMapper</li>
+  <li >SchoolExternalToolRule</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -58,17 +58,38 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/modules/school/mapper/school.mapper.ts</code>
+            <code>apps/server/src/shared/domain/rules/school-external-tool.rule.ts</code>
         </p>
 
 
 
+            <p class="comment">
+                <h3>Extends</h3>
+            </p>
+            <p class="comment">
+                        <code><a href="../classes/BasePermission.html" target="_self" >BasePermission</a></code>
+            </p>
 
 
             <section>
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
         <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#utils" >utils</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
 
                 <tr>
                     <td class="col-md-4">
@@ -79,10 +100,12 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#mapDOToEntityProperties" >mapDOToEntityProperties</a>
+                                    <span class="modifier">Public</span>
+                                <a href="#hasPermission" >hasPermission</a>
                             </li>
                             <li>
-                                <a href="#mapEntityToDO" >mapEntityToDO</a>
+                                    <span class="modifier">Public</span>
+                                <a href="#isApplicable" >isApplicable</a>
                             </li>
                         </ul>
                     </td>
@@ -106,24 +129,32 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="mapDOToEntityProperties"></a>
+                    <a name="hasPermission"></a>
                     <span class="name">
-                        <span ><b>mapDOToEntityProperties</b></span>
-                        <a href="#mapDOToEntityProperties"><span class="icon ion-ios-link"></span></a>
+                        <span class="modifier">Public</span>
+                        <span ><b>hasPermission</b></span>
+                        <a href="#hasPermission"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>mapDOToEntityProperties(entityDO: <a href="../classes/SchoolDO.html" target="_self">SchoolDO</a>)</code>
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>hasPermission(user: <a href="../interfaces/User.html" target="_self">User</a>, entity: <a href="../undefineds/ExternalTool.html" target="_self">SchoolExternalTool | SchoolExternalToolDO</a>, context: <a href="../interfaces/IPermissionContext.html" target="_self">IPermissionContext</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="8"
-                            class="link-to-prism">apps/server/src/modules/school/mapper/school.mapper.ts:8</a></div>
+                    <div class="io-line">Inherited from         <code><a href="../classes/BasePermission.html" target="_self" >BasePermission</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../classes/BasePermission.html#source" target="_self" >BasePermission:15</a></code>
+</div>
                 </td>
             </tr>
 
@@ -144,9 +175,33 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>entityDO</td>
+                                    <td>user</td>
                                     <td>
-                                                <code><a href="../classes/SchoolDO.html" target="_self" >SchoolDO</a></code>
+                                                <code><a href="../interfaces/User.html" target="_self" >User</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>entity</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#ExternalTool" target="_self" >SchoolExternalTool | SchoolExternalToolDO</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>context</td>
+                                    <td>
+                                                <code><a href="../interfaces/IPermissionContext.html" target="_self" >IPermissionContext</a></code>
                                     </td>
 
                                     <td>
@@ -161,7 +216,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../interfaces/ISchoolProperties.html" target="_self" >ISchoolProperties</a></code>
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
 
                     </div>
                     <div class="io-description">
@@ -175,24 +230,32 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="mapEntityToDO"></a>
+                    <a name="isApplicable"></a>
                     <span class="name">
-                        <span ><b>mapEntityToDO</b></span>
-                        <a href="#mapEntityToDO"><span class="icon ion-ios-link"></span></a>
+                        <span class="modifier">Public</span>
+                        <span ><b>isApplicable</b></span>
+                        <a href="#isApplicable"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>mapEntityToDO(entity: <a href="../classes/School.html" target="_self">School</a>)</code>
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>isApplicable(user: <a href="../interfaces/User.html" target="_self">User</a>, entity: <a href="../undefineds/ExternalTool.html" target="_self">SchoolExternalTool | SchoolExternalToolDO</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="25"
-                            class="link-to-prism">apps/server/src/modules/school/mapper/school.mapper.ts:25</a></div>
+                    <div class="io-line">Inherited from         <code><a href="../classes/BasePermission.html" target="_self" >BasePermission</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../classes/BasePermission.html#source" target="_self" >BasePermission:9</a></code>
+</div>
                 </td>
             </tr>
 
@@ -213,9 +276,21 @@
                             </thead>
                             <tbody>
                                 <tr>
+                                    <td>user</td>
+                                    <td>
+                                                <code><a href="../interfaces/User.html" target="_self" >User</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
                                     <td>entity</td>
                                     <td>
-                                                <code><a href="../classes/School.html" target="_self" >School</a></code>
+                                                <code><a href="../miscellaneous/typealiases.html#ExternalTool" target="_self" >SchoolExternalTool | SchoolExternalToolDO</a></code>
                                     </td>
 
                                     <td>
@@ -230,7 +305,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/SchoolDO.html" target="_self" >SchoolDO</a></code>
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
 
                     </div>
                     <div class="io-description">
@@ -241,49 +316,78 @@
         </tbody>
     </table>
 </section>
+            <section>
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="utils"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>utils</b></span>
+                        <a href="#utils"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new AuthorisationUtils()</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Inherited from         <code><a href="../classes/BasePermission.html" target="_self" >BasePermission</a></code>
+</div>
+                            </td>
+                        </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../classes/BasePermission.html#source" target="_self" >BasePermission:6</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
 
     </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { SchoolDO } from &#x27;@shared/domain/domainobject/school.do&#x27;;
-import { ISchoolProperties, School, System } from &#x27;@shared/domain&#x27;;
-import { Reference } from &#x27;@mikro-orm/core&#x27;;
-import { Injectable } from &#x27;@nestjs/common&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
+import { SchoolExternalTool, User } from &#x27;../entity&#x27;;
+import { IPermissionContext } from &#x27;../interface&#x27;;
+import { BasePermission } from &#x27;./base-permission&#x27;;
+import { SchoolExternalToolDO } from &#x27;../domainobject/external-tool/school-external-tool.do&#x27;;
 
 @Injectable()
-export class SchoolMapper {
-	mapDOToEntityProperties(entityDO: SchoolDO): ISchoolProperties {
-		return {
-			externalId: entityDO.externalId,
-			features: entityDO.features,
-			inMaintenanceSince: entityDO.inMaintenanceSince,
-			inUserMigration: entityDO.inUserMigration,
-			name: entityDO.name,
-			oauthMigrationMandatory: entityDO.oauthMigrationMandatory,
-			oauthMigrationPossible: entityDO.oauthMigrationPossible,
-			officialSchoolNumber: entityDO.officialSchoolNumber,
-			schoolYear: entityDO.schoolYear,
-			systems: entityDO.systems
-				? entityDO.systems.map((systemId: string) &#x3D;&gt; Reference.createFromPK(System, systemId))
-				: [],
-		};
+export class SchoolExternalToolRule extends BasePermission&lt;SchoolExternalTool | SchoolExternalToolDO&gt; {
+	public isApplicable(user: User, entity: SchoolExternalTool | SchoolExternalToolDO): boolean {
+		const isMatched: boolean &#x3D; entity instanceof SchoolExternalTool || entity instanceof SchoolExternalToolDO;
+
+		return isMatched;
 	}
 
-	mapEntityToDO(entity: School): SchoolDO {
-		return new SchoolDO({
-			id: entity.id,
-			externalId: entity.externalId,
-			features: entity.features,
-			inMaintenanceSince: entity.inMaintenanceSince,
-			inUserMigration: entity.inUserMigration,
-			name: entity.name,
-			oauthMigrationMandatory: entity.oauthMigrationMandatory,
-			oauthMigrationPossible: entity.oauthMigrationPossible,
-			officialSchoolNumber: entity.officialSchoolNumber,
-			schoolYear: entity.schoolYear,
-			systems: entity.systems.isInitialized() ? entity.systems.getItems().map((system: System) &#x3D;&gt; system.id) : [],
-		});
+	public hasPermission(
+		user: User,
+		entity: SchoolExternalTool | SchoolExternalToolDO,
+		context: IPermissionContext
+	): boolean {
+		let hasPermission: boolean;
+		if (entity instanceof SchoolExternalTool) {
+			hasPermission &#x3D;
+				this.utils.hasAllPermissions(user, context.requiredPermissions) &amp;&amp; user.school.id &#x3D;&#x3D;&#x3D; entity.school.id;
+		} else {
+			hasPermission &#x3D;
+				this.utils.hasAllPermissions(user, context.requiredPermissions) &amp;&amp; user.school.id &#x3D;&#x3D;&#x3D; entity.schoolId;
+		}
+		return hasPermission;
 	}
 }
 </code></pre>
@@ -329,7 +433,7 @@ export class SchoolMapper {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
-            var COMPODOC_CURRENT_PAGE_URL = 'SchoolMapper.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'SchoolExternalToolRule.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

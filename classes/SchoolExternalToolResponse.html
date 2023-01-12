@@ -83,6 +83,9 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                <a href="#id" >id</a>
+                            </li>
+                            <li>
                                 <a href="#name" >name</a>
                             </li>
                             <li>
@@ -124,7 +127,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">apps/server/src/modules/tool/controller/dto/response/school-external-tool.response.ts:22</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">apps/server/src/modules/tool/controller/dto/response/school-external-tool.response.ts:25</a></div>
                             </td>
                         </tr>
 
@@ -171,6 +174,41 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="id"></a>
+                    <span class="name">
+                        <span ><b>id</b></span>
+                        <a href="#id"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ApiProperty()<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">apps/server/src/modules/tool/controller/dto/response/school-external-tool.response.ts:7</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="name"></a>
                     <span class="name">
                         <span ><b>name</b></span>
@@ -195,7 +233,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">apps/server/src/modules/tool/controller/dto/response/school-external-tool.response.ts:7</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">apps/server/src/modules/tool/controller/dto/response/school-external-tool.response.ts:10</a></div>
                         </td>
                     </tr>
 
@@ -230,7 +268,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">apps/server/src/modules/tool/controller/dto/response/school-external-tool.response.ts:16</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">apps/server/src/modules/tool/controller/dto/response/school-external-tool.response.ts:19</a></div>
                         </td>
                     </tr>
 
@@ -265,7 +303,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">apps/server/src/modules/tool/controller/dto/response/school-external-tool.response.ts:13</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">apps/server/src/modules/tool/controller/dto/response/school-external-tool.response.ts:16</a></div>
                         </td>
                     </tr>
 
@@ -300,7 +338,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">apps/server/src/modules/tool/controller/dto/response/school-external-tool.response.ts:22</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">apps/server/src/modules/tool/controller/dto/response/school-external-tool.response.ts:25</a></div>
                         </td>
                     </tr>
 
@@ -335,7 +373,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">apps/server/src/modules/tool/controller/dto/response/school-external-tool.response.ts:10</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">apps/server/src/modules/tool/controller/dto/response/school-external-tool.response.ts:13</a></div>
                         </td>
                     </tr>
 
@@ -370,7 +408,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">apps/server/src/modules/tool/controller/dto/response/school-external-tool.response.ts:19</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">apps/server/src/modules/tool/controller/dto/response/school-external-tool.response.ts:22</a></div>
                         </td>
                     </tr>
 
@@ -395,6 +433,9 @@ import { SchoolExternalToolStatusResponse } from &#x27;./school-external-tool-st
 
 export class SchoolExternalToolResponse {
 	@ApiProperty()
+	id: string;
+
+	@ApiProperty()
 	name: string;
 
 	@ApiProperty()
@@ -413,6 +454,7 @@ export class SchoolExternalToolResponse {
 	status: SchoolExternalToolStatusResponse;
 
 	constructor(response: SchoolExternalToolResponse) {
+		this.id &#x3D; response.id;
 		this.name &#x3D; response.name;
 		this.toolId &#x3D; response.toolId;
 		this.schoolId &#x3D; response.schoolId;

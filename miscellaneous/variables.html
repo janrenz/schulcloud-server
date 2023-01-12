@@ -121,6 +121,9 @@
                             <a href="#controllers" title="apps/server/src/modules/management/management.module.ts" ><b>controllers</b>&nbsp;&nbsp;&nbsp;(apps/.../management.module.ts)</a>
                         </li>
                         <li>
+                            <a href="#courseExternalToolDOFactory" title="apps/server/src/shared/testing/factory/domainobject/course-external-tool.factory.ts" ><b>courseExternalToolDOFactory</b>&nbsp;&nbsp;&nbsp;(apps/.../course-external-tool.factory.ts)</a>
+                        </li>
+                        <li>
                             <a href="#courseExternalToolFactory" title="apps/server/src/shared/testing/factory/course-external-tool.factory.ts" ><b>courseExternalToolFactory</b>&nbsp;&nbsp;&nbsp;(apps/.../course-external-tool.factory.ts)</a>
                         </li>
                         <li>
@@ -472,9 +475,6 @@
                             <a href="#" title="apps/server/src/modules/authentication/strategy/jwt-validation.adapter.ts" ><b></b>&nbsp;&nbsp;&nbsp;(apps/.../jwt-validation.adapter.ts)</a>
                         </li>
                         <li>
-                            <a href="#" title="apps/server/src/shared/infra/file-system/file-system.adapter.ts" ><b></b>&nbsp;&nbsp;&nbsp;(apps/.../file-system.adapter.ts)</a>
-                        </li>
-                        <li>
                             <a href="#userFactory" title="apps/server/src/shared/testing/factory/user.factory.ts" ><b>userFactory</b>&nbsp;&nbsp;&nbsp;(apps/.../user.factory.ts)</a>
                         </li>
                         <li>
@@ -482,6 +482,9 @@
                         </li>
                         <li>
                             <a href="#VideoConferencingScopeMapping" title="apps/server/src/shared/repo/videoconference/video-conference.repo.ts" ><b>VideoConferencingScopeMapping</b>&nbsp;&nbsp;&nbsp;(apps/.../video-conference.repo.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#" title="apps/server/src/shared/infra/file-system/file-system.adapter.ts" ><b></b>&nbsp;&nbsp;&nbsp;(apps/.../file-system.adapter.ts)</a>
                         </li>
                         <li>
                             <a href="#yesterday" title="apps/server/src/shared/testing/factory/filerecord.factory.ts" ><b>yesterday</b>&nbsp;&nbsp;&nbsp;(apps/.../filerecord.factory.ts)</a>
@@ -620,6 +623,7 @@
 	TaskRule,
 	TeamRule,
 	UserRule,
+	SchoolExternalToolRule,
 ]</code>
                     </td>
                 </tr>
@@ -1721,6 +1725,36 @@ must use @ApiProperty</p>
                 <tr>
                     <td class="col-md-4">
                         <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>apps/server/src/shared/testing/factory/domainobject/course-external-tool.factory.ts</h3>
+    <section>
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="courseExternalToolDOFactory"></a>
+                    <span class="name">
+                        <span ><b>courseExternalToolDOFactory</b></span>
+                        <a href="#courseExternalToolDOFactory"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>CourseExternalToolDOFactory.define(CourseExternalToolDO, ({ sequence }) &#x3D;&gt; {
+	return {
+		courseId: &#x60;courseId-${sequence}&#x60;,
+		parameters: [new CustomParameterEntryDO({ name: &#x27;param&#x27;, value: &#x27;value&#x27; })],
+		schoolToolId: &#x60;schoolToolId-${sequence}&#x60;,
+		toolVersion: 1,
+	};
+})</code>
                     </td>
                 </tr>
 
@@ -5164,29 +5198,6 @@ Teardown: &#39;await orm.close()&#39; in after-hook!</p>
         </tbody>
     </table>
 </section>
-    <h3>apps/server/src/shared/infra/file-system/file-system.adapter.ts</h3>
-    <section>
-    <h3></h3>    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name=""></a>
-                    <span class="name">
-                        <span ><b></b></span>
-                        <a href="#"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Default value : </i><code>fsp</code>
-                    </td>
-                </tr>
-
-
-        </tbody>
-    </table>
-</section>
     <h3>apps/server/src/shared/testing/factory/user.factory.ts</h3>
     <section>
     <h3></h3>    <table class="table table-sm table-bordered">
@@ -5247,6 +5258,29 @@ Teardown: &#39;await orm.close()&#39; in after-hook!</p>
 		};
 	}
 )</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>apps/server/src/shared/infra/file-system/file-system.adapter.ts</h3>
+    <section>
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name=""></a>
+                    <span class="name">
+                        <span ><b></b></span>
+                        <a href="#"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>fsp</code>
                     </td>
                 </tr>
 

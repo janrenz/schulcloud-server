@@ -40,7 +40,7 @@
 
 <ol class="breadcrumb">
   <li>Injectables</li>
-  <li >SchoolMapper</li>
+  <li >CourseExternalToolService</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -58,7 +58,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/modules/school/mapper/school.mapper.ts</code>
+            <code>apps/server/src/modules/tool/service/course-external-tool.service.ts</code>
         </p>
 
 
@@ -79,10 +79,8 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#mapDOToEntityProperties" >mapDOToEntityProperties</a>
-                            </li>
-                            <li>
-                                <a href="#mapEntityToDO" >mapEntityToDO</a>
+                                    <span class="modifier">Async</span>
+                                <a href="#deleteBySchoolExternalToolId" >deleteBySchoolExternalToolId</a>
                             </li>
                         </ul>
                     </td>
@@ -96,6 +94,54 @@
     </table>
 </section>
 
+            <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(courseExternalToolRepo: <a href="../injectables/CourseExternalToolRepo.html" target="_self">CourseExternalToolRepo</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">apps/server/src/modules/tool/service/course-external-tool.service.ts:7</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>courseExternalToolRepo</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/CourseExternalToolRepo.html" target="_self" >CourseExternalToolRepo</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
 
             <section>
     
@@ -106,24 +152,26 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="mapDOToEntityProperties"></a>
+                    <a name="deleteBySchoolExternalToolId"></a>
                     <span class="name">
-                        <span ><b>mapDOToEntityProperties</b></span>
-                        <a href="#mapDOToEntityProperties"><span class="icon ion-ios-link"></span></a>
+                        <span class="modifier">Async</span>
+                        <span ><b>deleteBySchoolExternalToolId</b></span>
+                        <a href="#deleteBySchoolExternalToolId"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>mapDOToEntityProperties(entityDO: <a href="../classes/SchoolDO.html" target="_self">SchoolDO</a>)</code>
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>deleteBySchoolExternalToolId(schoolExternalToolId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="8"
-                            class="link-to-prism">apps/server/src/modules/school/mapper/school.mapper.ts:8</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="10"
+                            class="link-to-prism">apps/server/src/modules/tool/service/course-external-tool.service.ts:10</a></div>
                 </td>
             </tr>
 
@@ -144,9 +192,9 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>entityDO</td>
+                                    <td>schoolExternalToolId</td>
                                     <td>
-                                                <code><a href="../classes/SchoolDO.html" target="_self" >SchoolDO</a></code>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
                                     </td>
 
                                     <td>
@@ -161,76 +209,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../interfaces/ISchoolProperties.html" target="_self" >ISchoolProperties</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="mapEntityToDO"></a>
-                    <span class="name">
-                        <span ><b>mapEntityToDO</b></span>
-                        <a href="#mapEntityToDO"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>mapEntityToDO(entity: <a href="../classes/School.html" target="_self">School</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="25"
-                            class="link-to-prism">apps/server/src/modules/school/mapper/school.mapper.ts:25</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>entity</td>
-                                    <td>
-                                                <code><a href="../classes/School.html" target="_self" >School</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/SchoolDO.html" target="_self" >SchoolDO</a></code>
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
 
                     </div>
                     <div class="io-description">
@@ -246,44 +225,20 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { SchoolDO } from &#x27;@shared/domain/domainobject/school.do&#x27;;
-import { ISchoolProperties, School, System } from &#x27;@shared/domain&#x27;;
-import { Reference } from &#x27;@mikro-orm/core&#x27;;
-import { Injectable } from &#x27;@nestjs/common&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
+import { EntityId } from &#x27;@shared/domain&#x27;;
+import { CourseExternalToolRepo } from &#x27;@shared/repo/courseexternaltool/course-external-tool.repo&#x27;;
+import { CourseExternalToolDO } from &#x27;@shared/domain/domainobject/external-tool/course-external-tool.do&#x27;;
 
 @Injectable()
-export class SchoolMapper {
-	mapDOToEntityProperties(entityDO: SchoolDO): ISchoolProperties {
-		return {
-			externalId: entityDO.externalId,
-			features: entityDO.features,
-			inMaintenanceSince: entityDO.inMaintenanceSince,
-			inUserMigration: entityDO.inUserMigration,
-			name: entityDO.name,
-			oauthMigrationMandatory: entityDO.oauthMigrationMandatory,
-			oauthMigrationPossible: entityDO.oauthMigrationPossible,
-			officialSchoolNumber: entityDO.officialSchoolNumber,
-			schoolYear: entityDO.schoolYear,
-			systems: entityDO.systems
-				? entityDO.systems.map((systemId: string) &#x3D;&gt; Reference.createFromPK(System, systemId))
-				: [],
-		};
-	}
+export class CourseExternalToolService {
+	constructor(private readonly courseExternalToolRepo: CourseExternalToolRepo) {}
 
-	mapEntityToDO(entity: School): SchoolDO {
-		return new SchoolDO({
-			id: entity.id,
-			externalId: entity.externalId,
-			features: entity.features,
-			inMaintenanceSince: entity.inMaintenanceSince,
-			inUserMigration: entity.inUserMigration,
-			name: entity.name,
-			oauthMigrationMandatory: entity.oauthMigrationMandatory,
-			oauthMigrationPossible: entity.oauthMigrationPossible,
-			officialSchoolNumber: entity.officialSchoolNumber,
-			schoolYear: entity.schoolYear,
-			systems: entity.systems.isInitialized() ? entity.systems.getItems().map((system: System) &#x3D;&gt; system.id) : [],
+	async deleteBySchoolExternalToolId(schoolExternalToolId: EntityId) {
+		const courseExternalTools: CourseExternalToolDO[] &#x3D; await this.courseExternalToolRepo.find({
+			schoolToolId: schoolExternalToolId,
 		});
+		await this.courseExternalToolRepo.delete(courseExternalTools);
 	}
 }
 </code></pre>
@@ -329,7 +284,7 @@ export class SchoolMapper {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
-            var COMPODOC_CURRENT_PAGE_URL = 'SchoolMapper.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'CourseExternalToolService.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 
