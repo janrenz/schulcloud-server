@@ -355,6 +355,9 @@
                             <a href="#query" title="apps/server/src/modules/files/repo/sync-files.repo.ts" ><b>query</b>&nbsp;&nbsp;&nbsp;(apps/.../sync-files.repo.ts)</a>
                         </li>
                         <li>
+                            <a href="#richTextCardElementFactory" title="apps/server/src/shared/testing/factory/card-element.factory.ts" ><b>richTextCardElementFactory</b>&nbsp;&nbsp;&nbsp;(apps/.../card-element.factory.ts)</a>
+                        </li>
+                        <li>
                             <a href="#roleFactory" title="apps/server/src/shared/testing/factory/role.factory.ts" ><b>roleFactory</b>&nbsp;&nbsp;&nbsp;(apps/.../role.factory.ts)</a>
                         </li>
                         <li>
@@ -365,6 +368,9 @@
                         </li>
                         <li>
                             <a href="#s3Config" title="apps/server/src/modules/files-storage/files-storage.config.ts" ><b>s3Config</b>&nbsp;&nbsp;&nbsp;(apps/.../files-storage.config.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#sanitizeRichText" title="apps/server/src/shared/controller/transformer/sanitize-html.transformer.ts" ><b>sanitizeRichText</b>&nbsp;&nbsp;&nbsp;(apps/.../sanitize-html.transformer.ts)</a>
                         </li>
                         <li>
                             <a href="#schoolExternalToolDOFactory" title="apps/server/src/shared/testing/factory/domainobject/school-external-tool.factory.ts" ><b>schoolExternalToolDOFactory</b>&nbsp;&nbsp;&nbsp;(apps/.../school-external-tool.factory.ts)</a>
@@ -445,6 +451,9 @@
                             <a href="#taskBoardElementFactory" title="apps/server/src/shared/testing/factory/boardelement.factory.ts" ><b>taskBoardElementFactory</b>&nbsp;&nbsp;&nbsp;(apps/.../boardelement.factory.ts)</a>
                         </li>
                         <li>
+                            <a href="#taskCardFactory" title="apps/server/src/shared/testing/factory/task-card.factory.ts" ><b>taskCardFactory</b>&nbsp;&nbsp;&nbsp;(apps/.../task-card.factory.ts)</a>
+                        </li>
+                        <li>
                             <a href="#taskFactory" title="apps/server/src/shared/testing/factory/task.factory.ts" ><b>taskFactory</b>&nbsp;&nbsp;&nbsp;(apps/.../task.factory.ts)</a>
                         </li>
                         <li>
@@ -458,6 +467,9 @@
                         </li>
                         <li>
                             <a href="#teamUserFactory" title="apps/server/src/shared/testing/factory/teamuser.factory.ts" ><b>teamUserFactory</b>&nbsp;&nbsp;&nbsp;(apps/.../teamuser.factory.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#titleCardElementFactory" title="apps/server/src/shared/testing/factory/card-element.factory.ts" ><b>titleCardElementFactory</b>&nbsp;&nbsp;&nbsp;(apps/.../card-element.factory.ts)</a>
                         </li>
                         <li>
                             <a href="#typeMapping" title="apps/server/src/modules/tool/controller/mapper/external-tool-request.mapper.ts" ><b>typeMapping</b>&nbsp;&nbsp;&nbsp;(apps/.../external-tool-request.mapper.ts)</a>
@@ -717,6 +729,10 @@
 	System,
 	Task,
 	TaskBoardElement,
+	TaskCard,
+	CardElement,
+	TitleCardElement,
+	RichTextCardElement,
 	Team,
 	TeamNews,
 	TeamUser,
@@ -758,6 +774,7 @@
 	SchoolRule,
 	SubmissionRule,
 	TaskRule,
+	TaskCardRule,
 	TeamRule,
 	UserRule,
 	SchoolExternalToolRule,
@@ -2713,6 +2730,7 @@ must use @ApiProperty</p>
 	CollaborativeStorageModule,
 	OauthModule,
 	TaskModule,
+	TaskCardModule,
 	LessonApiModule,
 	NewsModule,
 	UserModule,
@@ -3568,6 +3586,32 @@ it should ensure an empty result</p>
 		allowedTags: [&#x27;b&#x27;, &#x27;i&#x27;, &#x27;em&#x27;, &#x27;strong&#x27;, &#x27;small&#x27;, &#x27;s&#x27;, &#x27;u&#x27;],
 		allowedAttributes: {},
 	},
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="sanitizeRichText"></a>
+                    <span class="name">
+                        <span ><b>sanitizeRichText</b></span>
+                        <a href="#sanitizeRichText"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>(value: string, inputFormat?: InputFormat): string &#x3D;&gt; {
+	const sanitizeHtmlOptions: sanitize.IOptions &#x3D; getSanitizeHtmlOptions(inputFormat);
+
+	const sanitized &#x3D; sanitize(value, sanitizeHtmlOptions);
+
+	return sanitized;
 }</code>
                     </td>
                 </tr>
@@ -4629,6 +4673,61 @@ You shall not explicitly declare the AMQPConnection in your modules since it wil
         </tbody>
     </table>
 </section>
+    <h3>apps/server/src/shared/testing/factory/card-element.factory.ts</h3>
+    <section>
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="richTextCardElementFactory"></a>
+                    <span class="name">
+                        <span ><b>richTextCardElementFactory</b></span>
+                        <a href="#richTextCardElementFactory"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>BaseFactory.define&lt;RichTextCardElement, RichText&gt;(
+	RichTextCardElement,
+	({ sequence }) &#x3D;&gt; {
+		const richText &#x3D; new RichText({
+			type: InputFormat.RICH_TEXT_CK5,
+			content: &#x60;rich text ck5 card element #${sequence}&#x60;,
+		});
+		return richText;
+	}
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="titleCardElementFactory"></a>
+                    <span class="name">
+                        <span ><b>titleCardElementFactory</b></span>
+                        <a href="#titleCardElementFactory"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>BaseFactory.define&lt;TitleCardElement, string&gt;(
+	TitleCardElement,
+	({ sequence }) &#x3D;&gt; &#x60;title card element #${sequence}&#x60;
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
     <h3>apps/server/src/shared/testing/factory/role.factory.ts</h3>
     <section>
     <h3></h3>    <table class="table table-sm table-bordered">
@@ -5135,6 +5234,40 @@ Teardown: &#39;await orm.close()&#39; in after-hook!</p>
 	[TargetModels.EVENTS]: VideoConferenceScope.EVENT,
 	[TargetModels.COURSES]: VideoConferenceScope.COURSE,
 }</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>apps/server/src/shared/testing/factory/task-card.factory.ts</h3>
+    <section>
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="taskCardFactory"></a>
+                    <span class="name">
+                        <span ><b>taskCardFactory</b></span>
+                        <a href="#taskCardFactory"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>TaskCardFactory.define(TaskCard, () &#x3D;&gt; {
+	const task &#x3D; taskFactory.buildWithId();
+	const school &#x3D; schoolFactory.build();
+	const creator &#x3D; userFactory.build({ school });
+	return {
+		cardType: CardType.Task,
+		draggable: true,
+		creator,
+		task,
+		cardElements: [],
+	};
+})</code>
                     </td>
                 </tr>
 

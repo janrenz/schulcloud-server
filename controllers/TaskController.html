@@ -89,10 +89,6 @@
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
-                                <a href="#create" >create</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Async</span>
                                 <a href="#delete" >delete</a>
                             </li>
                             <li>
@@ -110,19 +106,11 @@
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
-                                <a href="#findTask" >findTask</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Async</span>
                                 <a href="#finish" >finish</a>
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
                                 <a href="#restore" >restore</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Async</span>
-                                <a href="#update" >update</a>
                             </li>
                         </ul>
                     </td>
@@ -247,96 +235,6 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="create"></a>
-                    <span class="name">
-                        <span class="modifier">Async</span>
-                        <span ><b>create</b></span>
-                        <a href="#create"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>create(params: <a href="../classes/TaskCreateParams.html" target="_self">TaskCreateParams</a>, currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>)</code>
-                </td>
-            </tr>
-
-            <tr>
-                <td class="col-md-4">
-                    <b>Decorators : </b>
-                    <br />
-                    <code>@Post()<br /></code>
-                </td>
-            </tr>
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="98"
-                            class="link-to-prism">apps/server/src/modules/task/controller/task.controller.ts:98</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>params</td>
-                                    <td>
-                                                <code><a href="../classes/TaskCreateParams.html" target="_self" >TaskCreateParams</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>currentUser</td>
-                                    <td>
-                                                <code><a href="../interfaces/ICurrentUser.html" target="_self" >ICurrentUser</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../entitys/Task.html" target="_self" >Promise&lt;TaskResponse&gt;</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
                     <a name="delete"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
@@ -362,8 +260,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="123"
-                            class="link-to-prism">apps/server/src/modules/task/controller/task.controller.ts:123</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="90"
+                            class="link-to-prism">apps/server/src/modules/task/controller/task.controller.ts:90</a></div>
                 </td>
             </tr>
 
@@ -710,96 +608,6 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="findTask"></a>
-                    <span class="name">
-                        <span class="modifier">Async</span>
-                        <span ><b>findTask</b></span>
-                        <a href="#findTask"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>findTask(urlParams: <a href="../classes/TaskUrlParams.html" target="_self">TaskUrlParams</a>, currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>)</code>
-                </td>
-            </tr>
-
-            <tr>
-                <td class="col-md-4">
-                    <b>Decorators : </b>
-                    <br />
-                    <code>@Get(&#x27;:taskId&#x27;)<br /></code>
-                </td>
-            </tr>
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="90"
-                            class="link-to-prism">apps/server/src/modules/task/controller/task.controller.ts:90</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>urlParams</td>
-                                    <td>
-                                                <code><a href="../classes/TaskUrlParams.html" target="_self" >TaskUrlParams</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>currentUser</td>
-                                    <td>
-                                                <code><a href="../interfaces/ICurrentUser.html" target="_self" >ICurrentUser</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../entitys/Task.html" target="_self" >Promise&lt;TaskResponse&gt;</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
                     <a name="finish"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
@@ -976,108 +784,6 @@
             </tr>
         </tbody>
     </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="update"></a>
-                    <span class="name">
-                        <span class="modifier">Async</span>
-                        <span ><b>update</b></span>
-                        <a href="#update"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>update(urlParams: <a href="../classes/TaskUrlParams.html" target="_self">TaskUrlParams</a>, params: <a href="../classes/TaskUpdateParams.html" target="_self">TaskUpdateParams</a>, currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>)</code>
-                </td>
-            </tr>
-
-            <tr>
-                <td class="col-md-4">
-                    <b>Decorators : </b>
-                    <br />
-                    <code>@Patch(&#x27;:taskId&#x27;)<br /></code>
-                </td>
-            </tr>
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="106"
-                            class="link-to-prism">apps/server/src/modules/task/controller/task.controller.ts:106</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>urlParams</td>
-                                    <td>
-                                                <code><a href="../classes/TaskUrlParams.html" target="_self" >TaskUrlParams</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>params</td>
-                                    <td>
-                                                <code><a href="../classes/TaskUpdateParams.html" target="_self" >TaskUpdateParams</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>currentUser</td>
-                                    <td>
-                                                <code><a href="../interfaces/ICurrentUser.html" target="_self" >ICurrentUser</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../entitys/Task.html" target="_self" >Promise&lt;TaskResponse&gt;</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
 </section>    </div>
 
 
@@ -1095,7 +801,7 @@ import { TaskCopyUC } from &#x27;@src/modules/learnroom/uc/task-copy.uc&#x27;;
 import { serverConfig } from &#x27;@src/modules/server/server.config&#x27;;
 import { TaskMapper } from &#x27;../mapper&#x27;;
 import { TaskUC } from &#x27;../uc/task.uc&#x27;;
-import { TaskListResponse, TaskResponse, TaskUrlParams, TaskCreateParams, TaskUpdateParams } from &#x27;./dto&#x27;;
+import { TaskListResponse, TaskResponse, TaskUrlParams } from &#x27;./dto&#x27;;
 import { TaskCopyApiParams } from &#x27;./dto/task-copy.params&#x27;;
 
 @ApiTags(&#x27;Task&#x27;)
@@ -1168,39 +874,6 @@ export class TaskController {
 		);
 		const dto &#x3D; CopyMapper.mapToResponse(copyStatus);
 		return dto;
-	}
-
-	@Get(&#x27;:taskId&#x27;)
-	async findTask(@Param() urlParams: TaskUrlParams, @CurrentUser() currentUser: ICurrentUser): Promise&lt;TaskResponse&gt; {
-		const taskWithSatusVo &#x3D; await this.taskUc.find(currentUser.userId, urlParams.taskId);
-
-		const response &#x3D; TaskMapper.mapToResponse(taskWithSatusVo);
-		return response;
-	}
-
-	@Post()
-	async create(@Body() params: TaskCreateParams, @CurrentUser() currentUser: ICurrentUser): Promise&lt;TaskResponse&gt; {
-		const taskWithSatusVo &#x3D; await this.taskUc.create(currentUser.userId, TaskMapper.mapTaskCreateToDomain(params));
-
-		const response &#x3D; TaskMapper.mapToResponse(taskWithSatusVo);
-		return response;
-	}
-
-	@Patch(&#x27;:taskId&#x27;)
-	async update(
-		@Param() urlParams: TaskUrlParams,
-		@Body() params: TaskUpdateParams,
-		@CurrentUser() currentUser: ICurrentUser
-	): Promise&lt;TaskResponse&gt; {
-		const taskWithSatusVo &#x3D; await this.taskUc.update(
-			currentUser.userId,
-			urlParams.taskId,
-			TaskMapper.mapTaskUpdateToDomain(params)
-		);
-
-		const response &#x3D; TaskMapper.mapToResponse(taskWithSatusVo);
-
-		return response;
 	}
 
 	@Delete(&#x27;:taskId&#x27;)

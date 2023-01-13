@@ -307,6 +307,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                             <a href="injectables/SubmissionRule.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >SubmissionRule</a>
                                         </li>
                                         <li class="link">
+                                            <a href="injectables/TaskCardRule.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >TaskCardRule</a>
+                                        </li>
+                                        <li class="link">
                                             <a href="injectables/TaskRepo.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >TaskRepo</a>
                                         </li>
                                         <li class="link">
@@ -1295,13 +1298,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/ServerModule.html" data-type="entity-link" >ServerModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#controllers-links-module-ServerModule-7a8ebdccf9f623adcfcf3032adf19d482e9c4f2ab30656d9c4b7949f47b4c2cd6811179255caa663c8a048f94750780260140e5654970eaa2db5dd405293dbef"' : 'data-target="#xs-controllers-links-module-ServerModule-7a8ebdccf9f623adcfcf3032adf19d482e9c4f2ab30656d9c4b7949f47b4c2cd6811179255caa663c8a048f94750780260140e5654970eaa2db5dd405293dbef"' }>
+                                            'data-target="#controllers-links-module-ServerModule-1e9967309facae7ac41fce1174dc7b073a8d94a815485650b0c5b84eea21dc9bd57797cce6a52bcc1d62afe96fde244aca7ec1f2b89656399c8eae800d114e79"' : 'data-target="#xs-controllers-links-module-ServerModule-1e9967309facae7ac41fce1174dc7b073a8d94a815485650b0c5b84eea21dc9bd57797cce6a52bcc1d62afe96fde244aca7ec1f2b89656399c8eae800d114e79"' }>
                                             <span class="icon ion-md-swap"></span>
                                             <span>Controllers</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="controllers-links-module-ServerModule-7a8ebdccf9f623adcfcf3032adf19d482e9c4f2ab30656d9c4b7949f47b4c2cd6811179255caa663c8a048f94750780260140e5654970eaa2db5dd405293dbef"' :
-                                            'id="xs-controllers-links-module-ServerModule-7a8ebdccf9f623adcfcf3032adf19d482e9c4f2ab30656d9c4b7949f47b4c2cd6811179255caa663c8a048f94750780260140e5654970eaa2db5dd405293dbef"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="controllers-links-module-ServerModule-1e9967309facae7ac41fce1174dc7b073a8d94a815485650b0c5b84eea21dc9bd57797cce6a52bcc1d62afe96fde244aca7ec1f2b89656399c8eae800d114e79"' :
+                                            'id="xs-controllers-links-module-ServerModule-1e9967309facae7ac41fce1174dc7b073a8d94a815485650b0c5b84eea21dc9bd57797cce6a52bcc1d62afe96fde244aca7ec1f2b89656399c8eae800d114e79"' }>
                                             <li class="link">
                                                 <a href="controllers/ServerController.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >ServerController</a>
                                             </li>
@@ -1312,13 +1315,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/ServerTestModule.html" data-type="entity-link" >ServerTestModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#controllers-links-module-ServerTestModule-7a8ebdccf9f623adcfcf3032adf19d482e9c4f2ab30656d9c4b7949f47b4c2cd6811179255caa663c8a048f94750780260140e5654970eaa2db5dd405293dbef"' : 'data-target="#xs-controllers-links-module-ServerTestModule-7a8ebdccf9f623adcfcf3032adf19d482e9c4f2ab30656d9c4b7949f47b4c2cd6811179255caa663c8a048f94750780260140e5654970eaa2db5dd405293dbef"' }>
+                                            'data-target="#controllers-links-module-ServerTestModule-1e9967309facae7ac41fce1174dc7b073a8d94a815485650b0c5b84eea21dc9bd57797cce6a52bcc1d62afe96fde244aca7ec1f2b89656399c8eae800d114e79"' : 'data-target="#xs-controllers-links-module-ServerTestModule-1e9967309facae7ac41fce1174dc7b073a8d94a815485650b0c5b84eea21dc9bd57797cce6a52bcc1d62afe96fde244aca7ec1f2b89656399c8eae800d114e79"' }>
                                             <span class="icon ion-md-swap"></span>
                                             <span>Controllers</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="controllers-links-module-ServerTestModule-7a8ebdccf9f623adcfcf3032adf19d482e9c4f2ab30656d9c4b7949f47b4c2cd6811179255caa663c8a048f94750780260140e5654970eaa2db5dd405293dbef"' :
-                                            'id="xs-controllers-links-module-ServerTestModule-7a8ebdccf9f623adcfcf3032adf19d482e9c4f2ab30656d9c4b7949f47b4c2cd6811179255caa663c8a048f94750780260140e5654970eaa2db5dd405293dbef"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="controllers-links-module-ServerTestModule-1e9967309facae7ac41fce1174dc7b073a8d94a815485650b0c5b84eea21dc9bd57797cce6a52bcc1d62afe96fde244aca7ec1f2b89656399c8eae800d114e79"' :
+                                            'id="xs-controllers-links-module-ServerTestModule-1e9967309facae7ac41fce1174dc7b073a8d94a815485650b0c5b84eea21dc9bd57797cce6a52bcc1d62afe96fde244aca7ec1f2b89656399c8eae800d114e79"' }>
                                             <li class="link">
                                                 <a href="controllers/ServerController.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >ServerController</a>
                                             </li>
@@ -1415,6 +1418,49 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                         </li>
                                         <li class="link">
                                             <a href="injectables/SystemUc.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >SystemUc</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </li>
+                            <li class="link">
+                                <a href="modules/TaskCardModule.html" data-type="entity-link" >TaskCardModule</a>
+                                    <li class="chapter inner">
+                                        <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
+                                            'data-target="#controllers-links-module-TaskCardModule-caa7861d9b119b801af744667bcd4a0437e641ab7564ae3a7dbbc30c45ca0afa785c318dd1ca938b9f6080fb7345ee1eab7191ca89a54ab1a1a00391eb068a97"' : 'data-target="#xs-controllers-links-module-TaskCardModule-caa7861d9b119b801af744667bcd4a0437e641ab7564ae3a7dbbc30c45ca0afa785c318dd1ca938b9f6080fb7345ee1eab7191ca89a54ab1a1a00391eb068a97"' }>
+                                            <span class="icon ion-md-swap"></span>
+                                            <span>Controllers</span>
+                                            <span class="icon ion-ios-arrow-down"></span>
+                                        </div>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="controllers-links-module-TaskCardModule-caa7861d9b119b801af744667bcd4a0437e641ab7564ae3a7dbbc30c45ca0afa785c318dd1ca938b9f6080fb7345ee1eab7191ca89a54ab1a1a00391eb068a97"' :
+                                            'id="xs-controllers-links-module-TaskCardModule-caa7861d9b119b801af744667bcd4a0437e641ab7564ae3a7dbbc30c45ca0afa785c318dd1ca938b9f6080fb7345ee1eab7191ca89a54ab1a1a00391eb068a97"' }>
+                                            <li class="link">
+                                                <a href="controllers/TaskCardController.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >TaskCardController</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                <li class="chapter inner">
+                                    <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
+                                        'data-target="#injectables-links-module-TaskCardModule-caa7861d9b119b801af744667bcd4a0437e641ab7564ae3a7dbbc30c45ca0afa785c318dd1ca938b9f6080fb7345ee1eab7191ca89a54ab1a1a00391eb068a97"' : 'data-target="#xs-injectables-links-module-TaskCardModule-caa7861d9b119b801af744667bcd4a0437e641ab7564ae3a7dbbc30c45ca0afa785c318dd1ca938b9f6080fb7345ee1eab7191ca89a54ab1a1a00391eb068a97"' }>
+                                        <span class="icon ion-md-arrow-round-down"></span>
+                                        <span>Injectables</span>
+                                        <span class="icon ion-ios-arrow-down"></span>
+                                    </div>
+                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-TaskCardModule-caa7861d9b119b801af744667bcd4a0437e641ab7564ae3a7dbbc30c45ca0afa785c318dd1ca938b9f6080fb7345ee1eab7191ca89a54ab1a1a00391eb068a97"' :
+                                        'id="xs-injectables-links-module-TaskCardModule-caa7861d9b119b801af744667bcd4a0437e641ab7564ae3a7dbbc30c45ca0afa785c318dd1ca938b9f6080fb7345ee1eab7191ca89a54ab1a1a00391eb068a97"' }>
+                                        <li class="link">
+                                            <a href="injectables/CardElementRepo.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >CardElementRepo</a>
+                                        </li>
+                                        <li class="link">
+                                            <a href="injectables/RichTextCardElementRepo.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >RichTextCardElementRepo</a>
+                                        </li>
+                                        <li class="link">
+                                            <a href="injectables/TaskCardRepo.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >TaskCardRepo</a>
+                                        </li>
+                                        <li class="link">
+                                            <a href="injectables/TaskCardUc.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >TaskCardUc</a>
+                                        </li>
+                                        <li class="link">
+                                            <a href="injectables/TitleCardElementRepo.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >TitleCardElementRepo</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -1776,6 +1822,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                     <a href="entities/BoardElement.html" data-type="entity-link" >BoardElement</a>
                                 </li>
                                 <li class="link">
+                                    <a href="entities/CardElement.html" data-type="entity-link" >CardElement</a>
+                                </li>
+                                <li class="link">
                                     <a href="entities/Course.html" data-type="entity-link" >Course</a>
                                 </li>
                                 <li class="link">
@@ -1824,6 +1873,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                     <a href="entities/Pseudonym.html" data-type="entity-link" >Pseudonym</a>
                                 </li>
                                 <li class="link">
+                                    <a href="entities/RichTextCardElement.html" data-type="entity-link" >RichTextCardElement</a>
+                                </li>
+                                <li class="link">
                                     <a href="entities/Role.html" data-type="entity-link" >Role</a>
                                 </li>
                                 <li class="link">
@@ -1857,10 +1909,16 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                     <a href="entities/TaskBoardElement.html" data-type="entity-link" >TaskBoardElement</a>
                                 </li>
                                 <li class="link">
+                                    <a href="entities/TaskCard.html" data-type="entity-link" >TaskCard</a>
+                                </li>
+                                <li class="link">
                                     <a href="entities/Team.html" data-type="entity-link" >Team</a>
                                 </li>
                                 <li class="link">
                                     <a href="entities/TeamNews.html" data-type="entity-link" >TeamNews</a>
+                                </li>
+                                <li class="link">
+                                    <a href="entities/TitleCardElement.html" data-type="entity-link" >TitleCardElement</a>
                                 </li>
                                 <li class="link">
                                     <a href="entities/User.html" data-type="entity-link" >User</a>
@@ -2014,6 +2072,21 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/CalendarEventDto.html" data-type="entity-link" >CalendarEventDto</a>
                             </li>
                             <li class="link">
+                                <a href="classes/CardElementBase.html" data-type="entity-link" >CardElementBase</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/CardElementResponse.html" data-type="entity-link" >CardElementResponse</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/CardElementUpdateParams.html" data-type="entity-link" >CardElementUpdateParams</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/CardRichTextElementResponse.html" data-type="entity-link" >CardRichTextElementResponse</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/CardTitleElementResponse.html" data-type="entity-link" >CardTitleElementResponse</a>
+                            </li>
+                            <li class="link">
                                 <a href="classes/ChallengeParams.html" data-type="entity-link" >ChallengeParams</a>
                             </li>
                             <li class="link">
@@ -2117,6 +2190,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="classes/CreateNewsParams.html" data-type="entity-link" >CreateNewsParams</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/CreateTaskCardParams.html" data-type="entity-link" >CreateTaskCardParams</a>
                             </li>
                             <li class="link">
                                 <a href="classes/CurrentUserMapper.html" data-type="entity-link" >CurrentUserMapper</a>
@@ -2587,6 +2663,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/RichText.html" data-type="entity-link" >RichText</a>
                             </li>
                             <li class="link">
+                                <a href="classes/RichTextCardElementParam.html" data-type="entity-link" >RichTextCardElementParam</a>
+                            </li>
+                            <li class="link">
                                 <a href="classes/RocketChatError.html" data-type="entity-link" >RocketChatError</a>
                             </li>
                             <li class="link">
@@ -2821,6 +2900,18 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/Task.html" data-type="entity-link" >Task</a>
                             </li>
                             <li class="link">
+                                <a href="classes/TaskCardFactory.html" data-type="entity-link" >TaskCardFactory</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/TaskCardMapper.html" data-type="entity-link" >TaskCardMapper</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/TaskCardResponse.html" data-type="entity-link" >TaskCardResponse</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/TaskCardUrlParams.html" data-type="entity-link" >TaskCardUrlParams</a>
+                            </li>
+                            <li class="link">
                                 <a href="classes/TaskCopyApiParams.html" data-type="entity-link" >TaskCopyApiParams</a>
                             </li>
                             <li class="link">
@@ -2890,6 +2981,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/TestBootstrapConsole.html" data-type="entity-link" >TestBootstrapConsole</a>
                             </li>
                             <li class="link">
+                                <a href="classes/TitleCardElementParam.html" data-type="entity-link" >TitleCardElementParam</a>
+                            </li>
+                            <li class="link">
                                 <a href="classes/TokenRequestMapper.html" data-type="entity-link" >TokenRequestMapper</a>
                             </li>
                             <li class="link">
@@ -2912,6 +3006,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="classes/UpdateNewsParams.html" data-type="entity-link" >UpdateNewsParams</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/UpdateTaskCardParams.html" data-type="entity-link" >UpdateTaskCardParams</a>
                             </li>
                             <li class="link">
                                 <a href="classes/User.html" data-type="entity-link" >User</a>
@@ -3024,6 +3121,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 </li>
                                 <li class="link">
                                     <a href="injectables/CalendarService.html" data-type="entity-link" >CalendarService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="injectables/CardElementRepo.html" data-type="entity-link" >CardElementRepo</a>
                                 </li>
                                 <li class="link">
                                     <a href="injectables/CollaborativeStorageAdapterMapper.html" data-type="entity-link" >CollaborativeStorageAdapterMapper</a>
@@ -3185,6 +3285,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                     <a href="injectables/RequestLoggingInterceptor.html" data-type="entity-link" >RequestLoggingInterceptor</a>
                                 </li>
                                 <li class="link">
+                                    <a href="injectables/RichTextCardElementRepo.html" data-type="entity-link" >RichTextCardElementRepo</a>
+                                </li>
+                                <li class="link">
                                     <a href="injectables/RocketChatService.html" data-type="entity-link" >RocketChatService</a>
                                 </li>
                                 <li class="link">
@@ -3263,6 +3366,12 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                     <a href="injectables/SystemUc.html" data-type="entity-link" >SystemUc</a>
                                 </li>
                                 <li class="link">
+                                    <a href="injectables/TaskCardRepo.html" data-type="entity-link" >TaskCardRepo</a>
+                                </li>
+                                <li class="link">
+                                    <a href="injectables/TaskCardRule.html" data-type="entity-link" >TaskCardRule</a>
+                                </li>
+                                <li class="link">
                                     <a href="injectables/TaskCopyService.html" data-type="entity-link" >TaskCopyService</a>
                                 </li>
                                 <li class="link">
@@ -3288,6 +3397,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 </li>
                                 <li class="link">
                                     <a href="injectables/TimeoutInterceptor.html" data-type="entity-link" >TimeoutInterceptor</a>
+                                </li>
+                                <li class="link">
+                                    <a href="injectables/TitleCardElementRepo.html" data-type="entity-link" >TitleCardElementRepo</a>
                                 </li>
                                 <li class="link">
                                     <a href="injectables/TokenGenerator.html" data-type="entity-link" >TokenGenerator</a>
@@ -3394,6 +3506,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="interfaces/ICalendarEvent.html" data-type="entity-link" >ICalendarEvent</a>
+                            </li>
+                            <li class="link">
+                                <a href="interfaces/ICard.html" data-type="entity-link" >ICard</a>
                             </li>
                             <li class="link">
                                 <a href="interfaces/ICollaborativeStorageStrategy.html" data-type="entity-link" >ICollaborativeStorageStrategy</a>
@@ -3664,6 +3779,15 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="interfaces/ITask.html" data-type="entity-link" >ITask</a>
+                            </li>
+                            <li class="link">
+                                <a href="interfaces/ITaskCard.html" data-type="entity-link" >ITaskCard</a>
+                            </li>
+                            <li class="link">
+                                <a href="interfaces/ITaskCardCreate.html" data-type="entity-link" >ITaskCardCreate</a>
+                            </li>
+                            <li class="link">
+                                <a href="interfaces/ITaskCardUpdate.html" data-type="entity-link" >ITaskCardUpdate</a>
                             </li>
                             <li class="link">
                                 <a href="interfaces/ITaskCreate.html" data-type="entity-link" >ITaskCreate</a>
