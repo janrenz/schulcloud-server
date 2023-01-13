@@ -108,6 +108,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                             <li class="link for-chapter2">
                                                 <a href="additional-documentation/nestjs-application/authorisation.html" data-type="entity-link" data-context="sub-entity" data-context-id="additional">Authorisation</a>
                                             </li>
+                                            <li class="link for-chapter2">
+                                                <a href="additional-documentation/nestjs-application/code-style.html" data-type="entity-link" data-context="sub-entity" data-context-id="additional">Code Style</a>
+                                            </li>
                                         </ul>
                                     </li>
                         </ul>
