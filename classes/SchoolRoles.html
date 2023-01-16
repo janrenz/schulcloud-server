@@ -138,7 +138,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">apps/server/src/shared/domain/entity/school.entity.ts:43</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">apps/server/src/shared/domain/entity/school.entity.ts:44</a></div>
                         </td>
                     </tr>
 
@@ -174,7 +174,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">apps/server/src/shared/domain/entity/school.entity.ts:46</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">apps/server/src/shared/domain/entity/school.entity.ts:47</a></div>
                         </td>
                     </tr>
 
@@ -214,8 +214,9 @@ export interface ISchoolProperties {
 	externalId?: string;
 	inMaintenanceSince?: Date;
 	inUserMigration?: boolean;
-	oauthMigrationPossible?: boolean;
-	oauthMigrationMandatory?: boolean;
+	oauthMigrationPossible?: Date;
+	oauthMigrationMandatory?: Date;
+	oauthMigrationFinished?: Date;
 	name: string;
 	officialSchoolNumber?: string;
 	systems?: System[];
@@ -254,10 +255,13 @@ export class School extends BaseEntity {
 	inUserMigration?: boolean;
 
 	@Property({ nullable: true })
-	oauthMigrationPossible?: boolean;
+	oauthMigrationPossible?: Date;
 
 	@Property({ nullable: true })
-	oauthMigrationMandatory?: boolean;
+	oauthMigrationMandatory?: Date;
+
+	@Property({ nullable: true })
+	oauthMigrationFinished?: Date;
 
 	@Property({ nullable: true, fieldName: &#x27;ldapSchoolIdentifier&#x27; })
 	externalId?: string;
@@ -279,16 +283,31 @@ export class School extends BaseEntity {
 
 	constructor(props: ISchoolProperties) {
 		super();
-		if (props.externalId) this.externalId &#x3D; props.externalId;
-		if (props.inMaintenanceSince) this.inMaintenanceSince &#x3D; props.inMaintenanceSince;
-		if (props.inUserMigration !&#x3D;&#x3D; null) this.inUserMigration &#x3D; props.inUserMigration;
-		if (props.oauthMigrationPossible !&#x3D;&#x3D; null) this.oauthMigrationPossible &#x3D; props.oauthMigrationPossible;
-		if (props.oauthMigrationMandatory !&#x3D;&#x3D; null) this.oauthMigrationMandatory &#x3D; props.oauthMigrationMandatory;
+		if (props.externalId) {
+			this.externalId &#x3D; props.externalId;
+		}
+		if (props.inMaintenanceSince) {
+			this.inMaintenanceSince &#x3D; props.inMaintenanceSince;
+		}
+		if (props.inUserMigration !&#x3D;&#x3D; null) {
+			this.inUserMigration &#x3D; props.inUserMigration;
+		}
+		this.oauthMigrationPossible &#x3D; props.oauthMigrationPossible;
+		this.oauthMigrationMandatory &#x3D; props.oauthMigrationMandatory;
+		this.oauthMigrationFinished &#x3D; props.oauthMigrationFinished;
 		this.name &#x3D; props.name;
-		if (props.officialSchoolNumber) this.officialSchoolNumber &#x3D; props.officialSchoolNumber;
-		if (props.systems) this.systems.set(props.systems);
-		if (props.features) this.features &#x3D; props.features;
-		if (props.schoolYear) this.schoolYear &#x3D; props.schoolYear;
+		if (props.officialSchoolNumber) {
+			this.officialSchoolNumber &#x3D; props.officialSchoolNumber;
+		}
+		if (props.systems) {
+			this.systems.set(props.systems);
+		}
+		if (props.features) {
+			this.features &#x3D; props.features;
+		}
+		if (props.schoolYear) {
+			this.schoolYear &#x3D; props.schoolYear;
+		}
 	}
 }
 </code></pre>

@@ -113,7 +113,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">apps/server/src/modules/school/uc/school.uc.ts:12</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">apps/server/src/modules/school/uc/school.uc.ts:11</a></div>
                             </td>
                         </tr>
 
@@ -190,8 +190,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="34"
-                            class="link-to-prism">apps/server/src/modules/school/uc/school.uc.ts:34</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="35"
+                            class="link-to-prism">apps/server/src/modules/school/uc/school.uc.ts:35</a></div>
                 </td>
             </tr>
 
@@ -241,7 +241,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/MigrationResponse.html" target="_self" >Promise&lt;MigrationResponse&gt;</a></code>
+                        <b>Returns : </b>        <code><a href="../classes/OauthMigrationDto.html" target="_self" >Promise&lt;OauthMigrationDto&gt;</a></code>
 
                     </div>
                     <div class="io-description">
@@ -273,8 +273,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="44"
-                            class="link-to-prism">apps/server/src/modules/school/uc/school.uc.ts:44</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="45"
+                            class="link-to-prism">apps/server/src/modules/school/uc/school.uc.ts:45</a></div>
                 </td>
             </tr>
 
@@ -337,15 +337,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>setMigration(schoolId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, oauthMigrationPossible: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, oauthMigrationMandatory: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, userId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    <code>setMigration(schoolId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, oauthMigrationPossible: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, oauthMigrationMandatory: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, oauthMigrationFinished: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, userId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="15"
-                            class="link-to-prism">apps/server/src/modules/school/uc/school.uc.ts:15</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="14"
+                            class="link-to-prism">apps/server/src/modules/school/uc/school.uc.ts:14</a></div>
                 </td>
             </tr>
 
@@ -402,6 +402,18 @@
 
                                 </tr>
                                 <tr>
+                                    <td>oauthMigrationFinished</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
                                     <td>userId</td>
                                     <td>
                                                 <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
@@ -419,7 +431,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/MigrationResponse.html" target="_self" >Promise&lt;MigrationResponse&gt;</a></code>
+                        <b>Returns : </b>        <code><a href="../classes/OauthMigrationDto.html" target="_self" >Promise&lt;OauthMigrationDto&gt;</a></code>
 
                     </div>
                     <div class="io-description">
@@ -439,9 +451,8 @@
 import { SchoolService } from &#x27;@src/modules/school/service/school.service&#x27;;
 import { Actions, Permission } from &#x27;@shared/domain&#x27;;
 import { SchoolDO } from &#x27;@shared/domain/domainobject/school.do&#x27;;
-import { MigrationResponse } from &#x27;../controller/dto&#x27;;
-import { AuthorizationService } from &#x27;../../authorization&#x27;;
-import { AllowedAuthorizationEntityType } from &#x27;../../authorization/interfaces&#x27;;
+import { AuthorizationService, AllowedAuthorizationEntityType } from &#x27;../../authorization&#x27;;
+import { OauthMigrationDto } from &#x27;../dto/oauth-migration.dto&#x27;;
 import { PublicSchoolResponse } from &#x27;../controller/dto/public.school.response&#x27;;
 import { SchoolUcMapper } from &#x27;../mapper/school.uc.mapper&#x27;;
 
@@ -453,29 +464,31 @@ export class SchoolUc {
 		schoolId: string,
 		oauthMigrationPossible: boolean,
 		oauthMigrationMandatory: boolean,
+		oauthMigrationFinished: boolean,
 		userId: string
-	): Promise&lt;MigrationResponse&gt; {
+	): Promise&lt;OauthMigrationDto&gt; {
 		await this.authService.checkPermissionByReferences(userId, AllowedAuthorizationEntityType.School, schoolId, {
 			action: Actions.read,
 			requiredPermissions: [Permission.SCHOOL_EDIT],
 		});
-		const migrationResponse: MigrationResponse &#x3D; await this.schoolService.setMigration(
+		const migrationDto: OauthMigrationDto &#x3D; await this.schoolService.setMigration(
 			schoolId,
 			oauthMigrationPossible,
-			oauthMigrationMandatory
+			oauthMigrationMandatory,
+			oauthMigrationFinished
 		);
 
-		return migrationResponse;
+		return migrationDto;
 	}
 
-	async getMigration(schoolId: string, userId: string): Promise&lt;MigrationResponse&gt; {
+	async getMigration(schoolId: string, userId: string): Promise&lt;OauthMigrationDto&gt; {
 		await this.authService.checkPermissionByReferences(userId, AllowedAuthorizationEntityType.School, schoolId, {
 			action: Actions.read,
 			requiredPermissions: [Permission.SCHOOL_EDIT],
 		});
-		const migrationResponse: MigrationResponse &#x3D; await this.schoolService.getMigration(schoolId);
+		const migrationDto: OauthMigrationDto &#x3D; await this.schoolService.getMigration(schoolId);
 
-		return migrationResponse;
+		return migrationDto;
 	}
 
 	async getPublicSchoolData(schoolnumber: string): Promise&lt;PublicSchoolResponse&gt; {
