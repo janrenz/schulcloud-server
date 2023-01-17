@@ -113,7 +113,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">apps/server/src/modules/files-storage-client/service/copy-files.service.ts:16</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">apps/server/src/modules/files-storage-client/service/copy-files.service.ts:17</a></div>
                             </td>
                         </tr>
 
@@ -190,8 +190,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="22"
-                            class="link-to-prism">apps/server/src/modules/files-storage-client/service/copy-files.service.ts:22</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="23"
+                            class="link-to-prism">apps/server/src/modules/files-storage-client/service/copy-files.service.ts:23</a></div>
                 </td>
             </tr>
 
@@ -293,8 +293,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="41"
-                            class="link-to-prism">apps/server/src/modules/files-storage-client/service/copy-files.service.ts:41</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="42"
+                            class="link-to-prism">apps/server/src/modules/files-storage-client/service/copy-files.service.ts:42</a></div>
                 </td>
             </tr>
 
@@ -364,8 +364,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="51"
-                            class="link-to-prism">apps/server/src/modules/files-storage-client/service/copy-files.service.ts:51</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="58"
+                            class="link-to-prism">apps/server/src/modules/files-storage-client/service/copy-files.service.ts:58</a></div>
                 </td>
             </tr>
 
@@ -420,13 +420,14 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
-import { CopyElementType, CopyHelperService, CopyStatus, CopyStatusEnum, EntityId } from &#x27;@shared/domain&#x27;;
+import { EntityId } from &#x27;@shared/domain&#x27;;
+import { CopyElementType, CopyHelperService, CopyStatus, CopyStatusEnum } from &#x27;@src/modules/copy-helper&#x27;;
 import { CopyFileDto } from &#x27;../dto&#x27;;
 import { EntityWithEmbeddedFiles } from &#x27;../interfaces&#x27;;
-import { FileParamBuilder, CopyFilesOfParentParamBuilder } from &#x27;../mapper&#x27;;
+import { CopyFilesOfParentParamBuilder, FileParamBuilder } from &#x27;../mapper&#x27;;
 import { FilesStorageClientAdapterService } from &#x27;./files-storage-client.service&#x27;;
 
-// TODO  missing FileCopyParams  ...passing user instead of userId
+const FILE_COULD_NOT_BE_COPIED_HINT &#x3D; &#x27;fileCouldNotBeCopied&#x27;;
 
 export type FileUrlReplacement &#x3D; {
 	regex: RegExp;
@@ -460,22 +461,29 @@ export class CopyFilesService {
 	}
 
 	private createFileUrlReplacements(fileDtos: CopyFileDto[]): FileUrlReplacement[] {
-		return fileDtos.map((fileDto) &#x3D;&gt; {
+		return fileDtos.map((fileDto): FileUrlReplacement &#x3D;&gt; {
 			const { sourceId, id, name } &#x3D; fileDto;
-			return {
+
+			// use hint as id replacement, if file could not be copied
+			const newId &#x3D; id ?? FILE_COULD_NOT_BE_COPIED_HINT;
+
+			const fileUrlReplacement: FileUrlReplacement &#x3D; {
 				regex: new RegExp(&#x60;${sourceId}.+?&quot;&#x60;, &#x27;g&#x27;),
-				replacement: &#x60;${id ?? &#x27;fileCouldNotBeCopied&#x27;}/${name}&quot;&#x60;,
+				replacement: &#x60;${newId}/${name}&quot;&#x60;,
 			};
+
+			return fileUrlReplacement;
 		});
 	}
 
 	private deriveCopyStatus(fileDtos: CopyFileDto[]): CopyStatus {
 		const fileStatuses: CopyStatus[] &#x3D; fileDtos.map(({ sourceId, id, name }) &#x3D;&gt; {
-			return {
+			const result &#x3D; {
 				type: CopyElementType.FILE,
 				status: id ? CopyStatusEnum.SUCCESS : CopyStatusEnum.FAIL,
 				title: name ?? &#x60;(old fileid: ${sourceId})&#x60;,
 			};
+			return result;
 		});
 
 		const fileGroupStatus &#x3D; {

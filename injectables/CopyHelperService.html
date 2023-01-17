@@ -58,7 +58,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/shared/domain/service/copy-helper.service.ts</code>
+            <code>apps/server/src/modules/copy-helper/service/copy-helper.service.ts</code>
         </p>
 
 
@@ -125,8 +125,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="44"
-                            class="link-to-prism">apps/server/src/shared/domain/service/copy-helper.service.ts:44</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="45"
+                            class="link-to-prism">apps/server/src/modules/copy-helper/service/copy-helper.service.ts:45</a></div>
                 </td>
             </tr>
 
@@ -194,8 +194,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="27"
-                            class="link-to-prism">apps/server/src/shared/domain/service/copy-helper.service.ts:27</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="28"
+                            class="link-to-prism">apps/server/src/modules/copy-helper/service/copy-helper.service.ts:28</a></div>
                 </td>
             </tr>
 
@@ -281,8 +281,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="9"
-                            class="link-to-prism">apps/server/src/shared/domain/service/copy-helper.service.ts:9</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="10"
+                            class="link-to-prism">apps/server/src/modules/copy-helper/service/copy-helper.service.ts:10</a></div>
                 </td>
             </tr>
 
@@ -337,8 +337,9 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
-import { BaseEntity } from &#x27;../entity&#x27;;
-import { CopyStatus, CopyStatusEnum, EntityId } from &#x27;../types&#x27;;
+import { BaseEntity } from &#x27;@shared/domain/entity&#x27;;
+import { EntityId } from &#x27;@shared/domain/types&#x27;;
+import { CopyStatus, CopyStatusEnum } from &#x27;../types/copy.types&#x27;;
 
 const isAtLeastPartialSuccessfull &#x3D; (status) &#x3D;&gt; status &#x3D;&#x3D;&#x3D; CopyStatusEnum.PARTIAL || status &#x3D;&#x3D;&#x3D; CopyStatusEnum.SUCCESS;
 

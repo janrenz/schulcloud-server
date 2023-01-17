@@ -114,7 +114,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">apps/server/src/modules/learnroom/uc/lesson-copy.uc.ts:15</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">apps/server/src/modules/learnroom/uc/lesson-copy.uc.ts:12</a></div>
                             </td>
                         </tr>
 
@@ -227,8 +227,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="24"
-                            class="link-to-prism">apps/server/src/modules/learnroom/uc/lesson-copy.uc.ts:24</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="21"
+                            class="link-to-prism">apps/server/src/modules/learnroom/uc/lesson-copy.uc.ts:21</a></div>
                 </td>
             </tr>
 
@@ -322,8 +322,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="60"
-                            class="link-to-prism">apps/server/src/modules/learnroom/uc/lesson-copy.uc.ts:60</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="57"
+                            class="link-to-prism">apps/server/src/modules/learnroom/uc/lesson-copy.uc.ts:57</a></div>
                 </td>
             </tr>
 
@@ -362,8 +362,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="52"
-                            class="link-to-prism">apps/server/src/modules/learnroom/uc/lesson-copy.uc.ts:52</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="49"
+                            class="link-to-prism">apps/server/src/modules/learnroom/uc/lesson-copy.uc.ts:49</a></div>
                 </td>
             </tr>
 
@@ -431,16 +431,13 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Configuration } from &#x27;@hpi-schul-cloud/commons&#x27;;
 import { ForbiddenException, Injectable, InternalServerErrorException } from &#x27;@nestjs/common&#x27;;
-import { CopyHelperService, CopyStatus, EntityId, PermissionContextBuilder, User } from &#x27;@shared/domain&#x27;;
+import { EntityId, PermissionContextBuilder, User } from &#x27;@shared/domain&#x27;;
 import { Permission } from &#x27;@shared/domain/interface/permission.enum&#x27;;
 import { CourseRepo, LessonRepo } from &#x27;@shared/repo&#x27;;
 import { AuthorizationService } from &#x27;@src/modules/authorization&#x27;;
-import { LessonCopyService } from &#x27;../service&#x27;;
-
-export type LessonCopyParentParams &#x3D; {
-	courseId?: EntityId;
-	userId: string;
-};
+import { CopyHelperService, CopyStatus } from &#x27;@src/modules/copy-helper&#x27;;
+import { LessonCopyParentParams } from &#x27;@src/modules/lesson&#x27;;
+import { LessonCopyService } from &#x27;@src/modules/lesson/service&#x27;;
 
 @Injectable()
 export class LessonCopyUC {
