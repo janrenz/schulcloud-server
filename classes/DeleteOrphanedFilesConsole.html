@@ -91,10 +91,6 @@
                                     <span class="modifier">Async</span>
                                 <a href="#deleteOrphanedFilesForSubmissions" >deleteOrphanedFilesForSubmissions</a>
                             </li>
-                            <li>
-                                    <span class="modifier">Async</span>
-                                <a href="#deleteOrphanedFilesForTasks" >deleteOrphanedFilesForTasks</a>
-                            </li>
                         </ul>
                     </td>
                 </tr>
@@ -191,8 +187,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="24"
-                            class="link-to-prism">apps/server/src/modules/files/job/delete-orphaned-files.console.ts:24</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="19"
+                            class="link-to-prism">apps/server/src/modules/files/job/delete-orphaned-files.console.ts:19</a></div>
                 </td>
             </tr>
 
@@ -237,52 +233,6 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="19"
-                            class="link-to-prism">apps/server/src/modules/files/job/delete-orphaned-files.console.ts:19</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
-
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="deleteOrphanedFilesForTasks"></a>
-                    <span class="name">
-                        <span class="modifier">Async</span>
-                        <span ><b>deleteOrphanedFilesForTasks</b></span>
-                        <a href="#deleteOrphanedFilesForTasks"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>deleteOrphanedFilesForTasks()</code>
-                </td>
-            </tr>
-
-            <tr>
-                <td class="col-md-4">
-                    <b>Decorators : </b>
-                    <br />
-                    <code>@Command({command: &#x27;tasks&#x27;})<br /></code>
-                </td>
-            </tr>
-
-            <tr>
-                <td class="col-md-4">
                     <div class="io-line">Defined in <a href="" data-line="14"
                             class="link-to-prism">apps/server/src/modules/files/job/delete-orphaned-files.console.ts:14</a></div>
                 </td>
@@ -319,11 +269,6 @@ import { DeleteOrphanedFilesUc } from &#x27;../uc&#x27;;
 @Console({ command: &#x27;delete-orphaned-files&#x27; })
 export class DeleteOrphanedFilesConsole {
 	constructor(private deleteOrphanedFilesUc: DeleteOrphanedFilesUc) {}
-
-	@Command({ command: &#x27;tasks&#x27; })
-	async deleteOrphanedFilesForTasks(): Promise&lt;void&gt; {
-		await this.deleteOrphanedFilesUc.deleteOrphanedFilesForParentType(FileRecordParentType.Task);
-	}
 
 	@Command({ command: &#x27;submissions&#x27; })
 	async deleteOrphanedFilesForSubmissions(): Promise&lt;void&gt; {

@@ -121,7 +121,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="57" class="link-to-prism">apps/server/src/modules/files/repo/orphaned-files.repo.ts:57</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">apps/server/src/modules/files/repo/orphaned-files.repo.ts:22</a></div>
                             </td>
                         </tr>
 
@@ -186,8 +186,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="128"
-                            class="link-to-prism">apps/server/src/modules/files/repo/orphaned-files.repo.ts:128</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="93"
+                            class="link-to-prism">apps/server/src/modules/files/repo/orphaned-files.repo.ts:93</a></div>
                 </td>
             </tr>
 
@@ -257,8 +257,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="124"
-                            class="link-to-prism">apps/server/src/modules/files/repo/orphaned-files.repo.ts:124</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="89"
+                            class="link-to-prism">apps/server/src/modules/files/repo/orphaned-files.repo.ts:89</a></div>
                 </td>
             </tr>
 
@@ -328,8 +328,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="60"
-                            class="link-to-prism">apps/server/src/modules/files/repo/orphaned-files.repo.ts:60</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="25"
+                            class="link-to-prism">apps/server/src/modules/files/repo/orphaned-files.repo.ts:25</a></div>
                 </td>
             </tr>
 
@@ -399,8 +399,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="101"
-                            class="link-to-prism">apps/server/src/modules/files/repo/orphaned-files.repo.ts:101</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="66"
+                            class="link-to-prism">apps/server/src/modules/files/repo/orphaned-files.repo.ts:66</a></div>
                 </td>
             </tr>
 
@@ -470,8 +470,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="106"
-                            class="link-to-prism">apps/server/src/modules/files/repo/orphaned-files.repo.ts:106</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="71"
+                            class="link-to-prism">apps/server/src/modules/files/repo/orphaned-files.repo.ts:71</a></div>
                 </td>
             </tr>
 
@@ -532,46 +532,11 @@ import { FileRecord, FileRecordParentType } from &#x27;@src/modules/files-storag
 import { FileRecordMapper } from &#x27;../mapper/filerecord-mapper&#x27;;
 
 const orphanedFilesQuery &#x3D; (collectionName: string) &#x3D;&gt; [
-	{
-		$lookup: {
-			from: collectionName,
-			localField: &#x27;parent&#x27;,
-			foreignField: &#x27;_id&#x27;,
-			as: collectionName,
-		},
-	},
-	{
-		$set: {
-			entity: { $arrayElemAt: [&#x60;$${collectionName}&#x60;, 0] },
-		},
-	},
-	{
-		$lookup: {
-			from: &#x27;files_filerecords&#x27;,
-			localField: &#x27;_id&#x27;,
-			foreignField: &#x27;filerecordId&#x27;,
-			as: &#x27;files_filerecords&#x27;,
-		},
-	},
-	{
-		$set: {
-			file_filerecord: { $arrayElemAt: [&#x27;$files_filerecords&#x27;, 0] },
-		},
-	},
-	{
-		$match: {
-			$or: [
-				{ entity: null },
-				{
-					$expr: {
-						$not: {
-							$in: [&#x27;$file_filerecord.fileId&#x27;, &#x27;$entity.fileIds&#x27;],
-						},
-					},
-				},
-			],
-		},
-	},
+	{ $lookup: { from: collectionName, localField: &#x27;fileId&#x27;, foreignField: &#x27;fileIds&#x27;, as: &#x27;entity&#x27; } },
+	{ $unwind: { path: &#x27;$entity&#x27;, preserveNullAndEmptyArrays: true } },
+	{ $lookup: { from: &#x27;filerecords&#x27;, localField: &#x27;filerecordId&#x27;, foreignField: &#x27;_id&#x27;, as: &#x27;filerecord&#x27; } },
+	{ $unwind: { path: &#x27;$filerecord&#x27; } },
+	{ $match: { entity: { $exists: false } } },
 ];
 
 // Temporary functionality for migration to new fileservice
@@ -637,9 +602,9 @@ export class OrphanedFilesRepo {
 			query &#x3D; orphanedFilesQuery(&#x27;submissions&#x27;);
 		}
 
-		const result &#x3D; await this._em.aggregate(FileRecord, query);
+		const result &#x3D; await this._em.aggregate(&#x27;files_filerecords&#x27;, query);
 
-		const fileRecords &#x3D; result.map((item) &#x3D;&gt; FileRecordMapper.mapToFileRecord(item));
+		const fileRecords &#x3D; result.map((item) &#x3D;&gt; FileRecordMapper.mapToFileRecord(item.filerecord));
 
 		return fileRecords;
 	}

@@ -4436,46 +4436,11 @@ You shall not explicitly declare the AMQPConnection in your modules since it wil
                 <tr>
                     <td class="col-md-4">
                         <i>Default value : </i><code>(collectionName: string) &#x3D;&gt; [
-	{
-		$lookup: {
-			from: collectionName,
-			localField: &#x27;parent&#x27;,
-			foreignField: &#x27;_id&#x27;,
-			as: collectionName,
-		},
-	},
-	{
-		$set: {
-			entity: { $arrayElemAt: [&#x60;$${collectionName}&#x60;, 0] },
-		},
-	},
-	{
-		$lookup: {
-			from: &#x27;files_filerecords&#x27;,
-			localField: &#x27;_id&#x27;,
-			foreignField: &#x27;filerecordId&#x27;,
-			as: &#x27;files_filerecords&#x27;,
-		},
-	},
-	{
-		$set: {
-			file_filerecord: { $arrayElemAt: [&#x27;$files_filerecords&#x27;, 0] },
-		},
-	},
-	{
-		$match: {
-			$or: [
-				{ entity: null },
-				{
-					$expr: {
-						$not: {
-							$in: [&#x27;$file_filerecord.fileId&#x27;, &#x27;$entity.fileIds&#x27;],
-						},
-					},
-				},
-			],
-		},
-	},
+	{ $lookup: { from: collectionName, localField: &#x27;fileId&#x27;, foreignField: &#x27;fileIds&#x27;, as: &#x27;entity&#x27; } },
+	{ $unwind: { path: &#x27;$entity&#x27;, preserveNullAndEmptyArrays: true } },
+	{ $lookup: { from: &#x27;filerecords&#x27;, localField: &#x27;filerecordId&#x27;, foreignField: &#x27;_id&#x27;, as: &#x27;filerecord&#x27; } },
+	{ $unwind: { path: &#x27;$filerecord&#x27; } },
+	{ $match: { entity: { $exists: false } } },
 ]</code>
                     </td>
                 </tr>
