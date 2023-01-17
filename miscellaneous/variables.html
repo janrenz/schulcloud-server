@@ -196,7 +196,7 @@
                             <a href="#enableOpenApiDocs" title="apps/server/src/shared/controller/swagger.ts" ><b>enableOpenApiDocs</b>&nbsp;&nbsp;&nbsp;(apps/.../swagger.ts)</a>
                         </li>
                         <li>
-                            <a href="#execute" title="apps/server/src/console/test/bootstrap.console.ts" ><b>execute</b>&nbsp;&nbsp;&nbsp;(apps/.../bootstrap.console.ts)</a>
+                            <a href="#execute" title="apps/server/src/console/api-test/test-bootstrap.console.ts" ><b>execute</b>&nbsp;&nbsp;&nbsp;(apps/.../test-bootstrap.console.ts)</a>
                         </li>
                         <li>
                             <a href="#externalToolDOFactory" title="apps/server/src/shared/testing/factory/domainobject/external-tool.factory.ts" ><b>externalToolDOFactory</b>&nbsp;&nbsp;&nbsp;(apps/.../external-tool.factory.ts)</a>
@@ -1515,8 +1515,7 @@ This allows adding console commands to execute provider methods.</p>
 	moduleFileExtensions: [&#x27;js&#x27;, &#x27;json&#x27;, &#x27;ts&#x27;],
 	rootDir: &#x27;.&#x27;,
 	preset: &#x27;ts-jest&#x27;,
-	/* we have tests in src/...*.spec.ts and test/...*.e2e-spec.ts either we test all files via &#x60;npm run nest:test&#x60; or override the regex in npm scripts to separate the execution via &#x60;npm run nest:test:spec&#x60; or &#x60;npm run nest:test:e2e&#x60; */
-	testRegex: &#x27;\\.(e2e-)?spec\\.ts$&#x27;,
+	testRegex: &#x27;\\.spec\\.ts$&#x27;,
 	// ignore legacy mocha tests
 	testPathIgnorePatterns: [&#x27;^src&#x27;, &#x27;^test&#x27;],
 	transform: {
@@ -2975,7 +2974,7 @@ it should ensure an empty result</p>
         </tbody>
     </table>
 </section>
-    <h3>apps/server/src/console/test/bootstrap.console.ts</h3>
+    <h3>apps/server/src/console/api-test/test-bootstrap.console.ts</h3>
     <section>
     <h3></h3>    <table class="table table-sm table-bordered">
         <tbody>

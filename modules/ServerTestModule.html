@@ -559,6 +559,7 @@ import { MailModule } from &#x27;@shared/infra/mail&#x27;;
 import { RabbitMQWrapperModule, RabbitMQWrapperTestModule } from &#x27;@shared/infra/rabbitmq&#x27;;
 import { DB_PASSWORD, DB_URL, DB_USERNAME } from &#x27;@src/config&#x27;;
 import { CoreModule } from &#x27;@src/core&#x27;;
+import { AuthenticationApiModule } from &#x27;@src/modules/authentication/authentication-api.module&#x27;;
 import { CollaborativeStorageModule } from &#x27;@src/modules/collaborative-storage&#x27;;
 import { FilesStorageClientModule } from &#x27;@src/modules/files-storage-client&#x27;;
 import { LearnroomModule } from &#x27;@src/modules/learnroom&#x27;;
@@ -569,18 +570,17 @@ import { OauthProviderModule } from &#x27;@src/modules/oauth-provider&#x27;;
 import { ProvisioningModule } from &#x27;@src/modules/provisioning&#x27;;
 import { RocketChatModule } from &#x27;@src/modules/rocketchat&#x27;;
 import { RoleModule } from &#x27;@src/modules/role/role.module&#x27;;
+import { SchoolApiModule } from &#x27;@src/modules/school/school-api.module&#x27;;
 import { SharingApiModule } from &#x27;@src/modules/sharing/sharing.module&#x27;;
 import { SystemModule } from &#x27;@src/modules/system&#x27;;
 import { TaskModule } from &#x27;@src/modules/task&#x27;;
 import { TaskCardModule } from &#x27;@src/modules/task-card&#x27;;
+import { ToolApiModule } from &#x27;@src/modules/tool/tool-api.module&#x27;;
 import { UserModule } from &#x27;@src/modules/user&#x27;;
 import { ImportUserModule } from &#x27;@src/modules/user-import&#x27;;
 import { VideoConferenceModule } from &#x27;@src/modules/video-conference&#x27;;
-import { ToolApiModule } from &#x27;@src/modules/tool/tool-api.module&#x27;;
-import { SchoolApiModule } from &#x27;@src/modules/school/school-api.module&#x27;;
+import { ServerController } from &#x27;./controller/server.controller&#x27;;
 import { serverConfig } from &#x27;./server.config&#x27;;
-import { ServerController } from &#x27;./server.controller&#x27;;
-import { AuthenticationApiModule } from &#x27;../authentication/authentication-api.module&#x27;;
 
 const serverModules &#x3D; [
 	ConfigModule.forRoot({

@@ -234,12 +234,6 @@ import { NewsController } from &#x27;./controller/news.controller&#x27;;
 import { TeamNewsController } from &#x27;./controller/team-news.controller&#x27;;
 import { NewsUc } from &#x27;./uc/news.uc&#x27;;
 
-/* NewsController
- * to enable:
- * - unskip e2e tests
- * - execute migration news_add_target_schools (in migrations/scheduled)
- * - update backup/setup/news.json from db after migration has been executed
- */
 @Module({
 	imports: [AuthorizationModule],
 	controllers: [NewsController, TeamNewsController],
