@@ -4579,7 +4579,7 @@ You shall not explicitly declare the AMQPConnection in your modules since it wil
                     <td class="col-md-4">
                         <i>Default value : </i><code>(aggregationSize: number) &#x3D;&gt; [
 	{
-		$match: { fileIds: { $exists: true, $ne: [] } },
+		$match: { gradeFileIds: { $exists: true, $ne: [] } },
 	},
 	{
 		$sort: {
@@ -4589,7 +4589,7 @@ You shall not explicitly declare the AMQPConnection in your modules since it wil
 	{
 		$lookup: {
 			from: &#x27;files&#x27;,
-			localField: &#x27;fileIds&#x27;,
+			localField: &#x27;gradeFileIds&#x27;,
 			foreignField: &#x27;_id&#x27;,
 			as: &#x27;files&#x27;,
 		},
