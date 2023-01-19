@@ -1617,13 +1617,16 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/ToolModule.html" data-type="entity-link" >ToolModule</a>
                                 <li class="chapter inner">
                                     <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                        'data-target="#injectables-links-module-ToolModule-155ccd11e939be93813bf95b486cf2ac1523db8980df9846c535cb71fab7aa34318119aeb50c82bb0b1c201c9afd831d600e0604a7ff99b45aac98bff5ae8916"' : 'data-target="#xs-injectables-links-module-ToolModule-155ccd11e939be93813bf95b486cf2ac1523db8980df9846c535cb71fab7aa34318119aeb50c82bb0b1c201c9afd831d600e0604a7ff99b45aac98bff5ae8916"' }>
+                                        'data-target="#injectables-links-module-ToolModule-4d2f3216da2f837735d141ceb51463d629b77e71b1af9f74f60da5d9aa6f3647ab5f9e3f798ef99907a776089c8ac48beb5d68b366c730785b27c5f1faa64f20"' : 'data-target="#xs-injectables-links-module-ToolModule-4d2f3216da2f837735d141ceb51463d629b77e71b1af9f74f60da5d9aa6f3647ab5f9e3f798ef99907a776089c8ac48beb5d68b366c730785b27c5f1faa64f20"' }>
                                         <span class="icon ion-md-arrow-round-down"></span>
                                         <span>Injectables</span>
                                         <span class="icon ion-ios-arrow-down"></span>
                                     </div>
-                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-ToolModule-155ccd11e939be93813bf95b486cf2ac1523db8980df9846c535cb71fab7aa34318119aeb50c82bb0b1c201c9afd831d600e0604a7ff99b45aac98bff5ae8916"' :
-                                        'id="xs-injectables-links-module-ToolModule-155ccd11e939be93813bf95b486cf2ac1523db8980df9846c535cb71fab7aa34318119aeb50c82bb0b1c201c9afd831d600e0604a7ff99b45aac98bff5ae8916"' }>
+                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-ToolModule-4d2f3216da2f837735d141ceb51463d629b77e71b1af9f74f60da5d9aa6f3647ab5f9e3f798ef99907a776089c8ac48beb5d68b366c730785b27c5f1faa64f20"' :
+                                        'id="xs-injectables-links-module-ToolModule-4d2f3216da2f837735d141ceb51463d629b77e71b1af9f74f60da5d9aa6f3647ab5f9e3f798ef99907a776089c8ac48beb5d68b366c730785b27c5f1faa64f20"' }>
+                                        <li class="link">
+                                            <a href="injectables/CommonToolValidationService.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >CommonToolValidationService</a>
+                                        </li>
                                         <li class="link">
                                             <a href="injectables/CourseExternalToolRepo.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >CourseExternalToolRepo</a>
                                         </li>
