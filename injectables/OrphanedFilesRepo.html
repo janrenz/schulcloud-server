@@ -532,7 +532,7 @@ import { FileRecord, FileRecordParentType } from &#x27;@src/modules/files-storag
 import { FileRecordMapper } from &#x27;../mapper/filerecord-mapper&#x27;;
 
 const orphanedFilesQuery &#x3D; (collectionName: string) &#x3D;&gt; [
-	{ $lookup: { from: collectionName, localField: &#x27;fileId&#x27;, foreignField: &#x27;fileIds&#x27;, as: &#x27;entity&#x27; } },
+	{ $lookup: { from: collectionName, localField: &#x27;fileId&#x27;, foreignField: &#x27;gradeFileIds&#x27;, as: &#x27;entity&#x27; } },
 	{ $unwind: { path: &#x27;$entity&#x27;, preserveNullAndEmptyArrays: true } },
 	{ $lookup: { from: &#x27;filerecords&#x27;, localField: &#x27;filerecordId&#x27;, foreignField: &#x27;_id&#x27;, as: &#x27;filerecord&#x27; } },
 	{ $unwind: { path: &#x27;$filerecord&#x27; } },
