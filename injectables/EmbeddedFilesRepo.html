@@ -506,7 +506,7 @@ const lessonsQuery &#x3D; {
 } as FilterQuery&lt;Lesson&gt;;
 
 const submissionsQuery &#x3D; {
-	comment: new RegExp(&#x60;src&#x3D;${fileUrlRegex}${fileIdRegex}&#x60;, &#x27;i&#x27;),
+	gradeComment: new RegExp(&#x60;src&#x3D;${fileUrlRegex}${fileIdRegex}&#x60;, &#x27;i&#x27;),
 };
 
 const filesQuery &#x3D; (fileIds: ObjectId[], parentId: ObjectId) &#x3D;&gt; [
