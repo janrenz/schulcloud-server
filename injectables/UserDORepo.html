@@ -457,7 +457,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/BaseDORepo.html#source" target="_self" >BaseDORepo:79</a></code>
+                        <div class="io-line">Defined in         <code><a href="../injectables/BaseDORepo.html#source" target="_self" >BaseDORepo:81</a></code>
 </div>
                 </td>
             </tr>
@@ -1458,6 +1458,8 @@ export class UserDORepo extends BaseDORepo&lt;UserDO, User, IUserProperties&gt; 
 			language: entity.language,
 			forcePasswordChange: entity.forcePasswordChange,
 			preferences: entity.preferences,
+			lastLoginSystemChange: entity.lastLoginSystemChange,
+			outdatedSince: entity.outdatedSince,
 		});
 
 		if (entity.roles.isInitialized(true)) {
@@ -1479,6 +1481,8 @@ export class UserDORepo extends BaseDORepo&lt;UserDO, User, IUserProperties&gt; 
 			language: entityDO.language,
 			forcePasswordChange: entityDO.forcePasswordChange,
 			preferences: entityDO.preferences,
+			lastLoginSystemChange: entityDO.lastLoginSystemChange,
+			outdatedSince: entityDO.outdatedSince,
 		};
 	}
 }
