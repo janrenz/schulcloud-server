@@ -417,7 +417,7 @@ export class ToolValidationService {
 		await this.commonToolValidationService.validateCommon(externalToolDO);
 
 		if (externalToolDO.config instanceof Oauth2ToolConfigDO &amp;&amp; !(await this.isClientIdUnique(externalToolDO))) {
-			throw new UnprocessableEntityException(&#x60;The Client Id of the tool: ${externalToolDO.name} is already used&#x60;);
+			throw new UnprocessableEntityException(&#x60;The Client Id of the tool ${externalToolDO.name} is already used.&#x60;);
 		}
 	}
 
@@ -438,7 +438,7 @@ export class ToolValidationService {
 
 		const loadedTool: ExternalToolDO &#x3D; await this.externalToolService.findExternalToolById(toolId);
 		if (
-			loadedTool.config instanceof Oauth2ToolConfigDO &amp;&amp;
+			this.externalToolService.isOauth2Config(loadedTool.config) &amp;&amp;
 			externalToolDO.config &amp;&amp;
 			externalToolDO.config.type !&#x3D;&#x3D; loadedTool.config.type
 		) {
@@ -446,8 +446,9 @@ export class ToolValidationService {
 		}
 
 		if (
-			externalToolDO.config instanceof Oauth2ToolConfigDO &amp;&amp;
-			loadedTool.config instanceof Oauth2ToolConfigDO &amp;&amp;
+			externalToolDO.config &amp;&amp;
+			this.externalToolService.isOauth2Config(externalToolDO.config) &amp;&amp;
+			this.externalToolService.isOauth2Config(loadedTool.config) &amp;&amp;
 			externalToolDO.config.clientId !&#x3D;&#x3D; loadedTool.config.clientId
 		) {
 			throw new UnprocessableEntityException(&#x60;The Client Id of the tool ${externalToolDO.name || &#x27;&#x27;} is immutable.&#x60;);
