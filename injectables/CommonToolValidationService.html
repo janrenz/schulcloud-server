@@ -103,6 +103,10 @@
                                     <span class="modifier">Async</span>
                                 <a href="#validateCommon" >validateCommon</a>
                             </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#validateDefaultValue" >validateDefaultValue</a>
+                            </li>
                         </ul>
                     </td>
                 </tr>
@@ -191,8 +195,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="46"
-                            class="link-to-prism">apps/server/src/modules/tool/service/validation/common-tool-validation.service.ts:46</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="51"
+                            class="link-to-prism">apps/server/src/modules/tool/service/validation/common-tool-validation.service.ts:51</a></div>
                 </td>
             </tr>
 
@@ -262,8 +266,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="76"
-                            class="link-to-prism">apps/server/src/modules/tool/service/validation/common-tool-validation.service.ts:76</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="93"
+                            class="link-to-prism">apps/server/src/modules/tool/service/validation/common-tool-validation.service.ts:93</a></div>
                 </td>
             </tr>
 
@@ -334,8 +338,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="38"
-                            class="link-to-prism">apps/server/src/modules/tool/service/validation/common-tool-validation.service.ts:38</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="43"
+                            class="link-to-prism">apps/server/src/modules/tool/service/validation/common-tool-validation.service.ts:43</a></div>
                 </td>
             </tr>
 
@@ -405,8 +409,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="69"
-                            class="link-to-prism">apps/server/src/modules/tool/service/validation/common-tool-validation.service.ts:69</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="86"
+                            class="link-to-prism">apps/server/src/modules/tool/service/validation/common-tool-validation.service.ts:86</a></div>
                 </td>
             </tr>
 
@@ -476,8 +480,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="55"
-                            class="link-to-prism">apps/server/src/modules/tool/service/validation/common-tool-validation.service.ts:55</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="60"
+                            class="link-to-prism">apps/server/src/modules/tool/service/validation/common-tool-validation.service.ts:60</a></div>
                 </td>
             </tr>
 
@@ -596,6 +600,77 @@
             </tr>
         </tbody>
     </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="validateDefaultValue"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span ><b>validateDefaultValue</b></span>
+                        <a href="#validateDefaultValue"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>validateDefaultValue(customParameter: <a href="../undefineds/CustomParameter.html" target="_self">CustomParameterDO[]</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="74"
+                            class="link-to-prism">apps/server/src/modules/tool/service/validation/common-tool-validation.service.ts:74</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>customParameter</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#CustomParameter" target="_self" >CustomParameterDO[]</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </section>
 
     </div>
@@ -624,6 +699,11 @@ export class CommonToolValidationService {
 			if (!this.validateByRegex(externalToolDO.parameters)) {
 				throw new UnprocessableEntityException(
 					&#x60;A custom Parameter of the tool ${externalToolDO.name || &#x27;&#x27;} has wrong regex attribute.&#x60;
+				);
+			}
+			if (!this.validateDefaultValue(externalToolDO.parameters)) {
+				throw new UnprocessableEntityException(
+					&#x60;The default value of a custom parameter of the tool: ${externalToolDO.name || &#x27;&#x27;} does not match its regex&#x60;
 				);
 			}
 			externalToolDO.parameters.forEach((param: CustomParameterDO) &#x3D;&gt; {
@@ -668,6 +748,18 @@ export class CommonToolValidationService {
 			}
 			return true;
 		});
+	}
+
+	private validateDefaultValue(customParameter: CustomParameterDO[]): boolean {
+		const isValid: boolean &#x3D; customParameter.every((param: CustomParameterDO) &#x3D;&gt; {
+			if (param.regex &amp;&amp; param.default) {
+				const reg &#x3D; new RegExp(param.regex);
+				const match: boolean &#x3D; reg.test(param.default);
+				return match;
+			}
+			return true;
+		});
+		return isValid;
 	}
 
 	private isRegexCommentMandatoryAndFilled(customParameter: CustomParameterDO): boolean {
