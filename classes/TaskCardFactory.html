@@ -1263,12 +1263,16 @@ export const taskCardFactory &#x3D; TaskCardFactory.define(TaskCard, () &#x3D;&g
 	const task &#x3D; taskFactory.buildWithId();
 	const school &#x3D; schoolFactory.build();
 	const creator &#x3D; userFactory.build({ school });
+	const tomorrow &#x3D; new Date(Date.now() + 86400000);
+	const inTwoDays &#x3D; new Date(Date.now() + 172800000);
 	return {
 		cardType: CardType.Task,
 		draggable: true,
 		creator,
 		task,
 		cardElements: [],
+		visibleAtDate: tomorrow,
+		dueDate: inTwoDays,
 	};
 });
 </code></pre>

@@ -144,7 +144,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">apps/server/src/modules/task-card/controller/dto/update-task-card.params.ts:45</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">apps/server/src/modules/task-card/controller/dto/update-task-card.params.ts:55</a></div>
                         </td>
                     </tr>
 
@@ -178,7 +178,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">apps/server/src/modules/task-card/controller/dto/update-task-card.params.ts:33</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">apps/server/src/modules/task-card/controller/dto/update-task-card.params.ts:43</a></div>
                         </td>
                     </tr>
 
@@ -213,7 +213,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">apps/server/src/modules/task-card/controller/dto/update-task-card.params.ts:41</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">apps/server/src/modules/task-card/controller/dto/update-task-card.params.ts:51</a></div>
                         </td>
                     </tr>
 
@@ -236,7 +236,17 @@
 import { SanitizeHtml } from &#x27;@shared/controller&#x27;;
 import { CardElementType, InputFormat } from &#x27;@shared/domain&#x27;;
 import { Type } from &#x27;class-transformer&#x27;;
-import { IsArray, IsEnum, IsMongoId, IsOptional, IsString, MinLength, ValidateNested } from &#x27;class-validator&#x27;;
+import {
+	IsArray,
+	IsDate,
+	IsEnum,
+	IsMongoId,
+	IsOptional,
+	IsString,
+	MinDate,
+	MinLength,
+	ValidateNested,
+} from &#x27;class-validator&#x27;;
 
 export abstract class CardElementBase {}
 
@@ -306,6 +316,18 @@ export class CardElementUpdateParams {
 }
 
 export class UpdateTaskCardParams {
+	@IsOptional()
+	@IsDate()
+	@MinDate(new Date())
+	@ApiPropertyOptional({ description: &#x27;Visible at date of the card&#x27; })
+	visibleAtDate?: Date;
+
+	@IsOptional()
+	@IsDate()
+	@MinDate(new Date())
+	@ApiPropertyOptional({ description: &#x27;Due date of the card&#x27; })
+	dueDate?: Date;
+
 	@IsArray()
 	@ValidateNested({ each: true })
 	@Type(() &#x3D;&gt; CardElementUpdateParams)

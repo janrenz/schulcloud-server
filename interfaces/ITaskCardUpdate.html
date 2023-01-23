@@ -85,6 +85,13 @@
                             <ul class="index-list">
                                 <li>
                                             <span class="modifier">Optional</span>
+                                        <a href="#dueDate" 
+>
+                                            dueDate
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
                                         <a href="#id" 
 >
                                             id
@@ -103,6 +110,13 @@
                                             title
                                         </a>
                                 </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#visibleAtDate" 
+>
+                                            visibleAtDate
+                                        </a>
+                                </li>
                             </ul>
                         </td>
                     </tr>
@@ -114,6 +128,44 @@
 
             <section>
                 <h3 id="inputs">Properties</h3>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="dueDate"></a>
+                                        <span class="name "><b>dueDate</b>
+                                            <a href="#dueDate">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>dueDate:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" >Date</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" >Date</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                        </tbody>
+                    </table>
                     <table class="table table-sm table-bordered">
                         <tbody>
                                 <tr>
@@ -223,16 +275,55 @@
 
                         </tbody>
                     </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="visibleAtDate"></a>
+                                        <span class="name "><b>visibleAtDate</b>
+                                            <a href="#visibleAtDate">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>visibleAtDate:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" >Date</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" >Date</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                        </tbody>
+                    </table>
             </section>
     </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ValidationError } from &#x27;@shared/common&#x27;;
+import {
+	CardElement,
 	CardElementResponse,
 	CardRichTextElementResponse,
 	CardTitleElementResponse,
-	CardElement,
 	InputFormat,
 	RichText,
 	TaskCard,
@@ -241,7 +332,6 @@
 import { CardElementType, RichTextCardElement, TitleCardElement } from &#x27;@shared/domain/entity/cardElement.entity&#x27;;
 import { TaskResponse } from &#x27;@src/modules/task/controller/dto&#x27;;
 import { TaskMapper } from &#x27;@src/modules/task/mapper&#x27;;
-import { ValidationError } from &#x27;@shared/common&#x27;;
 import {
 	CreateTaskCardParams,
 	RichTextCardElementParam,
@@ -254,11 +344,15 @@ export interface ITaskCardUpdate {
 	id?: string;
 	title: string;
 	text?: RichText[];
+	visibleAtDate?: Date;
+	dueDate?: Date;
 }
 
 export interface ITaskCardCreate {
 	title: string;
 	text?: RichText[];
+	visibleAtDate?: Date;
+	dueDate?: Date;
 }
 
 export class TaskCardMapper {
@@ -272,6 +366,8 @@ export class TaskCardMapper {
 			draggable: card.draggable || true,
 			cardElements: cardElementsResponse,
 			task: taskResponse,
+			visibleAtDate: card.visibleAtDate,
+			dueDate: card.dueDate,
 		});
 
 		return dto;
@@ -310,6 +406,14 @@ export class TaskCardMapper {
 			);
 		}
 
+		if (params.visibleAtDate) {
+			dto.visibleAtDate &#x3D; params.visibleAtDate;
+		}
+
+		if (params.dueDate) {
+			dto.dueDate &#x3D; params.dueDate;
+		}
+
 		return dto;
 	}
 
@@ -319,9 +423,18 @@ export class TaskCardMapper {
 			throw new ValidationError(&#x27;The Task Card must have one title&#x27;);
 		}
 
+		const titleValue &#x3D; title[0].content as TitleCardElementParam;
 		const dto: ITaskCardUpdate &#x3D; {
-			title: title[0].content.value,
+			title: titleValue.value,
 		};
+
+		if (params.visibleAtDate) {
+			dto.visibleAtDate &#x3D; params.visibleAtDate;
+		}
+
+		if (params.dueDate) {
+			dto.dueDate &#x3D; params.dueDate;
+		}
 
 		params.cardElements.forEach((element) &#x3D;&gt; {
 			if (element.content instanceof RichTextCardElementParam) {

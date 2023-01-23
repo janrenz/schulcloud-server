@@ -139,8 +139,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="68"
-                            class="link-to-prism">apps/server/src/modules/task-card/controller/mapper/task-card.mapper.ts:68</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="74"
+                            class="link-to-prism">apps/server/src/modules/task-card/controller/mapper/task-card.mapper.ts:74</a></div>
                 </td>
             </tr>
 
@@ -210,8 +210,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="50"
-                            class="link-to-prism">apps/server/src/modules/task-card/controller/mapper/task-card.mapper.ts:50</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="56"
+                            class="link-to-prism">apps/server/src/modules/task-card/controller/mapper/task-card.mapper.ts:56</a></div>
                 </td>
             </tr>
 
@@ -279,8 +279,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="35"
-                            class="link-to-prism">apps/server/src/modules/task-card/controller/mapper/task-card.mapper.ts:35</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="39"
+                            class="link-to-prism">apps/server/src/modules/task-card/controller/mapper/task-card.mapper.ts:39</a></div>
                 </td>
             </tr>
 
@@ -362,8 +362,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="86"
-                            class="link-to-prism">apps/server/src/modules/task-card/controller/mapper/task-card.mapper.ts:86</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="100"
+                            class="link-to-prism">apps/server/src/modules/task-card/controller/mapper/task-card.mapper.ts:100</a></div>
                 </td>
             </tr>
 
@@ -421,11 +421,12 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ValidationError } from &#x27;@shared/common&#x27;;
+import {
+	CardElement,
 	CardElementResponse,
 	CardRichTextElementResponse,
 	CardTitleElementResponse,
-	CardElement,
 	InputFormat,
 	RichText,
 	TaskCard,
@@ -434,7 +435,6 @@
 import { CardElementType, RichTextCardElement, TitleCardElement } from &#x27;@shared/domain/entity/cardElement.entity&#x27;;
 import { TaskResponse } from &#x27;@src/modules/task/controller/dto&#x27;;
 import { TaskMapper } from &#x27;@src/modules/task/mapper&#x27;;
-import { ValidationError } from &#x27;@shared/common&#x27;;
 import {
 	CreateTaskCardParams,
 	RichTextCardElementParam,
@@ -447,11 +447,15 @@ export interface ITaskCardUpdate {
 	id?: string;
 	title: string;
 	text?: RichText[];
+	visibleAtDate?: Date;
+	dueDate?: Date;
 }
 
 export interface ITaskCardCreate {
 	title: string;
 	text?: RichText[];
+	visibleAtDate?: Date;
+	dueDate?: Date;
 }
 
 export class TaskCardMapper {
@@ -465,6 +469,8 @@ export class TaskCardMapper {
 			draggable: card.draggable || true,
 			cardElements: cardElementsResponse,
 			task: taskResponse,
+			visibleAtDate: card.visibleAtDate,
+			dueDate: card.dueDate,
 		});
 
 		return dto;
@@ -503,6 +509,14 @@ export class TaskCardMapper {
 			);
 		}
 
+		if (params.visibleAtDate) {
+			dto.visibleAtDate &#x3D; params.visibleAtDate;
+		}
+
+		if (params.dueDate) {
+			dto.dueDate &#x3D; params.dueDate;
+		}
+
 		return dto;
 	}
 
@@ -512,9 +526,18 @@ export class TaskCardMapper {
 			throw new ValidationError(&#x27;The Task Card must have one title&#x27;);
 		}
 
+		const titleValue &#x3D; title[0].content as TitleCardElementParam;
 		const dto: ITaskCardUpdate &#x3D; {
-			title: title[0].content.value,
+			title: titleValue.value,
 		};
+
+		if (params.visibleAtDate) {
+			dto.visibleAtDate &#x3D; params.visibleAtDate;
+		}
+
+		if (params.dueDate) {
+			dto.dueDate &#x3D; params.dueDate;
+		}
 
 		params.cardElements.forEach((element) &#x3D;&gt; {
 			if (element.content instanceof RichTextCardElementParam) {
