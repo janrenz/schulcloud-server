@@ -96,6 +96,11 @@
                                     <span class="modifier">Async</span>
                                 <a href="#processOAuth" >processOAuth</a>
                             </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#shouldUserMigrate" >shouldUserMigrate</a>
+                            </li>
                         </ul>
                     </td>
                 </tr>
@@ -114,12 +119,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(oauthService: <a href="../injectables/OAuthService.html" target="_self">OAuthService</a>, systemService: <a href="../injectables/SystemService.html" target="_self">SystemService</a>, logger: <a href="../injectables/Logger.html" target="_self">Logger</a>)</code>
+<code>constructor(oauthService: <a href="../injectables/OAuthService.html" target="_self">OAuthService</a>, systemService: <a href="../injectables/SystemService.html" target="_self">SystemService</a>, provisioningService: <a href="../injectables/ProvisioningService.html" target="_self">ProvisioningService</a>, userService: <a href="../injectables/UserService.html" target="_self">UserService</a>, userMigrationService: <a href="../injectables/UserMigrationService.html" target="_self">UserMigrationService</a>, logger: <a href="../injectables/Logger.html" target="_self">Logger</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">apps/server/src/modules/oauth/uc/oauth.uc.ts:13</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">apps/server/src/modules/oauth/uc/oauth.uc.ts:17</a></div>
                             </td>
                         </tr>
 
@@ -153,6 +158,42 @@
                                                   
                                                         <td>
                                                                         <code><a href="../injectables/SystemService.html" target="_self" >SystemService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>provisioningService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ProvisioningService.html" target="_self" >ProvisioningService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>userService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/UserService.html" target="_self" >UserService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>userMigrationService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/UserMigrationService.html" target="_self" >UserMigrationService</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -208,8 +249,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="57"
-                            class="link-to-prism">apps/server/src/modules/oauth/uc/oauth.uc.ts:57</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="112"
+                            class="link-to-prism">apps/server/src/modules/oauth/uc/oauth.uc.ts:112</a></div>
                 </td>
             </tr>
 
@@ -280,8 +321,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="68"
-                            class="link-to-prism">apps/server/src/modules/oauth/uc/oauth.uc.ts:68</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="123"
+                            class="link-to-prism">apps/server/src/modules/oauth/uc/oauth.uc.ts:123</a></div>
                 </td>
             </tr>
 
@@ -330,7 +371,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/OAuthResponse.html" target="_self" >Promise&lt;OAuthResponse&gt;</a></code>
+                        <b>Returns : </b>        <code><a href="../classes/OAuthProcessDto.html" target="_self" >Promise&lt;OAuthProcessDto&gt;</a></code>
 
                     </div>
                     <div class="io-description">
@@ -363,8 +404,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="31"
-                            class="link-to-prism">apps/server/src/modules/oauth/uc/oauth.uc.ts:31</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="38"
+                            class="link-to-prism">apps/server/src/modules/oauth/uc/oauth.uc.ts:38</a></div>
                 </td>
             </tr>
 
@@ -414,7 +455,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/OAuthResponse.html" target="_self" >Promise&lt;OAuthResponse&gt;</a></code>
+                        <b>Returns : </b>        <code><a href="../classes/OAuthProcessDto.html" target="_self" >Promise&lt;OAuthProcessDto&gt;</a></code>
 
                     </div>
                     <div class="io-description">
@@ -446,8 +487,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="22"
-                            class="link-to-prism">apps/server/src/modules/oauth/uc/oauth.uc.ts:22</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="29"
+                            class="link-to-prism">apps/server/src/modules/oauth/uc/oauth.uc.ts:29</a></div>
                 </td>
             </tr>
 
@@ -497,7 +538,103 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/OAuthResponse.html" target="_self" >Promise&lt;OAuthResponse&gt;</a></code>
+                        <b>Returns : </b>        <code><a href="../classes/OAuthProcessDto.html" target="_self" >Promise&lt;OAuthProcessDto&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="shouldUserMigrate"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span class="modifier">Async</span>
+                        <span ><b>shouldUserMigrate</b></span>
+                        <a href="#shouldUserMigrate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>shouldUserMigrate(externalUserId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, officialSchoolNumber: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, systemId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="104"
+                            class="link-to-prism">apps/server/src/modules/oauth/uc/oauth.uc.ts:104</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>externalUserId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>officialSchoolNumber</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>systemId</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>unknown</code>
 
                     </div>
                     <div class="io-description">
@@ -514,27 +651,34 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable, NotFoundException } from &#x27;@nestjs/common&#x27;;
+import { EntityId, OauthConfig } from &#x27;@shared/domain&#x27;;
+import { UserDO } from &#x27;@shared/domain/domainobject/user.do&#x27;;
 import { Logger } from &#x27;@src/core/logger&#x27;;
-import { OauthConfig, User } from &#x27;@shared/domain&#x27;;
-import { OAuthSSOError } from &#x27;@src/modules/oauth/error/oauth-sso.error&#x27;;
-import { OauthTokenResponse } from &#x27;@src/modules/oauth/controller/dto&#x27;;
-import { SystemService } from &#x27;@src/modules/system/service/system.service&#x27;;
+import { ProvisioningDto, ProvisioningService } from &#x27;@src/modules/provisioning&#x27;;
+import { OauthDataDto } from &#x27;@src/modules/provisioning/dto/oauth-data.dto&#x27;;
+import { SystemService } from &#x27;@src/modules/system&#x27;;
 import { SystemDto } from &#x27;@src/modules/system/service/dto/system.dto&#x27;;
+import { UserService } from &#x27;@src/modules/user&#x27;;
+import { UserMigrationService } from &#x27;@src/modules/user-migration&#x27;;
+import { AuthorizationParams, OauthTokenResponse } from &#x27;../controller/dto&#x27;;
+import { OAuthSSOError } from &#x27;../error/oauth-sso.error&#x27;;
+import { OAuthProcessDto } from &#x27;../service/dto/oauth-process.dto&#x27;;
 import { OAuthService } from &#x27;../service/oauth.service&#x27;;
-import { OAuthResponse } from &#x27;../service/dto/oauth.response&#x27;;
-import { AuthorizationParams } from &#x27;../controller/dto/authorization.params&#x27;;
 
 @Injectable()
 export class OauthUc {
 	constructor(
 		private readonly oauthService: OAuthService,
 		private readonly systemService: SystemService,
-		private logger: Logger
+		private readonly provisioningService: ProvisioningService,
+		private readonly userService: UserService,
+		private readonly userMigrationService: UserMigrationService,
+		private readonly logger: Logger
 	) {
 		this.logger.setContext(OauthUc.name);
 	}
 
-	async processOAuth(query: AuthorizationParams, systemId: string): Promise&lt;OAuthResponse&gt; {
+	async processOAuth(query: AuthorizationParams, systemId: string): Promise&lt;OAuthProcessDto&gt; {
 		try {
 			const oAuthResponsePromise &#x3D; this.process(query, systemId);
 			return await oAuthResponsePromise;
@@ -543,12 +687,12 @@ export class OauthUc {
 		}
 	}
 
-	private async process(query: AuthorizationParams, systemId: string): Promise&lt;OAuthResponse&gt; {
+	private async process(query: AuthorizationParams, systemId: string): Promise&lt;OAuthProcessDto&gt; {
 		this.logger.debug(&#x60;Oauth process started for systemId ${systemId}&#x60;);
 
 		const authCode: string &#x3D; this.oauthService.checkAuthorizationCode(query);
 
-		const system &#x3D; await this.systemService.findOAuthById(systemId);
+		const system: SystemDto &#x3D; await this.systemService.findOAuthById(systemId);
 		if (!system.id) {
 			throw new NotFoundException(&#x60;System with id &quot;${systemId}&quot; does not exist.&#x60;);
 		}
@@ -558,15 +702,63 @@ export class OauthUc {
 
 		await this.oauthService.validateToken(queryToken.id_token, oauthConfig);
 
-		const user: User &#x3D; await this.oauthService.findUser(queryToken.access_token, queryToken.id_token, system.id);
+		const data: OauthDataDto &#x3D; await this.provisioningService.getData(
+			queryToken.access_token,
+			queryToken.id_token,
+			system.id
+		);
 
-		const jwtResponse: string &#x3D; await this.oauthService.getJwtForUser(user);
+		if (data.externalSchool?.officialSchoolNumber) {
+			const shouldMigrate: boolean &#x3D; await this.shouldUserMigrate(
+				data.externalUser.externalId,
+				data.externalSchool.officialSchoolNumber,
+				system.id
+			);
+			if (shouldMigrate) {
+				const redirect: string &#x3D; await this.userMigrationService.getMigrationRedirect(
+					data.externalSchool.officialSchoolNumber,
+					system.id
+				);
+				const response: OAuthProcessDto &#x3D; new OAuthProcessDto({
+					provider: oauthConfig.provider,
+					redirect,
+				});
+				return response;
+			}
+		}
+
+		const provisioningDto: ProvisioningDto &#x3D; await this.provisioningService.provisionData(data);
+
+		const user: UserDO &#x3D; await this.oauthService.findUser(
+			queryToken.id_token,
+			provisioningDto.externalUserId,
+			system.id
+		);
+
+		const jwtResponse: string &#x3D; await this.oauthService.getJwtForUser(user.id as string);
 
 		// TODO: N21-305 Build response in oauth controller
-		const response: OAuthResponse &#x3D; this.oauthService.buildResponse(oauthConfig, queryToken);
-		response.redirect &#x3D; this.oauthService.getRedirectUrl(response.provider, response.idToken, response.logoutEndpoint);
-		response.jwt &#x3D; jwtResponse;
+		const redirect: string &#x3D; this.oauthService.getRedirectUrl(
+			oauthConfig.provider,
+			queryToken.id_token,
+			oauthConfig.logoutEndpoint
+		);
+		const response: OAuthProcessDto &#x3D; new OAuthProcessDto({
+			jwt: jwtResponse,
+			idToken: queryToken.id_token,
+			logoutEndpoint: oauthConfig.logoutEndpoint,
+			provider: oauthConfig.provider,
+			redirect,
+		});
 		return response;
+	}
+
+	private async shouldUserMigrate(externalUserId: string, officialSchoolNumber: string, systemId: EntityId) {
+		const existingUser: UserDO | null &#x3D; await this.userService.findByExternalId(externalUserId, systemId);
+		const isSchoolInMigration: boolean &#x3D; await this.userMigrationService.isSchoolInMigration(officialSchoolNumber);
+
+		const shouldMigrate &#x3D; !existingUser &amp;&amp; isSchoolInMigration;
+		return shouldMigrate;
 	}
 
 	private extractOauthConfigFromSystem(system: SystemDto): OauthConfig {
@@ -580,10 +772,10 @@ export class OauthUc {
 		return oauthConfig;
 	}
 
-	private async getOauthErrorResponse(error, systemId: string): Promise&lt;OAuthResponse&gt; {
-		const system &#x3D; await this.systemService.findOAuthById(systemId);
-		const provider &#x3D; system.oauthConfig ? system.oauthConfig.provider : &#x27;unknown-provider&#x27;;
-		const oAuthError &#x3D; this.oauthService.getOAuthErrorResponse(error, provider);
+	private async getOauthErrorResponse(error, systemId: string): Promise&lt;OAuthProcessDto&gt; {
+		const system: SystemDto &#x3D; await this.systemService.findOAuthById(systemId);
+		const provider: string &#x3D; system.oauthConfig ? system.oauthConfig.provider : &#x27;unknown-provider&#x27;;
+		const oAuthError: OAuthProcessDto &#x3D; this.oauthService.getOAuthErrorResponse(error, provider);
 		return oAuthError;
 	}
 }

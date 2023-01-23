@@ -141,8 +141,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="40"
-                            class="link-to-prism">apps/server/src/modules/oauth/controller/oauth-sso.controller.ts:40</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="45"
+                            class="link-to-prism">apps/server/src/modules/oauth/controller/oauth-sso.controller.ts:45</a></div>
                 </td>
             </tr>
 
@@ -192,7 +192,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/OauthTokenResponse.html" target="_self" >Promise&lt;OauthTokenResponse&gt;</a></code>
+                        <b>Returns : </b>        <code><a href="../interfaces/OauthTokenResponse.html" target="_self" >Promise&lt;OauthTokenResponse&gt;</a></code>
 
                     </div>
                     <div class="io-description">
@@ -231,8 +231,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="50"
-                            class="link-to-prism">apps/server/src/modules/oauth/controller/oauth-sso.controller.ts:50</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="55"
+                            class="link-to-prism">apps/server/src/modules/oauth/controller/oauth-sso.controller.ts:55</a></div>
                 </td>
             </tr>
 
@@ -410,16 +410,16 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Controller, Get, Param, Query, Req, Res, UnauthorizedException } from &#x27;@nestjs/common&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Configuration } from &#x27;@hpi-schul-cloud/commons/lib&#x27;;
+import { Controller, Get, Param, Query, Req, Res, UnauthorizedException } from &#x27;@nestjs/common&#x27;;
 import { ApiTags } from &#x27;@nestjs/swagger&#x27;;
-import { Logger } from &#x27;@src/core/logger&#x27;;
-import { CookieOptions, Request, Response } from &#x27;express&#x27;;
-import { Configuration } from &#x27;@hpi-schul-cloud/commons/lib&#x27;;
-import { OauthTokenResponse } from &#x27;@src/modules/oauth/controller/dto/oauth-token.response&#x27;;
-import { Authenticate, CurrentUser } from &#x27;@src/modules/authentication/decorator/auth.decorator&#x27;;
 import { ICurrentUser } from &#x27;@shared/domain&#x27;;
+import { Logger } from &#x27;@src/core/logger&#x27;;
+import { Authenticate, CurrentUser } from &#x27;@src/modules/authentication/decorator/auth.decorator&#x27;;
+import { OauthTokenResponse } from &#x27;@src/modules/oauth/controller/dto/oauth-token.response&#x27;;
 import { HydraOauthUc } from &#x27;@src/modules/oauth/uc/hydra-oauth.uc&#x27;;
-import { OauthUc } from &#x27;../uc/oauth.uc&#x27;;
+import { CookieOptions, Request, Response } from &#x27;express&#x27;;
+import { OauthUc } from &#x27;../uc&#x27;;
 import { AuthorizationParams, SystemUrlParams } from &#x27;./dto&#x27;;
 
 @ApiTags(&#x27;SSO&#x27;)
@@ -443,8 +443,13 @@ export class OauthSSOController {
 			secure: Configuration.get(&#x27;COOKIE__SECURE&#x27;) as boolean,
 			expires: new Date(Date.now() + (Configuration.get(&#x27;COOKIE__EXPIRES_SECONDS&#x27;) as number)),
 		};
-		res.cookie(&#x27;jwt&#x27;, oauthResponse.jwt ? oauthResponse.jwt : &#x27;&#x27;, cookieDefaultOptions);
-		res.redirect(oauthResponse.redirect ? oauthResponse.redirect : &#x27;&#x27;);
+
+		if (oauthResponse.jwt) {
+			res.cookie(&#x27;jwt&#x27;, oauthResponse.jwt, cookieDefaultOptions);
+		}
+		if (oauthResponse.redirect) {
+			res.redirect(oauthResponse.redirect);
+		}
 	}
 
 	@Get(&#x27;hydra/:oauthClientId&#x27;)
