@@ -204,13 +204,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/AuthenticationModule.html" data-type="entity-link" >AuthenticationModule</a>
                                 <li class="chapter inner">
                                     <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                        'data-target="#injectables-links-module-AuthenticationModule-397e9d07c49dddc8051526cbb2e62eb3270e531f1fa9c9be1e771ff85eac3b7e2b7440aa35761b5f24ce8fa4e897c698bd9452b896926dcee0cf25d97414e96e"' : 'data-target="#xs-injectables-links-module-AuthenticationModule-397e9d07c49dddc8051526cbb2e62eb3270e531f1fa9c9be1e771ff85eac3b7e2b7440aa35761b5f24ce8fa4e897c698bd9452b896926dcee0cf25d97414e96e"' }>
+                                        'data-target="#injectables-links-module-AuthenticationModule-739908e7f05289565277b7d341fef0c0e2f4d794ef7a5b6f0733fbfa59a57aba898abdb033ca5b9d0bdcfdd0a5fe0e41f13e53a5713c15f624ae664ed1fe2d98"' : 'data-target="#xs-injectables-links-module-AuthenticationModule-739908e7f05289565277b7d341fef0c0e2f4d794ef7a5b6f0733fbfa59a57aba898abdb033ca5b9d0bdcfdd0a5fe0e41f13e53a5713c15f624ae664ed1fe2d98"' }>
                                         <span class="icon ion-md-arrow-round-down"></span>
                                         <span>Injectables</span>
                                         <span class="icon ion-ios-arrow-down"></span>
                                     </div>
-                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-AuthenticationModule-397e9d07c49dddc8051526cbb2e62eb3270e531f1fa9c9be1e771ff85eac3b7e2b7440aa35761b5f24ce8fa4e897c698bd9452b896926dcee0cf25d97414e96e"' :
-                                        'id="xs-injectables-links-module-AuthenticationModule-397e9d07c49dddc8051526cbb2e62eb3270e531f1fa9c9be1e771ff85eac3b7e2b7440aa35761b5f24ce8fa4e897c698bd9452b896926dcee0cf25d97414e96e"' }>
+                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-AuthenticationModule-739908e7f05289565277b7d341fef0c0e2f4d794ef7a5b6f0733fbfa59a57aba898abdb033ca5b9d0bdcfdd0a5fe0e41f13e53a5713c15f624ae664ed1fe2d98"' :
+                                        'id="xs-injectables-links-module-AuthenticationModule-739908e7f05289565277b7d341fef0c0e2f4d794ef7a5b6f0733fbfa59a57aba898abdb033ca5b9d0bdcfdd0a5fe0e41f13e53a5713c15f624ae664ed1fe2d98"' }>
                                         <li class="link">
                                             <a href="injectables/AuthenticationService.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >AuthenticationService</a>
                                         </li>
@@ -759,18 +759,24 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/KeycloakModule.html" data-type="entity-link" >KeycloakModule</a>
                                 <li class="chapter inner">
                                     <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                        'data-target="#injectables-links-module-KeycloakModule-9948384612271f65a6284dfee60e5bd13b97f034a4ce9ff820f8e106a33aec4e33fd65a7046967344b4f95ca138f7d84e80b82d8d0771ef89ffbf054948ab7a8"' : 'data-target="#xs-injectables-links-module-KeycloakModule-9948384612271f65a6284dfee60e5bd13b97f034a4ce9ff820f8e106a33aec4e33fd65a7046967344b4f95ca138f7d84e80b82d8d0771ef89ffbf054948ab7a8"' }>
+                                        'data-target="#injectables-links-module-KeycloakModule-3173087f5d72cbd4c96dffff81556c270763d27c1c9c5aa77a57dfb4f1fce33832bd86427dba4b833f702cce94abdf35ba9b86097debe1043b1ad7fcdf9e6125"' : 'data-target="#xs-injectables-links-module-KeycloakModule-3173087f5d72cbd4c96dffff81556c270763d27c1c9c5aa77a57dfb4f1fce33832bd86427dba4b833f702cce94abdf35ba9b86097debe1043b1ad7fcdf9e6125"' }>
                                         <span class="icon ion-md-arrow-round-down"></span>
                                         <span>Injectables</span>
                                         <span class="icon ion-ios-arrow-down"></span>
                                     </div>
-                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-KeycloakModule-9948384612271f65a6284dfee60e5bd13b97f034a4ce9ff820f8e106a33aec4e33fd65a7046967344b4f95ca138f7d84e80b82d8d0771ef89ffbf054948ab7a8"' :
-                                        'id="xs-injectables-links-module-KeycloakModule-9948384612271f65a6284dfee60e5bd13b97f034a4ce9ff820f8e106a33aec4e33fd65a7046967344b4f95ca138f7d84e80b82d8d0771ef89ffbf054948ab7a8"' }>
+                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-KeycloakModule-3173087f5d72cbd4c96dffff81556c270763d27c1c9c5aa77a57dfb4f1fce33832bd86427dba4b833f702cce94abdf35ba9b86097debe1043b1ad7fcdf9e6125"' :
+                                        'id="xs-injectables-links-module-KeycloakModule-3173087f5d72cbd4c96dffff81556c270763d27c1c9c5aa77a57dfb4f1fce33832bd86427dba4b833f702cce94abdf35ba9b86097debe1043b1ad7fcdf9e6125"' }>
                                         <li class="link">
                                             <a href="injectables/KeycloakAdministrationService.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >KeycloakAdministrationService</a>
                                         </li>
                                         <li class="link">
+                                            <a href="injectables/KeycloakIdentityManagementOauthService.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >KeycloakIdentityManagementOauthService</a>
+                                        </li>
+                                        <li class="link">
                                             <a href="injectables/KeycloakManagementUc.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >KeycloakManagementUc</a>
+                                        </li>
+                                        <li class="link">
+                                            <a href="injectables/KeycloakSystemService.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >KeycloakSystemService</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -2466,7 +2472,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/GridElement.html" data-type="entity-link" >GridElement</a>
                             </li>
                             <li class="link">
+                                <a href="classes/GuardAgainst.html" data-type="entity-link" >GuardAgainst</a>
+                            </li>
+                            <li class="link">
                                 <a href="classes/HydraRedirectDto.html" data-type="entity-link" >HydraRedirectDto</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/IdentityManagementOauthService.html" data-type="entity-link" >IdentityManagementOauthService</a>
                             </li>
                             <li class="link">
                                 <a href="classes/IdentityManagementService.html" data-type="entity-link" >IdentityManagementService</a>
@@ -3629,6 +3641,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="interfaces/ICollectionFilePath.html" data-type="entity-link" >ICollectionFilePath</a>
                             </li>
                             <li class="link">
+                                <a href="interfaces/ICommonCartridgeConfig.html" data-type="entity-link" >ICommonCartridgeConfig</a>
+                            </li>
+                            <li class="link">
                                 <a href="interfaces/ICommonCartridgeElement.html" data-type="entity-link" >ICommonCartridgeElement</a>
                             </li>
                             <li class="link">
@@ -3713,9 +3728,6 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="interfaces/IErrorType.html" data-type="entity-link" >IErrorType</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/IFeatureConfig.html" data-type="entity-link" >IFeatureConfig</a>
-                            </li>
-                            <li class="link">
                                 <a href="interfaces/IFileDO.html" data-type="entity-link" >IFileDO</a>
                             </li>
                             <li class="link">
@@ -3753,6 +3765,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="interfaces/IGridElement.html" data-type="entity-link" >IGridElement</a>
+                            </li>
+                            <li class="link">
+                                <a href="interfaces/IIdentityManagementConfig.html" data-type="entity-link" >IIdentityManagementConfig</a>
                             </li>
                             <li class="link">
                                 <a href="interfaces/IIdentityProviderConfig.html" data-type="entity-link" >IIdentityProviderConfig</a>

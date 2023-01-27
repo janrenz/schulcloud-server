@@ -133,8 +133,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="13"
-                            class="link-to-prism">apps/server/src/modules/authentication/controllers/login.controller.ts:13</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="15"
+                            class="link-to-prism">apps/server/src/modules/authentication/controllers/login.controller.ts:15</a></div>
                 </td>
             </tr>
 
@@ -209,8 +209,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="20"
-                            class="link-to-prism">apps/server/src/modules/authentication/controllers/login.controller.ts:20</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="22"
+                            class="link-to-prism">apps/server/src/modules/authentication/controllers/login.controller.ts:22</a></div>
                 </td>
             </tr>
 
@@ -265,8 +265,10 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Controller, Req, Post, UseGuards, HttpCode, HttpStatus } from &#x27;@nestjs/common&#x27;;
 import { AuthGuard } from &#x27;@nestjs/passport&#x27;;
 import { ICurrentUser } from &#x27;@shared/domain&#x27;;
+import { ApiTags } from &#x27;@nestjs/swagger&#x27;;
 import { AuthenticationService } from &#x27;../services/authentication.service&#x27;;
 
+@ApiTags(&#x27;Authentication&#x27;)
 @Controller(&#x27;authentication&#x27;)
 export class LoginController {
 	constructor(private authService: AuthenticationService) {}
