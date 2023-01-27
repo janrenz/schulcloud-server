@@ -40,7 +40,7 @@
 
 <ol class="breadcrumb">
   <li>Injectables</li>
-  <li >ToolValidationService</li>
+  <li >ExternalToolValidationService</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -58,7 +58,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/modules/tool/service/validation/tool-validation.service.ts</code>
+            <code>apps/server/src/modules/tool/service/validation/external-tool-validation.service.ts</code>
         </p>
 
 
@@ -114,7 +114,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">apps/server/src/modules/tool/service/validation/tool-validation.service.ts:7</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">apps/server/src/modules/tool/service/validation/external-tool-validation.service.ts:8</a></div>
                             </td>
                         </tr>
 
@@ -192,8 +192,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="21"
-                            class="link-to-prism">apps/server/src/modules/tool/service/validation/tool-validation.service.ts:21</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="25"
+                            class="link-to-prism">apps/server/src/modules/tool/service/validation/external-tool-validation.service.ts:25</a></div>
                 </td>
             </tr>
 
@@ -263,8 +263,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="13"
-                            class="link-to-prism">apps/server/src/modules/tool/service/validation/tool-validation.service.ts:13</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="14"
+                            class="link-to-prism">apps/server/src/modules/tool/service/validation/external-tool-validation.service.ts:14</a></div>
                 </td>
             </tr>
 
@@ -334,8 +334,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="29"
-                            class="link-to-prism">apps/server/src/modules/tool/service/validation/tool-validation.service.ts:29</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="33"
+                            class="link-to-prism">apps/server/src/modules/tool/service/validation/external-tool-validation.service.ts:33</a></div>
                 </td>
             </tr>
 
@@ -401,13 +401,14 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable, UnprocessableEntityException } from &#x27;@nestjs/common&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
 import { ExternalToolDO, Oauth2ToolConfigDO } from &#x27;@shared/domain/domainobject/external-tool&#x27;;
+import { ValidationError } from &#x27;@shared/common&#x27;;
 import { ExternalToolService } from &#x27;../external-tool.service&#x27;;
 import { CommonToolValidationService } from &#x27;./common-tool-validation.service&#x27;;
 
 @Injectable()
-export class ToolValidationService {
+export class ExternalToolValidationService {
 	constructor(
 		private readonly externalToolService: ExternalToolService,
 		private readonly commonToolValidationService: CommonToolValidationService
@@ -416,8 +417,11 @@ export class ToolValidationService {
 	async validateCreate(externalToolDO: ExternalToolDO): Promise&lt;void&gt; {
 		await this.commonToolValidationService.validateCommon(externalToolDO);
 
-		if (externalToolDO.config instanceof Oauth2ToolConfigDO &amp;&amp; !(await this.isClientIdUnique(externalToolDO))) {
-			throw new UnprocessableEntityException(&#x60;The Client Id of the tool ${externalToolDO.name} is already used.&#x60;);
+		if (
+			this.externalToolService.isOauth2Config(externalToolDO.config) &amp;&amp;
+			!(await this.isClientIdUnique(externalToolDO))
+		) {
+			throw new ValidationError(&#x60;The Client Id of the tool ${externalToolDO.name} is already used.&#x60;);
 		}
 	}
 
@@ -431,7 +435,7 @@ export class ToolValidationService {
 
 	async validateUpdate(toolId: string, externalToolDO: Partial&lt;ExternalToolDO&gt;): Promise&lt;void&gt; {
 		if (toolId !&#x3D;&#x3D; externalToolDO.id) {
-			throw new UnprocessableEntityException(&#x60;The tool has no id or it does not match the path parameter.&#x60;);
+			throw new ValidationError(&#x60;The tool has no id or it does not match the path parameter.&#x60;);
 		}
 
 		await this.commonToolValidationService.validateCommon(externalToolDO);
@@ -442,7 +446,7 @@ export class ToolValidationService {
 			externalToolDO.config &amp;&amp;
 			externalToolDO.config.type !&#x3D;&#x3D; loadedTool.config.type
 		) {
-			throw new UnprocessableEntityException(&#x60;The Config Type of the tool ${externalToolDO.name || &#x27;&#x27;} is immutable.&#x60;);
+			throw new ValidationError(&#x60;The Config Type of the tool ${externalToolDO.name || &#x27;&#x27;} is immutable.&#x60;);
 		}
 
 		if (
@@ -451,7 +455,7 @@ export class ToolValidationService {
 			this.externalToolService.isOauth2Config(loadedTool.config) &amp;&amp;
 			externalToolDO.config.clientId !&#x3D;&#x3D; loadedTool.config.clientId
 		) {
-			throw new UnprocessableEntityException(&#x60;The Client Id of the tool ${externalToolDO.name || &#x27;&#x27;} is immutable.&#x60;);
+			throw new ValidationError(&#x60;The Client Id of the tool ${externalToolDO.name || &#x27;&#x27;} is immutable.&#x60;);
 		}
 	}
 }
@@ -498,7 +502,7 @@ export class ToolValidationService {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
-            var COMPODOC_CURRENT_PAGE_URL = 'ToolValidationService.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'ExternalToolValidationService.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

@@ -130,7 +130,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">apps/server/src/modules/tool/service/validation/common-tool-validation.service.ts:7</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">apps/server/src/modules/tool/service/validation/common-tool-validation.service.ts:8</a></div>
                             </td>
                         </tr>
 
@@ -195,8 +195,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="51"
-                            class="link-to-prism">apps/server/src/modules/tool/service/validation/common-tool-validation.service.ts:51</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="50"
+                            class="link-to-prism">apps/server/src/modules/tool/service/validation/common-tool-validation.service.ts:50</a></div>
                 </td>
             </tr>
 
@@ -266,8 +266,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="93"
-                            class="link-to-prism">apps/server/src/modules/tool/service/validation/common-tool-validation.service.ts:93</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="92"
+                            class="link-to-prism">apps/server/src/modules/tool/service/validation/common-tool-validation.service.ts:92</a></div>
                 </td>
             </tr>
 
@@ -338,8 +338,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="43"
-                            class="link-to-prism">apps/server/src/modules/tool/service/validation/common-tool-validation.service.ts:43</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="42"
+                            class="link-to-prism">apps/server/src/modules/tool/service/validation/common-tool-validation.service.ts:42</a></div>
                 </td>
             </tr>
 
@@ -409,8 +409,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="86"
-                            class="link-to-prism">apps/server/src/modules/tool/service/validation/common-tool-validation.service.ts:86</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="85"
+                            class="link-to-prism">apps/server/src/modules/tool/service/validation/common-tool-validation.service.ts:85</a></div>
                 </td>
             </tr>
 
@@ -480,8 +480,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="60"
-                            class="link-to-prism">apps/server/src/modules/tool/service/validation/common-tool-validation.service.ts:60</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="59"
+                            class="link-to-prism">apps/server/src/modules/tool/service/validation/common-tool-validation.service.ts:59</a></div>
                 </td>
             </tr>
 
@@ -551,8 +551,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="10"
-                            class="link-to-prism">apps/server/src/modules/tool/service/validation/common-tool-validation.service.ts:10</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="11"
+                            class="link-to-prism">apps/server/src/modules/tool/service/validation/common-tool-validation.service.ts:11</a></div>
                 </td>
             </tr>
 
@@ -622,8 +622,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="74"
-                            class="link-to-prism">apps/server/src/modules/tool/service/validation/common-tool-validation.service.ts:74</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="73"
+                            class="link-to-prism">apps/server/src/modules/tool/service/validation/common-tool-validation.service.ts:73</a></div>
                 </td>
             </tr>
 
@@ -678,8 +678,9 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { CustomParameterDO, ExternalToolDO } from &#x27;@shared/domain/domainobject/external-tool&#x27;;
-import { Injectable, UnprocessableEntityException } from &#x27;@nestjs/common&#x27;;
+import { Injectable } from &#x27;@nestjs/common&#x27;;
 import { CustomParameterScope } from &#x27;@shared/domain&#x27;;
+import { ValidationError } from &#x27;@shared/common&#x27;;
 import { ExternalToolService } from &#x27;../external-tool.service&#x27;;
 
 @Injectable()
@@ -688,32 +689,30 @@ export class CommonToolValidationService {
 
 	async validateCommon(externalToolDO: ExternalToolDO | Partial&lt;ExternalToolDO&gt;): Promise&lt;void&gt; {
 		if (!(await this.isNameUnique(externalToolDO))) {
-			throw new UnprocessableEntityException(&#x60;The tool name &quot;${externalToolDO.name || &#x27;&#x27;}&quot; is already used.&#x60;);
+			throw new ValidationError(&#x60;The tool name &quot;${externalToolDO.name || &#x27;&#x27;}&quot; is already used.&#x60;);
 		}
 		if (externalToolDO.parameters) {
 			if (this.hasDuplicateAttributes(externalToolDO.parameters)) {
-				throw new UnprocessableEntityException(
+				throw new ValidationError(
 					&#x60;The tool ${externalToolDO.name || &#x27;&#x27;} contains multiple of the same custom parameters.&#x60;
 				);
 			}
 			if (!this.validateByRegex(externalToolDO.parameters)) {
-				throw new UnprocessableEntityException(
+				throw new ValidationError(
 					&#x60;A custom Parameter of the tool ${externalToolDO.name || &#x27;&#x27;} has wrong regex attribute.&#x60;
 				);
 			}
 			if (!this.validateDefaultValue(externalToolDO.parameters)) {
-				throw new UnprocessableEntityException(
+				throw new ValidationError(
 					&#x60;The default value of a custom parameter of the tool: ${externalToolDO.name || &#x27;&#x27;} does not match its regex&#x60;
 				);
 			}
 			externalToolDO.parameters.forEach((param: CustomParameterDO) &#x3D;&gt; {
 				if (!this.isGlobalParameterValid(param)) {
-					throw new UnprocessableEntityException(
-						&#x60;The &quot;${param.name}&quot; is a global parameter and requires a default value.&#x60;
-					);
+					throw new ValidationError(&#x60;The &quot;${param.name}&quot; is a global parameter and requires a default value.&#x60;);
 				}
 				if (!this.isRegexCommentMandatoryAndFilled(param)) {
-					throw new UnprocessableEntityException(&#x60;The &quot;${param.name}&quot; parameter is missing a regex comment.&#x60;);
+					throw new ValidationError(&#x60;The &quot;${param.name}&quot; parameter is missing a regex comment.&#x60;);
 				}
 			});
 		}

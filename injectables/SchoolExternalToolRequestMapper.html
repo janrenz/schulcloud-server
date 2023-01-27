@@ -40,7 +40,7 @@
 
 <ol class="breadcrumb">
   <li>Injectables</li>
-  <li >SchoolExternalToolRule</li>
+  <li >SchoolExternalToolRequestMapper</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -58,38 +58,17 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/shared/domain/rules/school-external-tool.rule.ts</code>
+            <code>apps/server/src/modules/tool/controller/mapper/school-external-tool-request.mapper.ts</code>
         </p>
 
 
 
-            <p class="comment">
-                <h3>Extends</h3>
-            </p>
-            <p class="comment">
-                        <code><a href="../classes/BasePermission.html" target="_self" >BasePermission</a></code>
-            </p>
 
 
             <section>
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
         <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <h6><b>Properties</b></h6>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <ul class="index-list">
-                            <li>
-                                    <span class="modifier">Public</span>
-                                <a href="#utils" >utils</a>
-                            </li>
-                        </ul>
-                    </td>
-                </tr>
 
                 <tr>
                     <td class="col-md-4">
@@ -100,12 +79,11 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                    <span class="modifier">Public</span>
-                                <a href="#hasPermission" >hasPermission</a>
+                                    <span class="modifier">Private</span>
+                                <a href="#mapRequestToCustomParameterEntryDO" >mapRequestToCustomParameterEntryDO</a>
                             </li>
                             <li>
-                                    <span class="modifier">Public</span>
-                                <a href="#isApplicable" >isApplicable</a>
+                                <a href="#mapSchoolExternalToolRequest" >mapSchoolExternalToolRequest</a>
                             </li>
                         </ul>
                     </td>
@@ -129,32 +107,26 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="hasPermission"></a>
+                    <a name="mapRequestToCustomParameterEntryDO"></a>
                     <span class="name">
-                        <span class="modifier">Public</span>
-                        <span ><b>hasPermission</b></span>
-                        <a href="#hasPermission"><span class="icon ion-ios-link"></span></a>
+                        <span class="modifier">Private</span>
+                        <span ><b>mapRequestToCustomParameterEntryDO</b></span>
+                        <a href="#mapRequestToCustomParameterEntryDO"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>hasPermission(user: <a href="../interfaces/User.html" target="_self">User</a>, entity: SchoolExternalTool | SchoolExternalToolDO, context: <a href="../interfaces/IPermissionContext.html" target="_self">IPermissionContext</a>)</code>
+                    <code>mapRequestToCustomParameterEntryDO(customParameterParams: <a href="../undefineds/CustomParameter.html" target="_self">CustomParameterEntryParam[]</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Inherited from         <code><a href="../classes/BasePermission.html" target="_self" >BasePermission</a></code>
-</div>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/BasePermission.html#source" target="_self" >BasePermission:15</a></code>
-</div>
+                    <div class="io-line">Defined in <a href="" data-line="17"
+                            class="link-to-prism">apps/server/src/modules/tool/controller/mapper/school-external-tool-request.mapper.ts:17</a></div>
                 </td>
             </tr>
 
@@ -175,33 +147,9 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>user</td>
+                                    <td>customParameterParams</td>
                                     <td>
-                                                <code><a href="../interfaces/User.html" target="_self" >User</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>entity</td>
-                                    <td>
-                                            <code>SchoolExternalTool | SchoolExternalToolDO</code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>context</td>
-                                    <td>
-                                                <code><a href="../interfaces/IPermissionContext.html" target="_self" >IPermissionContext</a></code>
+                                                <code><a href="../miscellaneous/typealiases.html#CustomParameter" target="_self" >CustomParameterEntryParam[]</a></code>
                                     </td>
 
                                     <td>
@@ -216,7 +164,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                        <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#CustomParameter" target="_self" >CustomParameterEntryDO[]</a></code>
 
                     </div>
                     <div class="io-description">
@@ -230,32 +178,24 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="isApplicable"></a>
+                    <a name="mapSchoolExternalToolRequest"></a>
                     <span class="name">
-                        <span class="modifier">Public</span>
-                        <span ><b>isApplicable</b></span>
-                        <a href="#isApplicable"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>mapSchoolExternalToolRequest</b></span>
+                        <a href="#mapSchoolExternalToolRequest"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>isApplicable(user: <a href="../interfaces/User.html" target="_self">User</a>, entity: SchoolExternalTool | SchoolExternalToolDO)</code>
+<code>mapSchoolExternalToolRequest(request: <a href="../classes/SchoolExternalToolPostParams.html" target="_self">SchoolExternalToolPostParams</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Inherited from         <code><a href="../classes/BasePermission.html" target="_self" >BasePermission</a></code>
-</div>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classes/BasePermission.html#source" target="_self" >BasePermission:9</a></code>
-</div>
+                    <div class="io-line">Defined in <a href="" data-line="8"
+                            class="link-to-prism">apps/server/src/modules/tool/controller/mapper/school-external-tool-request.mapper.ts:8</a></div>
                 </td>
             </tr>
 
@@ -276,21 +216,9 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>user</td>
+                                    <td>request</td>
                                     <td>
-                                                <code><a href="../interfaces/User.html" target="_self" >User</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>entity</td>
-                                    <td>
-                                            <code>SchoolExternalTool | SchoolExternalToolDO</code>
+                                                <code><a href="../classes/SchoolExternalToolPostParams.html" target="_self" >SchoolExternalToolPostParams</a></code>
                                     </td>
 
                                     <td>
@@ -305,7 +233,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                        <b>Returns : </b>        <code><a href="../classes/School.html" target="_self" >SchoolExternalTool</a></code>
 
                     </div>
                     <div class="io-description">
@@ -313,45 +241,6 @@
                     </div>
                 </td>
             </tr>
-        </tbody>
-    </table>
-</section>
-            <section>
-    
-    <h3 id="inputs">
-        Properties
-    </h3>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="utils"></a>
-                    <span class="name">
-                            <span class="modifier">Public</span>
-                        <span ><b>utils</b></span>
-                        <a href="#utils"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Default value : </i><code>new AuthorisationUtils()</code>
-                    </td>
-                </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <div class="io-line">Inherited from         <code><a href="../classes/BasePermission.html" target="_self" >BasePermission</a></code>
-</div>
-                            </td>
-                        </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classes/BasePermission.html#source" target="_self" >BasePermission:6</a></code>
-</div>
-                        </td>
-                    </tr>
-
-
         </tbody>
     </table>
 </section>
@@ -361,33 +250,30 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
-import { SchoolExternalTool, User } from &#x27;../entity&#x27;;
-import { IPermissionContext } from &#x27;../interface&#x27;;
-import { BasePermission } from &#x27;./base-permission&#x27;;
-import { SchoolExternalToolDO } from &#x27;../domainobject/external-tool/school-external-tool.do&#x27;;
+import { CustomParameterEntryDO } from &#x27;@shared/domain/domainobject/external-tool&#x27;;
+import { CustomParameterEntryParam, SchoolExternalToolPostParams } from &#x27;../dto&#x27;;
+import { SchoolExternalTool } from &#x27;../../uc/dto/school-external-tool.types&#x27;;
 
 @Injectable()
-export class SchoolExternalToolRule extends BasePermission&lt;SchoolExternalTool | SchoolExternalToolDO&gt; {
-	public isApplicable(user: User, entity: SchoolExternalTool | SchoolExternalToolDO): boolean {
-		const isMatched: boolean &#x3D; entity instanceof SchoolExternalTool || entity instanceof SchoolExternalToolDO;
-
-		return isMatched;
+export class SchoolExternalToolRequestMapper {
+	mapSchoolExternalToolRequest(request: SchoolExternalToolPostParams): SchoolExternalTool {
+		return {
+			toolId: request.toolId,
+			schoolId: request.schoolId,
+			toolVersion: request.version,
+			parameters: this.mapRequestToCustomParameterEntryDO(request.parameters ?? []),
+		};
 	}
 
-	public hasPermission(
-		user: User,
-		entity: SchoolExternalTool | SchoolExternalToolDO,
-		context: IPermissionContext
-	): boolean {
-		let hasPermission: boolean;
-		if (entity instanceof SchoolExternalTool) {
-			hasPermission &#x3D;
-				this.utils.hasAllPermissions(user, context.requiredPermissions) &amp;&amp; user.school.id &#x3D;&#x3D;&#x3D; entity.school.id;
-		} else {
-			hasPermission &#x3D;
-				this.utils.hasAllPermissions(user, context.requiredPermissions) &amp;&amp; user.school.id &#x3D;&#x3D;&#x3D; entity.schoolId;
-		}
-		return hasPermission;
+	private mapRequestToCustomParameterEntryDO(
+		customParameterParams: CustomParameterEntryParam[]
+	): CustomParameterEntryDO[] {
+		return customParameterParams.map((customParameterParam: CustomParameterEntryParam) &#x3D;&gt; {
+			return {
+				name: customParameterParam.name,
+				value: customParameterParam.value,
+			};
+		});
 	}
 }
 </code></pre>
@@ -433,7 +319,7 @@ export class SchoolExternalToolRule extends BasePermission&lt;SchoolExternalTool
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
-            var COMPODOC_CURRENT_PAGE_URL = 'SchoolExternalToolRule.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'SchoolExternalToolRequestMapper.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

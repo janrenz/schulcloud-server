@@ -269,7 +269,7 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @ApiProperty()<br />
+                            @ApiProperty({enum: CustomParameterLocationParams})<br />
                         </code>
                     </td>
                 </tr>
@@ -411,7 +411,7 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @ApiProperty()<br />
+                            @ApiProperty({enum: CustomParameterScopeParams})<br />
                         </code>
                     </td>
                 </tr>
@@ -446,7 +446,7 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @ApiProperty()<br />
+                            @ApiProperty({enum: CustomParameterTypeParams})<br />
                         </code>
                     </td>
                 </tr>
@@ -491,13 +491,13 @@ export class CustomParameterResponse {
 	@ApiPropertyOptional()
 	regexComment?: string;
 
-	@ApiProperty()
+	@ApiProperty({ enum: CustomParameterScopeParams })
 	scope: CustomParameterScopeParams;
 
-	@ApiProperty()
+	@ApiProperty({ enum: CustomParameterLocationParams })
 	location: CustomParameterLocationParams;
 
-	@ApiProperty()
+	@ApiProperty({ enum: CustomParameterTypeParams })
 	type: CustomParameterTypeParams;
 
 	@ApiProperty()
