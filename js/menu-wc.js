@@ -954,13 +954,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/LoggerModule.html" data-type="entity-link" >LoggerModule</a>
                                 <li class="chapter inner">
                                     <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                        'data-target="#injectables-links-module-LoggerModule-5223b27625de2c39a0a0e1c79800dd32f341229f5698c0ce88572823ae67826b9374724bb76adf4d6862f443e5504b78f7022902b5756bfbcb81ca06fdbf40c3"' : 'data-target="#xs-injectables-links-module-LoggerModule-5223b27625de2c39a0a0e1c79800dd32f341229f5698c0ce88572823ae67826b9374724bb76adf4d6862f443e5504b78f7022902b5756bfbcb81ca06fdbf40c3"' }>
+                                        'data-target="#injectables-links-module-LoggerModule-8d91292d50050ed53a779c0106f5a74a24cdc61ed89fa2d4b030d074e9d3fc0d9f86351a5496808c202bbba5f7493fa786f37640c3b8e4725f875103001c0eb0"' : 'data-target="#xs-injectables-links-module-LoggerModule-8d91292d50050ed53a779c0106f5a74a24cdc61ed89fa2d4b030d074e9d3fc0d9f86351a5496808c202bbba5f7493fa786f37640c3b8e4725f875103001c0eb0"' }>
                                         <span class="icon ion-md-arrow-round-down"></span>
                                         <span>Injectables</span>
                                         <span class="icon ion-ios-arrow-down"></span>
                                     </div>
-                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-LoggerModule-5223b27625de2c39a0a0e1c79800dd32f341229f5698c0ce88572823ae67826b9374724bb76adf4d6862f443e5504b78f7022902b5756bfbcb81ca06fdbf40c3"' :
-                                        'id="xs-injectables-links-module-LoggerModule-5223b27625de2c39a0a0e1c79800dd32f341229f5698c0ce88572823ae67826b9374724bb76adf4d6862f443e5504b78f7022902b5756bfbcb81ca06fdbf40c3"' }>
+                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-LoggerModule-8d91292d50050ed53a779c0106f5a74a24cdc61ed89fa2d4b030d074e9d3fc0d9f86351a5496808c202bbba5f7493fa786f37640c3b8e4725f875103001c0eb0"' :
+                                        'id="xs-injectables-links-module-LoggerModule-8d91292d50050ed53a779c0106f5a74a24cdc61ed89fa2d4b030d074e9d3fc0d9f86351a5496808c202bbba5f7493fa786f37640c3b8e4725f875103001c0eb0"' }>
                                         <li class="link">
                                             <a href="injectables/Logger.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >Logger</a>
                                         </li>
