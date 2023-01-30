@@ -1131,7 +1131,7 @@ export class TaskUC {
 		let permittedCourses: Course[] &#x3D; [];
 
 		if (neededPermission &#x3D;&#x3D;&#x3D; Actions.write) {
-			[permittedCourses] &#x3D; await this.courseRepo.findAllForTeacher(user.id);
+			[permittedCourses] &#x3D; await this.courseRepo.findAllForTeacherOrSubstituteTeacher(user.id);
 		} else if (neededPermission &#x3D;&#x3D;&#x3D; Actions.read) {
 			[permittedCourses] &#x3D; await this.courseRepo.findAllByUserId(user.id);
 		}
