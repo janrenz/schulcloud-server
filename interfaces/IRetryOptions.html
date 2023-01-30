@@ -179,6 +179,7 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ConsoleWriterService } from &#x27;@shared/infra/console&#x27;;
 import { Command, CommandOption, Console } from &#x27;nestjs-console&#x27;;
+import { Logger } from &#x27;@src/core/logger&#x27;;
 import { KeycloakManagementUc } from &#x27;../../uc/Keycloak-management.uc&#x27;;
 
 const defaultError &#x3D; new Error(&#x27;IDM is not reachable or authentication failed.&#x27;);
@@ -191,8 +192,11 @@ interface IRetryOptions {
 export class KeycloakConsole {
 	constructor(
 		private readonly console: ConsoleWriterService,
-		private readonly keycloakManagementUc: KeycloakManagementUc
-	) {}
+		private readonly keycloakManagementUc: KeycloakManagementUc,
+		private readonly logger: Logger
+	) {
+		this.logger.setContext(KeycloakConsole.name);
+	}
 
 	static retryFlags: CommandOption[] &#x3D; [
 		{
@@ -294,16 +298,22 @@ export class KeycloakConsole {
 		delay: number
 	): Promise&lt;T&gt; {
 		let repetitions &#x3D; 0;
+		let error &#x3D; new Error(&#x27;error could be thrown if count is &lt; 1&#x27;);
 		while (repetitions &lt; count) {
 			repetitions +&#x3D; 1;
 			try {
 				// eslint-disable-next-line no-await-in-loop
 				return await command();
 			} catch (err) {
-				this.console.info(JSON.stringify(err));
+				if (err instanceof Error) {
+					error &#x3D; err;
+				} else {
+					error &#x3D; new Error(JSON.stringify(err));
+				}
+
 				if (repetitions &lt; count) {
 					this.console.info(
-						&#x60;Command &#x27;${commandName}&#x27; failed, retry in ${delay} seconds. Execution ${repetitions} / ${count}&#x60;
+						&#x60;Command &#x27;${commandName}&#x27; failed, error: ${error.message}. retry in ${delay} seconds. Execution ${repetitions} / ${count}&#x60;
 					);
 					// eslint-disable-next-line no-await-in-loop
 					await this.delay(delay * 1000);
@@ -312,7 +322,7 @@ export class KeycloakConsole {
 				}
 			}
 		}
-		throw defaultError;
+		throw error;
 	}
 
 	private delay(ms: number) {

@@ -85,6 +85,7 @@
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
+                                    <span class="modifier">Async</span>
                                 <a href="#clean" >clean</a>
                             </li>
                             <li>
@@ -93,6 +94,7 @@
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
+                                    <span class="modifier">Async</span>
                                 <a href="#seed" >seed</a>
                             </li>
                         </ul>
@@ -232,6 +234,7 @@
                     <a name="clean"></a>
                     <span class="name">
                         <span class="modifier">Public</span>
+                        <span class="modifier">Async</span>
                         <span ><b>clean</b></span>
                         <a href="#clean"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -310,6 +313,7 @@
                     <a name="seed"></a>
                     <span class="name">
                         <span class="modifier">Public</span>
+                        <span class="modifier">Async</span>
                         <span ><b>seed</b></span>
                         <a href="#seed"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -365,11 +369,11 @@ export class KeycloakManagementUc {
 		return this.kcAdmin.testKcConnection();
 	}
 
-	public clean(): Promise&lt;number&gt; {
+	public async clean(): Promise&lt;number&gt; {
 		return this.keycloakSeedService.clean();
 	}
 
-	public seed(): Promise&lt;number&gt; {
+	public async seed(): Promise&lt;number&gt; {
 		return this.keycloakSeedService.seed();
 	}
 
