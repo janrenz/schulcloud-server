@@ -2151,10 +2151,10 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/CardElementBase.html" data-type="entity-link" >CardElementBase</a>
                             </li>
                             <li class="link">
-                                <a href="classes/CardElementResponse.html" data-type="entity-link" >CardElementResponse</a>
+                                <a href="classes/CardElementParams.html" data-type="entity-link" >CardElementParams</a>
                             </li>
                             <li class="link">
-                                <a href="classes/CardElementUpdateParams.html" data-type="entity-link" >CardElementUpdateParams</a>
+                                <a href="classes/CardElementResponse.html" data-type="entity-link" >CardElementResponse</a>
                             </li>
                             <li class="link">
                                 <a href="classes/CardRichTextElementResponse.html" data-type="entity-link" >CardRichTextElementResponse</a>
@@ -2266,9 +2266,6 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="classes/CreateNewsParams.html" data-type="entity-link" >CreateNewsParams</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/CreateTaskCardParams.html" data-type="entity-link" >CreateTaskCardParams</a>
                             </li>
                             <li class="link">
                                 <a href="classes/CurrentUserMapper.html" data-type="entity-link" >CurrentUserMapper</a>
@@ -3009,6 +3006,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/TaskCardMapper.html" data-type="entity-link" >TaskCardMapper</a>
                             </li>
                             <li class="link">
+                                <a href="classes/TaskCardParams.html" data-type="entity-link" >TaskCardParams</a>
+                            </li>
+                            <li class="link">
                                 <a href="classes/TaskCardResponse.html" data-type="entity-link" >TaskCardResponse</a>
                             </li>
                             <li class="link">
@@ -3109,9 +3109,6 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="classes/UpdateNewsParams.html" data-type="entity-link" >UpdateNewsParams</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/UpdateTaskCardParams.html" data-type="entity-link" >UpdateTaskCardParams</a>
                             </li>
                             <li class="link">
                                 <a href="classes/User.html" data-type="entity-link" >User</a>
@@ -3914,10 +3911,7 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="interfaces/ITaskCard.html" data-type="entity-link" >ITaskCard</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/ITaskCardCreate.html" data-type="entity-link" >ITaskCardCreate</a>
-                            </li>
-                            <li class="link">
-                                <a href="interfaces/ITaskCardUpdate.html" data-type="entity-link" >ITaskCardUpdate</a>
+                                <a href="interfaces/ITaskCardCRUD.html" data-type="entity-link" >ITaskCardCRUD</a>
                             </li>
                             <li class="link">
                                 <a href="interfaces/ITaskCreate.html" data-type="entity-link" >ITaskCreate</a>

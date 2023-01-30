@@ -62,7 +62,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/modules/task-card/controller/dto/update-task-card.params.ts</code>
+            <code>apps/server/src/modules/task-card/controller/dto/task-card.params.ts</code>
         </p>
 
 
@@ -141,7 +141,7 @@ export class RichTextCardElementParam extends CardElementBase {
 }
 
 @ApiExtraModels(TitleCardElementParam, RichTextCardElementParam)
-export class CardElementUpdateParams {
+export class CardElementParams {
 	@ApiPropertyOptional()
 	@IsOptional()
 	@IsString()
@@ -166,7 +166,7 @@ export class CardElementUpdateParams {
 	content!: RichTextCardElementParam | TitleCardElementParam;
 }
 
-export class UpdateTaskCardParams {
+export class TaskCardParams {
 	@IsOptional()
 	@IsDate()
 	@MinDate(new Date())
@@ -181,12 +181,12 @@ export class UpdateTaskCardParams {
 
 	@IsArray()
 	@ValidateNested({ each: true })
-	@Type(() &#x3D;&gt; CardElementUpdateParams)
+	@Type(() &#x3D;&gt; CardElementParams)
 	@ApiProperty({
 		description: &#x27;Card elements array&#x27;,
-		type: [CardElementUpdateParams],
+		type: [CardElementParams],
 	})
-	cardElements!: CardElementUpdateParams[];
+	cardElements!: CardElementParams[];
 }
 </code></pre>
     </div>

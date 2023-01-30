@@ -62,7 +62,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/modules/task-card/controller/dto/update-task-card.params.ts</code>
+            <code>apps/server/src/modules/task-card/controller/dto/task-card.params.ts</code>
         </p>
 
 
@@ -140,7 +140,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">apps/server/src/modules/task-card/controller/dto/update-task-card.params.ts:25</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">apps/server/src/modules/task-card/controller/dto/task-card.params.ts:25</a></div>
                         </td>
                     </tr>
 
@@ -175,7 +175,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">apps/server/src/modules/task-card/controller/dto/update-task-card.params.ts:34</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">apps/server/src/modules/task-card/controller/dto/task-card.params.ts:34</a></div>
                         </td>
                     </tr>
 
@@ -252,7 +252,7 @@ export class RichTextCardElementParam extends CardElementBase {
 }
 
 @ApiExtraModels(TitleCardElementParam, RichTextCardElementParam)
-export class CardElementUpdateParams {
+export class CardElementParams {
 	@ApiPropertyOptional()
 	@IsOptional()
 	@IsString()
@@ -277,7 +277,7 @@ export class CardElementUpdateParams {
 	content!: RichTextCardElementParam | TitleCardElementParam;
 }
 
-export class UpdateTaskCardParams {
+export class TaskCardParams {
 	@IsOptional()
 	@IsDate()
 	@MinDate(new Date())
@@ -292,12 +292,12 @@ export class UpdateTaskCardParams {
 
 	@IsArray()
 	@ValidateNested({ each: true })
-	@Type(() &#x3D;&gt; CardElementUpdateParams)
+	@Type(() &#x3D;&gt; CardElementParams)
 	@ApiProperty({
 		description: &#x27;Card elements array&#x27;,
-		type: [CardElementUpdateParams],
+		type: [CardElementParams],
 	})
-	cardElements!: CardElementUpdateParams[];
+	cardElements!: CardElementParams[];
 }
 </code></pre>
     </div>

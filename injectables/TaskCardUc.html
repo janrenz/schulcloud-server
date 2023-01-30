@@ -230,7 +230,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>create(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, params: <a href="../interfaces/ITaskCardCreate.html" target="_self">ITaskCardCreate</a>)</code>
+                    <code>create(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, params: <a href="../interfaces/ITaskCardCRUD.html" target="_self">ITaskCardCRUD</a>)</code>
                 </td>
             </tr>
 
@@ -273,7 +273,7 @@
                                 <tr>
                                     <td>params</td>
                                     <td>
-                                                <code><a href="../interfaces/ITaskCardCreate.html" target="_self" >ITaskCardCreate</a></code>
+                                                <code><a href="../interfaces/ITaskCardCRUD.html" target="_self" >ITaskCardCRUD</a></code>
                                     </td>
 
                                     <td>
@@ -314,7 +314,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>createTask(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, params: <a href="../interfaces/ITaskCardCreate.html" target="_self">ITaskCardCreate</a>)</code>
+                    <code>createTask(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, params: <a href="../interfaces/ITaskCardCRUD.html" target="_self">ITaskCardCRUD</a>)</code>
                 </td>
             </tr>
 
@@ -357,7 +357,7 @@
                                 <tr>
                                     <td>params</td>
                                     <td>
-                                                <code><a href="../interfaces/ITaskCardCreate.html" target="_self" >ITaskCardCreate</a></code>
+                                                <code><a href="../interfaces/ITaskCardCRUD.html" target="_self" >ITaskCardCRUD</a></code>
                                     </td>
 
                                     <td>
@@ -718,7 +718,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>update(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, id: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, params: <a href="../interfaces/ITaskCardUpdate.html" target="_self">ITaskCardUpdate</a>)</code>
+                    <code>update(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, id: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, params: <a href="../interfaces/ITaskCardCRUD.html" target="_self">ITaskCardCRUD</a>)</code>
                 </td>
             </tr>
 
@@ -773,7 +773,7 @@
                                 <tr>
                                     <td>params</td>
                                     <td>
-                                                <code><a href="../interfaces/ITaskCardUpdate.html" target="_self" >ITaskCardUpdate</a></code>
+                                                <code><a href="../interfaces/ITaskCardCRUD.html" target="_self" >ITaskCardCRUD</a></code>
                                     </td>
 
                                     <td>
@@ -814,7 +814,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>updateTask(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, id: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, params: <a href="../interfaces/ITaskCardUpdate.html" target="_self">ITaskCardUpdate</a>)</code>
+                    <code>updateTask(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, id: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, params: <a href="../interfaces/ITaskCardCRUD.html" target="_self">ITaskCardCRUD</a>)</code>
                 </td>
             </tr>
 
@@ -869,7 +869,7 @@
                                 <tr>
                                     <td>params</td>
                                     <td>
-                                                <code><a href="../interfaces/ITaskCardUpdate.html" target="_self" >ITaskCardUpdate</a></code>
+                                                <code><a href="../interfaces/ITaskCardCRUD.html" target="_self" >ITaskCardCRUD</a></code>
                                     </td>
 
                                     <td>
@@ -908,7 +908,7 @@ import { ITaskCardProps } from &#x27;@shared/domain/entity/task-card.entity&#x27
 import { CardElementRepo, TaskCardRepo } from &#x27;@shared/repo&#x27;;
 import { AuthorizationService } from &#x27;@src/modules/authorization&#x27;;
 import { TaskService } from &#x27;@src/modules/task/service&#x27;;
-import { ITaskCardCreate, ITaskCardUpdate } from &#x27;../controller/mapper/task-card.mapper&#x27;;
+import { ITaskCardCRUD } from &#x27;../interface&#x27;;
 
 @Injectable()
 export class TaskCardUc {
@@ -919,7 +919,7 @@ export class TaskCardUc {
 		private readonly taskService: TaskService
 	) {}
 
-	async create(userId: EntityId, params: ITaskCardCreate) {
+	async create(userId: EntityId, params: ITaskCardCRUD) {
 		const user &#x3D; await this.authorizationService.getUserWithPermissions(userId);
 
 		if (!this.authorizationService.hasAllPermissions(user, [Permission.TASK_CARD_EDIT])) {
@@ -969,7 +969,7 @@ export class TaskCardUc {
 		return { card, taskWithStatusVo };
 	}
 
-	private async createTask(userId: EntityId, params: ITaskCardCreate) {
+	private async createTask(userId: EntityId, params: ITaskCardCRUD) {
 		const taskParams &#x3D; {
 			name: params.title,
 		};
@@ -1017,7 +1017,7 @@ export class TaskCardUc {
 		return true;
 	}
 
-	async update(userId: EntityId, id: EntityId, params: ITaskCardUpdate) {
+	async update(userId: EntityId, id: EntityId, params: ITaskCardCRUD) {
 		const user &#x3D; await this.authorizationService.getUserWithPermissions(userId);
 		const card &#x3D; await this.taskCardRepo.findById(id);
 
@@ -1056,7 +1056,7 @@ export class TaskCardUc {
 		return { card, taskWithStatusVo };
 	}
 
-	private async updateTask(userId: EntityId, id: EntityId, params: ITaskCardUpdate) {
+	private async updateTask(userId: EntityId, id: EntityId, params: ITaskCardCRUD) {
 		const taskParams &#x3D; {
 			name: params.title,
 		};
