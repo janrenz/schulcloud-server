@@ -44,7 +44,7 @@
 
 <ol class="breadcrumb">
   <li>Classes</li>
-  <li >FilesStorageMapper</li>
+  <li >FileRecordMapper</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -62,7 +62,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/modules/files-storage/mapper/files-storage.mapper.ts</code>
+            <code>apps/server/src/modules/files-storage/mapper/file-record.mapper.ts</code>
         </p>
 
 
@@ -85,11 +85,7 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Static</span>
-                                <a href="#mapFileRecordToFileRecordParams" >mapFileRecordToFileRecordParams</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Static</span>
-                                <a href="#mapToAllowedAuthorizationEntityType" >mapToAllowedAuthorizationEntityType</a>
+                                <a href="#mapScanResultParamsToDto" >mapScanResultParamsToDto</a>
                             </li>
                             <li>
                                     <span class="modifier">Static</span>
@@ -98,10 +94,6 @@
                             <li>
                                     <span class="modifier">Static</span>
                                 <a href="#mapToFileRecordResponse" >mapToFileRecordResponse</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Static</span>
-                                <a href="#mapToSingleFileParams" >mapToSingleFileParams</a>
                             </li>
                         </ul>
                     </td>
@@ -126,26 +118,26 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="mapFileRecordToFileRecordParams"></a>
+                    <a name="mapScanResultParamsToDto"></a>
                     <span class="name">
                         <span class="modifier">Static</span>
-                        <span ><b>mapFileRecordToFileRecordParams</b></span>
-                        <a href="#mapFileRecordToFileRecordParams"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>mapScanResultParamsToDto</b></span>
+                        <a href="#mapScanResultParamsToDto"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>mapFileRecordToFileRecordParams(fileRecord: <a href="../classes/FileRecord.html" target="_self">FileRecord</a>)</code>
+                    <code>mapScanResultParamsToDto(scanResultParams: <a href="../classes/ScanResultParams.html" target="_self">ScanResultParams</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="37"
-                            class="link-to-prism">apps/server/src/modules/files-storage/mapper/files-storage.mapper.ts:37</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="21"
+                            class="link-to-prism">apps/server/src/modules/files-storage/mapper/file-record.mapper.ts:21</a></div>
                 </td>
             </tr>
 
@@ -166,9 +158,9 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>fileRecord</td>
+                                    <td>scanResultParams</td>
                                     <td>
-                                                <code><a href="../classes/FileRecord.html" target="_self" >FileRecord</a></code>
+                                                <code><a href="../classes/ScanResultParams.html" target="_self" >ScanResultParams</a></code>
                                     </td>
 
                                     <td>
@@ -183,78 +175,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/FileRecordParams.html" target="_self" >FileRecordParams</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="mapToAllowedAuthorizationEntityType"></a>
-                    <span class="name">
-                        <span class="modifier">Static</span>
-                        <span ><b>mapToAllowedAuthorizationEntityType</b></span>
-                        <a href="#mapToAllowedAuthorizationEntityType"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>mapToAllowedAuthorizationEntityType(type: <a href="../undefineds/FileRecordParentType.html" target="_self">FileRecordParentType</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="14"
-                            class="link-to-prism">apps/server/src/modules/files-storage/mapper/files-storage.mapper.ts:14</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>type</td>
-                                    <td>
-                                                <code><a href="../miscellaneous/enumerations.html#FileRecordParentType" target="_self" >FileRecordParentType</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../miscellaneous/enumerations.html#AllowedAuthorizationEntityType" target="_self" >AllowedAuthorizationEntityType</a></code>
+                        <b>Returns : </b>        <code><a href="../classes/ScanResultDto.html" target="_self" >ScanResultDto</a></code>
 
                     </div>
                     <div class="io-description">
@@ -286,8 +207,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="51"
-                            class="link-to-prism">apps/server/src/modules/files-storage/mapper/files-storage.mapper.ts:51</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="9"
+                            class="link-to-prism">apps/server/src/modules/files-storage/mapper/file-record.mapper.ts:9</a></div>
                 </td>
             </tr>
 
@@ -393,8 +314,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="47"
-                            class="link-to-prism">apps/server/src/modules/files-storage/mapper/files-storage.mapper.ts:47</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="5"
+                            class="link-to-prism">apps/server/src/modules/files-storage/mapper/file-record.mapper.ts:5</a></div>
                 </td>
             </tr>
 
@@ -442,77 +363,6 @@
             </tr>
         </tbody>
     </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="mapToSingleFileParams"></a>
-                    <span class="name">
-                        <span class="modifier">Static</span>
-                        <span ><b>mapToSingleFileParams</b></span>
-                        <a href="#mapToSingleFileParams"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>mapToSingleFileParams(params: <a href="../classes/DownloadFileParams.html" target="_self">DownloadFileParams</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="31"
-                            class="link-to-prism">apps/server/src/modules/files-storage/mapper/files-storage.mapper.ts:31</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>params</td>
-                                    <td>
-                                                <code><a href="../classes/DownloadFileParams.html" target="_self" >DownloadFileParams</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/SingleFileParams.html" target="_self" >SingleFileParams</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
 </section>
 
 
@@ -523,52 +373,10 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { NotImplementedException } from &#x27;@nestjs/common&#x27;;
-import { AllowedAuthorizationEntityType } from &#x27;@src/modules/authorization/interfaces&#x27;;
-import { plainToClass } from &#x27;class-transformer&#x27;;
-import {
-	DownloadFileParams,
-	FileRecordListResponse,
-	FileRecordParams,
-	FileRecordResponse,
-	SingleFileParams,
-} from &#x27;../controller/dto&#x27;;
-import { FileRecord, FileRecordParentType } from &#x27;../entity&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { FileRecordListResponse, FileRecordResponse, ScanResultDto, ScanResultParams } from &#x27;../controller/dto&#x27;;
+import { FileRecord, ScanStatus } from &#x27;../entity&#x27;;
 
-export class FilesStorageMapper {
-	static mapToAllowedAuthorizationEntityType(type: FileRecordParentType): AllowedAuthorizationEntityType {
-		const types: Map&lt;FileRecordParentType, AllowedAuthorizationEntityType&gt; &#x3D; new Map();
-		types.set(FileRecordParentType.Task, AllowedAuthorizationEntityType.Task);
-		types.set(FileRecordParentType.Course, AllowedAuthorizationEntityType.Course);
-		types.set(FileRecordParentType.User, AllowedAuthorizationEntityType.User);
-		types.set(FileRecordParentType.School, AllowedAuthorizationEntityType.School);
-		types.set(FileRecordParentType.Lesson, AllowedAuthorizationEntityType.Lesson);
-		types.set(FileRecordParentType.Submission, AllowedAuthorizationEntityType.Submission);
-
-		const res &#x3D; types.get(type);
-
-		if (!res) {
-			throw new NotImplementedException();
-		}
-		return res;
-	}
-
-	static mapToSingleFileParams(params: DownloadFileParams): SingleFileParams {
-		const singleFileParams &#x3D; { fileRecordId: params.fileRecordId };
-
-		return singleFileParams;
-	}
-
-	static mapFileRecordToFileRecordParams(fileRecord: FileRecord): FileRecordParams {
-		const fileRecordParams &#x3D; plainToClass(FileRecordParams, {
-			schoolId: fileRecord.schoolId,
-			parentId: fileRecord.parentId,
-			parentType: fileRecord.parentType,
-		});
-
-		return fileRecordParams;
-	}
-
+export class FileRecordMapper {
 	static mapToFileRecordResponse(fileRecord: FileRecord): FileRecordResponse {
 		return new FileRecordResponse(fileRecord);
 	}
@@ -579,10 +387,30 @@ export class FilesStorageMapper {
 		skip?: number,
 		limit?: number
 	): FileRecordListResponse {
-		const responseFileRecords &#x3D; fileRecords.map((fileRecord) &#x3D;&gt; FilesStorageMapper.mapToFileRecordResponse(fileRecord));
+		const responseFileRecords &#x3D; fileRecords.map((fileRecord) &#x3D;&gt; FileRecordMapper.mapToFileRecordResponse(fileRecord));
 
 		const response &#x3D; new FileRecordListResponse(responseFileRecords, total, skip, limit);
 		return response;
+	}
+
+	static mapScanResultParamsToDto(scanResultParams: ScanResultParams): ScanResultDto {
+		const scanResult &#x3D; new ScanResultDto({
+			status: ScanStatus.VERIFIED,
+			reason: &#x27;Clean&#x27;,
+		});
+
+		if (scanResultParams.virus_detected) {
+			scanResult.status &#x3D; ScanStatus.BLOCKED;
+			scanResult.reason &#x3D; scanResultParams.virus_signature ?? &#x27;Virus detected&#x27;;
+		} else if (scanResultParams.error) {
+			scanResult.status &#x3D; ScanStatus.ERROR;
+			scanResult.reason &#x3D; scanResultParams.error;
+		} else if (scanResultParams.virus_detected &#x3D;&#x3D;&#x3D; undefined || scanResultParams.error &#x3D;&#x3D;&#x3D; &#x27;&#x27;) {
+			scanResult.status &#x3D; ScanStatus.ERROR;
+			scanResult.reason &#x3D; &#x27;No scan result&#x27;;
+		}
+
+		return scanResult;
 	}
 }
 </code></pre>
@@ -623,7 +451,7 @@ export class FilesStorageMapper {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
-            var COMPODOC_CURRENT_PAGE_URL = 'FilesStorageMapper-1.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'FileRecordMapper-1.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

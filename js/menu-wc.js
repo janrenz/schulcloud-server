@@ -2421,6 +2421,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/FileRecordMapper.html" data-type="entity-link" >FileRecordMapper</a>
                             </li>
                             <li class="link">
+                                <a href="classes/FileRecordMapper-1.html" data-type="entity-link" >FileRecordMapper</a>
+                            </li>
+                            <li class="link">
                                 <a href="classes/FileRecordParams.html" data-type="entity-link" >FileRecordParams</a>
                             </li>
                             <li class="link">
@@ -2440,9 +2443,6 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="classes/FilesStorageMapper.html" data-type="entity-link" >FilesStorageMapper</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/FilesStorageMapper-1.html" data-type="entity-link" >FilesStorageMapper</a>
                             </li>
                             <li class="link">
                                 <a href="classes/FileSyncOptions.html" data-type="entity-link" >FileSyncOptions</a>
@@ -2791,6 +2791,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="classes/SanisResponsePersonenkontext.html" data-type="entity-link" >SanisResponsePersonenkontext</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/ScanResultDto.html" data-type="entity-link" >ScanResultDto</a>
                             </li>
                             <li class="link">
                                 <a href="classes/ScanResultParams.html" data-type="entity-link" >ScanResultParams</a>
