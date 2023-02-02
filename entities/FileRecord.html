@@ -167,7 +167,7 @@ and instead just use the plain object ids.</p>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="114" class="link-to-prism">apps/server/src/modules/files-storage/entity/filerecord.entity.ts:114</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="116" class="link-to-prism">apps/server/src/modules/files-storage/entity/filerecord.entity.ts:116</a></div>
                         </td>
                     </tr>
 
@@ -203,7 +203,7 @@ and instead just use the plain object ids.</p>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="124" class="link-to-prism">apps/server/src/modules/files-storage/entity/filerecord.entity.ts:124</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="126" class="link-to-prism">apps/server/src/modules/files-storage/entity/filerecord.entity.ts:126</a></div>
                         </td>
                     </tr>
 
@@ -232,13 +232,13 @@ and instead just use the plain object ids.</p>
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @Property({fieldName: &#x27;parent&#x27;})<br />
+                            @Index()<br />@Property({fieldName: &#x27;parent&#x27;})<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="107" class="link-to-prism">apps/server/src/modules/files-storage/entity/filerecord.entity.ts:107</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="109" class="link-to-prism">apps/server/src/modules/files-storage/entity/filerecord.entity.ts:109</a></div>
                         </td>
                     </tr>
 
@@ -273,7 +273,7 @@ and instead just use the plain object ids.</p>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="131" class="link-to-prism">apps/server/src/modules/files-storage/entity/filerecord.entity.ts:131</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="133" class="link-to-prism">apps/server/src/modules/files-storage/entity/filerecord.entity.ts:133</a></div>
                         </td>
                     </tr>
 
@@ -307,7 +307,7 @@ and instead just use the plain object ids.</p>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="140" class="link-to-prism">apps/server/src/modules/files-storage/entity/filerecord.entity.ts:140</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="142" class="link-to-prism">apps/server/src/modules/files-storage/entity/filerecord.entity.ts:142</a></div>
                         </td>
                     </tr>
 
@@ -442,13 +442,13 @@ and instead just use the plain object ids.</p>
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @Enum()<br />
+                            @Index()<br />@Enum()<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="104" class="link-to-prism">apps/server/src/modules/files-storage/entity/filerecord.entity.ts:104</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="105" class="link-to-prism">apps/server/src/modules/files-storage/entity/filerecord.entity.ts:105</a></div>
                         </td>
                     </tr>
 
@@ -552,7 +552,7 @@ and instead just use the plain object ids.</p>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="143" class="link-to-prism">apps/server/src/modules/files-storage/entity/filerecord.entity.ts:143</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="145" class="link-to-prism">apps/server/src/modules/files-storage/entity/filerecord.entity.ts:145</a></div>
                         </td>
                     </tr>
 
@@ -666,9 +666,11 @@ export class FileRecord extends BaseEntity {
 	@Embedded(() &#x3D;&gt; FileSecurityCheck, { object: true, nullable: false })
 	securityCheck: FileSecurityCheck;
 
+	@Index()
 	@Enum()
 	parentType: FileRecordParentType;
 
+	@Index()
 	@Property({ fieldName: &#x27;parent&#x27; })
 	_parentId: ObjectId;
 

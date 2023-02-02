@@ -336,9 +336,11 @@ export class FileRecord extends BaseEntity {
 	@Embedded(() &#x3D;&gt; FileSecurityCheck, { object: true, nullable: false })
 	securityCheck: FileSecurityCheck;
 
+	@Index()
 	@Enum()
 	parentType: FileRecordParentType;
 
+	@Index()
 	@Property({ fieldName: &#x27;parent&#x27; })
 	_parentId: ObjectId;
 
