@@ -293,8 +293,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="45"
-                            class="link-to-prism">apps/server/src/modules/provisioning/strategy/oidc/service/oidc-provisioning.service.ts:45</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="51"
+                            class="link-to-prism">apps/server/src/modules/provisioning/strategy/oidc/service/oidc-provisioning.service.ts:51</a></div>
                 </td>
             </tr>
 
@@ -404,11 +404,17 @@ export class OidcProvisioningService {
 			school &#x3D; existingSchool;
 			school.name &#x3D; externalSchool.name;
 			school.officialSchoolNumber &#x3D; externalSchool.officialSchoolNumber ?? existingSchool.officialSchoolNumber;
+			if (!school.systems) {
+				school.systems &#x3D; [systemId];
+			} else if (!school.systems.includes(systemId)) {
+				school.systems.push(systemId);
+			}
 		} else {
 			school &#x3D; new SchoolDO({
 				externalId: externalSchool.externalId,
 				name: externalSchool.name,
 				officialSchoolNumber: externalSchool.officialSchoolNumber,
+				systems: [systemId],
 			});
 		}
 
