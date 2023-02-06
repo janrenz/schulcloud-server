@@ -716,7 +716,7 @@ export class LdapStrategy extends PassportStrategy(Strategy, &#x27;ldap&#x27;) {
 	private async loadAccount(username: string, systemId: string, school: SchoolDO): Promise&lt;AccountDto&gt; {
 		const externalSchoolId &#x3D; this.checkValue(school.externalId);
 		const userNameWithSchool &#x3D; &#x60;${externalSchoolId}/${username}&#x60;;
-		const account &#x3D; await this.authenticationService.loadAccount(userNameWithSchool, systemId);
+		const account &#x3D; await this.authenticationService.loadAccount(userNameWithSchool.toLowerCase(), systemId);
 		return account;
 	}
 }
