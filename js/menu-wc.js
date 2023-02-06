@@ -3845,6 +3845,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="interfaces/IPagination.html" data-type="entity-link" >IPagination</a>
                             </li>
                             <li class="link">
+                                <a href="interfaces/IParentInfo.html" data-type="entity-link" >IParentInfo</a>
+                            </li>
+                            <li class="link">
                                 <a href="interfaces/IPermission.html" data-type="entity-link" >IPermission</a>
                             </li>
                             <li class="link">

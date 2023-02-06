@@ -531,6 +531,12 @@ export interface IFileRecordProperties {
 	deletedSince?: Date;
 }
 
+interface IParentInfo {
+	schoolId: EntityId;
+	parentId: EntityId;
+	parentType: FileRecordParentType;
+}
+
 // TODO: IEntityWithSchool
 
 /**
@@ -624,27 +630,86 @@ export class FileRecord extends BaseEntity {
 		this.deletedSince &#x3D; props.deletedSince;
 	}
 
-	updateSecurityCheckStatus(status: ScanStatus, reason: string): void {
+	public updateSecurityCheckStatus(status: ScanStatus, reason: string): void {
 		this.securityCheck.status &#x3D; status;
 		this.securityCheck.reason &#x3D; reason;
 		this.securityCheck.updatedAt &#x3D; new Date();
 		this.securityCheck.requestToken &#x3D; undefined;
 	}
 
-	markForDelete(): void {
+	public copy(userId: EntityId, targetParentInfo: IParentInfo): FileRecord {
+		const { size, name, mimeType } &#x3D; this;
+		const { parentType, parentId, schoolId } &#x3D; targetParentInfo;
+
+		const fileRecordCopy &#x3D; new FileRecord({
+			size,
+			name,
+			mimeType,
+			parentType,
+			parentId,
+			creatorId: userId,
+			schoolId,
+		});
+
+		if (this.isVerified()) {
+			fileRecordCopy.securityCheck &#x3D; this.securityCheck;
+		}
+
+		return fileRecordCopy;
+	}
+
+	public markForDelete(): void {
 		this.deletedSince &#x3D; new Date();
 	}
 
-	unmarkForDelete(): void {
+	public unmarkForDelete(): void {
 		this.deletedSince &#x3D; undefined;
 	}
 
-	setName(name: string): void {
+	public setName(name: string): void {
 		if (name.length &#x3D;&#x3D;&#x3D; 0) {
 			throw new BadRequestException(ErrorType.FILE_NAME_EMPTY);
 		}
 
 		this.name &#x3D; name;
+	}
+
+	public hasName(name: string): boolean {
+		const hasName &#x3D; this.name &#x3D;&#x3D;&#x3D; name;
+
+		return hasName;
+	}
+
+	public getName(): string {
+		return this.name;
+	}
+
+	public isBlocked(): boolean {
+		const isBlocked &#x3D; this.securityCheck.status &#x3D;&#x3D;&#x3D; ScanStatus.BLOCKED;
+
+		return isBlocked;
+	}
+
+	public isPending(): boolean {
+		const isPending &#x3D; this.securityCheck.status &#x3D;&#x3D;&#x3D; ScanStatus.PENDING;
+
+		return isPending;
+	}
+
+	public isVerified(): boolean {
+		const isVerified &#x3D; this.securityCheck.status &#x3D;&#x3D;&#x3D; ScanStatus.VERIFIED;
+
+		return isVerified;
+	}
+
+	public getParentInfo(): IParentInfo {
+		const { parentId, parentType, schoolId } &#x3D; this;
+
+		return { parentId, parentType, schoolId };
+	}
+
+	public getSchoolId(): EntityId {
+		return this.schoolId;
 	}
 }
 </code></pre>
