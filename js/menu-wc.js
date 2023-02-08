@@ -2529,10 +2529,16 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/KeycloakSeedService.html" data-type="entity-link" >KeycloakSeedService</a>
                             </li>
                             <li class="link">
+                                <a href="classes/LdapAlreadyPersistedException.html" data-type="entity-link" >LdapAlreadyPersistedException</a>
+                            </li>
+                            <li class="link">
                                 <a href="classes/LdapConfig.html" data-type="entity-link" >LdapConfig</a>
                             </li>
                             <li class="link">
                                 <a href="classes/LdapConnectionError.html" data-type="entity-link" >LdapConnectionError</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/LdapUserMigrationException.html" data-type="entity-link" >LdapUserMigrationException</a>
                             </li>
                             <li class="link">
                                 <a href="classes/LessonCopyApiParams.html" data-type="entity-link" >LessonCopyApiParams</a>
@@ -2592,10 +2598,16 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/MetadataTypeMapper.html" data-type="entity-link" >MetadataTypeMapper</a>
                             </li>
                             <li class="link">
+                                <a href="classes/MigrationAlreadyActivatedException.html" data-type="entity-link" >MigrationAlreadyActivatedException</a>
+                            </li>
+                            <li class="link">
                                 <a href="classes/MigrationBody.html" data-type="entity-link" >MigrationBody</a>
                             </li>
                             <li class="link">
                                 <a href="classes/MigrationResponse.html" data-type="entity-link" >MigrationResponse</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/MissingSchoolNumberException.html" data-type="entity-link" >MissingSchoolNumberException</a>
                             </li>
                             <li class="link">
                                 <a href="classes/MongoPatterns.html" data-type="entity-link" >MongoPatterns</a>
