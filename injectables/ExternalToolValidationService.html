@@ -427,7 +427,7 @@ export class ExternalToolValidationService {
 
 	private async isClientIdUnique(externalToolDO: ExternalToolDO): Promise&lt;boolean&gt; {
 		let duplicate: ExternalToolDO | null &#x3D; null;
-		if (externalToolDO.config instanceof Oauth2ToolConfigDO) {
+		if (this.externalToolService.isOauth2Config(externalToolDO.config)) {
 			duplicate &#x3D; await this.externalToolService.findExternalToolByOAuth2ConfigClientId(externalToolDO.config.clientId);
 		}
 		return duplicate &#x3D;&#x3D; null || duplicate.id &#x3D;&#x3D;&#x3D; externalToolDO.id;
