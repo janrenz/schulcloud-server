@@ -425,11 +425,11 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Inject, Injectable } from &#x27;@nestjs/common&#x27;;
-import { SystemService } from &#x27;@src/modules/system/service/system.service&#x27;;
-import { DefaultEncryptionService, IEncryptionService } from &#x27;@shared/infra/encryption&#x27;;
-import { SystemTypeEnum } from &#x27;@shared/domain&#x27;;
 import { GuardAgainst } from &#x27;@shared/common&#x27;;
+import { SystemTypeEnum } from &#x27;@shared/domain&#x27;;
+import { DefaultEncryptionService, IEncryptionService } from &#x27;@shared/infra/encryption&#x27;;
 import { SystemDto } from &#x27;@src/modules/system/service/dto/system.dto&#x27;;
+import { SystemService } from &#x27;@src/modules/system/service/system.service&#x27;;
 
 @Injectable()
 export class KeycloakSystemService {
@@ -467,7 +467,7 @@ export class KeycloakSystemService {
 
 	private async getKeycloak(): Promise&lt;SystemDto&gt; {
 		if (!this._keycloak) {
-			const systems &#x3D; await this.systemService.find(SystemTypeEnum.KEYCLOAK);
+			const systems &#x3D; await this.systemService.findAll(SystemTypeEnum.KEYCLOAK);
 			this._keycloak &#x3D; GuardAgainst.nullOrUndefined(systems.at(0), new Error(&#x27;No Keycloak system found&#x27;));
 		}
 		return this._keycloak;

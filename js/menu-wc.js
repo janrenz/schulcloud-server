@@ -2754,6 +2754,12 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/PublicSchoolResponse.html" data-type="entity-link" >PublicSchoolResponse</a>
                             </li>
                             <li class="link">
+                                <a href="classes/PublicSystemListResponse.html" data-type="entity-link" >PublicSystemListResponse</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/PublicSystemResponse.html" data-type="entity-link" >PublicSystemResponse</a>
+                            </li>
+                            <li class="link">
                                 <a href="classes/RedirectResponse.html" data-type="entity-link" >RedirectResponse</a>
                             </li>
                             <li class="link">
@@ -2991,13 +2997,7 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/SystemMapper.html" data-type="entity-link" >SystemMapper</a>
                             </li>
                             <li class="link">
-                                <a href="classes/SystemOauthResponse.html" data-type="entity-link" >SystemOauthResponse</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/SystemOauthResponseMapper.html" data-type="entity-link" >SystemOauthResponseMapper</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/SystemResponse.html" data-type="entity-link" >SystemResponse</a>
+                                <a href="classes/SystemResponseMapper.html" data-type="entity-link" >SystemResponseMapper</a>
                             </li>
                             <li class="link">
                                 <a href="classes/SystemScope.html" data-type="entity-link" >SystemScope</a>

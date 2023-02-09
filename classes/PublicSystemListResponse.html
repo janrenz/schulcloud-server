@@ -44,7 +44,7 @@
 
 <ol class="breadcrumb">
   <li>Classes</li>
-  <li >SystemOauthResponse</li>
+  <li >PublicSystemListResponse</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -62,7 +62,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/modules/system/controller/dto/system-oauth.response.ts</code>
+            <code>apps/server/src/modules/system/controller/dto/public-system-list.response.ts</code>
         </p>
 
 
@@ -104,12 +104,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(systemResponses: <a href="../classes/SystemResponse.html" target="_self">SystemResponse[]</a>)</code>
+<code>constructor(systemResponses: <a href="../classes/PublicSystemResponse.html" target="_self">PublicSystemResponse[]</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="4" class="link-to-prism">apps/server/src/modules/system/controller/dto/system-oauth.response.ts:4</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="6" class="link-to-prism">apps/server/src/modules/system/controller/dto/public-system-list.response.ts:6</a></div>
                             </td>
                         </tr>
 
@@ -130,7 +130,7 @@
                                                         <td>systemResponses</td>
                                                   
                                                         <td>
-                                                                        <code><a href="../classes/SystemResponse.html" target="_self" >SystemResponse[]</a></code>
+                                                                        <code><a href="../classes/PublicSystemResponse.html" target="_self" >PublicSystemResponse[]</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -165,13 +165,22 @@
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="../classes/SystemResponse.html" target="_self" >SystemResponse[]</a></code>
+                        <i>Type : </i>        <code><a href="../classes/PublicSystemResponse.html" target="_self" >PublicSystemResponse[]</a></code>
 
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ApiProperty({type: undefined})<br />
+                        </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="4" class="link-to-prism">apps/server/src/modules/system/controller/dto/system-oauth.response.ts:4</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="6" class="link-to-prism">apps/server/src/modules/system/controller/dto/public-system-list.response.ts:6</a></div>
                         </td>
                     </tr>
 
@@ -190,12 +199,14 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { SystemResponse } from &#x27;@src/modules/system/controller/dto/system.response&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ApiProperty } from &#x27;@nestjs/swagger&#x27;;
+import { PublicSystemResponse } from &#x27;./public-system-response&#x27;;
 
-export class SystemOauthResponse {
-	data: SystemResponse[];
+export class PublicSystemListResponse {
+	@ApiProperty({ type: [PublicSystemResponse] })
+	data: PublicSystemResponse[];
 
-	constructor(systemResponses: SystemResponse[]) {
+	constructor(systemResponses: PublicSystemResponse[]) {
 		this.data &#x3D; systemResponses;
 	}
 }
@@ -237,7 +248,7 @@ export class SystemOauthResponse {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
-            var COMPODOC_CURRENT_PAGE_URL = 'SystemOauthResponse.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'PublicSystemListResponse.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

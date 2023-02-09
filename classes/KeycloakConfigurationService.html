@@ -1089,14 +1089,14 @@ import AuthenticationFlowRepresentation from &#x27;@keycloak/keycloak-admin-clie
 import ClientRepresentation from &#x27;@keycloak/keycloak-admin-client/lib/defs/clientRepresentation&#x27;;
 import IdentityProviderMapperRepresentation from &#x27;@keycloak/keycloak-admin-client/lib/defs/identityProviderMapperRepresentation&#x27;;
 import IdentityProviderRepresentation from &#x27;@keycloak/keycloak-admin-client/lib/defs/identityProviderRepresentation&#x27;;
+import { HttpService } from &#x27;@nestjs/axios&#x27;;
 import { Inject } from &#x27;@nestjs/common&#x27;;
+import { ConfigService } from &#x27;@nestjs/config&#x27;;
 import { SystemTypeEnum } from &#x27;@shared/domain&#x27;;
 import { DefaultEncryptionService, IEncryptionService } from &#x27;@shared/infra/encryption&#x27;;
-import { SystemService } from &#x27;@src/modules/system/service/system.service&#x27;;
-import { SystemDto } from &#x27;@src/modules/system/service/dto/system.dto&#x27;;
-import { ConfigService } from &#x27;@nestjs/config&#x27;;
 import { IServerConfig } from &#x27;@src/modules/server/server.config&#x27;;
-import { HttpService } from &#x27;@nestjs/axios&#x27;;
+import { SystemDto } from &#x27;@src/modules/system/service/dto/system.dto&#x27;;
+import { SystemService } from &#x27;@src/modules/system/service/system.service&#x27;;
 import { lastValueFrom } from &#x27;rxjs&#x27;;
 import { IdentityProviderConfig, IKeycloakSettings, KeycloakSettings } from &#x27;../interface&#x27;;
 import { OidcIdentityProviderMapper } from &#x27;../mapper/identity-provider.mapper&#x27;;
@@ -1218,7 +1218,7 @@ export class KeycloakConfigurationService {
 		const generatedClientSecret &#x3D; await kc.clients.generateNewClientSecret({ id: defaultClientInternalId });
 
 		let keycloakSystem: SystemDto;
-		const systems &#x3D; await this.systemService.find(SystemTypeEnum.KEYCLOAK);
+		const systems &#x3D; await this.systemService.findAll(SystemTypeEnum.KEYCLOAK);
 		if (systems.length &#x3D;&#x3D;&#x3D; 0) {
 			keycloakSystem &#x3D; new SystemDto({ type: SystemTypeEnum.KEYCLOAK });
 		} else {

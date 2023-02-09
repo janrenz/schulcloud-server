@@ -80,7 +80,7 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Async</span>
-                                <a href="#find" >find</a>
+                                <a href="#findAll" >findAll</a>
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
@@ -191,18 +191,18 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="find"></a>
+                    <a name="findAll"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
-                        <span ><b>find</b></span>
-                        <a href="#find"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>findAll</b></span>
+                        <a href="#findAll"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>find(type: string | undefined)</code>
+                    <code>findAll(type: <a href="../entitys/System.html" target="_self">SystemType | undefined</a>)</code>
                 </td>
             </tr>
 
@@ -233,7 +233,7 @@
                                 <tr>
                                     <td>type</td>
                                     <td>
-                                            <code>string | undefined</code>
+                                                <code><a href="../entitys/System.html" target="_self" >SystemType | undefined</a></code>
                                     </td>
 
                                     <td>
@@ -759,7 +759,7 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
-import { EntityId, System, SystemTypeEnum } from &#x27;@shared/domain&#x27;;
+import { EntityId, System, SystemType, SystemTypeEnum } from &#x27;@shared/domain&#x27;;
 import { SystemRepo } from &#x27;@shared/repo&#x27;;
 import { SystemMapper } from &#x27;@src/modules/system/mapper/system.mapper&#x27;;
 import { SystemDto } from &#x27;@src/modules/system/service/dto/system.dto&#x27;;
@@ -768,7 +768,7 @@ import { SystemDto } from &#x27;@src/modules/system/service/dto/system.dto&#x27;
 export class SystemService {
 	constructor(private readonly systemRepo: SystemRepo) {}
 
-	async find(type: string | undefined): Promise&lt;SystemDto[]&gt; {
+	async findAll(type: SystemType | undefined): Promise&lt;SystemDto[]&gt; {
 		let systemEntities: System[];
 		if (!type) {
 			systemEntities &#x3D; await this.systemRepo.findAll();
