@@ -93,6 +93,10 @@
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
+                                <a href="#getSchoolExternalTool" >getSchoolExternalTool</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
                                 <a href="#getSchoolExternalTools" >getSchoolExternalTools</a>
                             </li>
                         </ul>
@@ -141,8 +145,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="76"
-                            class="link-to-prism">apps/server/src/modules/tool/controller/tool-school.controller.ts:76</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="92"
+                            class="link-to-prism">apps/server/src/modules/tool/controller/tool-school.controller.ts:92</a></div>
                 </td>
             </tr>
 
@@ -231,6 +235,96 @@
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="73"
+                            class="link-to-prism">apps/server/src/modules/tool/controller/tool-school.controller.ts:73</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>currentUser</td>
+                                    <td>
+                                                <code><a href="../interfaces/ICurrentUser.html" target="_self" >ICurrentUser</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>params</td>
+                                    <td>
+                                                <code><a href="../classes/SchoolExternalToolIdParams.html" target="_self" >SchoolExternalToolIdParams</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getSchoolExternalTool"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>getSchoolExternalTool</b></span>
+                        <a href="#getSchoolExternalTool"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getSchoolExternalTool(currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>, params: <a href="../classes/SchoolExternalToolIdParams.html" target="_self">SchoolExternalToolIdParams</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Get(&#x27;:schoolExternalToolId&#x27;)<br />@ApiForbiddenResponse()<br />@ApiUnauthorizedResponse()<br /></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
                     <div class="io-line">Defined in <a href="" data-line="57"
                             class="link-to-prism">apps/server/src/modules/tool/controller/tool-school.controller.ts:57</a></div>
                 </td>
@@ -282,7 +376,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
+                        <b>Returns : </b>    <code>Promise&lt;SchoolExternalToolResponse&gt;</code>
 
                     </div>
                     <div class="io-description">
@@ -437,6 +531,22 @@ export class ToolSchoolController {
 		});
 		const response: SchoolExternalToolSearchListResponse &#x3D; this.responseMapper.mapToSearchListResponse(found);
 		return response;
+	}
+
+	@Get(&#x27;:schoolExternalToolId&#x27;)
+	@ApiForbiddenResponse()
+	@ApiUnauthorizedResponse()
+	async getSchoolExternalTool(
+		@CurrentUser() currentUser: ICurrentUser,
+		@Param() params: SchoolExternalToolIdParams
+	): Promise&lt;SchoolExternalToolResponse&gt; {
+		const schoolExternalToolDO: SchoolExternalToolDO &#x3D; await this.schoolExternalToolUc.getSchoolExternalTool(
+			currentUser.userId,
+			params.schoolExternalToolId
+		);
+		const mapped: SchoolExternalToolResponse &#x3D;
+			this.responseMapper.mapToSchoolExternalToolResponse(schoolExternalToolDO);
+		return mapped;
 	}
 
 	@Delete(&#x27;:schoolExternalToolId&#x27;)
