@@ -109,7 +109,7 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(authenticationService: <a href="../injectables/AuthenticationService.html" target="_self">AuthenticationService</a>, idmOauthService: <a href="../classes/IdentityManagementOauthService.html" target="_self">IdentityManagementOauthService</a>, configService: ConfigService, userRepo: <a href="../injectables/UserRepo.html" target="_self">UserRepo</a>)</code>
+<code>constructor(authenticationService: <a href="../injectables/AuthenticationService.html" target="_self">AuthenticationService</a>, idmOauthService: <a href="../classes/IdentityManagementOauthService.html" target="_self">IdentityManagementOauthService</a>, configService: <a href="../interfaces/IIdentityManagementConfig.html" target="_self">ConfigService&lt;IIdentityManagementConfig | &gt;</a>, userRepo: <a href="../injectables/UserRepo.html" target="_self">UserRepo</a>)</code>
                     </td>
                 </tr>
                         <tr>
@@ -159,7 +159,7 @@
                                                         <td>configService</td>
                                                   
                                                         <td>
-                                                                    <code>ConfigService</code>
+                                                                        <code><a href="../interfaces/IIdentityManagementConfig.html" target="_self" >ConfigService&lt;IIdentityManagementConfig | &gt;</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -471,7 +471,7 @@ import { ICurrentUser } from &#x27;@shared/domain&#x27;;
 import { CurrentUserMapper } from &#x27;@shared/domain/mapper/current-user.mapper&#x27;;
 import { AccountDto } from &#x27;@src/modules/account/services/dto&#x27;;
 import { GuardAgainst } from &#x27;@shared/common/utils/guard-against&#x27;;
-import { IdentityManagementOauthService } from &#x27;@shared/infra/identity-management&#x27;;
+import { IdentityManagementOauthService, IIdentityManagementConfig } from &#x27;@shared/infra/identity-management&#x27;;
 import { AuthenticationService } from &#x27;../services/authentication.service&#x27;;
 
 @Injectable()
@@ -479,7 +479,7 @@ export class LocalStrategy extends PassportStrategy(Strategy) {
 	constructor(
 		private readonly authenticationService: AuthenticationService,
 		private readonly idmOauthService: IdentityManagementOauthService,
-		private readonly configService: ConfigService,
+		private readonly configService: ConfigService&lt;IIdentityManagementConfig, true&gt;,
 		private readonly userRepo: UserRepo
 	) {
 		super();
@@ -490,7 +490,7 @@ export class LocalStrategy extends PassportStrategy(Strategy) {
 		const account &#x3D; await this.authenticationService.loadAccount(username);
 		const accountPassword &#x3D; GuardAgainst.nullOrUndefined(account.password, new UnauthorizedException());
 
-		if (this.configService.get&lt;boolean&gt;(&#x27;FEATURE_IDENTITY_MANAGEMENT_LOGIN_ENABLED&#x27;)) {
+		if (this.configService.get(&#x27;FEATURE_IDENTITY_MANAGEMENT_LOGIN_ENABLED&#x27;)) {
 			const jwt &#x3D; await this.idmOauthService.resourceOwnerPasswordGrant(username, password);
 			GuardAgainst.nullOrUndefined(jwt, new UnauthorizedException());
 		} else {
