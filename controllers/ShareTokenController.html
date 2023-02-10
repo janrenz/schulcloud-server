@@ -488,7 +488,12 @@ export class ShareTokenController {
 		@Param() urlParams: ShareTokenUrlParams,
 		@Body() body: ShareTokenImportBodyParams
 	): Promise&lt;CopyApiResponse&gt; {
-		const copyStatus &#x3D; await this.shareTokenUC.importShareToken(currentUser.userId, urlParams.token, body.newName);
+		const copyStatus &#x3D; await this.shareTokenUC.importShareToken(
+			currentUser.userId,
+			urlParams.token,
+			body.newName,
+			body.destinationCourseId
+		);
 
 		const response &#x3D; CopyMapper.mapToResponse(copyStatus);
 
