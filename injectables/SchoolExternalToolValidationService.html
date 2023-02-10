@@ -194,8 +194,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="47"
-                            class="link-to-prism">apps/server/src/modules/tool/service/validation/school-external-tool-validation.service.ts:47</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="53"
+                            class="link-to-prism">apps/server/src/modules/tool/service/validation/school-external-tool-validation.service.ts:53</a></div>
                 </td>
             </tr>
 
@@ -270,7 +270,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>checkForDuplicateParameters(parameters: <a href="../undefineds/CustomParameter.html" target="_self">CustomParameterEntryDO[]</a>)</code>
+                    <code>checkForDuplicateParameters(schoolExternalToolDO: <a href="../classes/SchoolExternalToolDO.html" target="_self">SchoolExternalToolDO</a>)</code>
                 </td>
             </tr>
 
@@ -299,9 +299,9 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>parameters</td>
+                                    <td>schoolExternalToolDO</td>
                                     <td>
-                                                <code><a href="../miscellaneous/typealiases.html#CustomParameter" target="_self" >CustomParameterEntryDO[]</a></code>
+                                                <code><a href="../classes/SchoolExternalToolDO.html" target="_self" >SchoolExternalToolDO</a></code>
                                     </td>
 
                                     <td>
@@ -348,8 +348,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="66"
-                            class="link-to-prism">apps/server/src/modules/tool/service/validation/school-external-tool-validation.service.ts:66</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="72"
+                            class="link-to-prism">apps/server/src/modules/tool/service/validation/school-external-tool-validation.service.ts:72</a></div>
                 </td>
             </tr>
 
@@ -431,8 +431,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="80"
-                            class="link-to-prism">apps/server/src/modules/tool/service/validation/school-external-tool-validation.service.ts:80</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="88"
+                            class="link-to-prism">apps/server/src/modules/tool/service/validation/school-external-tool-validation.service.ts:88</a></div>
                 </td>
             </tr>
 
@@ -514,8 +514,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="74"
-                            class="link-to-prism">apps/server/src/modules/tool/service/validation/school-external-tool-validation.service.ts:74</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="80"
+                            class="link-to-prism">apps/server/src/modules/tool/service/validation/school-external-tool-validation.service.ts:80</a></div>
                 </td>
             </tr>
 
@@ -597,8 +597,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="39"
-                            class="link-to-prism">apps/server/src/modules/tool/service/validation/school-external-tool-validation.service.ts:39</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="45"
+                            class="link-to-prism">apps/server/src/modules/tool/service/validation/school-external-tool-validation.service.ts:45</a></div>
                 </td>
             </tr>
 
@@ -757,7 +757,7 @@ export class SchoolExternalToolValidationService {
 	constructor(private readonly externalToolService: ExternalToolService) {}
 
 	async validateCreate(schoolExternalToolDO: SchoolExternalToolDO): Promise&lt;void&gt; {
-		this.checkForDuplicateParameters(schoolExternalToolDO.parameters);
+		this.checkForDuplicateParameters(schoolExternalToolDO);
 		const loadedExternalTool: ExternalToolDO &#x3D; await this.externalToolService.findExternalToolById(
 			schoolExternalToolDO.toolId
 		);
@@ -765,18 +765,24 @@ export class SchoolExternalToolValidationService {
 		this.checkCustomParameterEntries(loadedExternalTool, schoolExternalToolDO);
 	}
 
-	private checkForDuplicateParameters(parameters: CustomParameterEntryDO[]): void {
-		const caseInsensitiveNames &#x3D; parameters.map(({ name }: CustomParameterEntryDO) &#x3D;&gt; name.toLowerCase());
+	private checkForDuplicateParameters(schoolExternalToolDO: SchoolExternalToolDO): void {
+		const caseInsensitiveNames &#x3D; schoolExternalToolDO.parameters.map(({ name }: CustomParameterEntryDO) &#x3D;&gt;
+			name.toLowerCase()
+		);
 		const uniqueNames &#x3D; new Set(caseInsensitiveNames);
-		if (!(uniqueNames.size &#x3D;&#x3D;&#x3D; parameters.length)) {
-			throw new ValidationError(&#x27;The given schoolExternalTool has one or more duplicates in its parameters.&#x27;);
+		if (!(uniqueNames.size &#x3D;&#x3D;&#x3D; schoolExternalToolDO.parameters.length)) {
+			throw new ValidationError(
+				&#x60;tool_param_duplicate: The tool ${
+					schoolExternalToolDO.name || &#x27;&#x27;
+				} contains multiple of the same custom parameters.&#x60;
+			);
 		}
 	}
 
 	private checkVersionMatch(schoolExternalToolVersion: number, externalToolVersion: number): void {
 		if (!(schoolExternalToolVersion &#x3D;&#x3D;&#x3D; externalToolVersion)) {
 			throw new ValidationError(
-				&#x60;The version ${schoolExternalToolVersion} of given schoolExternalTool does not match the externalTool version ${externalToolVersion}.&#x60;
+				&#x60;tool_version_mismatch: The version ${schoolExternalToolVersion} of given schoolExternalTool does not match the externalTool version ${externalToolVersion}.&#x60;
 			);
 		}
 	}
@@ -801,16 +807,18 @@ export class SchoolExternalToolValidationService {
 	}
 
 	private checkOptionalParameter(param: CustomParameterDO, foundEntry: CustomParameterEntryDO | undefined): void {
-		if (!foundEntry &amp;&amp; !param.isOptional) {
+		if (!foundEntry?.value &amp;&amp; !param.isOptional) {
 			throw new ValidationError(
-				&#x60;The parameter with name ${param.name} is required but not found in the schoolExternalTool.&#x60;
+				&#x60;tool_param_required: The parameter with name ${param.name} is required but not found in the schoolExternalTool.&#x60;
 			);
 		}
 	}
 
 	private checkParameterType(foundEntry: CustomParameterEntryDO, param: CustomParameterDO): void {
 		if (foundEntry.value &amp;&amp; !typeCheckers[param.type](foundEntry.value)) {
-			throw new ValidationError(&#x60;The value of parameter with name ${foundEntry.name} should be of type ${param.type}.&#x60;);
+			throw new ValidationError(
+				&#x60;tool_param_type_mismatch: The value of parameter with name ${foundEntry.name} should be of type ${param.type}.&#x60;
+			);
 		}
 	}
 
@@ -818,7 +826,7 @@ export class SchoolExternalToolValidationService {
 		if (!param.regex) return;
 		if (!new RegExp(param.regex).test(foundEntry.value ?? &#x27;&#x27;))
 			throw new ValidationError(
-				&#x60;The given entry for the parameter with name ${foundEntry.name} does not fit the regex.&#x60;
+				&#x60;tool_param_value_regex: The given entry for the parameter with name ${foundEntry.name} does not fit the regex.&#x60;
 			);
 	}
 }
