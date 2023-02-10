@@ -792,7 +792,7 @@ export class ToolController {
 		const externalToolDO: CreateExternalTool &#x3D; this.externalToolDOMapper.mapCreateRequest(externalToolParams);
 		const created: ExternalToolDO &#x3D; await this.externalToolUc.createExternalTool(currentUser.userId, externalToolDO);
 		const mapped: ExternalToolResponse &#x3D; this.externalResponseMapper.mapToResponse(created);
-		this.logger.debug(&#x60;ExternaTool with id ${mapped.id} was created by user with id ${currentUser.userId}&#x60;);
+		this.logger.debug(&#x60;ExternalTool with id ${mapped.id} was created by user with id ${currentUser.userId}&#x60;);
 		return mapped;
 	}
 
@@ -851,14 +851,14 @@ export class ToolController {
 			externalTool
 		);
 		const mapped: ExternalToolResponse &#x3D; this.externalResponseMapper.mapToResponse(updated);
-		this.logger.debug(&#x60;ExternaTool with id ${mapped.id} was updated by user with id ${currentUser.userId}&#x60;);
+		this.logger.debug(&#x60;ExternalTool with id ${mapped.id} was updated by user with id ${currentUser.userId}&#x60;);
 		return mapped;
 	}
 
 	@Delete(&#x27;:toolId&#x27;)
 	async deleteExternalTool(@CurrentUser() currentUser: ICurrentUser, @Param() params: ToolIdParams): Promise&lt;void&gt; {
 		const promise: Promise&lt;void&gt; &#x3D; this.externalToolUc.deleteExternalTool(currentUser.userId, params.toolId);
-		this.logger.debug(&#x60;ExternaTool with id ${params.toolId} was deleted by user with id ${currentUser.userId}&#x60;);
+		this.logger.debug(&#x60;ExternalTool with id ${params.toolId} was deleted by user with id ${currentUser.userId}&#x60;);
 		return promise;
 	}
 }

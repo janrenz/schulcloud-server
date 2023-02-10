@@ -84,7 +84,7 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Optional</span>
-                                <a href="#default" >default</a>
+                                <a href="#defaultValue" >defaultValue</a>
                             </li>
                             <li>
                                 <a href="#isOptional" >isOptional</a>
@@ -132,11 +132,11 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="default"></a>
+                    <a name="defaultValue"></a>
                     <span class="name">
                             <span class="modifier">Optional</span>
-                        <span ><b>default</b></span>
-                        <a href="#default"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>defaultValue</b></span>
+                        <a href="#defaultValue"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
@@ -439,7 +439,7 @@ export class CustomParameterPostParams {
 	@IsString()
 	@IsOptional()
 	@ApiPropertyOptional()
-	default?: string;
+	defaultValue?: string;
 
 	@IsString()
 	@IsOptional()
