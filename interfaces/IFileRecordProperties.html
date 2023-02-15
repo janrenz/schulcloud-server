@@ -465,7 +465,7 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Embeddable, Embedded, Entity, Enum, Index, Property } from &#x27;@mikro-orm/core&#x27;;
 import { ObjectId } from &#x27;@mikro-orm/mongodb&#x27;;
 import { BadRequestException } from &#x27;@nestjs/common&#x27;;
-import { BaseEntity, type EntityId } from &#x27;@shared/domain&#x27;;
+import { BaseEntityWithTimestamps, type EntityId } from &#x27;@shared/domain&#x27;;
 import { v4 as uuid } from &#x27;uuid&#x27;;
 import { ErrorType } from &#x27;../error&#x27;;
 
@@ -548,12 +548,7 @@ interface IParentInfo {
 @Index({ properties: [&#x27;_schoolId&#x27;, &#x27;_parentId&#x27;], options: { background: true } })
 // https://github.com/mikro-orm/mikro-orm/issues/1230
 @Index({ options: { &#x27;securityCheck.requestToken&#x27;: 1 } })
-// Temporary functionality for migration to new fileservice
-// TODO: Adjust when BC-1496 is done!
-// FileRecord must inherit from BaseEntity and we have to take care of the timestamps manually.
-// This is necessary while the syncing of files and filerecords goes on,
-// because with BaseEntityWithTimestamps it is not possible to override the updatedAt hook.
-export class FileRecord extends BaseEntity {
+export class FileRecord extends BaseEntityWithTimestamps {
 	@Index({ options: { expireAfterSeconds: 7 * 24 * 60 * 60 } })
 	@Property({ nullable: true })
 	deletedSince?: Date;
@@ -605,14 +600,6 @@ export class FileRecord extends BaseEntity {
 	get schoolId(): EntityId {
 		return this._schoolId.toHexString();
 	}
-
-	// Temporary functionality for migration to new fileservice
-	// TODO: Remove when BC-1496 is done!
-	@Property()
-	createdAt &#x3D; new Date();
-
-	@Property()
-	updatedAt &#x3D; new Date();
 
 	constructor(props: IFileRecordProperties) {
 		super();
