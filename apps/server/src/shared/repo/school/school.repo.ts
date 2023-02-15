@@ -1,11 +1,12 @@
 import { Injectable } from '@nestjs/common';
-import { ISchoolProperties, School } from '@shared/domain';
+import { ISchoolProperties, School, SchoolYear } from '@shared/domain';
 import { EntityName } from '@mikro-orm/core';
 import { SchoolMapper } from '@src/modules/school/mapper/school.mapper';
 import { EntityManager } from '@mikro-orm/mongodb';
 import { BaseDORepo } from '../base.do.repo';
 import { SchoolDO } from '../../domain/domainobject/school.do';
 import { Logger } from '../../../core/logger';
+import { FederalState } from '@shared/domain/entity/federalState.entity';
 
 @Injectable()
 export class SchoolRepo extends BaseDORepo<SchoolDO, School, ISchoolProperties> {
@@ -45,5 +46,13 @@ export class SchoolRepo extends BaseDORepo<SchoolDO, School, ISchoolProperties> 
 
 	protected mapEntityToDO(entity: School): SchoolDO {
 		return this.schoolMapper.mapEntityToDO(entity);
+	}
+	
+	async getSchoolYearByDate(date: Date): Promise<SchoolYear>{
+		
+	}
+	
+	async findByAbbreviation(abbreviation: string): Promise<FederalState>{
+		
 	}
 }

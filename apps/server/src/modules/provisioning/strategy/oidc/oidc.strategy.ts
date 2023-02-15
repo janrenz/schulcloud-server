@@ -14,7 +14,7 @@ export abstract class OidcProvisioningStrategy extends ProvisioningStrategy {
 	override async apply(data: OauthDataDto): Promise<ProvisioningDto> {
 		let school: SchoolDO | undefined;
 		if (data.externalSchool) {
-			school = await this.oidcProvisioningService.provisionExternalSchool(data.externalSchool, data.system.systemId);
+			school = await this.oidcProvisioningService.provisionExternalSchool(data.externalSchool, data.system);
 		}
 
 		const user: UserDO = await this.oidcProvisioningService.provisionExternalUser(

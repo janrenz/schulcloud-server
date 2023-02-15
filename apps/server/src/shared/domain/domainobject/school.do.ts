@@ -1,4 +1,5 @@
 import { SchoolFeatures, SchoolYear } from '../entity';
+import { FederalState } from '../entity/federalState.entity';
 import { BaseDO } from './base.do';
 
 export class SchoolDO extends BaseDO {
@@ -23,6 +24,8 @@ export class SchoolDO extends BaseDO {
 	features?: SchoolFeatures[];
 
 	schoolYear?: SchoolYear;
+	
+	federalState?: FederalState;
 
 	constructor(params: SchoolDO) {
 		super();
@@ -38,5 +41,6 @@ export class SchoolDO extends BaseDO {
 		this.officialSchoolNumber = params.officialSchoolNumber;
 		this.schoolYear = params.schoolYear;
 		this.systems = params.systems;
+		this.federalState = params.federalState;
 	}
 }

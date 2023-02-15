@@ -9,7 +9,7 @@ import { RoleDto } from '@src/modules/role/service/dto/role.dto';
 import { SchoolService } from '@src/modules/school';
 import { UserService } from '@src/modules/user';
 import CryptoJS from 'crypto-js';
-import { ExternalSchoolDto, ExternalUserDto } from '../../../dto';
+import { ExternalSchoolDto, ExternalUserDto, ProvisioningSystemDto } from '../../../dto';
 
 @Injectable()
 export class OidcProvisioningService {
@@ -20,10 +20,10 @@ export class OidcProvisioningService {
 		private readonly accountUc: AccountUc
 	) {}
 
-	async provisionExternalSchool(externalSchool: ExternalSchoolDto, systemId: EntityId): Promise<SchoolDO> {
+	async provisionExternalSchool(externalSchool: ExternalSchoolDto, system: ProvisioningSystemDto): Promise<SchoolDO> {
 		const existingSchool: SchoolDO | null = await this.schoolService.getSchoolByExternalId(
 			externalSchool.externalId,
-			systemId
+			system.systemId
 		);
 		let school: SchoolDO;
 		if (existingSchool) {
@@ -31,17 +31,22 @@ export class OidcProvisioningService {
 			school.name = externalSchool.name;
 			school.officialSchoolNumber = externalSchool.officialSchoolNumber ?? existingSchool.officialSchoolNumber;
 			if (!school.systems) {
-				school.systems = [systemId];
-			} else if (!school.systems.includes(systemId)) {
-				school.systems.push(systemId);
+				school.systems = [system.systemId];
+			} else if (!school.systems.includes(system.systemId)) {
+				school.systems.push(system.systemId);
 			}
 		} else {
 			school = new SchoolDO({
 				externalId: externalSchool.externalId,
 				name: externalSchool.name,
 				officialSchoolNumber: externalSchool.officialSchoolNumber,
-				systems: [systemId],
+				systems: [system.systemId],
+				features: [],
+				schoolYear: await this.schoolService.getSchoolYearByDate(Date.now()),
 			});
+			if (system.provisioningStrategy == 'sanis') {
+				school.federalState = await this.schoolService.getFederalStateByAbbreviation('NI')
+			}
 		}
 
 		const savedSchool: SchoolDO = await this.schoolService.createOrUpdateSchool(school);

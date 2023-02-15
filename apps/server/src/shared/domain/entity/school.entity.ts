@@ -1,5 +1,6 @@
 import { Collection, Embeddable, Embedded, Entity, Index, ManyToMany, ManyToOne, Property } from '@mikro-orm/core';
 import { BaseEntity } from './base.entity';
+import { FederalState } from './federalState.entity';
 import { SchoolYear } from './schoolyear.entity';
 import { System } from './system.entity';
 
@@ -27,6 +28,7 @@ export interface ISchoolProperties {
 	systems?: System[];
 	features?: SchoolFeatures[];
 	schoolYear?: SchoolYear;
+	federalState? : FederalState;
 }
 
 @Embeddable()
@@ -85,6 +87,9 @@ export class School extends BaseEntity {
 
 	@ManyToOne('SchoolYear', { fieldName: 'currentYear', nullable: true })
 	schoolYear?: SchoolYear;
+	
+	@ManyToOne('FederalState', {fieldName: 'federalState', nullable: true})
+	federalState?: FederalState;
 
 	constructor(props: ISchoolProperties) {
 		super();
@@ -112,6 +117,9 @@ export class School extends BaseEntity {
 		}
 		if (props.schoolYear) {
 			this.schoolYear = props.schoolYear;
+		}
+		if (props.federalState) {
+			this.federalState = props.federalState;
 		}
 	}
 }

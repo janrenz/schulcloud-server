@@ -1,9 +1,10 @@
 import { SchoolRepo } from '@shared/repo';
 import { SchoolDO } from '@shared/domain/domainobject/school.do';
-import { EntityId, SchoolFeatures } from '@shared/domain';
+import { EntityId, SchoolFeatures, SchoolYear } from '@shared/domain';
 import { Injectable } from '@nestjs/common';
 import { isDefined } from 'class-validator';
 import { OauthMigrationDto } from '../dto/oauth-migration.dto';
+import { FederalState } from '@shared/domain/entity/federalState.entity';
 
 @Injectable()
 export class SchoolService {
@@ -88,6 +89,16 @@ export class SchoolService {
 	async getSchoolBySchoolNumber(schoolNumber: string): Promise<SchoolDO | null> {
 		const schoolDO: SchoolDO | null = await this.schoolRepo.findBySchoolNumber(schoolNumber);
 		return schoolDO;
+	}
+
+	async getSchoolYearByDate(date: Date): Promise<SchoolYear> {
+		const schoolYear = await this.schoolRepo.findByDate(date)
+		return schoolYear
+	}
+
+	async getFederalStateByAbbreviation(abbreviation: string): Promise<FederalState> {
+		const federalState = await this.schoolRepo.findByAbbreviation(abbreviation)
+		return federalState
 	}
 
 	async save(school: SchoolDO): Promise<SchoolDO> {

@@ -17,6 +17,7 @@ export class SchoolMapper {
 			oauthMigrationFinished: entityDO.oauthMigrationFinished,
 			officialSchoolNumber: entityDO.officialSchoolNumber,
 			schoolYear: entityDO.schoolYear,
+			federalState: entityDO.federalState,
 			systems: entityDO.systems
 				? entityDO.systems.map((systemId: string) => Reference.createFromPK(System, systemId))
 				: [],
@@ -36,6 +37,7 @@ export class SchoolMapper {
 			oauthMigrationFinished: entity.oauthMigrationFinished,
 			officialSchoolNumber: entity.officialSchoolNumber,
 			schoolYear: entity.schoolYear,
+			federalState: entity.federalState,
 			systems: entity.systems.isInitialized() ? entity.systems.getItems().map((system: System) => system.id) : [],
 		});
 	}
