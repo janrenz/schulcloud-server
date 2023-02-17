@@ -146,6 +146,10 @@
                                 <a href="#preferences" >preferences</a>
                             </li>
                             <li>
+                                    <span class="modifier">Optional</span>
+                                <a href="#previousExternalId" >previousExternalId</a>
+                            </li>
+                            <li>
                                 <a href="#roleIds" >roleIds</a>
                             </li>
                             <li>
@@ -183,7 +187,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">apps/server/src/shared/domain/domainobject/user.do.ts:40</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">apps/server/src/shared/domain/domainobject/user.do.ts:42</a></div>
                             </td>
                         </tr>
 
@@ -632,6 +636,33 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="previousExternalId"></a>
+                    <span class="name">
+                            <span class="modifier">Optional</span>
+                        <span ><b>previousExternalId</b></span>
+                        <a href="#previousExternalId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">apps/server/src/shared/domain/domainobject/user.do.ts:42</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="roleIds"></a>
                     <span class="name">
                         <span ><b>roleIds</b></span>
@@ -794,6 +825,8 @@ export class UserDO extends BaseDO {
 
 	outdatedSince?: Date;
 
+	previousExternalId?: string;
+
 	constructor(domainObject: UserDO) {
 		super(domainObject.id);
 
@@ -815,6 +848,7 @@ export class UserDO extends BaseDO {
 		this.preferences &#x3D; domainObject.preferences;
 		this.lastLoginSystemChange &#x3D; domainObject.lastLoginSystemChange;
 		this.outdatedSince &#x3D; domainObject.outdatedSince;
+		this.previousExternalId &#x3D; domainObject.previousExternalId;
 	}
 }
 </code></pre>
