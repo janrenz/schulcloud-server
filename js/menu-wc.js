@@ -755,13 +755,19 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/LearnroomModule.html" data-type="entity-link" >LearnroomModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#controllers-links-module-LearnroomModule-b8fe1e5b140d5779577fd9f6ff11474033614124e65a22d458bde485390c0b1e36e12e4b54f2ee8ddee11162ed0b0d6d9d86f5186384f0abceac491250bffbaf"' : 'data-target="#xs-controllers-links-module-LearnroomModule-b8fe1e5b140d5779577fd9f6ff11474033614124e65a22d458bde485390c0b1e36e12e4b54f2ee8ddee11162ed0b0d6d9d86f5186384f0abceac491250bffbaf"' }>
+                                            'data-target="#controllers-links-module-LearnroomModule-6c163a7decf0d6165f3349a6372899ddf41fd570d659ea29d8599d425ef08c9fd4583e500474995565655402260d692d077551a10b401fe087a08d0ac22a5114"' : 'data-target="#xs-controllers-links-module-LearnroomModule-6c163a7decf0d6165f3349a6372899ddf41fd570d659ea29d8599d425ef08c9fd4583e500474995565655402260d692d077551a10b401fe087a08d0ac22a5114"' }>
                                             <span class="icon ion-md-swap"></span>
                                             <span>Controllers</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="controllers-links-module-LearnroomModule-b8fe1e5b140d5779577fd9f6ff11474033614124e65a22d458bde485390c0b1e36e12e4b54f2ee8ddee11162ed0b0d6d9d86f5186384f0abceac491250bffbaf"' :
-                                            'id="xs-controllers-links-module-LearnroomModule-b8fe1e5b140d5779577fd9f6ff11474033614124e65a22d458bde485390c0b1e36e12e4b54f2ee8ddee11162ed0b0d6d9d86f5186384f0abceac491250bffbaf"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="controllers-links-module-LearnroomModule-6c163a7decf0d6165f3349a6372899ddf41fd570d659ea29d8599d425ef08c9fd4583e500474995565655402260d692d077551a10b401fe087a08d0ac22a5114"' :
+                                            'id="xs-controllers-links-module-LearnroomModule-6c163a7decf0d6165f3349a6372899ddf41fd570d659ea29d8599d425ef08c9fd4583e500474995565655402260d692d077551a10b401fe087a08d0ac22a5114"' }>
+                                            <li class="link">
+                                                <a href="controllers/BoardController.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >BoardController</a>
+                                            </li>
+                                            <li class="link">
+                                                <a href="controllers/CardsController.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >CardsController</a>
+                                            </li>
                                             <li class="link">
                                                 <a href="controllers/CourseController.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >CourseController</a>
                                             </li>
@@ -775,13 +781,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                     </li>
                                 <li class="chapter inner">
                                     <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                        'data-target="#injectables-links-module-LearnroomModule-b8fe1e5b140d5779577fd9f6ff11474033614124e65a22d458bde485390c0b1e36e12e4b54f2ee8ddee11162ed0b0d6d9d86f5186384f0abceac491250bffbaf"' : 'data-target="#xs-injectables-links-module-LearnroomModule-b8fe1e5b140d5779577fd9f6ff11474033614124e65a22d458bde485390c0b1e36e12e4b54f2ee8ddee11162ed0b0d6d9d86f5186384f0abceac491250bffbaf"' }>
+                                        'data-target="#injectables-links-module-LearnroomModule-6c163a7decf0d6165f3349a6372899ddf41fd570d659ea29d8599d425ef08c9fd4583e500474995565655402260d692d077551a10b401fe087a08d0ac22a5114"' : 'data-target="#xs-injectables-links-module-LearnroomModule-6c163a7decf0d6165f3349a6372899ddf41fd570d659ea29d8599d425ef08c9fd4583e500474995565655402260d692d077551a10b401fe087a08d0ac22a5114"' }>
                                         <span class="icon ion-md-arrow-round-down"></span>
                                         <span>Injectables</span>
                                         <span class="icon ion-ios-arrow-down"></span>
                                     </div>
-                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-LearnroomModule-b8fe1e5b140d5779577fd9f6ff11474033614124e65a22d458bde485390c0b1e36e12e4b54f2ee8ddee11162ed0b0d6d9d86f5186384f0abceac491250bffbaf"' :
-                                        'id="xs-injectables-links-module-LearnroomModule-b8fe1e5b140d5779577fd9f6ff11474033614124e65a22d458bde485390c0b1e36e12e4b54f2ee8ddee11162ed0b0d6d9d86f5186384f0abceac491250bffbaf"' }>
+                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-LearnroomModule-6c163a7decf0d6165f3349a6372899ddf41fd570d659ea29d8599d425ef08c9fd4583e500474995565655402260d692d077551a10b401fe087a08d0ac22a5114"' :
+                                        'id="xs-injectables-links-module-LearnroomModule-6c163a7decf0d6165f3349a6372899ddf41fd570d659ea29d8599d425ef08c9fd4583e500474995565655402260d692d077551a10b401fe087a08d0ac22a5114"' }>
                                         <li class="link">
                                             <a href="injectables/AuthorisationUtils.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >AuthorisationUtils</a>
                                         </li>
@@ -2082,6 +2088,15 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/BBBJoinConfigBuilder.html" data-type="entity-link" >BBBJoinConfigBuilder</a>
                             </li>
                             <li class="link">
+                                <a href="classes/BoardCardUrlParams.html" data-type="entity-link" >BoardCardUrlParams</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/BoardColumnResponse.html" data-type="entity-link" >BoardColumnResponse</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/BoardColumnUrlParams.html" data-type="entity-link" >BoardColumnUrlParams</a>
+                            </li>
+                            <li class="link">
                                 <a href="classes/BoardElementResponse.html" data-type="entity-link" >BoardElementResponse</a>
                             </li>
                             <li class="link">
@@ -2091,6 +2106,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/BoardResponse.html" data-type="entity-link" >BoardResponse</a>
                             </li>
                             <li class="link">
+                                <a href="classes/BoardSkeletonCardReponse.html" data-type="entity-link" >BoardSkeletonCardReponse</a>
+                            </li>
+                            <li class="link">
                                 <a href="classes/BoardTaskResponse.html" data-type="entity-link" >BoardTaskResponse</a>
                             </li>
                             <li class="link">
@@ -2098,6 +2116,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="classes/BoardTaskStatusResponse.html" data-type="entity-link" >BoardTaskStatusResponse</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/BoardUrlParams.html" data-type="entity-link" >BoardUrlParams</a>
                             </li>
                             <li class="link">
                                 <a href="classes/BruteForceError.html" data-type="entity-link" >BruteForceError</a>
@@ -2119,6 +2140,15 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="classes/CardElementResponse.html" data-type="entity-link" >CardElementResponse</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/CardIdsParams.html" data-type="entity-link" >CardIdsParams</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/CardListResponse.html" data-type="entity-link" >CardListResponse</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/CardResponse.html" data-type="entity-link" >CardResponse</a>
                             </li>
                             <li class="link">
                                 <a href="classes/CardRichTextElementResponse.html" data-type="entity-link" >CardRichTextElementResponse</a>
@@ -2164,6 +2194,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="classes/ConsentSessionResponse.html" data-type="entity-link" >ConsentSessionResponse</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/ContentElementResponse.html" data-type="entity-link" >ContentElementResponse</a>
                             </li>
                             <li class="link">
                                 <a href="classes/CookiesDto.html" data-type="entity-link" >CookiesDto</a>
@@ -2562,6 +2595,12 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/MongoPatterns.html" data-type="entity-link" >MongoPatterns</a>
                             </li>
                             <li class="link">
+                                <a href="classes/MoveCardBodyParams.html" data-type="entity-link" >MoveCardBodyParams</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/MoveColumnBodyParams.html" data-type="entity-link" >MoveColumnBodyParams</a>
+                            </li>
+                            <li class="link">
                                 <a href="classes/MoveElementParams.html" data-type="entity-link" >MoveElementParams</a>
                             </li>
                             <li class="link">
@@ -2710,6 +2749,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="classes/RedirectResponse.html" data-type="entity-link" >RedirectResponse</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/RenameBodyParams.html" data-type="entity-link" >RenameBodyParams</a>
                             </li>
                             <li class="link">
                                 <a href="classes/RenameFileParams.html" data-type="entity-link" >RenameFileParams</a>
@@ -2863,6 +2905,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="classes/ShareTokenUrlParams.html" data-type="entity-link" >ShareTokenUrlParams</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/SingleColumnBoardResponse.html" data-type="entity-link" >SingleColumnBoardResponse</a>
                             </li>
                             <li class="link">
                                 <a href="classes/SingleFileParams.html" data-type="entity-link" >SingleFileParams</a>
@@ -3021,6 +3066,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/TestBootstrapConsole.html" data-type="entity-link" >TestBootstrapConsole</a>
                             </li>
                             <li class="link">
+                                <a href="classes/TimestampsResponse.html" data-type="entity-link" >TimestampsResponse</a>
+                            </li>
+                            <li class="link">
                                 <a href="classes/TitleCardElementParam.html" data-type="entity-link" >TitleCardElementParam</a>
                             </li>
                             <li class="link">
@@ -3121,6 +3169,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="classes/VideoConferenceOptionsDO.html" data-type="entity-link" >VideoConferenceOptionsDO</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/VisibilitySettingsResponse.html" data-type="entity-link" >VisibilitySettingsResponse</a>
                             </li>
                         </ul>
                     </li>
