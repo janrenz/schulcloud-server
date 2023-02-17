@@ -2,7 +2,7 @@ const { static: staticContent } = require('@feathersjs/express');
 const path = require('path');
 
 const hooks = require('./hooks');
-const Hydra = require('./hydra.js');
+const Hydra = require('./hydra');
 
 const setClientDefaults = (data) => {
 	data.scope = data.scope || 'openid offline';
