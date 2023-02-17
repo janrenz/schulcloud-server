@@ -637,21 +637,21 @@ export class BoardController {
 			title: &#x27;a mocked testboard, please do not use&#x27;,
 			columns: [
 				new BoardColumnResponse({
-					id: &#x27;10&#x27;,
+					id: &#x27;0123456789abcdef00000010&#x27;,
 					title: &#x27;first column&#x27;,
 					cards: [
-						new BoardSkeletonCardReponse({ cardId: &#x27;1&#x27;, height: 36 }),
-						new BoardSkeletonCardReponse({ cardId: &#x27;2&#x27;, height: 42 }),
+						new BoardSkeletonCardReponse({ cardId: &#x27;0123456789abcdef00000001&#x27;, height: 36 }),
+						new BoardSkeletonCardReponse({ cardId: &#x27;0123456789abcdef00000002&#x27;, height: 108 }),
 					],
 				}),
 				new BoardColumnResponse({
-					id: &#x27;20&#x27;,
+					id: &#x27;0123456789abcdef00000020&#x27;,
 					title:
 						&#x27;second column, has a relatively long title that may or may not be a bit challenging to render... maybe do it partially?&#x27;,
-					cards: [new BoardSkeletonCardReponse({ cardId: &#x27;3&#x27;, height: 108 })],
+					cards: [new BoardSkeletonCardReponse({ cardId: &#x27;0123456789abcdef00000003&#x27;, height: 846 })],
 				}),
 				new BoardColumnResponse({
-					id: &#x27;30&#x27;,
+					id: &#x27;0123456789abcdef00000030&#x27;,
 					title: &#x27;third column is empty for now&#x27;,
 					cards: [],
 				}),

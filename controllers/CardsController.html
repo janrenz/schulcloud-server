@@ -210,20 +210,21 @@ export class CardsController {
 	getCards(@CurrentUser() currentUser: ICurrentUser, @Query() cardIdParams: CardIdsParams): Promise&lt;CardListResponse&gt; {
 		const result &#x3D; new CardListResponse({
 			data: [
+				// &#x27;[a-f0-9]{24}&#x27;
 				new CardResponse({
-					id: &#x27;1&#x27;,
+					id: &#x27;0123456789abcdef00000001&#x27;,
 					elements: [new ContentElementResponse()],
 					cardType: &#x27;content&#x27;,
 					visibilitySettings: new VisibilitySettingsResponse({}),
 				}),
 				new CardResponse({
-					id: &#x27;2&#x27;,
+					id: &#x27;0123456789abcdef00000002&#x27;,
 					elements: [new ContentElementResponse(), new ContentElementResponse()],
 					cardType: &#x27;content&#x27;,
 					visibilitySettings: new VisibilitySettingsResponse({}),
 				}),
 				new CardResponse({
-					id: &#x27;3&#x27;,
+					id: &#x27;0123456789abcdef00000003&#x27;,
 					elements: [new ContentElementResponse(), new ContentElementResponse(), new ContentElementResponse()],
 					cardType: &#x27;content&#x27;,
 					visibilitySettings: new VisibilitySettingsResponse({}),
