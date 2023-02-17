@@ -3983,6 +3983,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="interfaces/RejectRequestBody.html" data-type="entity-link" >RejectRequestBody</a>
                             </li>
                             <li class="link">
+                                <a href="interfaces/RocketChatGroupModel.html" data-type="entity-link" >RocketChatGroupModel</a>
+                            </li>
+                            <li class="link">
                                 <a href="interfaces/RocketChatOptions.html" data-type="entity-link" >RocketChatOptions</a>
                             </li>
                             <li class="link">
