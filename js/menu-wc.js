@@ -2307,6 +2307,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/DashboardMapper.html" data-type="entity-link" >DashboardMapper</a>
                             </li>
                             <li class="link">
+                                <a href="classes/DashboardParams.html" data-type="entity-link" >DashboardParams</a>
+                            </li>
+                            <li class="link">
                                 <a href="classes/DashboardResponse.html" data-type="entity-link" >DashboardResponse</a>
                             </li>
                             <li class="link">

@@ -211,7 +211,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>getUsersDashboard(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, showSubstitute: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                    <code>getUsersDashboard(userId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, showSubstitute?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
                 </td>
             </tr>
 
@@ -258,7 +258,7 @@
                                     </td>
 
                                     <td>
-                                        No
+                                        Yes
                                     </td>
 
 
@@ -605,7 +605,7 @@ export class DashboardUc {
 		private readonly userRepo: UserRepo
 	) {}
 
-	async getUsersDashboard(userId: EntityId, showSubstitute: boolean): Promise&lt;DashboardEntity&gt; {
+	async getUsersDashboard(userId: EntityId, showSubstitute?: boolean): Promise&lt;DashboardEntity&gt; {
 		let courses: Course[];
 		const dashboard &#x3D; await this.dashboardRepo.getUsersDashboard(userId);
 		const user &#x3D; await this.userRepo.findById(userId, true);
