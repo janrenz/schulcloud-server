@@ -478,6 +478,9 @@
                             <a href="#" title="apps/server/src/shared/infra/file-system/file-system.adapter.ts" ><b></b>&nbsp;&nbsp;&nbsp;(apps/.../file-system.adapter.ts)</a>
                         </li>
                         <li>
+                            <a href="#userDoFactory" title="apps/server/src/shared/testing/factory/user.do.factory.ts" ><b>userDoFactory</b>&nbsp;&nbsp;&nbsp;(apps/.../user.do.factory.ts)</a>
+                        </li>
+                        <li>
                             <a href="#userFactory" title="apps/server/src/shared/testing/factory/user.factory.ts" ><b>userFactory</b>&nbsp;&nbsp;&nbsp;(apps/.../user.factory.ts)</a>
                         </li>
                         <li>
@@ -4701,7 +4704,7 @@ Teardown: &#39;await orm.close()&#39; in after-hook!</p>
 		url: &#x27;http://mock.de&#x27;,
 		alias: &#x60;system #${sequence}&#x60;,
 		displayName: &#x60;system #${sequence}DisplayName&#x60;,
-		provisioningStrategy: SystemProvisioningStrategy.UNDEFINED,
+		provisioningStrategy: SystemProvisioningStrategy.OIDC,
 		provisioningUrl: &#x27;provisioningUrl&#x27;,
 	};
 })</code>
@@ -5056,6 +5059,37 @@ Teardown: &#39;await orm.close()&#39; in after-hook!</p>
                 <tr>
                     <td class="col-md-4">
                         <i>Default value : </i><code>fsp</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>apps/server/src/shared/testing/factory/user.do.factory.ts</h3>
+    <section>
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="userDoFactory"></a>
+                    <span class="name">
+                        <span ><b>userDoFactory</b></span>
+                        <a href="#userDoFactory"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>UserDoFactory.define(UserDO, ({ sequence }) &#x3D;&gt; {
+	return {
+		firstName: &#x27;John&#x27;,
+		lastName: &#x60;Doe ${sequence}&#x60;,
+		email: &#x60;user-${sequence}@example.com&#x60;,
+		roleIds: [],
+		schoolId: new ObjectId().toString(),
+	};
+})</code>
                     </td>
                 </tr>
 

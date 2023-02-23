@@ -40,7 +40,9 @@
 
 <ol class="breadcrumb">
   <li>Injectables</li>
-  <li >OauthUc</li>
+  <li 
+        class="deprecated-name"
+    >OauthUc</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -61,6 +63,12 @@
             <code>apps/server/src/modules/oauth/uc/oauth.uc.ts</code>
         </p>
 
+            <p class="comment">
+                <h3 class="deprecated">Deprecated</h3>
+            </p>
+            <p class="comment">
+                remove after login via oauth moved to authentication module
+            </p>
 
 
 
@@ -81,15 +89,6 @@
                             <li>
                                     <span class="modifier">Private</span>
                                     <span class="modifier">Async</span>
-                                <a href="#authorizeForMigration" >authorizeForMigration</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Private</span>
-                                <a href="#extractOauthConfigFromSystem" >extractOauthConfigFromSystem</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Private</span>
-                                    <span class="modifier">Async</span>
                                 <a href="#getOauthErrorResponse" >getOauthErrorResponse</a>
                             </li>
                             <li>
@@ -104,11 +103,6 @@
                             <li>
                                     <span class="modifier">Async</span>
                                 <a href="#processOAuth" >processOAuth</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Private</span>
-                                    <span class="modifier">Async</span>
-                                <a href="#shouldUserMigrate" >shouldUserMigrate</a>
                             </li>
                         </ul>
                     </td>
@@ -128,12 +122,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(oauthService: <a href="../injectables/OAuthService.html" target="_self">OAuthService</a>, systemService: <a href="../injectables/SystemService.html" target="_self">SystemService</a>, provisioningService: <a href="../injectables/ProvisioningService.html" target="_self">ProvisioningService</a>, userService: <a href="../injectables/UserService.html" target="_self">UserService</a>, userMigrationService: <a href="../injectables/UserMigrationService.html" target="_self">UserMigrationService</a>, logger: <a href="../injectables/Logger.html" target="_self">Logger</a>)</code>
+<code>constructor(oauthService: <a href="../injectables/OAuthService.html" target="_self">OAuthService</a>, systemService: <a href="../injectables/SystemService.html" target="_self">SystemService</a>, provisioningService: <a href="../injectables/ProvisioningService.html" target="_self">ProvisioningService</a>, userMigrationService: <a href="../injectables/UserMigrationService.html" target="_self">UserMigrationService</a>, jwtService: <a href="../injectables/FeathersJwtProvider.html" target="_self">FeathersJwtProvider</a>, logger: <a href="../injectables/Logger.html" target="_self">Logger</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">apps/server/src/modules/oauth/uc/oauth.uc.ts:18</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">apps/server/src/modules/oauth/uc/oauth.uc.ts:19</a></div>
                             </td>
                         </tr>
 
@@ -187,10 +181,10 @@
                                                     
                                                 </tr>
                                                 <tr>
-                                                        <td>userService</td>
+                                                        <td>userMigrationService</td>
                                                   
                                                         <td>
-                                                                        <code><a href="../injectables/UserService.html" target="_self" >UserService</a></code>
+                                                                        <code><a href="../injectables/UserMigrationService.html" target="_self" >UserMigrationService</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -199,10 +193,10 @@
                                                     
                                                 </tr>
                                                 <tr>
-                                                        <td>userMigrationService</td>
+                                                        <td>jwtService</td>
                                                   
                                                         <td>
-                                                                        <code><a href="../injectables/UserMigrationService.html" target="_self" >UserMigrationService</a></code>
+                                                                        <code><a href="../injectables/FeathersJwtProvider.html" target="_self" >FeathersJwtProvider</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -240,161 +234,6 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="authorizeForMigration"></a>
-                    <span class="name">
-                        <span class="modifier">Private</span>
-                        <span class="modifier">Async</span>
-                        <span ><b>authorizeForMigration</b></span>
-                        <a href="#authorizeForMigration"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>authorizeForMigration(query: <a href="../classes/AuthorizationParams.html" target="_self">AuthorizationParams</a>, targetSystemId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="150"
-                            class="link-to-prism">apps/server/src/modules/oauth/uc/oauth.uc.ts:150</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>query</td>
-                                    <td>
-                                                <code><a href="../classes/AuthorizationParams.html" target="_self" >AuthorizationParams</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>targetSystemId</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../interfaces/OauthTokenResponse.html" target="_self" >Promise&lt;OauthTokenResponse&gt;</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="extractOauthConfigFromSystem"></a>
-                    <span class="name">
-                        <span class="modifier">Private</span>
-                        <span ><b>extractOauthConfigFromSystem</b></span>
-                        <a href="#extractOauthConfigFromSystem"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>extractOauthConfigFromSystem(system: <a href="../classes/SystemDto.html" target="_self">SystemDto</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="132"
-                            class="link-to-prism">apps/server/src/modules/oauth/uc/oauth.uc.ts:132</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>system</td>
-                                    <td>
-                                                <code><a href="../classes/SystemDto.html" target="_self" >SystemDto</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/OauthConfig.html" target="_self" >OauthConfig</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
                     <a name="getOauthErrorResponse"></a>
                     <span class="name">
                         <span class="modifier">Private</span>
@@ -414,8 +253,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="143"
-                            class="link-to-prism">apps/server/src/modules/oauth/uc/oauth.uc.ts:143</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="82"
+                            class="link-to-prism">apps/server/src/modules/oauth/uc/oauth.uc.ts:82</a></div>
                 </td>
             </tr>
 
@@ -489,15 +328,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>migrateUser(currentUserId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, query: <a href="../classes/AuthorizationParams.html" target="_self">AuthorizationParams</a>, targetSystemId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    <code>migrateUser(currentUserId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, query: <a href="../interfaces/AuthorizationParams.html" target="_self">AuthorizationParams</a>, targetSystemId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="39"
-                            class="link-to-prism">apps/server/src/modules/oauth/uc/oauth.uc.ts:39</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="40"
+                            class="link-to-prism">apps/server/src/modules/oauth/uc/oauth.uc.ts:40</a></div>
                 </td>
             </tr>
 
@@ -532,7 +371,7 @@
                                 <tr>
                                     <td>query</td>
                                     <td>
-                                                <code><a href="../classes/AuthorizationParams.html" target="_self" >AuthorizationParams</a></code>
+                                                <code><a href="../interfaces/AuthorizationParams.html" target="_self" >AuthorizationParams</a></code>
                                     </td>
 
                                     <td>
@@ -585,15 +424,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>process(query: <a href="../classes/AuthorizationParams.html" target="_self">AuthorizationParams</a>, systemId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    <code>process(query: <a href="../interfaces/AuthorizationParams.html" target="_self">AuthorizationParams</a>, systemId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="58"
-                            class="link-to-prism">apps/server/src/modules/oauth/uc/oauth.uc.ts:58</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="59"
+                            class="link-to-prism">apps/server/src/modules/oauth/uc/oauth.uc.ts:59</a></div>
                 </td>
             </tr>
 
@@ -616,7 +455,7 @@
                                 <tr>
                                     <td>query</td>
                                     <td>
-                                                <code><a href="../classes/AuthorizationParams.html" target="_self" >AuthorizationParams</a></code>
+                                                <code><a href="../interfaces/AuthorizationParams.html" target="_self" >AuthorizationParams</a></code>
                                     </td>
 
                                     <td>
@@ -668,15 +507,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>processOAuth(query: <a href="../classes/AuthorizationParams.html" target="_self">AuthorizationParams</a>, systemId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    <code>processOAuth(query: <a href="../interfaces/AuthorizationParams.html" target="_self">AuthorizationParams</a>, systemId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="30"
-                            class="link-to-prism">apps/server/src/modules/oauth/uc/oauth.uc.ts:30</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="31"
+                            class="link-to-prism">apps/server/src/modules/oauth/uc/oauth.uc.ts:31</a></div>
                 </td>
             </tr>
 
@@ -699,7 +538,7 @@
                                 <tr>
                                     <td>query</td>
                                     <td>
-                                                <code><a href="../classes/AuthorizationParams.html" target="_self" >AuthorizationParams</a></code>
+                                                <code><a href="../interfaces/AuthorizationParams.html" target="_self" >AuthorizationParams</a></code>
                                     </td>
 
                                     <td>
@@ -736,132 +575,37 @@
             </tr>
         </tbody>
     </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="shouldUserMigrate"></a>
-                    <span class="name">
-                        <span class="modifier">Private</span>
-                        <span class="modifier">Async</span>
-                        <span ><b>shouldUserMigrate</b></span>
-                        <a href="#shouldUserMigrate"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>shouldUserMigrate(externalUserId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, officialSchoolNumber: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, systemId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="124"
-                            class="link-to-prism">apps/server/src/modules/oauth/uc/oauth.uc.ts:124</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>externalUserId</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>officialSchoolNumber</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>systemId</td>
-                                    <td>
-                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>    <code>unknown</code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
 </section>
 
     </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable, NotFoundException } from &#x27;@nestjs/common&#x27;;
-import { EntityId, OauthConfig } from &#x27;@shared/domain&#x27;;
-import { UserDO } from &#x27;@shared/domain/domainobject/user.do&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
 import { Logger } from &#x27;@src/core/logger&#x27;;
-import { ProvisioningDto, ProvisioningService } from &#x27;@src/modules/provisioning&#x27;;
-import { OauthDataDto } from &#x27;@src/modules/provisioning/dto/oauth-data.dto&#x27;;
 import { SystemService } from &#x27;@src/modules/system&#x27;;
 import { SystemDto } from &#x27;@src/modules/system/service/dto/system.dto&#x27;;
-import { UserService } from &#x27;@src/modules/user&#x27;;
-import { UserMigrationService } from &#x27;@src/modules/user-migration&#x27;;
 import { UserMigrationDto } from &#x27;@src/modules/user-migration/service/dto/userMigration.dto&#x27;;
+import { UserDO } from &#x27;@shared/domain/domainobject/user.do&#x27;;
+import { FeathersJwtProvider } from &#x27;@src/modules/authorization&#x27;;
 import { AuthorizationParams, OauthTokenResponse } from &#x27;../controller/dto&#x27;;
-import { OAuthSSOError } from &#x27;../error/oauth-sso.error&#x27;;
 import { OAuthProcessDto } from &#x27;../service/dto/oauth-process.dto&#x27;;
 import { OAuthService } from &#x27;../service/oauth.service&#x27;;
+import { ProvisioningService } from &#x27;../../provisioning&#x27;;
+import { UserMigrationService } from &#x27;../../user-migration&#x27;;
+import { OauthDataDto } from &#x27;../../provisioning/dto&#x27;;
 
+/**
+ * @deprecated remove after login via oauth moved to authentication module
+ */
 @Injectable()
 export class OauthUc {
 	constructor(
 		private readonly oauthService: OAuthService,
 		private readonly systemService: SystemService,
 		private readonly provisioningService: ProvisioningService,
-		private readonly userService: UserService,
 		private readonly userMigrationService: UserMigrationService,
+		private readonly jwtService: FeathersJwtProvider,
 		private readonly logger: Logger
 	) {
 		this.logger.setContext(OauthUc.name);
@@ -881,13 +625,13 @@ export class OauthUc {
 		query: AuthorizationParams,
 		targetSystemId: string
 	): Promise&lt;UserMigrationDto&gt; {
-		const queryToken: OauthTokenResponse &#x3D; await this.authorizeForMigration(query, targetSystemId);
+		const queryToken: OauthTokenResponse &#x3D; await this.oauthService.authorizeForMigration(query, targetSystemId);
 		const data: OauthDataDto &#x3D; await this.provisioningService.getData(
 			queryToken.access_token,
 			queryToken.id_token,
 			targetSystemId
 		);
-		const migrationDto &#x3D; this.userMigrationService.migrateUser(
+		const migrationDto: UserMigrationDto &#x3D; await this.userMigrationService.migrateUser(
 			currentUserId,
 			data.externalUser.externalId,
 			targetSystemId
@@ -900,84 +644,22 @@ export class OauthUc {
 
 		const authCode: string &#x3D; this.oauthService.checkAuthorizationCode(query);
 
-		const system: SystemDto &#x3D; await this.systemService.findOAuthById(systemId);
-		if (!system.id) {
-			throw new NotFoundException(&#x60;System with id &quot;${systemId}&quot; does not exist.&#x60;);
-		}
-		const oauthConfig: OauthConfig &#x3D; this.extractOauthConfigFromSystem(system);
-
-		const queryToken: OauthTokenResponse &#x3D; await this.oauthService.requestToken(authCode, oauthConfig);
-
-		await this.oauthService.validateToken(queryToken.id_token, oauthConfig);
-
-		const data: OauthDataDto &#x3D; await this.provisioningService.getData(
-			queryToken.access_token,
-			queryToken.id_token,
-			system.id
+		const { user, redirect }: { user?: UserDO; redirect: string } &#x3D; await this.oauthService.authenticateUser(
+			systemId,
+			authCode
 		);
 
-		if (data.externalSchool?.officialSchoolNumber) {
-			const shouldMigrate: boolean &#x3D; await this.shouldUserMigrate(
-				data.externalUser.externalId,
-				data.externalSchool.officialSchoolNumber,
-				system.id
-			);
-			if (shouldMigrate) {
-				const redirect: string &#x3D; await this.userMigrationService.getMigrationRedirect(
-					data.externalSchool.officialSchoolNumber,
-					system.id
-				);
-				const response: OAuthProcessDto &#x3D; new OAuthProcessDto({
-					provider: oauthConfig.provider,
-					redirect,
-				});
-				return response;
-			}
+		let jwtResponse &#x3D; &#x27;&#x27;;
+		if (user &amp;&amp; user.id) {
+			jwtResponse &#x3D; await this.jwtService.generateJwt(user.id);
 		}
 
-		const provisioningDto: ProvisioningDto &#x3D; await this.provisioningService.provisionData(data);
-
-		const user: UserDO &#x3D; await this.oauthService.findUser(
-			queryToken.id_token,
-			provisioningDto.externalUserId,
-			system.id
-		);
-
-		const jwtResponse: string &#x3D; await this.oauthService.getJwtForUser(user.id as string);
-
-		// TODO: N21-305 Build response in oauth controller
-		const redirect: string &#x3D; this.oauthService.getRedirectUrl(
-			oauthConfig.provider,
-			queryToken.id_token,
-			oauthConfig.logoutEndpoint
-		);
-		const response: OAuthProcessDto &#x3D; new OAuthProcessDto({
-			jwt: jwtResponse,
-			idToken: queryToken.id_token,
-			logoutEndpoint: oauthConfig.logoutEndpoint,
-			provider: oauthConfig.provider,
+		const response &#x3D; new OAuthProcessDto({
+			jwt: jwtResponse !&#x3D;&#x3D; &#x27;&#x27; ? jwtResponse : undefined,
 			redirect,
 		});
+
 		return response;
-	}
-
-	private async shouldUserMigrate(externalUserId: string, officialSchoolNumber: string, systemId: EntityId) {
-		const existingUser: UserDO | null &#x3D; await this.userService.findByExternalId(externalUserId, systemId);
-		const isSchoolInMigration: boolean &#x3D; await this.userMigrationService.isSchoolInMigration(officialSchoolNumber);
-
-		const shouldMigrate &#x3D; !existingUser &amp;&amp; isSchoolInMigration;
-		return shouldMigrate;
-	}
-
-	private extractOauthConfigFromSystem(system: SystemDto): OauthConfig {
-		const { oauthConfig } &#x3D; system;
-		if (oauthConfig &#x3D;&#x3D; null) {
-			this.logger.warn(
-				&#x60;SSO Oauth process couldn&#x27;t be started, because of missing oauthConfig of system: ${system.id ?? &#x27;undefined&#x27;}&#x60;
-			);
-			throw new OAuthSSOError(&#x27;Requested system has no oauth configured&#x27;, &#x27;sso_internal_error&#x27;);
-		}
-		return oauthConfig;
 	}
 
 	private async getOauthErrorResponse(error, systemId: string): Promise&lt;OAuthProcessDto&gt; {
@@ -985,27 +667,6 @@ export class OauthUc {
 		const provider: string &#x3D; system.oauthConfig ? system.oauthConfig.provider : &#x27;unknown-provider&#x27;;
 		const oAuthError: OAuthProcessDto &#x3D; this.oauthService.getOAuthErrorResponse(error, provider);
 		return oAuthError;
-	}
-
-	private async authorizeForMigration(query: AuthorizationParams, targetSystemId: string): Promise&lt;OauthTokenResponse&gt; {
-		const authCode: string &#x3D; this.oauthService.checkAuthorizationCode(query);
-
-		const system: SystemDto &#x3D; await this.systemService.findOAuthById(targetSystemId);
-		if (!system.id) {
-			throw new NotFoundException(&#x60;System with id &quot;${targetSystemId}&quot; does not exist.&#x60;);
-		}
-		const oauthConfig: OauthConfig &#x3D; this.extractOauthConfigFromSystem(system);
-
-		const migrationRedirect: string &#x3D; this.userMigrationService.getMigrationRedirectUri(targetSystemId);
-		const queryToken: OauthTokenResponse &#x3D; await this.oauthService.requestToken(
-			authCode,
-			oauthConfig,
-			migrationRedirect
-		);
-
-		await this.oauthService.validateToken(queryToken.id_token, oauthConfig);
-
-		return queryToken;
 	}
 }
 </code></pre>

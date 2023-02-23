@@ -44,7 +44,9 @@
 
 <ol class="breadcrumb">
   <li>Classes</li>
-  <li >AuthorizationParams</li>
+  <li 
+        class="deprecated-name"
+    >AuthorizationParams</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -65,6 +67,12 @@
             <code>apps/server/src/modules/oauth/controller/dto/authorization.params.ts</code>
         </p>
 
+            <p class="comment">
+                <h3 class="deprecated">Deprecated</h3>
+            </p>
+            <p class="comment">
+                
+            </p>
 
 
 
@@ -138,7 +146,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">apps/server/src/modules/oauth/controller/dto/authorization.params.ts:7</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">apps/server/src/modules/oauth/controller/dto/authorization.params.ts:10</a></div>
                         </td>
                     </tr>
 
@@ -174,7 +182,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">apps/server/src/modules/oauth/controller/dto/authorization.params.ts:12</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">apps/server/src/modules/oauth/controller/dto/authorization.params.ts:15</a></div>
                         </td>
                     </tr>
 
@@ -195,6 +203,9 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { IsNotEmpty, IsOptional, IsString } from &#x27;class-validator&#x27;;
 
+/**
+ * @deprecated
+ */
 export class AuthorizationParams {
 	@IsOptional()
 	@IsString()

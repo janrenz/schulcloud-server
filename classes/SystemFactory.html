@@ -1329,11 +1329,11 @@ export class SystemFactory extends BaseFactory&lt;System, ISystemProperties&gt; 
 				redirectUri: &#x27;http://mockhost:3030/api/v3/sso/oauth/testsystemId&#x27;,
 				scope: &#x27;openid uuid&#x27;,
 				responseType: &#x27;code&#x27;,
-				authEndpoint: &#x27;mock_authEndpoint&#x27;,
+				authEndpoint: &#x27;http://mock.de/auth&#x27;,
 				provider: &#x27;mock_type&#x27;,
-				logoutEndpoint: &#x27;mock_logoutEndpoint&#x27;,
+				logoutEndpoint: &#x27;http://mock.de/logout&#x27;,
 				issuer: &#x27;mock_issuer&#x27;,
-				jwksEndpoint: &#x27;mock_jwksEndpoint&#x27;,
+				jwksEndpoint: &#x27;http://mock.de/jwks&#x27;,
 			}),
 		};
 		return this.params(params);
@@ -1356,7 +1356,7 @@ export const systemFactory &#x3D; SystemFactory.define(System, ({ sequence }) &#
 		url: &#x27;http://mock.de&#x27;,
 		alias: &#x60;system #${sequence}&#x60;,
 		displayName: &#x60;system #${sequence}DisplayName&#x60;,
-		provisioningStrategy: SystemProvisioningStrategy.UNDEFINED,
+		provisioningStrategy: SystemProvisioningStrategy.OIDC,
 		provisioningUrl: &#x27;provisioningUrl&#x27;,
 	};
 });
