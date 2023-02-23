@@ -121,7 +121,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>createTokenRequestPayload(oauthConfig: <a href="../classes/OauthConfig.html" target="_self">OauthConfig</a>, decryptedClientSecret: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, code: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    <code>createTokenRequestPayload(oauthConfig: <a href="../classes/OauthConfig.html" target="_self">OauthConfig</a>, decryptedClientSecret: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, code: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, migrationRedirect?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
@@ -185,6 +185,18 @@
 
 
                                 </tr>
+                                <tr>
+                                    <td>migrationRedirect</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -218,13 +230,14 @@ export class TokenRequestMapper {
 	static createTokenRequestPayload(
 		oauthConfig: OauthConfig,
 		decryptedClientSecret: string,
-		code: string
+		code: string,
+		migrationRedirect?: string
 	): TokenRequestPayload {
 		return new TokenRequestPayload({
 			tokenEndpoint: oauthConfig.tokenEndpoint,
 			client_id: oauthConfig.clientId,
 			client_secret: decryptedClientSecret,
-			redirect_uri: oauthConfig.redirectUri,
+			redirect_uri: migrationRedirect || oauthConfig.redirectUri,
 			grant_type: oauthConfig.grantType,
 			code,
 		});

@@ -60,13 +60,13 @@
 <title>cluster_AccountModule_imports</title>
 <polygon fill="none" stroke="black" points="1525,-40.8 1525,-92.8 1835,-92.8 1835,-40.8 1525,-40.8"/>
 </g>
-<g id="clust4" class="cluster">
-<title>cluster_AccountModule_exports</title>
-<polygon fill="none" stroke="black" points="688,-170.8 688,-222.8 1100,-222.8 1100,-170.8 688,-170.8"/>
-</g>
 <g id="clust6" class="cluster">
 <title>cluster_AccountModule_providers</title>
 <polygon fill="none" stroke="black" points="16,-40.8 16,-92.8 1517,-92.8 1517,-40.8 16,-40.8"/>
+</g>
+<g id="clust4" class="cluster">
+<title>cluster_AccountModule_exports</title>
+<polygon fill="none" stroke="black" points="688,-170.8 688,-222.8 1100,-222.8 1100,-170.8 688,-170.8"/>
 </g>
 <!-- IdentityManagementModule -->
 <g id="node1" class="node">
@@ -362,12 +362,12 @@
 import { PermissionService } from &#x27;@shared/domain&#x27;;
 import { SystemRepo, UserRepo } from &#x27;@shared/repo&#x27;;
 import { IdentityManagementModule } from &#x27;@shared/infra/identity-management&#x27;;
+import { LoggerModule } from &#x27;@src/core/logger/logger.module&#x27;;
 import { AccountController } from &#x27;./controller/account.controller&#x27;;
 import { AccountRepo } from &#x27;./repo/account.repo&#x27;;
 import { AccountService } from &#x27;./services/account.service&#x27;;
 import { AccountValidationService } from &#x27;./services/account.validation.service&#x27;;
 import { AccountUc } from &#x27;./uc/account.uc&#x27;;
-import { LoggerModule } from &#x27;../../core/logger/logger.module&#x27;;
 import { AccountServiceDb } from &#x27;./services/account-db.service&#x27;;
 import { AccountServiceIdm } from &#x27;./services/account-idm.service&#x27;;
 

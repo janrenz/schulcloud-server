@@ -80,12 +80,21 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Private</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#authorizeForMigration" >authorizeForMigration</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
                                 <a href="#extractOauthConfigFromSystem" >extractOauthConfigFromSystem</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
                                     <span class="modifier">Async</span>
                                 <a href="#getOauthErrorResponse" >getOauthErrorResponse</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#migrateUser" >migrateUser</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
@@ -124,7 +133,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">apps/server/src/modules/oauth/uc/oauth.uc.ts:17</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">apps/server/src/modules/oauth/uc/oauth.uc.ts:18</a></div>
                             </td>
                         </tr>
 
@@ -231,6 +240,90 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="authorizeForMigration"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span class="modifier">Async</span>
+                        <span ><b>authorizeForMigration</b></span>
+                        <a href="#authorizeForMigration"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>authorizeForMigration(query: <a href="../classes/AuthorizationParams.html" target="_self">AuthorizationParams</a>, targetSystemId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="150"
+                            class="link-to-prism">apps/server/src/modules/oauth/uc/oauth.uc.ts:150</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>query</td>
+                                    <td>
+                                                <code><a href="../classes/AuthorizationParams.html" target="_self" >AuthorizationParams</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>targetSystemId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../interfaces/OauthTokenResponse.html" target="_self" >Promise&lt;OauthTokenResponse&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="extractOauthConfigFromSystem"></a>
                     <span class="name">
                         <span class="modifier">Private</span>
@@ -249,8 +342,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="112"
-                            class="link-to-prism">apps/server/src/modules/oauth/uc/oauth.uc.ts:112</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="132"
+                            class="link-to-prism">apps/server/src/modules/oauth/uc/oauth.uc.ts:132</a></div>
                 </td>
             </tr>
 
@@ -321,8 +414,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="123"
-                            class="link-to-prism">apps/server/src/modules/oauth/uc/oauth.uc.ts:123</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="143"
+                            class="link-to-prism">apps/server/src/modules/oauth/uc/oauth.uc.ts:143</a></div>
                 </td>
             </tr>
 
@@ -385,6 +478,101 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="migrateUser"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>migrateUser</b></span>
+                        <a href="#migrateUser"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>migrateUser(currentUserId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, query: <a href="../classes/AuthorizationParams.html" target="_self">AuthorizationParams</a>, targetSystemId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="39"
+                            class="link-to-prism">apps/server/src/modules/oauth/uc/oauth.uc.ts:39</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>currentUserId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>query</td>
+                                    <td>
+                                                <code><a href="../classes/AuthorizationParams.html" target="_self" >AuthorizationParams</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>targetSystemId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../interfaces/User.html" target="_self" >Promise&lt;UserMigrationDto&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="process"></a>
                     <span class="name">
                         <span class="modifier">Private</span>
@@ -404,8 +592,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="38"
-                            class="link-to-prism">apps/server/src/modules/oauth/uc/oauth.uc.ts:38</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="58"
+                            class="link-to-prism">apps/server/src/modules/oauth/uc/oauth.uc.ts:58</a></div>
                 </td>
             </tr>
 
@@ -487,8 +675,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="29"
-                            class="link-to-prism">apps/server/src/modules/oauth/uc/oauth.uc.ts:29</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="30"
+                            class="link-to-prism">apps/server/src/modules/oauth/uc/oauth.uc.ts:30</a></div>
                 </td>
             </tr>
 
@@ -571,8 +759,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="104"
-                            class="link-to-prism">apps/server/src/modules/oauth/uc/oauth.uc.ts:104</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="124"
+                            class="link-to-prism">apps/server/src/modules/oauth/uc/oauth.uc.ts:124</a></div>
                 </td>
             </tr>
 
@@ -660,6 +848,7 @@ import { SystemService } from &#x27;@src/modules/system&#x27;;
 import { SystemDto } from &#x27;@src/modules/system/service/dto/system.dto&#x27;;
 import { UserService } from &#x27;@src/modules/user&#x27;;
 import { UserMigrationService } from &#x27;@src/modules/user-migration&#x27;;
+import { UserMigrationDto } from &#x27;@src/modules/user-migration/service/dto/userMigration.dto&#x27;;
 import { AuthorizationParams, OauthTokenResponse } from &#x27;../controller/dto&#x27;;
 import { OAuthSSOError } from &#x27;../error/oauth-sso.error&#x27;;
 import { OAuthProcessDto } from &#x27;../service/dto/oauth-process.dto&#x27;;
@@ -685,6 +874,25 @@ export class OauthUc {
 		} catch (error) {
 			return await this.getOauthErrorResponse(error, systemId);
 		}
+	}
+
+	async migrateUser(
+		currentUserId: string,
+		query: AuthorizationParams,
+		targetSystemId: string
+	): Promise&lt;UserMigrationDto&gt; {
+		const queryToken: OauthTokenResponse &#x3D; await this.authorizeForMigration(query, targetSystemId);
+		const data: OauthDataDto &#x3D; await this.provisioningService.getData(
+			queryToken.access_token,
+			queryToken.id_token,
+			targetSystemId
+		);
+		const migrationDto &#x3D; this.userMigrationService.migrateUser(
+			currentUserId,
+			data.externalUser.externalId,
+			targetSystemId
+		);
+		return migrationDto;
 	}
 
 	private async process(query: AuthorizationParams, systemId: string): Promise&lt;OAuthProcessDto&gt; {
@@ -777,6 +985,27 @@ export class OauthUc {
 		const provider: string &#x3D; system.oauthConfig ? system.oauthConfig.provider : &#x27;unknown-provider&#x27;;
 		const oAuthError: OAuthProcessDto &#x3D; this.oauthService.getOAuthErrorResponse(error, provider);
 		return oAuthError;
+	}
+
+	private async authorizeForMigration(query: AuthorizationParams, targetSystemId: string): Promise&lt;OauthTokenResponse&gt; {
+		const authCode: string &#x3D; this.oauthService.checkAuthorizationCode(query);
+
+		const system: SystemDto &#x3D; await this.systemService.findOAuthById(targetSystemId);
+		if (!system.id) {
+			throw new NotFoundException(&#x60;System with id &quot;${targetSystemId}&quot; does not exist.&#x60;);
+		}
+		const oauthConfig: OauthConfig &#x3D; this.extractOauthConfigFromSystem(system);
+
+		const migrationRedirect: string &#x3D; this.userMigrationService.getMigrationRedirectUri(targetSystemId);
+		const queryToken: OauthTokenResponse &#x3D; await this.oauthService.requestToken(
+			authCode,
+			oauthConfig,
+			migrationRedirect
+		);
+
+		await this.oauthService.validateToken(queryToken.id_token, oauthConfig);
+
+		return queryToken;
 	}
 }
 </code></pre>
