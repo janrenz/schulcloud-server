@@ -1412,13 +1412,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/TaskCardModule.html" data-type="entity-link" >TaskCardModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#controllers-links-module-TaskCardModule-caa7861d9b119b801af744667bcd4a0437e641ab7564ae3a7dbbc30c45ca0afa785c318dd1ca938b9f6080fb7345ee1eab7191ca89a54ab1a1a00391eb068a97"' : 'data-target="#xs-controllers-links-module-TaskCardModule-caa7861d9b119b801af744667bcd4a0437e641ab7564ae3a7dbbc30c45ca0afa785c318dd1ca938b9f6080fb7345ee1eab7191ca89a54ab1a1a00391eb068a97"' }>
+                                            'data-target="#controllers-links-module-TaskCardModule-689f1ce1dac08ec7ba7d635d086324d68f0587f25498e7580e81528b0ea982ea83dace34cbeb70a2129f5d671c3434fb56bf82ebfdc859119742d0ad50229884"' : 'data-target="#xs-controllers-links-module-TaskCardModule-689f1ce1dac08ec7ba7d635d086324d68f0587f25498e7580e81528b0ea982ea83dace34cbeb70a2129f5d671c3434fb56bf82ebfdc859119742d0ad50229884"' }>
                                             <span class="icon ion-md-swap"></span>
                                             <span>Controllers</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="controllers-links-module-TaskCardModule-caa7861d9b119b801af744667bcd4a0437e641ab7564ae3a7dbbc30c45ca0afa785c318dd1ca938b9f6080fb7345ee1eab7191ca89a54ab1a1a00391eb068a97"' :
-                                            'id="xs-controllers-links-module-TaskCardModule-caa7861d9b119b801af744667bcd4a0437e641ab7564ae3a7dbbc30c45ca0afa785c318dd1ca938b9f6080fb7345ee1eab7191ca89a54ab1a1a00391eb068a97"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="controllers-links-module-TaskCardModule-689f1ce1dac08ec7ba7d635d086324d68f0587f25498e7580e81528b0ea982ea83dace34cbeb70a2129f5d671c3434fb56bf82ebfdc859119742d0ad50229884"' :
+                                            'id="xs-controllers-links-module-TaskCardModule-689f1ce1dac08ec7ba7d635d086324d68f0587f25498e7580e81528b0ea982ea83dace34cbeb70a2129f5d671c3434fb56bf82ebfdc859119742d0ad50229884"' }>
                                             <li class="link">
                                                 <a href="controllers/TaskCardController.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >TaskCardController</a>
                                             </li>
@@ -1426,15 +1426,18 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                     </li>
                                 <li class="chapter inner">
                                     <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                        'data-target="#injectables-links-module-TaskCardModule-caa7861d9b119b801af744667bcd4a0437e641ab7564ae3a7dbbc30c45ca0afa785c318dd1ca938b9f6080fb7345ee1eab7191ca89a54ab1a1a00391eb068a97"' : 'data-target="#xs-injectables-links-module-TaskCardModule-caa7861d9b119b801af744667bcd4a0437e641ab7564ae3a7dbbc30c45ca0afa785c318dd1ca938b9f6080fb7345ee1eab7191ca89a54ab1a1a00391eb068a97"' }>
+                                        'data-target="#injectables-links-module-TaskCardModule-689f1ce1dac08ec7ba7d635d086324d68f0587f25498e7580e81528b0ea982ea83dace34cbeb70a2129f5d671c3434fb56bf82ebfdc859119742d0ad50229884"' : 'data-target="#xs-injectables-links-module-TaskCardModule-689f1ce1dac08ec7ba7d635d086324d68f0587f25498e7580e81528b0ea982ea83dace34cbeb70a2129f5d671c3434fb56bf82ebfdc859119742d0ad50229884"' }>
                                         <span class="icon ion-md-arrow-round-down"></span>
                                         <span>Injectables</span>
                                         <span class="icon ion-ios-arrow-down"></span>
                                     </div>
-                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-TaskCardModule-caa7861d9b119b801af744667bcd4a0437e641ab7564ae3a7dbbc30c45ca0afa785c318dd1ca938b9f6080fb7345ee1eab7191ca89a54ab1a1a00391eb068a97"' :
-                                        'id="xs-injectables-links-module-TaskCardModule-caa7861d9b119b801af744667bcd4a0437e641ab7564ae3a7dbbc30c45ca0afa785c318dd1ca938b9f6080fb7345ee1eab7191ca89a54ab1a1a00391eb068a97"' }>
+                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-TaskCardModule-689f1ce1dac08ec7ba7d635d086324d68f0587f25498e7580e81528b0ea982ea83dace34cbeb70a2129f5d671c3434fb56bf82ebfdc859119742d0ad50229884"' :
+                                        'id="xs-injectables-links-module-TaskCardModule-689f1ce1dac08ec7ba7d635d086324d68f0587f25498e7580e81528b0ea982ea83dace34cbeb70a2129f5d671c3434fb56bf82ebfdc859119742d0ad50229884"' }>
                                         <li class="link">
                                             <a href="injectables/CardElementRepo.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >CardElementRepo</a>
+                                        </li>
+                                        <li class="link">
+                                            <a href="injectables/CourseRepo.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >CourseRepo</a>
                                         </li>
                                         <li class="link">
                                             <a href="injectables/RichTextCardElementRepo.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >RichTextCardElementRepo</a>

@@ -135,8 +135,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="35"
-                            class="link-to-prism">apps/server/src/modules/task-card/controller/mapper/task-card.mapper.ts:35</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="40"
+                            class="link-to-prism">apps/server/src/modules/task-card/controller/mapper/task-card.mapper.ts:40</a></div>
                 </td>
             </tr>
 
@@ -206,8 +206,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="53"
-                            class="link-to-prism">apps/server/src/modules/task-card/controller/mapper/task-card.mapper.ts:53</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="58"
+                            class="link-to-prism">apps/server/src/modules/task-card/controller/mapper/task-card.mapper.ts:58</a></div>
                 </td>
             </tr>
 
@@ -377,6 +377,11 @@ export class TaskCardMapper {
 			dueDate: card.dueDate,
 		});
 
+		if (card.course) {
+			dto.courseId &#x3D; card.course.id;
+			dto.courseName &#x3D; card.course.name;
+		}
+
 		return dto;
 	}
 
@@ -408,6 +413,10 @@ export class TaskCardMapper {
 		const dto: ITaskCardCRUD &#x3D; {
 			title: titleValue.value,
 		};
+
+		if (params.courseId) {
+			dto.courseId &#x3D; params.courseId;
+		}
 
 		if (params.visibleAtDate) {
 			dto.visibleAtDate &#x3D; params.visibleAtDate;
