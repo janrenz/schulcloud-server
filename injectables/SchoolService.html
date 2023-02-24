@@ -274,8 +274,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="65"
-                            class="link-to-prism">apps/server/src/modules/school/service/school.service.ts:65</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="56"
+                            class="link-to-prism">apps/server/src/modules/school/service/school.service.ts:56</a></div>
                 </td>
             </tr>
 
@@ -313,7 +313,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/OauthMigrationDto.html" target="_self" >Promise&lt;OauthMigrationDto&gt;</a></code>
+                        <b>Returns : </b>    <code>Promise&lt;OauthMigrationDto&gt;</code>
 
                     </div>
                     <div class="io-description">
@@ -345,8 +345,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="83"
-                            class="link-to-prism">apps/server/src/modules/school/service/school.service.ts:83</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="74"
+                            class="link-to-prism">apps/server/src/modules/school/service/school.service.ts:74</a></div>
                 </td>
             </tr>
 
@@ -428,8 +428,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="78"
-                            class="link-to-prism">apps/server/src/modules/school/service/school.service.ts:78</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="69"
+                            class="link-to-prism">apps/server/src/modules/school/service/school.service.ts:69</a></div>
                 </td>
             </tr>
 
@@ -499,8 +499,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="88"
-                            class="link-to-prism">apps/server/src/modules/school/service/school.service.ts:88</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="79"
+                            class="link-to-prism">apps/server/src/modules/school/service/school.service.ts:79</a></div>
                 </td>
             </tr>
 
@@ -570,8 +570,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="31"
-                            class="link-to-prism">apps/server/src/modules/school/service/school.service.ts:31</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="22"
+                            class="link-to-prism">apps/server/src/modules/school/service/school.service.ts:22</a></div>
                 </td>
             </tr>
 
@@ -654,8 +654,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="22"
-                            class="link-to-prism">apps/server/src/modules/school/service/school.service.ts:22</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="89"
+                            class="link-to-prism">apps/server/src/modules/school/service/school.service.ts:89</a></div>
                 </td>
             </tr>
 
@@ -725,8 +725,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="93"
-                            class="link-to-prism">apps/server/src/modules/school/service/school.service.ts:93</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="84"
+                            class="link-to-prism">apps/server/src/modules/school/service/school.service.ts:84</a></div>
                 </td>
             </tr>
 
@@ -796,8 +796,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="36"
-                            class="link-to-prism">apps/server/src/modules/school/service/school.service.ts:36</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="27"
+                            class="link-to-prism">apps/server/src/modules/school/service/school.service.ts:27</a></div>
                 </td>
             </tr>
 
@@ -871,7 +871,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/OauthMigrationDto.html" target="_self" >Promise&lt;OauthMigrationDto&gt;</a></code>
+                        <b>Returns : </b>    <code>Promise&lt;OauthMigrationDto&gt;</code>
 
                     </div>
                     <div class="io-description">
@@ -896,7 +896,7 @@ import { OauthMigrationDto } from &#x27;../dto/oauth-migration.dto&#x27;;
 
 @Injectable()
 export class SchoolService {
-	constructor(readonly schoolRepo: SchoolRepo) {}
+	constructor(private readonly schoolRepo: SchoolRepo) {}
 
 	async createOrUpdateSchool(school: SchoolDO): Promise&lt;SchoolDO&gt; {
 		let createdSchool: SchoolDO;
@@ -906,15 +906,6 @@ export class SchoolService {
 			createdSchool &#x3D; await this.schoolRepo.save(school);
 		}
 		return createdSchool;
-	}
-
-	private async patchSchool(school: SchoolDO) {
-		const entity: SchoolDO &#x3D; await this.schoolRepo.findById(school.id as string);
-		const patchedEntity: SchoolDO &#x3D; { ...entity, ...school };
-
-		await this.schoolRepo.save(patchedEntity);
-
-		return patchedEntity;
 	}
 
 	async hasFeature(schoolId: EntityId, feature: SchoolFeatures): Promise&lt;boolean&gt; {
@@ -982,6 +973,15 @@ export class SchoolService {
 	async save(school: SchoolDO): Promise&lt;SchoolDO&gt; {
 		const ret: SchoolDO &#x3D; await this.schoolRepo.save(school);
 		return ret;
+	}
+
+	private async patchSchool(school: SchoolDO) {
+		const entity: SchoolDO &#x3D; await this.schoolRepo.findById(school.id as string);
+		const patchedEntity: SchoolDO &#x3D; { ...entity, ...school };
+
+		await this.schoolRepo.save(patchedEntity);
+
+		return patchedEntity;
 	}
 }
 </code></pre>

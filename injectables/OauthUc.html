@@ -93,7 +93,7 @@
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
-                                <a href="#migrateUser" >migrateUser</a>
+                                <a href="#migrate" >migrate</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
@@ -122,12 +122,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(oauthService: <a href="../injectables/OAuthService.html" target="_self">OAuthService</a>, systemService: <a href="../injectables/SystemService.html" target="_self">SystemService</a>, provisioningService: <a href="../injectables/ProvisioningService.html" target="_self">ProvisioningService</a>, userMigrationService: <a href="../injectables/UserMigrationService.html" target="_self">UserMigrationService</a>, jwtService: <a href="../injectables/FeathersJwtProvider.html" target="_self">FeathersJwtProvider</a>, logger: <a href="../injectables/Logger.html" target="_self">Logger</a>)</code>
+<code>constructor(oauthService: <a href="../injectables/OAuthService.html" target="_self">OAuthService</a>, systemService: <a href="../injectables/SystemService.html" target="_self">SystemService</a>, provisioningService: <a href="../injectables/ProvisioningService.html" target="_self">ProvisioningService</a>, schoolService: <a href="../injectables/SchoolService.html" target="_self">SchoolService</a>, userService: <a href="../injectables/UserService.html" target="_self">UserService</a>, userMigrationService: <a href="../injectables/UserMigrationService.html" target="_self">UserMigrationService</a>, jwtService: <a href="../injectables/FeathersJwtProvider.html" target="_self">FeathersJwtProvider</a>, schoolMigrationService: <a href="../injectables/SchoolMigrationService.html" target="_self">SchoolMigrationService</a>, logger: <a href="../injectables/Logger.html" target="_self">Logger</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">apps/server/src/modules/oauth/uc/oauth.uc.ts:19</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">apps/server/src/modules/oauth/uc/oauth.uc.ts:23</a></div>
                             </td>
                         </tr>
 
@@ -181,6 +181,30 @@
                                                     
                                                 </tr>
                                                 <tr>
+                                                        <td>schoolService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/SchoolService.html" target="_self" >SchoolService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>userService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/UserService.html" target="_self" >UserService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
                                                         <td>userMigrationService</td>
                                                   
                                                         <td>
@@ -197,6 +221,18 @@
                                                   
                                                         <td>
                                                                         <code><a href="../injectables/FeathersJwtProvider.html" target="_self" >FeathersJwtProvider</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>schoolMigrationService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/SchoolMigrationService.html" target="_self" >SchoolMigrationService</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -253,8 +289,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="82"
-                            class="link-to-prism">apps/server/src/modules/oauth/uc/oauth.uc.ts:82</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="101"
+                            class="link-to-prism">apps/server/src/modules/oauth/uc/oauth.uc.ts:101</a></div>
                 </td>
             </tr>
 
@@ -317,26 +353,26 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="migrateUser"></a>
+                    <a name="migrate"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
-                        <span ><b>migrateUser</b></span>
-                        <a href="#migrateUser"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>migrate</b></span>
+                        <a href="#migrate"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>migrateUser(currentUserId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, query: <a href="../interfaces/AuthorizationParams.html" target="_self">AuthorizationParams</a>, targetSystemId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    <code>migrate(currentUserId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, query: <a href="../interfaces/AuthorizationParams.html" target="_self">AuthorizationParams</a>, targetSystemId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="40"
-                            class="link-to-prism">apps/server/src/modules/oauth/uc/oauth.uc.ts:40</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="47"
+                            class="link-to-prism">apps/server/src/modules/oauth/uc/oauth.uc.ts:47</a></div>
                 </td>
             </tr>
 
@@ -398,7 +434,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../interfaces/User.html" target="_self" >Promise&lt;UserMigrationDto&gt;</a></code>
+                        <b>Returns : </b>        <code><a href="../classes/MigrationDto.html" target="_self" >Promise&lt;MigrationDto&gt;</a></code>
 
                     </div>
                     <div class="io-description">
@@ -431,8 +467,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="59"
-                            class="link-to-prism">apps/server/src/modules/oauth/uc/oauth.uc.ts:59</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="78"
+                            class="link-to-prism">apps/server/src/modules/oauth/uc/oauth.uc.ts:78</a></div>
                 </td>
             </tr>
 
@@ -514,8 +550,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="31"
-                            class="link-to-prism">apps/server/src/modules/oauth/uc/oauth.uc.ts:31</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="38"
+                            class="link-to-prism">apps/server/src/modules/oauth/uc/oauth.uc.ts:38</a></div>
                 </td>
             </tr>
 
@@ -585,15 +621,19 @@
 import { Logger } from &#x27;@src/core/logger&#x27;;
 import { SystemService } from &#x27;@src/modules/system&#x27;;
 import { SystemDto } from &#x27;@src/modules/system/service/dto/system.dto&#x27;;
-import { UserMigrationDto } from &#x27;@src/modules/user-migration/service/dto/userMigration.dto&#x27;;
 import { UserDO } from &#x27;@shared/domain/domainobject/user.do&#x27;;
 import { FeathersJwtProvider } from &#x27;@src/modules/authorization&#x27;;
+import { UserService } from &#x27;@src/modules/user&#x27;;
+import { UserMigrationService } from &#x27;@src/modules/user-login-migration&#x27;;
+import { SchoolService } from &#x27;@src/modules/school&#x27;;
+import { SchoolMigrationService } from &#x27;@src/modules/user-login-migration/service&#x27;;
+import { SchoolDO } from &#x27;@shared/domain/domainobject/school.do&#x27;;
+import { MigrationDto } from &#x27;@src/modules/user-login-migration/service/dto/migration.dto&#x27;;
+import { ProvisioningService } from &#x27;@src/modules/provisioning&#x27;;
+import { OauthDataDto } from &#x27;@src/modules/provisioning/dto&#x27;;
 import { AuthorizationParams, OauthTokenResponse } from &#x27;../controller/dto&#x27;;
 import { OAuthProcessDto } from &#x27;../service/dto/oauth-process.dto&#x27;;
 import { OAuthService } from &#x27;../service/oauth.service&#x27;;
-import { ProvisioningService } from &#x27;../../provisioning&#x27;;
-import { UserMigrationService } from &#x27;../../user-migration&#x27;;
-import { OauthDataDto } from &#x27;../../provisioning/dto&#x27;;
 
 /**
  * @deprecated remove after login via oauth moved to authentication module
@@ -604,8 +644,11 @@ export class OauthUc {
 		private readonly oauthService: OAuthService,
 		private readonly systemService: SystemService,
 		private readonly provisioningService: ProvisioningService,
+		private readonly schoolService: SchoolService,
+		private readonly userService: UserService,
 		private readonly userMigrationService: UserMigrationService,
 		private readonly jwtService: FeathersJwtProvider,
+		private readonly schoolMigrationService: SchoolMigrationService,
 		private readonly logger: Logger
 	) {
 		this.logger.setContext(OauthUc.name);
@@ -620,18 +663,30 @@ export class OauthUc {
 		}
 	}
 
-	async migrateUser(
-		currentUserId: string,
-		query: AuthorizationParams,
-		targetSystemId: string
-	): Promise&lt;UserMigrationDto&gt; {
+	async migrate(currentUserId: string, query: AuthorizationParams, targetSystemId: string): Promise&lt;MigrationDto&gt; {
 		const queryToken: OauthTokenResponse &#x3D; await this.oauthService.authorizeForMigration(query, targetSystemId);
 		const data: OauthDataDto &#x3D; await this.provisioningService.getData(
 			queryToken.access_token,
 			queryToken.id_token,
 			targetSystemId
 		);
-		const migrationDto: UserMigrationDto &#x3D; await this.userMigrationService.migrateUser(
+
+		if (data.externalSchool) {
+			const schoolToMigrate: SchoolDO | null &#x3D; await this.schoolMigrationService.schoolToMigrate(
+				currentUserId,
+				data.externalSchool.externalId,
+				data.externalSchool.officialSchoolNumber
+			);
+			if (schoolToMigrate) {
+				await this.schoolMigrationService.migrateSchool(
+					data.externalSchool.externalId,
+					schoolToMigrate,
+					targetSystemId
+				);
+			}
+		}
+
+		const migrationDto: Promise&lt;MigrationDto&gt; &#x3D; this.userMigrationService.migrateUser(
 			currentUserId,
 			data.externalUser.externalId,
 			targetSystemId

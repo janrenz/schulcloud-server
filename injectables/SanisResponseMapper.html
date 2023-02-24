@@ -69,6 +69,20 @@
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
         <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#SCHOOLNUMBER_PREFIX_REGEX" >SCHOOLNUMBER_PREFIX_REGEX</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
 
                 <tr>
                     <td class="col-md-4">
@@ -128,8 +142,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="32"
-                            class="link-to-prism">apps/server/src/modules/provisioning/strategy/sanis/sanis-response.mapper.ts:32</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="39"
+                            class="link-to-prism">apps/server/src/modules/provisioning/strategy/sanis/sanis-response.mapper.ts:39</a></div>
                 </td>
             </tr>
 
@@ -197,8 +211,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="15"
-                            class="link-to-prism">apps/server/src/modules/provisioning/strategy/sanis/sanis-response.mapper.ts:15</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="17"
+                            class="link-to-prism">apps/server/src/modules/provisioning/strategy/sanis/sanis-response.mapper.ts:17</a></div>
                 </td>
             </tr>
 
@@ -266,8 +280,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="22"
-                            class="link-to-prism">apps/server/src/modules/provisioning/strategy/sanis/sanis-response.mapper.ts:22</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="29"
+                            class="link-to-prism">apps/server/src/modules/provisioning/strategy/sanis/sanis-response.mapper.ts:29</a></div>
                 </td>
             </tr>
 
@@ -316,6 +330,37 @@
         </tbody>
     </table>
 </section>
+            <section>
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="SCHOOLNUMBER_PREFIX_REGEX"></a>
+                    <span class="name">
+                        <span ><b>SCHOOLNUMBER_PREFIX_REGEX</b></span>
+                        <a href="#SCHOOLNUMBER_PREFIX_REGEX"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>/^NI_/</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">apps/server/src/modules/provisioning/strategy/sanis/sanis-response.mapper.ts:15</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
 
     </div>
 
@@ -335,10 +380,17 @@ const RoleMapping &#x3D; {
 
 @Injectable()
 export class SanisResponseMapper {
+	SCHOOLNUMBER_PREFIX_REGEX &#x3D; /^NI_/;
+
 	mapToExternalSchoolDto(source: SanisResponse): ExternalSchoolDto {
+		const officialSchoolNumber: string &#x3D; source.personenkontexte[0].organisation.kennung.replace(
+			this.SCHOOLNUMBER_PREFIX_REGEX,
+			&#x27;&#x27;
+		);
 		return new ExternalSchoolDto({
 			name: source.personenkontexte[0].organisation.name,
 			externalId: source.personenkontexte[0].organisation.id.toString(),
+			officialSchoolNumber,
 		});
 	}
 

@@ -350,11 +350,14 @@ export class SanisResponsePersonenkontext {
 export class SanisResponseOrganisation {
 	constructor(sanisResponseOrganisation: SanisResponseOrganisation) {
 		this.id &#x3D; sanisResponseOrganisation.id;
+		this.kennung &#x3D; sanisResponseOrganisation.kennung;
 		this.name &#x3D; sanisResponseOrganisation.name;
 		this.typ &#x3D; sanisResponseOrganisation.typ;
 	}
 
 	id: UUID;
+
+	kennung: string;
 
 	name: string;
 
