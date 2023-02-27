@@ -89,7 +89,12 @@ import { VisibilitySettingsResponse } from &#x27;./visibility-settings.response&
 
 export class ContentElementResponse {}
 
-type BoardCardType &#x3D; &#x27;task&#x27; | &#x27;content&#x27; | &#x27;legacy-task&#x27; | &#x27;legacy-lesson&#x27;;
+export enum BoardCardType {
+	TASK &#x3D; &#x27;task&#x27;,
+	CONTENT &#x3D; &#x27;content&#x27;,
+	LEGACY_TASK &#x3D; &#x27;legacy-task&#x27;,
+	LEGACY_LESSON &#x3D; &#x27;legacy-lesson&#x27;,
+}
 
 export class CardResponse {
 	constructor({ id, title, elements, cardType, visibilitySettings }: CardResponse) {
@@ -114,7 +119,7 @@ export class CardResponse {
 	})
 	elements: ContentElementResponse[];
 
-	@ApiProperty()
+	@ApiProperty({ enum: BoardCardType })
 	cardType: BoardCardType;
 
 	@ApiProperty()

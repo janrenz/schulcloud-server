@@ -126,13 +126,13 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @IsMongoId({each: true})<br />@ApiProperty({description: &#x27;Array of Ids to be loaded&#x27;})<br />
+                            @IsMongoId({each: true})<br />@ApiProperty({description: &#x27;Array of Ids to be loaded&#x27;, type: undefined})<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">apps/server/src/modules/learnroom/controller/dto/card/card-ids.params.ts:9</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">apps/server/src/modules/learnroom/controller/dto/card/card-ids.params.ts:10</a></div>
                         </td>
                     </tr>
 
@@ -158,6 +158,7 @@ export class CardIdsParams {
 	@IsMongoId({ each: true })
 	@ApiProperty({
 		description: &#x27;Array of Ids to be loaded&#x27;,
+		type: [String],
 	})
 	ids!: string[] | string;
 }
