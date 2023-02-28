@@ -313,7 +313,7 @@ import { ConfigModule } from &#x27;@nestjs/config&#x27;;
 import { ALL_ENTITIES } from &#x27;@shared/domain&#x27;;
 import { AntivirusModule } from &#x27;@shared/infra/antivirus/antivirus.module&#x27;;
 import { RabbitMQWrapperModule } from &#x27;@shared/infra/rabbitmq/rabbitmq.module&#x27;;
-import { DB_PASSWORD, DB_URL, DB_USERNAME } from &#x27;@src/config&#x27;;
+import { createConfigModuleOptions, DB_PASSWORD, DB_URL, DB_USERNAME } from &#x27;@src/config&#x27;;
 import { LoggerModule } from &#x27;@src/core/logger&#x27;;
 import { S3ClientAdapter } from &#x27;./client/s3-client.adapter&#x27;;
 import { FileRecord, FileSecurityCheck } from &#x27;./entity&#x27;;
@@ -324,10 +324,7 @@ import { FilesStorageService } from &#x27;./service/files-storage.service&#x27;;
 
 const imports &#x3D; [
 	LoggerModule,
-	ConfigModule.forRoot({
-		isGlobal: true,
-		load: [config],
-	}),
+	ConfigModule.forRoot(createConfigModuleOptions(config)),
 	AntivirusModule.forRoot({
 		enabled: Configuration.get(&#x27;ENABLE_FILE_SECURITY_CHECK&#x27;) as boolean,
 		filesServiceBaseUrl: Configuration.get(&#x27;FILES_STORAGE__SERVICE_BASE_URL&#x27;) as string,

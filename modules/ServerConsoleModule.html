@@ -175,7 +175,7 @@ import { ConfigModule } from &#x27;@nestjs/config&#x27;;
 import { ALL_ENTITIES } from &#x27;@shared/domain&#x27;;
 import { ConsoleWriterModule } from &#x27;@shared/infra/console/console-writer/console-writer.module&#x27;;
 import { KeycloakModule } from &#x27;@shared/infra/identity-management/keycloak/keycloak.module&#x27;;
-import { DB_PASSWORD, DB_URL, DB_USERNAME } from &#x27;@src/config&#x27;;
+import { createConfigModuleOptions, DB_PASSWORD, DB_URL, DB_USERNAME } from &#x27;@src/config&#x27;;
 import { FilesModule } from &#x27;@src/modules/files&#x27;;
 import { FileRecord } from &#x27;@src/modules/files-storage/entity&#x27;;
 import { ManagementModule } from &#x27;@src/modules/management/management.module&#x27;;
@@ -189,11 +189,7 @@ import { ServerConsole } from &#x27;./server.console&#x27;;
 		ConsoleModule,
 		ConsoleWriterModule,
 		FilesModule,
-		ConfigModule.forRoot({
-			isGlobal: true,
-			validationOptions: { infer: true },
-			load: [serverConfig],
-		}),
+		ConfigModule.forRoot(createConfigModuleOptions(serverConfig)),
 		...((Configuration.get(&#x27;FEATURE_IDENTITY_MANAGEMENT_ENABLED&#x27;) as boolean) ? [KeycloakModule] : []),
 		MikroOrmModule.forRoot({
 			// TODO repeats server module definitions
