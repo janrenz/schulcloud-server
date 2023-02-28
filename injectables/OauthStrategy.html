@@ -340,14 +340,14 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { BadRequestException, Injectable, UnauthorizedException } from &#x27;@nestjs/common&#x27;;
 import { PassportStrategy } from &#x27;@nestjs/passport&#x27;;
-import { ICurrentUser } from &#x27;@shared/domain&#x27;;
 import { UserDO } from &#x27;@shared/domain/domainobject/user.do&#x27;;
-import { CurrentUserMapper } from &#x27;@shared/domain/mapper/current-user.mapper&#x27;;
 import { Logger } from &#x27;@src/core/logger&#x27;;
 import { AccountService } from &#x27;@src/modules/account/services/account.service&#x27;;
 import { OAuthService } from &#x27;@src/modules/oauth/service/oauth.service&#x27;;
 import { Strategy } from &#x27;passport-custom&#x27;;
 import { OauthAuthorizationParams } from &#x27;./dtos/oauth-authorization.params&#x27;;
+import { ICurrentUser } from &#x27;../interface&#x27;;
+import { CurrentUserMapper } from &#x27;../mapper&#x27;;
 
 export type PathParams &#x3D; { systemId?: string };
 

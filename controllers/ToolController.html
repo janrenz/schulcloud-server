@@ -153,8 +153,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="70"
-                            class="link-to-prism">apps/server/src/modules/tool/controller/tool.controller.ts:70</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="71"
+                            class="link-to-prism">apps/server/src/modules/tool/controller/tool.controller.ts:71</a></div>
                 </td>
             </tr>
 
@@ -243,8 +243,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="141"
-                            class="link-to-prism">apps/server/src/modules/tool/controller/tool.controller.ts:141</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="142"
+                            class="link-to-prism">apps/server/src/modules/tool/controller/tool.controller.ts:142</a></div>
                 </td>
             </tr>
 
@@ -333,8 +333,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="85"
-                            class="link-to-prism">apps/server/src/modules/tool/controller/tool.controller.ts:85</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="86"
+                            class="link-to-prism">apps/server/src/modules/tool/controller/tool.controller.ts:86</a></div>
                 </td>
             </tr>
 
@@ -447,8 +447,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="110"
-                            class="link-to-prism">apps/server/src/modules/tool/controller/tool.controller.ts:110</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="111"
+                            class="link-to-prism">apps/server/src/modules/tool/controller/tool.controller.ts:111</a></div>
                 </td>
             </tr>
 
@@ -537,8 +537,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="49"
-                            class="link-to-prism">apps/server/src/modules/tool/controller/tool.controller.ts:49</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="50"
+                            class="link-to-prism">apps/server/src/modules/tool/controller/tool.controller.ts:50</a></div>
                 </td>
             </tr>
 
@@ -639,8 +639,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="124"
-                            class="link-to-prism">apps/server/src/modules/tool/controller/tool.controller.ts:124</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="125"
+                            class="link-to-prism">apps/server/src/modules/tool/controller/tool.controller.ts:125</a></div>
                 </td>
             </tr>
 
@@ -717,7 +717,7 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Body, Controller, Delete, Get, Param, Post, Query } from &#x27;@nestjs/common&#x27;;
-import { ICurrentUser, IFindOptions, RoleName } from &#x27;@shared/domain&#x27;;
+import { IFindOptions, RoleName } from &#x27;@shared/domain&#x27;;
 import { Authorization } from &#x27;oauth-1.0a&#x27;;
 import {
 	ApiCreatedResponse,
@@ -734,6 +734,7 @@ import { Page } from &#x27;@shared/domain/interface/page&#x27;;
 import { ExternalToolDO } from &#x27;@shared/domain/domainobject/external-tool&#x27;;
 import { Logger } from &#x27;@src/core/logger&#x27;;
 import { ValidationError } from &#x27;@shared/common&#x27;;
+import { ICurrentUser } from &#x27;@src/modules/authentication&#x27;;
 import { Lti11Uc } from &#x27;../uc/lti11.uc&#x27;;
 import { Authenticate, CurrentUser } from &#x27;../../authentication/decorator/auth.decorator&#x27;;
 import { ExternalToolUc } from &#x27;../uc/external-tool.uc&#x27;;

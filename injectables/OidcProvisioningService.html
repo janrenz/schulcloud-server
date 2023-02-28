@@ -104,7 +104,7 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(userService: <a href="../injectables/UserService.html" target="_self">UserService</a>, schoolService: <a href="../injectables/SchoolService.html" target="_self">SchoolService</a>, roleService: <a href="../injectables/RoleService.html" target="_self">RoleService</a>, accountUc: <a href="../injectables/AccountUc.html" target="_self">AccountUc</a>)</code>
+<code>constructor(userService: <a href="../injectables/UserService.html" target="_self">UserService</a>, schoolService: <a href="../injectables/SchoolService.html" target="_self">SchoolService</a>, roleService: <a href="../injectables/RoleService.html" target="_self">RoleService</a>, accountService: <a href="../injectables/AccountService.html" target="_self">AccountService</a>)</code>
                     </td>
                 </tr>
                         <tr>
@@ -163,10 +163,10 @@
                                                     
                                                 </tr>
                                                 <tr>
-                                                        <td>accountUc</td>
+                                                        <td>accountService</td>
                                                   
                                                         <td>
-                                                                        <code><a href="../injectables/AccountUc.html" target="_self" >AccountUc</a></code>
+                                                                        <code><a href="../injectables/AccountService.html" target="_self" >AccountService</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -376,8 +376,8 @@
 import { EntityId } from &#x27;@shared/domain&#x27;;
 import { SchoolDO } from &#x27;@shared/domain/domainobject/school.do&#x27;;
 import { UserDO } from &#x27;@shared/domain/domainobject/user.do&#x27;;
+import { AccountService } from &#x27;@src/modules/account/services/account.service&#x27;;
 import { AccountSaveDto } from &#x27;@src/modules/account/services/dto&#x27;;
-import { AccountUc } from &#x27;@src/modules/account/uc/account.uc&#x27;;
 import { RoleService } from &#x27;@src/modules/role&#x27;;
 import { RoleDto } from &#x27;@src/modules/role/service/dto/role.dto&#x27;;
 import { SchoolService } from &#x27;@src/modules/school&#x27;;
@@ -391,7 +391,7 @@ export class OidcProvisioningService {
 		private readonly userService: UserService,
 		private readonly schoolService: SchoolService,
 		private readonly roleService: RoleService,
-		private readonly accountUc: AccountUc
+		private readonly accountService: AccountService
 	) {}
 
 	async provisionExternalSchool(externalSchool: ExternalSchoolDto, systemId: EntityId): Promise&lt;SchoolDO&gt; {
@@ -461,7 +461,7 @@ export class OidcProvisioningService {
 		const savedUser: UserDO &#x3D; await this.userService.save(user);
 
 		if (createNewAccount) {
-			await this.accountUc.saveAccount(
+			await this.accountService.saveWithValidation(
 				new AccountSaveDto({
 					userId: savedUser.id,
 					username: CryptoJS.SHA256(savedUser.id as string).toString(CryptoJS.enc.Base64),

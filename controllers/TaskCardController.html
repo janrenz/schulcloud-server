@@ -539,7 +539,7 @@
 
 import { Body, Controller, Delete, Get, InternalServerErrorException, Param, Patch, Post } from &#x27;@nestjs/common&#x27;;
 import { ApiTags } from &#x27;@nestjs/swagger&#x27;;
-import { ICurrentUser } from &#x27;@shared/domain&#x27;;
+import { ICurrentUser } from &#x27;@src/modules/authentication&#x27;;
 import { Authenticate, CurrentUser } from &#x27;@src/modules/authentication/decorator/auth.decorator&#x27;;
 import { TaskCardUc } from &#x27;../uc&#x27;;
 import { TaskCardResponse, TaskCardUrlParams, TaskCardParams } from &#x27;./dto&#x27;;

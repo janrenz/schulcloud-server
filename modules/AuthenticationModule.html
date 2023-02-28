@@ -56,13 +56,13 @@
 <title>cluster_AuthenticationModule</title>
 <polygon fill="none" stroke="black" stroke-dasharray="1,5" points="8,-32.8 8,-230.8 2375,-230.8 2375,-32.8 8,-32.8"/>
 </g>
-<g id="clust4" class="cluster">
-<title>cluster_AuthenticationModule_exports</title>
-<polygon fill="none" stroke="black" points="1079,-170.8 1079,-222.8 1239,-222.8 1239,-170.8 1079,-170.8"/>
-</g>
 <g id="clust3" class="cluster">
 <title>cluster_AuthenticationModule_imports</title>
 <polygon fill="none" stroke="black" points="1702,-40.8 1702,-92.8 2367,-92.8 2367,-40.8 1702,-40.8"/>
+</g>
+<g id="clust4" class="cluster">
+<title>cluster_AuthenticationModule_exports</title>
+<polygon fill="none" stroke="black" points="1079,-170.8 1079,-222.8 1239,-222.8 1239,-170.8 1079,-170.8"/>
 </g>
 <g id="clust6" class="cluster">
 <title>cluster_AuthenticationModule_providers</title>
@@ -401,6 +401,7 @@ import { SchoolRepo, SystemRepo, UserRepo } from &#x27;@shared/repo&#x27;;
 import { LoggerModule } from &#x27;@src/core/logger&#x27;;
 import { Algorithm, SignOptions } from &#x27;jsonwebtoken&#x27;;
 import { IdentityManagementModule } from &#x27;@shared/infra/identity-management&#x27;;
+import { OauthModule } from &#x27;@src/modules/oauth/oauth.module&#x27;;
 import { AccountModule } from &#x27;../account&#x27;;
 import { AuthenticationService } from &#x27;./services/authentication.service&#x27;;
 import { jwtConstants } from &#x27;./constants&#x27;;
@@ -410,7 +411,6 @@ import { LdapStrategy } from &#x27;./strategy/ldap.strategy&#x27;;
 import { LocalStrategy } from &#x27;./strategy/local.strategy&#x27;;
 import { LdapService } from &#x27;./services/ldap.service&#x27;;
 import { SystemModule } from &#x27;../system&#x27;;
-import { OauthModule } from &#x27;../oauth&#x27;;
 import { OauthStrategy } from &#x27;./strategy/oauth.strategy&#x27;;
 import { SchoolMapper } from &#x27;../school/mapper/school.mapper&#x27;;
 

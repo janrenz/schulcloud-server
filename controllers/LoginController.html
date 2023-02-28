@@ -372,8 +372,8 @@
 import { Controller, Post, UseGuards, HttpCode, HttpStatus, Query, Res, Get } from &#x27;@nestjs/common&#x27;;
 import { AuthGuard } from &#x27;@nestjs/passport&#x27;;
 import { Configuration } from &#x27;@hpi-schul-cloud/commons/lib&#x27;;
-import { ICurrentUser } from &#x27;@shared/domain&#x27;;
 import { ApiTags } from &#x27;@nestjs/swagger&#x27;;
+import type { ICurrentUser } from &#x27;../interface&#x27;;
 import { CurrentUser } from &#x27;../decorator/auth.decorator&#x27;;
 import { AuthenticationService } from &#x27;../services/authentication.service&#x27;;
 import { OauthAuthorizationQueryParams } from &#x27;./oauth-authorization.params&#x27;;

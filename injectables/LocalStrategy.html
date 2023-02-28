@@ -467,11 +467,11 @@ import { PassportStrategy } from &#x27;@nestjs/passport&#x27;;
 import { Injectable, UnauthorizedException } from &#x27;@nestjs/common&#x27;;
 import bcrypt from &#x27;bcryptjs&#x27;;
 import { UserRepo } from &#x27;@shared/repo&#x27;;
-import { ICurrentUser } from &#x27;@shared/domain&#x27;;
-import { CurrentUserMapper } from &#x27;@shared/domain/mapper/current-user.mapper&#x27;;
 import { AccountDto } from &#x27;@src/modules/account/services/dto&#x27;;
 import { GuardAgainst } from &#x27;@shared/common/utils/guard-against&#x27;;
 import { IdentityManagementOauthService, IIdentityManagementConfig } from &#x27;@shared/infra/identity-management&#x27;;
+import { CurrentUserMapper } from &#x27;../mapper&#x27;;
+import { ICurrentUser } from &#x27;../interface&#x27;;
 import { AuthenticationService } from &#x27;../services/authentication.service&#x27;;
 
 @Injectable()
