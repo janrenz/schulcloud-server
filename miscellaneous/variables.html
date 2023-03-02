@@ -355,6 +355,9 @@
                             <a href="#sanitizeRichText" title="apps/server/src/shared/controller/transformer/sanitize-html.transformer.ts" ><b>sanitizeRichText</b>&nbsp;&nbsp;&nbsp;(apps/.../sanitize-html.transformer.ts)</a>
                         </li>
                         <li>
+                            <a href="#schoolDOFactory" title="apps/server/src/shared/testing/factory/domainobject/school.factory.ts" ><b>schoolDOFactory</b>&nbsp;&nbsp;&nbsp;(apps/.../school.factory.ts)</a>
+                        </li>
+                        <li>
                             <a href="#schoolExternalToolDOFactory" title="apps/server/src/shared/testing/factory/domainobject/school-external-tool.factory.ts" ><b>schoolExternalToolDOFactory</b>&nbsp;&nbsp;&nbsp;(apps/.../school-external-tool.factory.ts)</a>
                         </li>
                         <li>
@@ -4378,6 +4381,33 @@ You shall not explicitly declare the AMQPConnection in your modules since it wil
 	[RoleName.ADMINISTRATOR]: LtiRole.ADMINISTRATOR,
 	[RoleName.SUPERHERO]: LtiRole.ADMINISTRATOR,
 }</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>apps/server/src/shared/testing/factory/domainobject/school.factory.ts</h3>
+    <section>
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="schoolDOFactory"></a>
+                    <span class="name">
+                        <span ><b>schoolDOFactory</b></span>
+                        <a href="#schoolDOFactory"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>SchoolFactory.define(SchoolDO, ({ sequence }) &#x3D;&gt; {
+	return {
+		name: &#x60;schoolName-${sequence}&#x60;,
+	};
+})</code>
                     </td>
                 </tr>
 

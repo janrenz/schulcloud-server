@@ -85,7 +85,15 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#createQueryOrderMap" >createQueryOrderMap</a>
+                            </li>
+                            <li>
                                 <a href="#entityFactory" >entityFactory</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#find" >find</a>
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
@@ -185,6 +193,77 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="createQueryOrderMap"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span ><b>createQueryOrderMap</b></span>
+                        <a href="#createQueryOrderMap"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>createQueryOrderMap(sort: <a href="../interfaces/User.html" target="_self">SortOrderMap&lt;User&gt;</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="133"
+                            class="link-to-prism">apps/server/src/shared/repo/user/user-do.repo.ts:133</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>sort</td>
+                                    <td>
+                                                <code><a href="../interfaces/User.html" target="_self" >SortOrderMap&lt;User&gt;</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../interfaces/User.html" target="_self" >QueryOrderMap&lt;User&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="entityFactory"></a>
                     <span class="name">
                         <span ><b>entityFactory</b></span>
@@ -207,7 +286,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/BaseDORepo.html#source" target="_self" >BaseDORepo:14</a></code>
+                        <div class="io-line">Defined in         <code><a href="../injectables/BaseDORepo.html#source" target="_self" >BaseDORepo:28</a></code>
 </div>
                 </td>
             </tr>
@@ -260,6 +339,89 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="find"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>find</b></span>
+                        <a href="#find"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>find(query: <a href="../interfaces/User.html" target="_self">UserQuery</a>, options?: <a href="../entitys/User.html" target="_self">IFindOptions&lt;UserDO&gt;</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="32"
+                            class="link-to-prism">apps/server/src/shared/repo/user/user-do.repo.ts:32</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>query</td>
+                                    <td>
+                                                <code><a href="../interfaces/User.html" target="_self" >UserQuery</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>options</td>
+                                    <td>
+                                                <code><a href="../entitys/User.html" target="_self" >IFindOptions&lt;UserDO&gt;</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>unknown</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="findByExternalId"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
@@ -278,8 +440,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="37"
-                            class="link-to-prism">apps/server/src/shared/repo/user/user-do.repo.ts:37</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="73"
+                            class="link-to-prism">apps/server/src/shared/repo/user/user-do.repo.ts:73</a></div>
                 </td>
             </tr>
 
@@ -361,8 +523,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="29"
-                            class="link-to-prism">apps/server/src/shared/repo/user/user-do.repo.ts:29</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="65"
+                            class="link-to-prism">apps/server/src/shared/repo/user/user-do.repo.ts:65</a></div>
                 </td>
             </tr>
 
@@ -450,7 +612,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/BaseDORepo.html#source" target="_self" >BaseDORepo:18</a></code>
+                        <div class="io-line">Defined in         <code><a href="../injectables/BaseDORepo.html#source" target="_self" >BaseDORepo:54</a></code>
 </div>
                 </td>
             </tr>
@@ -544,7 +706,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/BaseDORepo.html#source" target="_self" >BaseDORepo:91</a></code>
+                        <div class="io-line">Defined in         <code><a href="../injectables/BaseDORepo.html#source" target="_self" >BaseDORepo:115</a></code>
 </div>
                 </td>
             </tr>
@@ -621,7 +783,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/BaseDORepo.html#source" target="_self" >BaseDORepo:60</a></code>
+                        <div class="io-line">Defined in         <code><a href="../injectables/BaseDORepo.html#source" target="_self" >BaseDORepo:84</a></code>
 </div>
                 </td>
             </tr>
@@ -693,8 +855,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="48"
-                            class="link-to-prism">apps/server/src/shared/repo/user/user-do.repo.ts:48</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="143"
+                            class="link-to-prism">apps/server/src/shared/repo/user/user-do.repo.ts:143</a></div>
                 </td>
             </tr>
 
@@ -1465,7 +1627,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">apps/server/src/shared/repo/user/user-do.repo.ts:10</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">apps/server/src/shared/repo/user/user-do.repo.ts:24</a></div>
                                 </td>
                             </tr>
 
@@ -1477,11 +1639,25 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
-import { BaseDORepo } from &#x27;@shared/repo&#x27;;
-import { EntityId, IUserProperties, Role, School, System, User } from &#x27;@shared/domain&#x27;;
-import { EntityName, FilterQuery, Reference } from &#x27;@mikro-orm/core&#x27;;
+import { BaseDORepo, Scope } from &#x27;@shared/repo&#x27;;
+import {
+	EntityId,
+	IFindOptions,
+	IPagination,
+	IUserProperties,
+	Role,
+	School,
+	SortOrder,
+	SortOrderMap,
+	System,
+	User,
+} from &#x27;@shared/domain&#x27;;
+import { EntityName, FilterQuery, QueryOrderMap, Reference } from &#x27;@mikro-orm/core&#x27;;
 import { UserDO } from &#x27;@shared/domain/domainobject/user.do&#x27;;
 import { EntityNotFoundError } from &#x27;@shared/common&#x27;;
+import { UserQuery } from &#x27;@src/modules/user/service/user-query.type&#x27;;
+import { Page } from &#x27;@src/shared/domain/interface/page&#x27;;
+import { UserScope } from &#x27;./user.scope&#x27;;
 
 @Injectable()
 export class UserDORepo extends BaseDORepo&lt;UserDO, User, IUserProperties&gt; {
@@ -1491,6 +1667,28 @@ export class UserDORepo extends BaseDORepo&lt;UserDO, User, IUserProperties&gt; 
 
 	entityFactory(props: IUserProperties): User {
 		return new User(props);
+	}
+
+	async find(query: UserQuery, options?: IFindOptions&lt;UserDO&gt;) {
+		const pagination: IPagination &#x3D; options?.pagination || {};
+		const order: QueryOrderMap&lt;User&gt; &#x3D; this.createQueryOrderMap(options?.order || {});
+		const scope: Scope&lt;User&gt; &#x3D; new UserScope()
+			.bySchoolId(query.schoolId)
+			.isOutdated(query.isOutdated)
+			.whereLastLoginSystemChangeGreaterThan(query.lastLoginSystemChangeGreaterThan)
+			.allowEmptyQuery(true);
+
+		order._id &#x3D; order._id ?? SortOrder.asc;
+
+		const [entities, total]: [User[], number] &#x3D; await this._em.findAndCount(User, scope.query, {
+			offset: pagination?.skip,
+			limit: pagination?.limit,
+			orderBy: order,
+		});
+
+		const entityDos: UserDO[] &#x3D; entities.map((entity) &#x3D;&gt; this.mapEntityToDO(entity));
+		const page: Page&lt;UserDO&gt; &#x3D; new Page&lt;UserDO&gt;(entityDos, total);
+		return page;
 	}
 
 	async findById(id: EntityId, populate &#x3D; false): Promise&lt;UserDO&gt; {
@@ -1521,18 +1719,6 @@ export class UserDORepo extends BaseDORepo&lt;UserDO, User, IUserProperties&gt; 
 
 		const userDo: UserDO | null &#x3D; userEntity ? this.mapEntityToDO(userEntity) : null;
 		return userDo;
-	}
-
-	private async populateRoles(roles: Role[]): Promise&lt;void&gt; {
-		for (let i &#x3D; 0; i &lt; roles.length; i +&#x3D; 1) {
-			const role &#x3D; roles[i];
-			if (!role.roles.isInitialized(true)) {
-				// eslint-disable-next-line no-await-in-loop
-				await this._em.populate(role, [&#x27;roles&#x27;]);
-				// eslint-disable-next-line no-await-in-loop
-				await this.populateRoles(role.roles.getItems());
-			}
-		}
 	}
 
 	protected mapEntityToDO(entity: User): UserDO {
@@ -1582,6 +1768,28 @@ export class UserDORepo extends BaseDORepo&lt;UserDO, User, IUserProperties&gt; 
 			outdatedSince: entityDO.outdatedSince,
 			previousExternalId: entityDO.previousExternalId,
 		};
+	}
+
+	private createQueryOrderMap(sort: SortOrderMap&lt;User&gt;): QueryOrderMap&lt;User&gt; {
+		const queryOrderMap: QueryOrderMap&lt;User&gt; &#x3D; {
+			_id: sort.id,
+		};
+		Object.keys(queryOrderMap)
+			.filter((key) &#x3D;&gt; queryOrderMap[key] &#x3D;&#x3D;&#x3D; undefined)
+			.forEach((key) &#x3D;&gt; delete queryOrderMap[key]);
+		return queryOrderMap;
+	}
+
+	private async populateRoles(roles: Role[]): Promise&lt;void&gt; {
+		for (let i &#x3D; 0; i &lt; roles.length; i +&#x3D; 1) {
+			const role &#x3D; roles[i];
+			if (!role.roles.isInitialized(true)) {
+				// eslint-disable-next-line no-await-in-loop
+				await this._em.populate(role, [&#x27;roles&#x27;]);
+				// eslint-disable-next-line no-await-in-loop
+				await this.populateRoles(role.roles.getItems());
+			}
+		}
 	}
 }
 </code></pre>

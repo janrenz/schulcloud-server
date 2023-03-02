@@ -108,12 +108,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(schoolService: <a href="../injectables/SchoolService.html" target="_self">SchoolService</a>, authService: <a href="../injectables/AuthorizationService.html" target="_self">AuthorizationService</a>)</code>
+<code>constructor(schoolService: <a href="../injectables/SchoolService.html" target="_self">SchoolService</a>, authService: <a href="../injectables/AuthorizationService.html" target="_self">AuthorizationService</a>, schoolMigrationService: <a href="../injectables/SchoolMigrationService.html" target="_self">SchoolMigrationService</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">apps/server/src/modules/school/uc/school.uc.ts:11</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">apps/server/src/modules/school/uc/school.uc.ts:12</a></div>
                             </td>
                         </tr>
 
@@ -147,6 +147,18 @@
                                                   
                                                         <td>
                                                                         <code><a href="../injectables/AuthorizationService.html" target="_self" >AuthorizationService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>schoolMigrationService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/SchoolMigrationService.html" target="_self" >SchoolMigrationService</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -190,8 +202,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="35"
-                            class="link-to-prism">apps/server/src/modules/school/uc/school.uc.ts:35</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="44"
+                            class="link-to-prism">apps/server/src/modules/school/uc/school.uc.ts:44</a></div>
                 </td>
             </tr>
 
@@ -273,8 +285,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="45"
-                            class="link-to-prism">apps/server/src/modules/school/uc/school.uc.ts:45</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="54"
+                            class="link-to-prism">apps/server/src/modules/school/uc/school.uc.ts:54</a></div>
                 </td>
             </tr>
 
@@ -344,8 +356,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="14"
-                            class="link-to-prism">apps/server/src/modules/school/uc/school.uc.ts:14</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="19"
+                            class="link-to-prism">apps/server/src/modules/school/uc/school.uc.ts:19</a></div>
                 </td>
             </tr>
 
@@ -451,14 +463,19 @@
 import { SchoolService } from &#x27;@src/modules/school/service/school.service&#x27;;
 import { Actions, Permission } from &#x27;@shared/domain&#x27;;
 import { SchoolDO } from &#x27;@shared/domain/domainobject/school.do&#x27;;
-import { AuthorizationService, AllowedAuthorizationEntityType } from &#x27;../../authorization&#x27;;
+import { SchoolMigrationService } from &#x27;@src/modules/user-login-migration/service&#x27;;
+import { AllowedAuthorizationEntityType, AuthorizationService } from &#x27;@src/modules/authorization&#x27;;
 import { OauthMigrationDto } from &#x27;../dto/oauth-migration.dto&#x27;;
 import { PublicSchoolResponse } from &#x27;../controller/dto/public.school.response&#x27;;
 import { SchoolUcMapper } from &#x27;../mapper/school.uc.mapper&#x27;;
 
 @Injectable()
 export class SchoolUc {
-	constructor(readonly schoolService: SchoolService, readonly authService: AuthorizationService) {}
+	constructor(
+		private readonly schoolService: SchoolService,
+		private readonly authService: AuthorizationService,
+		private readonly schoolMigrationService: SchoolMigrationService
+	) {}
 
 	async setMigration(
 		schoolId: string,
@@ -477,6 +494,10 @@ export class SchoolUc {
 			oauthMigrationMandatory,
 			oauthMigrationFinished
 		);
+
+		if (oauthMigrationFinished) {
+			await this.schoolMigrationService.completeMigration(schoolId);
+		}
 
 		return migrationDto;
 	}
