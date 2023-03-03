@@ -1336,7 +1336,7 @@ export class ShareTokenUC {
 				}
 				break;
 			case ShareTokenParentType.Lesson:
-				if (!(Configuration.get(&#x27;FEATURE_LESSON_SHARE_NEW&#x27;) as boolean)) {
+				if (!(Configuration.get(&#x27;FEATURE_LESSON_SHARE&#x27;) as boolean)) {
 					throw new InternalServerErrorException(&#x27;Import Lesson Feature not enabled&#x27;);
 				}
 				break;
