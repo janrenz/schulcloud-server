@@ -65,7 +65,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/shared/infra/identity-management/keycloak/controller/console/keycloak-management.console.ts</code>
+            <code>apps/server/src/shared/infra/identity-management/keycloak-configuration/console/keycloak-configuration.console.ts</code>
         </p>
 
 
@@ -178,9 +178,9 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ConsoleWriterService } from &#x27;@shared/infra/console&#x27;;
-import { Command, CommandOption, Console } from &#x27;nestjs-console&#x27;;
 import { Logger } from &#x27;@src/core/logger&#x27;;
-import { KeycloakManagementUc } from &#x27;../../uc/Keycloak-management.uc&#x27;;
+import { Command, CommandOption, Console } from &#x27;nestjs-console&#x27;;
+import { KeycloakConfigurationUc } from &#x27;../uc/keycloak-configuration.uc&#x27;;
 
 const defaultError &#x3D; new Error(&#x27;IDM is not reachable or authentication failed.&#x27;);
 
@@ -192,7 +192,7 @@ interface IRetryOptions {
 export class KeycloakConsole {
 	constructor(
 		private readonly console: ConsoleWriterService,
-		private readonly keycloakManagementUc: KeycloakManagementUc,
+		private readonly keycloakConfigurationUc: KeycloakConfigurationUc,
 		private readonly logger: Logger
 	) {
 		this.logger.setContext(KeycloakConsole.name);
@@ -218,7 +218,7 @@ export class KeycloakConsole {
 	 */
 	@Command({ command: &#x27;check&#x27;, description: &#x27;Test the connection to the IDM.&#x27; })
 	async check(): Promise&lt;void&gt; {
-		if (await this.keycloakManagementUc.check()) {
+		if (await this.keycloakConfigurationUc.check()) {
 			this.console.info(&#x27;Connected to IDM&#x27;);
 		} else {
 			throw defaultError;
@@ -239,7 +239,7 @@ export class KeycloakConsole {
 		await this.repeatCommand(
 			&#x27;clean&#x27;,
 			async () &#x3D;&gt; {
-				const count &#x3D; await this.keycloakManagementUc.clean();
+				const count &#x3D; await this.keycloakConfigurationUc.clean();
 				this.console.info(&#x60;Cleaned ${count} users into IDM&#x60;);
 				return count;
 			},
@@ -261,7 +261,7 @@ export class KeycloakConsole {
 		await this.repeatCommand(
 			&#x27;seed&#x27;,
 			async () &#x3D;&gt; {
-				const count &#x3D; await this.keycloakManagementUc.seed();
+				const count &#x3D; await this.keycloakConfigurationUc.seed();
 				this.console.info(&#x60;Seeded ${count} users into IDM&#x60;);
 				return count;
 			},
@@ -283,7 +283,7 @@ export class KeycloakConsole {
 		await this.repeatCommand(
 			&#x27;configure&#x27;,
 			async () &#x3D;&gt; {
-				const count &#x3D; await this.keycloakManagementUc.configure();
+				const count &#x3D; await this.keycloakConfigurationUc.configure();
 				this.console.info(&#x60;Configured ${count} identity provider(s).&#x60;);
 			},
 			options.retryCount,

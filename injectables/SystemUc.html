@@ -318,7 +318,7 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
-import { EntityId, SystemType } from &#x27;@shared/domain&#x27;;
+import { EntityId, SystemType, SystemTypeEnum } from &#x27;@shared/domain&#x27;;
 import { SystemDto } from &#x27;@src/modules/system/service/dto/system.dto&#x27;;
 import { SystemService } from &#x27;@src/modules/system/service/system.service&#x27;;
 
@@ -328,9 +328,9 @@ export class SystemUc {
 
 	async findByFilter(type?: SystemType, onlyOauth &#x3D; false): Promise&lt;SystemDto[]&gt; {
 		if (onlyOauth) {
-			return this.systemService.findOAuth();
+			return this.systemService.findByType(SystemTypeEnum.OAUTH);
 		}
-		return this.systemService.findAll(type);
+		return this.systemService.findByType(type);
 	}
 
 	async findById(id: EntityId): Promise&lt;SystemDto&gt; {

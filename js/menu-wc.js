@@ -732,44 +732,58 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/InterceptorModule.html" data-type="entity-link" >InterceptorModule</a>
                             </li>
                             <li class="link">
-                                <a href="modules/KeycloakControllerModule.html" data-type="entity-link" >KeycloakControllerModule</a>
-                                    <li class="chapter inner">
-                                        <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#controllers-links-module-KeycloakControllerModule-e9960b06ff0de9aec5080a837a14b8acf4f66c9f0c4f768fb32a0a80cd35d727db4c17a957995aa82659f1373e86d2a07f85ffac4384ad94a73028fc0c62619b"' : 'data-target="#xs-controllers-links-module-KeycloakControllerModule-e9960b06ff0de9aec5080a837a14b8acf4f66c9f0c4f768fb32a0a80cd35d727db4c17a957995aa82659f1373e86d2a07f85ffac4384ad94a73028fc0c62619b"' }>
-                                            <span class="icon ion-md-swap"></span>
-                                            <span>Controllers</span>
-                                            <span class="icon ion-ios-arrow-down"></span>
-                                        </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="controllers-links-module-KeycloakControllerModule-e9960b06ff0de9aec5080a837a14b8acf4f66c9f0c4f768fb32a0a80cd35d727db4c17a957995aa82659f1373e86d2a07f85ffac4384ad94a73028fc0c62619b"' :
-                                            'id="xs-controllers-links-module-KeycloakControllerModule-e9960b06ff0de9aec5080a837a14b8acf4f66c9f0c4f768fb32a0a80cd35d727db4c17a957995aa82659f1373e86d2a07f85ffac4384ad94a73028fc0c62619b"' }>
-                                            <li class="link">
-                                                <a href="controllers/KeycloakManagementController.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >KeycloakManagementController</a>
-                                            </li>
-                                        </ul>
-                                    </li>
+                                <a href="modules/KeycloakAdministrationModule.html" data-type="entity-link" >KeycloakAdministrationModule</a>
+                                <li class="chapter inner">
+                                    <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
+                                        'data-target="#injectables-links-module-KeycloakAdministrationModule-071d066a8e9590f54379599156efbd140a7af6c9b2fb7f250f26fe2204d2c600b34fa0aeb353f3c3c3af9b40c09280969696296ebed19f32d52227bfedf9c0f3"' : 'data-target="#xs-injectables-links-module-KeycloakAdministrationModule-071d066a8e9590f54379599156efbd140a7af6c9b2fb7f250f26fe2204d2c600b34fa0aeb353f3c3c3af9b40c09280969696296ebed19f32d52227bfedf9c0f3"' }>
+                                        <span class="icon ion-md-arrow-round-down"></span>
+                                        <span>Injectables</span>
+                                        <span class="icon ion-ios-arrow-down"></span>
+                                    </div>
+                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-KeycloakAdministrationModule-071d066a8e9590f54379599156efbd140a7af6c9b2fb7f250f26fe2204d2c600b34fa0aeb353f3c3c3af9b40c09280969696296ebed19f32d52227bfedf9c0f3"' :
+                                        'id="xs-injectables-links-module-KeycloakAdministrationModule-071d066a8e9590f54379599156efbd140a7af6c9b2fb7f250f26fe2204d2c600b34fa0aeb353f3c3c3af9b40c09280969696296ebed19f32d52227bfedf9c0f3"' }>
+                                        <li class="link">
+                                            <a href="injectables/KeycloakAdministrationService.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >KeycloakAdministrationService</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </li>
+                            <li class="link">
+                                <a href="modules/KeycloakConfigurationModule.html" data-type="entity-link" >KeycloakConfigurationModule</a>
+                                <li class="chapter inner">
+                                    <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
+                                        'data-target="#injectables-links-module-KeycloakConfigurationModule-a044f37cc0a483c3a272719138d82e8911139bde9fea9596d4a31510e72de08abe07cd64a809661be7e415b02c8f321ed323e40e79f5e39e0c448c85cf1a35b8"' : 'data-target="#xs-injectables-links-module-KeycloakConfigurationModule-a044f37cc0a483c3a272719138d82e8911139bde9fea9596d4a31510e72de08abe07cd64a809661be7e415b02c8f321ed323e40e79f5e39e0c448c85cf1a35b8"' }>
+                                        <span class="icon ion-md-arrow-round-down"></span>
+                                        <span>Injectables</span>
+                                        <span class="icon ion-ios-arrow-down"></span>
+                                    </div>
+                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-KeycloakConfigurationModule-a044f37cc0a483c3a272719138d82e8911139bde9fea9596d4a31510e72de08abe07cd64a809661be7e415b02c8f321ed323e40e79f5e39e0c448c85cf1a35b8"' :
+                                        'id="xs-injectables-links-module-KeycloakConfigurationModule-a044f37cc0a483c3a272719138d82e8911139bde9fea9596d4a31510e72de08abe07cd64a809661be7e415b02c8f321ed323e40e79f5e39e0c448c85cf1a35b8"' }>
+                                        <li class="link">
+                                            <a href="injectables/KeycloakConfigurationService.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >KeycloakConfigurationService</a>
+                                        </li>
+                                        <li class="link">
+                                            <a href="injectables/KeycloakConfigurationUc.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >KeycloakConfigurationUc</a>
+                                        </li>
+                                    </ul>
+                                </li>
                             </li>
                             <li class="link">
                                 <a href="modules/KeycloakModule.html" data-type="entity-link" >KeycloakModule</a>
                                 <li class="chapter inner">
                                     <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                        'data-target="#injectables-links-module-KeycloakModule-3173087f5d72cbd4c96dffff81556c270763d27c1c9c5aa77a57dfb4f1fce33832bd86427dba4b833f702cce94abdf35ba9b86097debe1043b1ad7fcdf9e6125"' : 'data-target="#xs-injectables-links-module-KeycloakModule-3173087f5d72cbd4c96dffff81556c270763d27c1c9c5aa77a57dfb4f1fce33832bd86427dba4b833f702cce94abdf35ba9b86097debe1043b1ad7fcdf9e6125"' }>
+                                        'data-target="#injectables-links-module-KeycloakModule-d24043e595cbb01d45fb395de11cfa5f258ad5a021af36a1e428766228612c3c84bd335d9355b70427c47648d76f4472f328007d9e4764d58b6842b7534ba6ed"' : 'data-target="#xs-injectables-links-module-KeycloakModule-d24043e595cbb01d45fb395de11cfa5f258ad5a021af36a1e428766228612c3c84bd335d9355b70427c47648d76f4472f328007d9e4764d58b6842b7534ba6ed"' }>
                                         <span class="icon ion-md-arrow-round-down"></span>
                                         <span>Injectables</span>
                                         <span class="icon ion-ios-arrow-down"></span>
                                     </div>
-                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-KeycloakModule-3173087f5d72cbd4c96dffff81556c270763d27c1c9c5aa77a57dfb4f1fce33832bd86427dba4b833f702cce94abdf35ba9b86097debe1043b1ad7fcdf9e6125"' :
-                                        'id="xs-injectables-links-module-KeycloakModule-3173087f5d72cbd4c96dffff81556c270763d27c1c9c5aa77a57dfb4f1fce33832bd86427dba4b833f702cce94abdf35ba9b86097debe1043b1ad7fcdf9e6125"' }>
-                                        <li class="link">
-                                            <a href="injectables/KeycloakAdministrationService.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >KeycloakAdministrationService</a>
-                                        </li>
+                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-KeycloakModule-d24043e595cbb01d45fb395de11cfa5f258ad5a021af36a1e428766228612c3c84bd335d9355b70427c47648d76f4472f328007d9e4764d58b6842b7534ba6ed"' :
+                                        'id="xs-injectables-links-module-KeycloakModule-d24043e595cbb01d45fb395de11cfa5f258ad5a021af36a1e428766228612c3c84bd335d9355b70427c47648d76f4472f328007d9e4764d58b6842b7534ba6ed"' }>
                                         <li class="link">
                                             <a href="injectables/KeycloakIdentityManagementOauthService.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >KeycloakIdentityManagementOauthService</a>
                                         </li>
                                         <li class="link">
-                                            <a href="injectables/KeycloakManagementUc.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >KeycloakManagementUc</a>
-                                        </li>
-                                        <li class="link">
-                                            <a href="injectables/KeycloakSystemService.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >KeycloakSystemService</a>
+                                            <a href="injectables/KeycloakIdentityManagementService.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >KeycloakIdentityManagementService</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -970,13 +984,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/ManagementModule.html" data-type="entity-link" >ManagementModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#controllers-links-module-ManagementModule-6223770734afa1d1ac274a7234b417961ffaefd7364802bfba8cac4e631aea2abf229b1128d20e11571af6fd4c17f5f9ab47260607eb5fdc08a33a771d987f9f"' : 'data-target="#xs-controllers-links-module-ManagementModule-6223770734afa1d1ac274a7234b417961ffaefd7364802bfba8cac4e631aea2abf229b1128d20e11571af6fd4c17f5f9ab47260607eb5fdc08a33a771d987f9f"' }>
+                                            'data-target="#controllers-links-module-ManagementModule-801d65f35fc505646e716ff85ce6ab0eb5bf5290dd69814acbaaac70cc270f7e67f6a6ca8499a436ecc2254f90d82acf250d6ee15773802ef0a23cb63f4bdbb0"' : 'data-target="#xs-controllers-links-module-ManagementModule-801d65f35fc505646e716ff85ce6ab0eb5bf5290dd69814acbaaac70cc270f7e67f6a6ca8499a436ecc2254f90d82acf250d6ee15773802ef0a23cb63f4bdbb0"' }>
                                             <span class="icon ion-md-swap"></span>
                                             <span>Controllers</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="controllers-links-module-ManagementModule-6223770734afa1d1ac274a7234b417961ffaefd7364802bfba8cac4e631aea2abf229b1128d20e11571af6fd4c17f5f9ab47260607eb5fdc08a33a771d987f9f"' :
-                                            'id="xs-controllers-links-module-ManagementModule-6223770734afa1d1ac274a7234b417961ffaefd7364802bfba8cac4e631aea2abf229b1128d20e11571af6fd4c17f5f9ab47260607eb5fdc08a33a771d987f9f"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="controllers-links-module-ManagementModule-801d65f35fc505646e716ff85ce6ab0eb5bf5290dd69814acbaaac70cc270f7e67f6a6ca8499a436ecc2254f90d82acf250d6ee15773802ef0a23cb63f4bdbb0"' :
+                                            'id="xs-controllers-links-module-ManagementModule-801d65f35fc505646e716ff85ce6ab0eb5bf5290dd69814acbaaac70cc270f7e67f6a6ca8499a436ecc2254f90d82acf250d6ee15773802ef0a23cb63f4bdbb0"' }>
                                             <li class="link">
                                                 <a href="controllers/DatabaseManagementController.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >DatabaseManagementController</a>
                                             </li>
@@ -984,13 +998,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                     </li>
                                 <li class="chapter inner">
                                     <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                        'data-target="#injectables-links-module-ManagementModule-6223770734afa1d1ac274a7234b417961ffaefd7364802bfba8cac4e631aea2abf229b1128d20e11571af6fd4c17f5f9ab47260607eb5fdc08a33a771d987f9f"' : 'data-target="#xs-injectables-links-module-ManagementModule-6223770734afa1d1ac274a7234b417961ffaefd7364802bfba8cac4e631aea2abf229b1128d20e11571af6fd4c17f5f9ab47260607eb5fdc08a33a771d987f9f"' }>
+                                        'data-target="#injectables-links-module-ManagementModule-801d65f35fc505646e716ff85ce6ab0eb5bf5290dd69814acbaaac70cc270f7e67f6a6ca8499a436ecc2254f90d82acf250d6ee15773802ef0a23cb63f4bdbb0"' : 'data-target="#xs-injectables-links-module-ManagementModule-801d65f35fc505646e716ff85ce6ab0eb5bf5290dd69814acbaaac70cc270f7e67f6a6ca8499a436ecc2254f90d82acf250d6ee15773802ef0a23cb63f4bdbb0"' }>
                                         <span class="icon ion-md-arrow-round-down"></span>
                                         <span>Injectables</span>
                                         <span class="icon ion-ios-arrow-down"></span>
                                     </div>
-                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-ManagementModule-6223770734afa1d1ac274a7234b417961ffaefd7364802bfba8cac4e631aea2abf229b1128d20e11571af6fd4c17f5f9ab47260607eb5fdc08a33a771d987f9f"' :
-                                        'id="xs-injectables-links-module-ManagementModule-6223770734afa1d1ac274a7234b417961ffaefd7364802bfba8cac4e631aea2abf229b1128d20e11571af6fd4c17f5f9ab47260607eb5fdc08a33a771d987f9f"' }>
+                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-ManagementModule-801d65f35fc505646e716ff85ce6ab0eb5bf5290dd69814acbaaac70cc270f7e67f6a6ca8499a436ecc2254f90d82acf250d6ee15773802ef0a23cb63f4bdbb0"' :
+                                        'id="xs-injectables-links-module-ManagementModule-801d65f35fc505646e716ff85ce6ab0eb5bf5290dd69814acbaaac70cc270f7e67f6a6ca8499a436ecc2254f90d82acf250d6ee15773802ef0a23cb63f4bdbb0"' }>
                                         <li class="link">
                                             <a href="injectables/BsonConverter.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >BsonConverter</a>
                                         </li>
@@ -1398,13 +1412,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/SystemModule.html" data-type="entity-link" >SystemModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#controllers-links-module-SystemModule-d1b27a38607bf5c43caa69832eb7d8d0ffa2e9cdcfbb598a65969030fb08d1896e8fbdf70e8c552105b2602b67a1dabbc795e142173fb996d0e3e136abcb9c8e"' : 'data-target="#xs-controllers-links-module-SystemModule-d1b27a38607bf5c43caa69832eb7d8d0ffa2e9cdcfbb598a65969030fb08d1896e8fbdf70e8c552105b2602b67a1dabbc795e142173fb996d0e3e136abcb9c8e"' }>
+                                            'data-target="#controllers-links-module-SystemModule-e861bf354f17b74ba9eadfa7cd592fe8dc36fb0212d1e3775f51c58212f0c5ce4cca9a7fb2d953c924d590e53f91a8aba72790a997bb52230d0796141cb5116f"' : 'data-target="#xs-controllers-links-module-SystemModule-e861bf354f17b74ba9eadfa7cd592fe8dc36fb0212d1e3775f51c58212f0c5ce4cca9a7fb2d953c924d590e53f91a8aba72790a997bb52230d0796141cb5116f"' }>
                                             <span class="icon ion-md-swap"></span>
                                             <span>Controllers</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="controllers-links-module-SystemModule-d1b27a38607bf5c43caa69832eb7d8d0ffa2e9cdcfbb598a65969030fb08d1896e8fbdf70e8c552105b2602b67a1dabbc795e142173fb996d0e3e136abcb9c8e"' :
-                                            'id="xs-controllers-links-module-SystemModule-d1b27a38607bf5c43caa69832eb7d8d0ffa2e9cdcfbb598a65969030fb08d1896e8fbdf70e8c552105b2602b67a1dabbc795e142173fb996d0e3e136abcb9c8e"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="controllers-links-module-SystemModule-e861bf354f17b74ba9eadfa7cd592fe8dc36fb0212d1e3775f51c58212f0c5ce4cca9a7fb2d953c924d590e53f91a8aba72790a997bb52230d0796141cb5116f"' :
+                                            'id="xs-controllers-links-module-SystemModule-e861bf354f17b74ba9eadfa7cd592fe8dc36fb0212d1e3775f51c58212f0c5ce4cca9a7fb2d953c924d590e53f91a8aba72790a997bb52230d0796141cb5116f"' }>
                                             <li class="link">
                                                 <a href="controllers/SystemController.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >SystemController</a>
                                             </li>
@@ -1412,13 +1426,16 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                     </li>
                                 <li class="chapter inner">
                                     <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                        'data-target="#injectables-links-module-SystemModule-d1b27a38607bf5c43caa69832eb7d8d0ffa2e9cdcfbb598a65969030fb08d1896e8fbdf70e8c552105b2602b67a1dabbc795e142173fb996d0e3e136abcb9c8e"' : 'data-target="#xs-injectables-links-module-SystemModule-d1b27a38607bf5c43caa69832eb7d8d0ffa2e9cdcfbb598a65969030fb08d1896e8fbdf70e8c552105b2602b67a1dabbc795e142173fb996d0e3e136abcb9c8e"' }>
+                                        'data-target="#injectables-links-module-SystemModule-e861bf354f17b74ba9eadfa7cd592fe8dc36fb0212d1e3775f51c58212f0c5ce4cca9a7fb2d953c924d590e53f91a8aba72790a997bb52230d0796141cb5116f"' : 'data-target="#xs-injectables-links-module-SystemModule-e861bf354f17b74ba9eadfa7cd592fe8dc36fb0212d1e3775f51c58212f0c5ce4cca9a7fb2d953c924d590e53f91a8aba72790a997bb52230d0796141cb5116f"' }>
                                         <span class="icon ion-md-arrow-round-down"></span>
                                         <span>Injectables</span>
                                         <span class="icon ion-ios-arrow-down"></span>
                                     </div>
-                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-SystemModule-d1b27a38607bf5c43caa69832eb7d8d0ffa2e9cdcfbb598a65969030fb08d1896e8fbdf70e8c552105b2602b67a1dabbc795e142173fb996d0e3e136abcb9c8e"' :
-                                        'id="xs-injectables-links-module-SystemModule-d1b27a38607bf5c43caa69832eb7d8d0ffa2e9cdcfbb598a65969030fb08d1896e8fbdf70e8c552105b2602b67a1dabbc795e142173fb996d0e3e136abcb9c8e"' }>
+                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-SystemModule-e861bf354f17b74ba9eadfa7cd592fe8dc36fb0212d1e3775f51c58212f0c5ce4cca9a7fb2d953c924d590e53f91a8aba72790a997bb52230d0796141cb5116f"' :
+                                        'id="xs-injectables-links-module-SystemModule-e861bf354f17b74ba9eadfa7cd592fe8dc36fb0212d1e3775f51c58212f0c5ce4cca9a7fb2d953c924d590e53f91a8aba72790a997bb52230d0796141cb5116f"' }>
+                                        <li class="link">
+                                            <a href="injectables/SystemOidcService.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >SystemOidcService</a>
+                                        </li>
                                         <li class="link">
                                             <a href="injectables/SystemRepo.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >SystemRepo</a>
                                         </li>
@@ -1855,6 +1872,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 </li>
                                 <li class="link">
                                     <a href="controllers/FilesStorageController.html" data-type="entity-link" >FilesStorageController</a>
+                                </li>
+                                <li class="link">
+                                    <a href="controllers/KeycloakManagementController.html" data-type="entity-link" >KeycloakManagementController</a>
                                 </li>
                                 <li class="link">
                                     <a href="controllers/LessonController.html" data-type="entity-link" >LessonController</a>
@@ -2528,10 +2548,10 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/JwtExtractor.html" data-type="entity-link" >JwtExtractor</a>
                             </li>
                             <li class="link">
-                                <a href="classes/KeycloakConfiguration.html" data-type="entity-link" >KeycloakConfiguration</a>
+                                <a href="classes/KeycloakAdministration.html" data-type="entity-link" >KeycloakAdministration</a>
                             </li>
                             <li class="link">
-                                <a href="classes/KeycloakConfigurationService.html" data-type="entity-link" >KeycloakConfigurationService</a>
+                                <a href="classes/KeycloakConfiguration.html" data-type="entity-link" >KeycloakConfiguration</a>
                             </li>
                             <li class="link">
                                 <a href="classes/KeycloakConsole.html" data-type="entity-link" >KeycloakConsole</a>
@@ -2712,6 +2732,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="classes/OAuthSSOError.html" data-type="entity-link" >OAuthSSOError</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/OidcConfig.html" data-type="entity-link" >OidcConfig</a>
                             </li>
                             <li class="link">
                                 <a href="classes/OidcConfigDto.html" data-type="entity-link" >OidcConfigDto</a>
@@ -3003,6 +3026,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="classes/SystemMapper.html" data-type="entity-link" >SystemMapper</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/SystemOidcMapper.html" data-type="entity-link" >SystemOidcMapper</a>
                             </li>
                             <li class="link">
                                 <a href="classes/SystemResponseMapper.html" data-type="entity-link" >SystemResponseMapper</a>
@@ -3361,9 +3387,6 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 </li>
                                 <li class="link">
                                     <a href="injectables/JwtAuthGuard.html" data-type="entity-link" >JwtAuthGuard</a>
-                                </li>
-                                <li class="link">
-                                    <a href="injectables/KeycloakIdentityManagementService.html" data-type="entity-link" >KeycloakIdentityManagementService</a>
                                 </li>
                                 <li class="link">
                                     <a href="injectables/LessonCopyService.html" data-type="entity-link" >LessonCopyService</a>
@@ -3805,9 +3828,6 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="interfaces/IIdentityManagementConfig.html" data-type="entity-link" >IIdentityManagementConfig</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/IIdentityProviderConfig.html" data-type="entity-link" >IIdentityProviderConfig</a>
-                            </li>
-                            <li class="link">
                                 <a href="interfaces/IImportUserProperties.html" data-type="entity-link" >IImportUserProperties</a>
                             </li>
                             <li class="link">
@@ -3826,13 +3846,10 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="interfaces/IJwt.html" data-type="entity-link" >IJwt</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/IKeycloakManagementInputFiles.html" data-type="entity-link" >IKeycloakManagementInputFiles</a>
+                                <a href="interfaces/IKeycloakConfigurationInputFiles.html" data-type="entity-link" >IKeycloakConfigurationInputFiles</a>
                             </li>
                             <li class="link">
                                 <a href="interfaces/IKeycloakSettings.html" data-type="entity-link" >IKeycloakSettings</a>
-                            </li>
-                            <li class="link">
-                                <a href="interfaces/ILdapIdentityProviderConfig.html" data-type="entity-link" >ILdapIdentityProviderConfig</a>
                             </li>
                             <li class="link">
                                 <a href="interfaces/ILearnroom.html" data-type="entity-link" >ILearnroom</a>
@@ -3869,9 +3886,6 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="interfaces/IntrospectResponse.html" data-type="entity-link" >IntrospectResponse</a>
-                            </li>
-                            <li class="link">
-                                <a href="interfaces/IOidcIdentityProviderConfig.html" data-type="entity-link" >IOidcIdentityProviderConfig</a>
                             </li>
                             <li class="link">
                                 <a href="interfaces/IPagination.html" data-type="entity-link" >IPagination</a>

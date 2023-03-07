@@ -85,6 +85,14 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Abstract</span>
+                                <a href="#getOauthConfig" >getOauthConfig</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Abstract</span>
+                                <a href="#isOauthConfigAvailable" >isOauthConfigAvailable</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Abstract</span>
                                 <a href="#resourceOwnerPasswordGrant" >resourceOwnerPasswordGrant</a>
                             </li>
                         </ul>
@@ -110,6 +118,100 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="getOauthConfig"></a>
+                    <span class="name">
+                        <span class="modifier">Abstract</span>
+                        <span ><b>getOauthConfig</b></span>
+                        <a href="#getOauthConfig"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getOauthConfig()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="9"
+                            class="link-to-prism">apps/server/src/shared/infra/identity-management/identity-management-oauth.service.ts:9</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Returns the oauth config of the IDM.</p>
+</div>
+
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;OauthConfigDto&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>the oauth config of the IDM.</p>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isOauthConfigAvailable"></a>
+                    <span class="name">
+                        <span class="modifier">Abstract</span>
+                        <span ><b>isOauthConfigAvailable</b></span>
+                        <a href="#isOauthConfigAvailable"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>isOauthConfigAvailable()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="15"
+                            class="link-to-prism">apps/server/src/shared/infra/identity-management/identity-management-oauth.service.ts:15</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Checks if the IDM oauth config is available.</p>
+</div>
+
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;boolean&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>true if the IDM oauth config is available, false otherwise.</p>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="resourceOwnerPasswordGrant"></a>
                     <span class="name">
                         <span class="modifier">Abstract</span>
@@ -128,8 +230,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="8"
-                            class="link-to-prism">apps/server/src/shared/infra/identity-management/identity-management-oauth.service.ts:8</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="23"
+                            class="link-to-prism">apps/server/src/shared/infra/identity-management/identity-management-oauth.service.ts:23</a></div>
                 </td>
             </tr>
 
@@ -211,7 +313,22 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export abstract class IdentityManagementOauthService {
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { OauthConfigDto } from &#x27;@src/modules/system/service/dto&#x27;;
+
+export abstract class IdentityManagementOauthService {
+	/**
+	 * Returns the oauth config of the IDM.
+	 * @returns the oauth config of the IDM.
+	 * @throws an error if the IDM oauth config is not available.
+	 */
+	abstract getOauthConfig(): Promise&lt;OauthConfigDto&gt;;
+
+	/**
+	 * Checks if the IDM oauth config is available.
+	 * @returns true if the IDM oauth config is available, false otherwise.
+	 */
+	abstract isOauthConfigAvailable(): Promise&lt;boolean&gt;;
+
 	/**
 	 * Checks the given credentials with the IDM and returns an JWT on success.
 	 * @param username the username of the account to check.
