@@ -104,7 +104,7 @@
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
-                                <a href="#validateCreate" >validateCreate</a>
+                                <a href="#validate" >validate</a>
                             </li>
                         </ul>
                     </td>
@@ -348,8 +348,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="72"
-                            class="link-to-prism">apps/server/src/modules/tool/service/validation/school-external-tool-validation.service.ts:72</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="70"
+                            class="link-to-prism">apps/server/src/modules/tool/service/validation/school-external-tool-validation.service.ts:70</a></div>
                 </td>
             </tr>
 
@@ -431,8 +431,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="88"
-                            class="link-to-prism">apps/server/src/modules/tool/service/validation/school-external-tool-validation.service.ts:88</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="86"
+                            class="link-to-prism">apps/server/src/modules/tool/service/validation/school-external-tool-validation.service.ts:86</a></div>
                 </td>
             </tr>
 
@@ -514,8 +514,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="80"
-                            class="link-to-prism">apps/server/src/modules/tool/service/validation/school-external-tool-validation.service.ts:80</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="78"
+                            class="link-to-prism">apps/server/src/modules/tool/service/validation/school-external-tool-validation.service.ts:78</a></div>
                 </td>
             </tr>
 
@@ -662,18 +662,18 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="validateCreate"></a>
+                    <a name="validate"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
-                        <span ><b>validateCreate</b></span>
-                        <a href="#validateCreate"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>validate</b></span>
+                        <a href="#validate"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>validateCreate(schoolExternalToolDO: <a href="../classes/SchoolExternalToolDO.html" target="_self">SchoolExternalToolDO</a>)</code>
+                    <code>validate(schoolExternalToolDO: <a href="../classes/SchoolExternalToolDO.html" target="_self">SchoolExternalToolDO</a>)</code>
                 </td>
             </tr>
 
@@ -736,11 +736,11 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
-import { SchoolExternalToolDO } from &#x27;@shared/domain/domainobject/external-tool/school-external-tool.do&#x27;;
-import { CustomParameterDO, CustomParameterEntryDO, ExternalToolDO } from &#x27;@shared/domain/domainobject/external-tool&#x27;;
-import { CustomParameterScope, CustomParameterType } from &#x27;@shared/domain&#x27;;
-import { isNaN } from &#x27;lodash&#x27;;
 import { ValidationError } from &#x27;@shared/common&#x27;;
+import { CustomParameterScope, CustomParameterType } from &#x27;@shared/domain&#x27;;
+import { CustomParameterDO, CustomParameterEntryDO, ExternalToolDO } from &#x27;@shared/domain/domainobject/external-tool&#x27;;
+import { SchoolExternalToolDO } from &#x27;@shared/domain/domainobject/external-tool/school-external-tool.do&#x27;;
+import { isNaN } from &#x27;lodash&#x27;;
 import { ExternalToolService } from &#x27;../external-tool.service&#x27;;
 
 const typeCheckers: { [key in CustomParameterType]: (val: string) &#x3D;&gt; boolean } &#x3D; {
@@ -756,7 +756,7 @@ const typeCheckers: { [key in CustomParameterType]: (val: string) &#x3D;&gt; boo
 export class SchoolExternalToolValidationService {
 	constructor(private readonly externalToolService: ExternalToolService) {}
 
-	async validateCreate(schoolExternalToolDO: SchoolExternalToolDO): Promise&lt;void&gt; {
+	async validate(schoolExternalToolDO: SchoolExternalToolDO): Promise&lt;void&gt; {
 		this.checkForDuplicateParameters(schoolExternalToolDO);
 		const loadedExternalTool: ExternalToolDO &#x3D; await this.externalToolService.findExternalToolById(
 			schoolExternalToolDO.toolId
@@ -797,9 +797,7 @@ export class SchoolExternalToolValidationService {
 					this.checkOptionalParameter(param, foundEntry);
 					if (foundEntry) {
 						this.checkParameterType(foundEntry, param);
-						if (CustomParameterType.STRING &#x3D;&#x3D;&#x3D; param.type) {
-							this.checkParameterRegex(foundEntry, param);
-						}
+						this.checkParameterRegex(foundEntry, param);
 					}
 				}
 			}
@@ -815,7 +813,7 @@ export class SchoolExternalToolValidationService {
 	}
 
 	private checkParameterType(foundEntry: CustomParameterEntryDO, param: CustomParameterDO): void {
-		if (foundEntry.value &amp;&amp; !typeCheckers[param.type](foundEntry.value)) {
+		if (foundEntry.value !&#x3D;&#x3D; undefined &amp;&amp; !typeCheckers[param.type](foundEntry.value)) {
 			throw new ValidationError(
 				&#x60;tool_param_type_mismatch: The value of parameter with name ${foundEntry.name} should be of type ${param.type}.&#x60;
 			);
@@ -823,11 +821,11 @@ export class SchoolExternalToolValidationService {
 	}
 
 	private checkParameterRegex(foundEntry: CustomParameterEntryDO, param: CustomParameterDO): void {
-		if (!param.regex) return;
-		if (!new RegExp(param.regex).test(foundEntry.value ?? &#x27;&#x27;))
+		if (param.regex &amp;&amp; !new RegExp(param.regex).test(foundEntry.value ?? &#x27;&#x27;)) {
 			throw new ValidationError(
 				&#x60;tool_param_value_regex: The given entry for the parameter with name ${foundEntry.name} does not fit the regex.&#x60;
 			);
+		}
 	}
 }
 </code></pre>

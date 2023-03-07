@@ -99,6 +99,10 @@
                                     <span class="modifier">Async</span>
                                 <a href="#getSchoolExternalTools" >getSchoolExternalTools</a>
                             </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#updateSchoolExternalTool" >updateSchoolExternalTool</a>
+                            </li>
                         </ul>
                     </td>
                 </tr>
@@ -145,8 +149,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="92"
-                            class="link-to-prism">apps/server/src/modules/tool/controller/tool-school.controller.ts:92</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="116"
+                            class="link-to-prism">apps/server/src/modules/tool/controller/tool-school.controller.ts:116</a></div>
                 </td>
             </tr>
 
@@ -235,8 +239,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="73"
-                            class="link-to-prism">apps/server/src/modules/tool/controller/tool-school.controller.ts:73</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="97"
+                            class="link-to-prism">apps/server/src/modules/tool/controller/tool-school.controller.ts:97</a></div>
                 </td>
             </tr>
 
@@ -325,8 +329,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="57"
-                            class="link-to-prism">apps/server/src/modules/tool/controller/tool-school.controller.ts:57</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="59"
+                            class="link-to-prism">apps/server/src/modules/tool/controller/tool-school.controller.ts:59</a></div>
                 </td>
             </tr>
 
@@ -415,8 +419,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="43"
-                            class="link-to-prism">apps/server/src/modules/tool/controller/tool-school.controller.ts:43</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="45"
+                            class="link-to-prism">apps/server/src/modules/tool/controller/tool-school.controller.ts:45</a></div>
                 </td>
             </tr>
 
@@ -476,6 +480,108 @@
             </tr>
         </tbody>
     </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateSchoolExternalTool"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>updateSchoolExternalTool</b></span>
+                        <a href="#updateSchoolExternalTool"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>updateSchoolExternalTool(currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>, params: <a href="../classes/SchoolExternalToolIdParams.html" target="_self">SchoolExternalToolIdParams</a>, body: <a href="../classes/SchoolExternalToolPostParams.html" target="_self">SchoolExternalToolPostParams</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Put(&#x27;/:schoolExternalToolId&#x27;)<br />@ApiOkResponse({description: &#x27;The Tool has been successfully updated.&#x27;, type: SchoolExternalToolResponse})<br />@ApiForbiddenResponse()<br />@ApiUnauthorizedResponse()<br />@ApiBadRequestResponse({type: ValidationError, description: &#x27;Request data has invalid format.&#x27;})<br /></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="77"
+                            class="link-to-prism">apps/server/src/modules/tool/controller/tool-school.controller.ts:77</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>currentUser</td>
+                                    <td>
+                                                <code><a href="../interfaces/ICurrentUser.html" target="_self" >ICurrentUser</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>params</td>
+                                    <td>
+                                                <code><a href="../classes/SchoolExternalToolIdParams.html" target="_self" >SchoolExternalToolIdParams</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>body</td>
+                                    <td>
+                                                <code><a href="../classes/SchoolExternalToolPostParams.html" target="_self" >SchoolExternalToolPostParams</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;SchoolExternalToolResponse&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </section>    </div>
 
 
@@ -485,11 +591,13 @@
 	ApiForbiddenResponse,
 	ApiFoundResponse,
 	ApiResponse,
+	ApiOkResponse,
+	ApiBadRequestResponse,
 	ApiTags,
 	ApiUnauthorizedResponse,
 	ApiUnprocessableEntityResponse,
 } from &#x27;@nestjs/swagger&#x27;;
-import { Body, Controller, Delete, Get, Param, Post, Query } from &#x27;@nestjs/common&#x27;;
+import { Body, Controller, Delete, Get, Param, Post, Query, Put } from &#x27;@nestjs/common&#x27;;
 import { ICurrentUser } from &#x27;@src/modules/authentication&#x27;;
 import { SchoolExternalToolDO } from &#x27;@shared/domain/domainobject/external-tool/school-external-tool.do&#x27;;
 import { Logger } from &#x27;@src/core/logger&#x27;;
@@ -546,6 +654,28 @@ export class ToolSchoolController {
 		);
 		const mapped: SchoolExternalToolResponse &#x3D;
 			this.responseMapper.mapToSchoolExternalToolResponse(schoolExternalToolDO);
+		return mapped;
+	}
+
+	@Put(&#x27;/:schoolExternalToolId&#x27;)
+	@ApiOkResponse({ description: &#x27;The Tool has been successfully updated.&#x27;, type: SchoolExternalToolResponse })
+	@ApiForbiddenResponse()
+	@ApiUnauthorizedResponse()
+	@ApiBadRequestResponse({ type: ValidationError, description: &#x27;Request data has invalid format.&#x27; })
+	async updateSchoolExternalTool(
+		@CurrentUser() currentUser: ICurrentUser,
+		@Param() params: SchoolExternalToolIdParams,
+		@Body() body: SchoolExternalToolPostParams
+	): Promise&lt;SchoolExternalToolResponse&gt; {
+		const schoolExternalTool: SchoolExternalTool &#x3D; this.requestMapper.mapSchoolExternalToolRequest(body);
+		const updated: SchoolExternalToolDO &#x3D; await this.schoolExternalToolUc.updateSchoolExternalTool(
+			currentUser.userId,
+			params.schoolExternalToolId,
+			schoolExternalTool
+		);
+
+		const mapped: SchoolExternalToolResponse &#x3D; this.responseMapper.mapToSchoolExternalToolResponse(updated);
+		this.logger.debug(&#x60;SchoolExternalTool with id ${mapped.id} was updated by user with id ${currentUser.userId}&#x60;);
 		return mapped;
 	}
 

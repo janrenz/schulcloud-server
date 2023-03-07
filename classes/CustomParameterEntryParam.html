@@ -86,6 +86,7 @@
                                 <a href="#name" >name</a>
                             </li>
                             <li>
+                                    <span class="modifier">Optional</span>
                                 <a href="#value" >value</a>
                             </li>
                         </ul>
@@ -148,6 +149,7 @@
                 <td class="col-md-4">
                     <a name="value"></a>
                     <span class="name">
+                            <span class="modifier">Optional</span>
                         <span ><b>value</b></span>
                         <a href="#value"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -164,13 +166,13 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @IsString()<br />@ApiProperty()<br />
+                            @IsString()<br />@IsOptional()<br />@ApiProperty()<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">apps/server/src/modules/tool/controller/dto/request/custom-parameter-entry.params.ts:11</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">apps/server/src/modules/tool/controller/dto/request/custom-parameter-entry.params.ts:12</a></div>
                         </td>
                     </tr>
 
@@ -190,7 +192,7 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ApiProperty } from &#x27;@nestjs/swagger&#x27;;
-import { IsString } from &#x27;class-validator&#x27;;
+import { IsOptional, IsString } from &#x27;class-validator&#x27;;
 
 export class CustomParameterEntryParam {
 	@IsString()
@@ -198,8 +200,9 @@ export class CustomParameterEntryParam {
 	name!: string;
 
 	@IsString()
+	@IsOptional()
 	@ApiProperty()
-	value!: string;
+	value?: string;
 }
 </code></pre>
     </div>
