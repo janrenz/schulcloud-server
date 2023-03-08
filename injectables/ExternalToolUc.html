@@ -298,8 +298,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="63"
-                            class="link-to-prism">apps/server/src/modules/tool/uc/external-tool.uc.ts:63</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="58"
+                            class="link-to-prism">apps/server/src/modules/tool/uc/external-tool.uc.ts:58</a></div>
                 </td>
             </tr>
 
@@ -382,8 +382,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="25"
-                            class="link-to-prism">apps/server/src/modules/tool/uc/external-tool.uc.ts:25</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="65"
+                            class="link-to-prism">apps/server/src/modules/tool/uc/external-tool.uc.ts:65</a></div>
                 </td>
             </tr>
 
@@ -465,8 +465,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="45"
-                            class="link-to-prism">apps/server/src/modules/tool/uc/external-tool.uc.ts:45</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="40"
+                            class="link-to-prism">apps/server/src/modules/tool/uc/external-tool.uc.ts:40</a></div>
                 </td>
             </tr>
 
@@ -560,8 +560,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="56"
-                            class="link-to-prism">apps/server/src/modules/tool/uc/external-tool.uc.ts:56</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="51"
+                            class="link-to-prism">apps/server/src/modules/tool/uc/external-tool.uc.ts:51</a></div>
                 </td>
             </tr>
 
@@ -643,8 +643,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="30"
-                            class="link-to-prism">apps/server/src/modules/tool/uc/external-tool.uc.ts:30</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="25"
+                            class="link-to-prism">apps/server/src/modules/tool/uc/external-tool.uc.ts:25</a></div>
                 </td>
             </tr>
 
@@ -726,7 +726,7 @@
 import { EntityId, IFindOptions, Permission, User } from &#x27;@shared/domain&#x27;;
 import { ExternalToolDO } from &#x27;@shared/domain/domainobject/external-tool&#x27;;
 import { AuthorizationService } from &#x27;@src/modules/authorization&#x27;;
-import { Page } from &#x27;@shared/domain/interface/page&#x27;;
+import { Page } from &#x27;@shared/domain/domainobject/page&#x27;;
 import { ExternalToolService, ExternalToolValidationService } from &#x27;../service&#x27;;
 import { CreateExternalTool, UpdateExternalTool } from &#x27;./dto&#x27;;
 
@@ -744,11 +744,6 @@ export class ExternalToolUc {
 
 		const tool: Promise&lt;ExternalToolDO&gt; &#x3D; this.externalToolService.createExternalTool(externalToolDO);
 		return tool;
-	}
-
-	private async ensurePermission(userId: EntityId, permission: Permission) {
-		const user: User &#x3D; await this.authorizationService.getUserWithPermissions(userId);
-		this.authorizationService.checkAllPermissions(user, [permission]);
 	}
 
 	async updateExternalTool(
@@ -789,6 +784,11 @@ export class ExternalToolUc {
 
 		const promise: Promise&lt;void&gt; &#x3D; this.externalToolService.deleteExternalTool(toolId);
 		return promise;
+	}
+
+	private async ensurePermission(userId: EntityId, permission: Permission) {
+		const user: User &#x3D; await this.authorizationService.getUserWithPermissions(userId);
+		this.authorizationService.checkAllPermissions(user, [permission]);
 	}
 }
 </code></pre>

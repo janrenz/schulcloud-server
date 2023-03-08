@@ -97,6 +97,10 @@
                                 <a href="#migrateSchool" >migrateSchool</a>
                             </li>
                             <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#restartMigration" >restartMigration</a>
+                            </li>
+                            <li>
                                     <span class="modifier">Private</span>
                                     <span class="modifier">Async</span>
                                 <a href="#rollbackMigration" >rollbackMigration</a>
@@ -289,8 +293,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="90"
-                            class="link-to-prism">apps/server/src/modules/user-login-migration/service/school-migration.service.ts:90</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="109"
+                            class="link-to-prism">apps/server/src/modules/user-login-migration/service/school-migration.service.ts:109</a></div>
                 </td>
             </tr>
 
@@ -385,8 +389,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="81"
-                            class="link-to-prism">apps/server/src/modules/user-login-migration/service/school-migration.service.ts:81</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="100"
+                            class="link-to-prism">apps/server/src/modules/user-login-migration/service/school-migration.service.ts:100</a></div>
                 </td>
             </tr>
 
@@ -545,6 +549,77 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="restartMigration"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>restartMigration</b></span>
+                        <a href="#restartMigration"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>restartMigration(schoolId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="81"
+                            class="link-to-prism">apps/server/src/modules/user-login-migration/service/school-migration.service.ts:81</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>schoolId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="rollbackMigration"></a>
                     <span class="name">
                         <span class="modifier">Private</span>
@@ -564,8 +639,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="101"
-                            class="link-to-prism">apps/server/src/modules/user-login-migration/service/school-migration.service.ts:101</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="120"
+                            class="link-to-prism">apps/server/src/modules/user-login-migration/service/school-migration.service.ts:120</a></div>
                 </td>
             </tr>
 
@@ -720,7 +795,7 @@ import { SchoolService } from &#x27;@src/modules/school&#x27;;
 import { SchoolDO } from &#x27;@shared/domain/domainobject/school.do&#x27;;
 import { UserService } from &#x27;@src/modules/user&#x27;;
 import { UserDO } from &#x27;@shared/domain/domainobject/user.do&#x27;;
-import { Page } from &#x27;@shared/domain/interface/page&#x27;;
+import { Page } from &#x27;@shared/domain/domainobject/page&#x27;;
 import { OAuthMigrationError } from &#x27;../error/oauth-migration.error&#x27;;
 
 @Injectable()
@@ -792,6 +867,25 @@ export class SchoolMigrationService {
 			user.outdatedSince &#x3D; school.oauthMigrationFinished;
 		});
 		await this.userService.saveAll(notMigratedUsers.data);
+	}
+
+	async restartMigration(schoolId: string): Promise&lt;void&gt; {
+		// eslint-disable-next-line no-console
+		console.time(&#x27;restartMigration&#x27;);
+		const school: SchoolDO &#x3D; await this.schoolService.getSchoolById(schoolId);
+		const migratedUsers: Page&lt;UserDO&gt; &#x3D; await this.userService.findUsers({
+			schoolId,
+			outdatedSince: school.oauthMigrationFinished,
+		});
+
+		migratedUsers.data.forEach((user: UserDO) &#x3D;&gt; {
+			user.outdatedSince &#x3D; undefined;
+		});
+		await this.userService.saveAll(migratedUsers.data);
+
+		school.oauthMigrationMandatory &#x3D; undefined;
+		// eslint-disable-next-line no-console
+		console.timeEnd(&#x27;restartMigration&#x27;);
 	}
 
 	private async isExternalUserInSchool(currentUserId: string, existingSchool: SchoolDO | null): Promise&lt;boolean&gt; {

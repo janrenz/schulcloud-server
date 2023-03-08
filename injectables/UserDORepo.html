@@ -211,8 +211,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="133"
-                            class="link-to-prism">apps/server/src/shared/repo/user/user-do.repo.ts:133</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="134"
+                            class="link-to-prism">apps/server/src/shared/repo/user/user-do.repo.ts:134</a></div>
                 </td>
             </tr>
 
@@ -440,8 +440,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="73"
-                            class="link-to-prism">apps/server/src/shared/repo/user/user-do.repo.ts:73</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="74"
+                            class="link-to-prism">apps/server/src/shared/repo/user/user-do.repo.ts:74</a></div>
                 </td>
             </tr>
 
@@ -523,8 +523,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="65"
-                            class="link-to-prism">apps/server/src/shared/repo/user/user-do.repo.ts:65</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="66"
+                            class="link-to-prism">apps/server/src/shared/repo/user/user-do.repo.ts:66</a></div>
                 </td>
             </tr>
 
@@ -612,7 +612,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/BaseDORepo.html#source" target="_self" >BaseDORepo:54</a></code>
+                        <div class="io-line">Defined in         <code><a href="../injectables/BaseDORepo.html#source" target="_self" >BaseDORepo:55</a></code>
 </div>
                 </td>
             </tr>
@@ -706,7 +706,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/BaseDORepo.html#source" target="_self" >BaseDORepo:115</a></code>
+                        <div class="io-line">Defined in         <code><a href="../injectables/BaseDORepo.html#source" target="_self" >BaseDORepo:116</a></code>
 </div>
                 </td>
             </tr>
@@ -783,7 +783,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/BaseDORepo.html#source" target="_self" >BaseDORepo:84</a></code>
+                        <div class="io-line">Defined in         <code><a href="../injectables/BaseDORepo.html#source" target="_self" >BaseDORepo:85</a></code>
 </div>
                 </td>
             </tr>
@@ -855,8 +855,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="143"
-                            class="link-to-prism">apps/server/src/shared/repo/user/user-do.repo.ts:143</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="144"
+                            class="link-to-prism">apps/server/src/shared/repo/user/user-do.repo.ts:144</a></div>
                 </td>
             </tr>
 
@@ -1656,7 +1656,7 @@ import { EntityName, FilterQuery, QueryOrderMap, Reference } from &#x27;@mikro-o
 import { UserDO } from &#x27;@shared/domain/domainobject/user.do&#x27;;
 import { EntityNotFoundError } from &#x27;@shared/common&#x27;;
 import { UserQuery } from &#x27;@src/modules/user/service/user-query.type&#x27;;
-import { Page } from &#x27;@src/shared/domain/interface/page&#x27;;
+import { Page } from &#x27;../../domain/domainobject/page&#x27;;
 import { UserScope } from &#x27;./user.scope&#x27;;
 
 @Injectable()
@@ -1676,6 +1676,7 @@ export class UserDORepo extends BaseDORepo&lt;UserDO, User, IUserProperties&gt; 
 			.bySchoolId(query.schoolId)
 			.isOutdated(query.isOutdated)
 			.whereLastLoginSystemChangeGreaterThan(query.lastLoginSystemChangeGreaterThan)
+			.withOutdatedSince(query.outdatedSince)
 			.allowEmptyQuery(true);
 
 		order._id &#x3D; order._id ?? SortOrder.asc;
