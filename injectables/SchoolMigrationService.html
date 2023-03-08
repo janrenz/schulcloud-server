@@ -870,8 +870,7 @@ export class SchoolMigrationService {
 	}
 
 	async restartMigration(schoolId: string): Promise&lt;void&gt; {
-		// eslint-disable-next-line no-console
-		console.time(&#x27;restartMigration&#x27;);
+		const startTime: number &#x3D; performance.now();
 		const school: SchoolDO &#x3D; await this.schoolService.getSchoolById(schoolId);
 		const migratedUsers: Page&lt;UserDO&gt; &#x3D; await this.userService.findUsers({
 			schoolId,
@@ -884,8 +883,9 @@ export class SchoolMigrationService {
 		await this.userService.saveAll(migratedUsers.data);
 
 		school.oauthMigrationMandatory &#x3D; undefined;
-		// eslint-disable-next-line no-console
-		console.timeEnd(&#x27;restartMigration&#x27;);
+
+		const endTime: number &#x3D; performance.now();
+		this.logger.warn(&#x60;restartMigration for schoolId ${schoolId} took ${endTime - startTime} milliseconds&#x60;);
 	}
 
 	private async isExternalUserInSchool(currentUserId: string, existingSchool: SchoolDO | null): Promise&lt;boolean&gt; {
