@@ -246,6 +246,15 @@
                     </ul>
                 </div>
                 <div class="col-sm-3">
+                    <h3>Controllers<a href="https://docs.nestjs.com/controllers" target="_blank" title="Official documentation about module controllers"><span
+                                class="icon ion-ios-information-circle-outline"></a></h3>
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <a href="../controllers/KeycloakManagementController.html">KeycloakManagementController</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-sm-3">
                     <h3>Imports<a href="https://angular.io/api/core/NgModule#imports" target="_blank" title="Official documentation about module imports"><span
                                 class="icon ion-ios-information-circle-outline"></a></h3>
                     <ul class="list-group">
@@ -302,10 +311,11 @@ import { OidcIdentityProviderMapper } from &#x27;./mapper/identity-provider.mapp
 import { KeycloakConfigurationService } from &#x27;./service/keycloak-configuration.service&#x27;;
 import { KeycloakSeedService } from &#x27;./service/keycloak-seed.service&#x27;;
 import { KeycloakConfigurationUc } from &#x27;./uc/keycloak-configuration.uc&#x27;;
+import { KeycloakManagementController } from &#x27;./controller/keycloak-configuration.controller&#x27;;
 
 @Module({
 	imports: [KeycloakAdministrationModule, LoggerModule, EncryptionModule, ConsoleWriterModule, SystemModule],
-	controllers: [],
+	controllers: [KeycloakManagementController],
 	providers: [
 		{
 			provide: KeycloakConfigurationInputFiles,
