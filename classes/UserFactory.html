@@ -1316,15 +1316,15 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { User, IUserProperties, RoleName } from &#x27;@shared/domain&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { IUserProperties, RoleName, User } from &#x27;@shared/domain&#x27;;
 import { DeepPartial } from &#x27;fishery&#x27;;
-import { schoolFactory } from &#x27;./school.factory&#x27;;
 import { BaseFactory } from &#x27;./base.factory&#x27;;
 import { roleFactory } from &#x27;./role.factory&#x27;;
+import { schoolFactory } from &#x27;./school.factory&#x27;;
 
 class UserFactory extends BaseFactory&lt;User, IUserProperties&gt; {
 	withRole(name: RoleName): this {
-		const params: DeepPartial&lt;IUserProperties&gt; &#x3D; { roles: roleFactory.buildList(1, { name }) };
+		const params: DeepPartial&lt;IUserProperties&gt; &#x3D; { roles: [roleFactory.buildWithId({ name })] };
 		return this.params(params);
 	}
 }

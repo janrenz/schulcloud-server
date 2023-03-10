@@ -211,8 +211,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="134"
-                            class="link-to-prism">apps/server/src/shared/repo/user/user-do.repo.ts:134</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="136"
+                            class="link-to-prism">apps/server/src/shared/repo/user/user-do.repo.ts:136</a></div>
                 </td>
             </tr>
 
@@ -855,8 +855,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="144"
-                            class="link-to-prism">apps/server/src/shared/repo/user/user-do.repo.ts:144</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="146"
+                            class="link-to-prism">apps/server/src/shared/repo/user/user-do.repo.ts:146</a></div>
                 </td>
             </tr>
 
@@ -1009,7 +1009,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/BaseDORepo.html#source" target="_self" >BaseDORepo:63</a></code>
+                        <div class="io-line">Defined in         <code><a href="../injectables/BaseDORepo.html#source" target="_self" >BaseDORepo:74</a></code>
 </div>
                 </td>
             </tr>
@@ -1086,7 +1086,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/BaseDORepo.html#source" target="_self" >BaseDORepo:85</a></code>
+                        <div class="io-line">Defined in         <code><a href="../injectables/BaseDORepo.html#source" target="_self" >BaseDORepo:96</a></code>
 </div>
                 </td>
             </tr>
@@ -1168,7 +1168,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/BaseDORepo.html#source" target="_self" >BaseDORepo:98</a></code>
+                        <div class="io-line">Defined in         <code><a href="../injectables/BaseDORepo.html#source" target="_self" >BaseDORepo:109</a></code>
 </div>
                 </td>
             </tr>
@@ -1245,7 +1245,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/BaseDORepo.html#source" target="_self" >BaseDORepo:111</a></code>
+                        <div class="io-line">Defined in         <code><a href="../injectables/BaseDORepo.html#source" target="_self" >BaseDORepo:122</a></code>
 </div>
                 </td>
             </tr>
@@ -1322,7 +1322,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../injectables/BaseDORepo.html#source" target="_self" >BaseDORepo:77</a></code>
+                        <div class="io-line">Defined in         <code><a href="../injectables/BaseDORepo.html#source" target="_self" >BaseDORepo:88</a></code>
 </div>
                 </td>
             </tr>
@@ -1638,7 +1638,8 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { EntityName, FilterQuery, IdentifiedReference, QueryOrderMap, Reference } from &#x27;@mikro-orm/core&#x27;;
+import { Injectable } from &#x27;@nestjs/common&#x27;;
 import { BaseDORepo, Scope } from &#x27;@shared/repo&#x27;;
 import {
 	EntityId,
@@ -1652,7 +1653,6 @@ import {
 	System,
 	User,
 } from &#x27;@shared/domain&#x27;;
-import { EntityName, FilterQuery, QueryOrderMap, Reference } from &#x27;@mikro-orm/core&#x27;;
 import { UserDO } from &#x27;@shared/domain/domainobject/user.do&#x27;;
 import { EntityNotFoundError } from &#x27;@shared/common&#x27;;
 import { UserQuery } from &#x27;@src/modules/user/service/user-query.type&#x27;;
@@ -1746,8 +1746,8 @@ export class UserDORepo extends BaseDORepo&lt;UserDO, User, IUserProperties&gt; 
 			previousExternalId: entity.previousExternalId,
 		});
 
-		if (entity.roles.isInitialized(true)) {
-			user.roleIds &#x3D; entity.roles.getItems().map((role: Role) &#x3D;&gt; role.id);
+		if (entity.roles.isInitialized()) {
+			user.roleIds &#x3D; entity.roles.getItems().map((role: Role): EntityId &#x3D;&gt; role.id);
 		}
 
 		return user;
@@ -1759,7 +1759,9 @@ export class UserDORepo extends BaseDORepo&lt;UserDO, User, IUserProperties&gt; 
 			firstName: entityDO.firstName,
 			lastName: entityDO.lastName,
 			school: Reference.createFromPK(School, entityDO.schoolId),
-			roles: entityDO.roleIds.map((roleId) &#x3D;&gt; Reference.createFromPK(Role, roleId)),
+			roles: entityDO.roleIds.map(
+				(roleId: EntityId): IdentifiedReference&lt;Role&gt; &#x3D;&gt; Reference.createFromPK(Role, roleId)
+			),
 			ldapDn: entityDO.ldapDn,
 			externalId: entityDO.externalId,
 			language: entityDO.language,

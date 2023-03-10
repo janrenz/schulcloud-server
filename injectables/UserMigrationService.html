@@ -115,6 +115,10 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#getLoginUrl" >getLoginUrl</a>
+                            </li>
+                            <li>
                                     <span class="modifier">Async</span>
                                 <a href="#getMigrationRedirect" >getMigrationRedirect</a>
                             </li>
@@ -122,16 +126,8 @@
                                 <a href="#getMigrationRedirectUri" >getMigrationRedirectUri</a>
                             </li>
                             <li>
-                                    <span class="modifier">Private</span>
-                                <a href="#getOauthLoginUrl" >getOauthLoginUrl</a>
-                            </li>
-                            <li>
                                     <span class="modifier">Async</span>
                                 <a href="#getPageContent" >getPageContent</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Private</span>
-                                <a href="#getRedirectUri" >getRedirectUri</a>
                             </li>
                             <li>
                                     <span class="modifier">Async</span>
@@ -164,7 +160,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">apps/server/src/modules/user-login-migration/service/user-migration.service.ts:27</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">apps/server/src/modules/user-login-migration/service/user-migration.service.ts:31</a></div>
                             </td>
                         </tr>
 
@@ -259,6 +255,89 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="getLoginUrl"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span ><b>getLoginUrl</b></span>
+                        <a href="#getLoginUrl"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getLoginUrl(system: <a href="../classes/SystemDto.html" target="_self">SystemDto</a>, postLoginRedirect?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="154"
+                            class="link-to-prism">apps/server/src/modules/user-login-migration/service/user-migration.service.ts:154</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>system</td>
+                                    <td>
+                                                <code><a href="../classes/SystemDto.html" target="_self" >SystemDto</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>postLoginRedirect</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="getMigrationRedirect"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
@@ -277,8 +356,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="46"
-                            class="link-to-prism">apps/server/src/modules/user-login-migration/service/user-migration.service.ts:46</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="50"
+                            class="link-to-prism">apps/server/src/modules/user-login-migration/service/user-migration.service.ts:50</a></div>
                 </td>
             </tr>
 
@@ -351,15 +430,15 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>getMigrationRedirectUri(systemId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+<code>getMigrationRedirectUri()</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="108"
-                            class="link-to-prism">apps/server/src/modules/user-login-migration/service/user-migration.service.ts:108</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="111"
+                            class="link-to-prism">apps/server/src/modules/user-login-migration/service/user-migration.service.ts:111</a></div>
                 </td>
             </tr>
 
@@ -367,124 +446,9 @@
             <tr>
                 <td class="col-md-4">
 
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>systemId</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
 
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="getOauthLoginUrl"></a>
-                    <span class="name">
-                        <span class="modifier">Private</span>
-                        <span ><b>getOauthLoginUrl</b></span>
-                        <a href="#getOauthLoginUrl"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>getOauthLoginUrl(system: <a href="../classes/SystemDto.html" target="_self">SystemDto</a>, postLoginUri?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="151"
-                            class="link-to-prism">apps/server/src/modules/user-login-migration/service/user-migration.service.ts:151</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>system</td>
-                                    <td>
-                                                <code><a href="../classes/SystemDto.html" target="_self" >SystemDto</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>postLoginUri</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                    </td>
-
-                                    <td>
-                                        Yes
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>    <code>URL</code>
-
-                    </div>
-                    <div class="io-description">
-                        
                     </div>
                 </td>
             </tr>
@@ -512,8 +476,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="70"
-                            class="link-to-prism">apps/server/src/modules/user-login-migration/service/user-migration.service.ts:70</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="74"
+                            class="link-to-prism">apps/server/src/modules/user-login-migration/service/user-migration.service.ts:74</a></div>
                 </td>
             </tr>
 
@@ -589,89 +553,6 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="getRedirectUri"></a>
-                    <span class="name">
-                        <span class="modifier">Private</span>
-                        <span ><b>getRedirectUri</b></span>
-                        <a href="#getRedirectUri"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>getRedirectUri(redirectUri: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, postLoginUri?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="167"
-                            class="link-to-prism">apps/server/src/modules/user-login-migration/service/user-migration.service.ts:167</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>redirectUri</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>postLoginUri</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                    </td>
-
-                                    <td>
-                                        Yes
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>    <code>URL</code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
                     <a name="isSchoolInMigration"></a>
                     <span class="name">
                         <span class="modifier">Async</span>
@@ -690,8 +571,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="40"
-                            class="link-to-prism">apps/server/src/modules/user-login-migration/service/user-migration.service.ts:40</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="44"
+                            class="link-to-prism">apps/server/src/modules/user-login-migration/service/user-migration.service.ts:44</a></div>
                 </td>
             </tr>
 
@@ -761,8 +642,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="114"
-                            class="link-to-prism">apps/server/src/modules/user-login-migration/service/user-migration.service.ts:114</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="117"
+                            class="link-to-prism">apps/server/src/modules/user-login-migration/service/user-migration.service.ts:117</a></div>
                 </td>
             </tr>
 
@@ -866,7 +747,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">apps/server/src/modules/user-login-migration/service/user-migration.service.ts:23</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">apps/server/src/modules/user-login-migration/service/user-migration.service.ts:27</a></div>
                         </td>
                     </tr>
 
@@ -894,7 +775,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">apps/server/src/modules/user-login-migration/service/user-migration.service.ts:19</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">apps/server/src/modules/user-login-migration/service/user-migration.service.ts:23</a></div>
                         </td>
                     </tr>
 
@@ -927,7 +808,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">apps/server/src/modules/user-login-migration/service/user-migration.service.ts:27</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">apps/server/src/modules/user-login-migration/service/user-migration.service.ts:31</a></div>
                         </td>
                     </tr>
 
@@ -960,7 +841,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">apps/server/src/modules/user-login-migration/service/user-migration.service.ts:25</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">apps/server/src/modules/user-login-migration/service/user-migration.service.ts:29</a></div>
                         </td>
                     </tr>
 
@@ -988,7 +869,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">apps/server/src/modules/user-login-migration/service/user-migration.service.ts:21</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">apps/server/src/modules/user-login-migration/service/user-migration.service.ts:25</a></div>
                         </td>
                     </tr>
 
@@ -1002,10 +883,14 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Configuration } from &#x27;@hpi-schul-cloud/commons/lib&#x27;;
-import { Injectable, InternalServerErrorException, BadRequestException } from &#x27;@nestjs/common&#x27;;
+import {
+	BadRequestException,
+	Injectable,
+	InternalServerErrorException,
+	UnprocessableEntityException,
+} from &#x27;@nestjs/common&#x27;;
 import { SchoolDO } from &#x27;@shared/domain/domainobject/school.do&#x27;;
 import { SchoolService } from &#x27;@src/modules/school&#x27;;
-import { EntityNotFoundError } from &#x27;@shared/common&#x27;;
 import { SystemDto, SystemService } from &#x27;@src/modules/system/service&#x27;;
 import { SystemTypeEnum } from &#x27;@src/shared/domain/types&#x27;;
 import { UserDO } from &#x27;@shared/domain/domainobject/user.do&#x27;;
@@ -1074,12 +959,11 @@ export class UserMigrationService {
 		const sourceSystem: SystemDto &#x3D; await this.systemService.findById(sourceId);
 		const targetSystem: SystemDto &#x3D; await this.systemService.findById(targetId);
 
-		const targetSystemLoginUrl: URL &#x3D; this.getOauthLoginUrl(targetSystem);
-		targetSystemLoginUrl.searchParams.set(&#x27;redirect_uri&#x27;, this.getMigrationRedirectUri(targetId));
+		const targetSystemLoginUrl: string &#x3D; this.getLoginUrl(targetSystem);
 
 		switch (pageType) {
 			case PageTypes.START_FROM_TARGET_SYSTEM: {
-				const sourceSystemLoginUrl: URL &#x3D; this.getOauthLoginUrl(sourceSystem, targetSystemLoginUrl.toString());
+				const sourceSystemLoginUrl: string &#x3D; this.getLoginUrl(sourceSystem, targetSystemLoginUrl.toString());
 
 				const content: PageContentDto &#x3D; new PageContentDto({
 					proceedButtonUrl: sourceSystemLoginUrl.toString(),
@@ -1108,9 +992,9 @@ export class UserMigrationService {
 	}
 
 	// TODO: https://ticketsystem.dbildungscloud.de/browse/N21-632 Move Redirect Logic URLs to Client
-	getMigrationRedirectUri(systemId: string): string {
+	getMigrationRedirectUri(): string {
 		const combinedUri &#x3D; new URL(this.publicBackendUrl);
-		combinedUri.pathname &#x3D; &#x60;api/v3/sso/oauth/${systemId}/migration&#x60;;
+		combinedUri.pathname &#x3D; &#x60;api/v3/sso/oauth/migration&#x60;;
 		return combinedUri.toString();
 	}
 
@@ -1151,29 +1035,19 @@ export class UserMigrationService {
 		}
 	}
 
-	private getOauthLoginUrl(system: SystemDto, postLoginUri?: string): URL {
-		if (!system.oauthConfig) {
-			throw new EntityNotFoundError(&#x60;System ${system?.id || &#x27;unknown&#x27;} has no oauth config&#x60;);
+	private getLoginUrl(system: SystemDto, postLoginRedirect?: string): string {
+		if (!system.oauthConfig || !system.id) {
+			throw new UnprocessableEntityException(&#x60;System ${system?.id || &#x27;unknown&#x27;} has no oauth config&#x60;);
 		}
 
-		const { oauthConfig } &#x3D; system;
-
-		const loginUrl: URL &#x3D; new URL(oauthConfig.authEndpoint);
-		loginUrl.searchParams.append(&#x27;client_id&#x27;, oauthConfig.clientId);
-		loginUrl.searchParams.append(&#x27;redirect_uri&#x27;, this.getRedirectUri(oauthConfig.redirectUri, postLoginUri).toString());
-		loginUrl.searchParams.append(&#x27;response_type&#x27;, oauthConfig.responseType);
-		loginUrl.searchParams.append(&#x27;scope&#x27;, oauthConfig.scope);
-
-		return loginUrl;
-	}
-
-	private getRedirectUri(redirectUri: string, postLoginUri?: string): URL {
-		const combinedUri &#x3D; new URL(redirectUri);
-		if (postLoginUri) {
-			combinedUri.searchParams.append(&#x27;postLoginRedirect&#x27;, postLoginUri);
+		const loginUrl: URL &#x3D; new URL(&#x60;api/v3/sso/login/${system.id}&#x60;, this.publicBackendUrl);
+		if (postLoginRedirect) {
+			loginUrl.searchParams.append(&#x27;postLoginRedirect&#x27;, postLoginRedirect);
+		} else {
+			loginUrl.searchParams.append(&#x27;migration&#x27;, &#x27;true&#x27;);
 		}
 
-		return combinedUri;
+		return loginUrl.toString();
 	}
 }
 </code></pre>
