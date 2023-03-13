@@ -116,6 +116,15 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Private</span>
+                                <a href="#createUserMigrationDto" >createUserMigrationDto</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#doMigration" >doMigration</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
                                 <a href="#getLoginUrl" >getLoginUrl</a>
                             </li>
                             <li>
@@ -136,6 +145,11 @@
                             <li>
                                     <span class="modifier">Async</span>
                                 <a href="#migrateUser" >migrateUser</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#rollbackMigration" >rollbackMigration</a>
                             </li>
                         </ul>
                     </td>
@@ -255,6 +269,221 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="createUserMigrationDto"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span ><b>createUserMigrationDto</b></span>
+                        <a href="#createUserMigrationDto"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>createUserMigrationDto(urlPath: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, sourceSystemId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, targetSystemId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="179"
+                            class="link-to-prism">apps/server/src/modules/user-login-migration/service/user-migration.service.ts:179</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>urlPath</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>sourceSystemId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>targetSystemId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/MigrationDto.html" target="_self" >MigrationDto</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="doMigration"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span class="modifier">Async</span>
+                        <span ><b>doMigration</b></span>
+                        <a href="#doMigration"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>doMigration(userDO: <a href="../interfaces/User.html" target="_self">UserDO</a>, externalUserId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, account: <a href="../classes/AccountDto.html" target="_self">AccountDto</a>, targetSystemId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, accountId?: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="155"
+                            class="link-to-prism">apps/server/src/modules/user-login-migration/service/user-migration.service.ts:155</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>userDO</td>
+                                    <td>
+                                                <code><a href="../interfaces/User.html" target="_self" >UserDO</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>externalUserId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>account</td>
+                                    <td>
+                                                <code><a href="../classes/AccountDto.html" target="_self" >AccountDto</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>targetSystemId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>accountId</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/MigrationDto.html" target="_self" >Promise&lt;MigrationDto&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="getLoginUrl"></a>
                     <span class="name">
                         <span class="modifier">Private</span>
@@ -273,8 +502,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="154"
-                            class="link-to-prism">apps/server/src/modules/user-login-migration/service/user-migration.service.ts:154</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="189"
+                            class="link-to-prism">apps/server/src/modules/user-login-migration/service/user-migration.service.ts:189</a></div>
                 </td>
             </tr>
 
@@ -715,6 +944,102 @@
             </tr>
         </tbody>
     </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="rollbackMigration"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span class="modifier">Async</span>
+                        <span ><b>rollbackMigration</b></span>
+                        <a href="#rollbackMigration"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>rollbackMigration(userDOCopy: <a href="../interfaces/User.html" target="_self">UserDO</a>, accountCopy: <a href="../classes/AccountDto.html" target="_self">AccountDto</a>, targetSystemId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="139"
+                            class="link-to-prism">apps/server/src/modules/user-login-migration/service/user-migration.service.ts:139</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>userDOCopy</td>
+                                    <td>
+                                                <code><a href="../interfaces/User.html" target="_self" >UserDO</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>accountCopy</td>
+                                    <td>
+                                                <code><a href="../classes/AccountDto.html" target="_self" >AccountDto</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>targetSystemId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/MigrationDto.html" target="_self" >Promise&lt;MigrationDto&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </section>
             <section>
     
@@ -890,17 +1215,17 @@ import {
 	UnprocessableEntityException,
 } from &#x27;@nestjs/common&#x27;;
 import { SchoolDO } from &#x27;@shared/domain/domainobject/school.do&#x27;;
-import { SchoolService } from &#x27;@src/modules/school&#x27;;
-import { SystemDto, SystemService } from &#x27;@src/modules/system/service&#x27;;
-import { SystemTypeEnum } from &#x27;@src/shared/domain/types&#x27;;
 import { UserDO } from &#x27;@shared/domain/domainobject/user.do&#x27;;
 import { Logger } from &#x27;@src/core/logger&#x27;;
 import { AccountService } from &#x27;@src/modules/account/services/account.service&#x27;;
 import { AccountDto } from &#x27;@src/modules/account/services/dto&#x27;;
+import { SchoolService } from &#x27;@src/modules/school&#x27;;
+import { SystemDto, SystemService } from &#x27;@src/modules/system/service&#x27;;
 import { UserService } from &#x27;@src/modules/user/service/user.service&#x27;;
-import { PageContentDto } from &#x27;./dto/page-content.dto&#x27;;
+import { EntityId, SystemTypeEnum } from &#x27;@src/shared/domain/types&#x27;;
 import { PageTypes } from &#x27;../interface/page-types.enum&#x27;;
 import { MigrationDto } from &#x27;./dto/migration.dto&#x27;;
+import { PageContentDto } from &#x27;./dto/page-content.dto&#x27;;
 
 @Injectable()
 export class UserMigrationService {
@@ -1001,38 +1326,73 @@ export class UserMigrationService {
 	async migrateUser(currentUserId: string, externalUserId: string, targetSystemId: string): Promise&lt;MigrationDto&gt; {
 		const userDO: UserDO &#x3D; await this.userService.findById(currentUserId);
 		const account: AccountDto &#x3D; await this.accountService.findByUserIdOrFail(currentUserId);
-		const userDOCopy: UserDO &#x3D; { ...userDO };
-		const accountCopy: AccountDto &#x3D; { ...account };
+		const userDOCopy: UserDO &#x3D; new UserDO({ ...userDO });
+		const accountCopy: AccountDto &#x3D; new AccountDto({ ...account });
 
+		let migrationDto: MigrationDto;
 		try {
-			userDO.previousExternalId &#x3D; userDO.externalId;
-			userDO.externalId &#x3D; externalUserId;
-			userDO.lastLoginSystemChange &#x3D; new Date();
-			await this.userService.save(userDO);
-			account.systemId &#x3D; targetSystemId;
-			await this.accountService.save(account);
-
-			// TODO: https://ticketsystem.dbildungscloud.de/browse/N21-632 Move Redirect Logic URLs to Client
-			const userMigrationDto: MigrationDto &#x3D; new MigrationDto({
-				redirect: &#x60;${this.hostUrl}/migration/succeed&#x60;,
-			});
-			return userMigrationDto;
+			migrationDto &#x3D; await this.doMigration(userDO, externalUserId, account, targetSystemId, accountCopy.systemId);
 		} catch (e: unknown) {
-			await this.userService.save(userDOCopy);
-			await this.accountService.save(accountCopy);
-
 			this.logger.log({
 				message: &#x27;This error occurred during migration of User:&#x27;,
 				affectedUserId: currentUserId,
 				error: e,
 			});
 
-			// TODO: https://ticketsystem.dbildungscloud.de/browse/N21-632 Move Redirect Logic URLs to Client
-			const userMigrationDto: MigrationDto &#x3D; new MigrationDto({
-				redirect: &#x60;${this.hostUrl}/dashboard&#x60;,
-			});
-			return userMigrationDto;
+			migrationDto &#x3D; await this.rollbackMigration(userDOCopy, accountCopy, targetSystemId);
 		}
+
+		return migrationDto;
+	}
+
+	private async rollbackMigration(
+		userDOCopy: UserDO,
+		accountCopy: AccountDto,
+		targetSystemId: string
+	): Promise&lt;MigrationDto&gt; {
+		await this.userService.save(userDOCopy);
+		await this.accountService.save(accountCopy);
+
+		const userMigrationDto: MigrationDto &#x3D; this.createUserMigrationDto(
+			&#x27;/migration/error&#x27;,
+			accountCopy.systemId ?? &#x27;&#x27;,
+			targetSystemId
+		);
+		return userMigrationDto;
+	}
+
+	private async doMigration(
+		userDO: UserDO,
+		externalUserId: string,
+		account: AccountDto,
+		targetSystemId: string,
+		accountId?: EntityId
+	): Promise&lt;MigrationDto&gt; {
+		userDO.previousExternalId &#x3D; userDO.externalId;
+		userDO.externalId &#x3D; externalUserId;
+		userDO.lastLoginSystemChange &#x3D; new Date();
+		await this.userService.save(userDO);
+
+		account.systemId &#x3D; targetSystemId;
+		await this.accountService.save(account);
+
+		const userMigrationDto: MigrationDto &#x3D; this.createUserMigrationDto(
+			&#x27;/migration/success&#x27;,
+			accountId ?? &#x27;&#x27;,
+			targetSystemId
+		);
+		return userMigrationDto;
+	}
+
+	// TODO: https://ticketsystem.dbildungscloud.de/browse/N21-632 Move Redirect Logic URLs to Client
+	private createUserMigrationDto(urlPath: string, sourceSystemId: string, targetSystemId: string) {
+		const errorUrl: URL &#x3D; new URL(urlPath, this.hostUrl);
+		errorUrl.searchParams.append(&#x27;sourceSystem&#x27;, sourceSystemId);
+		errorUrl.searchParams.append(&#x27;targetSystem&#x27;, targetSystemId);
+		const userMigrationDto: MigrationDto &#x3D; new MigrationDto({
+			redirect: errorUrl.toString(),
+		});
+		return userMigrationDto;
 	}
 
 	private getLoginUrl(system: SystemDto, postLoginRedirect?: string): string {

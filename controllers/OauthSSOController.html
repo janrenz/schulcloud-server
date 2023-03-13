@@ -441,7 +441,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>migrateUser(session: <a href="../undefineds/ISession.html" target="_self">ISession</a>, currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>, query: <a href="../interfaces/AuthorizationParams.html" target="_self">AuthorizationParams</a>, res: Response)</code>
+                    <code>migrateUser(jwt: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, session: <a href="../undefineds/ISession.html" target="_self">ISession</a>, currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>, query: <a href="../interfaces/AuthorizationParams.html" target="_self">AuthorizationParams</a>, res: Response)</code>
                 </td>
             </tr>
 
@@ -476,6 +476,18 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                <tr>
+                                    <td>jwt</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
                                 <tr>
                                     <td>session</td>
                                     <td>
@@ -847,7 +859,7 @@ import { ApiOkResponse, ApiResponse, ApiTags } from &#x27;@nestjs/swagger&#x27;;
 import { ISession } from &#x27;@shared/domain/types/session&#x27;;
 import { ICurrentUser } from &#x27;@src/modules/authentication&#x27;;
 import { Logger } from &#x27;@src/core/logger&#x27;;
-import { Authenticate, CurrentUser } from &#x27;@src/modules/authentication/decorator/auth.decorator&#x27;;
+import { Authenticate, CurrentUser, JWT } from &#x27;@src/modules/authentication/decorator/auth.decorator&#x27;;
 import { OauthTokenResponse } from &#x27;@src/modules/oauth/controller/dto/oauth-token.response&#x27;;
 import { HydraOauthUc } from &#x27;@src/modules/oauth/uc/hydra-oauth.uc&#x27;;
 import { CookieOptions, Request, Response } from &#x27;express&#x27;;
@@ -989,6 +1001,7 @@ export class OauthSSOController {
 	@ApiOkResponse({ description: &#x27;The User has been succesfully migrated.&#x27; })
 	@ApiResponse({ type: InternalServerErrorException, description: &#x27;The migration of the User was not possible. &#x27; })
 	async migrateUser(
+		@JWT() jwt: string,
 		@Session() session: ISession,
 		@CurrentUser() currentUser: ICurrentUser,
 		@Query() query: AuthorizationParams,
@@ -996,7 +1009,7 @@ export class OauthSSOController {
 	): Promise&lt;void&gt; {
 		const oauthLoginState: OauthLoginStateDto &#x3D; this.sessionHandler(session, query);
 		try {
-			const migration: MigrationDto &#x3D; await this.oauthUc.migrate(currentUser.userId, query, oauthLoginState);
+			const migration: MigrationDto &#x3D; await this.oauthUc.migrate(jwt, currentUser.userId, query, oauthLoginState);
 			const response: UserMigrationResponse &#x3D; UserMigrationMapper.mapDtoToResponse(migration);
 			res.redirect(response.redirect);
 		} catch (error) {

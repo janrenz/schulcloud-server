@@ -288,8 +288,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="138"
-                            class="link-to-prism">apps/server/src/modules/oauth/uc/oauth.uc.ts:138</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="142"
+                            class="link-to-prism">apps/server/src/modules/oauth/uc/oauth.uc.ts:142</a></div>
                 </td>
             </tr>
 
@@ -352,7 +352,7 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>migrate(currentUserId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, query: <a href="../interfaces/AuthorizationParams.html" target="_self">AuthorizationParams</a>, cachedState: <a href="../classes/OauthLoginStateDto.html" target="_self">OauthLoginStateDto</a>)</code>
+                    <code>migrate(userJwt: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, currentUserId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, query: <a href="../interfaces/AuthorizationParams.html" target="_self">AuthorizationParams</a>, cachedState: <a href="../classes/OauthLoginStateDto.html" target="_self">OauthLoginStateDto</a>)</code>
                 </td>
             </tr>
 
@@ -380,6 +380,18 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                <tr>
+                                    <td>userJwt</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
                                 <tr>
                                     <td>currentUserId</td>
                                     <td>
@@ -644,14 +656,14 @@
 import { EntityId } from &#x27;@shared/domain&#x27;;
 import { UserDO } from &#x27;@shared/domain/domainobject/user.do&#x27;;
 import { ISession } from &#x27;@shared/domain/types/session&#x27;;
+import { SchoolDO } from &#x27;@shared/domain/domainobject/school.do&#x27;;
 import { Logger } from &#x27;@src/core/logger&#x27;;
+import { SchoolService } from &#x27;@src/modules/school&#x27;;
 import { SystemService } from &#x27;@src/modules/system&#x27;;
 import { SystemDto } from &#x27;@src/modules/system/service/dto/system.dto&#x27;;
 import { UserService } from &#x27;@src/modules/user&#x27;;
 import { UserMigrationService } from &#x27;@src/modules/user-login-migration&#x27;;
-import { SchoolService } from &#x27;@src/modules/school&#x27;;
 import { SchoolMigrationService } from &#x27;@src/modules/user-login-migration/service&#x27;;
-import { SchoolDO } from &#x27;@shared/domain/domainobject/school.do&#x27;;
 import { MigrationDto } from &#x27;@src/modules/user-login-migration/service/dto/migration.dto&#x27;;
 import { ProvisioningService } from &#x27;@src/modules/provisioning&#x27;;
 import { OauthDataDto } from &#x27;@src/modules/provisioning/dto&#x27;;
@@ -741,6 +753,7 @@ export class OauthUc {
 	}
 
 	async migrate(
+		userJwt: string,
 		currentUserId: string,
 		query: AuthorizationParams,
 		cachedState: OauthLoginStateDto
@@ -774,6 +787,9 @@ export class OauthUc {
 			data.externalUser.externalId,
 			systemId
 		);
+
+		await this.authenticationService.removeJwtFromWhitelist(userJwt);
+
 		return migrationDto;
 	}
 
