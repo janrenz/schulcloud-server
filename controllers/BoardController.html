@@ -55,7 +55,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/modules/learnroom/controller/board.controller.ts</code>
+            <code>apps/server/src/modules/board/controller/board.controller.ts</code>
         </p>
 
             <p class="comment">
@@ -84,19 +84,8 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                    <span class="modifier">Async</span>
                                 <a href="#getBoardSkeleton" >getBoardSkeleton</a>
-                            </li>
-                            <li>
-                                <a href="#moveCard" >moveCard</a>
-                            </li>
-                            <li>
-                                <a href="#moveColumn" >moveColumn</a>
-                            </li>
-                            <li>
-                                <a href="#renameBoard" >renameBoard</a>
-                            </li>
-                            <li>
-                                <a href="#renameColumn" >renameColumn</a>
                             </li>
                         </ul>
                     </td>
@@ -121,6 +110,7 @@
                 <td class="col-md-4">
                     <a name="getBoardSkeleton"></a>
                     <span class="name">
+                        <span class="modifier">Async</span>
                         <span ><b>getBoardSkeleton</b></span>
                         <a href="#getBoardSkeleton"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -128,7 +118,8 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>getBoardSkeleton(urlParams: <a href="../classes/BoardUrlParams.html" target="_self">BoardUrlParams</a>, currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>)</code>
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getBoardSkeleton(urlParams: <a href="../classes/BoardUrlParams.html" target="_self">BoardUrlParams</a>, currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>)</code>
                 </td>
             </tr>
 
@@ -142,8 +133,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="22"
-                            class="link-to-prism">apps/server/src/modules/learnroom/controller/board.controller.ts:22</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="16"
+                            class="link-to-prism">apps/server/src/modules/board/controller/board.controller.ts:16</a></div>
                 </td>
             </tr>
 
@@ -203,500 +194,71 @@
             </tr>
         </tbody>
     </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="moveCard"></a>
-                    <span class="name">
-                        <span ><b>moveCard</b></span>
-                        <a href="#moveCard"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>moveCard(urlParams: <a href="../classes/BoardUrlParams.html" target="_self">BoardUrlParams</a>, bodyParams: <a href="../classes/MoveCardBodyParams.html" target="_self">MoveCardBodyParams</a>, currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>)</code>
-                </td>
-            </tr>
-
-            <tr>
-                <td class="col-md-4">
-                    <b>Decorators : </b>
-                    <br />
-                    <code>@Put(&#x27;/:boardId/cards/:cardId/position&#x27;)<br /></code>
-                </td>
-            </tr>
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="57"
-                            class="link-to-prism">apps/server/src/modules/learnroom/controller/board.controller.ts:57</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>urlParams</td>
-                                    <td>
-                                                <code><a href="../classes/BoardUrlParams.html" target="_self" >BoardUrlParams</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>bodyParams</td>
-                                    <td>
-                                                <code><a href="../classes/MoveCardBodyParams.html" target="_self" >MoveCardBodyParams</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>currentUser</td>
-                                    <td>
-                                                <code><a href="../interfaces/ICurrentUser.html" target="_self" >ICurrentUser</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="moveColumn"></a>
-                    <span class="name">
-                        <span ><b>moveColumn</b></span>
-                        <a href="#moveColumn"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>moveColumn(urlParams: <a href="../classes/BoardColumnUrlParams.html" target="_self">BoardColumnUrlParams</a>, bodyParams: <a href="../classes/MoveColumnBodyParams.html" target="_self">MoveColumnBodyParams</a>, currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>)</code>
-                </td>
-            </tr>
-
-            <tr>
-                <td class="col-md-4">
-                    <b>Decorators : </b>
-                    <br />
-                    <code>@Put(&#x27;/:boardId/columns/:columnId/position&#x27;)<br /></code>
-                </td>
-            </tr>
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="66"
-                            class="link-to-prism">apps/server/src/modules/learnroom/controller/board.controller.ts:66</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>urlParams</td>
-                                    <td>
-                                                <code><a href="../classes/BoardColumnUrlParams.html" target="_self" >BoardColumnUrlParams</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>bodyParams</td>
-                                    <td>
-                                                <code><a href="../classes/MoveColumnBodyParams.html" target="_self" >MoveColumnBodyParams</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>currentUser</td>
-                                    <td>
-                                                <code><a href="../interfaces/ICurrentUser.html" target="_self" >ICurrentUser</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="renameBoard"></a>
-                    <span class="name">
-                        <span ><b>renameBoard</b></span>
-                        <a href="#renameBoard"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>renameBoard(urlParams: <a href="../classes/BoardUrlParams.html" target="_self">BoardUrlParams</a>, bodyParams: <a href="../classes/RenameBodyParams.html" target="_self">RenameBodyParams</a>, currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>)</code>
-                </td>
-            </tr>
-
-            <tr>
-                <td class="col-md-4">
-                    <b>Decorators : </b>
-                    <br />
-                    <code>@Put(&#x27;/:boardId/title&#x27;)<br /></code>
-                </td>
-            </tr>
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="75"
-                            class="link-to-prism">apps/server/src/modules/learnroom/controller/board.controller.ts:75</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>urlParams</td>
-                                    <td>
-                                                <code><a href="../classes/BoardUrlParams.html" target="_self" >BoardUrlParams</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>bodyParams</td>
-                                    <td>
-                                                <code><a href="../classes/RenameBodyParams.html" target="_self" >RenameBodyParams</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>currentUser</td>
-                                    <td>
-                                                <code><a href="../interfaces/ICurrentUser.html" target="_self" >ICurrentUser</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="renameColumn"></a>
-                    <span class="name">
-                        <span ><b>renameColumn</b></span>
-                        <a href="#renameColumn"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>renameColumn(urlParams: <a href="../classes/BoardColumnUrlParams.html" target="_self">BoardColumnUrlParams</a>, bodyParams: <a href="../classes/RenameBodyParams.html" target="_self">RenameBodyParams</a>, currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>)</code>
-                </td>
-            </tr>
-
-            <tr>
-                <td class="col-md-4">
-                    <b>Decorators : </b>
-                    <br />
-                    <code>@Put(&#x27;:boardId/columns/:columnId/title&#x27;)<br /></code>
-                </td>
-            </tr>
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="84"
-                            class="link-to-prism">apps/server/src/modules/learnroom/controller/board.controller.ts:84</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>urlParams</td>
-                                    <td>
-                                                <code><a href="../classes/BoardColumnUrlParams.html" target="_self" >BoardColumnUrlParams</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>bodyParams</td>
-                                    <td>
-                                                <code><a href="../classes/RenameBodyParams.html" target="_self" >RenameBodyParams</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>currentUser</td>
-                                    <td>
-                                                <code><a href="../interfaces/ICurrentUser.html" target="_self" >ICurrentUser</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
 </section>    </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Body, Controller, Get, NotImplementedException, Param, Put } from &#x27;@nestjs/common&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Controller, Get, Param } from &#x27;@nestjs/common&#x27;;
 import { ApiTags } from &#x27;@nestjs/swagger&#x27;;
 import { ICurrentUser } from &#x27;@src/modules/authentication&#x27;;
 import { Authenticate, CurrentUser } from &#x27;@src/modules/authentication/decorator/auth.decorator&#x27;;
-import {
-	BoardColumnUrlParams,
-	BoardResponse,
-	BoardUrlParams,
-	MoveCardBodyParams,
-	MoveColumnBodyParams,
-	RenameBodyParams,
-	TimestampsResponse,
-} from &#x27;./dto&#x27;;
-import { BoardColumnResponse } from &#x27;./dto/board/board-column.response&#x27;;
-import { BoardSkeletonCardReponse } from &#x27;./dto/board/board-skeleton-card.response&#x27;;
+import { BoardUc } from &#x27;../uc/board.uc&#x27;;
+import { BoardResponse, BoardUrlParams } from &#x27;./dto&#x27;;
+import { BoardResponseMapper } from &#x27;./mapper&#x27;;
 
 @ApiTags(&#x27;Boards&#x27;)
 @Authenticate(&#x27;jwt&#x27;)
 @Controller(&#x27;boards&#x27;)
 export class BoardController {
+	constructor(private readonly boardUc: BoardUc) {}
+
 	@Get(&#x27;:boardId&#x27;)
-	getBoardSkeleton(
+	async getBoardSkeleton(
 		@Param() urlParams: BoardUrlParams,
 		@CurrentUser() currentUser: ICurrentUser
 	): Promise&lt;BoardResponse&gt; {
-		const result &#x3D; new BoardResponse({
-			id: &#x27;abcdefg&#x27;,
-			title: &#x27;a mocked testboard, please do not use&#x27;,
-			columns: [
-				new BoardColumnResponse({
-					id: &#x27;0123456789abcdef00000010&#x27;,
-					title: &#x27;first column&#x27;,
-					cards: [
-						new BoardSkeletonCardReponse({ cardId: &#x27;0123456789abcdef00000001&#x27;, height: 175 }),
-						new BoardSkeletonCardReponse({ cardId: &#x27;0123456789abcdef00000002&#x27;, height: 175 }),
-					],
-				}),
-				new BoardColumnResponse({
-					id: &#x27;0123456789abcdef00000020&#x27;,
-					title:
-						&#x27;second column, has a relatively long title that may or may not be a bit challenging to render... maybe do it partially?&#x27;,
-					cards: [new BoardSkeletonCardReponse({ cardId: &#x27;0123456789abcdef00000003&#x27;, height: 175 })],
-				}),
-				new BoardColumnResponse({
-					id: &#x27;0123456789abcdef00000030&#x27;,
-					title: &#x27;third column is empty for now&#x27;,
-					cards: [],
-				}),
-			],
-			timestamps: new TimestampsResponse({ lastUpdatedAt: new Date().toString(), createdAt: new Date().toString() }),
-		});
+		const board &#x3D; await this.boardUc.findBoard(currentUser.userId, urlParams.boardId);
 
-		return Promise.resolve(result);
+		const response &#x3D; BoardResponseMapper.mapToResponse(board);
+
+		return response;
 	}
 
-	@Put(&#x27;/:boardId/cards/:cardId/position&#x27;)
-	moveCard(
-		@Param() urlParams: BoardUrlParams,
-		@Body() bodyParams: MoveCardBodyParams,
-		@CurrentUser() currentUser: ICurrentUser
-	): Promise&lt;void&gt; {
-		throw new NotImplementedException();
-	}
+	// @Put(&#x27;/:boardId/cards/:cardId/position&#x27;)
+	// moveCard(
+	// 	@Param() urlParams: BoardUrlParams,
+	// 	@Body() bodyParams: MoveCardBodyParams,
+	// 	@CurrentUser() currentUser: ICurrentUser
+	// ): Promise&lt;void&gt; {
+	// 	throw new NotImplementedException();
+	// }
 
-	@Put(&#x27;/:boardId/columns/:columnId/position&#x27;)
-	moveColumn(
-		@Param() urlParams: BoardColumnUrlParams,
-		@Body() bodyParams: MoveColumnBodyParams,
-		@CurrentUser() currentUser: ICurrentUser
-	): Promise&lt;void&gt; {
-		throw new NotImplementedException();
-	}
+	// @Put(&#x27;/:boardId/columns/:columnId/position&#x27;)
+	// moveColumn(
+	// 	@Param() urlParams: ColumnUrlParams,
+	// 	@Body() bodyParams: MoveColumnBodyParams,
+	// 	@CurrentUser() currentUser: ICurrentUser
+	// ): Promise&lt;void&gt; {
+	// 	throw new NotImplementedException();
+	// }
 
-	@Put(&#x27;/:boardId/title&#x27;)
-	renameBoard(
-		@Param() urlParams: BoardUrlParams,
-		@Body() bodyParams: RenameBodyParams,
-		@CurrentUser() currentUser: ICurrentUser
-	): Promise&lt;void&gt; {
-		throw new NotImplementedException();
-	}
+	// @Put(&#x27;/:boardId/title&#x27;)
+	// renameBoard(
+	// 	@Param() urlParams: BoardUrlParams,
+	// 	@Body() bodyParams: RenameBodyParams,
+	// 	@CurrentUser() currentUser: ICurrentUser
+	// ): Promise&lt;void&gt; {
+	// 	throw new NotImplementedException();
+	// }
 
-	@Put(&#x27;:boardId/columns/:columnId/title&#x27;)
-	renameColumn(
-		@Param() urlParams: BoardColumnUrlParams,
-		@Body() bodyParams: RenameBodyParams,
-		@CurrentUser() currentUser: ICurrentUser
-	): Promise&lt;void&gt; {
-		throw new NotImplementedException();
-	}
+	// @Put(&#x27;:boardId/columns/:columnId/title&#x27;)
+	// renameColumn(
+	// 	@Param() urlParams: ColumnUrlParams,
+	// 	@Body() bodyParams: RenameBodyParams,
+	// 	@CurrentUser() currentUser: ICurrentUser
+	// ): Promise&lt;void&gt; {
+	// 	throw new NotImplementedException();
+	// }
 }
 </code></pre>
     </div>

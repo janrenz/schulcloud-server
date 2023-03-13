@@ -60,13 +60,13 @@
 <title>cluster_LearnroomModule_imports</title>
 <polygon fill="none" stroke="black" points="4025,-40.8 4025,-92.8 4728,-92.8 4728,-40.8 4025,-40.8"/>
 </g>
-<g id="clust6" class="cluster">
-<title>cluster_LearnroomModule_providers</title>
-<polygon fill="none" stroke="black" points="16,-40.8 16,-92.8 4017,-92.8 4017,-40.8 16,-40.8"/>
-</g>
 <g id="clust4" class="cluster">
 <title>cluster_LearnroomModule_exports</title>
 <polygon fill="none" stroke="black" points="2357,-170.8 2357,-222.8 2624,-222.8 2624,-170.8 2357,-170.8"/>
+</g>
+<g id="clust6" class="cluster">
+<title>cluster_LearnroomModule_providers</title>
+<polygon fill="none" stroke="black" points="16,-40.8 16,-92.8 4017,-92.8 4017,-40.8 16,-40.8"/>
 </g>
 <!-- AuthorizationModule -->
 <g id="node1" class="node">
@@ -567,12 +567,6 @@
                         <li class="list-group-item">
                             <a href="../controllers/RoomsController.html">RoomsController</a>
                         </li>
-                        <li class="list-group-item">
-                            <a href="../controllers/BoardController.html">BoardController</a>
-                        </li>
-                        <li class="list-group-item">
-                            <a href="../controllers/CardsController.html">CardsController</a>
-                        </li>
                     </ul>
                 </div>
                 <div class="col-sm-3">
@@ -637,8 +631,6 @@ import { CopyHelperModule } from &#x27;@src/modules/copy-helper&#x27;;
 import { FilesStorageClientModule } from &#x27;@src/modules/files-storage-client&#x27;;
 import { LessonModule } from &#x27;@src/modules/lesson&#x27;;
 import { TaskModule } from &#x27;@src/modules/task&#x27;;
-import { BoardController } from &#x27;./controller/board.controller&#x27;;
-import { CardsController } from &#x27;./controller/cards.controller&#x27;;
 import { CourseController } from &#x27;./controller/course.controller&#x27;;
 import { DashboardController } from &#x27;./controller/dashboard.controller&#x27;;
 import { RoomsController } from &#x27;./controller/rooms.controller&#x27;;
@@ -659,7 +651,7 @@ import { RoomsUc } from &#x27;./uc/rooms.uc&#x27;;
 
 @Module({
 	imports: [AuthorizationModule, FilesStorageClientModule, LessonModule, TaskModule, TaskModule, CopyHelperModule],
-	controllers: [DashboardController, CourseController, RoomsController, BoardController, CardsController],
+	controllers: [DashboardController, CourseController, RoomsController],
 	providers: [
 		DashboardUc,
 		{

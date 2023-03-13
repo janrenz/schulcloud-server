@@ -94,7 +94,22 @@
                             <a href="#bootstrap" title="apps/server/src/console/console.ts" ><b>bootstrap</b>&nbsp;&nbsp;&nbsp;(apps/.../console.ts)</a>
                         </li>
                         <li>
+                            <a href="#cardFactory" title="apps/server/src/shared/testing/factory/domainobject/card.do.factory.ts" ><b>cardFactory</b>&nbsp;&nbsp;&nbsp;(apps/.../card.do.factory.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#cardNodeFactory" title="apps/server/src/shared/testing/factory/boardnode/card-node.factory.ts" ><b>cardNodeFactory</b>&nbsp;&nbsp;&nbsp;(apps/.../card-node.factory.ts)</a>
+                        </li>
+                        <li>
                             <a href="#cleanupCollections" title="apps/server/src/shared/testing/cleanup-collections.ts" ><b>cleanupCollections</b>&nbsp;&nbsp;&nbsp;(apps/.../cleanup-collections.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#columnBoardFactory" title="apps/server/src/shared/testing/factory/domainobject/column-board.do.factory.ts" ><b>columnBoardFactory</b>&nbsp;&nbsp;&nbsp;(apps/.../column-board.do.factory.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#columnBoardNodeFactory" title="apps/server/src/shared/testing/factory/boardnode/column-board-node.factory.ts" ><b>columnBoardNodeFactory</b>&nbsp;&nbsp;&nbsp;(apps/.../column-board-node.factory.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#columnNodeFactory" title="apps/server/src/shared/testing/factory/boardnode/column-node.factory.ts" ><b>columnNodeFactory</b>&nbsp;&nbsp;&nbsp;(apps/.../column-node.factory.ts)</a>
                         </li>
                         <li>
                             <a href="#config" title="jest.config.ts" ><b>config</b>&nbsp;&nbsp;&nbsp;(jest.config.ts)</a>
@@ -316,6 +331,9 @@
                             <a href="#passwordPattern" title="apps/server/src/modules/account/controller/dto/password-pattern.ts" ><b>passwordPattern</b>&nbsp;&nbsp;&nbsp;(apps/.../password-pattern.ts)</a>
                         </li>
                         <li>
+                            <a href="#PATH_SEPARATOR" title="apps/server/src/shared/domain/entity/boardnode/boardnode.entity.ts" ><b>PATH_SEPARATOR</b>&nbsp;&nbsp;&nbsp;(apps/.../boardnode.entity.ts)</a>
+                        </li>
+                        <li>
                             <a href="#PermissionContexts" title="apps/server/src/modules/files-storage/files-storage.const.ts" ><b>PermissionContexts</b>&nbsp;&nbsp;&nbsp;(apps/.../files-storage.const.ts)</a>
                         </li>
                         <li>
@@ -454,6 +472,9 @@
                             <a href="#teamUserFactory" title="apps/server/src/shared/testing/factory/teamuser.factory.ts" ><b>teamUserFactory</b>&nbsp;&nbsp;&nbsp;(apps/.../teamuser.factory.ts)</a>
                         </li>
                         <li>
+                            <a href="#textElementNodeFactory" title="apps/server/src/shared/testing/factory/boardnode/text-element-node.factory.ts" ><b>textElementNodeFactory</b>&nbsp;&nbsp;&nbsp;(apps/.../text-element-node.factory.ts)</a>
+                        </li>
+                        <li>
                             <a href="#titleCardElementFactory" title="apps/server/src/shared/testing/factory/card-element.factory.ts" ><b>titleCardElementFactory</b>&nbsp;&nbsp;&nbsp;(apps/.../card-element.factory.ts)</a>
                         </li>
                         <li>
@@ -478,6 +499,9 @@
                             <a href="#" title="apps/server/src/modules/authentication/constants.ts" ><b></b>&nbsp;&nbsp;&nbsp;(apps/.../constants.ts)</a>
                         </li>
                         <li>
+                            <a href="#VideoConferencingScopeMapping" title="apps/server/src/shared/repo/videoconference/video-conference.repo.ts" ><b>VideoConferencingScopeMapping</b>&nbsp;&nbsp;&nbsp;(apps/.../video-conference.repo.ts)</a>
+                        </li>
+                        <li>
                             <a href="#writeErrorLog" title="apps/server/src/core/error/filter/global-error.filter.ts" ><b>writeErrorLog</b>&nbsp;&nbsp;&nbsp;(apps/.../global-error.filter.ts)</a>
                         </li>
                         <li>
@@ -494,9 +518,6 @@
                         </li>
                         <li>
                             <a href="#videoConferenceFactory" title="apps/server/src/shared/testing/factory/video-conference.factory.ts" ><b>videoConferenceFactory</b>&nbsp;&nbsp;&nbsp;(apps/.../video-conference.factory.ts)</a>
-                        </li>
-                        <li>
-                            <a href="#VideoConferencingScopeMapping" title="apps/server/src/shared/repo/videoconference/video-conference.repo.ts" ><b>VideoConferencingScopeMapping</b>&nbsp;&nbsp;&nbsp;(apps/.../video-conference.repo.ts)</a>
                         </li>
                         <li>
                             <a href="#yesterday" title="apps/server/src/shared/testing/factory/filerecord.factory.ts" ><b>yesterday</b>&nbsp;&nbsp;&nbsp;(apps/.../filerecord.factory.ts)</a>
@@ -689,6 +710,11 @@
 	Account,
 	Board,
 	BoardElement,
+	BoardNode,
+	CardNode,
+	ColumnBoardNode,
+	ColumnNode,
+	TextElementNode,
 	Course,
 	CourseExternalTool,
 	CourseGroup,
@@ -1322,6 +1348,66 @@ This allows adding console commands to execute provider methods.</p>
         </tbody>
     </table>
 </section>
+    <h3>apps/server/src/shared/testing/factory/domainobject/card.do.factory.ts</h3>
+    <section>
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cardFactory"></a>
+                    <span class="name">
+                        <span ><b>cardFactory</b></span>
+                        <a href="#cardFactory"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>Factory.define&lt;Card&gt;(({ sequence }) &#x3D;&gt; {
+	return {
+		id: new ObjectId().toHexString(),
+		title: &#x60;card #${sequence}&#x60;,
+		height: 150,
+		elements: [],
+		createdAt: new Date(),
+		updatedAt: new Date(),
+	};
+})</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>apps/server/src/shared/testing/factory/boardnode/card-node.factory.ts</h3>
+    <section>
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cardNodeFactory"></a>
+                    <span class="name">
+                        <span ><b>cardNodeFactory</b></span>
+                        <a href="#cardNodeFactory"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>BaseFactory.define&lt;CardNode, CardNodeProps&gt;(CardNode, ({ sequence }) &#x3D;&gt; {
+	return {
+		height: 150,
+		title: &#x60;card #${sequence}&#x60;,
+	};
+})</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
     <h3>apps/server/src/shared/testing/cleanup-collections.ts</h3>
     <section>
     <h3></h3>    <table class="table table-sm table-bordered">
@@ -1345,6 +1431,94 @@ This allows adding console commands to execute provider methods.</p>
 		})
 	);
 }</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>apps/server/src/shared/testing/factory/domainobject/column-board.do.factory.ts</h3>
+    <section>
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="columnBoardFactory"></a>
+                    <span class="name">
+                        <span ><b>columnBoardFactory</b></span>
+                        <a href="#columnBoardFactory"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>Factory.define&lt;ColumnBoard&gt;(({ sequence }) &#x3D;&gt; {
+	return {
+		id: new ObjectId().toHexString(),
+		title: &#x60;column board #${sequence}&#x60;,
+		columns: [],
+		createdAt: new Date(),
+		updatedAt: new Date(),
+	};
+})</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>apps/server/src/shared/testing/factory/boardnode/column-board-node.factory.ts</h3>
+    <section>
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="columnBoardNodeFactory"></a>
+                    <span class="name">
+                        <span ><b>columnBoardNodeFactory</b></span>
+                        <a href="#columnBoardNodeFactory"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>BaseFactory.define&lt;ColumnBoardNode, ColumnBoardNodeProps&gt;(
+	ColumnBoardNode,
+	({ sequence }) &#x3D;&gt; {
+		return {
+			title: &#x60;board #${sequence}&#x60;,
+		};
+	}
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>apps/server/src/shared/testing/factory/boardnode/column-node.factory.ts</h3>
+    <section>
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="columnNodeFactory"></a>
+                    <span class="name">
+                        <span ><b>columnNodeFactory</b></span>
+                        <a href="#columnNodeFactory"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>BaseFactory.define&lt;ColumnNode, ColumnNodeProps&gt;(ColumnNode, ({ sequence }) &#x3D;&gt; {
+	return {
+		title: &#x60;column #${sequence}&#x60;,
+	};
+})</code>
                     </td>
                 </tr>
 
@@ -2619,6 +2793,8 @@ must use @ApiProperty</p>
 	SharingApiModule,
 	ToolApiModule,
 	UserLoginMigrationApiModule,
+	BoardModule,
+	BoardApiModule,
 ]</code>
                     </td>
                 </tr>
@@ -4204,6 +4380,35 @@ You shall not explicitly declare the AMQPConnection in your modules since it wil
         </tbody>
     </table>
 </section>
+    <h3>apps/server/src/shared/domain/entity/boardnode/boardnode.entity.ts</h3>
+    <section>
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="PATH_SEPARATOR"></a>
+                    <span class="name">
+                        <span ><b>PATH_SEPARATOR</b></span>
+                        <a href="#PATH_SEPARATOR"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;,&#x27;</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
     <h3>apps/server/src/modules/video-conference/uc/video-conference.uc.ts</h3>
     <section>
     <h3></h3>    <table class="table table-sm table-bordered">
@@ -5058,6 +5263,36 @@ Teardown: &#39;await orm.close()&#39; in after-hook!</p>
 		role,
 	});
 })</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>apps/server/src/shared/testing/factory/boardnode/text-element-node.factory.ts</h3>
+    <section>
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="textElementNodeFactory"></a>
+                    <span class="name">
+                        <span ><b>textElementNodeFactory</b></span>
+                        <a href="#textElementNodeFactory"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>BaseFactory.define&lt;TextElementNode, TextElementNodeProps&gt;(
+	TextElementNode,
+	({ sequence }) &#x3D;&gt; {
+		return {
+			text: &#x60;&lt;p&gt;text #${sequence}&#x60;,
+		};
+	}
+)</code>
                     </td>
                 </tr>
 

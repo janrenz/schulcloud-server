@@ -44,7 +44,7 @@
 
 <ol class="breadcrumb">
   <li>Classes</li>
-  <li >BoardColumnResponse</li>
+  <li >ColumnUrlParams</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -62,7 +62,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/modules/learnroom/controller/dto/board/board-column.response.ts</code>
+            <code>apps/server/src/modules/board/controller/dto/board/column.url.params.ts</code>
         </p>
 
 
@@ -83,13 +83,10 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#cards" >cards</a>
+                                <a href="#boardId" >boardId</a>
                             </li>
                             <li>
-                                <a href="#id" >id</a>
-                            </li>
-                            <li>
-                                <a href="#title" >title</a>
+                                <a href="#columnId" >columnId</a>
                             </li>
                         </ul>
                     </td>
@@ -104,53 +101,6 @@
     </table>
 </section>
 
-            <section>
-    <h3 id="constructor">Constructor</h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-<code>constructor(undefined: <a href="../classes/BoardColumnResponse.html" target="_self">BoardColumnResponse</a>)</code>
-                    </td>
-                </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="5" class="link-to-prism">apps/server/src/modules/learnroom/controller/dto/board/board-column.response.ts:5</a></div>
-                            </td>
-                        </tr>
-
-                <tr>
-                    <td class="col-md-4">
-                            <div>
-                                    <b>Parameters :</b>
-                                    <table class="params">
-                                        <thead>
-                                            <tr>
-                                                <td>Name</td>
-                                                    <td>Type</td>
-                                                <td>Optional</td>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                                <tr>
-                                                  
-                                                        <td>
-                                                                        <code><a href="../classes/BoardColumnResponse.html" target="_self" >BoardColumnResponse</a></code>
-                                                        </td>
-                                                  
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
-                                                </tr>
-                                        </tbody>
-                                    </table>
-                            </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-</section>
 
             <section>
     
@@ -161,45 +111,10 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="cards"></a>
+                    <a name="boardId"></a>
                     <span class="name">
-                        <span ><b>cards</b></span>
-                        <a href="#cards"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="../classes/BoardSkeletonCardReponse.html" target="_self" >BoardSkeletonCardReponse[]</a></code>
-
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <b>Decorators : </b>
-                        <br />
-                        <code>
-                            @ApiProperty({type: undefined})<br />
-                        </code>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">apps/server/src/modules/learnroom/controller/dto/board/board-column.response.ts:24</a></div>
-                        </td>
-                    </tr>
-
-
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="id"></a>
-                    <span class="name">
-                        <span ><b>id</b></span>
-                        <a href="#id"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>boardId</b></span>
+                        <a href="#boardId"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
@@ -214,13 +129,13 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @ApiProperty({pattern: &#x27;[a-f0-9]{24}&#x27;})<br />
+                            @IsMongoId()<br />@ApiProperty({description: &#x27;The id of the board.&#x27;, required: true, nullable: false})<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">apps/server/src/modules/learnroom/controller/dto/board/board-column.response.ts:15</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">apps/server/src/modules/board/controller/dto/board/column.url.params.ts:11</a></div>
                         </td>
                     </tr>
 
@@ -231,10 +146,10 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="title"></a>
+                    <a name="columnId"></a>
                     <span class="name">
-                        <span ><b>title</b></span>
-                        <a href="#title"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>columnId</b></span>
+                        <a href="#columnId"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
@@ -249,13 +164,13 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @ApiProperty()<br />@DecodeHtmlEntities()<br />
+                            @IsMongoId()<br />@ApiProperty({description: &#x27;The id of the column.&#x27;, required: true, nullable: false})<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">apps/server/src/modules/learnroom/controller/dto/board/board-column.response.ts:19</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">apps/server/src/modules/board/controller/dto/board/column.url.params.ts:19</a></div>
                         </td>
                     </tr>
 
@@ -275,29 +190,24 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ApiProperty } from &#x27;@nestjs/swagger&#x27;;
-import { DecodeHtmlEntities } from &#x27;@shared/controller&#x27;;
-import { BoardSkeletonCardReponse } from &#x27;./board-skeleton-card.response&#x27;;
+import { IsMongoId } from &#x27;class-validator&#x27;;
 
-export class BoardColumnResponse {
-	constructor({ id, title, cards }: BoardColumnResponse) {
-		this.id &#x3D; id;
-		this.title &#x3D; title;
-		this.cards &#x3D; cards;
-	}
-
+export class ColumnUrlParams {
+	@IsMongoId()
 	@ApiProperty({
-		pattern: &#x27;[a-f0-9]{24}&#x27;,
+		description: &#x27;The id of the board.&#x27;,
+		required: true,
+		nullable: false,
 	})
-	id: string;
+	boardId!: string;
 
-	@ApiProperty()
-	@DecodeHtmlEntities()
-	title: string;
-
+	@IsMongoId()
 	@ApiProperty({
-		type: [BoardSkeletonCardReponse],
+		description: &#x27;The id of the column.&#x27;,
+		required: true,
+		nullable: false,
 	})
-	cards: BoardSkeletonCardReponse[];
+	columnId!: string;
 }
 </code></pre>
     </div>
@@ -337,7 +247,7 @@ export class BoardColumnResponse {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
-            var COMPODOC_CURRENT_PAGE_URL = 'BoardColumnResponse.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'ColumnUrlParams.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

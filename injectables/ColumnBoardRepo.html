@@ -28,16 +28,19 @@
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
-               <div class="content controller">
+               <div class="content injectable">
                    <div class="content-data">
 
 
 
 
 
+
+
+
 <ol class="breadcrumb">
-  <li>Controllers</li>
-  <li >CardsController</li>
+  <li>Injectables</li>
+  <li >ColumnBoardRepo</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -55,16 +58,8 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/modules/learnroom/controller/cards.controller.ts</code>
+            <code>apps/server/src/modules/board/repo/column-board.repo.ts</code>
         </p>
-
-            <p class="comment">
-                <h3>Prefix</h3>
-            </p>
-            <p class="comment">
-                <code>cards</code>
-            </p>
-
 
 
 
@@ -84,7 +79,8 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#getCards" >getCards</a>
+                                    <span class="modifier">Async</span>
+                                <a href="#findById" >findById</a>
                             </li>
                         </ul>
                     </td>
@@ -99,6 +95,67 @@
 </section>
 
             <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(em: EntityManager, boardNodeRepo: <a href="../injectables/BoardNodeRepo.html" target="_self">BoardNodeRepo</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">apps/server/src/modules/board/repo/column-board.repo.ts:8</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>em</td>
+                                                  
+                                                        <td>
+                                                                    <code>EntityManager</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>boardNodeRepo</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/BoardNodeRepo.html" target="_self" >BoardNodeRepo</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section>
     
     <h3 id="methods">
         Methods
@@ -107,31 +164,26 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="getCards"></a>
+                    <a name="findById"></a>
                     <span class="name">
-                        <span ><b>getCards</b></span>
-                        <a href="#getCards"><span class="icon ion-ios-link"></span></a>
+                        <span class="modifier">Async</span>
+                        <span ><b>findById</b></span>
+                        <a href="#findById"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>getCards(currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>, cardIdParams: <a href="../classes/CardIdsParams.html" target="_self">CardIdsParams</a>)</code>
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findById(boardId: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>)</code>
                 </td>
             </tr>
 
-            <tr>
-                <td class="col-md-4">
-                    <b>Decorators : </b>
-                    <br />
-                    <code>@Get()<br /></code>
-                </td>
-            </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="13"
-                            class="link-to-prism">apps/server/src/modules/learnroom/controller/cards.controller.ts:13</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="11"
+                            class="link-to-prism">apps/server/src/modules/board/repo/column-board.repo.ts:11</a></div>
                 </td>
             </tr>
 
@@ -152,21 +204,9 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>currentUser</td>
+                                    <td>boardId</td>
                                     <td>
-                                                <code><a href="../interfaces/ICurrentUser.html" target="_self" >ICurrentUser</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>cardIdParams</td>
-                                    <td>
-                                                <code><a href="../classes/CardIdsParams.html" target="_self" >CardIdsParams</a></code>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
                                     </td>
 
                                     <td>
@@ -181,7 +221,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/CardListResponse.html" target="_self" >Promise&lt;CardListResponse&gt;</a></code>
+                        <b>Returns : </b>        <code><a href="../entitys/Board.html" target="_self" >Promise&lt;ColumnBoard&gt;</a></code>
 
                     </div>
                     <div class="io-description">
@@ -191,55 +231,36 @@
             </tr>
         </tbody>
     </table>
-</section>    </div>
+</section>
+
+    </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Controller, Get, Query } from &#x27;@nestjs/common&#x27;;
-import { ApiTags } from &#x27;@nestjs/swagger&#x27;;
-import { ICurrentUser } from &#x27;@src/modules/authentication&#x27;;
-import { Authenticate, CurrentUser } from &#x27;@src/modules/authentication/decorator/auth.decorator&#x27;;
-import { BoardCardType, CardIdsParams, CardListResponse, CardResponse, ContentElementResponse } from &#x27;./dto&#x27;;
-import { VisibilitySettingsResponse } from &#x27;./dto/card/visibility-settings.response&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { EntityManager } from &#x27;@mikro-orm/mongodb&#x27;;
+import { Injectable } from &#x27;@nestjs/common&#x27;;
+import { ColumnBoard, ColumnBoardNode, EntityId } from &#x27;@shared/domain&#x27;;
+import { BoardDoBuilder } from &#x27;@shared/domain/entity/boardnode/board-do.builder&#x27;;
+import { BoardNodeRepo } from &#x27;./board-node.repo&#x27;;
 
-@ApiTags(&#x27;Cards&#x27;)
-@Authenticate(&#x27;jwt&#x27;)
-@Controller(&#x27;cards&#x27;)
-export class CardsController {
-	@Get()
-	getCards(@CurrentUser() currentUser: ICurrentUser, @Query() cardIdParams: CardIdsParams): Promise&lt;CardListResponse&gt; {
-		const result &#x3D; new CardListResponse({
-			data: [
-				// &#x27;[a-f0-9]{24}&#x27;
-				new CardResponse({
-					id: &#x27;0123456789abcdef00000001&#x27;,
-					elements: [new ContentElementResponse()],
-					cardType: BoardCardType.LEGACY_LESSON,
-					visibilitySettings: new VisibilitySettingsResponse({}),
-				}),
-				new CardResponse({
-					id: &#x27;0123456789abcdef00000002&#x27;,
-					elements: [new ContentElementResponse(), new ContentElementResponse()],
-					cardType: BoardCardType.LEGACY_TASK,
-					visibilitySettings: new VisibilitySettingsResponse({}),
-				}),
-				new CardResponse({
-					id: &#x27;0123456789abcdef00000003&#x27;,
-					elements: [new ContentElementResponse(), new ContentElementResponse(), new ContentElementResponse()],
-					cardType: BoardCardType.LEGACY_TASK,
-					visibilitySettings: new VisibilitySettingsResponse({}),
-				}),
-			],
+@Injectable()
+export class ColumnBoardRepo {
+	constructor(private readonly em: EntityManager, private readonly boardNodeRepo: BoardNodeRepo) {}
+
+	async findById(boardId: EntityId): Promise&lt;ColumnBoard&gt; {
+		const boardNode &#x3D; await this.em.findOneOrFail(ColumnBoardNode, {
+			id: boardId,
 		});
-		return Promise.resolve(result);
+		const descendants &#x3D; await this.boardNodeRepo.findDescendants(boardNode, 3);
+		const domainObject &#x3D; new BoardDoBuilder(descendants).buildColumnBoard(boardNode);
+
+		return domainObject;
 	}
 }
 </code></pre>
     </div>
+
 </div>
-
-
-
 
 
 
@@ -278,8 +299,8 @@ export class CardsController {
 
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
-            var COMPODOC_CURRENT_PAGE_CONTEXT = 'controller';
-            var COMPODOC_CURRENT_PAGE_URL = 'CardsController.html';
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'ColumnBoardRepo.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

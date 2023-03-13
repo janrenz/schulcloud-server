@@ -44,7 +44,7 @@
 
 <ol class="breadcrumb">
   <li>Classes</li>
-  <li >BoardCardUrlParams</li>
+  <li >TextElementResponse</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -62,7 +62,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/modules/learnroom/controller/dto/board/board-card.url.params.ts</code>
+            <code>apps/server/src/modules/board/controller/dto/card/text-element.response.ts</code>
         </p>
 
 
@@ -83,10 +83,10 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#boardId" >boardId</a>
+                                <a href="#id" >id</a>
                             </li>
                             <li>
-                                <a href="#cardId" >cardId</a>
+                                <a href="#text" >text</a>
                             </li>
                         </ul>
                     </td>
@@ -101,6 +101,53 @@
     </table>
 </section>
 
+            <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(undefined: <a href="../classes/TextElementResponse.html" target="_self">TextElementResponse</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="3" class="link-to-prism">apps/server/src/modules/board/controller/dto/card/text-element.response.ts:3</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../classes/TextElementResponse.html" target="_self" >TextElementResponse</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
 
             <section>
     
@@ -111,10 +158,10 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="boardId"></a>
+                    <a name="id"></a>
                     <span class="name">
-                        <span ><b>boardId</b></span>
-                        <a href="#boardId"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>id</b></span>
+                        <a href="#id"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
@@ -129,13 +176,13 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @IsMongoId()<br />@ApiProperty({description: &#x27;The id of the board.&#x27;, required: true, nullable: false})<br />
+                            @ApiProperty({pattern: &#x27;[a-f0-9]{24}&#x27;})<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">apps/server/src/modules/learnroom/controller/dto/board/board-card.url.params.ts:11</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">apps/server/src/modules/board/controller/dto/card/text-element.response.ts:10</a></div>
                         </td>
                     </tr>
 
@@ -146,10 +193,10 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="cardId"></a>
+                    <a name="text"></a>
                     <span class="name">
-                        <span ><b>cardId</b></span>
-                        <a href="#cardId"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>text</b></span>
+                        <a href="#text"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
@@ -164,13 +211,13 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @IsMongoId()<br />@ApiProperty({description: &#x27;The id of the card.&#x27;, required: true, nullable: false})<br />
+                            @ApiProperty()<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">apps/server/src/modules/learnroom/controller/dto/board/board-card.url.params.ts:19</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">apps/server/src/modules/board/controller/dto/card/text-element.response.ts:13</a></div>
                         </td>
                     </tr>
 
@@ -190,24 +237,18 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ApiProperty } from &#x27;@nestjs/swagger&#x27;;
-import { IsMongoId } from &#x27;class-validator&#x27;;
 
-export class BoardCardUrlParams {
-	@IsMongoId()
-	@ApiProperty({
-		description: &#x27;The id of the board.&#x27;,
-		required: true,
-		nullable: false,
-	})
-	boardId!: string;
+export class TextElementResponse {
+	constructor({ id, text }: TextElementResponse) {
+		this.id &#x3D; id;
+		this.text &#x3D; text;
+	}
 
-	@IsMongoId()
-	@ApiProperty({
-		description: &#x27;The id of the card.&#x27;,
-		required: true,
-		nullable: false,
-	})
-	cardId!: string;
+	@ApiProperty({ pattern: &#x27;[a-f0-9]{24}&#x27; })
+	id: string;
+
+	@ApiProperty()
+	text: string;
 }
 </code></pre>
     </div>
@@ -247,7 +288,7 @@ export class BoardCardUrlParams {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
-            var COMPODOC_CURRENT_PAGE_URL = 'BoardCardUrlParams.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'TextElementResponse.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 
