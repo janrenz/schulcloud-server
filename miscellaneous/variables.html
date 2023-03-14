@@ -493,13 +493,10 @@
                             <a href="#" title="apps/server/src/config/database.config.ts" ><b></b>&nbsp;&nbsp;&nbsp;(apps/.../database.config.ts)</a>
                         </li>
                         <li>
-                            <a href="#" title="apps/server/src/core/error/server-error-types.ts" ><b></b>&nbsp;&nbsp;&nbsp;(apps/.../server-error-types.ts)</a>
-                        </li>
-                        <li>
                             <a href="#" title="apps/server/src/modules/authentication/constants.ts" ><b></b>&nbsp;&nbsp;&nbsp;(apps/.../constants.ts)</a>
                         </li>
                         <li>
-                            <a href="#VideoConferencingScopeMapping" title="apps/server/src/shared/repo/videoconference/video-conference.repo.ts" ><b>VideoConferencingScopeMapping</b>&nbsp;&nbsp;&nbsp;(apps/.../video-conference.repo.ts)</a>
+                            <a href="#" title="apps/server/src/core/error/server-error-types.ts" ><b></b>&nbsp;&nbsp;&nbsp;(apps/.../server-error-types.ts)</a>
                         </li>
                         <li>
                             <a href="#writeErrorLog" title="apps/server/src/core/error/filter/global-error.filter.ts" ><b>writeErrorLog</b>&nbsp;&nbsp;&nbsp;(apps/.../global-error.filter.ts)</a>
@@ -518,6 +515,9 @@
                         </li>
                         <li>
                             <a href="#videoConferenceFactory" title="apps/server/src/shared/testing/factory/video-conference.factory.ts" ><b>videoConferenceFactory</b>&nbsp;&nbsp;&nbsp;(apps/.../video-conference.factory.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#VideoConferencingScopeMapping" title="apps/server/src/shared/repo/videoconference/video-conference.repo.ts" ><b>VideoConferencingScopeMapping</b>&nbsp;&nbsp;&nbsp;(apps/.../video-conference.repo.ts)</a>
                         </li>
                         <li>
                             <a href="#yesterday" title="apps/server/src/shared/testing/factory/filerecord.factory.ts" ><b>yesterday</b>&nbsp;&nbsp;&nbsp;(apps/.../filerecord.factory.ts)</a>
@@ -4691,6 +4691,16 @@ You shall not explicitly declare the AMQPConnection in your modules since it wil
                         <i>Default value : </i><code>SchoolFactory.define(SchoolDO, ({ sequence }) &#x3D;&gt; {
 	return {
 		name: &#x60;schoolName-${sequence}&#x60;,
+		externalId: &#x27;123&#x27;,
+		features: [],
+		inMaintenanceSince: new Date(),
+		inUserMigration: true,
+		oauthMigrationMandatory: new Date(),
+		oauthMigrationPossible: new Date(),
+		oauthMigrationFinished: new Date(),
+		previousExternalId: &#x27;456&#x27;,
+		officialSchoolNumber: &#x27;789&#x27;,
+		systems: [],
 	};
 })</code>
                     </td>
