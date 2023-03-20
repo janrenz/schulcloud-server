@@ -28,16 +28,26 @@
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
-               <div class="content controller">
+               <div class="content interface">
                    <div class="content-data">
 
 
 
 
 
+
+
+
+
+
+
+
+
 <ol class="breadcrumb">
-  <li>Controllers</li>
-  <li >BoardController</li>
+  <li>Interfaces</li>
+  <li
+  >
+  BoardNodeBuilder</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -55,61 +65,54 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/modules/board/controller/board.controller.ts</code>
+            <code>apps/server/src/shared/domain/domainobject/board/types/board-node-builder.ts</code>
         </p>
 
-            <p class="comment">
-                <h3>Prefix</h3>
-            </p>
-            <p class="comment">
-                <code>boards</code>
-            </p>
 
 
 
-
-
-
-            <section>
-    <h3 id="index">Index</h3>
-    <table class="table table-sm table-bordered index-table">
-        <tbody>
-
-                <tr>
-                    <td class="col-md-4">
-                        <h6><b>Methods</b></h6>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <ul class="index-list">
-                            <li>
-                                    <span class="modifier">Async</span>
-                                <a href="#createBoard" >createBoard</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Async</span>
-                                <a href="#createCard" >createCard</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Async</span>
-                                <a href="#createColumn" >createColumn</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Async</span>
-                                <a href="#getBoardSkeleton" >getBoardSkeleton</a>
-                            </li>
-                        </ul>
-                    </td>
-                </tr>
-
-
-
-
-
-        </tbody>
-    </table>
-</section>
+        <section>
+            <h3 id="index">Index</h3>
+            <table class="table table-sm table-bordered index-table">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Methods</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#buildCardNode" 
+>
+                                        buildCardNode
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#buildColumnBoardNode" 
+>
+                                        buildColumnBoardNode
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#buildColumnNode" 
+>
+                                        buildColumnNode
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#buildTextElementNode" 
+>
+                                        buildTextElementNode
+                                    </a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
 
             <section>
     
@@ -120,33 +123,24 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="createBoard"></a>
+                    <a name="buildCardNode"></a>
                     <span class="name">
-                        <span class="modifier">Async</span>
-                        <span ><b>createBoard</b></span>
-                        <a href="#createBoard"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>buildCardNode</b></span>
+                        <a href="#buildCardNode"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>createBoard(currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>)</code>
+<code>buildCardNode(card: <a href="../classes/Card.html" target="_self">Card</a>, parentId?: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, position?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
                 </td>
             </tr>
 
-            <tr>
-                <td class="col-md-4">
-                    <b>Decorators : </b>
-                    <br />
-                    <code>@Post()<br /></code>
-                </td>
-            </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="28"
-                            class="link-to-prism">apps/server/src/modules/board/controller/board.controller.ts:28</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="10"
+                            class="link-to-prism">apps/server/src/shared/domain/domainobject/board/types/board-node-builder.ts:10</a></div>
                 </td>
             </tr>
 
@@ -167,13 +161,37 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>currentUser</td>
+                                    <td>card</td>
                                     <td>
-                                                <code><a href="../interfaces/ICurrentUser.html" target="_self" >ICurrentUser</a></code>
+                                                <code><a href="../classes/Card.html" target="_self" >Card</a></code>
                                     </td>
 
                                     <td>
                                         No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>parentId</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>position</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
                                     </td>
 
 
@@ -184,7 +202,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/BoardResponse.html" target="_self" >Promise&lt;BoardResponse&gt;</a></code>
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
                     </div>
                     <div class="io-description">
@@ -198,33 +216,24 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="createCard"></a>
+                    <a name="buildColumnBoardNode"></a>
                     <span class="name">
-                        <span class="modifier">Async</span>
-                        <span ><b>createCard</b></span>
-                        <a href="#createCard"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>buildColumnBoardNode</b></span>
+                        <a href="#buildColumnBoardNode"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>createCard(urlParams: <a href="../classes/ColumnUrlParams.html" target="_self">ColumnUrlParams</a>, currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>)</code>
+<code>buildColumnBoardNode(columnBoard: <a href="../classes/ColumnBoard.html" target="_self">ColumnBoard</a>)</code>
                 </td>
             </tr>
 
-            <tr>
-                <td class="col-md-4">
-                    <b>Decorators : </b>
-                    <br />
-                    <code>@Post(&#x27;:boardId/columns/:columnId/cards&#x27;)<br /></code>
-                </td>
-            </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="49"
-                            class="link-to-prism">apps/server/src/modules/board/controller/board.controller.ts:49</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="8"
+                            class="link-to-prism">apps/server/src/shared/domain/domainobject/board/types/board-node-builder.ts:8</a></div>
                 </td>
             </tr>
 
@@ -245,21 +254,9 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>urlParams</td>
+                                    <td>columnBoard</td>
                                     <td>
-                                                <code><a href="../classes/ColumnUrlParams.html" target="_self" >ColumnUrlParams</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>currentUser</td>
-                                    <td>
-                                                <code><a href="../interfaces/ICurrentUser.html" target="_self" >ICurrentUser</a></code>
+                                                <code><a href="../classes/ColumnBoard.html" target="_self" >ColumnBoard</a></code>
                                     </td>
 
                                     <td>
@@ -274,7 +271,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>    <code>Promise&lt;CardResponse&gt;</code>
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
                     </div>
                     <div class="io-description">
@@ -288,33 +285,24 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="createColumn"></a>
+                    <a name="buildColumnNode"></a>
                     <span class="name">
-                        <span class="modifier">Async</span>
-                        <span ><b>createColumn</b></span>
-                        <a href="#createColumn"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>buildColumnNode</b></span>
+                        <a href="#buildColumnNode"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>createColumn(urlParams: <a href="../classes/BoardUrlParams.html" target="_self">BoardUrlParams</a>, currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>)</code>
+<code>buildColumnNode(column: <a href="../classes/Column.html" target="_self">Column</a>, parentId?: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, position?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
                 </td>
             </tr>
 
-            <tr>
-                <td class="col-md-4">
-                    <b>Decorators : </b>
-                    <br />
-                    <code>@Post(&#x27;:boardId/columns&#x27;)<br /></code>
-                </td>
-            </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="37"
-                            class="link-to-prism">apps/server/src/modules/board/controller/board.controller.ts:37</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="9"
+                            class="link-to-prism">apps/server/src/shared/domain/domainobject/board/types/board-node-builder.ts:9</a></div>
                 </td>
             </tr>
 
@@ -335,9 +323,9 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>urlParams</td>
+                                    <td>column</td>
                                     <td>
-                                                <code><a href="../classes/BoardUrlParams.html" target="_self" >BoardUrlParams</a></code>
+                                                <code><a href="../classes/Column.html" target="_self" >Column</a></code>
                                     </td>
 
                                     <td>
@@ -347,13 +335,25 @@
 
                                 </tr>
                                 <tr>
-                                    <td>currentUser</td>
+                                    <td>parentId</td>
                                     <td>
-                                                <code><a href="../interfaces/ICurrentUser.html" target="_self" >ICurrentUser</a></code>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
                                     </td>
 
                                     <td>
-                                        No
+                                        Yes
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>position</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
                                     </td>
 
 
@@ -364,7 +364,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>    <code>Promise&lt;ColumnResponse&gt;</code>
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
                     </div>
                     <div class="io-description">
@@ -378,33 +378,24 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="getBoardSkeleton"></a>
+                    <a name="buildTextElementNode"></a>
                     <span class="name">
-                        <span class="modifier">Async</span>
-                        <span ><b>getBoardSkeleton</b></span>
-                        <a href="#getBoardSkeleton"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>buildTextElementNode</b></span>
+                        <a href="#buildTextElementNode"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>getBoardSkeleton(urlParams: <a href="../classes/BoardUrlParams.html" target="_self">BoardUrlParams</a>, currentUser: <a href="../interfaces/ICurrentUser.html" target="_self">ICurrentUser</a>)</code>
+<code>buildTextElementNode(textElement: <a href="../classes/TextElement.html" target="_self">TextElement</a>, parentId?: <a href="../undefineds/EntityId.html" target="_self">EntityId</a>, position?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
                 </td>
             </tr>
 
-            <tr>
-                <td class="col-md-4">
-                    <b>Decorators : </b>
-                    <br />
-                    <code>@Get(&#x27;:boardId&#x27;)<br /></code>
-                </td>
-            </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="16"
-                            class="link-to-prism">apps/server/src/modules/board/controller/board.controller.ts:16</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="11"
+                            class="link-to-prism">apps/server/src/shared/domain/domainobject/board/types/board-node-builder.ts:11</a></div>
                 </td>
             </tr>
 
@@ -425,9 +416,9 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>urlParams</td>
+                                    <td>textElement</td>
                                     <td>
-                                                <code><a href="../classes/BoardUrlParams.html" target="_self" >BoardUrlParams</a></code>
+                                                <code><a href="../classes/TextElement.html" target="_self" >TextElement</a></code>
                                     </td>
 
                                     <td>
@@ -437,13 +428,25 @@
 
                                 </tr>
                                 <tr>
-                                    <td>currentUser</td>
+                                    <td>parentId</td>
                                     <td>
-                                                <code><a href="../interfaces/ICurrentUser.html" target="_self" >ICurrentUser</a></code>
+                                                <code><a href="../miscellaneous/typealiases.html#EntityId" target="_self" >EntityId</a></code>
                                     </td>
 
                                     <td>
-                                        No
+                                        Yes
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>position</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
                                     </td>
 
 
@@ -454,7 +457,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/BoardResponse.html" target="_self" >Promise&lt;BoardResponse&gt;</a></code>
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
                     </div>
                     <div class="io-description">
@@ -464,116 +467,27 @@
             </tr>
         </tbody>
     </table>
-</section>    </div>
+</section>
+
+    </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Controller, Get, Param, Post } from &#x27;@nestjs/common&#x27;;
-import { ApiTags } from &#x27;@nestjs/swagger&#x27;;
-import { ICurrentUser } from &#x27;@src/modules/authentication&#x27;;
-import { Authenticate, CurrentUser } from &#x27;@src/modules/authentication/decorator/auth.decorator&#x27;;
-import { BoardUc, CardUc } from &#x27;../uc&#x27;;
-import { BoardResponse, BoardUrlParams, CardResponse, ColumnResponse, ColumnUrlParams } from &#x27;./dto&#x27;;
-import { BoardResponseMapper, CardResponseMapper, ColumnResponseMapper } from &#x27;./mapper&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import type { EntityId } from &#x27;../../../types&#x27;;
+import type { Card } from &#x27;../card.do&#x27;;
+import type { ColumnBoard } from &#x27;../column-board.do&#x27;;
+import type { Column } from &#x27;../column.do&#x27;;
+import type { TextElement } from &#x27;../text-element.do&#x27;;
 
-@ApiTags(&#x27;Boards&#x27;)
-@Authenticate(&#x27;jwt&#x27;)
-@Controller(&#x27;boards&#x27;)
-export class BoardController {
-	constructor(private readonly boardUc: BoardUc, private readonly cardUc: CardUc) {}
-
-	@Get(&#x27;:boardId&#x27;)
-	async getBoardSkeleton(
-		@Param() urlParams: BoardUrlParams,
-		@CurrentUser() currentUser: ICurrentUser
-	): Promise&lt;BoardResponse&gt; {
-		const board &#x3D; await this.boardUc.findBoard(currentUser.userId, urlParams.boardId);
-
-		const response &#x3D; BoardResponseMapper.mapToResponse(board);
-
-		return response;
-	}
-
-	@Post()
-	async createBoard(@CurrentUser() currentUser: ICurrentUser): Promise&lt;BoardResponse&gt; {
-		const board &#x3D; await this.boardUc.createBoard(currentUser.userId);
-
-		const response &#x3D; BoardResponseMapper.mapToResponse(board);
-
-		return response;
-	}
-
-	@Post(&#x27;:boardId/columns&#x27;)
-	async createColumn(
-		@Param() urlParams: BoardUrlParams,
-		@CurrentUser() currentUser: ICurrentUser
-	): Promise&lt;ColumnResponse&gt; {
-		const column &#x3D; await this.boardUc.createColumn(currentUser.userId, urlParams.boardId);
-
-		const response &#x3D; ColumnResponseMapper.mapToResponse(column);
-
-		return response;
-	}
-
-	@Post(&#x27;:boardId/columns/:columnId/cards&#x27;)
-	async createCard(
-		@Param() urlParams: ColumnUrlParams,
-		@CurrentUser() currentUser: ICurrentUser
-	): Promise&lt;CardResponse&gt; {
-		const card &#x3D; await this.cardUc.createCard(currentUser.userId, urlParams.boardId, urlParams.columnId);
-
-		const response &#x3D; CardResponseMapper.mapToResponse(card);
-
-		return response;
-	}
-
-	// @Put(&#x27;/:boardId/cards/:cardId/position&#x27;)
-	// moveCard(
-	// 	@Param() urlParams: BoardUrlParams,
-	// 	@Body() bodyParams: MoveCardBodyParams,
-	// 	@CurrentUser() currentUser: ICurrentUser
-	// ): Promise&lt;void&gt; {
-	// 	throw new NotImplementedException();
-	// }
-
-	// @Put(&#x27;/:boardId/columns/:columnId/position&#x27;)
-	// moveColumn(
-	// 	@Param() urlParams: ColumnUrlParams,
-	// 	@Body() bodyParams: MoveColumnBodyParams,
-	// 	@CurrentUser() currentUser: ICurrentUser
-	// ): Promise&lt;void&gt; {
-	// 	throw new NotImplementedException();
-	// }
-
-	// @Put(&#x27;/:boardId/title&#x27;)
-	// renameBoard(
-	// 	@Param() urlParams: BoardUrlParams,
-	// 	@Body() bodyParams: RenameBodyParams,
-	// 	@CurrentUser() currentUser: ICurrentUser
-	// ): Promise&lt;void&gt; {
-	// 	throw new NotImplementedException();
-	// }
-
-	// @Put(&#x27;:boardId/columns/:columnId/title&#x27;)
-	// renameColumn(
-	// 	@Param() urlParams: ColumnUrlParams,
-	// 	@Body() bodyParams: RenameBodyParams,
-	// 	@CurrentUser() currentUser: ICurrentUser
-	// ): Promise&lt;void&gt; {
-	// 	throw new NotImplementedException();
-	// }
+export interface BoardNodeBuilder {
+	buildColumnBoardNode(columnBoard: ColumnBoard): void;
+	buildColumnNode(column: Column, parentId?: EntityId, position?: number): void;
+	buildCardNode(card: Card, parentId?: EntityId, position?: number): void;
+	buildTextElementNode(textElement: TextElement, parentId?: EntityId, position?: number): void;
 }
 </code></pre>
     </div>
 </div>
-
-
-
-
-
-
-
-
 
 
 
@@ -607,8 +521,8 @@ export class BoardController {
 
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
-            var COMPODOC_CURRENT_PAGE_CONTEXT = 'controller';
-            var COMPODOC_CURRENT_PAGE_URL = 'BoardController.html';
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
+            var COMPODOC_CURRENT_PAGE_URL = 'BoardNodeBuilder.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

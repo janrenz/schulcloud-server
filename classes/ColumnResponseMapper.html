@@ -44,7 +44,7 @@
 
 <ol class="breadcrumb">
   <li>Classes</li>
-  <li >BoardResponseMapper</li>
+  <li >ColumnResponseMapper</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -62,7 +62,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/server/src/modules/board/controller/mapper/board-response.mapper.ts</code>
+            <code>apps/server/src/modules/board/controller/mapper/column-response.mapper.ts</code>
         </p>
 
 
@@ -121,15 +121,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>mapToResponse(board: <a href="../classes/ColumnBoard.html" target="_self">ColumnBoard</a>)</code>
+                    <code>mapToResponse(column: <a href="../classes/Column.html" target="_self">Column</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="6"
-                            class="link-to-prism">apps/server/src/modules/board/controller/mapper/board-response.mapper.ts:6</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="5"
+                            class="link-to-prism">apps/server/src/modules/board/controller/mapper/column-response.mapper.ts:5</a></div>
                 </td>
             </tr>
 
@@ -150,9 +150,9 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>board</td>
+                                    <td>column</td>
                                     <td>
-                                                <code><a href="../classes/ColumnBoard.html" target="_self" >ColumnBoard</a></code>
+                                                <code><a href="../classes/Column.html" target="_self" >Column</a></code>
                                     </td>
 
                                     <td>
@@ -167,7 +167,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/BoardResponse.html" target="_self" >BoardResponse</a></code>
+                        <b>Returns : </b>        <code><a href="../classes/ColumnResponse.html" target="_self" >ColumnResponse</a></code>
 
                     </div>
                     <div class="io-description">
@@ -187,17 +187,22 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ColumnBoard } from &#x27;@shared/domain&#x27;;
-import { BoardResponse, TimestampsResponse } from &#x27;../dto&#x27;;
-import { ColumnResponseMapper } from &#x27;./column-response.mapper&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Column } from &#x27;@shared/domain&#x27;;
+import { CardSkeletonResponse, ColumnResponse, TimestampsResponse } from &#x27;../dto&#x27;;
 
-export class BoardResponseMapper {
-	static mapToResponse(board: ColumnBoard): BoardResponse {
-		const result &#x3D; new BoardResponse({
-			id: board.id,
-			title: board.title,
-			columns: board.columns.map((column) &#x3D;&gt; ColumnResponseMapper.mapToResponse(column)),
-			timestamps: new TimestampsResponse({ lastUpdatedAt: board.updatedAt, createdAt: board.createdAt }),
+export class ColumnResponseMapper {
+	static mapToResponse(column: Column): ColumnResponse {
+		const result &#x3D; new ColumnResponse({
+			id: column.id,
+			title: column.title,
+			cards: column.cards.map(
+				(card) &#x3D;&gt;
+					new CardSkeletonResponse({
+						cardId: card.id,
+						height: card.height,
+					})
+			),
+			timestamps: new TimestampsResponse({ lastUpdatedAt: column.updatedAt, createdAt: column.createdAt }),
 		});
 		return result;
 	}
@@ -240,7 +245,7 @@ export class BoardResponseMapper {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
-            var COMPODOC_CURRENT_PAGE_URL = 'BoardResponseMapper.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'ColumnResponseMapper.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 
