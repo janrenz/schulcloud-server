@@ -1,8 +1,10 @@
+const { timeStamp } = require("console");
+
 /**
  * Unified message format
  */
 class Message {
-	constructor(title, text, timestamp, page, messageId, url, status) {
+	constructor(title, text, timestamp, page, messageId, url, status, created) {
 		this.mTitle = title || '';
 		this.mText = text || '';
 		this.mTimestamp = timestamp || '1970-01-01 00:00:00';
@@ -10,6 +12,7 @@ class Message {
 		this.mPage = page || '';
 		this.mMessageId = messageId || '-1';
 		this.mUrl = url || '';
+		this.mCreated = created || '';
 		this.mStatus = status || '';
 	}
 
@@ -25,6 +28,7 @@ class Message {
 			},
 			timestamp: this.mTimestamp,
 			url: this.mUrl,
+			created: this.mCreated,
 		};
 		return message;
 	}
@@ -76,6 +80,13 @@ class Message {
 	 */
 	set status(value) {
 		this.mStatus = value;
+	}
+
+	/**
+	 * Set Status of message
+	 */
+	set created(value) {
+		this.mCreated = value;
 	}
 }
 

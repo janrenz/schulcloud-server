@@ -16,6 +16,8 @@ class StatusAdapter extends Adapter {
 					return 'danger';
 				case 4:
 					return 'done';
+				case 5:
+					return 'warning';
 				default:
 					return 'info';
 			}
@@ -33,6 +35,7 @@ class StatusAdapter extends Adapter {
 				message.page = 'status';
 				message.messageId = element.id;
 				message.timestamp = element.updated_at;
+				message.created = element.created;
 				message.url = Configuration.get('ALERT_STATUS_URL');
 				data.messages.push(message.getMessage);
 			});
