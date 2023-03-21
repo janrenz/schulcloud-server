@@ -758,8 +758,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="174"
-                            class="link-to-prism">apps/server/src/modules/task/service/task.service.ts:174</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="182"
+                            class="link-to-prism">apps/server/src/modules/task/service/task.service.ts:182</a></div>
                 </td>
             </tr>
 
@@ -1071,7 +1071,13 @@ export class TaskService {
 				}
 				const users &#x3D; await Promise.all(params.usersIds.map(async (id) &#x3D;&gt; this.userRepo.findById(id)));
 				task.users.set(users);
+			} else {
+				task.users.removeAll();
 			}
+		} else {
+			task.course &#x3D; undefined;
+			task.lesson &#x3D; undefined;
+			task.users.removeAll();
 		}
 
 		if (params.lessonId) {
@@ -1081,6 +1087,8 @@ export class TaskService {
 			}
 			this.authorizationService.checkPermission(user, lesson, PermissionContextBuilder.write([]));
 			task.lesson &#x3D; lesson;
+		} else {
+			task.lesson &#x3D; undefined;
 		}
 
 		this.taskDateValidation(params.availableDate, params.dueDate);
