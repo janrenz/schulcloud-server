@@ -481,9 +481,6 @@
                             <a href="#textElementNodeFactory" title="apps/server/src/shared/testing/factory/boardnode/text-element-node.factory.ts" ><b>textElementNodeFactory</b>&nbsp;&nbsp;&nbsp;(apps/.../text-element-node.factory.ts)</a>
                         </li>
                         <li>
-                            <a href="#titleCardElementFactory" title="apps/server/src/shared/testing/factory/card-element.factory.ts" ><b>titleCardElementFactory</b>&nbsp;&nbsp;&nbsp;(apps/.../card-element.factory.ts)</a>
-                        </li>
-                        <li>
                             <a href="#typeCheckers" title="apps/server/src/modules/tool/service/validation/school-external-tool-validation.service.ts" ><b>typeCheckers</b>&nbsp;&nbsp;&nbsp;(apps/.../school-external-tool-validation.service.ts)</a>
                         </li>
                         <li>
@@ -751,7 +748,6 @@
 	TaskBoardElement,
 	TaskCard,
 	CardElement,
-	TitleCardElement,
 	RichTextCardElement,
 	Team,
 	TeamNews,
@@ -4590,29 +4586,6 @@ You shall not explicitly declare the AMQPConnection in your modules since it wil
 
         </tbody>
     </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="titleCardElementFactory"></a>
-                    <span class="name">
-                        <span ><b>titleCardElementFactory</b></span>
-                        <a href="#titleCardElementFactory"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Default value : </i><code>BaseFactory.define&lt;TitleCardElement, string&gt;(
-	TitleCardElement,
-	({ sequence }) &#x3D;&gt; &#x60;title card element #${sequence}&#x60;
-)</code>
-                    </td>
-                </tr>
-
-
-        </tbody>
-    </table>
 </section>
     <h3>apps/server/src/shared/testing/factory/role.factory.ts</h3>
     <section>
@@ -5192,6 +5165,7 @@ You shall not explicitly declare the AMQPConnection in your modules since it wil
 		cardElements: [],
 		visibleAtDate: tomorrow,
 		dueDate: inTwoDays,
+		title: &#x27;Task Card Title&#x27;,
 	};
 })</code>
                     </td>
