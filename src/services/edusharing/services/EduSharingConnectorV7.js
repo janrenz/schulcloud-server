@@ -182,7 +182,7 @@ class EduSharingConnector {
 				'Content-type': 'application/json',
 			},
 			body,
-			timeout: Configuration.get('REQUEST_OPTION__TIMEOUT_MS'),
+			timeout: Configuration.get('REQUEST_OPTION__TIMEOUT_ES_MS'),
 		};
 
 		try {
