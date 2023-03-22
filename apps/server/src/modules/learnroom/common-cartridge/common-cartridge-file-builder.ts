@@ -17,6 +17,10 @@ import {
 	ICommonCartridgeResourceProps,
 	CommonCartridgeResourceItemElement,
 } from './common-cartridge-resource-item-element';
+import {
+	ICommonCartridgeWebContentProps,
+	CommonCartridgeWebContentResourceItemElement,
+} from './common-cartridge-webcontent-resource-item-element';
 
 export type ICommonCartridgeFileBuilderOptions = {
 	identifier: string;
@@ -37,9 +41,11 @@ export class CommonCartridgeFileBuilder {
 
 	private metadata: CommonCartridgeMetadataElement;
 
-	private organizations = [] as ICommonCartridgeElement[];
+	private organizations: ICommonCartridgeElement[] = [];
 
-	private resources = [] as ICommonCartridgeElement[];
+	private resources: ICommonCartridgeElement[] = [];
+
+	private webContent: ICommonCartridgeElement[] = [];
 
 	constructor(options: ICommonCartridgeFileBuilderOptions) {
 		this.options = options;
@@ -78,12 +84,24 @@ export class CommonCartridgeFileBuilder {
 	}
 
 	addOrganizationItems(props: ICommonCartridgeOrganizationProps[]): CommonCartridgeFileBuilder {
-		props.map((prop) => this.organizations.push(new CommonCartridgeOrganizationItemElement(prop)));
+		props.forEach((prop) => this.organizations.push(new CommonCartridgeOrganizationItemElement(prop)));
+		return this;
+	}
+
+	addWebContentItems(props: ICommonCartridgeWebContentProps[]): CommonCartridgeFileBuilder {
+		const webContentFolderPath = 'web_content/';
+		if (props.length > 0) {
+			this.zipBuilder.addFile(webContentFolderPath, Buffer.from(''));
+		}
+		props.forEach((prop) => {
+			this.resources.push(new CommonCartridgeWebContentResourceItemElement({ ...prop, type: 'webcontent' }));
+			this.zipBuilder.addFile(webContentFolderPath + prop.href, Buffer.from('0'));
+		});
 		return this;
 	}
 
 	addResourceItems(props: ICommonCartridgeResourceProps[]): CommonCartridgeFileBuilder {
-		props.map((prop) => this.resources.push(new CommonCartridgeResourceItemElement(prop)));
+		props.forEach((prop) => this.resources.push(new CommonCartridgeResourceItemElement(prop)));
 		return this;
 	}
 
