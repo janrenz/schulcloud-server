@@ -63,6 +63,18 @@ export class FilesStorageProducer {
 		return response.message || [];
 	}
 
+	async getFileUri(payload: IFileRecordParams): Promise<IFileDO[]> {
+		this.logger.debug({ action: 'getFileUri:started', payload });
+		const response = await this.amqpConnection.request<RpcMessage<IFileDO[]>>(
+			this.createRequest(FilesStorageEvents.GET_FILES_OF_PARENT, payload)
+		);
+
+		this.logger.debug({ action: 'getFileUri:finished', payload });
+
+		this.checkError(response);
+		return response.message || [];
+	}
+
 	private checkError(response: RpcMessage<unknown>) {
 		const { error } = response;
 		if (error) {

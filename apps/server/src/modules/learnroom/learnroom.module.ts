@@ -1,3 +1,4 @@
+import { HttpModule } from '@nestjs/axios';
 import { Module } from '@nestjs/common';
 import { AuthorisationUtils } from '@shared/domain/rules/authorisation.utils';
 import { FeathersServiceProvider } from '@shared/infra/feathers';
@@ -35,7 +36,15 @@ import { RoomsAuthorisationService } from './uc/rooms.authorisation.service';
 import { RoomsUc } from './uc/rooms.uc';
 
 @Module({
-	imports: [AuthorizationModule, FilesStorageClientModule, LessonModule, TaskModule, TaskModule, CopyHelperModule],
+	imports: [
+		AuthorizationModule,
+		FilesStorageClientModule,
+		HttpModule,
+		LessonModule,
+		TaskModule,
+		TaskModule,
+		CopyHelperModule,
+	],
 	controllers: [DashboardController, CourseController, RoomsController],
 	providers: [
 		DashboardUc,
