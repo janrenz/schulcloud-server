@@ -18,7 +18,7 @@ type InternalFileInfoType = {
 	id: string;
 	name: string;
 	data: internal.Readable;
-}
+};
 
 @Injectable()
 export class CommonCartridgeExportService {
@@ -27,7 +27,7 @@ export class CommonCartridgeExportService {
 		private readonly lessonService: LessonService,
 		private readonly taskService: TaskService,
 		private readonly filesStorageClientAdapterService: FilesStorageClientAdapterService,
-		private readonly filesStorageUC: FilesStorageUC,
+		private readonly filesStorageUC: FilesStorageUC
 	) {}
 
 	async exportCourse(courseId: EntityId, userId: EntityId): Promise<Buffer> {
@@ -80,12 +80,24 @@ export class CommonCartridgeExportService {
 				fileRecordId: fileInfo.id,
 				fileName: fileInfo.name,
 			});
+
 			webContentProps.push({
 				identifier: `i${fileInfo.id}`,
 				href: fileInfo.name,
-				file: file.data,
+				// eslint-disable-next-line no-await-in-loop
+				file: await this.stream2buffer(file.data),
 			});
 		}
 		return webContentProps;
 	}
+
+	private async stream2buffer(readable: internal.Readable): Promise<Buffer> {
+		return new Promise((resolve, reject) => {
+			const buffer = Array<unknown>();
+			readable.on('data', (chunk) => buffer.push(chunk));
+			readable.on('end', () => resolve(Buffer.concat(buffer as Uint8Array[])));
+			readable.on('error', (err) => reject(err));
+		});
+	}
+
 }
