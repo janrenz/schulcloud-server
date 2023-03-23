@@ -11,6 +11,7 @@ import {
 	CommonCartridgeFileBuilder,
 	ICommonCartridgeWebContentProps,
 } from '../common-cartridge';
+import { identity } from 'lodash';
 
 @Injectable()
 export class CommonCartridgeExportService {
@@ -18,7 +19,7 @@ export class CommonCartridgeExportService {
 		private readonly courseService: CourseService,
 		private readonly lessonService: LessonService,
 		private readonly taskService: TaskService,
-		private readonly filesStorageClientAdapterService: FilesStorageClientAdapterService
+		private readonly filesStorageClientAdapterService: FilesStorageClientAdapterService,
 	) {}
 
 	async exportCourse(courseId: EntityId, userId: EntityId): Promise<Buffer> {
@@ -76,12 +77,19 @@ export class CommonCartridgeExportService {
 		const webContentProps: ICommonCartridgeWebContentProps[] = [];
 		for (const fileInfo of fileInfos) {
 			webContentProps.push({
-				identifier: `i${fileInfo.id}`,
+				identifier: this.getIdentifierString(fileInfo.id),
 				href: fileInfo.name,
-				// eslint-disable-next-line no-await-in-loop
 				file: Buffer.from(''),
+				parentFolder:
+					fileInfo.parentType === FileRecordParentType.Lesson || fileInfo.parentType === FileRecordParentType.Task
+						? this.getIdentifierString(fileInfo.parentId)
+						: undefined,
 			});
 		}
 		return webContentProps;
+	}
+
+	private getIdentifierString(id: string): string {
+		return `i${id}`;
 	}
 }

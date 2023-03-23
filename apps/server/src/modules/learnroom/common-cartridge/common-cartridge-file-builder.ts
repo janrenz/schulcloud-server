@@ -89,12 +89,13 @@ export class CommonCartridgeFileBuilder {
 	}
 
 	addWebContentItems(props: ICommonCartridgeWebContentProps[]): CommonCartridgeFileBuilder {
-		const webContentFolderPath = 'web_resources/';
-		if (props.length > 0) {
-			this.zipBuilder.addFile(webContentFolderPath, Buffer.from(''));
-		}
+		const webContentFolderPath = 'web_resources';
 		props.forEach((prop) => {
-			prop.href = webContentFolderPath + prop.href;
+			if (prop.parentFolder !== undefined) {
+				prop.href = `${prop.parentFolder}/${webContentFolderPath}/${prop.href}`;
+			} else {
+				prop.href = `${webContentFolderPath}/${prop.href}`;
+			}
 			this.resources.push(new CommonCartridgeWebContentResourceItemElement({ ...prop, type: 'webcontent' }));
 			this.zipBuilder.addFile(prop.href, prop.file);
 		});
