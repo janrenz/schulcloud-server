@@ -11,7 +11,6 @@ import {
 	CommonCartridgeFileBuilder,
 	ICommonCartridgeWebContentProps,
 } from '../common-cartridge';
-import { identity } from 'lodash';
 
 @Injectable()
 export class CommonCartridgeExportService {
