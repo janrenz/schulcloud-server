@@ -18,19 +18,25 @@ export class CommonCartridgeExportService {
 		private readonly courseService: CourseService,
 		private readonly lessonService: LessonService,
 		private readonly taskService: TaskService,
-		private readonly filesStorageClientAdapterService: FilesStorageClientAdapterService,
+		private readonly filesStorageClientAdapterService: FilesStorageClientAdapterService
 	) {}
 
 	async exportCourse(courseId: EntityId, userId: EntityId): Promise<Buffer> {
 		const course = await this.courseService.findById(courseId);
 		const [lessons] = await this.lessonService.findByCourseIds([courseId]);
 		const [tasks] = await this.taskService.findBySingleParent(userId, courseId);
-		const param = {
-			parentType: FileRecordParentType.Course,
-			schoolId: course.school.id,
-			parentId: course.id,
-		};
-		const fileInfos = await this.filesStorageClientAdapterService.listFilesOfParent(param);
+
+		const allFiles: FileDto[] = [];
+		const schoolId = course.school.id;
+		allFiles.push(...(await this.addFiles(FileRecordParentType.Course, schoolId, course.id)));
+		for (const lesson of lessons) {
+			// eslint-disable-next-line no-await-in-loop
+			allFiles.push(...(await this.addFiles(FileRecordParentType.Lesson, schoolId, lesson.id)));
+		}
+		for (const task of tasks) {
+			// eslint-disable-next-line no-await-in-loop
+			allFiles.push(...(await this.addFiles(FileRecordParentType.Task, schoolId, task.id)));
+		}
 
 		const builder = new CommonCartridgeFileBuilder({
 			identifier: `i${course.id}`,
@@ -38,8 +44,13 @@ export class CommonCartridgeExportService {
 		})
 			.addOrganizationItems(this.mapLessonsToOrganizationItems(lessons))
 			.addAssignments(this.mapTasksToAssignments(tasks))
-			.addWebContentItems(this.mapToWebContent(fileInfos));
+			.addWebContentItems(this.mapToWebContent(allFiles));
 		return builder.build();
+	}
+
+	private async addFiles(parentType: FileRecordParentType, schoolId: EntityId, parentId: EntityId): Promise<FileDto[]> {
+		const param = { parentType, schoolId, parentId };
+		return this.filesStorageClientAdapterService.listFilesOfParent(param);
 	}
 
 	private mapLessonsToOrganizationItems(lessons: Lesson[]): ICommonCartridgeOrganizationProps[] {
@@ -73,5 +84,4 @@ export class CommonCartridgeExportService {
 		}
 		return webContentProps;
 	}
-
 }

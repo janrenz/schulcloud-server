@@ -1,5 +1,4 @@
 import AdmZip from 'adm-zip';
-import { StreamableFile } from '@nestjs/common';
 import { Builder } from 'xml2js';
 import { CommonCartridgeResourceWrapperElement } from './common-cartridge-resource-wrapper-element';
 import { CommonCartridgeOrganizationWrapperElement } from './common-cartridge-organization-wrapper-element';
@@ -90,13 +89,14 @@ export class CommonCartridgeFileBuilder {
 	}
 
 	addWebContentItems(props: ICommonCartridgeWebContentProps[]): CommonCartridgeFileBuilder {
-		const webContentFolderPath = 'web_content/';
+		const webContentFolderPath = 'web_resources/';
 		if (props.length > 0) {
 			this.zipBuilder.addFile(webContentFolderPath, Buffer.from(''));
 		}
 		props.forEach((prop) => {
+			prop.href = webContentFolderPath + prop.href;
 			this.resources.push(new CommonCartridgeWebContentResourceItemElement({ ...prop, type: 'webcontent' }));
-			this.zipBuilder.addFile(webContentFolderPath + prop.href, prop.file);
+			this.zipBuilder.addFile(prop.href, prop.file);
 		});
 		return this;
 	}
